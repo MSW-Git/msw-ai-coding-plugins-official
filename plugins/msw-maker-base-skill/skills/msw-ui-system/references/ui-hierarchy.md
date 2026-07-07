@@ -9,20 +9,20 @@ A single `.ui` file contains one **UIGroup**, which holds an entity tree inside 
 ```
 .ui file (e.g. PopupGroup.ui)
 └── Root entity (UITransform + UIGroup + CanvasGroup)   ← one per file, represents a screen
-    └── Panel entity (UITransform [+ UIGroup])           ← functional grouping
+    └── Panel entity (UITransform, optional CanvasGroup) ← functional grouping
         └── Element entity (UITransform + Text/Sprite/Button)
              └── Child element (icon, text, etc.)
 ```
 
 - **File = Screen unit** (HUD / Popup / Toast / Menu, etc.)
-- **UIGroup** is the boundary of "a chunk that can be toggled on/off as a whole"
+- **UIGroup** is root-only; use entity `Enable` or `CanvasGroup` for inner chunks
 - **CanvasGroup** is the boundary of "a chunk whose opacity and interaction can be controlled at once"
 
 ---
 
 ## 2. UIGroupComponent — The Identity of a "Screen" Unit
 
-**Must be attached to the root entity** of a `.ui` file. Can be nested (e.g. a sub-popup inside a popup).
+**Must be attached only to the root entity** of a `.ui` file. Do not nest `UIGroupComponent` under another UIGroup; inner `UIGroup` entities are not a supported container pattern and can fail to render correctly. For sub-popups, cards, gauges, tabs, and reusable sections, create an `empty()` / `panel()` container and toggle the container entity or its CanvasGroup.
 
 | Field | Meaning | Default |
 |------|------|-------|
@@ -198,4 +198,4 @@ When creating or modifying a `.ui` file:
 - [ ] Does `UIGroup.GroupOrder` not conflict with other `.ui` files (per the recommended table above)?
 - [ ] If it's a popup/toast, is `UIGroup.DefaultShow = false`? (otherwise it appears immediately on start)
 - [ ] If it's a modal, does it have a semi-transparent fullscreen background Sprite + `BlocksRaycasts = true`?
-- [ ] If an additional UIGroup was added to an inner Panel, is the nesting intentional? (if not needed, use UITransform only)
+- [ ] Are all inner containers `empty()` / `panel()` entities, not nested UIGroups?

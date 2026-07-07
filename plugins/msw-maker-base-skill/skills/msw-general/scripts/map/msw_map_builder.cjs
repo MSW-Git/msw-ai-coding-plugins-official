@@ -65,18 +65,93 @@ function color(value, alpha = 1) {
   return { r: Number(value.r ?? 1), g: Number(value.g ?? 1), b: Number(value.b ?? 1), a: Number(value.a ?? alpha) };
 }
 
+// >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
+// Native MSW component class names (CoreVersion 26.5.0.0). A bare name in this
+// set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
+// "script.<name>" custom component, with a one-time advisory on stderr.
+const NATIVE_COMPONENTS = new Set([
+  "AIChaseComponent", "AIComponent", "AIWanderComponent", "AnimationSequenceControllerComponent",
+  "AreaParticleComponent", "AttackComponent", "AvatarBodyActionSelectorComponent", "AvatarFaceActionSelectorComponent",
+  "AvatarGUIRendererComponent", "AvatarRendererComponent", "AvatarStateAnimationComponent", "BackgroundComponent",
+  "BasicParticleComponent", "ButtonComponent", "CameraComponent", "CanvasGroupComponent",
+  "ChatBalloonComponent", "ChatComponent", "ClimbableComponent", "ClimbableSpriteRendererComponent",
+  "Component", "CostumeManagerComponent", "CustomFootholdComponent", "DamageSkinComponent",
+  "DamageSkinSettingComponent", "DamageSkinSpawnerComponent", "DirectionSynchronizerComponent", "DistanceJointComponent",
+  "FootholdComponent", "GridViewComponent", "HitComponent", "HitEffectSpawnerComponent",
+  "InteractionComponent", "InventoryComponent", "JoystickComponent", "KinematicbodyComponent",
+  "LightComponent", "LineGUIRendererComponent", "LineRendererComponent", "MapComponent",
+  "MapLayerComponent", "MaskComponent", "MissingComponent", "MovementComponent",
+  "NameTagComponent", "OverlayLightComponent", "PhysicsColliderComponent", "PhysicsRigidbodyComponent",
+  "PhysicsSimulatorComponent", "PixelGUIRendererComponent", "PixelRendererComponent", "PlayerComponent",
+  "PlayerControllerComponent", "PolygonGUIRendererComponent", "PolygonRendererComponent", "PortalComponent",
+  "PrismaticJointComponent", "PulleyJointComponent", "RawImageGUIRendererComponent", "RawImageRendererComponent",
+  "RectTileMapComponent", "RevoluteJointComponent", "RigidbodyComponent", "ScrollLayoutGroupComponent",
+  "SideviewbodyComponent", "SkeletonGUIRendererComponent", "SkeletonRendererComponent", "SliderComponent",
+  "SoundComponent", "SpawnLocationComponent", "SpriteGUIRendererComponent", "SpriteParticleComponent",
+  "SpriteRendererComponent", "StateAnimationComponent", "StateComponent", "StateStringToAvatarActionComponent",
+  "StateStringToMonsterActionComponent", "TagComponent", "TextComponent", "TextGUIRendererComponent",
+  "TextGUIRendererInputComponent", "TextInputComponent", "TextRendererComponent", "TileMapComponent",
+  "TouchReceiveComponent", "TransformComponent", "TriggerComponent", "TweenCircularComponent",
+  "TweenFloatingComponent", "TweenLineComponent", "UIAreaParticleComponent", "UIBasicParticleComponent",
+  "UIGroupComponent", "UISpriteParticleComponent", "UITouchReceiveComponent", "UITransformComponent",
+  "WebSpriteComponent", "WebViewComponent", "WeldJointComponent", "WheelJointComponent",
+  "WorldComponent", "YoutubePlayerCommonComponent", "YoutubePlayerGUIComponent", "YoutubePlayerWorldComponent"
+]);
+const _resolveWarned = new Set();
+function _editDistance(a, b) {
+  const m = a.length, n = b.length;
+  if (Math.abs(m - n) > 2) return 3;
+  const prev = new Array(n + 1);
+  for (let j = 0; j <= n; j++) prev[j] = j;
+  for (let i = 1; i <= m; i++) {
+    let diag = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = prev[j];
+      prev[j] = Math.min(
+        prev[j] + 1,
+        prev[j - 1] + 1,
+        diag + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+      diag = tmp;
+    }
+  }
+  return prev[n];
+}
+function _nearestNative(name) {
+  const limit = name.length <= 6 ? 1 : 2;
+  let best = null, bestD = limit + 1;
+  for (const n of NATIVE_COMPONENTS) {
+    const d = _editDistance(name, n);
+    if (d < bestD) { bestD = d; best = n; }
+  }
+  return bestD <= limit ? best : null;
+}
 function normalizeComponentName(name) {
   if (name == null) throw new TypeError("Component name must not be null");
   const value = String(name);
   if (value.startsWith("MOD.") || value.startsWith("script.")) return value;
-  throw new Error(
-    `Component type must be fully qualified with "MOD.Core." or "script." prefix, got: "${value}". ` +
-      `Native components use "MOD.Core.XxxComponent" (e.g. "MOD.Core.TransformComponent"); ` +
-      `mlua script components use "script.XxxComponent" (e.g. "script.Monster"). ` +
-      `Engine .map deserialization keys components by exact @type; a short name silently fails to attach (Maker logs only a warning and the inspector shows no component). ` +
-      `See msw-general/references/builder-protocol.md → "Rules common to all three builders" rule 8.`
-  );
+  if (NATIVE_COMPONENTS.has(value)) {
+    const out = "MOD.Core." + value;
+    if (!_resolveWarned.has(value)) {
+      _resolveWarned.add(value);
+      console.warn(`[builder:map] component "${value}" -> ${out} (native; auto-qualified). Pass "${out}" to silence this.`);
+    }
+    return out;
+  }
+  const near = _nearestNative(value);
+  const out = "script." + value;
+  if (!_resolveWarned.has(value)) {
+    _resolveWarned.add(value);
+    if (near) {
+      console.warn(`[builder:map] component "${value}" is not a native component -> treated as ${out}. Looks like a typo of native "MOD.Core.${near}": if you meant the native, pass "MOD.Core.${near}"; if it is your own script component, pass "${out}".`);
+    } else {
+      console.warn(`[builder:map] component "${value}" -> ${out} (assumed custom script component). Next time pass "${out}" if it is yours, or "MOD.Core.${value}" if it is native.`);
+    }
+  }
+  return out;
 }
+// <<< END AUTO-GENERATED
 
 function modelContent(modelJson) {
   const content = modelJson && modelJson.ContentProto && modelJson.ContentProto.Json;

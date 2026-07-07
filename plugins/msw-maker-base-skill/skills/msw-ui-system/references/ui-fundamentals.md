@@ -399,8 +399,9 @@ Based on 1920×1080 resolution. Maintaining readability even on small mobile scr
 **Handling long text**:
 
 - **`BestFit = true`** + `MinSize`/`MaxSize` → auto-fits within the Rect. Essential for handling multilingual text length variations
-- **`Overflow = Ellipsis(2)`** → shows `...` when truncated (recommended for names and item names)
+- **`Overflow = Ellipsis(2)`** (or `Truncate(1)`) → clips overflow text; `Ellipsis` appends `...` (recommended for names and item names). Values are for `TextComponent` (`OverflowType`: `Truncate=1`, `Ellipsis=2`); `TextGUIRendererComponent` uses `TextOverflowMode` where the two are swapped (`Ellipsis=1`, `Truncate=2`)
 - **`SizeFit = true`** → Text Rect expands to fit its content. When used with a background Sprite, the background also needs separate logic to expand
+- **Drive panel height from content — `ui_lint` cannot.** Its geometry rules (overflow/containment) read only `RectSize`; they have **no font metrics and cannot measure rendered text height**, so a fixed-height panel holding variable-length or wrapping text can silently overflow (or leave dead space) while lint stays clean. For such panels, resize to `GetPreferredHeight(text, width)` at runtime, or contain the text via `SizeFit`/`BestFit`/`Overflow`. A clean lint never proves the text fits.
 
 ### 9.6 Resolution Handling Checklist
 
@@ -434,6 +435,6 @@ When designing or reviewing a `.ui`:
 
 **"Fonts look wrong on Android"**
 
-- MSW default fonts: Default(0), Maple(1), Bazzi(2), Football(3)
+- MSW default fonts: `Default`, `Maple`, `Bazzi`, `Football`
 - Project-specific fonts require resource registration
-- Check the `TextComponent.Font` enum value; `Default(0)` is safe in most cases
+- Check the `Font` value; `Default` is safe in most cases. On `TextGUIRendererComponent`, `Font` is a **string** (`"Default"`)

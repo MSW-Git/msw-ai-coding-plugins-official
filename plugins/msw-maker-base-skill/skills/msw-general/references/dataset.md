@@ -170,9 +170,10 @@ local enFmt  = en:GetTextFormat("hello_user", playerName)
 -- Local (current-locale) Translator shortcut
 local koText = _LocalizationService.LocalTranslator:GetText("ui_start")
 
--- TextComponent / TextGUIRendererComponent with IsLocalizationKey=true:
--- the component's own GetLocalizedText() (no args) uses its Text property as the key.
-local rendered = self.Entity.TextComponent:GetLocalizedText()
+-- TextGUIRendererComponent with the localization-key flag set in the Maker editor:
+-- GetLocalizedText() (no args) resolves the component's Text property as the key.
+-- The flag is a Maker-editor setting, not a runtime .mlua property.
+local rendered = self.Entity.TextGUIRendererComponent:GetLocalizedText()
 ```
 
 > Calling `_LocalizationService:GetText` from a server-only context fails — translation is a client concern. For server-side localized messaging, send the key over RPC and let the client resolve it.

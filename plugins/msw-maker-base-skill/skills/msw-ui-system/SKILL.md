@@ -1,6 +1,6 @@
 ---
 name: msw-ui-system
-description: "MSW `.ui` single entry point — design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list), full API tables for ButtonComponent/TextComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/OverflowType/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI-client-only caveats (nil on server, no RPC), `.ui`↔`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch, auto-inject .mlua UUID bindings after write."
+description: "MSW `.ui` single entry point — design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list), full API tables for ButtonComponent/TextGUIRendererComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/TextOverflowMode/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI-client-only caveats (nil on server, no RPC), `.ui`↔`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (empty/panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch, auto-inject .mlua UUID bindings after write."
 ---
 
 # msw-ui-system
@@ -26,10 +26,11 @@ Branch to sub-references based on request keywords.
 | "mobile", "safe area", "1920", "MobileOnly", "ActivePlatform", "touch size", "PC reserved zone", "font size by device" | [`references/ui-fundamentals.md`](references/ui-fundamentals.md) §9 |
 | "UIGroup", "above popup", "z-order", "displayOrder", "CanvasGroup", "opacity propagation", "Enable vs Visible" | [`references/ui-hierarchy.md`](references/ui-hierarchy.md); for runtime sibling reorder also read [`references/runtime-patterns.md`](references/runtime-patterns.md) §7 |
 | "which component", "Sprite vs Text vs Button", "9-slice", "scroll list", "GridView vs ScrollLayoutGroup" | [`references/component-api.md`](references/component-api.md) §"Component Selection Guide" |
+| "sprite pivot", "9-slice border", "slice boundary", "set sliced asset metadata", "resource storage properties" | Set asset-side metadata via `msw-mcp` `asset_update_resource_storage_info` directly; for the `.ui` side see [`references/component-api.md`](references/component-api.md) §"SpriteGUIRenderer — ImageType Selection" |
 | "make a HUD", "popup placement", "toast", "menu", "inventory grid", "scroll list" | [`references/layout-recipes.md`](references/layout-recipes.md) |
 | "connect .mlua after building with .ui builder", "property default UUID", "binding without drag" | [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3.6 Binding Injection (unified entry point) |
-| Runtime UI component field read/write, component property name/type (`ButtonComponent.Colors`, `TextComponent.Overflow`, `SpriteGUIRendererComponent.FillAmount`…) | [`references/component-api.md`](references/component-api.md) **required before every `.mlua` access to UI component fields** |
-| Enum values (`AlignmentType`, `OverflowType`, `ImageType`, `UIBasicParticleType`…) | [`references/component-api.md`](references/component-api.md) §Enums |
+| Runtime UI component field read/write, component property name/type (`ButtonComponent.Colors`, `TextGUIRendererComponent.Overflow`, `SpriteGUIRendererComponent.FillAmount`…) | [`references/component-api.md`](references/component-api.md) **required before every `.mlua` access to UI component fields** |
+| Enum values (`AlignmentType`, `TextOverflowMode`, `ImageType`, `UIBasicParticleType`…) | [`references/component-api.md`](references/component-api.md) §Enums |
 | Runtime mlua patterns (popup open/close, toast fade, HP bar, GridView, drag, tab, cooldown), Runtime UI Caveats (client-only, server-side nil, etc.) | [`references/runtime-patterns.md`](references/runtime-patterns.md) |
 | **`.ui` builder invocation methods** (UIBuilder API, anchor presets, write auto-lint, component add/patch/remove) | [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3 UIBuilder (unified entry point — same document as `.map` MapBuilder / `.model` ModelBuilder) |
 | "sound", "sfx", "click sound", "hover sound", "button audio", "PlaySound" | [`references/ui-sound.md`](references/ui-sound.md) |
@@ -66,10 +67,12 @@ Branch to sub-references based on request keywords.
 2. Check at least one design guide before invoking the builder (`ui-fundamentals` / `ui-hierarchy` / `component-api` §Component Selection Guide)
 3. Match a recipe first; build from scratch only as a last resort
 4. For edge placement use the formula: `pos = ±(margin + size/2)`
-5. Separate popups and toasts into their **own UIGroup**, standalone show/hide
+5. Separate popups and toasts into their **own `.ui` root UIGroup**, standalone show/hide; use `empty()` / `panel()` for inner containers, never nested `group()`
 6. Verify text `Alignment` default is `UpperLeft(0)` — 95% of "I centered it but it sticks to the left" issues
 7. Button touch target ≥ 88×88 (mobile support)
 8. **After creating any interactive button** — proactively suggest wiring click/hover SFX via [`references/ui-sound.md`](references/ui-sound.md) (default UI SFX RUIDs available). Skip only if the user explicitly opts out or the button is purely decorative.
+9. **Build the tree nested, not flat.** Controls of one unit (window + title/close, row + chip/value, slot + icon/count) must share a parent via `"Parent/Child"` paths so they move / fade / toggle / bind as a block. Create each parent before its children; missing parents fail lint (`L025` ERROR).
+10. **Do not stack root-level text over a sibling box.** `ui_lint` reports this as `L030` WARN. Nest the text under the box, use `button()` for clickable labeled boxes, or put a direct label on `panel()` / `sprite()` via their `text` options.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: msw-combat-system
-description: "MSW combat system integration guide. Covers the Attack→Hit pipeline, damage model, i-frame, knockback, Hit Stop, Camera Shake, Sprite Flash, SFX, death/revive, damage skin, hit effect, avatar combat motion, custom events, and AI FSM — all based on MSW native APIs for 2D multi-genre coverage. Keywords: attack, hit, damage, combat, monster, hit effect, critical, projectile, damage skin, knockback, hit stop, combo, HP bar."
+description: "MSW combat system integration guide. Covers the Attack→Hit pipeline, damage model, i-frame, knockback, Hit Stop, Camera Shake, Sprite Flash, SFX, death/revive, damage skin, hit effect, avatar combat motion, custom events, and AI FSM — all based on MSW native APIs for 2D multi-genre coverage. Keywords: attack, hit, damage, combat, monster, hit effect, critical, projectile, damage skin, knockback, hit stop, combo, HP bar, collision, contact hit, TriggerComponent."
 ---
 
 # msw-combat-system
@@ -134,6 +134,22 @@ Continuous movement (chase, flight, auto-move) is **per-frame `OnUpdate(delta)`-
 
 - **Knockback (1-shot impulse)** is not continuous movement, so use §3-1 directly.
 - Body selection per map type / InputSpeed conversion: [`msw-general/references/platform.md` §4·§10](../msw-general/references/platform.md)
+
+---
+
+## 1-7. Collision-based hit — pick the detection method (do not hand-roll distance)
+
+When the request is "collision / contact-based hit" (player↔monster touch damage, hazard zone, trap, overlap), pick by intent. **Per-frame distance math is not the default** — reaching for it when the design asked for collider-based contact is the most common requester↔implementer mismatch.
+
+| Intent | Detection | Why |
+|--------|-----------|-----|
+| Active attack swing / hitbox / projectile burst | `AttackComponent:Attack`/`AttackFast`/`AttackFrom` → resolves against defender `HitComponent`, emits `HitEvent` | Full pipeline: damage skin, hit effect, `IsHitTarget` i-frame, `OnHit` |
+| Body-to-body contact / zone / trap overlap, targets arbitrary or many | `TriggerComponent` + `OnEnterTriggerBody`/`OnStayTriggerBody`/`OnLeaveTriggerBody` (or `TriggerEnter/Stay/LeaveEvent`) + `CollisionGroup` filter, then route damage through the `HitEvent` pipeline | Engine-side overlap: honors real collider shape (Box/Circle/Polygon), `ColliderOffset`, and group filtering |
+| Homing / single already-known target | Per-frame `OnUpdate` distance check ([`references/projectile.md`](references/projectile.md)) | Justified only when exactly one target entity is known up front |
+
+- ❌ Per-frame `math.sqrt(dx*dx+dy*dy) < r` for player↔monster or multi-target collision: it silently approximates one circle centered on the transform (ignores each collider's shape / size / `ColliderOffset`), skips `CollisionGroup` filtering, and costs O(attackers × targets) every frame. "Collision-based hit" means native colliders, not distance polling.
+- `CollisionGroup` defaults to `CollisionGroups.TriggerBox`. `OnStayTriggerBody` fires **every frame** while overlapping — gate damage with a cooldown, don't apply per tick.
+- Detection ≠ damage application: after a native overlap fires, still deal damage through `HitEvent` / `AttackComponent` — never subtract HP directly.
 
 ---
 
@@ -419,10 +435,10 @@ For player-specific death/revive, prefer §9-1 `PlayerComponent.Respawn/ProcessD
 
 | UI | API |
 |----|-----|
-| HP bar (screen-fixed) | `SliderComponent` (`MinValue`/`MaxValue`/`Value`/`FillRectColor`/`FillRectImageRUID`/`Direction`/`UseHandle`) + `SliderValueChangedEvent`. **⚠ UI entities only** |
+| HP bar (screen-fixed) | `SpriteGUIRendererComponent` fill using the HP gauge slice sprite (`image_ruid = "f0911af597259044aa624a11332c0595"`) + left-pivot `UITransformComponent` width resize. Use `SliderComponent` for user-draggable controls, not read-only HP gauges. **⚠ UI entities only** |
 | Damage numbers | 3 `DamageSkin*` components + `DamageSkinService` — §11 |
 | Crosshair | `SpriteGUIRendererComponent` in `.ui` |
-| Combo counter / buff icons | `TextComponent` + `SpriteGUIRendererComponent` |
+| Combo counter / buff icons | `TextGUIRendererComponent` + `SpriteGUIRendererComponent` |
 
 **Worldspace HP bar** (overhead): no native support. Two implementation options:
 
@@ -450,6 +466,8 @@ The player entity has HP, revive, and input natively. **Do not create custom `Hp
 | Direction check ★ | `PlayerControllerComponent.LookDirectionX` (+1 right, -1 left). Do **not** use `TransformComponent.Scale.x` |
 | Action hook override | `ActionAttack` / `ActionJump` / `ActionInteraction(key, isKeyDown)` etc. |
 | Action event reception | `EmitPlayerActionEvent(PlayerActionEvent)` → §9-3 |
+
+> ⚠ **Auto-attack / AI-triggered attack must set facing first.** `LookDirectionX` is a **writable** `@Sync` property — assigning `1`/`-1` flips the player avatar to face that way. The default input pipeline only updates it from *movement* input, so an attack fired without movement (auto-battle loop, AI tick, skill button) keeps the **last** facing (default left) — the avatar looks the wrong way **and** the `LookDirectionX`-based attack box (§1-5) resolves on the wrong side. Before such an attack, point it at the target: `controller.LookDirectionX = target.TransformComponent.WorldPosition.x >= self.Entity.TransformComponent.WorldPosition.x and 1 or -1`. Assign the **sign only** (±1), never the raw position delta — the attack offset multiplies `LookDirectionX`, so a non-unit value scales/mislocates the hitbox.
 
 ### 9-3. `PlayerActionEvent`
 
@@ -680,7 +698,7 @@ Attach to the defender and a hit effect plays **automatically** on `HitEvent`. N
 - [ ] **HitComponent**: `IsLegacy=false`, set `ColliderType`/`BoxSize`/`CircleRadius`, set `CollisionGroup`
 - [ ] **State motions**: register `ATTACK`/`HIT`/`DEAD` in `StateComponent` + `AvatarStateAnimationComponent.StateToAvatarBodyActionSheet`
 - [ ] **HP handling**: player uses `PlayerComponent.Hp`; monster uses custom `@Sync Hp`
-- [ ] **Direction check**: `LookDirectionX` (no Scale.x)
+- [ ] **Direction check**: `LookDirectionX` (no Scale.x); for auto/AI-triggered attacks, set it (±1) toward the target before attacking — §9-1
 - [ ] **Time reference**: `_UtilLogic.ElapsedSeconds` (no os.clock)
 - [ ] **Event cleanup**: explicit `DisconnectEvent` in `OnEndPlay`
 - [ ] **Body rule**: do not assign `TransformComponent.Position` directly on an entity with an active Body

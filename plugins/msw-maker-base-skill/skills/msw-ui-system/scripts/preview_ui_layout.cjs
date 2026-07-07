@@ -52,11 +52,11 @@ function parseUiFile(filepath) {
     const rh = num(rect.y);
     const anchorName = ANCHOR_NAMES.get([aminX, aminY, amaxX, amaxY].join(",")) || "custom";
     const compTypes = comps.map((c) => c["@type"] || "");
-    const hasText = compTypes.some((t) => t.includes("TextComponent"));
+    const hasText = compTypes.some((t) => t.includes("TextComponent") || t.includes("TextGUIRendererComponent"));
     const hasBtn = compTypes.some((t) => t.includes("ButtonComponent"));
     const hasSprite = compTypes.some((t) => t.includes("SpriteGUIRenderer"));
     const hasScript = compTypes.some((t) => t.includes("script."));
-    const tc = comps.find((c) => c["@type"] === "MOD.Core.TextComponent") || {};
+    const tc = comps.find((c) => c["@type"] === "MOD.Core.TextGUIRendererComponent" || c["@type"] === "MOD.Core.TextComponent") || {};
     const kind = hasScript ? "script" : hasBtn ? "btn" : hasText ? "text" : hasSprite ? "sprite" : "panel";
 
     entityMap.set(entityPath, {

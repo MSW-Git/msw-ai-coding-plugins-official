@@ -16,10 +16,10 @@ Before reading or writing a UI component field in `.mlua`, verify the exact fiel
 
 ```
 What do you want to display?
-├── Text         → TextComponent
+├── Text         → TextGUIRendererComponent  (TextComponent is legacy)
 ├── Image        → SpriteGUIRendererComponent
 ├── Avatar       → AvatarGUIRendererComponent
-├── Input field  → TextInputComponent
+├── Input field  → TextGUIRendererInputComponent
 └── Group items  → Empty Panel with only UITransform (arrange as children)
 
 What do you want the user to interact with?
@@ -27,7 +27,7 @@ What do you want the user to interact with?
 ├── Press, drag, multi-touch                          → UITouchReceiveComponent
 ├── Slider                                            → SliderComponent
 ├── Directional input (mobile)                        → JoystickComponent
-└── Progress bar (display only)                       → SliderComponent(Interactable=false) or SpriteGUIRenderer(ImageType=Filled)
+└── Progress bar (display only)                       → Linear HP/MP: SpriteGUIRenderer(Sliced + width resize); radial: SpriteGUIRenderer(Filled)
 
 Do you need to display a list?
 ├── 10 or fewer items, simple           → Manual placement + reuse empty Panels
@@ -90,22 +90,26 @@ Both can express a "fill" effect, but they serve different purposes.
 
 **How to choose**:
 - Volume/sensitivity control → Slider
-- HP/MP bar (read-only) → Sprite(Filled Horizontal)
-- Cooldown circular gauge → Sprite(Filled Radial)
-- Experience bar → Sprite(Filled Horizontal) + Tween on value change
+- HP/MP bar (read-only) → Sprite(**Sliced**) fill with `image_ruid = "f0911af597259044aa624a11332c0595"`, resize width (not Slider)
+- Cooldown circular gauge → Sprite(Filled Radial) — radial is the only case that needs Filled
+- Experience bar → Sprite(**Sliced**) fill, resize width + Tween on value change
 
-#### TextComponent — Alignment Pitfall ⚠️
+> For linear bars, prefer **Sliced + width resize** over `Filled`: `Filled` clips the sprite's UVs, which warps any 9-slice border, whereas resizing a Sliced fill keeps the rounded corners/borders intact at every value. Reserve `Filled` for radial sweeps.
 
-The default value of `TextComponent.Alignment` is `UpperLeft(0)`. A common mistake is assuming text is centered when it actually sticks to the upper-left. **Always specify alignment explicitly**:
+#### TextGUIRendererComponent — Alignment
 
-- Title/centered text → `MiddleCenter(4)`
-- Left-aligned description → `UpperLeft(0)` or `MiddleLeft(3)`
-- Right-aligned numbers (e.g., scores) → `MiddleRight(5)`
+`TextGUIRendererComponent` uses two independent axes: `HorizontalAlignment` (`TextHorizontalAlignmentOption`) and `VerticalAlignment` (`TextVerticalAlignmentOption`). Defaults are `Center(2)` + `Middle(512)` — already centered, no extra setup needed.
+
+Common combinations:
+- Title/centered text → `HorizontalAlignment = Center(2)` + `VerticalAlignment = Middle(512)` (default)
+- Left-aligned description → `HorizontalAlignment = Left(1)` + `VerticalAlignment = Middle(512)`
+- Right-aligned numbers (e.g., scores) → `HorizontalAlignment = Right(4)` + `VerticalAlignment = Middle(512)`
 
 Additional considerations:
-- `BestFit = true` + `MinSize`/`MaxSize` → Automatically adjusts font size to fit the Rect. Useful for handling text length variations across languages.
-- `Overflow`: `Truncate(1)` clips text / `Ellipsis(2)` shows `...` / `Overflow(0)` lets text flow outside the Rect
-- `SizeFit = true` → Rect automatically resizes to fit text length. **Be careful with dynamic text + background Sprite** (the background won't resize along with it)
+- `BestFit = true` + `MinSize`/`MaxSize` → Automatically adjusts font size to fit the Rect.
+- `Overflow`: `Truncate(2)` clips / `Ellipsis(1)` shows `...` / `Overflow(0)` lets text flow outside
+- `SizeFit = true` → Rect automatically resizes to fit text. **Be careful with dynamic text + background Sprite** (the background won't resize along with it)
+- `ColorGradient = true` + `GradientMode` → per-corner or axis gradient color
 
 #### SpriteGUIRenderer — ImageType Selection
 
@@ -114,9 +118,14 @@ Additional considerations:
 | Simple | 0 | Regular image. Stretching causes distortion |
 | **Sliced** | 1 | 9-slice. Recommended for button/panel backgrounds |
 | Tiled | 2 | Repeating pattern backgrounds |
-| Filled | 3 | Gauges and cooldowns |
+| Filled | 3 | **Radial** cooldowns / circular gauges only |
 
-**Button backgrounds, dialog backgrounds, and panels should almost always use Sliced**. The sprite asset must have 9-slice borders configured for this to work.
+**Button backgrounds, dialog backgrounds, panels, and linear gauge bars should almost always use Sliced**. The sprite asset must have 9-slice borders configured for this to work. For a linear gauge (HP/MP/EXP), use a Sliced fill anchored to the left edge and drive the fill by resizing its width at runtime — reserve `Filled` for radial sweeps that a 9-slice cannot represent.
+
+Asset-side pivot / 9-slice border metadata is not stored in `.ui`; set it on the sprite resource through `msw-mcp`'s `asset_update_resource_storage_info` (`properties: [{ key, value }]` — `pivot_x`, `pivot_y`, `border_left`, `border_right`, `border_top`, `border_bottom`, `filter_mode`, `wrap_mode`). After that, the `.ui` side still needs `SpriteGUIRendererComponent.Type = Sliced(1)` to render the borders.
+
+> [!WARNING]
+> Two Sliced panels whose borders cross paint a doubled / muddy frame seam. Keep sibling Sliced frames either fully nested (one inside the other) or separated by a margin so their borders never touch. `ui_lint` rule `L026` catches real border collisions, but only when you pass the sprites' border sizes via `--borders <ruid-border-map.json>` (mapping each `ImageRUID.DataId` to its `{ left, bottom, right, top }` px). Border thickness lives in the sprite asset, not the `.ui`, so the offline lint can't see it on its own and stays silent without that map. Deliberate layering (fanned cards, stacked art) is safe to ignore.
 
 ### Combination Patterns (Common Component Groupings)
 
@@ -125,8 +134,8 @@ Summary of component combinations to attach per entity. For builder call code an
 | Pattern | Core Structure | Builder Recipe | Runtime Code |
 |------|-----------|------------|-----------|
 | **Button (icon + text)** | Single entity with `Sprite(Sliced) + Button`. Separate Icon/Label as children — hover/pressed colors apply only to the background Sprite, keeping text stable | [`layout-recipes.md`](layout-recipes.md) Recipe 1 | [`runtime-patterns.md`](runtime-patterns.md) §1, §6 |
-| **Clickable tile/card** | Single `b.button(...)` entity with `SpriteGUIRendererComponent + TextComponent + ButtonComponent`; runtime changes use `SpriteGUIRendererComponent.Color/ImageRUID` and `TextComponent.Text` | [`layout-recipes.md`](layout-recipes.md) Recipe 8 | [`runtime-patterns.md`](runtime-patterns.md) §1, §6 |
-| **HP/MP bar** | Background Sprite + child Fill (`stretch` anchor, `SpriteGUIRenderer Type=Filled, FillMethod=Horizontal, FillOrigin=Left`) | [`layout-recipes.md`](layout-recipes.md) Recipe 1 | [`runtime-patterns.md`](runtime-patterns.md) §3 (`fillSprite.FillAmount = hp/maxHp` — one line) |
+| **Clickable tile/card** | Single `b.button(...)` entity with `SpriteGUIRendererComponent + TextGUIRendererComponent + ButtonComponent`; runtime changes use `SpriteGUIRendererComponent.Color/ImageRUID` and `TextGUIRendererComponent.Text` | [`layout-recipes.md`](layout-recipes.md) Recipe 8 | [`runtime-patterns.md`](runtime-patterns.md) §1, §6 |
+| **HP/MP bar** | Background Sprite + child Fill (`middle-left` anchor, pivot `(0, 0.5)`, `SpriteGUIRenderer Type=Sliced`) | [`layout-recipes.md`](layout-recipes.md) Recipe 1 | [`runtime-patterns.md`](runtime-patterns.md) §3 (`fillTransform.RectSize = Vector2(fullWidth*ratio, h)` — resize width, not FillAmount) |
 | **Avatar profile (circular)** | `Sprite(circular border) + Mask(Shape=Circle)` + child `AvatarGUIRenderer` | — | — |
 | **Modal popup** | Root: `UITransform(stretch) + UIGroup(GroupType=2, Order=10) + CanvasGroup(BlocksRaycasts=true)`. Children: semi-transparent Dimmer (`raycast=true`, blocks input to HUD behind) + Panel(middle-center) | [`layout-recipes.md`](layout-recipes.md) Recipe 2 | [`runtime-patterns.md`](runtime-patterns.md) §1 |
 | **Scroll list (~50 items)** | `ScrollLayoutGroup(Type=Vertical/Horizontal/Grid) + Mask(Shape=Rect)`. Children are auto-arranged | [`layout-recipes.md`](layout-recipes.md) Recipe 6 | [`runtime-patterns.md`](runtime-patterns.md) §4, §8 |
@@ -148,12 +157,12 @@ Summary of component combinations to attach per entity. For builder call code an
 When creating a new entity:
 
 - [ ] `UITransformComponent` is required (for all UI entities)
-- [ ] If it's a root, add `UIGroupComponent + CanvasGroupComponent`
+- [ ] If it's the `.ui` root, add `UIGroupComponent + CanvasGroupComponent`; never add `UIGroupComponent` to inner containers
 - [ ] If it's an image, add `SpriteGUIRendererComponent` and set `ImageRUID` (invisible if left empty)
 - [ ] If it's a button, add `ButtonComponent` + background Sprite on the same entity; Label as a child
 - [ ] If it's a list, decide the scroll type first (hundreds or more → GridView)
 - [ ] To block input, use `CanvasGroup.Interactable` or `BlocksRaycasts`
-- [ ] If it's text, specify `Alignment` explicitly (default `UpperLeft` is a common pitfall)
+- [ ] If it's text, use `TextGUIRendererComponent`; default alignment is already Center+Middle
 
 ---
 
@@ -196,7 +205,7 @@ Manages position, size, anchors, rotation, and scale. Required on every UI entit
 
 ## UIGroupComponent
 
-Defines a UI screen (group). Attach to the root entity.
+Defines a UI screen group. Attach only to the `.ui` root entity; use `UITransform` / `CanvasGroup` containers inside the tree.
 
 ### Properties
 
@@ -229,8 +238,8 @@ Controls the group's overall transparency and interaction.
 | Disable a specific UI component or button | `Interactable` on `ButtonComponent` | `ButtonComponent.Enable = false` for the component, or `Entity.Enable = false` for the whole entity/tree |
 | Disable a whole popup/panel/tree | `gameObject.SetActive(...)` / `isActive` | `Entity.Enable = false` / `true` |
 | Block or allow interaction for a group | `ButtonComponent.Interactable` | `CanvasGroupComponent.Interactable` and `CanvasGroupComponent.BlocksRaycasts` |
-| Change text string | `text` | `TextComponent.Text` |
-| Change text color | `color` | `TextComponent.FontColor` |
+| Change text string | `text` | `TextGUIRendererComponent.Text` |
+| Change text color | `color` | `TextGUIRendererComponent.FontColor` |
 | Change sprite tint | `color` | `SpriteGUIRendererComponent.Color` |
 
 `Enable` is inherited from the base component and is valid on UI components. `Interactable` is a `CanvasGroupComponent` property, not a `ButtonComponent` property.
@@ -264,49 +273,69 @@ Interactive button. Supports state-transition effects.
 
 ---
 
-## TextComponent
+## TextGUIRendererComponent
 
-Displays text. Supports font, alignment, overflow, drop shadow, and outline.
+Displays text in UI space. Use with `UITransformComponent`. **Preferred text component for new UI.**
+
+Alignment defaults to `Center + Middle` — no explicit alignment setup needed for centered text.
 
 ### Properties
 
 | Name | Type | Default | Description |
 |------|------|--------|------|
-| `Text` | string | "" | Text to display |
-| `FontSize` | int32 | 14 | Font size |
-| `FontColor` | Color | white | Text color |
-| `Font` | FontType | Default(0) | Default(0), Maple(1), Bazzi(2), Football(3) |
-| `Alignment` | TextAlignmentType | UpperLeft(0) | 9 alignment options — ⚠️ default sticks to upper-left; see §"Component Selection Guide → TextComponent — Alignment Pitfall" |
-| `Bold` | boolean | false | Bold |
-| `IsRichText` | boolean | false | Rich-text support |
-| `Overflow` | OverflowType | Overflow(0) | Overflow(0), Truncate(1), Ellipsis(2) |
+| `Text` | string | "Text" | Text to display |
+| `FontSize` | float | 20 | Font size |
+| `FontColor` | Color | black | Text color |
+| `Font` | string | "Default" | Font name: `"Default"`, `"Maple"`, `"Bazzi"`, `"Football"` |
+| `FontStyle` | FontStyleType | Normal(0) | Normal(0), Bold(1), Italic(2), Underline(4) — bit flags, combinable |
+| `HorizontalAlignment` | TextHorizontalAlignmentOption | Center(2) | Left(1), Center(2), Right(4), Justified(8) |
+| `VerticalAlignment` | TextVerticalAlignmentOption | Middle(512) | Top(256), Middle(512), Bottom(1024) |
+| `IsRichText` | boolean | true | Rich-text tag support |
+| `Overflow` | TextOverflowMode | Overflow(0) | Overflow(0), Ellipsis(1), Truncate(2), Page(3) |
 | `BestFit` | boolean | false | Auto-fit size |
-| `MinSize` | int32 | 10 | BestFit minimum size |
-| `MaxSize` | int32 | 40 | BestFit maximum size |
-| `LineSpacing` | float | 1.0 | Line spacing |
+| `MinSize` | float | 10 | BestFit minimum size |
+| `MaxSize` | float | 40 | BestFit maximum size |
 | `Padding` | RectOffset | 0,0,0,0 | Inner padding |
 | `SizeFit` | boolean | false | Auto-fit to content size |
-| `DropShadow` | boolean | false | Drop shadow |
-| `DropShadowColor` | Color | -- | Shadow color |
-| `DropShadowDistance` | float | -- | Shadow distance |
-| `DropShadowAngle` | float | -- | Shadow angle |
-| `UseOutLine` | boolean | false | Outline |
-| `OutlineColor` | Color | -- | Outline color |
-| `OutlineWidth` | float | -- | Outline thickness |
-| `IsLocalizationKey` | boolean | false | Treat `Text` as a locale key (looked up at runtime) |
-| `AllowAutomaticTranslation` | boolean | true | Enable automatic translation while playing |
 | `UseConstraintX` | boolean | false | Constrain text width to `ConstraintX` |
-| `ConstraintX` | float | 100 | Max text width when `UseConstraintX` |
+| `ConstraintX` | float | 100 | Max text width when `UseConstraintX` is true |
 | `UseConstraintY` | boolean | false | Constrain text height to `ConstraintY` |
-| `ConstraintY` | float | 100 | Max text height when `UseConstraintY` |
+| `ConstraintY` | float | 100 | Max text height when `UseConstraintY` is true |
+| `Underlay` | boolean | false | Drop shadow |
+| `UnderlayColor` | Color | black | Shadow color |
+| `UnderlayOffsetX` | float | 0 | Shadow X offset |
+| `UnderlayOffsetY` | float | 0 | Shadow Y offset |
+| `UnderlayDilate` | float | 0 | Shadow outline thickness |
+| `UnderlaySoftness` | float | 0 | Shadow blur softness |
+| `OutlineColor` | Color | black | Outline color |
+| `OutlineWidth` | float | 0 | Outline thickness (0 = no outline) |
+| `FaceDilate` | float | 0 | Text face thickness (positive = thicker) |
+| `FaceSoftness` | float | 0 | Text face corner softness |
+| `ColorGradient` | boolean | false | Enable color gradient |
+| `GradientMode` | GradientModes | Single(0) | Single(0), Horizontal(1), Vertical(2), FourCorners(3) |
+| `TopLeftColor` | Color | white | Gradient top-left corner |
+| `TopRightColor` | Color | white | Gradient top-right corner |
+| `BottomLeftColor` | Color | white | Gradient bottom-left corner |
+| `BottomRightColor` | Color | white | Gradient bottom-right corner |
+| `TextSpriteSetId` | string | "" | TextSpriteSet dataset entry id |
+| `TextStyleSheetId` | string | "" | TextStyleSheet dataset entry id |
+| `Page` | int32 | 1 | Current page (when `Overflow = Page(3)`) |
 
 ### Methods
 
 | Method | Returns | Description |
 |--------|------|------|
-| `GetLocalizedText()` | string | Text in the current language |
+| `GetLocalizedText()` | string | Text in the current language. Requires `Text` to hold a locale key; set the key flag in the Maker editor, not in script. |
 | `GetPreferredHeight(string text, float width)` | float | Compute required height |
 | `GetPreferredWidth(string text)` | float | Compute required width |
+
+> Localization is opt-in via a Maker-editor-only flag on the component (not a runtime `.mlua` property). To localize, set the flag and put a locale key in `Text` from the Maker editor, then read the resolved string at runtime via `GetLocalizedText()`.
+
+---
+
+## TextComponent (Legacy)
+
+> ⚠️ **Legacy — do not use for new UI text; use `TextGUIRendererComponent` above.** `TextComponent` only persists in older `.ui` files. Its key difference is a single 9-cell `Alignment` field (`TextAlignmentType`, default `UpperLeft(0)` — *not* centered), instead of the separate `HorizontalAlignment` / `VerticalAlignment` axes. If you must edit legacy text, set `Alignment` explicitly and read the remaining field names directly from the existing `.ui`.
 
 ---
 
@@ -334,7 +363,7 @@ Renders 2D images / sprites.
 | `StartFrameIndex` | int32 | 0 | Animation start frame |
 | `EndFrameIndex` | int32 | -1 | Animation end frame |
 | `OrderInLayer` | int32 | 0 | Render priority |
-| `PreserveAspect` | boolean | false | Lock image to its native aspect ratio |
+| `PreserveSprite` | PreserveSpriteType | None(0) | None(0) stretch to RectSize / AspectOnly(1) fit keeping ratio / NativeSize(2) native px |
 | `MaterialId` | string | "" | Custom material id (advanced shader effects) |
 
 ### Methods
@@ -363,12 +392,12 @@ Scrollable list / grid layout.
 
 | Name | Type | Default | Description |
 |------|------|--------|------|
-| `Type` | LayoutGroupType | Vertical(1) | Horizontal(0), Vertical(1), Grid(2) |
+| `Type` | LayoutGroupType | Horizontal(0) | Horizontal(0), Vertical(1), Grid(2). `UIBuilder.scrollLayout()` defaults to Vertical(1) for list authoring. |
 | `Spacing` | float | 0 | Item spacing (H/V) |
 | `GridSpacing` | Vector2 | (0, 0) | Item spacing (Grid) |
 | `Padding` | RectOffset | 0,0,0,0 | Outer padding |
 | `CellSize` | Vector2 | (100, 100) | Fixed item size (Grid) |
-| `ConstraintCount` | int32 | 0 | Fixed row / column count |
+| `ConstraintCount` | int32 | 1 | Fixed row / column count |
 | `ScrollBarVisible` | ScrollBarVisibility | AlwaysShow(0) | AlwaysShow(0), AutoHide(1), Hide(2) |
 | `ScrollBarThickness` | float | 20.0 | Scrollbar thickness |
 | `ScrollBarHandleColor` | Color | (0.5, 0.5, 0.5, 1) | Handle color |
@@ -431,9 +460,9 @@ Virtualization for large lists. Renders only items visible on screen.
 
 ---
 
-## TextInputComponent
+## TextGUIRendererInputComponent
 
-Text input field.
+Text input field. Receives keyboard input and feeds it to the paired `TextGUIRendererComponent` on the same entity. The builder's `textInput()` mints both together.
 
 ### Properties
 
@@ -444,10 +473,8 @@ Text input field.
 | `PlaceHolderColor` | Color | gray | Placeholder color |
 | `CharacterLimit` | int32 | 0 | Max characters (0 = unlimited) |
 | `ContentType` | InputContentType | Standard | Input type |
-| `LineType` | InputLineType | SingleLine | Single / multi-line |
+| `LineType` | InputLineType | MultiLineSubmit | Newline mode — `SingleLine=0` / `MultiLineSubmit=1` / `MultiLineNewline=2`. Component default is `MultiLineSubmit(1)`, but `textInput()` always emits `SingleLine(0)` unless you pass `line_type` |
 | `AutoClear` | boolean | false | Auto-clear after submit |
-| `IsLocalizationKey` | boolean | false | Treat `PlaceHolder` as a locale key |
-| `AllowAutomaticTranslation` | boolean | true | Enable automatic translation while playing |
 | `IsFocused` | boolean | -- | Focus state (read-only) |
 
 ### Methods
@@ -455,6 +482,9 @@ Text input field.
 | Method | Returns | Description |
 |--------|------|------|
 | `ActivateInputField()` | void | Set focus |
+| `GetLocalizedPlaceHolder()` | string | `PlaceHolder` in the current language (requires the placeholder to hold a locale key, set in the Maker editor) |
+
+> Placeholder localization is opt-in via a Maker-editor-only flag (not a runtime `.mlua` property). Set the flag and put a locale key in `PlaceHolder` from the Maker editor, then read the resolved string at runtime via `GetLocalizedPlaceHolder()`.
 
 ### Events
 
@@ -705,7 +735,7 @@ UI coordinate-conversion utility (singleton).
 
 ## WorldUI Sort Fields (Common)
 
-`ButtonComponent`, `TextComponent`, `SliderComponent`, `SpriteGUIRendererComponent`, `ScrollLayoutGroupComponent`, and `TextInputComponent` all expose the same 4-field sorting block. The fields are only meaningful when the parent `UITransformComponent.UIMode` is `World(2)`.
+`ButtonComponent`, `TextGUIRendererComponent`, `SliderComponent`, `SpriteGUIRendererComponent`, `ScrollLayoutGroupComponent`, and `TextGUIRendererInputComponent` all expose the same 4-field sorting block. The fields are only meaningful when the parent `UITransformComponent.UIMode` is `World(2)`.
 
 | Name | Type | Default | Description |
 |------|------|--------|------|
@@ -741,13 +771,64 @@ Builder shortcut: pass `world_ui: true` to `sprite()` / `text()` / `button()` / 
 
 All values are `int32`. Pass numeric values to builder `patchComponent(...)` or use the enum identifier in `.mlua` runtime code (e.g. `TextAlignmentType.MiddleCenter`).
 
-> **Two "alignment" enums exist — do not confuse them:**
+> **Three "alignment" enums exist — do not confuse them:**
 > - **`AlignmentType` (0~15)** — anchor presets for `UITransformComponent.AlignmentOption`. Builder string mapping (`"top-left"` ↔ 4, etc.) is in [`ui-fundamentals.md`](ui-fundamentals.md) §6. Not duplicated here.
-> - **`TextAlignmentType` / `ChildAlignmentType` (0~8)** — 9-cell text/child alignment, defined below. Used by `TextComponent.Alignment` and any `ChildAlignment` field. **Different enum from anchors above.**
+> - **`TextAlignmentType` / `ChildAlignmentType` (0~8)** — 9-cell alignment used by `ChildAlignment` / `GridChildAlignment` fields (and legacy `TextComponent.Alignment`). **Different enum from anchors above.**
+> - **`TextHorizontalAlignmentOption` + `TextVerticalAlignmentOption`** — separate axis enums used by `TextGUIRendererComponent`. **Different from `TextAlignmentType`.**
+
+### TextHorizontalAlignmentOption -- Horizontal alignment (TextGUIRendererComponent)
+
+Used by `TextGUIRendererComponent.HorizontalAlignment`.
+
+| Name | Value | Description |
+|------|---|------|
+| Left | 1 | Left-aligned |
+| Center | 2 | Center (default) |
+| Right | 4 | Right-aligned |
+| Justified | 8 | Justified (last line not adjusted) |
+| Flush | 16 | Justified (last line also adjusted) |
+| Geometry | 32 | Center per-line by geometry |
+
+### TextVerticalAlignmentOption -- Vertical alignment (TextGUIRendererComponent)
+
+Used by `TextGUIRendererComponent.VerticalAlignment`.
+
+| Name | Value | Description |
+|------|---|------|
+| Top | 256 | Top-aligned |
+| Middle | 512 | Middle (default) |
+| Bottom | 1024 | Bottom-aligned |
+| Baseline | 2048 | First line baseline centered |
+| Geometry | 4096 | Full text centered by geometry |
+| Capline | 8192 | First line cap-height centered |
+
+### TextOverflowMode -- Text Overflow (TextGUIRendererComponent)
+
+Used by `TextGUIRendererComponent.Overflow`.
+
+| Name | Value | Description |
+|------|---|------|
+| Overflow | 0 | Show outside the area (default) |
+| Ellipsis | 1 | Ellipsis (...) |
+| Truncate | 2 | Truncate |
+| Page | 3 | Multi-page (use `Page` property) |
+
+### GradientModes -- Color Gradient (TextGUIRendererComponent)
+
+Used by `TextGUIRendererComponent.GradientMode` when `ColorGradient = true`.
+
+| Name | Value | Description |
+|------|---|------|
+| Single | 0 | Single color (default) |
+| Horizontal | 1 | Left to right |
+| Vertical | 2 | Top to bottom |
+| FourCorners | 3 | All four corners |
+
+---
 
 ### TextAlignmentType / ChildAlignmentType -- 9-cell alignment (0~8)
 
-Used by `TextComponent.Alignment` and any `ChildAlignment` field. Same value mapping for both.
+Used by `ChildAlignment` / `GridChildAlignment` fields (and the legacy `TextComponent.Alignment`). Same value mapping for all.
 
 | Name | Value | Description |
 |------|---|------|
@@ -782,16 +863,6 @@ Used by `TextComponent.Alignment` and any `ChildAlignment` field. Same value map
 | UpperCase | 16 | Uppercase |
 | SmallCaps | 32 | Small caps |
 | Strikethrough | 64 | Strikethrough |
-
-### OverflowType -- Text Overflow
-
-Used by `TextComponent.Overflow`.
-
-| Name | Value | Description |
-|------|---|------|
-| Overflow | 0 | Show outside the area |
-| Truncate | 1 | Truncate |
-| Ellipsis | 2 | Ellipsis (...) |
 
 ### ImageType -- Image Rendering
 

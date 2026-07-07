@@ -15,17 +15,21 @@ Rules for assigning a RUID to `SpriteRendererComponent.SpriteRUID` (world) or
 Both components accept a `sprite` or `animationclip` RUID directly — no extra
 animator component required.
 
-| Component | Property | Value form | Native RUID types |
+| Component | Property | Value form (runtime `.mlua`) | Native RUID types |
 |---|---|---|---|
 | `SpriteRendererComponent` (world) | `SpriteRUID` | plain string | `sprite`, `animationclip` |
-| `SpriteGUIRendererComponent` (UI) | `ImageRUID` | `{ "DataId": "..." }` | `sprite`, `animationclip` |
+| `SpriteGUIRendererComponent` (UI) | `ImageRUID` | `DataRef("...")` | `sprite`, `animationclip` |
+
+`ImageRUID` is a `DataRef`: in runtime `.mlua`, assign `DataRef(ruid)`.
+Use `{ DataId: ruid }` only in `.ui` / `.model` JSON or builder patch data.
+`SpriteRUID` remains a plain string.
 
 ```lua
 -- World: sprite or animationclip RUID both work
 self.Entity.SpriteRendererComponent.SpriteRUID = ruid
 
 -- UI: sprite or animationclip RUID both work
-self.Entity.SpriteGUIRendererComponent.ImageRUID = { DataId = ruid }
+self.Entity.SpriteGUIRendererComponent.ImageRUID = DataRef(ruid)
 ```
 
 A `skeleton` / `avataritem` RUID assigned without the `thumbnail://` prefix
@@ -57,7 +61,7 @@ Accepted types: `sprite` · `animationclip` · `skeleton` · `avataritem`
 self.Entity.SpriteRendererComponent.SpriteRUID = "thumbnail://" .. anyRuid
 
 -- UI thumbnail (any resource type)
-self.Entity.SpriteGUIRendererComponent.ImageRUID = { DataId = "thumbnail://" .. anyRuid }
+self.Entity.SpriteGUIRendererComponent.ImageRUID = DataRef("thumbnail://" .. anyRuid)
 ```
 
 ### Primary use case: avataritem icons
@@ -66,9 +70,7 @@ self.Entity.SpriteGUIRendererComponent.ImageRUID = { DataId = "thumbnail://" .. 
 become item icons for inventory slots, shop listings, and equip previews.
 
 ```lua
-slotEntity.SpriteGUIRendererComponent.ImageRUID = {
-    DataId = "thumbnail://" .. avatarItemRuid,
-}
+slotEntity.SpriteGUIRendererComponent.ImageRUID = DataRef("thumbnail://" .. avatarItemRuid)
 ```
 
 Search avatar item RUIDs with the `msw-search` skill (`searchAvatarItems`).
@@ -79,7 +81,7 @@ Search avatar item RUIDs with the `msw-search` skill (`searchAvatarItems`).
 
 - `skeleton` / `avataritem` directly into `SpriteRUID` / `ImageRUID` without prefix → silently invisible.
 - `thumbnail://` = **static** image only. For live animation, assign the `animationclip` RUID directly (no prefix).
-- `ImageRUID` prefix goes **inside** `DataId`: `{ "DataId": "thumbnail://..." }` — not a separate field.
+- Runtime `.mlua` uses `ImageRUID = DataRef("...")`; the `{ "DataId": "..." }` object form is `.ui` / `.model` JSON only (the prefix goes **inside** `DataId`, not a separate field). Do not use the table form in runtime code — the LSP rejects it as a `DataRef` type mismatch.
 - `CostumeManagerComponent.Custom*Equip`, `StateAnimationComponent.ActionSheet`, and `SkeletonRendererComponent.SkeletonRUID` do **not** accept `thumbnail://`.
 - Do **not** prepend `thumbnail://` to a RUID that was already retrieved *as* a thumbnail or icon image from `msw-search`. The prefix converts a source resource into its thumbnail — applying it to an already-thumbnail sprite is logically redundant. If the search query targeted an icon / thumbnail image and returned a `sprite` RUID, assign that RUID directly without any prefix.
 - To **search** for RUIDs use the `msw-search` skill — `searchAvatarItems` for avatar items; `searchResources` for everything else.

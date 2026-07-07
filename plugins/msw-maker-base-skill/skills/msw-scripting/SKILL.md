@@ -603,6 +603,15 @@ All services and logic are accessed via `_Name` (underscore + type name). Only t
 
 > For the full list, read the `.d.mlua` files directly: `./Environment/NativeScripts/Service/` (46 files) and `./Environment/NativeScripts/Logic/` (9 files). For domain details, search via `msw-search`.
 
+### Built-in globals accessed WITHOUT the `_` prefix
+
+The `_Name` rule above applies to **Services and Logic only**. A few built-ins are exposed as plain globals — accessing them with a leading underscore is a runtime error (`nil` reference).
+
+| Global (correct) | Wrong | Purpose |
+|---|---|---|
+| `Environment` | ❌ `_Environment` | Execution-environment queries — `Environment:IsMakerPlay()` / `IsMakerEdit()` / `IsPlay()` / `IsPublishedPlay()` / `IsMobilePlatform()` / `IsPCPlatform()`, `WorldId` property. `GetApplicationVersion()` is ClientOnly (nil on server). |
+| `CollisionGroups` | ❌ `_CollisionGroups` | Table of `CollisionGroup` objects keyed by group name — `CollisionGroups.HitBox`, `.Monster`, `.Player`, etc. Built-ins: `Default` / `TriggerBox` / `HitBox` / `Interaction` / `Portal` / `Climbable`, plus any project-defined groups. Each entry has a `.Id` (string) and `:GetCollideGroups()`. |
+
 ---
 
 ## 13. Math, Utilities, Reserved Words, Type Annotations

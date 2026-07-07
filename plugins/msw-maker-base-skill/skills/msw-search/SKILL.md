@@ -24,7 +24,8 @@ MSW has **two distinct search targets**:
 | "Find an animation / sound / resource pack" | **Resource search** → **start with `resource_pack`** |
 | "Details for this RUID", "Similar resources" | **Resource search** |
 | "Avatar item / default avatar lookup" | **Resource search** |
-| "Upload / list / update / delete my own assets" | Call `msw-mcp` `asset_*` tools directly (`account_get_my_user_id` first for `ownerId`) |
+| "Upload / list / update / delete my own assets" | Call `msw-mcp` `asset_*` tools directly |
+| "Set sprite pivot", "set 9-slice border", "slice boundary for UI RUID", "asset properties" | Call `msw-mcp` `asset_update_resource_storage_info` directly (`properties: [{ key, value }]` — `pivot_x/y`, `border_left/right/top/bottom`, `filter_mode`, `wrap_mode`) |
 
 > **★ Resource search default — always `resource_pack` first**
 >

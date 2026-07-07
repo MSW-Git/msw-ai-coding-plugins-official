@@ -191,24 +191,48 @@ The response contains a `presignedUrl`. Keep it inside the agent's reasoning con
 
 ### Step 2 — PUT the PNG binary (URL passed via env var)
 
-PowerShell:
+> ⚡ **Use `curl.exe`, not `Invoke-WebRequest` (P001 — the "freezes after upload" bug).** On Windows PowerShell 5.1, `Invoke-WebRequest` parses the HTTP response through the **Internet Explorer engine** unless you pass `-UseBasicParsing`. IE is **removed/disabled on Windows 11**, so the call blocks on IE "first-launch configuration" and appears to freeze for a long time after the bytes are already uploaded (the MCP tool itself returns in ~45 ms — the stall is entirely in this step). `curl.exe` (shipped in `System32` on Windows 10 1803+ and all Windows 11) has no IE dependency and behaves identically in PowerShell and Git Bash, so prefer it in **both** shells.
+
+PowerShell (preferred — `curl.exe`):
 ```powershell
 $env:PAINTER_PRESIGNED_URL = "<presignedUrl from step 1>"
 try {
-  Invoke-WebRequest -Method PUT -InFile out.png -Uri $env:PAINTER_PRESIGNED_URL -ContentType "image/png"
+  # Feed url/request/upload-file to curl via a stdin config (-K -) so the URL
+  # never lands in argv (visible via Get-Process) or shell history.
+  "url = `"$env:PAINTER_PRESIGNED_URL`"`nrequest = `"PUT`"`nupload-file = `"out.png`"" | curl.exe -K -
 } finally {
   Remove-Item Env:\PAINTER_PRESIGNED_URL -ErrorAction SilentlyContinue
 }
 ```
 
-bash (Git for Windows / WSL):
+bash (Git for Windows / WSL — `curl`):
 ```bash
-PAINTER_PRESIGNED_URL="<presignedUrl from step 1>" \
-  curl -X PUT -T out.png "$PAINTER_PRESIGNED_URL" && \
-  unset PAINTER_PRESIGNED_URL
+# 1) Assign on its OWN statement (export), NOT as an inline prefix.
+#    `VAR=… curl … "$VAR"` does NOT work: the shell expands "$VAR" on the
+#    same command line BEFORE the assignment takes effect, so curl receives
+#    an empty URL and fails with "curl: option : blank argument…".
+export PAINTER_PRESIGNED_URL="<presignedUrl from step 1>"
+# 2) Feed the URL to curl via a config file read from stdin (-K -). Passing it
+#    as a normal argument (curl … "$PAINTER_PRESIGNED_URL") would expand the URL
+#    straight into argv, where it is visible via `ps` / /proc/<pid>/cmdline —
+#    -K - keeps it out of the argument list entirely.
+printf 'url = "%s"\nrequest = "PUT"\nupload-file = "out.png"\n' "$PAINTER_PRESIGNED_URL" | curl -K -
+unset PAINTER_PRESIGNED_URL
 ```
 
-The PUT itself is a plain binary upload — no auth headers are needed (the signature is embedded in the presigned URL). The env-var pattern keeps the URL out of `Get-Process` / `ps`-visible argument lists and out of shell history.
+The PUT itself is a plain binary upload — no auth headers are needed (the signature is embedded in the presigned URL). The `-K -` (stdin config) form keeps the URL out of `ps` / `Get-Process` argument lists and shell history in both shells.
+
+**Fallback only — `Invoke-WebRequest`.** If `curl.exe` is genuinely unavailable, you MUST add `-UseBasicParsing` (skips the IE engine → no freeze) and silence the progress bar (a separate PS 5.1 bug that slows transfers by 10–50×):
+```powershell
+$env:PAINTER_PRESIGNED_URL = "<presignedUrl from step 1>"
+$ProgressPreference = 'SilentlyContinue'
+try {
+  Invoke-WebRequest -Method PUT -InFile out.png -Uri $env:PAINTER_PRESIGNED_URL `
+    -ContentType "image/png" -UseBasicParsing
+} finally {
+  Remove-Item Env:\PAINTER_PRESIGNED_URL -ErrorAction SilentlyContinue
+}
+```
 
 ### Step 3 — report upload completion
 

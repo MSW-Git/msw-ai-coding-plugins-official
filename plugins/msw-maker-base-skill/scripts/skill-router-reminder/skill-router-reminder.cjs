@@ -208,7 +208,7 @@ process.stdout.write(
   `       references/templates/style-N-*/{ruid-map.md, structure.md, Popupbutton.mlua}\n` +
   `       files in full.\n` +
   `  Sub-trigger refinements (read in ADDITION when topic matches):\n` +
-  `  - Component properties / SpriteGUIRenderer / TextComponent / ButtonComponent full API\n` +
+  `  - Component properties / SpriteGUIRenderer / TextGUIRenderer / TextComponent / ButtonComponent full API\n` +
   `      → Read: references/component-api.md\n` +
   `  - enum / AlignmentOption / ImageType / Transition / Alignment value tables\n` +
   `      → Read: references/component-api.md §Enums\n` +
@@ -301,6 +301,14 @@ process.stdout.write(
   `    Note: msw-packages is NOT Foundation (it is domain-triggered) — load it only when this\n` +
   `    domain fires, not every turn.\n` +
   `\n` +
+  `[PLANNING] plan a new game / new game / what to build / MVP scope / GDD / game design / scope an MVP / what game should I make\n` +
+  `  → Load skill: msw-planning\n` +
+  `    Plan a brand-new game from scratch: guided questions → genre-catalog grounding (3 map types · ~150 mechanics · solo-dev MVP feasibility)\n` +
+  `    → nail down map-type↔Body → produce GDD/roadmap. Always pass the 'direction check' gate before writing the GDD.\n` +
+  `    Read: references/genre-catalog.md (grounding) · references/gdd-template.md (output structure · per-phase detail) ·\n` +
+  `          references/msw-mapping.md (system↔MSW mapping).\n` +
+  `    Note: msw-planning is NOT Foundation (domain-triggered) — load it only when this domain fires.\n` +
+  `\n` +
   `Notation in this matrix:\n` +
   `- 'Load skill: <name>' = load the skill's SKILL.md via your agent's skill system (see R1).\n` +
   `  The skill files live in the agent's skill directory — never pass a 'plugins/...' path.\n` +
@@ -317,7 +325,7 @@ process.stdout.write(
   `   Once TileMapMode is identified, the matching ONE of platform-{maple|rect|sideview}.md joins Foundation.\n` +
   `   Skipping any single Foundation Skill or any single Foundation reference = "skill NOT loaded".\n` +
   `2. If this turn's domain ≠ previous turn's domain → LOAD the matching ADDITIONAL skill (msw-scripting /\n` +
-  `   msw-search / msw-combat-system / msw-defaultplayer / msw-avatar / msw-packages) per rules R1–R6 BEFORE planning.\n` +
+  `   msw-search / msw-combat-system / msw-defaultplayer / msw-avatar / msw-packages / msw-planning) per rules R1–R6 BEFORE planning.\n` +
   `   These domain-specific skills come ON TOP OF the 2 Foundation Skills, never in place of them.\n` +
   `3. If this turn touches multiple domains → LOAD all matching skills, each in full, plus READ every triggered reference.\n` +
   `4. If a sub-trigger under a domain fires (e.g. 'BT' under combat, 'DataStorage' under scripting),\n` +

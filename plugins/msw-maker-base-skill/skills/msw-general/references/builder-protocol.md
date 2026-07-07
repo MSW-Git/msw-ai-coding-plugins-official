@@ -42,7 +42,7 @@ Alpha-sorted **camelCase** method names per builder. **camelCase is canonical** 
 
 **`ModelBuilder`** — instance: `addComponent` · `build` · `child` · `childComponent` · `childEnable` · `childEventLink` · `childFromModel` · `childFromTemplate` · `childProperty` · `childValue` · `childVisible` · `component` · `enable` · `entityEnable` · `entityVisible` · `eventLink` · `getChild` · `getChildValue` · `getValue` · `getValueEntry` · `hasChild` · `hasComponent` · `hasValue` · `listChildren` · `listComponents` · `listEventLinks` · `listValues` · `moveChild` · `property` · `removeChild` · `removeChildComponent` · `removeChildEventLink` · `removeChildProperty` · `removeChildValue` · `removeComponent` · `removeEventLink` · `removeProperty` · `removeValue` · `renameChild` · `renameModel` · `setBaseModelId` · `setChildBaseModelId` · `snapshot` · `upsertEventLink` · `validate` · `value` · `write`. Static: `ModelBuilder.fromTemplate` · `ModelBuilder.load` · `ModelBuilder.read` · `ModelBuilder.snapshot`.
 
-**`UIBuilder`** — instance: `addComponent` · `areaParticle` · `avatar` · `basicParticle` · `build` · `button` · `chat` · `find` · `getComponent` · `getId` · `gridView` · `group` · `hasComponent` · `injectBindings` · `joystick` · `line` · `listEntities` · `mask` · `panel` · `patch` · `patchComponent` · `polygon` · `remove` · `removeComponent` · `rename` · `script` · `scrollLayout` · `setComponentEnabled` · `skeleton` · `softMask` · `sprite` · `spriteParticle` · `text` · `textInput` · `touchReceive` · `upsertComponent` · `write`. Static: `UIBuilder.load` · `UIBuilder.read` · `UIBuilder.snapshot`.
+**`UIBuilder`** — instance: `addComponent` · `areaParticle` · `avatar` · `basicParticle` · `build` · `button` · `chat` · `empty` · `find` · `getComponent` · `getId` · `gridView` · `group` · `hasComponent` · `injectBindings` · `joystick` · `line` · `listEntities` · `mask` · `panel` · `patch` · `patchComponent` · `polygon` · `remove` · `removeComponent` · `rename` · `script` · `scrollLayout` · `setComponentEnabled` · `skeleton` · `softMask` · `sprite` · `spriteParticle` · `text` · `textInput` · `touchReceive` · `upsertComponent` · `write`. Static: `UIBuilder.load` · `UIBuilder.read` · `UIBuilder.snapshot`.
 
 ---
 
@@ -60,7 +60,7 @@ On any mid-workflow failure (RuntimeError / validate failure / lint error), **st
 
 ### Cross-builder chaining contract
 
-All three builders (`MapBuilder` / `ModelBuilder` / `UIBuilder`) share one contract: **every mutator — creators, updaters, removers, and `write()` — returns the builder itself, and a missing target throws `Error` (never returns `false` / `null`).** Inspection helpers (`find` / `getId` / `get*` / `has*` / `list*` / `snapshot` / `validate` / `build`) return data and must be called on their own line; pre-check with `has*()` / `find()` when conditional behavior is needed. `MapBuilder` and `UIBuilder` additionally expose `b.lastId()` — the id of the entity targeted by the most recent creator call (`entity` / `empty` / `sprite` / `placeModel`, or any of the 22 UI creators). For a brand-new path a fresh UUID is assigned; for a path that already exists the creator upserts in place and `lastId()` returns the existing UUID, so the caller always gets the id usable to address that entity. Update/remove mutators (`patch` / `patchComponent` / `rename` / `upsertComponent` / `setComponentEnabled` / `remove` / `removeComponent`) do **not** touch `lastId()`. For `MapBuilder.placeModel`, `lastId()` returns the **root** id of the placed model, not the last placed child. `ModelBuilder` operates on a single model file and has no `lastId()`.
+All three builders (`MapBuilder` / `ModelBuilder` / `UIBuilder`) share one contract: **every mutator — creators, updaters, removers, and `write()` — returns the builder itself, and a missing target throws `Error` (never returns `false` / `null`).** Inspection helpers (`find` / `getId` / `get*` / `has*` / `list*` / `snapshot` / `validate` / `build`) return data and must be called on their own line; pre-check with `has*()` / `find()` when conditional behavior is needed. `MapBuilder` and `UIBuilder` additionally expose `b.lastId()` — the id of the entity targeted by the most recent creator call (`entity` / `empty` / `sprite` / `placeModel`, or any UI creator). For a brand-new path a fresh UUID is assigned; for a path that already exists the creator upserts in place and `lastId()` returns the existing UUID, so the caller always gets the id usable to address that entity. Update/remove mutators (`patch` / `patchComponent` / `rename` / `upsertComponent` / `setComponentEnabled` / `remove` / `removeComponent`) do **not** touch `lastId()`. For `MapBuilder.placeModel`, `lastId()` returns the **root** id of the placed model, not the last placed child. `ModelBuilder` operates on a single model file and has no `lastId()`.
 
 > [!IMPORTANT]
 > **`placeModel` has destructive descendant sync semantics.** The root path is updated in place, but when `placeModel` is called on a path that already exists, it removes every existing descendant before re-creating the model tree from the template. Any `patchComponent` overrides on the existing tree are lost. See the `placeModel` section in §4 for the full warning and workarounds.
@@ -87,7 +87,10 @@ slime.value("MovementComponent", "InputSpeed", 2.5, "float").write("RootDesk/MyD
 5. **Empty `SpriteRUID` = invisible** (no error). Never leave `SpriteRUID` empty in any builder.
 6. **Entity / Component / EntityRef / ComponentRef property defaults are UUID strings.** In AI automation, the builder injects UUIDs directly — never tell the user to "drag in Maker."
 7. **Stop work on CoreVersion mismatch** — verify `Environment/config`'s CoreVersion is `26.5.0.0` before any work.
-8. **Component type strings must be fully qualified.** Native components use `MOD.Core.XxxComponent` (e.g. `MOD.Core.TransformComponent`); mlua script components use `script.XxxComponent` (e.g. `script.Monster`). Any other form (e.g. `"MovementComponent"`, `"Monster"` without prefix) breaks the engine: `.map` / `.model` / `.ui` deserialization keys components by exact `@type`, and a mistyped or short name silently fails to attach (Maker logs only a warning and the inspector shows no component). **All three builders throw at the call site whenever a non-prefixed component-type string reaches _any_ helper that accepts one** — not just the obvious `addComponent` / `upsertComponent`. The same guard fires on read-side helpers (`hasComponent` / `getComponent` / `patchComponent` / `removeComponent` / `setComponentEnabled` where the builder exposes them), on value / property-link / event-link helpers that key by component type (e.g. `ModelBuilder.value(targetType, ...)`, `getValue`, `removeValue`, `property({ target, ... })`), and on option-bag entries that key by component type (e.g. `MapBuilder.placeModel`'s `componentOverrides`). Each builder only exposes a subset of these helpers; calling one a particular builder does **not** expose (e.g. `MapBuilder.hasComponent`, `ModelBuilder.getComponent`) raises `TypeError: ... is not a function`, not the prefix-guard error. To look up the canonical name of a native component, list the workspace's `Environment/NativeScripts/Component/*.d.mlua` — each filename (e.g. `MovementComponent.d.mlua`) is the bare name; prefix it with `MOD.Core.` to get the fully qualified `@type`.
+8. **Component type strings are auto-qualified — but pass them fully qualified anyway.** Native components use `MOD.Core.XxxComponent` (e.g. `MOD.Core.TransformComponent`); mlua script components use `script.XxxComponent` (e.g. `script.Monster`). The engine keys `.map` / `.model` / `.ui` components by exact `@type`, and a wrongly-namespaced or mistyped `@type` silently fails to attach (Maker logs only a warning and the inspector shows no component). To remove that footgun, all three builders **auto-qualify any bare (un-prefixed) component-type string at the call site**: a name in the native catalog becomes `MOD.Core.<name>`, any other bare name becomes `script.<name>`, and the builder prints a one-time advisory on stderr stating what it did and what to pass next time. A string that already starts with `MOD.` or `script.` is left untouched and silent — so the clean habit is to always pass the fully-qualified form. `null` / missing still throws `TypeError`.
+   - **The one residual footgun is a *misspelled native* name.** `"SpriteRendrerComponent"` is not in the catalog, so it auto-qualifies to `script.SpriteRendrerComponent` — which no script defines, so it silently fails to attach at runtime. The builders guard this by detecting a bare name within a small edit distance of a real native and emitting a louder advisory (`looks like a typo of native "MOD.Core.SpriteRendererComponent"`). Read the advisory; if you meant the native, fix the spelling.
+   - Auto-qualification fires on **every** helper that accepts a component-type string — not just `addComponent` / `upsertComponent`, but read-side helpers (`hasComponent` / `getComponent` / `patchComponent` / `removeComponent` / `setComponentEnabled` where the builder exposes them), value / property-link / event-link helpers that key by component type (`ModelBuilder.value(targetType, ...)`, `getValue`, `removeValue`, `property({ target, ... })`), and option-bag entries that key by component type (`MapBuilder.placeModel`'s `componentOverrides`). Each builder only exposes a subset; calling one a particular builder does **not** expose (e.g. `MapBuilder.hasComponent`, `ModelBuilder.getComponent`) raises `TypeError: ... is not a function`, not a qualification path.
+   - To confirm the canonical name of a native component, list the workspace's `Environment/NativeScripts/Component/*.d.mlua` — each filename (e.g. `MovementComponent.d.mlua`) is the bare name; prefix it with `MOD.Core.` to get the fully qualified `@type`.
 
 ---
 
@@ -120,6 +123,7 @@ slime.value("MovementComponent", "InputSpeed", 2.5, "float").write("RootDesk/MyD
   - [`msw-ui-system/references/ui-hierarchy.md`](../../msw-ui-system/references/ui-hierarchy.md) — UIGroup / displayOrder / Enable vs Visible
   - [`msw-ui-system/references/component-api.md`](../../msw-ui-system/references/component-api.md) — component selection + field/enum tables
   - [`msw-ui-system/references/layout-recipes.md`](../../msw-ui-system/references/layout-recipes.md) — HUD / popup / toast / grid recipes
+- **Name the `.ui` file the same as its UIGroup (root) name.** `new UIBuilder("ShopWindow")` sets the root entity path to `/ui/ShopWindow`, but `write(path)` writes to whatever path you pass and does **not** check that the file basename matches. Save it as `ui/ShopWindow.ui`, not `ui/Shop.ui`. A mismatch is silent at write time but surfaces after `refresh` as a renamed / duplicated `.ui` and a briefly stale Glob index (the file follows the UIGroup name, not your chosen filename).
 
 ---
 
@@ -749,7 +753,12 @@ b.write("ui/PopupGroup.ui", { lint_verbose: true });            // verbose warni
 b.write("ui/_scratch.ui", { lint: false });                     // skip lint
 ```
 
-Applied rule IDs (`L001`–`L017`, `L023`–`L024`) are implemented as `ruleLNNN` functions in `msw-ui-system/scripts/ui_lint.cjs`.
+Applied rule IDs (`L001`–`L017`, `L023`–`L031`) are implemented as `ruleLNNN` functions in `msw-ui-system/scripts/ui_lint.cjs`. Hierarchy-focused guards:
+
+- **`L025` (ERROR)** — an entity path implies an intermediate parent that does not exist in the file.
+- **`L029` (ERROR)** — `UIGroupComponent` exists below the root group.
+- **`L030` (WARN)** — a root-level text entity overlaps a sibling sprite/button box instead of being nested under it or merged onto it.
+- **`L031` (WARN)** — `ScrollLayoutGroupComponent` layout / scrollbar direction enum values are outside their valid ranges.
 
 ### §3.4 pos / anchor Rules — Builder Auto-Pivot
 
@@ -802,7 +811,9 @@ b.sprite("Window/Bg", { anchor: "stretch" });                 // child of Window
 b.button("Window/Card_SA", "A", { rect_size: [96, 132] });     // child of Window
 ```
 
-Names without `/` are root-level children of the UI group. Passing `{ parent: "Window" }` or `{ parent: "/" }` to `panel()` / `text()` / `sprite()` / `button()` / other creator methods now throws. Use `"Window/Child"` path notation for nested children, or `"Child"` for root-level children. All missing intermediate parents must be created explicitly before adding children. Use a flat structure only when it simplifies runtime lookup; nested structures are supported through slash-separated paths.
+Names without `/` are root-level children of the UI group. Passing `{ parent: "Window" }` or `{ parent: "/" }` to `empty()` / `panel()` / `text()` / `sprite()` / `button()` / other creator methods now throws. Use `"Window/Child"` path notation for nested children, or `"Child"` for root-level children. All missing intermediate parents must be created explicitly before adding children — adding a nested child whose parent entity does not yet exist now **throws** (and `ui_lint` rule `L025` flags any orphaned entity that reaches a file). An orphan cannot be mounted as a proper UI container on import, so create the parent `empty()` or `panel()` first.
+
+Build related controls as a tree, not root-level coordinate overlays. A window, row, slot, tab, chip, or card should be a parent entity with its visual parts below it so movement / fade / enable / binding work as one unit. `ui_lint` rule `L030` warns when a root-level text entity overlaps a sibling sprite/button box. Fix by nesting the text under the box (`"Chip/Label"`), using `button()` for clickable labeled boxes, or using `panel()` / `sprite()` `text` options when the label belongs directly on the box entity.
 
 Binding injection follows the same path notation. When a property points at `"Window/TitleText"`, pass that full path to `injectBindings`; a short leaf name such as `"TitleText"` is ambiguous and fails lookup.
 
@@ -855,8 +866,20 @@ if (btn?.Enable) { /* use */ }
 
 Tuple-shaped options (`pos`, `rect_size`, `cell_size`, `padding`, `spacing`, `softness`, ...) accept `[a, b]` / `[a, b, c, d]` (preferred) or `{ x, y, z, w }`. Both normalize to the same value.
 
+> **Default sprite skin (applies to every SpriteGUIRendererComponent the builder mints).** `panel` / `sprite` / `button` / `slider` / `textInput` / `joystick` all default their background sprite to `image_ruid = "2860136c06ab075439721c027de365af"` (`DEFAULT_SPRITE_RUID`), `sprite_type = 1` (Sliced 9-slice), and `color = RGBA(26, 26, 26, 60)` (dark translucent).
+>
+> **This dark gray is only a DEFAULT, never a constraint.** It fills in what the caller leaves unspecified — it does **not** mean every panel must be gray. Give any individual element its own color whenever the design calls for it: pass `color` (for `panel`/`sprite`) or `bg_color` (for `button`/`slider`/`textInput`) as a hex string (`"#cc3344"`) or `{ r, g, b, a }`, and adjust `alpha` / `sprite_type` / `image_ruid` the same way. `color` for `button`/`slider`/`textInput` is the **text** color (defaulting to `#FFFFFF` so labels stay readable on the dark fill). Transparent helpers (`text` / `mask` / `softMask` / `chat`) keep their own invisible sprite (`alpha = 0`) and are unaffected.
+>
+> ```javascript
+> b.panel("InfoBox");                              // default dark-gray translucent
+> b.panel("Danger", { color: "#cc3344" });          // red panel
+> b.panel("Hero",   { color: { r: 0.1, g: 0.3, b: 0.8, a: 0.9 } }); // custom blue, mostly opaque
+> b.panel("Solid",  { alpha: 1.0 });                // same gray, fully opaque
+> ```
+
 ```javascript
-b.panel(name, { anchor: "middle-center", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
+b.panel(name, { anchor: "middle-center", pos: [0, 0], rect_size: [1920, 1080], color: null, alpha: null, sprite_type: 1, fill_method: 0, raycast: false, image_ruid: null, enable: true, pivot: null });
+b.empty(name, { anchor: "middle-center", pos: [0, 0], rect_size: [100, 100], enable: true, pivot: null });
 b.text(name, text, {
   size: 24, color: null, bold: false,
   alignment: 4,      // 0=UpperLeft .. 4=MiddleCenter(default) .. 8=LowerRight
@@ -866,14 +889,14 @@ b.text(name, text, {
   anchor: "middle-center", pos: [0, 0], rect_size: null,
   enable: true, pivot: null,
 });
-b.sprite(name, { anchor, pos, rect_size, color, alpha: 1.0, fill_method: 0, sprite_type: 0, raycast: false, enable: true, image_ruid: null, pivot: null });
-b.button(name, text, { rect_size: null, pos, anchor, font_size: 24, color: "#000000", enable: true, image_ruid: null, pivot: null });
-b.slider(name, { min_val: 0, max_val: 1, value: 0, direction: 0, use_handle: true, use_integer: false, anchor, pos, rect_size: [200, 30], enable: true, image_ruid: null, pivot: null });
-b.scrollLayout(name, { layout_type: 0, spacing: 0, cell_size: [100, 100], use_scroll: true, padding: [0, 0, 0, 0], anchor, pos, rect_size: [400, 600], enable: true, pivot: null });
-b.textInput(name, { placeholder: "", char_limit: 0, content_type: 0, line_type: 0, font_size: 24, color: "#000000", anchor, pos, rect_size: [300, 50], enable: true, image_ruid: null, pivot: null });
+b.sprite(name, { anchor, pos, rect_size, color, alpha: null, fill_method: 0, sprite_type: 1, raycast: false, enable: true, image_ruid: null, pivot: null });
+b.button(name, text, { rect_size: null, pos, anchor, font_size: 24, color: "#FFFFFF", bg_color: null, sprite_type: 1, enable: true, image_ruid: null, pivot: null });
+b.slider(name, { min_val: 0, max_val: 1, value: 0, direction: 0, use_handle: true, use_integer: false, bg_color: null, sprite_type: 1, anchor, pos, rect_size: [200, 30], enable: true, image_ruid: null, pivot: null });
+b.scrollLayout(name, { layout_type: 1, spacing: 0, cell_size: [100, 100], use_scroll: true, padding: [0, 0, 0, 0], v_scroll_dir: 2, h_scroll_dir: 0, anchor, pos, rect_size: [400, 600], enable: true, pivot: null });
+b.textInput(name, { placeholder: "", char_limit: 0, content_type: 0, line_type: 0, font_size: 24, color: "#FFFFFF", bg_color: null, sprite_type: 1, anchor, pos, rect_size: [300, 50], enable: true, image_ruid: null, pivot: null });
 b.script(name, scriptName, { anchor: "stretch", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
 
-// Child UIGroup — popup / overlay subgroup
+// Root UIGroup only; nested group() throws. Use empty()/panel() for inner containers.
 b.group(name, { default_show: true, group_order: 0, group_type: 1, blocks_raycasts: true, group_alpha: 1.0, interactable: true, anchor: "stretch", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
 
 // Clipping mask
@@ -891,7 +914,7 @@ b.basicParticle(name, { particle_type: 0, color: null, local_scale: [1, 1], play
 b.spriteParticle(name, { particle_type: 0, sprite_ruid: "", apply_sprite_color: false, color: null, local_scale: [1, 1], play_speed: 1.0, particle_size: 1.0, particle_speed: 1.0, particle_count: 1.0, particle_lifetime: 1.0, loop: true, play_on_enable: true, prewarm: false, auto_random_seed: true, random_seed: 0, anchor, pos, rect_size: [100, 100], enable: true, pivot: null });
 
 // Virtual joystick (mobile controls)
-b.joystick(name, { dynamic_stick: true, axis: 1, up_arrow: 273, down_arrow: 274, left_arrow: 276, right_arrow: 275, anchor: "bottom-left", pos: [200, 200], rect_size: [300, 300], image_ruid: null, color: null, alpha: 1.0, enable: true, pivot: null });
+b.joystick(name, { dynamic_stick: true, axis: 1, up_arrow: 273, down_arrow: 274, left_arrow: 276, right_arrow: 275, anchor: "bottom-left", pos: [200, 200], rect_size: [300, 300], image_ruid: null, color: null, alpha: null, sprite_type: 1, enable: true, pivot: null });
 
 // Soft mask (UGUI SoftMask style)
 b.softMask(name, { invert_mask: false, invert_outsides: false, anchor: "middle-center", pos: [0, 0], rect_size: [200, 200], color: null, alpha: 0.0, image_ruid: null, enable: true, pivot: null });
@@ -906,42 +929,41 @@ b.polygon(name, { points: [[0, 0], [100, 0], [50, 100]], color: null, use_custom
 
 All creation methods return the builder for chaining. The UUID of the created / updated entity is exposed via `b.lastId()` — call it immediately after the creator if you need the id.
 
-Use `button()` as the default for any colored or imaged rectangle that needs centered text and click handling. It creates the clickable tile as one entity instead of requiring a separate `sprite()` + `text()` pair.
+Use `button()` as the default for any colored or imaged rectangle that needs centered text and click handling. It creates the clickable tile as one entity instead of requiring a separate `sprite()` + `text()` pair. For non-clickable labeled boxes, `panel()` and `sprite()` accept `text`, `text_size`, `text_color`, `text_bold`, `text_alignment`, and `text_outline*` options; these add `TextGUIRendererComponent` to the same entity. Use a separate child `text()` only when the label needs its own rect inside a larger parent.
 
 **Button color rule**:
 
-- `button(..., { color })` controls `TextComponent.FontColor` only — button **text** color, not background.
-- The background is the same entity's `SpriteGUIRendererComponent.Color` and `ImageRUID`.
-- Setting `button(..., { color: "#FFFFFF" })` without darkening or replacing the background sprite gives white text on the default white button — invisible.
-- For dark buttons, keep `color: "#FFFFFF"` and patch the sprite color. For light buttons, use dark text such as `color: "#111827"`.
+- `button(..., { color })` controls `TextGUIRendererComponent.FontColor` only — button **text** color, not background. It defaults to `#FFFFFF` (white) so labels stay readable on the default dark fill.
+- The background is the same entity's `SpriteGUIRendererComponent.Color` / `ImageRUID`, defaulting to the dark translucent skin (RGBA 26,26,26,60, Sliced). Retint it via the `bg_color` option (or `patchComponent`), not `color`.
+- For light buttons, set a light `bg_color` **and** a dark text `color` (e.g. `color: "#111827"`); otherwise white text on a light fill becomes invisible.
 
 ```javascript
-// Dark button with readable white text
+// Default dark button — white text on the dark translucent fill (no extra setup)
 b.button("BtnAttack", "Attack", {
-  anchor: "bottom-center", pos: [-220, 80], rect_size: [400, 120],
-  font_size: 30, color: "#FFFFFF",
+  anchor: "bottom-center", pos: [-220, 80], rect_size: [400, 120], font_size: 30,
 });
-b.patchComponent("BtnAttack", "MOD.Core.SpriteGUIRendererComponent", {
-  Color: { r: 0.12, g: 0.16, b: 0.22, a: 1.0 },
+
+// Opaque dark button — override the default 60/255 alpha
+b.button("BtnSolid", "Confirm", {
+  anchor: "bottom-center", pos: [0, 80], rect_size: [400, 120], font_size: 30,
+  bg_color: { r: 0.12, g: 0.16, b: 0.22, a: 1.0 },
 });
 
 // Light button with readable dark text
 b.button("BtnRun", "Run", {
-  anchor: "bottom-center", pos: [220, 80], rect_size: [400, 120],
-  font_size: 30, color: "#111827",
-});
-b.patchComponent("BtnRun", "MOD.Core.SpriteGUIRendererComponent", {
-  Color: { r: 0.90, g: 0.94, b: 1.0, a: 1.0 },
+  anchor: "bottom-center", pos: [220, 80], rect_size: [400, 120], font_size: 30,
+  color: "#111827", bg_color: { r: 0.90, g: 0.94, b: 1.0, a: 1.0 },
 });
 ```
 
 #### Signature gotchas
 
-**`sprite()` fill options are int-only.** `sprite_type` and `fill_method` accept integer codes; string enums (`"Filled"`, `"Horizontal"`) throw at the int32 cast. The full enum catalog is in `#### Enum catalog` below — `sprite_type` ∈ `Simple=0 / Sliced=1 / Tiled=2 / Filled=3`, `fill_method` ∈ `Horizontal=0 / Vertical=1 / Radial90=2 / Radial180=3 / Radial360=4`. `fill_origin` and `fill_amount` are **not** exposed as builder options — they start at engine defaults (`FillOrigin=0`, `FillAmount=1.0`). Runtime code that animates a fill writes `entity.FillAmount` directly each frame.
+**`sprite()` fill options are int-only.** `sprite_type` and `fill_method` accept integer codes; string enums (`"Filled"`, `"Horizontal"`) throw at the int32 cast. The full enum catalog is in `#### Enum catalog` below — `sprite_type` ∈ `Simple=0 / Sliced=1 / Tiled=2 / Filled=3` (builder default is **Sliced=1**), `fill_method` ∈ `Horizontal=0 / Vertical=1 / Radial90=2 / Radial180=3 / Radial360=4`. `fill_origin` and `fill_amount` are **not** exposed as builder options — they start at engine defaults (`FillOrigin=0`, `FillAmount=1.0`). Runtime code that animates a fill writes `entity.FillAmount` directly each frame.
 
 ```javascript
-b.sprite("HPBar/Fill", { color: "2ecc71", sprite_type: 3, fill_method: 0 });   // ✅ int
-b.sprite("HPBar/Fill", { image_type: "Filled", fill_method: "Horizontal" });   // ❌ throws "FillMethod must be int32. Got 'Horizontal'"
+b.sprite("Cooldown/Fill", { color: "2ecc71", sprite_type: 3, fill_method: 0 });   // ✅ int
+b.sprite("Cooldown/Fill", { image_type: "Filled", fill_method: "Horizontal" });   // ❌ throws "FillMethod must be int32. Got 'Horizontal'"
+b.sprite("HPBar/Fill", { image_ruid: "f0911af597259044aa624a11332c0595", sprite_type: 1, pivot: [0, 0.5] }); // ✅ linear HP: resize width at runtime
 ```
 
 **`script(name, scriptName, options)` is 3-arg and `scriptName` must be fully qualified.** Same shape as `text(name, text, opts)` / `button(name, text, opts)` — the second positional argument is the **content string** (the script component type, e.g. `"script.WoWPlayerHUDController"`), not the options object. Packing the script name into options (`b.script(name, { scripts: ["script.X"] })`) now throws at the builder call site. Options-only patterns are reserved for content-free entities (`panel` / `sprite` / `mask` / etc.).
@@ -969,7 +991,7 @@ b.script("Controller", { scripts: ["script.WoWPlayerHUDController"] });         
 
 #### Notes on group / mask / gridView
 
-- **`group(default_show=False)` pitfall is the same as root** — if the group is saved hidden, child scripts' `OnBeginPlay` / `OnUpdate` are not called. Keep `default_show=True` for groups containing controller scripts and toggle child `Visible` / `Enable` instead.
+- **`group()` is root-only** — nested `group()` calls throw. For inner cards, gauges, tabs, sub-popups, and other local containers, create `empty()` or `panel()` and toggle that entity's `Enable`; use `CanvasGroup` when you need alpha/interactable control.
 - **`mask` requires `SpriteGUIRenderer`** — the builder attaches it automatically, but leaving `image_ruid` empty renders a placeholder (SpawnLocation pin shape). To hide the visual mask shape, keep the default `alpha=0`; to make it visible, specify `alpha` / `color` / `image_ruid`.
 - **`gridView`'s `ItemEntity` is a runtime prefab** — the builder only fills static fields like `TotalCount` / `CellSize`. The actual cell template must be injected in the script's `OnBeginPlay` via `self.Entity.GridViewComponent.ItemEntity = ...` followed by a `Refresh()` call. This is the only component that cannot be completed by the builder alone.
 
@@ -1038,11 +1060,11 @@ For `.mlua` scripts to reference entities created by the builder, the property d
 
 ```lua
 property Entity popupGroup    = "<entity UUID>"   -- Entity / EntityRef
-property TextComponent message = "<entity UUID>"  -- same for components
+property TextGUIRendererComponent message = "<entity UUID>"  -- same for components
 property ButtonComponent btnOk = "<entity UUID>"
 ```
 
-The engine reads the property declaration type (`TextComponent`, etc.) and wraps it at runtime as `MODComponentRef("{uuid}:{TypeName}")` → resolves the component via `entity.GetComponent(typeId)`. Therefore the builder only needs to pass **one kind: `getId(path)`**. (Earlier guides describing a separate "extract component UUID" procedure were based on an incorrect assumption.)
+The engine reads the property declaration type (`TextGUIRendererComponent`, etc.) and wraps it at runtime as `MODComponentRef("{uuid}:{TypeName}")` → resolves the component via `entity.GetComponent(typeId)`. Therefore the builder only needs to pass **one kind: `getId(path)`**. (Earlier guides describing a separate "extract component UUID" procedure were based on an incorrect assumption.)
 
 **`write(path, { bind: ... })` — write + injection in one call**:
 
@@ -1081,7 +1103,7 @@ b.injectBindings("RootDesk/MyDesk/UIPopup.mlua", {
 
 Verify that the `.mlua` actually exists and the target property is declared before calling. `.codeblock` is not touched — Maker Refresh regenerates it.
 
-**Failure ordering** — `b.write({ bind })` runs `validate()` and pre-bakes the `.mlua` patch in memory **before** writing `.ui`. If anything before the `.ui` write throws (validation error, missing entity, undeclared property, duplicate property), neither file is touched. If strict `ui_lint` fails after `.ui` is on disk, the `.ui` is removed (rolled back) and `.mlua` is left untouched. `.mlua` is written last, only after `.ui` + lint pass. Property replacement is line-anchored and skips Lua line comments (`--`) and block comments (`--[[ ... ]]`), so a commented-out `property string Foo = "..."` is never overwritten.
+**Failure ordering** — `b.write({ bind })` runs `validate()` and pre-bakes the `.mlua` patch in memory **before** writing `.ui`. If anything before the `.ui` write throws (validation error, missing entity, undeclared property, duplicate property), neither file is touched. If strict `ui_lint` fails after `.ui` is on disk, the invalid `.ui` remains on disk for inspection/recovery, and `.mlua` is left untouched. `.mlua` is written last, only after `.ui` + lint pass. Property replacement is line-anchored and skips Lua line comments (`--`) and block comments (`--[[ ... ]]`), so a commented-out `property string Foo = "..."` is never overwritten.
 
 **`b.validate()`** — call directly to inspect findings (`{ severity, rule, message }[]`) without writing. `write()` calls it internally and throws on any `severity: "error"`. Rules: `U001` invalid number (NaN / Infinity), `U002` int32 component field, `U003` finite-number component field, `U004` boolean component field, `U005` Vector2-shape component field (e.g. `GridViewComponent.Spacing` — must be `{ x, y }` with finite numbers).
 
@@ -1097,8 +1119,8 @@ Keep the last path segment in camelCase + role suffix (`Btn` / `Text` / `Panel`)
 
 ### §3.7 Scope (what UIBuilder covers)
 
-- Adding panel / text / sprite / button / slider / scrollLayout / textInput / script
-- Child UIGroup (`group`) — subgroup show / hide control
+- Adding empty / panel / text / sprite / button / slider / scrollLayout / textInput / script
+- Root UIGroup (`group`) only; inner grouping uses `empty()` / `panel()`
 - mask / gridView / avatar — clipping, virtualized lists, avatar rendering
 - touchReceive — invisible drag / multi-touch receiver
 - skeleton — Spine 4.1 skeleton UI renderer
@@ -1111,17 +1133,19 @@ Keep the last path segment in camelCase + role suffix (`Btn` / `Text` / `Panel`)
 
 ### §3.8 `patchComponent` workaround for fields beyond the signature
 
-Component fields not covered by the signature parameters of `text()` / `sprite()` / `button()` (e.g. `Font`, `LineSpacing`, `DropShadow`, `Padding`, `FillAmount`, `FillOrigin`, `OrderInLayer`) must be set explicitly via `patchComponent(path, comp_type, updates)`.
+Component fields not covered by the signature parameters of `text()` / `sprite()` / `button()` (e.g. `Font`, `FontStyle`, `Underlay`, `Padding`, `FillAmount`, `FillOrigin`, `OrderInLayer`) must be set explicitly via `patchComponent(path, comp_type, updates)`. `text()` / `button()` emit `TextGUIRendererComponent`, whose `Font` is a **string** (`"Default"` / `"Maple"` / `"Bazzi"` / `"Football"`) and whose drop shadow is the `Underlay` family — patch those, not the legacy `TextComponent` field names.
+
+When patching `TextGUIRendererComponent` alignment fields directly, use the component enums, not the `text(..., { alignment })` 0-8 helper index: `HorizontalAlignment` uses `Left=1 / Center=2 / Right=4 / Justified=8`, and `VerticalAlignment` uses `Top=256 / Middle=512 / Bottom=1024`.
 
 ```javascript
-b.patchComponent("Panel/Title", "MOD.Core.TextComponent",
-                  { Font: 1, LineSpacing: 1.2 });
+b.patchComponent("Panel/Title", "MOD.Core.TextGUIRendererComponent",
+                  { Font: "Maple", FontStyle: 1 });
 
-b.patchComponent("Panel/Title", "MOD.Core.TextComponent",
-                  { DropShadow: true,
-                    DropShadowColor: { r: 0, g: 0, b: 0, a: 0.6 } });
+b.patchComponent("Panel/Title", "MOD.Core.TextGUIRendererComponent",
+                  { Underlay: true,
+                    UnderlayColor: { r: 0, g: 0, b: 0, a: 0.6 } });
 
-b.patchComponent("HPBar/Fill", "MOD.Core.SpriteGUIRendererComponent",
+b.patchComponent("Cooldown/Fill", "MOD.Core.SpriteGUIRendererComponent",
                   { Type: 3, FillMethod: 0, FillOrigin: 0,
                     FillAmount: 1.0 });
 ```
@@ -1163,6 +1187,10 @@ ui.text("title", "Level Up", { ... });
 Use `default_show=False` only when the group contains **no** controller script and the flow toggles the group's `Enable` externally.
 
 **Diagnosis** — when a popup doesn't appear: check root `UIGroupComponent.DefaultShow` → verify whether the controller's `OnBeginPlay` log fires → if not, the group being hidden is the cause. Recreate with `default_show=True` and migrate to the child `Enable` toggle pattern.
+
+**`scrollLayout()` direction caveat — vertical lists need vertical scroll-bar enum values**
+
+`layout_type`: `0=Horizontal`, `1=Vertical`, `2=Grid`. `v_scroll_dir` must use `2=BottomToTop` or `3=TopToBottom`; `0` and `1` are horizontal-scrollbar values. The builder defaults to `layout_type:1` and `v_scroll_dir:2`; when patching existing `.ui` files manually, keep both fields consistent.
 
 ### §3.10 UIBuilder coverage gaps (out of scope)
 

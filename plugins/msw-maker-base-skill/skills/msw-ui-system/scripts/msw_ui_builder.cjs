@@ -4,20 +4,131 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const DEFAULT_SPRITE_RUID = "4fea64a3307cda641809ad8be0d4890b";
+// SpriteGUIRendererComponent defaults applied to EVERY UI entity the builder
+// mints with a sprite renderer (panel / sprite / button / slider / textInput /
+// joystick, ...). A 9-slice RUID, Sliced image type, and a dark translucent fill
+// (RGBA 26,26,26,60).
+//
+// These are DEFAULTS, not constraints: they only fill in what the caller leaves
+// unspecified. Pass `color` (panel/sprite) or `bg_color` (button/slider/textInput)
+// — as a hex string or { r, g, b, a } — plus `alpha` / `sprite_type` / `image_ruid`
+// to tint or restyle any individual element. Do not assume every panel must be gray.
+const DEFAULT_SPRITE_RUID = "2860136c06ab075439721c027de365af";
+const DEFAULT_SPRITE_TYPE = 1; // ImageType.Sliced
+const DEFAULT_SPRITE_COLOR = { r: 26 / 255, g: 26 / 255, b: 26 / 255, a: 60 / 255 };
 
+// PreserveSprite (PreserveSpriteType) — how a sprite keeps its source proportions:
+//   0 None (stretch to RectSize) / 1 AspectOnly (fit inside RectSize, keep ratio) /
+//   2 NativeSize (draw at native pixel size). This enum is the only proportion control
+//   the renderer honors. The legacy `preserve_aspect: true` option maps to AspectOnly(1).
+const PRESERVE_SPRITE = { none: 0, aspectonly: 1, aspect: 1, nativesize: 2, native: 2 };
+function resolvePreserveSprite(extra = {}) {
+  const v = extra.preserve_sprite;
+  if (v != null) {
+    if (typeof v === "number") return v;
+    const k = String(v).toLowerCase();
+    if (k in PRESERVE_SPRITE) return PRESERVE_SPRITE[k];
+    throw new Error(`unknown preserve_sprite: '${v}' (use 0|1|2 or none|aspectOnly|nativeSize)`);
+  }
+  return extra.preserve_aspect ? 1 : 0;
+}
+
+// >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
+// Native MSW component class names (CoreVersion 26.5.0.0). A bare name in this
+// set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
+// "script.<name>" custom component, with a one-time advisory on stderr.
+const NATIVE_COMPONENTS = new Set([
+  "AIChaseComponent", "AIComponent", "AIWanderComponent", "AnimationSequenceControllerComponent",
+  "AreaParticleComponent", "AttackComponent", "AvatarBodyActionSelectorComponent", "AvatarFaceActionSelectorComponent",
+  "AvatarGUIRendererComponent", "AvatarRendererComponent", "AvatarStateAnimationComponent", "BackgroundComponent",
+  "BasicParticleComponent", "ButtonComponent", "CameraComponent", "CanvasGroupComponent",
+  "ChatBalloonComponent", "ChatComponent", "ClimbableComponent", "ClimbableSpriteRendererComponent",
+  "Component", "CostumeManagerComponent", "CustomFootholdComponent", "DamageSkinComponent",
+  "DamageSkinSettingComponent", "DamageSkinSpawnerComponent", "DirectionSynchronizerComponent", "DistanceJointComponent",
+  "FootholdComponent", "GridViewComponent", "HitComponent", "HitEffectSpawnerComponent",
+  "InteractionComponent", "InventoryComponent", "JoystickComponent", "KinematicbodyComponent",
+  "LightComponent", "LineGUIRendererComponent", "LineRendererComponent", "MapComponent",
+  "MapLayerComponent", "MaskComponent", "MissingComponent", "MovementComponent",
+  "NameTagComponent", "OverlayLightComponent", "PhysicsColliderComponent", "PhysicsRigidbodyComponent",
+  "PhysicsSimulatorComponent", "PixelGUIRendererComponent", "PixelRendererComponent", "PlayerComponent",
+  "PlayerControllerComponent", "PolygonGUIRendererComponent", "PolygonRendererComponent", "PortalComponent",
+  "PrismaticJointComponent", "PulleyJointComponent", "RawImageGUIRendererComponent", "RawImageRendererComponent",
+  "RectTileMapComponent", "RevoluteJointComponent", "RigidbodyComponent", "ScrollLayoutGroupComponent",
+  "SideviewbodyComponent", "SkeletonGUIRendererComponent", "SkeletonRendererComponent", "SliderComponent",
+  "SoundComponent", "SpawnLocationComponent", "SpriteGUIRendererComponent", "SpriteParticleComponent",
+  "SpriteRendererComponent", "StateAnimationComponent", "StateComponent", "StateStringToAvatarActionComponent",
+  "StateStringToMonsterActionComponent", "TagComponent", "TextComponent", "TextGUIRendererComponent",
+  "TextGUIRendererInputComponent", "TextInputComponent", "TextRendererComponent", "TileMapComponent",
+  "TouchReceiveComponent", "TransformComponent", "TriggerComponent", "TweenCircularComponent",
+  "TweenFloatingComponent", "TweenLineComponent", "UIAreaParticleComponent", "UIBasicParticleComponent",
+  "UIGroupComponent", "UISpriteParticleComponent", "UITouchReceiveComponent", "UITransformComponent",
+  "WebSpriteComponent", "WebViewComponent", "WeldJointComponent", "WheelJointComponent",
+  "WorldComponent", "YoutubePlayerCommonComponent", "YoutubePlayerGUIComponent", "YoutubePlayerWorldComponent"
+]);
+const _resolveWarned = new Set();
+function _editDistance(a, b) {
+  const m = a.length, n = b.length;
+  if (Math.abs(m - n) > 2) return 3;
+  const prev = new Array(n + 1);
+  for (let j = 0; j <= n; j++) prev[j] = j;
+  for (let i = 1; i <= m; i++) {
+    let diag = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = prev[j];
+      prev[j] = Math.min(
+        prev[j] + 1,
+        prev[j - 1] + 1,
+        diag + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+      diag = tmp;
+    }
+  }
+  return prev[n];
+}
+function _nearestNative(name) {
+  const limit = name.length <= 6 ? 1 : 2;
+  let best = null, bestD = limit + 1;
+  for (const n of NATIVE_COMPONENTS) {
+    const d = _editDistance(name, n);
+    if (d < bestD) { bestD = d; best = n; }
+  }
+  return bestD <= limit ? best : null;
+}
 function normalizeComponentName(name) {
   if (name == null) throw new TypeError("Component name must not be null");
   const value = String(name);
   if (value.startsWith("MOD.") || value.startsWith("script.")) return value;
-  throw new Error(
-    `Component type must be fully qualified with "MOD.Core." or "script." prefix, got: "${value}". ` +
-      `Native components use "MOD.Core.XxxComponent" (e.g. "MOD.Core.UITransformComponent"); ` +
-      `mlua script components use "script.XxxComponent" (e.g. "script.MyPopup"). ` +
-      `Engine .ui deserialization keys components by exact @type; a short name silently fails to attach (Maker logs only a warning and the inspector shows no component). ` +
-      `See msw-general/references/builder-protocol.md → "Rules common to all three builders" rule 8.`
-  );
+  if (NATIVE_COMPONENTS.has(value)) {
+    const out = "MOD.Core." + value;
+    if (!_resolveWarned.has(value)) {
+      _resolveWarned.add(value);
+      console.warn(`[builder:ui] component "${value}" -> ${out} (native; auto-qualified). Pass "${out}" to silence this.`);
+    }
+    return out;
+  }
+  const near = _nearestNative(value);
+  const out = "script." + value;
+  if (!_resolveWarned.has(value)) {
+    _resolveWarned.add(value);
+    if (near) {
+      console.warn(`[builder:ui] component "${value}" is not a native component -> treated as ${out}. Looks like a typo of native "MOD.Core.${near}": if you meant the native, pass "MOD.Core.${near}"; if it is your own script component, pass "${out}".`);
+    } else {
+      console.warn(`[builder:ui] component "${value}" -> ${out} (assumed custom script component). Next time pass "${out}" if it is yours, or "MOD.Core.${value}" if it is native.`);
+    }
+  }
+  return out;
 }
+// <<< END AUTO-GENERATED
+
+// A UI entity renders text through exactly one text component. TextComponent is the
+// legacy renderer; TextGUIRendererComponent is the current one. Adding either must drop
+// the other, otherwise an entity migrated from a legacy .ui carries both — two text
+// layers that double-render and fight over the same glyphs.
+const MUTUALLY_EXCLUSIVE_COMPONENTS = new Map([
+  ["MOD.Core.TextComponent", ["MOD.Core.TextGUIRendererComponent"]],
+  ["MOD.Core.TextGUIRendererComponent", ["MOD.Core.TextComponent"]],
+]);
 
 const ANCHOR_DEFAULT_PIVOT = {
   "middle-center": [0.5, 0.5],
@@ -74,6 +185,8 @@ const KNOWN_COMPONENTS = new Set([
   "MOD.Core.UITransformComponent",
   "MOD.Core.SpriteGUIRendererComponent",
   "MOD.Core.TextComponent",
+  "MOD.Core.TextGUIRendererComponent",
+  "MOD.Core.TextGUIRendererInputComponent",
   "MOD.Core.ButtonComponent",
   "MOD.Core.UIGroupComponent",
   "MOD.Core.CanvasGroupComponent",
@@ -98,9 +211,10 @@ const KNOWN_COMPONENTS = new Set([
 const INT32_COMPONENT_FIELDS = new Set([
   "ActivePlatform", "Alignment", "AlignmentOption", "AnimClipPlayType", "Axis", "ChildAlignment",
   "Constraint", "ConstraintCount", "ContentType", "Direction", "DownArrow", "EndFrameIndex",
-  "FillMethod", "FillOrigin", "FixedCount", "FixedType", "Font", "FontSize", "FrameColumn",
-  "FrameRate", "FrameRow", "GridChildAlignment", "GroupOrder", "GroupType",
+  "FillMethod", "FillOrigin", "FixedCount", "FixedType", "Font", "FontSize", "FontStyle", "FrameColumn",
+  "FrameRate", "FrameRow", "GridChildAlignment", "GroupOrder", "GroupType", "HorizontalAlignment",
   "HorizontalScrollBarDirection", "KeyCode", "LeftArrow", "LineType", "MaxSize", "MinSize",
+  "VerticalAlignment",
   "OrderInLayer", "Overflow", "ParticleType", "PreserveAvatar", "PreserveMode",
   "PreserveSprite", "PreserveSpriteType", "PreserveType", "RandomSeed", "RightArrow", "ScrollBarVisible",
   "Shape", "StartAxis", "StartCorner", "StartFrameIndex", "TotalCount", "Transition", "Type",
@@ -120,13 +234,17 @@ const BOOLEAN_COMPONENT_FIELDS = new Set([
   "Expand", "FillCenter", "FillClockWise", "FlipX", "FlipY", "HideWorldChatButton",
   "IgnoreMapLayerCheck", "Interactable", "InvertMask", "InvertOutsides", "IsEmitting",
   "IsFlexible", "IsLocalizationKey", "IsSmooth", "Loop", "MessageAlignBottom", "OverrideSorting",
-  "PlayOnEnable", "PreserveAspect", "Prewarm", "RaycastTarget", "ReverseArrangement",
+  "PlayOnEnable", "Prewarm", "RaycastTarget", "ReverseArrangement",
   "SizeFit", "UseChatBalloon", "UseChatEmotion", "UseConstraintX", "UseConstraintY",
   "UseCustomUVs", "UseHandle", "UseIntegerValue", "UseOutLine", "UseScroll",
 ]);
 
 const COMPONENT_FIELD_TYPE_OVERRIDES = new Map([
   ["MOD.Core.GridViewComponent.Spacing", "Vector2"],
+  ["MOD.Core.TextGUIRendererComponent.Font", "String"],
+  ["MOD.Core.TextGUIRendererComponent.FontSize", "Single"],
+  ["MOD.Core.TextGUIRendererComponent.MinSize", "Single"],
+  ["MOD.Core.TextGUIRendererComponent.MaxSize", "Single"],
 ]);
 
 function isFiniteNumber(v) {
@@ -154,6 +272,12 @@ function hexToRgba(hexColor, alpha = 1.0) {
 function colorDict(color, alpha = 1.0) {
   if (color == null) return { r: 1.0, g: 1.0, b: 1.0, a: alpha };
   if (typeof color === "string") return hexToRgba(color, alpha);
+  if (Array.isArray(color)) {
+    if ((color.length === 3 || color.length === 4) && color.every(isFiniteNumber)) {
+      return { r: color[0], g: color[1], b: color[2], a: color.length === 4 ? color[3] : alpha };
+    }
+    throw new Error(`Invalid color array: ${JSON.stringify(color)} (use [r,g,b] or [r,g,b,a] with 0..1 floats, a hex string, or {r,g,b,a})`);
+  }
   return color;
 }
 
@@ -237,6 +361,18 @@ function collectComponentScalarTypeIssues(data, findings) {
         if (overrideType === "Vector2") {
           if (!isVector2Shape(value)) {
             findings.push({ severity: "error", rule: "U005", message: `${label} must be Vector2 {x, y} with finite numbers. Got ${JSON.stringify(value)}` });
+          }
+          continue;
+        }
+        if (overrideType === "String") {
+          if (typeof value !== "string") {
+            findings.push({ severity: "error", rule: "U006", message: `${label} must be a string. Got ${JSON.stringify(value)}` });
+          }
+          continue;
+        }
+        if (overrideType === "Single") {
+          if (typeof value !== "number" || !Number.isFinite(value)) {
+            findings.push({ severity: "error", rule: "U003", message: `${label} must be a finite number. Got ${JSON.stringify(value)}` });
           }
           continue;
         }
@@ -419,6 +555,13 @@ class UIBuilder {
       .join(",");
   }
 
+  _normalizeTextGuiRendererModelIdentity(entity) {
+    const js = this._entityJson(entity);
+    if (!this._findComponent(entity, "MOD.Core.TextGUIRendererComponent")) return;
+    if (js.modelId === "uitext") js.modelId = "uitextguirenderer";
+    if (js.origin?.entry_id === "UIText" || js.origin?.entry_id === "uitext") js.origin.entry_id = "UITextGUIRenderer";
+  }
+
   _uiTransform(anchor = "middle-center", pos = [0, 0], rectSize = [100, 100], pivot = null) {
     const preset = ANCHOR_PRESETS[anchor] || ANCHOR_PRESETS["middle-center"];
     const px = Number(pos[0]);
@@ -513,13 +656,22 @@ class UIBuilder {
     return rebuilt;
   }
 
-  static _spriteRenderer(color = null, alpha = 1.0, raycast = false, fillMethod = 0, spriteType = 0, imageRuid = "", extra = {}) {
+  static _spriteRenderer(color = null, alpha = null, raycast = false, fillMethod = 0, spriteType = null, imageRuid = null, extra = {}) {
     const sort = sortFields(extra);
+    const resolvedType = spriteType != null ? spriteType : DEFAULT_SPRITE_TYPE;
+    const resolvedRuid = imageRuid != null ? imageRuid : DEFAULT_SPRITE_RUID;
+    let resolvedColor;
+    if (color != null) {
+      resolvedColor = colorDict(color, alpha != null ? alpha : 1.0);
+    } else {
+      resolvedColor = { ...DEFAULT_SPRITE_COLOR };
+      if (alpha != null) resolvedColor.a = alpha;
+    }
     return {
       "@type": "MOD.Core.SpriteGUIRendererComponent",
       AnimClipPlayType: 0,
       EndFrameIndex: 2147483647,
-      ImageRUID: { DataId: imageRuid },
+      ImageRUID: { DataId: resolvedRuid },
       IgnoreMapLayerCheck: sort.IgnoreMapLayerCheck,
       LocalPosition: { x: 0.0, y: 0.0 },
       LocalScale: { x: 1.0, y: 1.0 },
@@ -527,11 +679,10 @@ class UIBuilder {
       OrderInLayer: sort.OrderInLayer,
       OverrideSorting: sort.OverrideSorting,
       PlayRate: 1.0,
-      PreserveAspect: Boolean(extra.preserve_aspect ?? false),
-      PreserveSprite: 0,
+      PreserveSprite: resolvePreserveSprite(extra),
       SortingLayer: sort.SortingLayer,
       StartFrameIndex: 0,
-      Color: colorDict(color, alpha),
+      Color: resolvedColor,
       DropShadow: false,
       DropShadowAngle: 120.0,
       DropShadowColor: { r: 0.0, g: 0.0, b: 0.0, a: 0.72 },
@@ -550,7 +701,7 @@ class UIBuilder {
       OutlineColor: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
       OutlineWidth: 3.0,
       RaycastTarget: raycast,
-      Type: spriteType,
+      Type: resolvedType,
       Enable: true,
     };
   }
@@ -559,48 +710,73 @@ class UIBuilder {
     return UIBuilder._spriteRenderer(...args);
   }
 
-  static _textComponent(text = "", fontSize = 24, color = null, bold = false, alignment = 4, options = {}) {
+  // `alignment`: 9-cell value 0-8 (default 4 = MiddleCenter), split into the H/V axes below.
+  static _textGuiRenderer(text = "", fontSize = 24, color = null, bold = false, alignment = 4, options = {}) {
     const maxSize = options.max_size != null ? options.max_size : Math.max(fontSize + 12, 40);
-    const outlineWidth = options.outline_width != null ? options.outline_width : 1.0;
     const sort = sortFields(options);
+    const a = Number.parseInt(alignment, 10) || 0;
+    const HORIZONTAL = [1, 2, 4]; // Left, Center, Right
+    const VERTICAL = [256, 512, 1024]; // Top, Middle, Bottom
+    const horizontal = HORIZONTAL[((a % 3) + 3) % 3];
+    const vertical = VERTICAL[Math.min(Math.max(Math.floor(a / 3), 0), 2)];
+    const outlineOn = Boolean(options.outline);
     return {
-      "@type": "MOD.Core.TextComponent",
-      Alignment: alignment,
-      AllowAutomaticTranslation: Boolean(options.allow_auto_translation ?? true),
+      "@type": "MOD.Core.TextGUIRendererComponent",
       BestFit: Boolean(options.bestfit),
-      Bold: bold,
       ConstraintX: Number(options.constraint_x ?? 100.0),
       ConstraintY: Number(options.constraint_y ?? 100.0),
-      DropShadow: false,
-      DropShadowAngle: 120.0,
-      DropShadowColor: { r: 0.0, g: 0.0, b: 0.0, a: 0.72 },
-      DropShadowDistance: 3.0,
-      Font: 0,
+      Font: "Default",
       FontColor: colorDict(color),
-      FontSize: fontSize,
+      FontSize: Number(fontSize),
+      FontStyle: bold ? 1 : 0, // FontStyleType: Normal 0, Bold 1 (bit flags)
+      HorizontalAlignment: horizontal,
       IgnoreMapLayerCheck: sort.IgnoreMapLayerCheck,
-      IsLocalizationKey: Boolean(options.is_localization_key ?? false),
       MaxSize: maxSize,
       MinSize: options.min_size != null ? options.min_size : 10,
       OrderInLayer: sort.OrderInLayer,
-      OutlineColor: options.outline_color != null ? colorDict(options.outline_color) : { r: 0.698039234, g: 0.698039234, b: 0.698039234, a: 1.0 },
-      OutlineDistance: { x: Number(outlineWidth), y: -Number(outlineWidth) },
-      OutlineWidth: Number(outlineWidth),
-      Overflow: options.overflow != null ? options.overflow : 0,
+      OutlineColor: options.outline_color != null ? colorDict(options.outline_color) : { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
+      OutlineWidth: outlineOn ? Number(options.outline_width ?? 0.2) : 0.0,
+      Overflow: options.overflow != null ? options.overflow : 0, // TextOverflowMode: Overflow 0, Ellipsis 1, Truncate 2, Page 3
       OverrideSorting: sort.OverrideSorting,
       Padding: { left: 0, right: 0, top: 0, bottom: 0 },
       SizeFit: false,
       SortingLayer: sort.SortingLayer,
       Text: text,
+      Underlay: false,
       UseConstraintX: Boolean(options.use_constraint_x ?? false),
       UseConstraintY: Boolean(options.use_constraint_y ?? false),
-      UseOutLine: Boolean(options.outline),
+      VerticalAlignment: vertical,
       Enable: true,
     };
   }
 
-  _textComponent(...args) {
-    return UIBuilder._textComponent(...args);
+  _textGuiRenderer(...args) {
+    return UIBuilder._textGuiRenderer(...args);
+  }
+
+  _textFromOptions(options = {}) {
+    if (!Object.prototype.hasOwnProperty.call(options, "text")) return null;
+    return this._textGuiRenderer(
+      String(options.text ?? ""),
+      options.text_size ?? options.font_size ?? 24,
+      options.text_color ?? "#FFFFFF",
+      options.text_bold ?? false,
+      options.text_alignment ?? 4,
+      {
+        overflow: options.text_overflow ?? options.overflow ?? 0,
+        bestfit: options.text_bestfit ?? options.bestfit ?? false,
+        min_size: options.text_min_size ?? options.min_size ?? 10,
+        max_size: options.text_max_size ?? options.max_size ?? null,
+        outline: options.text_outline ?? options.outline ?? false,
+        outline_color: options.text_outline_color ?? options.outline_color ?? null,
+        outline_width: options.text_outline_width ?? options.outline_width ?? null,
+        use_constraint_x: options.text_use_constraint_x ?? options.use_constraint_x ?? false,
+        constraint_x: options.text_constraint_x ?? options.constraint_x ?? 100.0,
+        use_constraint_y: options.text_use_constraint_y ?? options.use_constraint_y ?? false,
+        constraint_y: options.text_constraint_y ?? options.constraint_y ?? 100.0,
+        ..._resolveSortOptions(options),
+      },
+    );
   }
 
   static _buttonComponent(extra = {}) {
@@ -668,7 +844,7 @@ class UIBuilder {
     return UIBuilder._sliderComponent(...args);
   }
 
-  static _scrollLayoutComponent(layoutType = 0, spacing = 0, cellSize = [100, 100], useScroll = true, padding = [0, 0, 0, 0], extra = {}) {
+  static _scrollLayoutComponent(layoutType = 1, spacing = 0, cellSize = [100, 100], useScroll = true, padding = [0, 0, 0, 0], extra = {}) {
     const gridSpacing = tuple(extra.grid_spacing, [0, 0]);
     const sort = sortFields(extra);
     return {
@@ -697,7 +873,7 @@ class UIBuilder {
       StartCorner: Number(extra.start_corner ?? 0),
       Type: layoutType,
       UseScroll: useScroll,
-      VerticalScrollBarDirection: Number(extra.v_scroll_dir ?? 0),
+      VerticalScrollBarDirection: Number(extra.v_scroll_dir ?? 2),
       Enable: true,
     };
   }
@@ -709,7 +885,7 @@ class UIBuilder {
   static _textInputComponent(placeholder = "", charLimit = 0, contentType = 0, lineType = 0, extra = {}) {
     const sort = sortFields(extra);
     return {
-      "@type": "MOD.Core.TextInputComponent",
+      "@type": "MOD.Core.TextGUIRendererInputComponent",
       AllowAutomaticTranslation: Boolean(extra.allow_auto_translation ?? true),
       AutoClear: Boolean(extra.auto_clear ?? false),
       CharacterLimit: charLimit,
@@ -1093,11 +1269,27 @@ class UIBuilder {
         );
       }
     } else {
+      if (parentPath !== this.root_path && !this.entities.some((entity) => this._entityJson(entity).path === parentPath)) {
+        const parentRel = parentPath.slice(this.root_path.length).replace(/^\/+/, "");
+        throw new Error(
+          `Cannot add '${fullPath}': parent entity '${parentPath}' does not exist. ` +
+          `Create the parent container first (e.g. empty("${parentRel}") or panel("${parentRel}")) before adding nested children. ` +
+          `A nested child whose parent is missing becomes an orphan that the engine cannot mount correctly.`,
+        );
+      }
       eid = crypto.randomUUID();
       displayOrder = this._nextDisplayOrder(parentPath);
       action = "Added";
     }
     const derivedNames = (finalComponents || []).map((component) => component["@type"]).filter(Boolean).join(",") || compNames;
+    const origin = existingJs && existingJs.origin ? clone(existingJs.origin) : {
+      type: "Model",
+      entry_id: entryId,
+      sub_entity_id: null,
+      root_entity_id: null,
+      replaced_model_id: null,
+    };
+    origin.entry_id = entryId;
     const entity = {
       id: eid,
       path: fullPath,
@@ -1112,13 +1304,7 @@ class UIBuilder {
         displayOrder,
         pathConstraints: this._pathConstraints(fullPath),
         revision: existingJs ? (existingJs.revision ?? 0) : 0,
-        origin: existingJs && existingJs.origin ? clone(existingJs.origin) : {
-          type: "Model",
-          entry_id: entryId,
-          sub_entity_id: null,
-          root_entity_id: null,
-          replaced_model_id: null,
-        },
+        origin,
         modelId,
         "@components": finalComponents,
         "@version": 1,
@@ -1184,17 +1370,27 @@ class UIBuilder {
     const js = this._entityJson(entity);
     const component = compData == null ? { "@type": compType, Enable: true } : clone(compData);
     if (!component["@type"]) component["@type"] = compType;
+    const conflicts = MUTUALLY_EXCLUSIVE_COMPONENTS.get(component["@type"]);
+    if (conflicts) {
+      const before = (js["@components"] || []).length;
+      js["@components"] = (js["@components"] || []).filter((c) => !conflicts.includes(c["@type"]));
+      if (js["@components"].length !== before) {
+        console.log(`  Dropped ${conflicts.join("/")} on ${js.name} (mutually exclusive with ${component["@type"]})`);
+      }
+    }
     const current = this._findComponent(entity, compType);
     if (current != null) {
       Object.keys(current).forEach((key) => delete current[key]);
       Object.assign(current, component);
       this._refreshComponentNamesFromComponents(entity);
+      this._normalizeTextGuiRendererModelIdentity(entity);
       console.log(`  Replaced component ${compType} on ${js.name}`);
       return this;
     }
     js["@components"] = js["@components"] || [];
     js["@components"].push(component);
     this._refreshComponentNamesFromComponents(entity);
+    this._normalizeTextGuiRendererModelIdentity(entity);
     console.log(`  Added component ${compType} to ${js.name}`);
     return this;
   }
@@ -1247,8 +1443,23 @@ class UIBuilder {
 
   panel(name, options = {}) {
     assertNoParentOption("panel", name, options);
-    return this._add(name, "MOD.Core.UITransformComponent", "UIEmpty", "uiempty", [
+    const sort = _resolveSortOptions(options);
+    const components = [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [1920, 1080]), options.pivot ?? null),
+      this._spriteRenderer(options.color ?? null, options.alpha ?? null, options.raycast ?? false, options.fill_method ?? 0, options.sprite_type ?? null, options.image_ruid ?? null, { preserve_aspect: options.preserve_aspect ?? false, preserve_sprite: options.preserve_sprite, material_id: options.material_id ?? "", ...sort }),
+    ];
+    const textComponent = this._textFromOptions(options);
+    if (textComponent) components.push(textComponent);
+    const componentNames = textComponent
+      ? "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextGUIRendererComponent"
+      : "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent";
+    return this._add(name, componentNames, "UISprite", "uisprite", components, options.enable ?? true, !hasExplicitTransformOptions(options), options);
+  }
+
+  empty(name, options = {}) {
+    assertNoParentOption("empty", name, options);
+    return this._add(name, "MOD.Core.UITransformComponent", "UIEmpty", "uiempty", [
+      this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [100, 100]), options.pivot ?? null),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
@@ -1258,10 +1469,10 @@ class UIBuilder {
     let rectSize = options.rect_size;
     if (rectSize == null) rectSize = [Math.max(String(text).length * size, 400), size + 16];
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent", "UIText", "uitext", [
+    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextGUIRendererComponent", "UITextGUIRenderer", "uitextguirenderer", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), rectSize, options.pivot ?? null),
       this._spriteRenderer(null, 0.0, false, 0, 0, "", sort),
-      this._textComponent(text, size, options.color ?? null, options.bold ?? false, options.alignment ?? 4, {
+      this._textGuiRenderer(text, size, options.color ?? null, options.bold ?? false, options.alignment ?? 4, {
         overflow: options.overflow ?? 0,
         bestfit: options.bestfit ?? false,
         min_size: options.min_size ?? 10,
@@ -1269,8 +1480,6 @@ class UIBuilder {
         outline: options.outline ?? false,
         outline_color: options.outline_color ?? null,
         outline_width: options.outline_width ?? null,
-        is_localization_key: options.is_localization_key ?? false,
-        allow_auto_translation: options.allow_auto_translation ?? true,
         use_constraint_x: options.use_constraint_x ?? false,
         constraint_x: options.constraint_x ?? 100.0,
         use_constraint_y: options.use_constraint_y ?? false,
@@ -1284,21 +1493,27 @@ class UIBuilder {
     assertNoParentOption("sprite", name, options);
     const imageRuid = options.image_ruid != null ? options.image_ruid : this.default_ruid;
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent", "UISprite", "uisprite", [
+    const components = [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [100, 100]), options.pivot ?? null),
-      this._spriteRenderer(options.color ?? null, options.alpha ?? 1.0, options.raycast ?? false, options.fill_method ?? 0, options.sprite_type ?? 0, imageRuid, { preserve_aspect: options.preserve_aspect ?? false, material_id: options.material_id ?? "", ...sort }),
-    ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
+      this._spriteRenderer(options.color ?? null, options.alpha ?? null, options.raycast ?? false, options.fill_method ?? 0, options.sprite_type ?? null, imageRuid, { preserve_aspect: options.preserve_aspect ?? false, preserve_sprite: options.preserve_sprite, material_id: options.material_id ?? "", ...sort }),
+    ];
+    const textComponent = this._textFromOptions(options);
+    if (textComponent) components.push(textComponent);
+    const componentNames = textComponent
+      ? "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextGUIRendererComponent"
+      : "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent";
+    return this._add(name, componentNames, "UISprite", "uisprite", components, options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
   button(name, text = "", options = {}) {
     assertNoParentOption("button", name, options);
     const imageRuid = options.image_ruid != null ? options.image_ruid : this.default_ruid;
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextComponent", "UIButton", "uibutton", [
+    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextGUIRendererComponent", "UIButton", "uibutton", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [200, 50]), options.pivot ?? null),
-      this._spriteRenderer(null, 1.0, true, 0, 0, imageRuid, sort),
+      this._spriteRenderer(options.bg_color ?? null, options.alpha ?? null, true, 0, options.sprite_type ?? null, imageRuid, sort),
       this._buttonComponent(sort),
-      this._textComponent(text, options.font_size ?? 24, options.color ?? "#000000", false, 4, sort),
+      this._textGuiRenderer(text, options.font_size ?? 24, options.color ?? "#FFFFFF", false, 4, sort),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
@@ -1331,7 +1546,7 @@ class UIBuilder {
     const sort = _resolveSortOptions(options);
     return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.SliderComponent", "UIEmpty", "uiempty", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [200, 30]), options.pivot ?? null),
-      this._spriteRenderer(null, 1.0, true, 0, 0, imageRuid, sort),
+      this._spriteRenderer(options.bg_color ?? null, options.alpha ?? null, true, 0, options.sprite_type ?? null, imageRuid, sort),
       this._sliderComponent(options.min_val ?? 0, options.max_val ?? 1, options.value ?? 0, options.direction ?? 0, options.use_handle ?? true, options.use_integer ?? false, { ...options, ...sort }),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
@@ -1341,7 +1556,7 @@ class UIBuilder {
     const sort = _resolveSortOptions(options);
     return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.ScrollLayoutGroupComponent", "UIEmpty", "uiempty", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [400, 600]), options.pivot ?? null),
-      this._scrollLayoutComponent(options.layout_type ?? 0, options.spacing ?? 0, tuple(options.cell_size, [100, 100]), options.use_scroll ?? true, tuple(options.padding, [0, 0, 0, 0]), { ...options, ...sort }),
+      this._scrollLayoutComponent(options.layout_type ?? 1, options.spacing ?? 0, tuple(options.cell_size, [100, 100]), options.use_scroll ?? true, tuple(options.padding, [0, 0, 0, 0]), { ...options, ...sort }),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
@@ -1349,16 +1564,24 @@ class UIBuilder {
     assertNoParentOption("textInput", name, options);
     const imageRuid = options.image_ruid != null ? options.image_ruid : this.default_ruid;
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent,MOD.Core.TextInputComponent", "UIEmpty", "uiempty", [
+    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextGUIRendererComponent,MOD.Core.TextGUIRendererInputComponent", "UIEmpty", "uiempty", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [300, 50]), options.pivot ?? null),
-      this._spriteRenderer(null, 1.0, true, 0, 0, imageRuid, sort),
-      this._textComponent(String(options.text ?? ""), options.font_size ?? 24, options.color ?? "#000000", false, 4, sort),
+      this._spriteRenderer(options.bg_color ?? null, options.alpha ?? null, true, 0, options.sprite_type ?? null, imageRuid, sort),
+      this._textGuiRenderer(String(options.text ?? ""), options.font_size ?? 24, options.color ?? "#FFFFFF", false, 4, sort),
       this._textInputComponent(options.placeholder ?? "", options.char_limit ?? 0, options.content_type ?? 0, options.line_type ?? 0, { ...options, ...sort }),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
   group(name, options = {}) {
     assertNoParentOption("group", name, options);
+    const [fullPath] = this._resolve(name);
+    if (fullPath !== this.root_path) {
+      throw new Error(
+        `UIBuilder.group() creates only the .ui root UIGroup. ` +
+          `Nested UIGroup entities are not supported because they can fail to render correctly. ` +
+          `Use empty("${name}") or panel("${name}") for inner grouping.`,
+      );
+    }
     return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.UIGroupComponent,MOD.Core.CanvasGroupComponent", "UIGroup", "uigroup", [
       this._uiTransform(options.anchor || "stretch", tuple(options.pos, [0, 0]), tuple(options.rect_size, [1920, 1080]), options.pivot ?? null),
       this._uiGroupComponent(options.default_show ?? true, options.group_order ?? 0, options.group_type ?? 1),
@@ -1437,7 +1660,7 @@ class UIBuilder {
     const imageRuid = options.image_ruid != null ? options.image_ruid : this.default_ruid;
     return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.JoystickComponent", "UIEmpty", "uiempty", [
       this._uiTransform(options.anchor || "bottom-left", tuple(options.pos, [200, 200]), tuple(options.rect_size, [300, 300]), options.pivot ?? null),
-      this._spriteRenderer(options.color ?? null, options.alpha ?? 1.0, false, 0, 0, imageRuid),
+      this._spriteRenderer(options.color ?? null, options.alpha ?? null, false, 0, options.sprite_type ?? null, imageRuid),
       this._joystickComponent(options.dynamic_stick ?? true, options.axis ?? 1, options.up_arrow ?? 273, options.down_arrow ?? 274, options.left_arrow ?? 276, options.right_arrow ?? 275),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
@@ -1487,12 +1710,13 @@ class UIBuilder {
       const model = js.modelId || "";
       if (model === "uigroup") kind = "GROUP";
       else if (model === "uibutton") kind = "BTN";
-      else if (model === "uitext") kind = "TEXT";
+      else if (model === "uitext" || model === "uitextguirenderer") kind = "TEXT";
       else if (model === "uisprite") kind = "SPR";
       else if (model === "uiempty") kind = "PANEL";
       for (const component of comps) {
         if (!KNOWN_COMPONENTS.has(component)) kind = "SCRIPT";
         else if (component === "MOD.Core.UIGroupComponent" && kind !== "GROUP") kind = "GROUP";
+        else if ((component === "MOD.Core.TextComponent" || component === "MOD.Core.TextGUIRendererComponent") && kind === "?") kind = "TEXT";
         else if (component === "MOD.Core.MaskComponent") kind = "MASK";
         else if (component === "MOD.Core.SoftMaskComponent") kind = "MASK";
         else if (component === "MOD.Core.GridViewComponent") kind = "GRID";
@@ -1586,12 +1810,7 @@ class UIBuilder {
     console.log(`Written ${this.entities.length} entities to ${filepath}`);
 
     if (lint) {
-      try {
-        runUiLint(filepath, strict, lintVerbose);
-      } catch (err) {
-        try { fs.unlinkSync(filepath); } catch (_) { /* best-effort rollback */ }
-        throw err;
-      }
+      runUiLint(filepath, strict, lintVerbose);
     }
 
     if (bindPlan) {

@@ -45,20 +45,16 @@ b.sprite("MiniMap/Frame", { anchor: "stretch", image_ruid: "<minimap-frame-ruid>
 
 b.panel("HPBar", { anchor: "bottom-left", pos: [20, 20], rect_size: [220, 30] });
 b.sprite("HPBar/Bg", { anchor: "stretch", color: "#1A1A1A", alpha: 0.8 });
-b.sprite("HPBar/Fill", { anchor: "stretch", color: "#E53935" });
-b.patchComponent("HPBar/Fill", "MOD.Core.SpriteGUIRendererComponent", {
-  Type: 3,
-  FillMethod: 0,
-  FillOrigin: 0,
-  FillAmount: 1.0,
-});
+// Sliced fill: anchored to the left edge (pivot [0, 0.5]); runtime drives the
+// width, not FillAmount or SliderComponent, so the 9-slice borders stay crisp.
+b.sprite("HPBar/Fill", { anchor: "middle-left", pos: [0, 0], rect_size: [220, 30], pivot: [0, 0.5], image_ruid: "f0911af597259044aa624a11332c0595", color: "#E53935", alpha: 1.0 });
 
 b.write("ui/DefaultGroup.ui");
 ```
 
 ### HP Update at Runtime
 
-See [`runtime-patterns.md`](runtime-patterns.md) §3 HP Bar (Progress Bar). Key point: a single line `self.fillImage.FillAmount = hp / maxHp`. Property binding is auto-injected via `b.write(path, { bind: {...} })`.
+See [`runtime-patterns.md`](runtime-patterns.md) §3 HP Bar (Progress Bar). Key point: use the HP gauge slice sprite (`image_ruid = "f0911af597259044aa624a11332c0595"`) and resize the Sliced fill's width — `self.fillTransform.RectSize = Vector2(fullWidth * hp / maxHp, h)` — rather than setting `FillAmount` or driving a `SliderComponent`. Property binding is auto-injected via `b.write(path, { bind: {...} })`.
 
 ---
 
@@ -236,7 +232,7 @@ b.addComponent("ChatBox/List", "MOD.Core.MaskComponent", { Shape: 0 });
 b.panel("ChatBox/InputArea", { anchor: "bottom-center", pos: [0, 20], rect_size: [380, 40] });
 b.sprite("ChatBox/InputArea/Bg", { anchor: "stretch", color: "#222222" });
 b.text("ChatBox/InputArea/Text", "", { size: 20, color: "#FFFFFF", anchor: "stretch", alignment: 3 });
-b.addComponent("ChatBox/InputArea/Text", "MOD.Core.TextInputComponent", {
+b.addComponent("ChatBox/InputArea/Text", "MOD.Core.TextGUIRendererInputComponent", {
   PlaceHolder: "Type here...",
   LineType: 0,
   AutoClear: true,
@@ -337,7 +333,7 @@ b.write("ui/BoardGroup.ui");
 Runtime update pattern:
 
 ```lua
-method void SetTileFace(TextComponent label, SpriteGUIRendererComponent sprite, string text, boolean faceUp)
+method void SetTileFace(TextGUIRendererComponent label, SpriteGUIRendererComponent sprite, string text, boolean faceUp)
     if faceUp then
         sprite.Color = Color(1, 1, 1, 1)
         label.Text = text
@@ -349,6 +345,64 @@ end
 ```
 
 Use this for card games, board cells, inventory slots, quick slots, tabs, and same-shape menu items.
+
+---
+
+## Recipe 9 — Stat / Info Panel (Nested Rows)
+
+Use this when the UI is a sheet of labeled rows. Each row is a parent-local unit; small labels that belong directly on a chip/cell use `sprite(..., { text })` instead of a separate overlay text entity.
+
+```javascript
+const b = new UIBuilder("CharacterStat", 20, false);
+
+b.sprite("Dimmer", { anchor: "stretch", color: "#000000", alpha: 0.6, raycast: true });
+b.sprite("Window", { anchor: "middle-center", rect_size: [620, 720], image_ruid: "<window-ruid>" });
+b.sprite("Window/Title", {
+  anchor: "top-center",
+  pos: [0, -28],
+  rect_size: [560, 60],
+  image_ruid: "<title-ruid>",
+  text: "CHARACTER STAT",
+  text_size: 30,
+  text_bold: true,
+  text_alignment: 4,
+});
+b.button("Window/BtnClose", "", { anchor: "top-right", pos: [-28, -28], rect_size: [88, 88], image_ruid: "<close-ruid>" });
+
+[
+  ["Name", "Player"],
+  ["Level", "2"],
+  ["HP", "63 / 63"],
+  ["MP", "37 / 37"],
+].forEach(([label, value], i) => {
+  const y = 250 - i * 62;
+  b.panel(`Window/Row${i}`, { anchor: "top-center", pos: [0, y], rect_size: [560, 52] });
+  b.sprite(`Window/Row${i}/Chip`, {
+    anchor: "middle-left",
+    pos: [10, 0],
+    rect_size: [120, 42],
+    image_ruid: "<chip-ruid>",
+    text: label,
+    text_size: 22,
+    text_alignment: 4,
+    text_color: "#33334D",
+  });
+  b.sprite(`Window/Row${i}/Cell`, {
+    anchor: "middle-right",
+    pos: [-10, 0],
+    rect_size: [400, 42],
+    image_ruid: "<cell-ruid>",
+    text: value,
+    text_size: 22,
+    text_alignment: 3,
+    text_color: "#F4F4F8",
+  });
+});
+
+b.write("ui/CharacterStat.ui");
+```
+
+Pass criteria: no `L025` orphan parent, no `L029` nested UIGroup, no `L030` root-level text-over-box warning.
 
 ---
 
@@ -364,6 +418,7 @@ Use this for card games, board cells, inventory slots, quick slots, tabs, and sa
 | Chat / Log / Small list | Recipe 6 (ScrollLayoutGroup) |
 | Settings / Volume / Scale | Recipe 7 (Slider List) |
 | Card / tile / slot / repeated clickable cell | Recipe 8 (Card-Like Clickable Tile) |
+| Stat sheet / info panel / labeled rows / status window | Recipe 9 (Stat / Info Panel) |
 
 ---
 
