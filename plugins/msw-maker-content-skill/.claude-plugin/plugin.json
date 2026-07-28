@@ -1,0 +1,8 @@
+{
+  "name": "msw-maker-content-skill",
+  "description": "Advanced MapleStory Worlds content-creation skills, including reusable player attack-skill implementation patterns.",
+  "author": {
+    "name": "MSW-Git",
+    "email": "mswvsc123@outlook.kr"
+  }
+}

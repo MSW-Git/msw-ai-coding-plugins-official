@@ -16,6 +16,16 @@
       },
       "source": "./plugins/msw-maker-base-skill",
       "category": "development"
+    },
+    {
+      "name": "msw-maker-content-skill",
+      "description": "Advanced MapleStory Worlds content skills for reusable player attack-skill systems.",
+      "author": {
+        "name": "MSW-Git",
+        "email": "mswvsc123@outlook.kr"
+      },
+      "source": "./plugins/msw-maker-content-skill",
+      "category": "development"
     }
   ]
 }
