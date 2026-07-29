@@ -1,0 +1,83 @@
+{
+  "scope": "manual post-execution-core contract consistency audit; no optional local runtime required; not a Maker runtime benchmark",
+  "results": [
+    {
+      "eval_id": 1,
+      "passed": true,
+      "evidence": [
+        "SKILL.md instantiates DATA, PAP, PAJ, and MHP before project writes; references/execution-core.md binds their IDs to canonical contracts and completion evidence",
+        "references/combat/targeting.md and projectile.md require immediate cast-time judgment with arrival-delayed presentation",
+        "references/architecture/datasets.md preserves swingO1 and verified project-standard defaults",
+        "architecture/framework.md, architecture/bootstrap.md, and player/casting.md separate PlayerSkillInputRouter from the required PlayerJumpGateController"
+      ]
+    },
+    {
+      "eval_id": 2,
+      "passed": true,
+      "evidence": [
+        "references/execution-core.md has a hotbar/icon/cooldown-overlay-only row that selects architecture/hotbar-ui.md without unrelated family harnesses",
+        "references/architecture/hotbar-ui.md preserves the shared controller, UIBuilder style, icon resolution order, and verification rules"
+      ]
+    },
+    {
+      "eval_id": 3,
+      "passed": true,
+      "evidence": [
+        "references/execution-core.md requires TP-01 through TP-06, the canonical movement/skills.md contract, and T1-T10 plus applicable cast-interaction evidence",
+        "references/movement/index.md marks skills.md as canonical and the smaller movement files as supplemental",
+        "references/verification/movement-verification-harness.md remains completion-blocking"
+      ]
+    },
+    {
+      "eval_id": 4,
+      "passed": true,
+      "evidence": [
+        "references/execution-core.md routes shared binding changes through architecture/framework.md, architecture/hotkeys.md, and the relevant data/family contract",
+        "references/architecture/hotkeys.md and framework.md define LeftShift and F as project-standard defaults stored in SkillBindingData",
+        "references/movement/skills.md defines F as the teleport default and forbids hardcoding KeyboardKey.F in the executor"
+      ]
+    },
+    {
+      "eval_id": 5,
+      "passed": true,
+      "evidence": [
+        "references/player/preflight.md scopes IsDead to models proven to use ConditionIsDead and requires a per-model transition map",
+        "references/combat/death.md separates immediate gameplay exclusion from the model-specific final transition input",
+        "references/combat/hit-reaction-code.md uses synchronous Hp <= 0 for its local lethal guards and explicitly delegates cross-system Death-Hold exclusion to the discovered owner",
+        "references/verification/monster-visual-harness.md verifies ConditionIsDead and no-condition models separately"
+      ]
+    },
+    {
+      "eval_id": 6,
+      "passed": true,
+      "evidence": [
+        "references/execution-core.md forbids PASS from static inspection when runtime evidence is required",
+        "missing Maker access is BLOCKED rather than N/A, and any OPEN, BLOCKED, NOT RUN, inferred, or sampled priority ID blocks completion language",
+        "canonical player, judgment, monster, and teleport documents bind each priority ID to existing harness scenarios without duplicating the exact behavior rules"
+      ]
+    },
+    {
+      "eval_id": 7,
+      "passed": true,
+      "evidence": [
+        "SKILL.md contains the fixed player-attack startup gate in the automatically loaded entry body and forbids project writes before its visible ledger exists",
+        "the startup gate directly links execution-core.md, datasets.md, framework.md, non-negotiable-presentation-gates.md, player/preflight.md, and conditional bootstrap.md",
+        "DATA-01 through DATA-04 cover infrastructure discovery, project-managed CSV/DataSet schema, concrete attack/binding rows, and catalog validation",
+        "SKILL.md states that missing Maker/runtime access blocks evidence only and cannot waive data, player casting, judgment, or monster presentation implementation"
+      ]
+    }
+  ],
+  "integrity": {
+    "v1_source_modified": false,
+    "missing_local_markdown_links": 0,
+    "missing_v1_ruids": 0,
+    "legacy_controller_name_occurrences": 0,
+    "uncataloged_references": 0,
+    "duplicate_routing_indexes": 0,
+    "legacy_aliases_valid": 2,
+    "canonical_contract_terms_present": true,
+    "priority_gate_ids_linked": true,
+    "player_attack_startup_gate_in_entry": true,
+    "documentation_consistency_review_passed": true
+  }
+}

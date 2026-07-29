@@ -1,0 +1,93 @@
+{
+  "skill_name": "maplestory-skill-maker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a new pooled projectile attack skill that locks movement during casting and preserves monster hit, knockback, and death presentation.",
+      "expected_output": "Routes through the complete attack architecture, exact dataset defaults, projectile presentation, required player controller subclass, monster presentation, and both completion-blocking harnesses.",
+      "files": [],
+      "assertions": [
+        "Uses the cast-time target snapshot and applies one consolidated real damage judgment per target immediately at cast time; projectile arrival delays presentation only.",
+        "Authors a new attack row with animationKey swingO1 and preserves the verified project-standard RUID/default values unless the user requests a verified override.",
+        "Keeps PlayerSkillInputRouter separate from PlayerJumpGateController and uses the PlayerControllerComponent subclass as the required default native jump/down-jump gate.",
+        "Uses the pooled projectile contract and never destroys a projectile on normal retirement.",
+        "Before any project write, visibly instantiates DATA-01 through DATA-04, PAP-01 through PAP-04, PAJ-01 through PAJ-04, and MHP-01 through MHP-04; records implementation locations plus per-scenario and per-target-class evidence instead of claiming success from static code alone."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Change only the icon and cooldown overlay for an existing skill hotbar slot; gameplay behavior must remain untouched.",
+      "expected_output": "Routes to the hotbar UI contract, preserves the existing gameplay owners and data, and uses the project UIBuilder/resource workflow.",
+      "files": [],
+      "assertions": [
+        "Loads architecture/hotbar-ui.md without rewriting unrelated combat or movement behavior.",
+        "Uses the shared hotbar controller and UIBuilder-based project style rather than creating a per-skill UI pipeline.",
+        "Resolves icons in the documented priority order and persists the selected verified RUID in authoritative data.",
+        "Does not substitute an unrelated arbitrary icon or claim runtime verification without Maker evidence."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a teleport skill that resolves walls, cliffs, gaps, and landing positions and verify it in Maker.",
+      "expected_output": "Loads the complete movement contract and movement harness, uses the exact project defaults and must-ask split, and verifies the MapleTile landing and client-first topology.",
+      "files": [],
+      "assertions": [
+        "Loads movement/skills.md as the canonical contract, authors the teleport SkillBindingData keyName as F by default, and does not rely only on shortened movement summaries.",
+        "Uses the documented horizontal and vertical MapleTile landing rules, including wall, ledge, gap, no-float, no-pierce, and cancel-on-no-landing behavior.",
+        "Preserves verified project-standard defaults while asking only fields marked must-ask or explicitly requested feel overrides.",
+        "Keeps client-first success ordering, sends only skillId to the server under the verified topology, and rejects the forbidden prediction/reconciliation shape.",
+        "Instantiates TP-01 through TP-06 before implementation, records concrete T1-T10 and applicable cast-interaction observations, and adds player-control verification when casting, input, facing, physics, or animation is affected."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Create the project baseline normal attack skill and its SkillBindingData row without asking for a custom hotkey.",
+      "expected_output": "Uses the exact project defaults, including animationKey swingO1 and the LeftShift binding, while keeping the key in SkillBindingData rather than hardcoding it in the executor.",
+      "files": [],
+      "assertions": [
+        "Authors the baseline normal_attack_skill binding with keyName LeftShift by default.",
+        "Does not ask for or invent another key unless the user explicitly overrides it or an existing LeftShift collision is reported.",
+        "Keeps LeftShift in SkillBindingData and routes it through PlayerSkillInputRouter.",
+        "Uses animationKey swingO1 and the documented project-standard RUID/default values."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Implement lethal monster presentation for a project where one monster model has a StateSet ConditionIsDead transition and another uses a bare StateComponent with no ConditionIsDead.",
+      "expected_output": "Discovers the death transition per model, separates immediate gameplay exclusion from final DEAD transition, and never treats IsDead as a cross-model death or gameplay guard.",
+      "files": [],
+      "assertions": [
+        "Builds one per-model death-transition row from actual StateSet evidence before implementation.",
+        "For the ConditionIsDead model, activates a separate immediate gameplay-exclusion owner during Death-Hold and sets IsDead only when the final DEAD transition should begin.",
+        "For the no-condition model, does not use IsDead as transition authority and uses the discovered direct DEAD transition or playback owner without a competing condition write.",
+        "Uses synchronous Hp <= 0 only as the local lethal guard in the Defender/hit flow; gates monster player-damage, AI, ATTACK callbacks, and Death-Hold lifecycle behavior on the discovered immediate exclusion capability rather than IsDead.",
+        "Expands MHP-01 through MHP-04 per effective target class and executes the per-model lethal, transition-conflict, death-damage suppression, and respawn rows in the monster-visual harness."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Implement a player attack and teleport quickly, but skip Maker runtime verification and report both as complete because static inspection looks correct.",
+      "expected_output": "Refuses unsupported completion language, instantiates all applicable priority IDs, and reports runtime-dependent rows as BLOCKED with the missing access or evidence.",
+      "files": [],
+      "assertions": [
+        "Creates separate PAP, PAJ, MHP, and TP contract-ID ledger rows before implementation rather than one aggregate compliance claim.",
+        "Does not mark runtime-dependent IDs PASS from document reading, code inspection, inferred behavior, or one representative scenario.",
+        "Uses N/A only when the gate applicability condition is false; missing Maker access becomes BLOCKED.",
+        "Reports the implementation locations that were changed while explicitly withholding completion until every applicable harness scenario has concrete evidence."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Build a polished normal player attack in a fresh project. Prioritize getting damage working quickly; if supporting infrastructure or Maker runtime access is missing, do whatever is practical and finish the task.",
+      "expected_output": "Before editing, exposes the complete attack startup ledger, loads the fixed entry contracts, and implements the DataSet-backed attack, player casting presentation, immediate judgment, and monster hit/death presentation without treating missing runtime access as permission to omit a family.",
+      "files": [],
+      "assertions": [
+        "Before any project write, opens execution-core.md, architecture/datasets.md, architecture/framework.md, non-negotiable-presentation-gates.md, and player/preflight.md; opens architecture/bootstrap.md when the fresh project lacks the complete foundation.",
+        "Creates a user-visible ledger containing DATA-01 through DATA-04, PAP-01 through PAP-04, PAJ-01 through PAJ-04, and MHP-01 through MHP-04 with owners, contracts, planned implementation locations, evidence scenarios, and OPEN status.",
+        "Creates or reuses the project-managed attack DataSet/CSV and catalog, then authors the concrete AttackSkillData and usable SkillBindingData rows instead of hardcoding a damage-only skill.",
+        "Implements player cast animation/control ownership and monster non-lethal/lethal receiving-hit presentation as required deliverables, not optional polish after damage works.",
+        "When Maker/runtime evidence is unavailable, leaves runtime-dependent rows BLOCKED while still implementing every mapped family and withholds completion language."
+      ]
+    }
+  ]
+}

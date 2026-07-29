@@ -1,6 +1,6 @@
 # Cast Effect Attachment
 
-The caster-side visual effect — distinct from the target-side hit effect covered in [damage-presentation.md](damage-presentation.md). See [../SKILL.md](../SKILL.md) for the Domain Reference Files index.
+The caster-side visual effect — distinct from the target-side hit effect covered in [../combat/damage-presentation.md](../combat/damage-presentation.md). See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
 
 ## Cast Effect Attachment Rule (default for every skill's caster-side effect)
 
@@ -13,10 +13,10 @@ Applies as the default for every skill's caster-side effect.
 
 ## Cast Effect Direction Flip Rule (default for every skill's caster-side effect)
 
-This project's cast effect assets are authored **facing left by default** (the same left-default art convention as monster sprites — see [knockback-hit-reaction.md](knockback-hit-reaction.md)'s Face-Attacker-on-Hit Rule). A cast effect must be flipped to match the caster's actual facing direction at cast time — it must not always play in its unflipped, left-facing default orientation regardless of which way the caster is looking.
+This project's cast effect assets are authored **facing left by default** (the same left-default art convention as monster sprites — see [../combat/hit-reaction.md](../combat/hit-reaction.md)'s Face-Attacker-during-Hit-and-Death Rule). A cast effect must be flipped to match the caster's actual facing direction at cast time — it must not always play in its unflipped, left-facing default orientation regardless of which way the caster is looking.
 
 - **API**: `EffectService:PlayEffect`/`PlayEffectAttached` both accept an `options: Dictionary<string, any>` last argument whose supported keys include `FlipX` (confirmed in `Environment/NativeScripts/Service/EffectService.d.mlua`) — pass `{ FlipX = <boolean> }` rather than baking the flip into `localScale`.
-- **Direction source**: reuse the same `dirX` already computed for hitbox placement/knockback (see [targeting-judgment.md](targeting-judgment.md), [knockback-hit-reaction.md](knockback-hit-reaction.md)) — do not recompute facing separately for the effect.
+- **Direction source**: reuse the same `dirX` already computed for hitbox placement/knockback (see [../combat/targeting.md](../combat/targeting.md), [../combat/hit-reaction.md](../combat/hit-reaction.md)) — do not recompute facing separately for the effect.
 - **Flip condition**: since the default art faces left, set `FlipX = (dirX > 0)` — flip only when the caster faces right (away from the art's default orientation); leave unflipped (`FlipX = false`, or omit the key) when the caster faces left.
 - Implementation shape: `_EffectService:PlayEffectAttached(castEffectRuid, self.Entity, Vector3.zero, 0, Vector3.one, false, { FlipX = dirX > 0 })`.
-- This applies to the **cast** effect only. Hit effects are positioned/oriented independently on the target side (see [damage-presentation.md](damage-presentation.md)) and are not covered by this rule unless the user separately confirms they need the same treatment.
+- This applies to the **cast** effect only. Hit effects are positioned/oriented independently on the target side (see [../combat/damage-presentation.md](../combat/damage-presentation.md)) and are not covered by this rule unless the user separately confirms they need the same treatment.
