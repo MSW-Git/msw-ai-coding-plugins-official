@@ -7,7 +7,7 @@ Reference for filling `nodeName`, `definitionId`, and `btNodeType` correctly. Th
 | Value | Category | Notes |
 |------:|----------|-------|
 | `0` | Action (leaf) | `.mlua` declares `script X extends ActionNode`. No `childNodes`. |
-| `1` | Composite | Built-in (e.g. `SequenceNode`, `SelectorNode`, `ParallelNode`). Has `childNodes`. |
+| `1` | Composite | Built-in (`SequenceNode`, `SelectorNode`, `ParallelNode`) **or custom** — `.mlua` declares `script X extends CompositeNode`. Has `childNodes`. |
 | `2` | Decorator | `.mlua` declares `script X extends DecoratorNode`. Wraps a single child (or a single sub-tree). Inferred value — confirm against an existing decorator-using BT in the project before relying on it. |
 
 ## Valid graph shapes (parent ↔ child rules)
@@ -46,7 +46,7 @@ If the spec is missing or stale, regenerate it first. If you are debugging disco
 1. Glob the project for `**/*.codeblock`.
 2. For each `.codeblock`, read `ContentProto.Json.Name` and `ContentProto.Json.Id`.
 3. Find the sibling `.mlua` with the same base name.
-4. Classify the node from the `.mlua` declaration: `script X extends ActionNode` -> custom action (`btNodeType: 0`), `script X extends DecoratorNode` -> custom decorator (`btNodeType: 2`).
+4. Classify the node from the `.mlua` declaration: `script X extends ActionNode` -> custom action (`btNodeType: 0`), `script X extends DecoratorNode` -> custom decorator (`btNodeType: 2`), `script X extends CompositeNode` -> custom composite (`btNodeType: 1`, may have `childNodes`).
 5. Use the codeblock `Id` as `definitionId: codeblock://{Id}`.
 
 The `ContentProto.Json.Target` field can be useful as a fallback, but do not rely on it as the primary classifier; generated BT nodes may have a missing or unreliable target.
@@ -82,7 +82,7 @@ If a name isn't confirmed by either source, ask the user instead of guessing.
 
 Each entry in `nodeProperties` must correspond to a property name listed for that node in `bt-spec.md` and declared in the node's `.mlua`. The `propertyType.type` and `propertyValue` shape MUST match the declared type — use the type map in `bt-spec.md` §4.
 
-`{V}` is the engine version stamped into the file (e.g. `26.5.0.0`). Match the project's existing files.
+`{V}` is the engine version stamped into the file (e.g. `26.7.0.0`). Match the project's existing files.
 
 **Primitives (System.*)**
 

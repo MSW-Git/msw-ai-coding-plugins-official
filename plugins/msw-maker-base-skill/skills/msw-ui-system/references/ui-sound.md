@@ -26,7 +26,7 @@ When creating a new button without a specific sound requirement, reuse these two
 | `ButtonClickEvent` | `ButtonComponent` | Click SFX |
 | `UITouchEnterEvent` | `UITouchReceiveComponent` (required) | Hover SFX |
 
-Without `UITouchReceiveComponent`, `UITouchEnterEvent` is never fired — check this first if hover SFX is silent.
+Without `UITouchReceiveComponent`, `UITouchEnterEvent` is never fired — check this first if hover SFX is silent. The component also needs a raycast-enabled GUI renderer on the same entity (or a child) — a sibling renderer does not work (see [`component-api.md`](component-api.md) §UITouchReceiveComponent).
 
 ## Pattern (Full Sample)
 

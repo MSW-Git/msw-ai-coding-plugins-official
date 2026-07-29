@@ -1,0 +1,617 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "map://sideviewrecttilemaptemplate",
+  "ContentType": "x-mod/map",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "26.7.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Binary",
+    "Entities": [
+      {
+        "id": "53879ca3-a146-4ac7-9fbf-d4e698cdaa5e",
+        "path": "/maps/SideViewRectTileMapTemplate",
+        "componentNames": "MOD.Core.MapComponent,MOD.Core.FootholdComponent",
+        "jsonString": {
+          "name": "SideViewRectTileMapTemplate",
+          "path": "/maps/SideViewRectTileMapTemplate",
+          "nameEditable": false,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 0,
+          "pathConstraints": "//",
+          "revision": 0,
+          "modelId": null,
+          "@components": [
+            {
+              "@type": "MOD.Core.MapComponent",
+              "AirAccelerationXFactor": 1.0,
+              "AirDecelerationXFactor": 1.0,
+              "FallSpeedMaxXFactor": 1.0,
+              "FallSpeedMaxYFactor": 1.0,
+              "Gravity": 1.0,
+              "IsInstanceMap": false,
+              "TileMapMode": 2,
+              "WalkAccelerationFactor": 1.0,
+              "WalkDrag": 1.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.FootholdComponent",
+              "FootholdsByLayer": {},
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "40ac1bf7-2c52-41bb-b3b0-63e40d13aead",
+        "path": "/maps/SideViewRectTileMapTemplate/Background",
+        "componentNames": "MOD.Core.BackgroundComponent",
+        "jsonString": {
+          "name": "Background",
+          "path": "/maps/SideViewRectTileMapTemplate/Background",
+          "nameEditable": false,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 0,
+          "pathConstraints": "///",
+          "revision": 0,
+          "modelId": null,
+          "@components": [
+            {
+              "@type": "MOD.Core.BackgroundComponent",
+              "SolidColor": {
+                "r": 0.5019608,
+                "g": 0.5019608,
+                "b": 0.5019608,
+                "a": 0.7058824
+              },
+              "TemplateRUID": "65c4167ea7484196b890022354e5a4a4",
+              "Type": 1,
+              "WebUrl": "",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "1a7f391c-6ba5-4b47-a615-13e971e08fa9",
+        "path": "/maps/SideViewRectTileMapTemplate/MapleMapLayer",
+        "componentNames": "MOD.Core.MapLayerComponent",
+        "jsonString": {
+          "name": "MapleMapLayer",
+          "path": "/maps/SideViewRectTileMapTemplate/MapleMapLayer",
+          "nameEditable": false,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 1,
+          "pathConstraints": "///",
+          "revision": 0,
+          "origin": {
+            "type": "Model",
+            "entry_id": "maplemaplayer",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "maplemaplayer",
+          "@components": [
+            {
+              "@type": "MOD.Core.MapLayerComponent",
+              "IsVisible": true,
+              "LayerSortOrder": 0,
+              "Locked": false,
+              "MapLayerName": "Layer1",
+              "Thumbnail": "",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "86db5b89-4766-42e5-8c7f-311c8eb088f5",
+        "path": "/maps/SideViewRectTileMapTemplate/SpawnLocation",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.SpriteRendererComponent,MOD.Core.SpawnLocationComponent",
+        "jsonString": {
+          "name": "SpawnLocation",
+          "path": "/maps/SideViewRectTileMapTemplate/SpawnLocation",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 2,
+          "pathConstraints": "///",
+          "revision": 0,
+          "modelId": null,
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 999.999
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteRendererComponent",
+              "ActionSheet": {},
+              "DrawMode": 0,
+              "EndFrameIndex": 2147483647,
+              "FlipX": false,
+              "FlipY": false,
+              "IgnoreMapLayerCheck": false,
+              "OrderInLayer": 0,
+              "PlayRate": 1.0,
+              "RenderSetting": 0,
+              "SortingLayer": "Default",
+              "SpriteRUID": "8ef238e0d0ca4bb783aca526cff35d11",
+              "StartFrameIndex": 0,
+              "TiledSize": {
+                "x": 1.0,
+                "y": 1.0
+              },
+              "Color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpawnLocationComponent",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "fc4dab96-e97c-4d38-a5aa-0cbd9441b922",
+        "path": "/maps/SideViewRectTileMapTemplate/RectTileMap",
+        "componentNames": "MOD.Core.TransformComponent,MOD.Core.RectTileMapComponent",
+        "jsonString": {
+          "name": "RectTileMap",
+          "path": "/maps/SideViewRectTileMapTemplate/RectTileMap",
+          "nameEditable": false,
+          "enable": true,
+          "visible": true,
+          "localize": false,
+          "displayOrder": 3,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "recttilemap",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "recttilemap",
+          "@components": [
+            {
+              "@type": "MOD.Core.TransformComponent",
+              "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1000.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "ZRotation": 0.0,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.RectTileMapComponent",
+              "SortingLayer": "MapLayer0",
+              "TileSetRUID": "tileset://a5aaa9bc-0684-4c21-b803-73fbcbf0ac74",
+              "Enable": true,
+              "tileMap": [
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -1,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 0,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 1,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 2,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 4,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 3,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 5,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 6,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 7,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -3,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -2,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -4,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -5,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -6,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -7,
+                    "y": -1
+                  },
+                  "tileIndex": 87
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -7,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -7,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -6,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -5,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -4,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -3,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -3,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -2,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -4,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -5,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -6,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -2,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -1,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": -1,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 0,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 1,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 0,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 1,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 2,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 2,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 3,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 3,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 4,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 5,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 6,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 7,
+                    "y": -2
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 7,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 6,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 5,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                },
+                {
+                  "type": 0,
+                  "position": {
+                    "x": 4,
+                    "y": -3
+                  },
+                  "tileIndex": 63
+                }
+              ]
+            }
+          ],
+          "@version": 1
+        }
+      }
+    ]
+  }
+}

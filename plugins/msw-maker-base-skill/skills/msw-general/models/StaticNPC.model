@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -38,7 +38,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Name"
           }
@@ -46,7 +46,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "nameTag",
           "DisplayName": "nameTag",
@@ -54,7 +54,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "NameTagRUID"
           }
@@ -70,7 +70,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ChatModeEnabled"
           }
@@ -86,7 +86,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Message"
           }
@@ -94,7 +94,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODSyncDictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODSyncDictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "actionSheet",
           "DisplayName": "actionSheet",
@@ -102,7 +102,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.StateAnimationComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.StateAnimationComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ActionSheet"
           }
@@ -118,7 +118,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.SpriteRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.SpriteRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "SpriteRUID"
           }
@@ -126,7 +126,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.RenderSettingType, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.RenderSettingType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "renderSetting",
           "DisplayName": "renderSetting",
@@ -134,7 +134,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.SpriteRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.SpriteRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "RenderSetting"
           }

@@ -72,7 +72,7 @@ Applying Unity/generic patterns directly **compiles fine but silently fails at r
 
 ### 1.7 Builder Protocol Preflight — **MUST**
 
-If this turn touches `.map` / `.model` / `.ui` (directly, or via spawn/entity-placement/UI-binding code in `.mlua`), **`Read` [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) first** (full file, every turn — do not skip on prior-turn memory). It consolidates the write-side contracts (`componentNames` sync, `typeKey` metadata, auto-lint, child-entity invariants, `placeModel` mirroring) for all three builders; knowing one builder doesn't cover another.
+If this turn touches `.map` / `.model` / `.ui` (directly, or via spawn/entity-placement/UI-binding code in `.mlua`), **[`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) (core) plus the per-builder file for each type touched ([`builder-protocol-map.md`](../msw-general/references/builder-protocol-map.md) / [`builder-protocol-model.md`](../msw-general/references/builder-protocol-model.md) / [`builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md)) must be fully in context first** (`Read` the full files only if never loaded this session or lost to compaction — a memorized summary does not count as in context). The core carries the shared write-side contract and cross-flow; each per-builder file carries that builder's API, `typeKey` metadata, auto-lint, child-entity invariants, and `placeModel` mirroring; knowing one builder doesn't cover another.
 
 **Triggers** (broad on purpose): `_SpawnService` / `SpawnByModelId` / `SpawnByEntity`; any `.map`/`.model`/`.ui` change; calling `msw_map_builder.cjs` / `msw_model_builder.cjs` / `msw_ui_builder.cjs`; any "new monster/NPC/popup/map object" request; §11 or §16 work.
 
@@ -103,7 +103,7 @@ end
 | User scripts | `./RootDesk/MyDesk/**/*.mlua` | **Create / read / modify / delete directly** |
 | Auto-generated artifacts | `*.codeblock` | **Do not touch** (Refresh manages them) |
 | Engine API definitions | `./Environment/NativeScripts/**` | **Read-only** (do not modify) |
-| Models (component lists) | `./RootDesk/MyDesk/*.model`, `./Global/*.model`, etc. | Edit `Components` **when attaching scripts** |
+| Models (component lists) | `./RootDesk/MyDesk/**/*.model` plus existing `./Global/*.model` files in place | Edit `Components` **when attaching scripts** |
 | Map instances | `./map/*.map` | Edit when attaching scripts to entities that exist only inside a map |
 
 ---
@@ -389,6 +389,8 @@ For synced collections in your own scripts, use `SyncTable<V>` (array form) or `
 
 `self._T.<name>` is non-synced, declaration-free ad-hoc state. Server and client keep their own values; never shown in inspector. Cannot be `@Sync`'d.
 
+> ⚠️ **`_T` is the ONLY declaration-free field.** Assigning to any other undeclared `self.<name>` is a runtime error — `cannot set <name>, no such field` — that kills the calling method (usually all of `OnBeginPlay`). Every `self.<name>` you set must be a declared `property`, or go through `self._T.<name>`. The build log stays clean except an easily-missed `LIA-1114` Info (see §17.2).
+
 ### `OnSyncProperty` callback
 
 Client-side hook fired when a `@Sync` property changes. **Must be `ClientOnly`** (cannot be changed). Available on Component and Logic.
@@ -423,6 +425,7 @@ end
 ### Dynamic subscription — `ConnectEvent` / `DisconnectEvent`
 
 ```lua
+property any clickHandler = nil
 self.clickHandler = entity:ConnectEvent(ButtonClickEvent, self.OnClick)  -- OnBeginPlay
 entity:DisconnectEvent(ButtonClickEvent, self.clickHandler)              -- OnEndPlay (mandatory)
 ```
@@ -430,6 +433,8 @@ entity:DisconnectEvent(ButtonClickEvent, self.clickHandler)              -- OnEn
 For per-element captured state (card IDs, slot indexes), use a closure handler; store the returned `EventHandlerBase` in a table and disconnect each in `OnEndPlay`.
 
 ```lua
+property table clickHandlers = {}
+
 for _, id in ipairs(cardIds) do
     local capturedId = id
     local h = e:ConnectEvent(ButtonClickEvent, function() self:OnCardClicked(capturedId) end)
@@ -440,6 +445,8 @@ end
 > ⚠️ **`ConnectEvent` is on Entity / Logic / Service — NOT Component.** Components only *emit* events; subscribe on the owning **Entity** (or `_InputService` / `_<LogicName>`). `self.Entity.ButtonComponent:ConnectEvent(...)` runtime nils.
 >
 > ```lua
+> property any clickHandler = nil
+> property any keyHandler = nil
 > self.clickHandler = self.Entity:ConnectEvent(ButtonClickEvent, self.OnClick)
 > self.keyHandler   = _InputService:ConnectEvent(KeyDownEvent, self.OnKeyDown)
 > ```
@@ -525,7 +532,7 @@ For UI entities (`./ui/*.ui`, `ui` tree), use **`ButtonComponent` + `ButtonClick
 
 ## 11. Map Context and Entity Spawning
 
-> **§1.7 trigger** — `Read` [builder-protocol.md](../msw-general/references/builder-protocol.md) before any spawn / `.map` / `.model` work.
+> **§1.7 trigger** — `Read` [builder-protocol.md](../msw-general/references/builder-protocol.md) + the matching per-builder protocol file before any spawn / `.map` / `.model` work.
 
 ### Children traversal
 
@@ -651,6 +658,7 @@ Trap: `self.deadline = _UtilLogic.ElapsedSeconds + 15` in `OnBeginPlay`. The wor
 For per-session countdowns, decrement a `delta`-driven property in `OnUpdate`:
 
 ```lua
+property number waveCountdown = 0
 method void OnBeginPlay() self.waveCountdown = 15 end
 method void OnUpdate(number delta)
     if self.waveCountdown > 0 then
@@ -700,11 +708,11 @@ Delete/rename also requires `refresh` + cleanup of references in `.model` / `.ma
 
 ## 16. Attaching Scripts (Components) to Entities
 
-> **§1.7 trigger** — `Read` [builder-protocol.md](../msw-general/references/builder-protocol.md) first. Never edit `Components` arrays as raw JSON.
+> **§1.7 trigger** — `Read` [builder-protocol.md](../msw-general/references/builder-protocol.md) + the matching per-builder protocol file first. Never edit `Components` arrays as raw JSON.
 
 - **Attach to `.model` (preferred)**: `ModelBuilder.addComponent()` / `upsertComponent()`. Map instances inherit.
 - **Attach to one map instance only**: `MapBuilder.upsertComponent(name, "script.XXX", body)`.
-- **Global models** (`./Global/`, e.g., `DefaultPlayer`): read-only by policy and affect the entire project. Copy into `RootDesk/MyDesk/Models/` first, then patch via `ModelBuilder`.
+- **Global models** (`./Global/*.model`): existing global templates affect the entire project and are edited in place via `ModelBuilder` + Maker Refresh. Do not create new files under `Global/`; create new custom models under `RootDesk/MyDesk/Models/`.
 
 ---
 
@@ -716,7 +724,9 @@ The procedure for verifying behavior in **play mode** in Maker, then narrowing d
 
 ### 17.1 Always Check Build Logs First
 
-**Before every `play`, run `logs(category="build")`**. Build errors make scripts fail to load entirely (the component/logic behaves as if missing), and they often **don't appear in runtime logs** — most "code looks correct but doesn't work" reports trace to a missed build error. Fix → refresh → recheck until errors are zero, then play.
+**Before every `play`, run `logs(kind="build")`**. Build errors make scripts fail to load entirely (the component/logic behaves as if missing), and they often **don't appear in runtime logs** — most "code looks correct but doesn't work" reports trace to a missed build error. Fix → refresh → recheck until errors are zero, then play.
+
+> ⚠️ **Empty build logs ≠ build OK.** Refresh-stage **mlua conversion errors** (Maker popup *"An error occurred during mlua conversion"*) bypass the Build Console entirely: `refresh` still reports ok, `logs(kind="build")` stays at 0, and the error text lands **only in `logs(kind="normal")`**. If build logs are empty but a script still fails to load — or that popup is reported — read `logs(kind="normal")` next instead of looping refresh→build-check. Do **not** `clear_logs` until the cause is captured: clearing wipes the normal-log bucket, i.e. the only copy of the conversion error.
 
 ### 17.2 Error Classification
 
@@ -726,7 +736,7 @@ The procedure for verifying behavior in **play mode** in Maker, then narrowing d
 | **nil reference** | `attempt to index a nil value` | Init order, `isvalid`, 1-frame post-Spawn timing |
 | **Component missing** | nil component / `GetComponent` fails | `Components` array in `.model`; name typos |
 | **Sync / network** | Only client breaks, values mismatch or converge late | `@Sync`, `ExecSpace`, RPC flow |
-| **`Info` LIA 1113/1114/1115** (false positives) | Static-analysis can't resolve user cross-script refs (`_LogicName`, user `@Component` dot/method). Build still passes (errors=0/warnings=0) | Treat as noise; verify with `log()`. Scope next `logs` call to higher severity if they drown real issues. |
+| **`Info` LIA 1113/1114/1115** (false positives on read/call sites) | Static-analysis can't resolve user cross-script refs (`_LogicName`, user `@Component` dot/method). Build still passes (errors=0/warnings=0) | Treat as noise; verify with `log()`. **Exception**: `LIA-1114` on an assignment target (`self.<name> = ...` with `<name>` undeclared) is a real runtime-error signal — `cannot set <name>, no such field` at play time; declare the `property` or use `self._T` (§7). Scope next `logs` call to higher severity if they drown real issues. |
 | **User type `Symbol not found` / `type not found`** | Usage site authored before the user-type body `.mlua` exists. | Write the body `.mlua` first, then Maker `refresh` to regenerate the `.codeblock`. Build-log cache can hold one stale cycle — judge by the next diagnose. |
 
 If logs are inconclusive, add `log()` in `.mlua` to inspect entity/component/property state.
@@ -740,13 +750,13 @@ Summarize briefly: **Scenario** (one line) · **Env** (map, refreshed?) · **Ste
 One unified loop for every playtest scenario:
 
 ```
-edit → refresh → logs(category="build")  ──┐
+edit → refresh → logs(kind="build")  ──┐
                                            ↓ (errors? fix and refresh again)
                   clear_logs (optional) → play
                                            ↓
                    keyboard_input / mouse_input to reproduce
                                            ↓
-                   logs(category="runtime") → classify with §17.2 table
+                   logs(kind="normal") → classify with §17.2 table
                                            ↓ (insufficient? add log() in .mlua, refresh, replay)
                                           stop → fix → loop
 ```
@@ -757,6 +767,7 @@ edit → refresh → logs(category="build")  ──┐
 |---|---|
 | **First playtest** | Start from edit → refresh. |
 | **Regression / fix loop** | `clear_logs` before `play` for a clean repro. |
+| **mlua conversion error** (popup, or build logs empty yet script never loads) | `logs(kind="normal")` first — conversion errors skip build logs (§17.1). No `clear_logs` until the error is captured. |
 | **Error analysis** | After collecting runtime logs, map to §17.2 first; only add `log()` when classification is inconclusive. |
 | **Runtime value inspection** | Add `log()` calls; if API is unknown, verify spec (§1.3) before adding the call. |
 

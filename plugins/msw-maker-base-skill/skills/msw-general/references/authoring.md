@@ -9,7 +9,7 @@ Authoring guide for **.map / .model / .ui / .dataset** files and tile map assets
 > - `.ui` anchor / pivot coordinate errors, missing RUID, parent-child `path` mismatch
 > - Dataset row / column schema violations
 >
-> Use the dedicated builder or skill for each file type before editing. **The call protocol for `.map` / `.model` / `.ui` is consolidated into one entry point — [`builder-protocol.md`](builder-protocol.md). Read it every turn before any mutation.** `.model` files are builder-only. `.map` files are builder-first: see builder-protocol.md §1 (read alongside [`entity.md`](entity.md) for domain context) and use the builder for covered operations; direct `.map` JSON edits are reserved for the explicit coverage gaps in §1 and must be minimal scope plus verified by `refresh` / logs.
+> Use the dedicated builder or skill for each file type before editing. **The call protocol for `.map` / `.model` / `.ui` is one entry point — [`builder-protocol.md`](builder-protocol.md) (core) plus the per-builder files ([`builder-protocol-map.md`](builder-protocol-map.md) / [`builder-protocol-model.md`](builder-protocol-model.md) / [`builder-protocol-ui.md`](builder-protocol-ui.md)). The core + the matching per-builder file must be in context before any mutation (read only if missing).** `.model` files are builder-only. `.map` files are builder-first: see builder-protocol-map.md §1 (read alongside [`entity.md`](entity.md) for domain context) and use the builder for covered operations; direct `.map` JSON edits are reserved for the explicit coverage gaps in §1.6 and must be minimal scope plus verified by `refresh` / logs.
 >
 > **Entity reference binding (Entity/EntityRef property) is injected by the AI as a UUID string directly** — do not ask the user to drag in the Maker editor. Detail: `msw-scripting §7 Entity/Component reference properties`.
 
@@ -22,7 +22,7 @@ Authoring guide for **.map / .model / .ui / .dataset** files and tile map assets
 | Edit **tile map / tile set** in `.map` (TileMapMode, `tileMap` array, `.tileset`) | [tile.md](tile.md) |
 | Create or modify a `.model` template | [model.md](model.md) — builder-only |
 | Place **entities** in `.map`, spawn, parent-child, manage runtime components | [entity.md](entity.md) |
-| `.map` / `.model` / `.ui` builder call protocol (unified) | [builder-protocol.md](builder-protocol.md) |
+| `.map` / `.model` / `.ui` builder call protocol (unified) | [builder-protocol.md](builder-protocol.md) (core) + [builder-protocol-map.md](builder-protocol-map.md) / [builder-protocol-model.md](builder-protocol-model.md) / [builder-protocol-ui.md](builder-protocol-ui.md) |
 | `.ui` authoring, component API, enums, mlua runtime patterns | **`msw-ui-system` skill** (single UI entry point — design guide + component API + builder invocation + runtime patterns) |
 | `.userdataset` / `.localedataset` structure, types, runtime API | [dataset.md](dataset.md) |
 | Template catalog when creating a new `.model` | [model.md §2.1](model.md) → `../models/*.model` |

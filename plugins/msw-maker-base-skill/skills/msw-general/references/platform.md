@@ -20,7 +20,7 @@ Core rules that apply **across all map types** in the MSW engine. Without these,
 5. Coordinates use **world units** (1 unit = 100 px). Pixel values are off by 100× (§5).
 6. Maker only scans `RootDesk/`. User files placed in `Global/` are not recognized (§2).
 7. **Do not modify** `.d.mlua` / `.codeblock`.
-8. CoreVersion is `26.5.0.0`. Do not proceed if mismatched (§16).
+8. CoreVersion is `26.7.0.0`. Do not proceed if mismatched (§16).
 
 ---
 
@@ -448,7 +448,7 @@ Example: bdadf19a-cc27-4a45-99c6-7a439c858a1b
 
 ```json
 {
-  "CoreVersion": "26.5.0.0"
+  "CoreVersion": "26.7.0.0"
 }
 ```
 
@@ -456,7 +456,7 @@ Example: bdadf19a-cc27-4a45-99c6-7a439c858a1b
 
 ```json
 {
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "LegacyAnimationSupport": false,
   "PlayerEntityAuthorityCheck": false,
   "ServiceAuthorityCheck": false,
@@ -487,12 +487,16 @@ Example: bdadf19a-cc27-4a45-99c6-7a439c858a1b
 
 ### CollisionGroupSet.collisiongroupset
 
-Collision group matrix. Defines which groups collide with which.
+Collision group matrix. Defines which groups collide with which. Edit the existing `Global/CollisionGroupSet.collisiongroupset` through `CollisionGroupSetBuilder`, not raw JSON.
+
+- `Groups[]`: `{ Id, Name }`. Scripts use `CollisionGroups.Name`; `.model` `CollisionGroup` values store `Id`.
+- `Matrix`: keys and values are group `Id`s. Use `setCollidable()` for symmetric pairs unless one-way collision is intentional.
+- Keep built-ins (`Default`, `TriggerBox`, `HitBox`, `Interaction`, `Portal`, `Climbable`) intact unless the user explicitly asks for a project-level collision policy change.
 
 ---
 
 ## 16. CoreVersion Compatibility
 
-- Currently supported version: **`26.5.0.0`**
+- Currently supported version: **`26.7.0.0`**
 - Location: `Environment/config` → `CoreVersion`
 - **Do not proceed if CoreVersion mismatches** (Global Rule).

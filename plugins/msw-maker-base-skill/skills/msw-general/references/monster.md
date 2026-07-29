@@ -240,6 +240,10 @@ Both still need explicit movement calls because `MovementComponent` does not tou
 @Component
 script MyMonsterController extends AttackComponent
 
+    property number attackTimer = 0
+    property number AttackCooldown = 1.0
+    property number facing = 1
+
     @ExecSpace("ServerOnly")
     method void OnBeginPlay()
         local sc = self.Entity.StateComponent
@@ -711,7 +715,7 @@ After writing the model:
 | [animation-state.md](animation-state.md) | StateComponent, StateType, ActionSheet, `[LEA-3005]`, `SetActionSheet` vs `ChangeState`, monster/NPC/player differences — read first for any state/animation issue |
 | [model.md](model.md) | Builder-only `.model` authoring rules and API |
 | [entity.md](entity.md) | Placing a monster in a `.map` |
-| [builder-protocol.md §1 + §4](builder-protocol.md) | Builder-first `.map` inspection + ModelBuilder → MapBuilder placement cross-flow |
+| [builder-protocol-map.md §1](builder-protocol-map.md) + [builder-protocol.md §4](builder-protocol.md) | Builder-first `.map` inspection + ModelBuilder → MapBuilder placement cross-flow |
 | [platform-maple.md](platform-maple.md) | MapleTile physics, `PredictFootholdEnd`, foothold AI patterns |
 | [platform.md](platform.md) §4 | TileMapMode ↔ Body mapping, LEA-3004 |
 | [troubleshooting.md](troubleshooting.md) | Symptom → cause → fix reference |

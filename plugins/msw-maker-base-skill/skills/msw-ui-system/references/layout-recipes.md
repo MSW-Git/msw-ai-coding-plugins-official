@@ -1,6 +1,6 @@
 # Layout Recipes
 
-A collection of layout templates based on this skill's CJS UIBuilder (`scripts/msw_ui_builder.cjs`; see [`../../msw-general/references/builder-protocol.md`](../../msw-general/references/builder-protocol.md) §3 for the call protocol — unified entry point).
+A collection of layout templates based on this skill's CJS UIBuilder (`scripts/msw_ui_builder.cjs`; see [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3 for the call protocol, loaded with the [`builder-protocol.md`](../../msw-general/references/builder-protocol.md) core — unified entry point).
 
 Each recipe is copy-ready from file creation to placement. In actual use, change only path / size / color / RUID values to match your project.
 
@@ -426,7 +426,7 @@ Pass criteria: no `L025` orphan parent, no `L029` nested UIGroup, no `L030` root
 
 After running any recipe:
 
-1. **Binding Injection** — Auto-inject entity UUIDs into the corresponding `.mlua` property defaults via `b.write(filepath, { bind: { mlua, props } })` or `b.injectBindings(mlua_path, props)`. See [`../../msw-general/references/builder-protocol.md`](../../msw-general/references/builder-protocol.md) §3.6 Binding Injection for details.
+1. **Binding Injection** — Auto-inject entity UUIDs into the corresponding `.mlua` property defaults via `b.write(filepath, { bind: { mlua, props } })` or `b.injectBindings(mlua_path, props)`. See [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3.6 Binding Injection for details.
 2. **Preview Check** — Visualize the layout with `scripts/preview_ui_layout.cjs`
 3. **Maker Refresh** — Reflect changes in the engine via MCP refresh
 4. **Play Mode Verification** — Verify on actual resolution and mobile scale

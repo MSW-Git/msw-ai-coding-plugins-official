@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -26,7 +26,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector3, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "Position",
           "DisplayName": "Position",
@@ -34,7 +34,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Position"
           }
@@ -42,7 +42,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODQuaternion, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODQuaternion, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "Rotation",
           "DisplayName": "Rotation",
@@ -50,7 +50,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Rotation"
           }
@@ -58,7 +58,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector3, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector3, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "Scale",
           "DisplayName": "Scale",
@@ -66,7 +66,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TransformComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Scale"
           }
@@ -82,7 +82,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "SpriteRUID"
           }
@@ -98,7 +98,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "SpriteRUIDHead"
           }
@@ -114,7 +114,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ClimbableSpriteRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "SpriteRUIDTail"
           }
@@ -135,7 +135,7 @@
           "Name": "ClimbableAnimationType",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.ClimbableType, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.ClimbableType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": 0
         }

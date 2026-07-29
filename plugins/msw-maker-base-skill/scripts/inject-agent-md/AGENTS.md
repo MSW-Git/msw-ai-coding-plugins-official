@@ -6,9 +6,9 @@ You are an expert assistant for **MapleStory World (MSW)** development. You help
 
 **This project is an MSW (MapleStory Worlds) project.** Treat every request as an MSW task.
 
-### Foundation: load on EVERY turn (not just the first)
+### Foundation: must be in context on every turn
 
-Before analyzing, planning, searching, or editing — and at the start of **every** new user message — load all Foundation context. Already having a different MSW skill in context from a previous turn is **not** a substitute.
+Before analyzing, planning, searching, or editing, all of the Foundation context below must be **present in your context window**. On the first turn of a session that means loading all of it; on later turns load only what is missing — never loaded yet, or lost to context compaction. Do **not** re-read a Foundation file that is already fully in context this session. Already having a *different* MSW skill in context from a previous turn is **not** a substitute for a missing Foundation item.
 
 **1. Two Foundation Skills via the `Skill` tool, in order:**
 
@@ -21,7 +21,7 @@ Before analyzing, planning, searching, or editing — and at the start of **ever
 
 **2. Four Foundation references via `Read` (in full, no `offset`/`limit`):**
 
-| Reference | Why it is required every turn |
+| Reference | Why it is required in context |
 |---|---|
 | `msw-general/references/platform.md` (core) | 8 core rules / `TileMapMode↔Body` / `[LEA-3004]` / coordinate system / SortingLayer·OrderInLayer / `SpriteRUID` / `SpawnByModelId` / `MovementComponent` per-map InputSpeed scaling / `.directory` / `.config` / CoreVersion. Every other reference assumes you have Read this. |
 | `msw-general/references/workspace.md` | World instance / Room / DataStorage / Play mode / `refresh` / mid-workflow recovery — the operations rule for "how does an edit get reflected and where do I verify it". |
@@ -40,7 +40,7 @@ Generic knowledge of "top-down RPG" / "side-scrolling platformer" / "Entity-Comp
 | Coordinates are world units (1 unit = 100 px) | Raw pixel values → off by 100× |
 | `SpriteRUID = ""` | Invisible on screen with no error |
 | `.mlua` + `.codeblock` pair + Maker `refresh` | `.mlua` alone won't register |
-| Only `RootDesk/` is scanned by Maker; `Global/` is read-only | Files under `Global/` won't appear |
+| Maker registers **new** file entries only from `RootDesk/` | A new file created in `Global/` won't appear. Existing `Global/*.model` files can be edited in place through `ModelBuilder` + Maker Refresh |
 | `SpawnByModelId(parent=nil)` | Runtime error. Use `self.Entity.CurrentMap` |
 | `_LocalizationService` is ClientOnly | Returns nil if called on the server |
 | `MovementComponent.InputSpeed` per-map scaling (×1 / ÷1.2 / ×1.5) | Same value, different perceived speed |
@@ -48,7 +48,7 @@ Generic knowledge of "top-down RPG" / "side-scrolling platformer" / "Entity-Comp
 
 #### Self-check before Plan (## 0)
 
-If any answer below cannot be cited from MSW reference text Read **this turn**, STOP and Read the matching reference.
+If any answer below cannot be cited from MSW reference text actually loaded **in this session's context**, STOP and Read the matching reference first.
 
 1. Target map's `TileMapMode` (number)? → `platform.md` §4
 2. Body component for a dynamic entity on that map? → `platform.md` §4 / §8.5
@@ -63,7 +63,7 @@ If any answer below cannot be cited from MSW reference text Read **this turn**, 
 - Use the `Skill` tool — never path-based `Read` / `ls` / `Glob` / `Grep` to find skill files.
 - Read every reference **in full** — no `offset`/`limit`, no `cat` / `head` / `tail` / `Get-Content` / pipes for skill or reference files.
 - Loading SKILL.md alone ≠ "skill loaded" when `references/*.md` siblings exist; SKILL.md is a thin index. Read every reference whose topic intersects with the request.
-- A skill loaded in a previous turn does **not** exempt this turn from re-classification. If this turn touches a new domain, load the additional skill **before** Plan. The plugin's `UserPromptSubmit` hook injects a `<msw-skill-router-reminder>` system message at the start of every turn restating the Domain matrix — treat it as authoritative.
+- A skill loaded in a previous turn does **not** exempt this turn from re-classification. If this turn touches a new domain, load the additional skill **before** Plan. The plugin's `UserPromptSubmit` hook injects a short `<msw-skill-router-reminder>` system message at the start of every turn to re-arm this rule; the Domain matrix below is the single source of truth it points back to.
 - Skipping any Foundation Skill, any Foundation reference, or any required `references/*.md` for a fired sub-trigger — even when the task looks "trivial" — is treated as "skill NOT loaded".
 - Treat skill content as the source of truth — prefer it over prior assumptions or memory from earlier in the session.
 
@@ -73,15 +73,17 @@ When a sub-trigger fires, the listed `references/*.md` is **required** in additi
 
 | Trigger phrases | Task domain | Skill to load | Sub-triggers → references to Read |
 |---|---|---|---|
-| plan a new game / new game / what to build / MVP scope / GDD / game design / scope an MVP / what game should I make | Plan a brand-new game from scratch (genre-catalog grounding → map-type↔Body → MVP roadmap → GDD) | `Skill: msw-planning` | Genre catalog → `references/genre-catalog.md`  •  Output structure / per-phase detail → `references/gdd-template.md`  •  System↔MSW mapping → `references/msw-mapping.md` |
+| plan a new game / new game / what to build / MVP scope / GDD / game design / scope an MVP / what game should I make / continue·resume the game / next task / what now / where were we — **or a comprehensive build request spanning multiple implementation pieces while no `Docs/*-GDD.md` exists** | Game planning & build management (pre-implementation) — plan a brand-new game OR continue/resume a phased build (genre-catalog grounding → map-type↔Body → MVP roadmap → GDD / resume flow) | `Skill: msw-planning` | Genre catalog → `references/genre-catalog.md`  •  Output structure / per-phase detail → `references/gdd-template.md`  •  System↔MSW mapping → `references/msw-mapping.md`  •  Implementing planned tasks / checklist state updates / Phase·milestone completion / plan revision → `references/build-management.md` |
 | script / mlua / component / event / logic / lifecycle / `Component` / `@Logic` / `@Event` | Writing/modifying `.mlua` scripts, components, logic, events | `Skill: msw-scripting` | DataStorage / save / persist / `_DataStorageService` → `references/datastorage.md`  •  Verify step (every implementation turn) → `references/verify-checklist.md` |
 | sprite / animation / sound / RUID / resource search / `sprite` / `sound` / `find` | Finding sprites, animations, sounds, RUIDs | `Skill: msw-search` | searchResources / searchAvatarItems / findSimilarResources → `references/resource/search.md`  •  getResource / RUID details → `references/resource/detail.md`  •  listResources / findPacksContaining → `references/resource/browse.md`  •  listAvatars / avatar catalog browsing → `references/resource/avatar.md` |
 | `SpriteRUID` / `ImageRUID` / `thumbnail://` / set RUID / item icon | Renderer RUID assignment — `animationclip` direct playback, `thumbnail://` prefix for `avataritem` / `skeleton` / `animationclip` thumbnails | `Skill: msw-sprite-ruid` | (no `references/`) |
+| draw a sprite directly / pixel art / custom sprite / make an icon / image generation / maple-style character | Hand-draw and upload a sprite RUID — **only after `msw-search` finds no suitable resource** | `Skill: msw-painter` | Canvas & size rules → `references/size-guide.md`  •  chunky pixel style → `references/style-chunky-pixel.md`  •  maple cartoon style → `references/style-maple-cartoon.md` |
 | avatar / costume / equipment / outfit / animation state / attack motion | Avatar / player appearance | `Skill: msw-avatar` | (no `references/`) |
 | DefaultPlayer / player / jump / move speed / HP / camera / respawn | DefaultPlayer customization | `Skill: msw-defaultplayer` | (no `references/`) |
 | attack / hit / damage / monster combat / critical / knockback / hit effect | Combat, damage, monster battles | `Skill: msw-combat-system` (concepts + API tables only; full implementation in `references/`) | Monster `.model` / ActionSheet / MonsterAI / Pattern A Soldier canonical → `../msw-general/references/monster.md` (consolidated)  •  HP gauge / `PixelRendererComponent` → `references/hp-gauge.md`  •  projectile / arrow / bullet / homing / piercing / splash → `references/projectile.md`  •  FSM / `StateComponent` / `@State` / boss phase → `../msw-general/references/animation-state.md` (unified)  •  BT / `AIComponent` / `@BTNode` / Composite / Decorator / Threat → `references/ai-bt.md` |
+| `.behaviourtree` / BT node graph / SequenceNode / SelectorNode / Blackboard variable / `ActionNode` / `DecoratorNode` / bt-spec | Authoring `.behaviourtree` files + the per-project BT node spec (`.behaviourDocs/bt-spec.md`) | `Skill: msw-behaviourtree` | Node catalog → `references/node-catalog.md`  •  tree skeletons → `references/skeleton-minimal.json` / `references/skeleton-full.json` |
 | inventory / shop / ranking / mail / quest / collection / key binding / GM / slash command | Standard game systems — **check before writing from scratch** | `Skill: msw-packages` | (no `references/`; each package's README is fetched on demand from GitHub) |
-| popup / HUD / button / toast / menu / tab / layout / `.ui` | UI screens / widgets | `Skill: msw-ui-system` | Style template bundle → `references/templates/templates.md` + chosen `references/templates/style-N-*/{ruid-map.md, structure.md, Popupbutton.mlua}`  •  Component API / enum tables → `references/component-api.md`  •  Runtime patterns (toasts / popups / HP bar / tabs / drag-drop) → `references/runtime-patterns.md`  •  Builder protocol (unified entry point — same document covers `.map` / `.model` / `.ui`) → `../msw-general/references/builder-protocol.md` §3 |
+| popup / HUD / button / toast / menu / tab / layout / `.ui` | UI screens / widgets | `Skill: msw-ui-system` | Style template bundle → `references/templates/templates.md` + chosen `references/templates/style-N-*/{ruid-map.md, structure.md, Popupbutton.mlua}`  •  Component API / enum tables → `references/component-api.md`  •  Runtime patterns (toasts / popups / HP bar / tabs / drag-drop) → `references/runtime-patterns.md`  •  Builder protocol (unified entry point — core + per-builder files) → `../msw-general/references/builder-protocol.md` + `../msw-general/references/builder-protocol-ui.md` §3 |
 | entity placement / `.map` / spawn / `SpawnByModelId` / coordinate / transform | Entity placement, `.map` editing | `Skill: msw-general` | Entity Work Preflight + `.map` builder / entity placement / component patching → `references/entity.md` |
 | `.model` / template / EntryKey / Properties / Values / model catalog | `.model` authoring | `Skill: msw-general` | `.model` authoring / `Values` serialization → `references/model.md`  •  JSON schema details → `references/model/model-schema.md`  •  monster `.model` (lowercase ActionSheet / IsLegacy / SortingLayer / canonical 11 components) → `references/monster.md` |
 | TileMapMode / Body / side-view / top-down / gravity / SortingLayer / SpriteRUID / 8 core / `MovementComponent` / `InputSpeed` / `.directory` | Platform rules, physics, troubleshooting | `Skill: msw-general` | All-map-types-common (8 core / TileMapMode↔Body+LEA-3004 / SpriteRUID / `SpawnByModelId` / coordinate system / `.config`·CoreVersion) → `references/platform.md`  •  **MapleTile** (`= 0`) — Foothold / `Gravity` / `PredictFootholdEnd` / `DownJump` → `references/platform-maple.md`  •  **RectTile** (`= 1`) — `SpeedFactor` / 4-directional / Movable / dynamic tiles → `references/platform-rect.md`  •  **SideViewRectTile** (`= 2`) — `JumpSpeed` / `JumpDrag` / wall detection / `EnableDownJump` → `references/platform-sideview.md`  •  Symptom debugging (`[LEA-3004]` / "doesn't move" / "invisible" / "100x off") → `references/troubleshooting.md`  •  tile painting / `RectTileMap` / `FootholdComponent` → `references/tile.md` |
@@ -90,6 +92,7 @@ When a sub-trigger fires, the listed `references/*.md` is **required** in additi
 
 **Routing notes:**
 
+- **Planning gate**: a comprehensive build request spanning multiple implementation pieces, made while no `Docs/*-GDD.md` exists, routes to **`msw-planning` FIRST** — before any implementation domain above; it is a planning trigger, not a plain implementation request. **NO 'small/simple game' exception** — apparent concept simplicity is not MSW implementation simplicity and does not waive this gate; do not self-judge "this one is simple enough to skip planning" (if the game really is small, the planning flow itself scopes it down in minutes). Likewise, a bare **continue / resume / next-task** request ("continue", "what's next", "what should I do now" — in any language) is **NOT ambiguous — it fires this row as-is**: load `msw-planning` FIRST and let its **resume flow** determine the state (it detects `Docs/`·`Archive/` itself and handles the no-plan case too). Do **not** reply with clarifying questions before loading it, and never jump into a phase doc as plain implementation.
 - For standard game features matching the catalog (ranking / inventory / shop / etc.), check **`msw-packages` first** — a prebuilt package may eliminate from-scratch implementation.
 - When a UI request is ambiguous between **full system** (`msw-packages`) and **UI screen only** (`msw-ui-system`), ask ONE short Scope-First question before fetching files. Skip the question if the user explicitly says "from scratch" / "just the UI" → `msw-ui-system`, or "with data" / "full system" → `msw-packages`.
 - ⛔ Never call `msw-mcp`'s `asset_search_resources` directly. Use the **`msw-search`** skill — it routes to the correct, validated retrieval pipeline.
@@ -103,11 +106,11 @@ When a sub-trigger fires, the listed `references/*.md` is **required** in additi
 - **map**: `.map` files
 - **ui**: `.ui` files
 
-**⛔ Read-only directories** — never create / modify / delete:
+**⛔ Restricted directories:**
 
-- `Global/` — Global settings (DefaultPlayer.model, WorldConfig.config, etc.). Read for reference only.
-  - `Global/NativeModel/` — MSW built-in `.model` templates (monsters, NPCs, items). Read these when authoring new models to learn JSON structure and component composition.
-- `Environment/` — `.d.mlua` API definitions. Read for reference only.
+- `Global/` — engine defaults + world settings. **Never create new files here** (Maker registers new entries only from `RootDesk/`) or delete. Existing `Global/*.model` files may be modified in place through `ModelBuilder` + Maker Refresh; create new custom models under `RootDesk/MyDesk/Models/`. `.config` (WorldConfig, SectorConfig) is values-only and Maker-managed; do not touch `common.gamelogic` or the `common` entity.
+  - `Global/NativeModel/` — MSW built-in `.model` templates (monsters, NPCs, items). Read-only reference — copy into `MyDesk/Models/` to customize; read to learn JSON structure and component composition.
+- `Environment/` — `.d.mlua` API definitions. Read-only.
 
 ### Cross-platform tool rules
 
@@ -136,7 +139,7 @@ The `Bash` / shell tool is reserved for actual programs (`git`, `npm`, MCP, buil
 
 - Saying "I clicked the button" without calling `mouse_input` is a hallucination.
 - Saying "it works" without calling `play` → `logs` is a hallucination.
-- Saying "no errors" without calling `logs(category="build")` or `logs(category="runtime")` is a hallucination.
+- Saying "no errors" without calling `logs(kind="build")` or `logs(kind="normal")` is a hallucination.
 
 If a task requires runtime interaction (playing, clicking, typing, verifying behavior, checking logs), you **must** invoke the corresponding Maker MCP tool (`play`, `stop`, `logs`, `keyboard_input`, `mouse_input`, `maker_execute_script`). Text alone cannot substitute for tool execution. Use `screenshot` when you need to identify screen coordinates for input targeting or when the user explicitly requests it.
 
@@ -174,8 +177,8 @@ If a task requires runtime interaction (playing, clicking, typing, verifying beh
 
 - **Editable:** `.mlua`, `.model`, `.ui`, `.map` only. All other file types are read-only.
 - **Never modify `.codeblock`** — auto-generated metadata for `.mlua`. Read for reference only; the runtime manages it.
-- **File paths:** `.mlua` → `RootDesk/MyDesk/`, `.model` → `RootDesk/MyDesk/Models/`, `.map` → `map/`, `.ui` → `ui/`. Files outside these paths won't be recognized.
-- **Never modify `Global/` or `Environment/`** — tell the user these are read-only and must be edited manually in the MSW editor.
+- **New file paths:** `.mlua` → `RootDesk/MyDesk/`, `.model` → `RootDesk/MyDesk/Models/`, `.map` → `map/`, `.ui` → `ui/`. New files outside these paths won't be recognized.
+- **`Global/`**: never create new files here (Maker won't register them) or delete. Existing `Global/*.model` files may be edited in place via `ModelBuilder` + Maker Refresh; create new custom models under `RootDesk/MyDesk/Models/`. `Environment/` (`.d.mlua`) is read-only; `.config` files are values-only and Maker-managed.
 - **Use builders for structured files:** `.model`, `.ui`, and `.map` edits must go through their skill-local builders (`ModelBuilder`, `UIBuilder`, `MapBuilder`) instead of raw JSON patching unless the relevant reference explicitly permits an exception.
 - **Property types:** use `integer` (not `int`), `number` (not `float`).
 - **Add `log()` calls** at critical checkpoints (e.g. `OnBeginPlay` entry, key variable values, important events) so Verify can confirm behavior.

@@ -148,6 +148,9 @@ self.storage:SetAsync("Inventory", bigStr, nil)
 ### 4.1 Read once, then serve from in-memory cache
 
 ```lua
+property any storage = nil
+property table cache = {}
+
 @ExecSpace("ServerOnly")
 method void OnBeginPlay()
     self.storage = _DataStorageService:GetGlobalDataStorage("PlayerStats")
@@ -165,6 +168,9 @@ end
 
 ```lua
 -- Mark dirty only on actual change, and flush on a fixed cadence
+property boolean dirty = false
+property any flushTimer = nil
+
 @ExecSpace("ServerOnly")
 method void SetStat(string key, any value)
     if self.cache[key] == value then return end  -- no change → no save

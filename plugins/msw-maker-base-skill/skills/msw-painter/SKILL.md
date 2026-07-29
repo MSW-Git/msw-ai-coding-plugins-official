@@ -1,6 +1,6 @@
 ---
 name: msw-painter
-description: "When msw-search cannot find a suitable sprite RUID, draw a pixel art sprite directly with SVG / HTML5 Canvas / HTML code, render it to PNG, and upload it via msw-mcp `asset_create_resource_storage_item` to obtain a sprite RUID. Two style modes are supported: chunky pixel (retro / icon / tile feel) and maple cartoon (MapleStory-inspired character / NPC feel). Triggers: draw sprite directly, create sprite, image generation, custom graphic, pixel art, cartoon sprite, maple style, chibi character, painter, draw a sprite, make an icon, create NPC image directly, draw a slime, custom sprite."
+description: "When msw-search cannot find a suitable sprite RUID, draw a pixel art sprite directly with SVG / HTML5 Canvas / HTML code, render it to PNG, and upload it via the msw-mcp asset upload tool to obtain a sprite RUID (if no upload tool is connected, guide the user to register it through Maker). Two style modes are supported: chunky pixel (retro / icon / tile feel) and maple cartoon (MapleStory-inspired character / NPC feel). Triggers: draw sprite directly, create sprite, image generation, custom graphic, pixel art, cartoon sprite, maple style, chibi character, painter, draw a sprite, make an icon, create NPC image directly, draw a slime, custom sprite."
 ---
 
 # MSW Painter
@@ -33,8 +33,9 @@ The painter supports two pixel art **styles**: **chunky pixel** (retro, icon/til
    - `chunky` → [references/style-chunky-pixel.md](references/style-chunky-pixel.md)
    - `maple` → [references/style-maple-cartoon.md](references/style-maple-cartoon.md)
 5. **Render to PNG** — Run `scripts/render.cjs`.
-6. **Upload the resource** — `mcp__msw-mcp__asset_create_resource_storage_item` two-step pattern.
-7. **Report the result** — RUID + a 1–2 sentence description (include which style was used). Entity placement / script application is outside the painter's scope.
+6. **Upload the resource** — the msw-mcp asset upload tool, two-step presigned pattern (§5). If the connected MCP has no upload tool, ask the user to register the PNG through Maker.
+7. **Register sprite properties** — `asset_update_resource_storage_info` right after upload: `filter_mode` / `wrap_mode` / pivot, plus 9-slice borders for UI frame sprites. See "Step 4" below.
+8. **Report the result** — RUID + a 1–2 sentence description (include which style was used). Entity placement / script application is outside the painter's scope.
 
 ---
 
@@ -164,7 +165,11 @@ The PNG defaults to a transparent background. If you need a background color, dr
 
 ## 5. Resource upload — two-step pattern
 
-`mcp__msw-mcp__asset_create_resource_storage_item` is called twice.
+Upload through the **asset upload (creation) tool exposed by the connected `msw-mcp`** — check the server's tool list and use the sprite-capable creation tool it actually provides. **The tool's own schema is authoritative for the exact call shape**; do not guess tool names, and do not confuse creation with `asset_update_resource_storage_data` (that one replaces an existing asset's binary).
+
+**No upload tool in the connected MCP?** Stop the upload step and ask the user to register the PNG through Maker instead, then continue with the RUID they provide (or locate it via `msw-search`).
+
+Whatever the exact tool, the flow is the same two-step pattern — the same tool is called twice.
 
 > 🔒 **Security — handling the presigned URL (W007).** The `presignedUrl` returned in step 1 is a short-lived signed credential (anyone holding it can PUT to that storage slot until it expires). Treat it as a secret:
 >
@@ -175,17 +180,7 @@ The PNG defaults to a transparent background. If you need a background color, dr
 
 ### Step 1 — request a presigned URL
 
-```
-mcp__msw-mcp__asset_create_resource_storage_item({
-  category: "sprite",
-  subcategory: "<appropriate subcategory>",   // e.g. "monster", "npc", "object", "icon"
-  name: "<resource name>",
-  description: "<1–2 sentence description>",
-  makerOwnerType: 0,                          // 0 = Account
-  makerOwnerId: "<account id>",               // look up in advance with mcp__msw-mcp__account_get_my_user_id
-  // omit fileUrl in this step
-})
-```
+Call the upload tool with `fileUrl` omitted. Fill the fields its schema requires — typically `category: "sprite"`, a `subcategory` matching existing assets (see below), `name`, a 1–2 sentence `description`, and file metadata such as `fileName` / `contentLength` when the schema asks for them.
 
 The response contains a `presignedUrl`. Keep it inside the agent's reasoning context only — do **not** surface it in chat output.
 
@@ -236,14 +231,22 @@ try {
 
 ### Step 3 — report upload completion
 
-```
-mcp__msw-mcp__asset_create_resource_storage_item({
-  ...same arguments,
-  fileUrl: "<presignedUrl from step 1>"   // pass directly as tool arg, do not echo
-})
-```
+Call the **same tool again with the same arguments**, adding `fileUrl` set to the presigned URL from step 1 (pass it directly as the tool argument — do not echo it into chat or code blocks).
 
 The response contains the sprite **RUID**. That is the final deliverable. After this call returns, treat the URL as fully consumed — do not retain it.
+
+### Step 4 — register sprite properties
+
+The creation tool does not accept `properties` — after step 3 returns the RUID, immediately call `mcp__msw-mcp__asset_update_resource_storage_info` with the asset's `guid`. Property entries are lowercase `{ "key": "...", "value": "..." }` with **string** values (resource *responses* show `Properties: [{ "Key", "Value" }]` — do not mirror that casing in the input).
+
+| Key | Value | Meaning |
+|---|---|---|
+| `pivot_x` / `pivot_y` | numeric string | Sprite pivot |
+| `border_left` / `border_right` / `border_top` / `border_bottom` | numeric string | 9-slice border in px |
+| `filter_mode` | `Point` / `Bilinear` / `Trilinear` | Texture filtering |
+| `wrap_mode` | `Repeat` / `Clamp` / `Mirror` / `MirrorOnce` | Texture wrap |
+
+Painter defaults: `filter_mode=Point` (Bilinear smears chunky/maple pixel edges), `wrap_mode=Clamp`, `pivot_x=0.5`; `pivot_y=0.5` for icons / UI panels, `pivot_y=0.0` for characters and props standing on the ground (adjust only if visual verification shows foot drift). Set nonzero `border_*` only when the sprite is a 9-slice UI frame (button / panel / gauge) — the `.ui` side additionally needs `SpriteGUIRendererComponent.Type = Sliced(1)` (see [component-api.md](../msw-ui-system/references/component-api.md) §"SpriteGUIRenderer — ImageType Selection"). Never invent property keys or enum values beyond this table. If the connected MCP's tool list has no `asset_update_resource_storage_info`, report the intended property values to the user instead of calling a different tool.
 
 ### Choosing a subcategory
 
@@ -277,4 +280,4 @@ Entity creation/movement/spawn, script authoring, and UI editing are outside the
 - **Chunky sprite looks mushy / blurry** → You added intermediate-color pixels on edges. Chunky forbids ALL anti-aliasing — remove transition pixels and keep edges sharp. If a softer look is desired, switch to `maple` instead.
 - **Maple sprite at small size (32×32 output) looks bad** → Maple style needs ≥ 64×64 output to fit selout + AA + features. Either increase size or switch to `chunky`.
 - **PUT step fails with 401/403** → The presigned URL expired or is wrong. Restart from step 1.
-- **Changing other metadata in the step-2 completion call** → Pass the exact same `category`/`subcategory`/`name`/`description`/`makerOwnerType`/`makerOwnerId` as in step 1. Only add `fileUrl`.
+- **Changing other arguments in the completion call** → Pass exactly the same arguments as in step 1. Only add `fileUrl`.

@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -50,7 +50,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.MovementComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.MovementComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "InputSpeed"
           }
@@ -66,7 +66,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.MovementComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.MovementComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "JumpForce"
           }
@@ -82,7 +82,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.RigidbodyComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.RigidbodyComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "WalkAcceleration"
           }
@@ -98,7 +98,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.RigidbodyComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.RigidbodyComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Gravity"
           }
@@ -106,7 +106,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "cameraDeadZone",
           "DisplayName": "cameraDeadZone",
@@ -114,7 +114,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "DeadZone"
           }
@@ -122,7 +122,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "cameraSoftZone",
           "DisplayName": "cameraSoftZone",
@@ -130,7 +130,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "SoftZone"
           }
@@ -138,7 +138,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "cameraDamping",
           "DisplayName": "cameraDamping",
@@ -146,7 +146,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Damping"
           }
@@ -154,7 +154,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "cameraScreen",
           "DisplayName": "cameraScreen",
@@ -162,7 +162,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ScreenOffset"
           }
@@ -178,7 +178,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "DutchAngle"
           }
@@ -186,7 +186,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "cameraOffset",
           "DisplayName": "cameraOffset",
@@ -194,7 +194,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.CameraComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "CameraOffset"
           }
@@ -210,7 +210,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Message"
           }
@@ -226,7 +226,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.ChatBalloonComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ChatModeEnabled"
           }
@@ -242,7 +242,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.NameTagComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Name"
           }
@@ -250,7 +250,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "damageSkinId",
           "DisplayName": "damageSkinId",
@@ -258,7 +258,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.DamageSkinSettingComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.DamageSkinSettingComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "DamageSkinId"
           }
@@ -274,7 +274,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.DamageSkinSettingComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.DamageSkinSettingComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "DelayPerAttack"
           }
@@ -282,7 +282,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "triggerBodyBoxSize",
           "DisplayName": "triggerBodyBoxSize",
@@ -290,7 +290,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "BoxSize"
           }
@@ -298,7 +298,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "triggerBodyBoxOffset",
           "DisplayName": "triggerBodyBoxOffset",
@@ -306,7 +306,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "BoxOffset"
           }
@@ -314,7 +314,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "triggerBodyColliderOffset",
           "DisplayName": "triggerBodyColliderOffset",
@@ -322,7 +322,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TriggerComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ColliderOffset"
           }
@@ -338,7 +338,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.PlayerComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.PlayerComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "MaxHp"
           }

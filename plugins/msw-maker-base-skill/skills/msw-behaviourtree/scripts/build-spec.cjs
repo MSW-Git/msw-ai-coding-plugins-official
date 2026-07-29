@@ -1,6 +1,6 @@
 // Project-agnostic BehaviourTree spec generator.
 // Scans a project for BT codeblocks (.codeblock with paired .mlua extending
-// ActionNode/DecoratorNode), parses property declarations, and emits a Markdown
+// ActionNode/DecoratorNode/CompositeNode), parses property declarations, and emits a Markdown
 // spec consumed by the msw-behaviourtree-creator skill.
 //
 // Output: <ProjectRoot>/.behaviourDocs/bt-spec.md (created if missing).
@@ -146,6 +146,7 @@ let failCount = 0;
 
 const scriptActionRe    = /^\s*script\s+\w+\s+extends\s+ActionNode\b/m;
 const scriptDecoratorRe = /^\s*script\s+\w+\s+extends\s+DecoratorNode\b/m;
+const scriptCompositeRe = /^\s*script\s+\w+\s+extends\s+CompositeNode\b/m;
 
 for (const fullPath of walkCodeblocks(projectRoot)) {
     try {
@@ -161,11 +162,13 @@ for (const fullPath of walkCodeblocks(projectRoot)) {
             const mluaText = fs.readFileSync(mluaPath, 'utf8');
             if      (scriptActionRe.test(mluaText))    kind = 'Action';
             else if (scriptDecoratorRe.test(mluaText)) kind = 'Decorator';
+            else if (scriptCompositeRe.test(mluaText)) kind = 'Composite';
         }
         if (!kind) {
             const tgt = cp.Target;
             if      (tgt === 'MOD.Core.BTNodes.ActionNode')    kind = 'Action';
             else if (tgt === 'MOD.Core.BTNodes.DecoratorNode') kind = 'Decorator';
+            else if (tgt === 'MOD.Core.BTNodes.CompositeNode') kind = 'Composite';
         }
         if (!kind) { nonBtCount++; continue; }
 
@@ -175,7 +178,7 @@ for (const fullPath of walkCodeblocks(projectRoot)) {
             Name:       cp.Name,
             Id:         cp.Id,
             Kind:       kind,
-            BtNodeType: kind === 'Action' ? 0 : 2,
+            BtNodeType: kind === 'Action' ? 0 : kind === 'Composite' ? 1 : 2,
             RelPath:    fullPath.substring(projectRoot.length).replace(/^[\\/]+/, ''),
             MluaExists: mluaExists,
             Properties: props,
@@ -189,15 +192,16 @@ for (const fullPath of walkCodeblocks(projectRoot)) {
 const byName = (a, b) => (a.Name || '').localeCompare(b.Name || '');
 const actions    = btNodes.filter(n => n.Kind === 'Action').sort(byName);
 const decorators = btNodes.filter(n => n.Kind === 'Decorator').sort(byName);
+const composites = btNodes.filter(n => n.Kind === 'Composite').sort(byName);
 
-console.log(`Found ${actions.length} action nodes, ${decorators.length} decorator nodes`);
+console.log(`Found ${actions.length} action nodes, ${decorators.length} decorator nodes, ${composites.length} custom composite nodes`);
 console.log(`Non-BT codeblocks: ${nonBtCount}, parse failures: ${failCount}`);
 
-if (actions.length === 0 && decorators.length === 0) {
+if (actions.length === 0 && decorators.length === 0 && composites.length === 0) {
     console.warn('');
-    console.warn('WARNING: zero Action and zero Decorator nodes discovered.');
+    console.warn('WARNING: zero Action, zero Decorator, and zero custom Composite nodes discovered.');
     console.warn('  - If the project genuinely has no BT codeblocks yet, create them in the Maker BehaviourTree editor first, then re-run this script.');
-    console.warn('  - If you expected nodes here, the mlua-lsp environment may be rejecting `script <Name> extends ActionNode`/`extends DecoratorNode` declarations. In that case, the .codeblock + .mlua pairs must be created through the Maker BT editor GUI (the agent cannot author them directly). Falling back to a code-driven AI pattern (@BTNode extends BTNode + AIComponent:CreateNode) is an alternative.');
+    console.warn('  - If you expected nodes here, the mlua-lsp environment may be rejecting `script <Name> extends ActionNode`/`extends DecoratorNode`/`extends CompositeNode` declarations. In that case, the .codeblock + .mlua pairs must be created through the Maker BT editor GUI (the agent cannot author them directly). Falling back to a code-driven AI pattern (@BTNode extends BTNode + AIComponent:CreateNode) is an alternative.');
     console.warn('');
 }
 
@@ -216,15 +220,15 @@ push();
 push(`- **Project root**: \`${projectRoot}\``);
 push(`- **Engine CoreVersion**: \`${coreVersion}\``);
 push(`- **Generated**: ${nowStamp()}`);
-push(`- **Discovered**: ${actions.length} action nodes, ${decorators.length} decorator nodes`);
+push(`- **Discovered**: ${actions.length} action nodes, ${decorators.length} decorator nodes, ${composites.length} custom composite nodes`);
 push();
 push('> Compact catalog for tree construction. Custom-node UUIDs were read from real `.codeblock` files in this project -- never invent them.');
 push();
 push('---');
 push();
 
-// 1. Built-in composites
-push('## 1. Built-in composite nodes');
+// 1. Composites (built-in + discovered custom `extends CompositeNode`)
+push('## 1. Composite nodes');
 push();
 push('| nodeName | definitionId | btNodeType |');
 push('|---|---|---|');
@@ -232,6 +236,17 @@ push('| `SequenceNode` | `SequenceNode` | 1 |');
 push('| `SelectorNode` | `SelectorNode` | 1 |');
 push('| `ParallelNode` | `ParallelNode` | 1 |');
 push();
+
+if (composites.length > 0) {
+    push('### Custom composite nodes (`extends CompositeNode`)');
+    push();
+    push('| Name | definitionId | btNodeType | Properties |');
+    push('|---|---|---|---|');
+    for (const n of composites) {
+        push(`| \`${n.Name}\` | \`codeblock://${n.Id}\` | ${n.BtNodeType} | ${formatPropertyList(n)} |`);
+    }
+    push();
+}
 
 function formatPropertyList(node) {
     if (!node.MluaExists) return '(!) paired .mlua not found';

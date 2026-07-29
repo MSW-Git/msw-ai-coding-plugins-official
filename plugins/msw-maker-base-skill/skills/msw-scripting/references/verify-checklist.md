@@ -20,9 +20,9 @@ Call in order:
 1. `stop` — reset state
 2. `clear_logs` — remove previous output (isolate current output)
 3. `refresh` — sync file changes to the runtime
-4. `logs(category="build")` — check build log; if errors exist, fix and restart from step 1
+4. `logs(kind="build")` — check build log; if errors exist, fix and restart from step 1
 5. `play` — enter play mode
-6. Wait a few seconds, then `logs(category="runtime")` — collect runtime output
+6. Wait a few seconds, then `logs(kind="normal")` — collect runtime output
 
 Retain the raw logs for Step 3.
 
@@ -54,8 +54,8 @@ Retain the raw logs for Step 3.
 - [ ] At typed-enum parameter slots (e.g. `GetSortedAndWait(SortDirection sortDirection, ...)`), is an **enum member** (`SortDirection.Descending`) passed, not an integer literal (`1`)? The runtime tolerates the int form, but `mlua-diagnose` rejects it as a type mismatch.
 
 ### File & Path Checks
-- [ ] `.mlua` → `RootDesk/MyDesk/`, `.model` → `RootDesk/MyDesk/Models/`, `.map` → `map/`, `.ui` → `ui/`?
-- [ ] Are `Global/` and `Environment/` left unmodified?
+- [ ] New `.mlua` → `RootDesk/MyDesk/`, new `.model` → `RootDesk/MyDesk/Models/`, `.map` → `map/`, `.ui` → `ui/`?
+- [ ] Is `Environment/` left unmodified, with no **new** files created or files deleted under `Global/`? (Existing `Global/*.model` files may be edited in place through `ModelBuilder` + Maker Refresh.)
 - [ ] Are `.codeblock` files left unmodified?
 
 ---
@@ -80,7 +80,7 @@ Retain the raw logs for Step 3.
 
 For the logs collected in Step 1:
 
-- [ ] **Zero build errors** (`logs(category="build")`) — re-confirm after play
+- [ ] **Zero build errors** (`logs(kind="build")`) — re-confirm after play
 - [ ] Is there a **`log()` output showing the intended branch executed**? (entry log, value log, event order)
 - [ ] Are values the **expected values**, not nil/0/empty string?
 - [ ] Were logs printed on the **correct side** (Server/Client)?

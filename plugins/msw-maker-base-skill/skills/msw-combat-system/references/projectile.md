@@ -2,6 +2,8 @@
 
 > Attack Resolution basics and per-Body knockback live in [`msw-combat-system/SKILL.md`](../SKILL.md) §1·§3.
 
+> ⚠ **`CollisionGroups.Monster` in the examples below is an exact-match filter on the defender's `HitComponent.CollisionGroup`** — it only works because the target monsters' `HitComponent.CollisionGroup` is set to `Monster`. If your monsters keep the default (`HitBox`) or another group, the attack hits **0 targets with no error**. Either set the monsters' group to match, or omit the argument (`nil` = every `HitComponent`). Details: [`SKILL.md`](../SKILL.md) §1-2.
+
 ---
 
 ## Core architecture

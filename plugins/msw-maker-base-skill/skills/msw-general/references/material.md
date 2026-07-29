@@ -120,7 +120,7 @@ Server identifier in MCP calls: **`user-msw-guide-mcp`**.
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -140,7 +140,7 @@ Server identifier in MCP calls: **`user-msw-guide-mcp`**.
 Invariants:
 
 - `EntryKey` is `"material://" + <uuid>` and the `<uuid>` **must match** `ContentProto.Json.id`. If they drift, scripts that lookup by `EntryKey` will silently miss.
-- `ContentType` is always `"x-mod/material"`. `CoreVersion` must equal the project CoreVersion (`26.5.0.0`).
+- `ContentType` is always `"x-mod/material"`. `CoreVersion` must equal the project CoreVersion (`26.7.0.0`).
 - `Id` / `GameId` / `Content` are populated by Maker; leave them empty on hand-authored files and let `refresh` finalize.
 - `ContentProto.Json.shadertype` is the **shader name** (e.g. `"Hologram"`, `"InnerOutline"`, `"Rainbow"`, `"Pixel"`, `"Vignette"`) — **not** the category name.
 - `IsUIMaterial` / `RequiresUIStencilStateChange` are always present; set `IsUIMaterial=true` only if the material is being applied to UI renderer components (`RawImageGUIRendererComponent`, `PolygonGUIRendererComponent`, …).
@@ -210,7 +210,7 @@ Pick the place that matches *where* the material assignment should live for the 
 
    The value goes in as a plain `string` typeKey, exactly like `SpriteRUID`. Do **not** wrap it in `dataRef()`.
 
-2. **Inline on a `.map` entity** — for genuinely one-off scene entities. Use `MapBuilder` (see [builder-protocol.md §1](builder-protocol.md); domain context in [`entity.md`](entity.md)) to set the same `MaterialId` value on the entity's `SpriteRendererComponent`.
+2. **Inline on a `.map` entity** — for genuinely one-off scene entities. Use `MapBuilder` (see [builder-protocol-map.md §1](builder-protocol-map.md); domain context in [`entity.md`](entity.md)) to set the same `MaterialId` value on the entity's `SpriteRendererComponent`.
 
 3. **In the Maker editor** — Property Editor → renderer component → `MaterialId` field → pick from Reference window. Use this only when the user is iterating live and you have no automation route.
 
@@ -223,6 +223,8 @@ Use `ChangeMaterial(materialId)` on the renderer component. **The argument is th
 > ⚠️ **Common mistake.** Wrapping the value as `"material://" .. entryId` causes the lookup to fail (the renderer does not strip the prefix). Pass the raw UUID string only.
 
 ```lua
+property string outlineMatId = ""
+
 -- Resolve once (e.g. in OnBeginPlay) so you don't pay name lookup per call
 self.outlineMatId = _EntryService:GetMaterialIdByName("Outline_Red")
 -- self.outlineMatId is the bare "<uuid>" — pass it straight through
@@ -244,17 +246,20 @@ To **remove** the effect, swap to a `Default` shader material (author one once a
 Use `_MaterialService:ChangeMaterialProperty(entryId, { [PropertyName] = value })`. **ClientOnly**, **shared across all entities using that material**. Like `ChangeMaterial`, the `entryId` argument is the **bare UUID** — no `material://` prefix.
 
 ```lua
--- Property: [None] string materialEntryId = ""
-[client only] void OnBeginPlay () {
-  self.materialEntryId = _EntryService:GetMaterialIdByName("HologramAura")  -- bare "<uuid>"
-}
+property string materialEntryId = ""
 
-[client only] void OnUpdate (number delta) {
-  _MaterialService:ChangeMaterialProperty(self.materialEntryId, {
-    ["TimeScale"] = 2.0,
-    ["MinAlpha"] = 0.3
-  })
-}
+@ExecSpace("ClientOnly")
+method void OnBeginPlay()
+    self.materialEntryId = _EntryService:GetMaterialIdByName("HologramAura")  -- bare "<uuid>"
+end
+
+@ExecSpace("ClientOnly")
+method void OnUpdate(number delta)
+    _MaterialService:ChangeMaterialProperty(self.materialEntryId, {
+        ["TimeScale"] = 2.0,
+        ["MinAlpha"] = 0.3
+    })
+end
 ```
 
 Two important consequences:
@@ -313,6 +318,9 @@ Goal: monster flashes a red outline when hit.
 6. **Hit script (client side)** — on `OnHit` (or via an RPC from server `OnHit`):
 
    ```lua
+   property any outlineId = nil
+   property any defaultId = nil
+
    -- GetMaterialIdByName returns the bare "<uuid>" — pass it to ChangeMaterial as-is, no "material://" prefix
    self.outlineId = self.outlineId or _EntryService:GetMaterialIdByName("InnerOutline_Red")
    self.defaultId = self.defaultId or _EntryService:GetMaterialIdByName("Default_Material")
@@ -362,7 +370,7 @@ Goal: monster flashes a red outline when hit.
 | Doc | Why |
 |---|---|
 | [model.md](model.md) | Setting `MaterialId` as a `.model` value via `ModelBuilder` (§4.2). |
-| [builder-protocol.md §1](builder-protocol.md) | MapBuilder call protocol for patching `MaterialId` on inline `.map` entities (domain context in [entity.md](entity.md)) |
+| [builder-protocol-map.md §1](builder-protocol-map.md) | MapBuilder call protocol for patching `MaterialId` on inline `.map` entities (domain context in [entity.md](entity.md)) |
 | [platform.md](platform.md) | `SortingLayer` / `OrderInLayer` / `SpriteRUID` — separate from materials but often involved when the material "doesn't seem to show". |
 | `msw-scripting` skill | Authoring the `.mlua` that calls `ChangeMaterial` / `ChangeMaterialProperty`. Read [`msw-scripting/SKILL.md`](../../msw-scripting/SKILL.md) + [`verify-checklist.md`](../../msw-scripting/references/verify-checklist.md) before writing any `.mlua`. |
 | `msw-search` skill | Finding sprite RUIDs that pair with the material (e.g. the base sprite under an outline). |

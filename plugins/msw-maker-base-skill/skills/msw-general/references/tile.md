@@ -225,7 +225,7 @@ A map may contain **multiple `RectTileMap`** entities (for layer separation), ea
 
 ## Related Skills
 
-- **[`entity.md`](entity.md)** — `.map` entity / component domain rules; **call protocol lives in [`builder-protocol.md §1`](builder-protocol.md)**
+- **[`entity.md`](entity.md)** — `.map` entity / component domain rules; **call protocol lives in [`builder-protocol-map.md §1`](builder-protocol-map.md)**
 - **[platform.md](platform.md)** — TileMapMode ↔ Body, SpriteRUID, spawn rules (core)
 - **[platform-maple.md](platform-maple.md)** / **[platform-rect.md](platform-rect.md)** / **[platform-sideview.md](platform-sideview.md)** — Per-map-type physics, events, and troubleshooting
 - **`msw-defaultplayer`** — per-mode movement components (`KinematicbodyComponent`, `SideviewbodyComponent`, etc.)

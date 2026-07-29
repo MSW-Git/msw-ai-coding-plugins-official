@@ -2,14 +2,14 @@
 
 A `.model` is an entity template. This document carries the **domain rules** of `.model` authoring — when to create one, which template to start from, which component combinations fit which entity types, and the lifecycle order when a script component is bound to a model.
 
-> **The actual call protocol for `.model` mutation — `ModelBuilder` API, fluent-chaining rules, `typeKey` values, validation (M030–M036), child entity invariants, event-link authoring, `.model` → `.map` cross-flow — lives in [builder-protocol.md §2](builder-protocol.md). Re-read builder-protocol.md every turn that touches `.model`.**
+> **The actual call protocol for `.model` mutation — `ModelBuilder` API, fluent-chaining rules, `typeKey` values, validation (M030–M036), child entity invariants, event-link authoring, `.model` → `.map` cross-flow — lives in [builder-protocol-model.md §2](builder-protocol-model.md), with the shared contract in the [builder-protocol.md](builder-protocol.md) core. Both must be in context on every turn that touches `.model` (read only if missing — see the Builder Protocol Preflight in SKILL.md).**
 
 ## 0. Non-Negotiable Rule (summary)
 
 - Do not inspect or edit `.model` JSON directly. No `Read` / `cat` / `Get-Content` / `grep` / manual JSON patches.
 - All read / create / update / write goes through `scripts/model/msw_model_builder.cjs` (`ModelBuilder`).
 - The builder **fully owns** `EntryKey`, `ContentProto.Json.Id/Name`, value type descriptors, inspector-property links, child model shape, and event-link preservation.
-- Concrete call patterns / API tables / chaining-safe vs non-builder returns / `typeKey` values / helper functions → [builder-protocol.md §2](builder-protocol.md).
+- Concrete call patterns / API tables / chaining-safe vs non-builder returns / `typeKey` values / helper functions → [builder-protocol-model.md §2](builder-protocol-model.md).
 
 ## 1. When to Create a `.model`
 
@@ -131,9 +131,9 @@ Read [`monster.md`](monster.md) before authoring a monster.
 
 For full UI layout work, use the `msw-ui-system` skill instead of authoring UI models directly.
 
-## 3. Builder Workflow / 4. API Quick Reference — see builder-protocol.md
+## 3. Builder Workflow / 4. API Quick Reference — see builder-protocol-model.md
 
-The call sequence (`fromTemplate` / `read` / fluent mutate / `write`), per-method API signatures, chaining-safe vs `false`-return distinction, `typeKey` values (`bool` / `int` / ... / `action_sheet`), helpers (`vector2` / `vector3` / `quaternion` / `dataRef` / `collisionGroup` / `actionSheet`), Inspector Property / Child Entity tree (child shell schema, ParentId invariants, validation rules M030–M036), Event Link, and `.model` → `.map` cross-flow (`ModelBuilder.write` → `MapBuilder.placeModel`) — **every invocation detail is consolidated in the single entry point [builder-protocol.md §2 + §4](builder-protocol.md).**
+The call sequence (`fromTemplate` / `read` / fluent mutate / `write`), per-method API signatures, chaining-safe vs `false`-return distinction, `typeKey` values (`bool` / `int` / ... / `action_sheet`), helpers (`vector2` / `vector3` / `quaternion` / `dataRef` / `collisionGroup` / `actionSheet`), Inspector Property / Child Entity tree (child shell schema, ParentId invariants, validation rules M030–M036), Event Link, and `.model` → `.map` cross-flow (`ModelBuilder.write` → `MapBuilder.placeModel`) — **every invocation detail is consolidated in [builder-protocol-model.md §2](builder-protocol-model.md) + [builder-protocol.md §4](builder-protocol.md).**
 
 This document covers only the **domain** side of `.model` authoring:
 
@@ -185,7 +185,7 @@ If this order is inconvenient, keep the `.model` native-only and attach the scri
 
 | Doc | Purpose |
 |---|---|
-| [builder-protocol.md §2](builder-protocol.md) | **`.model` call protocol — ModelBuilder API, chaining rules, `typeKey`, Child Entity, Event Link, validation** (read every turn that touches `.model`) |
+| [builder-protocol-model.md §2](builder-protocol-model.md) | **`.model` call protocol — ModelBuilder API, chaining rules, `typeKey`, Child Entity, Event Link, validation** (with the [builder-protocol.md](builder-protocol.md) core — both in context whenever a turn touches `.model`) |
 | [builder-protocol.md §4](builder-protocol.md) | `.model` → `.map` cross-flow (`ModelBuilder.write` → `MapBuilder.placeModel` → `refresh`) |
 | [`entity.md`](entity.md) | Placing the authored model in a map, spawn, runtime verification domain |
 | [`monster.md`](monster.md) | Monster-specific canonical defaults and pitfalls |

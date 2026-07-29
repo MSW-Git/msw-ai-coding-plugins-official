@@ -1,9 +1,12 @@
 # UI Runtime Patterns
 
-`.mlua` patterns for controlling UI from scripts. These are **runtime code**, separate from `.ui` file authoring (which goes through the builder — see [`../../msw-general/references/builder-protocol.md`](../../msw-general/references/builder-protocol.md) §3, the unified entry point).
+`.mlua` patterns for controlling UI from scripts. These are **runtime code**, separate from `.ui` file authoring (which goes through the builder — see [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3, the unified entry point).
 
 > [!IMPORTANT]
 > **`@ExecSpace("ClientOnly")` must be on each method, not on the `script`.** A script-level `@ExecSpace` (above the `script` line) does **not** make lifecycle callbacks client-only — the compiler ignores it, so `OnBeginPlay` / `OnUpdate` / `OnEndPlay` still run on the server, where UI entity refs are `nil` → `[LEA-2007] AttemptToIndex`. Annotate every engine-invoked method (lifecycle callbacks, handlers, and any method that touches UI) individually, exactly as the examples below do. See "Runtime UI Caveats" §3.
+
+> [!IMPORTANT]
+> **Every `self.<field>` these patterns assign is a declared `property`.** Assigning to an undeclared `self.<field>` is a runtime error (`cannot set <name>, no such field`) that kills the method — the build log shows only a `LIA-1114` Info. Declare a `property` (or use `self._T.<field>`) for any state you add.
 
 ---
 
@@ -19,6 +22,10 @@ script UIPopup extends Logic
     property ButtonComponent btnOk = "uuid-btn-ok"
     property ButtonComponent btnCancel = "uuid-btn-cancel"
     property Entity popupGroup = "uuid-group"
+    property any onOk = nil
+    property any onCancel = nil
+    property any okHandler = nil
+    property any cancelHandler = nil
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -70,6 +77,7 @@ script UIToast extends Logic
     property Entity toastGroup = "uuid-group"
     property number duration = 2
     property number fadeDuration = 0.3
+    property any timerId = nil
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -169,6 +177,7 @@ script ScrollList extends Logic
 
     property Entity itemTemplate = "uuid-template"
     property ScrollLayoutGroupComponent scrollLayout = "uuid-scroll"
+    property table items = {}
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -215,6 +224,7 @@ For 100+ items, use GridView instead of ScrollLayout.
 script InventoryGrid extends Logic
 
     property GridViewComponent gridView = "uuid-gridview"
+    property table data = {}
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -260,6 +270,7 @@ script TabUI extends Logic
     property ButtonComponent tab1Btn = "uuid-btn1"
     property ButtonComponent tab2Btn = "uuid-btn2"
     property ButtonComponent tab3Btn = "uuid-btn3"
+    property table tabs = {}
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -316,9 +327,14 @@ Prefer build-time `displayOrder` for static layouts. Use runtime sibling reorder
 
 Implement drag with UITouchReceiveComponent.
 
+> [!WARNING]
+> **The `UITouchReceiveComponent` entity needs a raycast target.** The component alone never receives touch events (silent failure) — the same entity (or a child) must have a raycast-enabled GUI renderer, e.g. an invisible sprite: `b.sprite(name, { alpha: 0, raycast: true, ... })` + `b.addComponent(name, "MOD.Core.UITouchReceiveComponent")`. A sibling sprite at the same position does NOT work.
+
 ```lua
 @Component
 script Draggable extends Component
+
+    property any dragHandler = nil
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -354,6 +370,8 @@ script ChatUI extends Logic
     property TextGUIRendererComponent chatLog = "uuid-log"
     property ScrollLayoutGroupComponent scrollLayout = "uuid-scroll"
     property Entity messageTemplate = "uuid-template"
+    property any submitHandler = nil
+    property integer msgCount = 0
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -393,6 +411,7 @@ script CooldownUI extends Component
 
     property SpriteGUIRendererComponent cooldownOverlay = "uuid-overlay"
     property TextGUIRendererComponent cooldownText = "uuid-text"
+    property any timerId = nil
 
     @ExecSpace("ClientOnly")
     method void StartCooldown(number duration)

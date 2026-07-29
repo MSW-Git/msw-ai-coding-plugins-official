@@ -12,7 +12,7 @@ const path = require('path');
 const os = require('os');
 const crypto = require('crypto');
 
-const SUPPORTED_VERSION = '26.5.0.0';
+const SUPPORTED_VERSION = '26.7.0.0';
 const CONFIG_FILE = 'Environment/config';
 
 function readInput() {

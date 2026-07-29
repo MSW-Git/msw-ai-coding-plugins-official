@@ -316,6 +316,8 @@ Common `typeKey` values: `bool`, `int`, `float`, `double`, `string`, `vector2`, 
 
 Use `component()` on `./Global/DefaultPlayer.model`.
 
+Only add components that are not inherited from `Player.model`. For inherited native components (`PlayerComponent`, `MovementComponent`, `CameraComponent`, `StateComponent`, etc.), override values with `value(...)` instead of redeclaring the component. `ModelBuilder` warns (`M040`) when a component already inherited from `BaseModelId: "player"` is added locally.
+
 **Adding a custom script component**:
 ```javascript
 const b = ModelBuilder.read("./Global/DefaultPlayer.model");
@@ -326,7 +328,7 @@ b.component("script.MyCustomComponent")
 
 > Custom scripts (.mlua) must be created under `./RootDesk/MyDesk/`. Write the script first, Maker `refresh`, then add `"script.<ScriptName>"` with the builder.
 
-**Adding a native component** (e.g. SpriteRendererComponent):
+**Adding a non-inherited native component**:
 ```javascript
 const b = ModelBuilder.read("./Global/DefaultPlayer.model");
 

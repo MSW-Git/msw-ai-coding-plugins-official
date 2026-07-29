@@ -26,7 +26,7 @@ The table that decides the whole stack. **If an entity's Body doesn't match the 
 | Avatar appearance · costume · custom action / attack motion | CostumeManagerComponent (17 slots) + AvatarStateAnimationComponent / AvatarRendererComponent | msw-avatar (any avatar entity — player · NPC · monster) |
 | Combat (attack · hit · damage · knockback · hit-stop) | msw-combat-system | Includes HP bar · effects. Refs: monster setup & **facing** → msw-general `monster.md`; projectile → `projectile.md`; HP → `hp-gauge.md` |
 | Behavior-tree (BT) AI / FSM | msw-behaviourtree / StateComponent | |
-| Data (stats · economy · drops · difficulty curve) | UserDataSet (dataset, CSV) | "Data-driven": CSV is the source of truth, update without code changes. Migrate hardcoded values → dataset when the value-set grows (plan it as a roadmap goal) |
+| Data (stats · economy · drops · difficulty curve) | UserDataSet (dataset, CSV) | "Data-driven": CSV is the source of truth, update without code changes. Migrate hardcoded values → dataset when the value-set grows (plan it as a §6 later-Phase task, or a milestone-roadmap entry when it lands beyond the milestone) |
 | Localized text | LocaleDataSet | Mind ClientOnly |
 | Persistent save (save · progress) | `_DataStorageService` | Key-value persistence |
 | UI (HUD · popup · button · card select etc.) | `.ui` + UIBuilder (msw-ui-system) | Never edit raw JSON |

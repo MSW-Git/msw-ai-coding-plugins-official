@@ -28,11 +28,11 @@ Branch to sub-references based on request keywords.
 | "which component", "Sprite vs Text vs Button", "9-slice", "scroll list", "GridView vs ScrollLayoutGroup" | [`references/component-api.md`](references/component-api.md) §"Component Selection Guide" |
 | "sprite pivot", "9-slice border", "slice boundary", "set sliced asset metadata", "resource storage properties" | Set asset-side metadata via `msw-mcp` `asset_update_resource_storage_info` directly; for the `.ui` side see [`references/component-api.md`](references/component-api.md) §"SpriteGUIRenderer — ImageType Selection" |
 | "make a HUD", "popup placement", "toast", "menu", "inventory grid", "scroll list" | [`references/layout-recipes.md`](references/layout-recipes.md) |
-| "connect .mlua after building with .ui builder", "property default UUID", "binding without drag" | [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3.6 Binding Injection (unified entry point) |
+| "connect .mlua after building with .ui builder", "property default UUID", "binding without drag" | [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3.6 Binding Injection (unified entry point — load with the [`builder-protocol.md`](../msw-general/references/builder-protocol.md) core) |
 | Runtime UI component field read/write, component property name/type (`ButtonComponent.Colors`, `TextGUIRendererComponent.Overflow`, `SpriteGUIRendererComponent.FillAmount`…) | [`references/component-api.md`](references/component-api.md) **required before every `.mlua` access to UI component fields** |
 | Enum values (`AlignmentType`, `TextOverflowMode`, `ImageType`, `UIBasicParticleType`…) | [`references/component-api.md`](references/component-api.md) §Enums |
 | Runtime mlua patterns (popup open/close, toast fade, HP bar, GridView, drag, tab, cooldown), Runtime UI Caveats (client-only, server-side nil, etc.) | [`references/runtime-patterns.md`](references/runtime-patterns.md) |
-| **`.ui` builder invocation methods** (UIBuilder API, anchor presets, write auto-lint, component add/patch/remove) | [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3 UIBuilder (unified entry point — same document as `.map` MapBuilder / `.model` ModelBuilder) |
+| **`.ui` builder invocation methods** (UIBuilder API, anchor presets, write auto-lint, component add/patch/remove) | [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 UIBuilder (unified entry point — load with the [`builder-protocol.md`](../msw-general/references/builder-protocol.md) core; `.map` MapBuilder / `.model` ModelBuilder live in sibling per-builder files) |
 | "sound", "sfx", "click sound", "hover sound", "button audio", "PlaySound" | [`references/ui-sound.md`](references/ui-sound.md) |
 
 ---
@@ -42,10 +42,10 @@ Branch to sub-references based on request keywords.
 ```
 (1) Clarify intent       Layout sketch (ASCII or verbal) + which group to attach to
 (2) Check design guide   Match at least one of ui-fundamentals / ui-hierarchy / component-api §Component Selection Guide
-(3) Builder Preflight    Read ../msw-general/references/builder-protocol.md §3 (unified call-protocol entry point)
+(3) Builder Preflight    Read ../msw-general/references/builder-protocol.md (core) + builder-protocol-ui.md §3 (unified call-protocol entry point)
 (4) Match recipe          Select the closest template from layout-recipes.md
-(5) Invoke builder        Create/patch via scripts/msw_ui_builder.cjs (protocol: builder-protocol.md §3)
-(6) Inject bindings       Auto-inject .mlua property default UUIDs via b.write(path, { bind: {...} }) or b.injectBindings(...) (builder-protocol.md §3.6 Binding Injection)
+(5) Invoke builder        Create/patch via scripts/msw_ui_builder.cjs (protocol: builder-protocol-ui.md §3)
+(6) Inject bindings       Auto-inject .mlua property default UUIDs via b.write(path, { bind: {...} }) or b.injectBindings(...) (builder-protocol-ui.md §3.6 Binding Injection)
 (7) Self-verify           write() auto-runs scripts/ui_lint.cjs (strict ON by default)
 (8) Preview               Visual check via scripts/preview_ui_layout.cjs
 (9) Sound pass            For any interactive button, offer click/hover SFX wiring (references/ui-sound.md)
@@ -57,13 +57,13 @@ Branch to sub-references based on request keywords.
 ### NEVER
 1. **Do not directly edit `.ui` JSON** — `.ui` creation/modification **must** go through `scripts/msw_ui_builder.cjs`. Manual editing breaks UUID·ValueType·`@components` consistency and causes silent drops.
 2. **Read existing `.ui` files through the builder too** — Query via `UIBuilder.read(filepath)` / `.find()` / `.listEntities()`. Do not directly grep/parse raw JSON.
-   - `.ui` direct `Read` and shell commands such as `cat` / `type` / `Get-Content` / `rg` / `grep` / `sed` / `awk` / `cp` / `mv` are blocked by the registered guard. Use `UIBuilder.read/load/snapshot` for reads and `b.write()` for writes. Deleting an entire `.ui` file is a separate explicit deletion action, not a builder mutation.
+   - `.ui` direct `Read` and shell commands such as `cat` / `type` / `Get-Content` / `rg` / `grep` / `sed` / `awk` / `cp` / `mv` are blocked by the registered guard. Use `UIBuilder.read/load/snapshot` for reads and `b.write()` for writes. Deleting an entire `.ui` file has no builder API — delete it with `node -e "require('fs').unlinkSync('ui/<File>.ui')"` then `refresh` (shell `rm`/`cat` are guard-blocked; a `node -e` builder call is not).
 3. Set `Position` directly — Use only `anchoredPosition` (Position is engine-managed)
 4. Express size via OffsetMin/Max on fixed anchors (AnchorsMin == AnchorsMax) while also using `anchoredPosition` — Do not mix the two modes
 5. Builder creates new UUIDs but `.mlua` property defaults are not updated — Binding breaks
 
 ### ALWAYS
-1. **Builder Protocol Preflight — read [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3 every turn before any `.ui` mutation** (UIBuilder API, write auto-lint, pos / anchor rules, binding injection, coverage gaps). It lives in the same document as `.map` MapBuilder / `.model` ModelBuilder — a unified entry point because the cross-flow is interlocked.
+1. **Builder Protocol Preflight — [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) (core) + [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 must be in context before any `.ui` mutation** (read them only if never loaded this session or lost to compaction) (UIBuilder API, write auto-lint, pos / anchor rules, binding injection, coverage gaps). The core carries the shared contract and cross-builder flow; `.map` MapBuilder / `.model` ModelBuilder live in sibling per-builder files — one unified entry point because the cross-flow is interlocked.
 2. Check at least one design guide before invoking the builder (`ui-fundamentals` / `ui-hierarchy` / `component-api` §Component Selection Guide)
 3. Match a recipe first; build from scratch only as a last resort
 4. For edge placement use the formula: `pos = ±(margin + size/2)`
@@ -84,12 +84,12 @@ Branch to sub-references based on request keywords.
 - [`references/layout-recipes.md`](references/layout-recipes.md) — Layout template collection
 - [`references/runtime-patterns.md`](references/runtime-patterns.md) — `.mlua` runtime patterns (popup/toast/HP/grid/drag…) + Runtime UI Caveats
 - [`references/ui-sound.md`](references/ui-sound.md) — UI sound integration (`_SoundService:PlaySound`, click/hover hook, default UI SFX RUIDs)
-- [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3 — **`.ui` CJS builder call protocol (unified entry point)** — same document as `.map` MapBuilder / `.model` ModelBuilder. panel / text / sprite / button / slider / scroll / script / group / mask / grid / avatar / touchReceive / skeleton / areaParticle / basicParticle, component CRUD, anchor presets, write auto-lint, and `.mlua` property UUID auto-binding all live in §3 + §3.6.
+- [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 — **`.ui` CJS builder call protocol (unified entry point — load with the [`builder-protocol.md`](../msw-general/references/builder-protocol.md) core)** — `.map` MapBuilder / `.model` ModelBuilder live in sibling per-builder files. panel / text / sprite / button / slider / scroll / script / group / mask / grid / avatar / touchReceive / skeleton / areaParticle / basicParticle, component CRUD, anchor presets, write auto-lint, and `.mlua` property UUID auto-binding all live in §3 + §3.6.
 - [`references/templates/templates.md`](references/templates/templates.md) — Pre-built style bundle index (`style-N-*` `.ui`, [`ruid-map.md`](references/templates/style-1-black/ruid-map.md), `Popupbutton.mlua`)
 
 ## 4. Scripts
 
-- `scripts/msw_ui_builder.cjs` — `.ui` builder core (UIBuilder class). Read [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) §3 (unified entry point) before use.
+- `scripts/msw_ui_builder.cjs` — `.ui` builder core (UIBuilder class). Read [`../msw-general/references/builder-protocol.md`](../msw-general/references/builder-protocol.md) (core) + [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 (unified entry point) before use.
 - `scripts/preview_ui_layout.cjs` — `.ui` layout visual check + touch target warnings
 - `scripts/ui_lint.cjs` — `.ui` file self-verification (auto-called by `write()`)
 - `scripts/ui_recipe.cjs` — Recipe-based scaffolding

@@ -66,13 +66,13 @@ Key settings in `Global/WorldConfig.config` that control world behavior:
 
 | Folder | Contents | AI work |
 |--------|----------|---------|
-| `./Global/` | Engine default templates (Player.model, DefaultPlayer.model, WorldConfig.config, etc.) | Modifiable; creating new files here is discouraged |
+| `./Global/` | Existing engine/global templates (`*.model`, configs, sets) | Existing `*.model` files are editable in place through `ModelBuilder`; `CollisionGroupSet.collisiongroupset` through `CollisionGroupSetBuilder`; `.config` values-only. Do not create new files here |
 | `./RootDesk/MyDesk/` | User scripts (.mlua), user models (.model) | **AI's primary work area** |
 | `./map/` | Map files (.map) | Editable |
 | `./ui/` | UI files (.ui) | Properties editable |
 | `./Environment/NativeScripts/` | Engine API definitions (.d.mlua) | **Never modify** |
 
-> **Key**: the AI creates scripts and models under `./RootDesk/MyDesk/`, and modifies existing files under `./Global/`.
+> **Key**: the AI creates new scripts and new models under `./RootDesk/MyDesk/`. Within `./Global/`, edit only existing files in place; never add new Global assets. Use `ModelBuilder` for every `.model` edit and `CollisionGroupSetBuilder` for `CollisionGroupSet.collisiongroupset`.
 
 ---
 

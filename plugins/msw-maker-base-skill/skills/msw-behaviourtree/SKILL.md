@@ -1,6 +1,6 @@
 ---
 name: msw-behaviourtree
-description: "Authors MSW `.behaviourtree` files end-to-end and maintains the project-specific authoring spec (`.behaviourDocs/bt-spec.md`). Scans every `.codeblock` whose paired `.mlua` extends `ActionNode`/`DecoratorNode` to build a compact catalog of custom action/decorator UUIDs, propertyKey names, and version-stamped MODNativeType strings. Then generates the full tree: RootNode → Nodes graph, Blackboard variables, nodeProperties wiring, and self-validates parent/child consistency. Triggers: 'create behaviourtree', 'new BT', 'add a behaviour tree', 'BT node graph', '비헤이비어 트리 만들어', '.behaviourtree 생성', 'SequenceNode SelectorNode', 'Blackboard variable', 'definitionId codeblock', 'startNodeId', 'build BT spec', 'refresh bt-spec', 'generate behaviourtree catalog', 'BT 스펙 생성', 'bt-spec.md 만들어', 'rescan BT nodes'."
+description: "Authors MSW `.behaviourtree` files end-to-end and maintains the project-specific authoring spec (`.behaviourDocs/bt-spec.md`). Scans every `.codeblock` whose paired `.mlua` extends `ActionNode`/`DecoratorNode`/`CompositeNode` to build a compact catalog of custom action/decorator/composite UUIDs, propertyKey names, and version-stamped MODNativeType strings. Then generates the full tree: RootNode → Nodes graph, Blackboard variables, nodeProperties wiring, and self-validates parent/child consistency. Triggers: 'create behaviourtree', 'new BT', 'add a behaviour tree', 'BT node graph', '비헤이비어 트리 만들어', '.behaviourtree 생성', 'SequenceNode SelectorNode', 'Blackboard variable', 'definitionId codeblock', 'startNodeId', 'build BT spec', 'refresh bt-spec', 'generate behaviourtree catalog', 'BT 스펙 생성', 'bt-spec.md 만들어', 'rescan BT nodes'."
 ---
 
 # MSW BehaviourTree
@@ -13,13 +13,13 @@ End-to-end authoring skill for MSW `.behaviourtree` files. Owns **both** the pro
 
 ### 0. Build / refresh the project spec (`bt-spec.md`)
 
-The spec is the **source of truth** for every project-specific data point: each custom action/decorator node's `definitionId`, `btNodeType`, visible `propertyKey` names, and the serialized `Type.type` strings stamped to this project's `CoreVersion`.
+The spec is the **source of truth** for every project-specific data point: each custom action/decorator/composite node's `definitionId`, `btNodeType`, visible `propertyKey` names, and the serialized `Type.type` strings stamped to this project's `CoreVersion`.
 
 **When to (re)build:**
 
 - First time working on BT in a project (no `.behaviourDocs/bt-spec.md` yet).
 - After **any** change that affects BT node surface area:
-  - new / renamed / removed `.codeblock` whose paired `.mlua` extends `ActionNode` / `DecoratorNode`
+  - new / renamed / removed `.codeblock` whose paired `.mlua` extends `ActionNode` / `DecoratorNode` / `CompositeNode`
   - added / removed / renamed `property` lines in such a `.mlua`
   - `Environment/config` `CoreVersion` bumped (the serialized type strings are version-tagged).
 - The user says they recently added/changed a BT codeblock or a `.mlua` property — stale UUIDs / missing properties silently produce broken trees.
@@ -44,7 +44,7 @@ Optional overrides (long flags, case-insensitive):
 Example with overrides:
 
 ```bash
-node "scripts/build-spec.cjs" --projectRoot "C:/path/to/project" --coreVersion 26.5.0.0
+node "scripts/build-spec.cjs" --projectRoot "C:/path/to/project" --coreVersion 26.7.0.0
 ```
 
 The script throws if `Environment/config` is absent and `--coreVersion` is not passed — there is no fallback default.
@@ -52,7 +52,7 @@ The script throws if `Environment/config` is absent and `--coreVersion` is not p
 **What the spec contains:**
 
 1. Project metadata — project root, `CoreVersion`, generated time, discovered node counts.
-2. Built-in composite node names and their fixed `definitionId` / `btNodeType`.
+2. Composite nodes — built-in names with fixed `definitionId` / `btNodeType`, plus discovered custom composites (`.mlua` declares `extends CompositeNode`).
 3. Custom action nodes — `Name`, `definitionId`, `btNodeType`, visible property names.
 4. Custom decorator nodes — same shape as action nodes.
 5. Type map — mlua type to serialized `MODNativeType.type` plus Blackboard `ObjectValue` shape.
@@ -72,11 +72,11 @@ Confirm via context, or ask via AskUserQuestion if anything is ambiguous:
 | `name` | Display name for the tree | `"PatrolAndChase"` |
 | Save path | `.behaviourtree` location (relative to project root) | `RootDesk/MyDesk/PatrolAndChase.behaviourtree` |
 | Tree shape | Intended node graph (root composite + children) | `Sequence → [Chase, MoveTo]` |
-| Custom nodes | Action/decorator codeblocks the tree references | `Chase`, `MoveTo`, `Jump` |
+| Custom nodes | Action/decorator/composite codeblocks the tree references | `Chase`, `MoveTo`, `Jump` |
 | Blackboard variables | Variable name + type + initial value | `TargetEntity: Entity`, `MoveSpeed: number = 10.0` |
 | Node properties | For each custom node, which property maps to which Blackboard variable | `Chase.TargetEntityKey = "TargetEntity"` |
 
-**Custom-node existence check (mandatory):** every custom action/decorator name the user mentions must appear in `bt-spec.md` §2 / §3. If a referenced node is not in the spec, **stop** and ask the user — do not invent a UUID, do not assume a node exists by name, and do not skip rerunning Step 0.
+**Custom-node existence check (mandatory):** every custom action/decorator/composite name the user mentions must appear in `bt-spec.md` §1 / §2 / §3. If a referenced node is not in the spec, **stop** and ask the user — do not invent a UUID, do not assume a node exists by name, and do not skip rerunning Step 0.
 
 ### 2. Mint UUIDs
 
@@ -96,6 +96,7 @@ Mint up front, write into a scratch table, then assemble. Don't reuse the file U
 | Node category | `definitionId` value | `btNodeType` |
 |---------------|----------------------|--------------|
 | Built-in composite (`SequenceNode`, `SelectorNode`, `ParallelNode`) | Same string as `nodeName` | `1` |
+| Custom composite node (`extends CompositeNode`) | value from `bt-spec.md` §1 | `1` |
 | Custom action node | value from `bt-spec.md` §2 | `0` |
 | Custom decorator node | value from `bt-spec.md` §3 | `2` |
 
@@ -111,12 +112,14 @@ For `Component` / `ComponentRef`, `ComponentId` is `<entity-uuid>:<ComponentName
 
 Numeric `ObjectValue`s use float literal form (`3.0`, not `3`).
 
+> **Runtime caveat:** the Blackboard lives on the entry's tree. If any script later calls `AIComponent:SetRootNode(...)` on that component, the entry tree and this Blackboard are discarded — `BlackBoard` reads `nil` and `*Key` properties stop resolving. Do not mix runtime root swaps with Blackboard-dependent trees.
+
 ### 4.5 Resolve node property values
 
 For each custom node that needs `nodeProperties`:
 
-1. Confirm the `propertyKey` exists in `bt-spec.md` §2 / §3 for that node.
-2. Find the paired `.mlua` by searching for `script <NodeName> extends ActionNode` or `script <NodeName> extends DecoratorNode` under the project. If multiple files match, prefer the one whose sibling `.codeblock` has the exact `definitionId` UUID from `bt-spec.md`; if still ambiguous, ask the user.
+1. Confirm the `propertyKey` exists in `bt-spec.md` §1 / §2 / §3 for that node.
+2. Find the paired `.mlua` by searching for `script <NodeName> extends ActionNode`, `extends DecoratorNode`, or `extends CompositeNode` under the project. If multiple files match, prefer the one whose sibling `.codeblock` has the exact `definitionId` UUID from `bt-spec.md`; if still ambiguous, ask the user.
 3. Read the visible `property` declarations in that `.mlua`, ignoring `@HideFromInspector` properties. This gives the mlua type and default value.
 4. Include a `nodeProperties` entry only when the user provided a value, the behavior requires a non-default value, or a `*Key` property must point at a Blackboard variable. Omit optional properties that can safely use the `.mlua` default.
 5. For `*Key` string properties, set `propertyValue` to the Blackboard variable name. Infer the variable by name and getter usage when obvious (`MoveSpeedKey` -> `MoveSpeed`, `TargetEntityKey` -> `TargetEntity`). If more than one Blackboard variable could match, ask.

@@ -17,16 +17,16 @@ const POLICIES = [
   {
     ext: '.model',
     directReason:
-      '.model files are builder-only. Read skills/msw-general/references/builder-protocol.md §2 (call protocol) in full, then use the msw-general ModelBuilder script instead of direct Read/Edit/Write/MultiEdit.',
+      '.model files are builder-only. Read skills/msw-general/references/builder-protocol.md (core) and skills/msw-general/references/builder-protocol-model.md §2 (call protocol) in full, then use the msw-general ModelBuilder script instead of direct Read/Edit/Write/MultiEdit.',
     bashReason:
-      '.model files are builder-only. Do not read/edit/copy/delete them through shell commands. Read skills/msw-general/references/builder-protocol.md §2 (call protocol) in full, then use msw-general ModelBuilder; node commands that call the builder are allowed.',
+      '.model files are builder-only. Do not read/edit/copy them through shell commands. Read skills/msw-general/references/builder-protocol.md (core) and skills/msw-general/references/builder-protocol-model.md §2 (call protocol) in full, then use msw-general ModelBuilder; node commands that call the builder are allowed. To DELETE a .model file (no builder delete API), run node -e "require(\'fs\').unlinkSync(\'RootDesk/MyDesk/Models/<Category>/<Name>.model\')" then refresh — not shell rm.',
   },
   {
     ext: '.ui',
     directReason:
-      '.ui files are builder-only. Load the msw-ui-system skill, read skills/msw-general/references/builder-protocol.md §3 (call protocol) in full, then use the msw-ui-system UIBuilder script instead of direct Read/Edit/Write/MultiEdit.',
+      '.ui files are builder-only. Load the msw-ui-system skill, read skills/msw-general/references/builder-protocol.md (core) and skills/msw-general/references/builder-protocol-ui.md §3 (call protocol) in full, then use the msw-ui-system UIBuilder script instead of direct Read/Edit/Write/MultiEdit.',
     bashReason:
-      '.ui files are builder-only. Do not read/edit/copy/delete them through shell commands. Load the msw-ui-system skill, read skills/msw-general/references/builder-protocol.md §3 (call protocol) in full, then use msw-ui-system UIBuilder; node commands that call the builder are allowed.',
+      '.ui files are builder-only. Do not read/edit/copy them through shell commands. Load the msw-ui-system skill, read skills/msw-general/references/builder-protocol.md (core) and skills/msw-general/references/builder-protocol-ui.md §3 (call protocol) in full, then use msw-ui-system UIBuilder; node commands that call the builder are allowed. To DELETE a .ui file (no builder delete API), run node -e "require(\'fs\').unlinkSync(\'ui/<File>.ui\')" then refresh — not shell rm.',
   },
 ];
 
@@ -53,7 +53,21 @@ function pathHasExtension(value, ext) {
 
 function commandMentionsExtension(command, ext) {
   const escaped = ext.replace('.', '\\.');
-  return new RegExp(`${escaped}\\b`, 'i').test(command);
+  // `\b(?!\.)` keeps every real token boundary (space, quote, redirect, EOL)
+  // but drops matches where another `.` follows — so a mid-name token like
+  // `notes.ui.bak` / `A.model.backup` isn't mistaken for a builder-only file.
+  return new RegExp(`${escaped}\\b(?!\\.)`, 'i').test(command);
+}
+
+// Blank the JS payload of `node -e/--eval/-p/--print` so tokens inside builder
+// code (a `.ui` path, `copy`/`rm`/…) aren't scanned as shell invocations. The
+// body matcher consumes `\<char>` escapes so an escaped closing quote (e.g.
+// `node -e "x=\"ui/A.ui\""`) can't end the string early and leak tokens.
+function stripNodeEval(command) {
+  return command.replace(
+    /(\bnode(?:\.exe)?\b[^|;&`]*?\s(?:-e|--eval|-p|--print|-pe)(?:=|\s)\s*)(["'`])((?:\\.|(?!\2)[\s\S])*)\2/gi,
+    (match, prefix, quote) => prefix + quote + quote,
+  );
 }
 
 function matchingPathPolicy(value) {
@@ -97,8 +111,9 @@ if (!command) {
   process.exit(0);
 }
 
-const policy = matchingCommandPolicy(command);
-if (!policy || !CONTENT_TOOL_RE.test(command)) {
+const shellCommand = stripNodeEval(command);
+const policy = matchingCommandPolicy(shellCommand);
+if (!policy || !CONTENT_TOOL_RE.test(shellCommand)) {
   process.exit(0);
 }
 

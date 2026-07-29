@@ -34,7 +34,7 @@ function resolvePreserveSprite(extra = {}) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.5.0.0). A bare name in this
+// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
 // set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
 // "script.<name>" custom component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
@@ -1772,7 +1772,7 @@ class UIBuilder {
       Usage: 0,
       UsePublish: 1,
       UseService: 0,
-      CoreVersion: "26.5.0.0",
+      CoreVersion: "26.7.0.0",
       StudioVersion: "0.1.0.0",
       DynamicLoading: 0,
       ContentProto: { Use: "Binary", Entities: this.entities },

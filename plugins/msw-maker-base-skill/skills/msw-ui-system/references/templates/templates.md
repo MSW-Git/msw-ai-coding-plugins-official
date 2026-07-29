@@ -139,7 +139,7 @@ rg '"enable": false' -B 3 ./style-1-black/PopupGroup.ui
 
 ## Workflow
 
-The end-to-end UI authoring workflow (anchors, 4-value formula, `refresh_workspace` cycle, lifecycle) lives in [`../../SKILL.md`](../../SKILL.md) and [`../../../msw-general/references/builder-protocol.md`](../../../msw-general/references/builder-protocol.md) §3 (unified call entry point). The template-specific decision steps below feed into that workflow.
+The end-to-end UI authoring workflow (anchors, 4-value formula, `refresh_workspace` cycle, lifecycle) lives in [`../../SKILL.md`](../../SKILL.md) and [`../../../msw-general/references/builder-protocol-ui.md`](../../../msw-general/references/builder-protocol-ui.md) §3 (unified call entry point). The template-specific decision steps below feed into that workflow.
 
 ### Style-Source Decision (planning-time, BEFORE writing any `.ui`)
 

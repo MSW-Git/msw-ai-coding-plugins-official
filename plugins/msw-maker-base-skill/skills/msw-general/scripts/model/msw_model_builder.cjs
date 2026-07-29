@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const MSCORLIB = "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
-const MOD_CORE_VERSION = process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION || "26.5.0.0";
+const MOD_CORE_VERSION = process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION || "26.7.0.0";
 const MOD_CORE = `MOD.Core, Version=${MOD_CORE_VERSION}, Culture=neutral, PublicKeyToken=null`;
 const MOD_CORE_SHORT = "MOD.Core";
 
@@ -169,6 +169,32 @@ function readJsonFile(filepath, label) {
   }
 }
 
+function findSiblingModelById(sourcePath, modelId) {
+  if (!sourcePath || !modelId) return null;
+  const dir = path.dirname(sourcePath);
+  let entries = [];
+  try {
+    entries = fs.readdirSync(dir);
+  } catch (_) {
+    return null;
+  }
+  const normalizedModelId = normalizeModelId(modelId);
+  for (const entry of entries) {
+    if (!entry.toLowerCase().endsWith(".model")) continue;
+    const candidate = path.join(dir, entry);
+    try {
+      const data = readJsonFile(candidate, "base model file");
+      const model = data.ContentProto && data.ContentProto.Json;
+      if (!model) continue;
+      if (normalizeModelId(model.Id) === normalizedModelId) return candidate;
+      if (normalizeModelId(data.EntryKey) === normalizedModelId) return candidate;
+    } catch (_) {
+      // Ignore unrelated or malformed sibling files; the write path remains non-blocking.
+    }
+  }
+  return null;
+}
+
 function modelDefinition(modelJsonOrContent, label = "model") {
   if (modelJsonOrContent && modelJsonOrContent.ContentProto && modelJsonOrContent.ContentProto.Json) {
     return modelJsonOrContent.ContentProto.Json;
@@ -184,7 +210,7 @@ function normalizeModelId(value) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.5.0.0). A bare name in this
+// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
 // set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
 // "script.<name>" custom component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
@@ -293,6 +319,8 @@ class ModelBuilder {
     this.base_model_id = options.base_model_id ?? options.baseModelId ?? null;
     this.version = options.version ?? 1;
     this._data = null;
+    this._source_path = options.source_path || options.sourcePath || null;
+    this._warnedInheritedComponents = new Set();
   }
 
   static load(filepath) {
@@ -312,6 +340,7 @@ class ModelBuilder {
     instance.children = Array.isArray(modelJson.Children) ? clone(modelJson.Children) : [];
     instance.base_model_id = modelJson.BaseModelId ?? null;
     instance._data = data;
+    instance._source_path = filepath;
     console.log(`Loaded model '${instance.name}': ${instance.components.length} components, ${instance.values.length} values, ${instance.children.length} children`);
     return instance;
   }
@@ -380,6 +409,10 @@ class ModelBuilder {
     const normalized = normalizeComponentName(compName);
     if (normalized.startsWith("script.")) {
       console.log(`[ModelBuilder] NOTE: '${normalized}' is a script component. Refresh script .mlua before writing and refreshing this .model.`);
+    }
+    if (this._isInheritedComponent(normalized) && !this._warnedInheritedComponents.has(normalized)) {
+      this._warnedInheritedComponents.add(normalized);
+      console.warn(`[ModelBuilder] WARNING M040: '${normalized}' is inherited from BaseModelId '${this.base_model_id}'. Prefer value(...) overrides; redeclaring inherited components can create duplicate component definitions.`);
     }
     if (!this.components.includes(normalized)) this.components.push(normalized);
     return this;
@@ -733,12 +766,40 @@ class ModelBuilder {
     return data;
   }
 
+  _baseComponents() {
+    const basePath = findSiblingModelById(this._source_path, this.base_model_id);
+    if (!basePath) return [];
+    try {
+      const data = readJsonFile(basePath, "base model file");
+      const model = data.ContentProto && data.ContentProto.Json;
+      return Array.isArray(model && model.Components) ? model.Components.map(normalizeComponentName) : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  _isInheritedComponent(compName) {
+    if (!this.base_model_id || !this._source_path) return false;
+    return this._baseComponents().includes(normalizeComponentName(compName));
+  }
+
   validate() {
     const findings = [];
     if (!this.name) findings.push({ severity: "error", rule: "M001", message: "Model name is empty" });
     if (!this.model_id) findings.push({ severity: "error", rule: "M002", message: "Model id is empty" });
     if (this.components.includes(SPRITE_RENDERER) && !this.hasValue(SPRITE_RENDERER, "SpriteRUID")) {
       findings.push({ severity: "warn", rule: "M010", message: "SpriteRendererComponent exists but SpriteRUID is missing; write() will inject placeholder" });
+    }
+    const inheritedComponents = new Set(this._baseComponents());
+    for (const component of this.components) {
+      if (inheritedComponents.has(normalizeComponentName(component))) {
+        findings.push({
+          severity: "warn",
+          rule: "M040",
+          component,
+          message: `Component ${component} is inherited from BaseModelId '${this.base_model_id}'; prefer value(...) overrides instead of redeclaring it locally.`,
+        });
+      }
     }
     for (const v of this.values) {
       if (!v.ValueType || !v.ValueType.type) {
@@ -798,6 +859,10 @@ class ModelBuilder {
   write(filepath, options = {}) {
     if (options.ensure_sprite_ruid !== false && options.ensureSpriteRuid !== false) this._ensureSpriteRuid();
     const findings = this.validate();
+    for (const warning of findings.filter((f) => f.severity === "warn")) {
+      if (warning.rule === "M040" && warning.component && this._warnedInheritedComponents.has(warning.component)) continue;
+      console.warn(`[ModelBuilder] WARNING ${warning.rule}: ${warning.message}`);
+    }
     const errors = findings.filter((f) => f.severity === "error");
     if (errors.length) {
       const message = errors.map((f) => `${f.rule}: ${f.message}`).join("; ");

@@ -79,7 +79,7 @@
 | All existing models break after mode switch | Body and event handlers not updated after TileMapMode change | [`platform.md` §4 Cautions When Switching Map Type](platform.md) |
 | New folder not recognized in Maker | Folder meta Refresh not run | Run Maker Refresh. If no Refresh tool is available, just leave the folder ([`platform.md` §2](platform.md)) |
 | `script ... extends ...` not registered | `.codeblock` not created | Run `refresh` ([`platform.md` §3](platform.md)) |
-| CoreVersion warning | CoreVersion mismatch in `Environment/config` | Verify it is `26.5.0.0` ([`platform.md` §16](platform.md)) |
+| CoreVersion warning | CoreVersion mismatch in `Environment/config` | Verify it is `26.7.0.0` ([`platform.md` §16](platform.md)) |
 
 ---
 

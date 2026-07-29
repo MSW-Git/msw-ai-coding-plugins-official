@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -25,7 +25,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "tileSetDataRef",
           "DisplayName": "tileSetDataRef",
@@ -33,7 +33,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TileMapComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TileMapComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "TileSetRUID"
           }
@@ -49,7 +49,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.TileMapComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.TileMapComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "IsOddGridPosition"
           }

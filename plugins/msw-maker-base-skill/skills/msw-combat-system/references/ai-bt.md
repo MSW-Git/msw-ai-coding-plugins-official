@@ -10,6 +10,8 @@
 MSW supports **both paradigms natively**. Use BT for multi-layer decision making and reusable action modules.
 
 > **Code-based BT vs data-based BT — pick one per `AIComponent`.** This reference covers the **code-based** path: `@BTNode` mlua scripts assembled at runtime via `AIComponent:CreateNode` / `SetRootNode`. The data-based path is a separate `.behaviourtree` JSON file edited in the Maker editor with `definitionId` wiring — that pipeline has its own authoring rules and lives in the **`msw-behaviourtree`** sibling skill. The two pipelines do **not** mix on the same `AIComponent`; if a project already has `.behaviourtree` assets, use `msw-behaviourtree` instead of this reference.
+>
+> The mix ban is enforced at runtime: calling `SetRootNode` on an `AIComponent` that has a `BehaviourTreeEntry` assigned **discards the entry tree and its Blackboard** — `BlackBoard` reads `nil` afterward and `*Key` node properties no longer resolve. If the tree relies on the editor Blackboard, never swap its root from script.
 
 ---
 
@@ -36,7 +38,7 @@ MSW supports **both paradigms natively**. Use BT for multi-layer decision making
 
 ---
 
-## 2. Four Composite Nodes (native)
+## 2. Composite Nodes (4 native + custom)
 
 | Node | Child flow | Termination |
 |------|-----------|-------------|
@@ -54,12 +56,39 @@ method boolean DetachChild(BTNode node | string nodeName)
 method void    DetachChildAt(int32 index)
 ```
 
+> ⚠ **Attach/Detach work only on composites created from script** (`CreateNode` or a native composite constructor). Calling them on a composite loaded from a `.behaviourtree` (assigned via `AIComponent.BehaviourTreeId`) logs an InvalidOperation error and does nothing.
+
 ### Extra methods on `RandomSelectorNode`
 
 ```
 method void    AttachChild(BTNode node, number probability)        -- 0~1
 method boolean SetChildNodeProbability(BTNode node, number probability)
 ```
+
+### Custom Composite — `@BTNode ... extends CompositeNode`
+
+When the four native child-flow policies don't fit (round-robin, priority re-scan, weighted retry, ...), extend `CompositeNode` instead of `BTNode` and drive the children yourself from `OnBehave`:
+
+- `ChildCount` (read-only) — number of attached children
+- `ChildBehave(index, delta)` — runs child `index` (**1-based**) and returns its `BehaviourTreeStatus`; out-of-range index returns `Failure`
+
+```lua
+@BTNode
+script RoundRobin extends CompositeNode
+    @HideFromInspector
+    property number Cursor = 1
+
+    method any OnBehave(number delta)
+        if self.ChildCount == 0 then return BehaviourTreeStatus.Failure end
+        local r = self:ChildBehave(self.Cursor, delta)
+        if r == BehaviourTreeStatus.Running then return r end
+        self.Cursor = (self.Cursor % self.ChildCount) + 1
+        return r
+    end
+end
+```
+
+Create it with the same call as Action nodes — `AIComponent:CreateNode("RoundRobin", "cycle")` (the engine picks the node category from the `extends` base) — then wire children with `AttachChild` as usual.
 
 ---
 
@@ -154,6 +183,8 @@ end
 ## 5. Memory (Blackboard) — custom (not native)
 
 A shared state channel between Action Nodes. **`BTNode.ParentAI`** references the AIComponent that owns this tree → the access path to memory.
+
+> `AIComponent.BlackBoard` (the editor Blackboard) exists **only for entry-based trees** — it is `nil` for runtime-assembled trees and after any `SetRootNode` call (§0 note). For code-built trees, share state with the Memory pattern below.
 
 ```lua
 @Component
@@ -267,7 +298,7 @@ In `HandleHitEvent`, call `AddThreat(event.AttackerEntity, event.TotalDamage)` �
 
 ## 10. Checklist
 
-- [ ] **Custom Action/Decorator scripts have both `@BTNode` and `extends BTNode`** (`@BTNodeType` builds but does not generate the `.codeblock`)
+- [ ] **Custom Action/Decorator scripts have both `@BTNode` and `extends BTNode`; custom Composites use `@BTNode` + `extends CompositeNode`** (`@BTNodeType` builds but does not generate the `.codeblock`)
 - [ ] After `refresh`, a `.codeblock` with the same name exists next to the custom BTNode `.mlua` — if missing, the annotation or extends is missing
 - [ ] If `CreateNode("XXX", ...)` returns `nil`, `[LEA-2007] AttemptToIndex` follows → check annotation and extends
 - [ ] `AIComponent.IsLegacy = false` (legacy deprecated)

@@ -4,7 +4,7 @@ Full list of properties, methods, and events per UI component. Use as a lookup w
 
 Before reading or writing a UI component field in `.mlua`, verify the exact field name here. Do not infer field names from Unity, UGUI, HTML, or other UI frameworks.
 
-> **Authoring `.ui` files**: this reference describes **what fields exist**. To **set** them, call the builder (`scripts/msw_ui_builder.cjs`; protocol in [`../../msw-general/references/builder-protocol.md`](../../msw-general/references/builder-protocol.md) §3 — unified call entry point). Do not hand-edit `.ui` JSON.
+> **Authoring `.ui` files**: this reference describes **what fields exist**. To **set** them, call the builder (`scripts/msw_ui_builder.cjs`; protocol in [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3, loaded with the [`builder-protocol.md`](../../msw-general/references/builder-protocol.md) core — unified call entry point). Do not hand-edit `.ui` JSON.
 
 ---
 
@@ -530,7 +530,7 @@ Slider / progress bar.
 
 ## UITouchReceiveComponent
 
-Receives touch / mouse input. Just attaching it makes events fire.
+Receives touch / mouse input. **The component alone never receives events (silent failure)** — the same entity (or a child) must also carry a raycast-enabled GUI renderer, e.g. an invisible sprite (`alpha: 0, raycast: true`); a sibling renderer does NOT feed it. Recipe: [`runtime-patterns.md`](runtime-patterns.md) §8, builder call in [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3.5.
 
 ### Events
 
@@ -989,4 +989,4 @@ Used by `MaskComponent.Shape`.
 
 ### UIAreaParticleType / UIBasicParticleType
 
-UI particle preset enums. The builder handles preset names directly — pass numeric `particle_type=...` to `areaParticle()` / `basicParticle()`. Full numeric tables live in [`../../msw-general/references/builder-protocol.md`](../../msw-general/references/builder-protocol.md) §3.5. From runtime, use the enum identifiers (`UIAreaParticleType.FogCalm`, `UIBasicParticleType.Firework`).
+UI particle preset enums. The builder handles preset names directly — pass numeric `particle_type=...` to `areaParticle()` / `basicParticle()`. Full numeric tables live in [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3.5. From runtime, use the enum identifiers (`UIAreaParticleType.FogCalm`, `UIBasicParticleType.Firework`).

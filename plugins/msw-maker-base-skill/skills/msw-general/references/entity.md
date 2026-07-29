@@ -2,7 +2,7 @@
 
 **Domain rules** for entity instances inside `.map` files — which mode (`TileMapMode`) places things where, how coordinates / footholds / camera / RUID interact, the `modelId` vs inline decision, runtime lifecycle. `.model` template authoring is split out into [model.md](model.md).
 
-> **The actual call protocol for `.map` mutation (MapBuilder API, snapshot workflow, coverage gaps, `.map` / `.model` cross-flow) lives in [builder-protocol.md §1](builder-protocol.md). Re-read builder-protocol.md every turn that touches `.map`; this document supplies the domain context (why the calls look that way) and is read alongside it.**
+> **The actual call protocol for `.map` mutation (MapBuilder API, snapshot workflow, coverage gaps, `.map` / `.model` cross-flow) lives in [builder-protocol-map.md §1](builder-protocol-map.md), with the shared contract in the [builder-protocol.md](builder-protocol.md) core. Both must be in context on every turn that touches `.map` (read only if missing — see the Builder Protocol Preflight in SKILL.md); this document supplies the domain context (why the calls look that way) and is read alongside them.**
 
 The legacy Maker RPC (curl) API has been removed. `.map` inspection and mutation go through `scripts/map/msw_map_builder.cjs` (= `MapBuilder`), followed by **msw-maker-mcp** verification tools.
 
@@ -14,7 +14,7 @@ The legacy Maker RPC (curl) API has been removed. `.map` inspection and mutation
 |------|------|------|
 | Map | `./map/*.map` | Map root, footholds, tiles, **all placed entities** |
 | User models | `./RootDesk/MyDesk/Models/{Category}/*.model` (typed subfolder, e.g. `Models/Monsters/`) | Custom `.model` templates ([model.md](model.md) — never save directly under `MyDesk/` or `Models/`) |
-| System models | `./Global/*.model` | Engine default templates (monster presets, Player, etc.) — read-only; copy into `MyDesk/Models/{Category}/` to customize |
+| Global models | `./Global/*.model` | Existing global templates edited in place via `ModelBuilder` + Maker Refresh. Do not create new files under `Global/` |
 | UI | `./ui/*.ui` | UI-only entities and widgets ([`msw-ui-system`](../../msw-ui-system/SKILL.md)) |
 
 > **Placing a monster** — read [monster.md](monster.md) first. The two verified working canonicals each have 11 components (`Soldier.model` for Pattern A — script-driven SpriteRUID; `MonsterCanonical.model` for Pattern B — `AIChaseComponent` + ActionSheet pipeline). `ActionSheet` keys are lowercase. `IsLegacy: false` is mandatory on `HitComponent` for both patterns; on `StateComponent` (and on `AIChaseComponent` if present) only for Pattern B — Pattern A leaves `StateComponent.IsLegacy` at the default. Mixing inline `@components` with `modelId` overrides on a system monster model produces `LEA-3046 InternalError` at runtime; bake the values into a dedicated `.model` instead.
@@ -93,9 +93,9 @@ _SpawnService:SpawnByModelId("myenemy", "Enemy_1", position, map)
 
 ---
 
-## MapBuilder — call protocol lives in builder-protocol.md
+## MapBuilder — call protocol lives in builder-protocol-map.md
 
-`.map` snapshot workflow (get → edit → set), the API table, placement / patch / rename / remove / component CRUD / tile / foothold inspection, coverage gaps, Map Mode Rules, `false`-return handling — **every detail of MapBuilder invocation is consolidated in the single entry point [builder-protocol.md §1](builder-protocol.md).** Read it just before any `.map` work.
+`.map` snapshot workflow (get → edit → set), the API table, placement / patch / rename / remove / component CRUD / tile / foothold inspection, coverage gaps, Map Mode Rules, `false`-return handling — **every detail of MapBuilder invocation is consolidated in [builder-protocol-map.md §1](builder-protocol-map.md) (shared contract in the [builder-protocol.md](builder-protocol.md) core).** Have both in context before any `.map` work.
 
 This document carries the **why** behind those calls — Scope, RUID, the meaning of the TileMapMode-to-Body mapping, the `modelId` vs inline decision rule, placement coordinates / footholds / camera visibility, runtime verification, and the constraint checklist.
 
@@ -157,8 +157,8 @@ Guide the user to switch the mode in the Maker editor as follows:
 
 1. **Create** — define the `.model` under `RootDesk/MyDesk/Models/{Category}/{Name}.model` (typed subfolder; details in [model.md §1, §2.2](model.md)).
 2. **Place**
-   - `MapBuilder.read(...)` → `map.placeModel(...)` → `map.write(...)`. Concrete call sequence, API tables, and option details live in [builder-protocol.md §1 + §4](builder-protocol.md).
-   - `placeModel()` returns the placed root entity id string, not the builder. Do not chain `.write()` after it.
+   - `MapBuilder.read(...)` → `map.placeModel(...)` → `map.write(...)`. Concrete call sequence, API tables, and option details live in [builder-protocol-map.md §1](builder-protocol-map.md) + [builder-protocol.md §4](builder-protocol.md).
+   - `placeModel()` returns the builder; read the placed root UUID with `map.lastId()` before `write()` if a script binding needs it.
    - **`modelId` form (default — required for ≥2 instances)**: `placeModel()` mirrors model components and applies per-instance overrides.
    - **Inline form**: use `sprite()` / `empty()` only for truly one-off map-local entities.
    - `refresh`.
@@ -173,6 +173,8 @@ Guide the user to switch the mode in the Maker editor as follows:
 | Truly one-off composition that will never recur | inline `@components` is acceptable |
 
 > When in doubt, choose `modelId`. Five inline copies of "the same monster" silently drift apart over edits (one gets `IsLegacy: true`, another loses `SortingLayer`); the model anchors the canonical values and a single edit propagates.
+
+> "Inline" describes where the composition lives (the entity's own `@components`), not the `modelId` field — `sprite()` / `empty()` still set a shared system `modelId` (`mapobject` / `mapempty`), so the field never distinguishes the two forms. To edit a placed entity, mutate its map `@components`, not the shared system model.
 
 ---
 
@@ -189,11 +191,13 @@ Guide the user to switch the mode in the Maker editor as follows:
 
 ### modelId entities
 
-Use `MapBuilder.placeModel()` — it creates the model-instance metadata, keeps component names in sync, mirrors model components, and applies per-instance `TransformComponent.Position` and `componentOverrides`. For the call signature and option details, see [builder-protocol.md §1.4 + §4](builder-protocol.md).
+Use `MapBuilder.placeModel()` — it creates the model-instance metadata, keeps component names in sync, mirrors model components, and applies per-instance `TransformComponent.Position` and `componentOverrides`. For the call signature and option details, see [builder-protocol-map.md §1.4](builder-protocol-map.md) + [builder-protocol.md §4](builder-protocol.md).
 
 ### Adding a new map to the world
 
-- You may need to add `map://{mapId}` to `entries` in `Global/SectorConfig.config`.
+- Create a new `.map` only with `MapBuilder.fromTemplate(MapBuilder.templatePath(kind), mapName)`; `kind` is `maple`/`0`, `rect`/`1`, or `sideview`/`2`. Do not start from blank JSON.
+- Save as `map/{mapName}.map`. `mapName` is plain (`city01`), not `map://city01` and not `city01.map`.
+- Add `map://{mapName}` to `entries` in `Global/SectorConfig.config` when the map should be part of the world. Removing a map is the reverse: remove the sector entry first, then delete `map/{mapName}.map`.
 
 ---
 
@@ -325,7 +329,7 @@ After work, `**stop**` to return to edit mode.
 
 | Doc | Purpose |
 |-------------|------|
-| [builder-protocol.md §1](builder-protocol.md) | **`.map` call protocol — MapBuilder API, snapshot workflow, coverage gaps, `false`-return handling** (read every turn that touches `.map`) |
+| [builder-protocol-map.md §1](builder-protocol-map.md) | **`.map` call protocol — MapBuilder API, snapshot workflow, coverage gaps, `false`-return handling** (with the [builder-protocol.md](builder-protocol.md) core — both in context whenever a turn touches `.map`) |
 | [builder-protocol.md §4](builder-protocol.md) | `.model` author → `.map` placement → `refresh` cross-flow |
 | [model.md](model.md) | `.model` template authoring domain (when / catalog / component combinations) |
 | [tile.md](tile.md) | Tile maps / tilesets |
@@ -337,4 +341,4 @@ After work, `**stop**` to return to edit mode.
 | `msw-scripting` | Component / Logic, properties, lifecycle |
 | `msw-search` | RUID / asset / doc search |
 
-Core principle of entity work: **"models are templates, maps are instances, builder-protocol.md is the single call manual, MCP is for verification."**
+Core principle of entity work: **"models are templates, maps are instances, the builder-protocol core + builder-protocol-map.md are the call manual, MCP is for verification."**

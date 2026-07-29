@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.5.0.0",
+  "CoreVersion": "26.7.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -25,7 +25,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "RectSize",
           "DisplayName": "RectSize",
@@ -33,7 +33,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.UITransformComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.UITransformComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "RectSize"
           }
@@ -41,7 +41,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "ImageRUID",
           "DisplayName": "ImageRUID",
@@ -49,7 +49,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.SpriteGUIRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.SpriteGUIRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "ImageRUID"
           }
@@ -57,7 +57,7 @@
         {
           "Type": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODColor, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODColor, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Name": "Color",
           "DisplayName": "Color",
@@ -65,7 +65,7 @@
           "Link": {
             "Target": {
               "$type": "MODNativeType",
-              "type": "MOD.Core.SpriteGUIRendererComponent, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+              "type": "MOD.Core.SpriteGUIRendererComponent, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Property": "Color"
           }
@@ -77,7 +77,7 @@
           "Name": "anchoredPosition",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
@@ -90,7 +90,7 @@
           "Name": "RectSize",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODVector2, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": {
             "$type": "MOD.Core.MODVector2, MOD.Core",
@@ -103,7 +103,7 @@
           "Name": "AlignmentOption",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.AlignmentType, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.AlignmentType, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": 0
         },
@@ -112,7 +112,7 @@
           "Name": "ImageRUID",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODDataRef, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": {
             "$type": "MOD.Core.MODDataRef, MOD.Core",
@@ -124,7 +124,7 @@
           "Name": "Color",
           "ValueType": {
             "$type": "MODNativeType",
-            "type": "MOD.Core.MODColor, MOD.Core, Version=26.5.0.0, Culture=neutral, PublicKeyToken=null"
+            "type": "MOD.Core.MODColor, MOD.Core, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
           },
           "Value": {
             "$type": "MOD.Core.MODColor, MOD.Core",

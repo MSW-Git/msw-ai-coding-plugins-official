@@ -3,8 +3,22 @@
 
 const fs = require("fs");
 const crypto = require("crypto");
+const path = require("path");
 
 const DEFAULT_SPRITE_RUID = "8ef238e0d0ca4bb783aca526cff35d11";
+const MAP_TEMPLATE_FILES = Object.freeze({
+  maple: "TileMapTemplate.map",
+  tile: "TileMapTemplate.map",
+  tilemap: "TileMapTemplate.map",
+  "0": "TileMapTemplate.map",
+  rect: "RectTileMapTemplate.map",
+  recttile: "RectTileMapTemplate.map",
+  "1": "RectTileMapTemplate.map",
+  sideview: "SideViewRectTileMapTemplate.map",
+  sideviewrect: "SideViewRectTileMapTemplate.map",
+  sideviewrecttile: "SideViewRectTileMapTemplate.map",
+  "2": "SideViewRectTileMapTemplate.map",
+});
 
 function clone(value) {
   return value == null ? value : JSON.parse(JSON.stringify(value));
@@ -21,6 +35,41 @@ function readJsonFile(filepath, label) {
     if (err && err.code === "ENOENT") throw new Error(`${label} not found: ${filepath}`);
     throw new Error(`Invalid JSON in ${label} ${filepath}: ${err.message}`);
   }
+}
+
+function normalizeMapName(mapName) {
+  const value = String(mapName || "").trim();
+  if (!value) throw new Error("Map name must not be empty");
+  if (value.startsWith("map://")) throw new Error(`Map name must be plain, not an EntryKey: ${value}`);
+  if (/\.map$/i.test(value)) throw new Error(`Map name must not include the .map extension: ${value}`);
+  if (/[\\/]/.test(value)) throw new Error(`Map name must not include path separators: ${value}`);
+  return value;
+}
+
+function mapTemplatePath(kind) {
+  const key = String(kind ?? "").trim().toLowerCase().replace(/[-_\s]/g, "");
+  const filename = MAP_TEMPLATE_FILES[key];
+  if (!filename) {
+    throw new Error(`Unknown map template kind: ${kind}. Use "maple"/0, "rect"/1, or "sideview"/2.`);
+  }
+  return path.resolve(__dirname, "../../resources/maps", filename);
+}
+
+function remapTemplateValue(value, idMap, oldRootPath, newRootPath) {
+  if (typeof value === "string") {
+    if (idMap.has(value)) return idMap.get(value);
+    if (value === oldRootPath || value.startsWith(`${oldRootPath}/`)) {
+      return `${newRootPath}${value.slice(oldRootPath.length)}`;
+    }
+    return value;
+  }
+  if (Array.isArray(value)) return value.map((item) => remapTemplateValue(item, idMap, oldRootPath, newRootPath));
+  if (value && typeof value === "object") {
+    for (const [key, item] of Object.entries(value)) {
+      value[key] = remapTemplateValue(item, idMap, oldRootPath, newRootPath);
+    }
+  }
+  return value;
 }
 
 function vector2(x = 0, y = 0) {
@@ -66,7 +115,7 @@ function color(value, alpha = 1) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.5.0.0). A bare name in this
+// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
 // set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
 // "script.<name>" custom component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
@@ -259,7 +308,7 @@ class MapBuilder {
       Usage: 0,
       UsePublish: 1,
       UseService: 0,
-      CoreVersion: "26.5.0.0",
+      CoreVersion: "26.7.0.0",
       StudioVersion: "0.1.0.0",
       DynamicLoading: 0,
       ContentProto: { Use: "Binary", Entities: [] },
@@ -293,8 +342,48 @@ class MapBuilder {
     return new MapBuilder(mapName, data);
   }
 
+  static fromTemplate(templatePath, mapName) {
+    const targetMapName = normalizeMapName(mapName);
+    const template = MapBuilder.load(templatePath);
+    const data = clone(template.data);
+    const oldRootPath = template.rootPath;
+    if (!oldRootPath || !oldRootPath.startsWith("/maps/")) {
+      throw new Error(`Template map root path is invalid: ${oldRootPath || "<missing>"}`);
+    }
+    const newRootPath = `/maps/${targetMapName}`;
+    const idMap = new Map();
+
+    data.EntryKey = `map://${targetMapName}`;
+    data.Content = "";
+    data.Id = "";
+    data.GameId = "";
+
+    for (const entity of data.ContentProto.Entities) {
+      if (!entity.id) throw new Error(`Template map entity is missing id: ${entity.path || "<unknown>"}`);
+      idMap.set(entity.id, crypto.randomUUID());
+    }
+
+    for (const entity of data.ContentProto.Entities) {
+      entity.id = idMap.get(entity.id);
+      entity.path = remapTemplateValue(entity.path, idMap, oldRootPath, newRootPath);
+      entity.jsonString = remapTemplateValue(entity.jsonString, idMap, oldRootPath, newRootPath);
+      const js = entity.jsonString || {};
+      if (js.path === newRootPath) js.name = targetMapName;
+    }
+
+    const builder = new MapBuilder(targetMapName, data);
+    for (const entity of builder.entities) builder._syncComponentNames(entity);
+    builder.displayCounter = builder._nextDisplayOrder();
+    builder._lastId = null;
+    return builder;
+  }
+
   static snapshot(filepath) {
     return MapBuilder.read(filepath).snapshot();
+  }
+
+  static templatePath(kind) {
+    return mapTemplatePath(kind);
   }
 
   build() {
@@ -665,4 +754,4 @@ class MapBuilder {
   }
 }
 
-module.exports = { MapBuilder, DEFAULT_SPRITE_RUID, componentsFromModel, defaultComponent, vector2, vector3, quaternion, color };
+module.exports = { MapBuilder, DEFAULT_SPRITE_RUID, MAP_TEMPLATE_FILES, componentsFromModel, defaultComponent, vector2, vector3, quaternion, color };
