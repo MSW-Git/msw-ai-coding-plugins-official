@@ -1,6 +1,8 @@
 # Death Sequence — MUST Contract
 
-Defender-side rules for what happens to a monster from the instant a hit is lethal until it actually disappears. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index. The presentation-cascade timing this depends on lives in [damage-presentation.md](damage-presentation.md)'s Damage-Skin Overkill Hold Rule.
+**Enforcement:** completion-blocking — `MHP-03`. Evidence is the applicable `D`, `E`, and `F` rows of [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md) for every effective target class.
+
+Defender-side rules for what happens to a monster from the instant a hit is lethal until it actually disappears. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog. The presentation-cascade timing this depends on lives in [damage-presentation.md](damage-presentation.md)'s Damage-Skin Overkill Hold Rule.
 
 Every lethal hit **MUST** satisfy every applicable rule in this document. The implementation **MUST NOT** be marked complete while any death timing, freeze, state-transition, or disappearance requirement is missing or unverified.
 
@@ -51,6 +53,8 @@ Do not restore the cached velocity or residual force on the lethal path. After `
 ## MUST — Death Freeze Rule
 
 From the instant a hit is established as lethal and the discovered gameplay-exclusion owner is activated until the die animation actually starts, the target's **gameplay and physics MUST** be completely frozen — no movement, no AI, no knockback, and no new attack. This freeze does not by itself choose or trigger a State transition.
+
+This is a continuous invariant, so its evidence is sampled rather than edge-triggered: `FREEZE_SAMPLE` in [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md) must show unchanged position, zero velocity, and the AI owner still disabled at several points across the hold. A single flush log at the start proves the flush ran, not that the freeze held. The baseline row for a target with no protected action state is `D0`.
 
 Additionally, from that same instant the target **MUST deal no contact or attack damage to any player** for the **entire** death presentation — through the damage-skin hold, the die animation, and until the entity disappears/respawns (not only until die starts). Disable the monster's player-damage capability (both the legacy contact-damage loop and the range-detected ATTACK hit-frame judgment) as part of the step-0 exclusion, and gate it on that immediate exclusion capability, **never on `IsDead`**. `IsDead` is a final transition input only for `ConditionIsDead` models and may remain unset until the hold ends; models without that condition may never use it for transition at all. A path gated on `IsDead` or a bare "while alive" check can keep damaging a player who touches the dying monster. See [monster-attack.md](monster-attack.md)'s Death interaction rule and harness scenario `D4`.
 

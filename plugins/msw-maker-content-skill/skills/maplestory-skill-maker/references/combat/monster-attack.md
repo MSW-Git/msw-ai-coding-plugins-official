@@ -1,5 +1,7 @@
 # Monster Attack Presentation — MUST Contract
 
+**Enforcement:** completion-blocking — the acceptance scenarios defined in this file.
+
 Read this reference when a monster can damage a player or when player-hit behavior is changed. Implement by capability and observable behavior; the current filenames and method names are examples only.
 
 ## Capability split

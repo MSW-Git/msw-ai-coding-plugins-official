@@ -1,5 +1,7 @@
 # Movement Skill Verification Harness — MUST Contract
 
+**Enforcement:** evidence source — defines `T1`–`T10` and the cast-interaction rows that close `TP-06`.
+
 Use this harness for **every** movement skill (`double_jump_skill`, `teleport_skill`, and future movement types). It converts the behavior in [../movement/skills.md](../movement/skills.md) into completion-blocking evidence gates, exactly the way [monster-visual-harness.md](monster-visual-harness.md) does for attack presentation. It applies whether the project uses the reference filenames or completely different scripts.
 
 This file does not replace [../movement/skills.md](../movement/skills.md). Read that contract first; this harness proves that the adapted implementation actually satisfies it. It also does not replace [player-control-harness.md](player-control-harness.md): run that one too whenever the movement skill affects attack overlap, jump/cast gating, movement, facing, or player animation.

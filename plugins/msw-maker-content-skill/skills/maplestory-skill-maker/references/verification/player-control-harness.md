@@ -1,5 +1,7 @@
 # Player Control Verification Harness — MUST Contract
 
+**Enforcement:** evidence source — defines the `P0`–`P14` rows that close `PAP-04`.
+
 Use this harness for every attack skill. Also use it for any movement skill that can overlap an attack, changes jump/cast eligibility, changes player movement or facing, or plays/suppresses a player animation.
 
 Read [../player/casting.md](../player/casting.md) first. This harness does not prescribe filenames or one internal architecture. It proves that the chosen architecture produces the required player behavior without damaging physics or leaving stale locks.
@@ -17,11 +19,12 @@ Read [../player/casting.md](../player/casting.md) first. This harness does not p
 
 The implementation **MUST NOT** be called complete until every applicable static row and runtime scenario has explicit evidence.
 
-- Component presence is not behavioral proof.
+- Component presence is not behavioral proof. A row explicitly marked `Static:` is closed by cited locations rather than by presence — see the [Evidence Boundary](non-negotiable-presentation-gates.md#evidence-boundary--instrumented-facts-versus-playtest).
 - Extending `PlayerControllerComponent` is not a pass unless the active player actually uses that controller and its gates execute.
 - “Input seemed locked,” “the animation played,” and “no errors were logged” are not passing evidence.
 - If Maker runtime tools or required test inputs are unavailable, mark the affected rows `BLOCKED`, report **implemented but verification blocked**, and do not use completion language.
 - An unapproved change to observable policy is a failure even if the replacement behavior appears reasonable.
+- Split every row by the [Evidence Boundary](non-negotiable-presentation-gates.md#evidence-boundary--instrumented-facts-versus-playtest): rows marked *Instrumented* are the agent's to close from logs and compared numbers, and a row's on-screen verdict is the user's playtest, reported as pending rather than inferred into `PASS`.
 
 ## 1. Capability Discovery Gate — before editing
 
@@ -90,19 +93,21 @@ Run every applicable row for each distinct player controller/adapter composition
 
 | ID | Scenario | Required pass evidence |
 |---|---|---|
-| P0 | Attack animation dispatch variants | Empty attack key visibly plays native basic Attack on the avatar root; supported native keys use the matching native root event; custom keys use one one-shot body event. Every branch arms the matching end listener after dispatch. |
+| P0 | Attack animation dispatch variants | Instrumented: an empty attack key emits one native basic-Attack event to the avatar root, a supported native key emits the matching native root event, and any other key emits one one-shot body event — one event per cast, on the logged target entity. Every branch arms the matching end listener after dispatch and the handler is still connected when the clip end is reached. Whether the resulting action looks correct on screen is a playtest item. |
 | P1 | Grounded cast, `allowJumpDuringCast = false`, movement key held | Cast locks immediately; horizontal movement stops; gravity remains active; jump and down-jump are rejected; facing and cast animation remain stable. |
 | P2 | Grounded cast, `allowJumpDuringCast = true` | Ordinary jump/down-jump reaches the native/base action and behaves normally while the cast remains correctly owned. |
 | P3 | Airborne cast, `allowAirborneCast = false` | Cast is rejected before lock, animation, movement, facing, or cooldown mutation. |
 | P4 | Airborne cast, `allowAirborneCast = true` | Pre-cast vertical and horizontal trajectory continues without `Stop()`, `InputSpeed = 0`, controller disable, or full-velocity zeroing. |
 | P5 | Normal deterministic cast window | Matching cast-id cleanup runs once within the intended window, restores only owned values, and does not wait for the server safety timeout even when the effective action loops or emits no end event. |
 | P6 | Cast animation interrupted/replaced | Interruption cleanup restores control without waiting for the safety timeout; later animation-end callbacks do nothing. |
-| P7 | Server rejection | Only the rejected matching cast is released; a newer active cast remains locked. |
+| P7 | Server rejection | `Static:` the rejection handler carries the request `castId`, compares it against the currently active local id, and releases only on a match; the non-matching branch leaves a newer cast's lock untouched. Cite the handler and the comparison. An induced rejection observed at runtime is optional evidence on top, not a requirement. |
 | P8 | Repeated casts while holding movement | Many consecutive casts restore the exact speed every time; no walking-in-place or permanent movement loss occurs. |
 | P9 | Repeated cooldown input | Every known-cooldown key press is a complete local no-op: no `Stop()`, speed change, state disable, facing lock, subscription, or cast id allocation. |
-| P10 | Old release/timer from cast A arrives during cast B | Cast B remains fully locked; stale callback is logged and changes no state. |
+| P10 | Old release/timer from cast A arrives during cast B | `Static:` every path that can reach a release — normal window timer, animation end, server rejection, safety timer, end-play — carries a `castId` and no-ops when it is not the active one, emitting `STALE_CALLBACK_IGNORED` on that branch. Cite each path and its comparison; a missing path is a `FAIL`. An induced overlap observed at runtime is optional evidence on top. |
 | P11 | `allowDuringAttack` movement skill during an attack, when supported | Movement skill performs only its allowed relocation/force; it does not release the attack's state/facing/animation lock. |
 | P12 | End-play/removal while locked | Event handlers/timers are safely disconnected or invalidated and no later callback mutates a destroyed/replaced player. |
+| P13 | Cast window versus clip length, once per resolved animation key | Instrumented: the resolved window from [../player/casting.md](../player/casting.md#cast-window-resolution) is greater than or equal to the measured clip duration, and the logged release lands at or after that window and before the safety timeout. Both numbers and their sources appear in `WINDOW_RESOLVED` and `LOCK_RELEASE`. A window shorter than the clip is a `FAIL` even when every cast-id and restore rule passes. Whether the swing then *looks* uncut is a playtest item. |
+| P14 | Cast started from a held-direction `MOVE`, not from `IDLE` | Instrumented: no locomotion state transition is logged between `ANIMATION_DISPATCH` and `LOCK_RELEASE` for that `castId`, the cached input speed is restored exactly once at release, and the armed end handler is still connected when the clip end is reached. Passing only from an `IDLE` start does not satisfy this row. Whether a walk animation is visible on screen is a playtest item that this proxy predicts but does not replace. |
 
 ## 4. Runtime Evidence Instrumentation
 
@@ -116,6 +121,8 @@ Use focused logs with stable labels. Include player identity, `skillId`, `castId
 | `MSM_PLAYER_HARNESS AIRBORNE_PRESERVED` | Allowed airborne branch deliberately preserves movement/Body values |
 | `MSM_PLAYER_HARNESS JUMP_DECISION` | Jump/down-jump is allowed or rejected; include policy and whether base/native execution was invoked |
 | `MSM_PLAYER_HARNESS ANIMATION_DISPATCH` | The matching cast animation is dispatched and its end listener is armed |
+| `MSM_PLAYER_HARNESS WINDOW_RESOLVED` | The cast window is resolved for this cast; include the resolved duration, its source (project default, user-confirmed, or measured), and the measured clip duration it was compared against |
+| `MSM_PLAYER_HARNESS LOCOMOTION_SUPPRESSED` | A locomotion state change is requested or blocked while a cast owns presentation; include the requesting source and the active `castId` |
 | `MSM_PLAYER_HARNESS LOCK_RELEASE` | Matching-cast cleanup restores owned properties; include restored values and reason |
 | `MSM_PLAYER_HARNESS STALE_CALLBACK_IGNORED` | A callback/release/rejection/timer is rejected because its cast identity is stale |
 | `MSM_PLAYER_HARNESS COOLDOWN_NOOP` | Known local cooldown rejects input before any presentation/input mutation |

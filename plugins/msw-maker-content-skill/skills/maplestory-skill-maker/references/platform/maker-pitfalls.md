@@ -1,6 +1,8 @@
 # Platform Pitfalls
 
-Confirmed MSW Maker editor behaviors that aren't design rules but will silently break a skill if unaccounted for. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
+**Enforcement:** implementation discipline — this file owns no evidence row; unresolved platform limits are reported explicitly instead.
+
+Confirmed MSW Maker editor behaviors that aren't design rules but will silently break a skill if unaccounted for. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog.
 
 ## ⚠ Platform Editor Warning: MLUA Refresh Failure & Component Detachment
 
@@ -8,7 +10,8 @@ Confirmed MSW Maker editor behaviors that aren't design rules but will silently 
 
 - **Prevention**: Always ensure scripts are syntactically and logically correct before triggering a refresh.
 - **Recovery**: If a compilation error occurred and was later fixed, the script may already be detached inside the editor's active memory. Stop play, refresh/reload the workspace, and inspect the actual player/model composition. Reattach through the approved model/builder or Maker workflow for that project.
-- **Global policy**: `Global/` models are read-only to the agent. They may be inspected to diagnose whether a component is present, but the agent MUST NOT edit `Global/DefaultPlayer.model` or `Global/Player.model` directly. If the required player composition is engine-owned, copy/author the approved user model under `RootDesk/MyDesk/Models/` or ask the user to perform the necessary Maker-side configuration.
+- **Global policy**: `Global/` models are read-only to the agent **by default**. They may be inspected to diagnose whether a component is present, but absent an approved project procedure the agent MUST NOT edit `Global/DefaultPlayer.model` or `Global/Player.model` directly; copy/author the approved user model under `RootDesk/MyDesk/Models/` or ask the user to perform the necessary Maker-side configuration.
+- **Project procedure supersedes this default.** If the target project documents an approved in-place workflow for those models — a `ModelBuilder` plus Maker-refresh procedure in its `AGENTS.md`/`CLAUDE.md`, a project skill, or `msw-general` — follow the project and record the inspected source, the exact procedure, and the affected model in the ledger, per the Project Convention Precedence Rule in [../architecture/divergences.md](../architecture/divergences.md). Do not report a player-side attachment as impossible before checking for that source: a blocked attachment blocks the whole skill.
 - This detach risk applies to the player attack adapter role specifically because it's a `@Component` attached to a model's `"Components"` list. The attack Registry role (see [../architecture/framework.md](../architecture/framework.md)) is a `@Logic`, not attached to any model, so it isn't subject to this same per-model detachment — but a compile error in it still fails the whole workspace refresh the same way, so the same "fix syntax before refresh" prevention still applies.
 
 ## ⚠ Controller: cannot disable the native controller and add a subclass

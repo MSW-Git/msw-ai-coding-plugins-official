@@ -1,5 +1,7 @@
 # Movement Skills — Double Jump & Teleport
 
+**Enforcement:** completion-blocking — `TP-01`–`TP-06`. Evidence is `T1`–`T10` plus every applicable cast-interaction row in [../verification/movement-verification-harness.md](../verification/movement-verification-harness.md).
+
 Use this reference for player movement skills. It defines two reusable types:
 
 - `double_jump_skill`: spend a limited air-jump charge while airborne.
@@ -15,6 +17,7 @@ These are not attack types. They do not target a defender, create `attackInfo`, 
 - [Shared Data Shape](#shared-data-shape)
 - [Movement Numeric Glossary](#movement-numeric-glossary)
 - [Movement Animation Rule](#movement-animation-rule)
+- [Movement Effect Anchoring Rule](#movement-effect-anchoring-rule)
 - [Double Jump](#type-1--double_jump_skill)
 - [Teleport](#type-2--teleport_skill)
 - [Client-First Execution and Server Use Validation](#client-first-execution-and-server-use-validation)
@@ -122,7 +125,7 @@ The normalized runtime row has this common shape:
 }
 ```
 
-Empty effect/sound RUIDs are valid guarded hooks. Do not fabricate RUIDs.
+Empty effect/sound RUIDs are valid guarded hooks. Choosing a non-empty value follows [../architecture/resource-selection.md](../architecture/resource-selection.md) — never fabricate a RUID, and never persist one whose appearance was not confirmed.
 
 ## Movement Numeric Glossary
 
@@ -154,44 +157,29 @@ Movement skills do not inherit the attack family's basic-Attack fallback.
 - When a movement type supports an animation and the user explicitly requests a verified non-empty `animationKey`, treat it as an explicit custom sprite action id and play it once with `ActionStateChangedEvent(animationKey, animationKey, 1, SpriteAnimClipPlayType.Onetime)` on `AvatarRendererComponent:GetBodyEntity()`. Do not invent or auto-create the custom action as part of ordinary movement-skill creation.
 - Preserve the raw empty value through DataSet loading and normalization. Do not replace it with `"attack"` in shared catalog or helper code; doing so would erase the family distinction and make an animation-less movement skill incorrectly swing the player's weapon.
 
+## Movement Effect Anchoring Rule
+
+A movement cast changes the player's position, so an effect's anchor is a deliberate decision and never a by-product of where the position read happened to land in the call order. For every non-empty movement effect, record which anchor was chosen. The caster-side default in [../player/cast-effects.md](../player/cast-effects.md) — attach to the caster — applies to a movement effect only when the effect is meant to travel with the player.
+
+- **Pin with `_EffectService:PlayEffect(...)`** when the effect marks a place the player left or arrived at: a departure puff, a blink arrival flash, a jump-start burst. Capture the world position explicitly while that place is still current — before the force or relocation call for a departure anchor, after it for an arrival anchor.
+- **Attach with `_EffectService:PlayEffectAttached(...)`** when the effect belongs to the player's body for its whole lifetime, such as a trailing aura or a lingering charge glow.
+- Reading the player position after relocation and calling `PlayEffect` yields an arrival-anchored effect. That is a correct blink flash and a broken departure puff; the ledger row must state which one was intended.
+- `double_jump_skill` already fixes both of its anchors — see its `Fixed effect` and `Attached effect` rows. A new movement type declares its anchors the same way instead of inheriting the attack default.
+- The direction source for a flipped movement effect is the direction the movement itself resolved at cast time, not a hitbox `dirX`.
+
 ## Type 1 — `double_jump_skill`
 
-### Data
+### Current data defaults
 
-```lua
-{
-    id = 2001,
-    name = "double_jump",
-    familyId = _SkillCatalogLogic.FamilyMovement,
-    type = "double_jump_skill",
-    cooldown = 0,
-    targetMapMode = TileMapMode.MapleTile,
-    allowDuringAttack = false,
-    allowWhileHit = false,
-    allowWhileDead = false,
-    allowWhileClimbing = false,
-
-    airJumpCount = 1,
-    verticalPower = 4.0,
-    horizontalPower = 6.0,
-    fallDampingPolicy = "curve", -- "curve" is the default for double jump
-    fallDampingPower = 18.0,
-    fallDampingSoftness = 0.2,
-    minVerticalForce = -12.0,
-    maxVerticalForce = 8.0,
-
-    animationKey = "",
-    positionEffectRuid = "ad0cdcdc3bd84b45909d8c9f836afb37",
-    attachedEffectRuid = "db06c95ab32e49e4b90ee4bc66906a65",
-    effectSortingLayer = "MapLayer0", -- fallback when the player renderer is unavailable
-    effectOrderInLayer = -1, -- fallback when the player renderer is unavailable
-    positionEffectOrderOffset = -1,
-    attachedEffectOrderOffset = 1,
-    soundRuid = "",
-}
-```
-
-Double jump plays two default effects at the same time: `positionEffectRuid = "ad0cdcdc3bd84b45909d8c9f836afb37"` remains at the jump start position, while `attachedEffectRuid = "db06c95ab32e49e4b90ee4bc66906a65"` is attached to the player. Render the fixed position effect behind the character with `positionEffectOrderOffset = -1`, and render the attached effect in front of the character with `attachedEffectOrderOffset = 1` so transparent attached art stays visible. Use the player `AvatarRendererComponent.SortingLayer` and `AvatarRendererComponent.OrderInLayer + <effect offset>` when available; fall back to `effectSortingLayer` / `effectOrderInLayer` only when the renderer is unavailable. Empty RUIDs are still valid for intentionally silent/no-effect movement skills.
+| Claim | Required value or behavior |
+|---|---|
+| Identity | `id = 2001`, `name = "double_jump"`, `familyId = _SkillCatalogLogic.FamilyMovement`, `type = "double_jump_skill"` |
+| Common gates | `cooldown = 0`, `targetMapMode = MapleTile`, `allowDuringAttack = false`, `allowWhileHit = false`, `allowWhileDead = false`, `allowWhileClimbing = false` |
+| Force tuning | `airJumpCount = 1`, `verticalPower = 4.0`, `horizontalPower = 6.0`, `fallDampingPolicy = "curve"`, `fallDampingPower = 18.0`, `fallDampingSoftness = 0.2`, clamp `-12.0..8.0` |
+| Animation/audio | `animationKey = ""`, `soundRuid = ""`; empty RUIDs remain valid guarded hooks |
+| Fixed effect | Play `ad0cdcdc3bd84b45909d8c9f836afb37` at the captured jump-start position with order offset `-1` (behind). |
+| Attached effect | Play `db06c95ab32e49e4b90ee4bc66906a65` attached to the player with order offset `1` (in front). |
+| Effect ordering | Prefer the player renderer's `SortingLayer` and `OrderInLayer + offset`; only when unavailable, fall back to `effectSortingLayer = "MapLayer0"` and `effectOrderInLayer = -1`. |
 
 ### Runtime Contract
 
@@ -200,7 +188,7 @@ Double jump plays two default effects at the same time: `positionEffectRuid = "a
 3. Apply the map-type-specific forced jump.
 4. Play guarded visual/audio hooks after the forced movement call succeeds. For double-jump effects, capture the player world position before applying force, play `positionEffectRuid` with `_EffectService:PlayEffect(...)` at that fixed position, and play `attachedEffectRuid` with `_EffectService:PlayEffectAttached(...)` on the player. Use separate options for each effect: the fixed position effect resolves order with `positionEffectOrderOffset`, and the attached effect resolves order with `attachedEffectOrderOffset`.
 5. Consume one charge only after the movement call succeeds.
-6. Reset charges on a real airborne-to-grounded transition, not on a timer.
+6. Reset charges on a real airborne-to-grounded transition, on respawn, or on a relevant map/Body reset — never on a timer.
 7. Log integer `skillId`, map mode, Body type, grounded state, charge before/after, chosen power, effect hook result, and success/failure.
 
 ### API Boundary
@@ -209,20 +197,7 @@ Double jump plays two default effects at the same time: `positionEffectRuid = "a
 - MapleTile exposes `RigidbodyComponent:JustJump(Vector2 jumpRate)`, which returns a boolean and is the first API to verify for a forced second jump.
 - SideViewRectTile has no documented `JustJump` equivalent. A SideView implementation must be proven against the live `SideviewbodyComponent` behavior; do not copy the MapleTile call or claim success without `play` + positive logs.
 - Never disable `PlayerControllerComponent` or zero the whole velocity vector to implement the jump. That can freeze gravity. If horizontal speed must be cleared, preserve Y.
-- For a `SetForce`-based double jump with `fallDampingPolicy = "curve"`, calculate vertical force through a reusable helper. The helper reads only downward `RealMoveVelocity.y`, converts it into a normalized fall ratio, subtracts the configured damping power from `verticalPower`, then clamps to the configured vertical force range:
-
-```lua
-method number CalculateDoubleJumpVerticalForce(table data, Vector2 realMove)
-    local fallAmount = math.max(-realMove.y, 0)
-    local fallRatio = 0
-    if data.fallDampingPolicy == "curve" and fallAmount > 0 then
-        fallRatio = fallAmount / (fallAmount + data.fallDampingSoftness)
-    end
-    local requestedForceY = data.verticalPower - data.fallDampingPower * fallRatio
-
-    return self:ClampNumber(requestedForceY, data.minVerticalForce, data.maxVerticalForce)
-end
-```
+- For a `SetForce`-based double jump with `fallDampingPolicy = "curve"`, use one reusable helper: `fallAmount = max(-RealMoveVelocity.y, 0)`, `fallRatio = fallAmount / (fallAmount + fallDampingSoftness)` when falling (otherwise `0`), then clamp `verticalPower - fallDampingPower * fallRatio` to `minVerticalForce..maxVerticalForce`.
 
 Because the native docs do not specify `JustJump`'s mid-air eligibility or a SideView forced-jump method, treat both as runtime verification requirements, not assumptions.
 
@@ -236,38 +211,16 @@ Before implementation, instantiate `TP-01` preflight/current-role map, `TP-02` d
 
 **MUST — default binding:** Add the teleport's `SkillBindingData` row with `keyName = "F"`. Keep this value in the binding DataSet rather than hardcoding `KeyboardKey.F` in the executor. Use a different key only when the user explicitly requests it or after an existing `F` binding collision is reported and resolved.
 
-### Data
+### Current data defaults
 
-```lua
-{
-    id = 2002,
-    name = "teleport",
-    familyId = _SkillCatalogLogic.FamilyMovement,
-    type = "teleport_skill",
-    cooldown = 0.4,
-    targetMapMode = nil,
-    allowDuringAttack = true,
-    allowWhileHit = false,
-    allowWhileDead = false,
-    allowWhileClimbing = false,
-
-    distance = 1.8, -- world units; 1 unit = 100 px
-
-    -- MapleTile landing tuning (ignored on RectTile / SideViewRectTile, which just move):
-    landingSearchDistance = 1.3, -- how far to look for a foothold to land on
-    footprintHalfHeight = 0.35,  -- horizontal probe start offset above the destination
-    landingSurfaceOffset = 0.0,  -- added to the foothold surface Y (pivot tuning)
-
-    -- Executor policy shared by this type (not currently a DataSet column):
-    -- horizontalLandingClearance = 0.03,
-
-    animationKey = "",
-    effectRuid = "",
-    soundRuid = "",
-}
-```
-
-Direction is not stored in data: it is read from the held arrow key at cast time (4-directional, no diagonal).
+| Claim | Required value or behavior |
+|---|---|
+| Identity | `id = 2002`, `name = "teleport"`, `familyId = _SkillCatalogLogic.FamilyMovement`, `type = "teleport_skill"` |
+| Common gates | `cooldown = 0.4`, optional `targetMapMode = nil`, `allowDuringAttack = true`, `allowWhileHit = false`, `allowWhileDead = false`, `allowWhileClimbing = false` |
+| Travel | `distance = 1.8` world units; direction is not stored and comes from exactly one held arrow at cast time. |
+| MapleTile landing | `landingSearchDistance = 1.3`, `footprintHalfHeight = 0.35`, `landingSurfaceOffset = 0.0`; ignore these for direct relocation on RectTile/SideViewRectTile. |
+| Shared executor policy | Keep `horizontalLandingClearance = 0.03` outside the DataSet until row-specific tuning requires an atomic schema/loader/validator/row extension. |
+| Presentation | `animationKey = ""`, `effectRuid = ""`, `soundRuid = ""`; guard empty hooks. When an effect is authored, declare its anchor per the Movement Effect Anchoring Rule — departure-pinned, arrival-pinned, or attached — and record the choice with the call-order position it depends on. |
 
 ### Runtime Contract
 
@@ -276,7 +229,7 @@ Direction is not stored in data: it is read from the held arrow key at cast time
 3. Resolve the destination and its landing per axis, because MapleTile landing differs by axis (see Landing model):
    - a horizontal teleport first tries the full `distance`, may pass through intermediate walls, and falls back to a wall face or the current foothold edge when the full-distance point has no floor;
    - a vertical teleport moves to the farthest horizontal foothold found within the teleport distance above or below;
-   - on RectTile / SideViewRectTile there is no foothold system, so the move applies directly.
+   - on RectTile / SideViewRectTile there is no foothold system, so the move applies directly, but that direct-relocation support MUST be proven against the actual Body and movement APIs of the mode. Do not reuse MapleTile foothold sensors there, and do not claim a mode is supported from static assumption without a `play` observation.
    Cancel the cast only when the chosen direction has no valid direct landing or axis-specific fallback.
 4. Apply relocation through `MovementComponent:SetWorldPosition(Vector2)`, which works regardless of the active Body. Do not write `TransformComponent.WorldPosition` on a physics Body.
 5. Stamp the cooldown only after a move actually happens; a cancelled cast must not start the cooldown.
@@ -332,7 +285,6 @@ return ResolveCurrentFootholdEdgeOrNil()
 Recommended helper split:
 
 | Helper responsibility | Selection rule |
-| Helper responsibility | Selection rule |
 |---|---|
 | Horizontal resolver | Owns the precedence: direct supported target → farthest supported wall near-side → current foothold edge → cancel. |
 | Endpoint-wall selector | From path candidates, selects only a vertical wall overlapping the raw endpoint; intermediate walls remain pass-through. |
@@ -349,52 +301,31 @@ A vertical teleport casts `RaycastAll` from the origin along up/down and conside
 
 ## Client-First Execution and Server Use Validation
 
-Player movement in this project is executed by the owning client first. Treat that as the engine-facing movement contract, not as optional prediction: delaying `SetWorldPosition` / `SetForce` until a server response makes the skill feel unresponsive and does not match the current player-movement pipeline.
+Owning-client-first movement is the engine-facing contract, not optional prediction. Preserve this exact order and ownership:
 
-1. The Player Movement Adapter performs local input, state, map-mode, attack-interaction, charge, and local-cooldown gating.
-2. Resolve direction and all movement values from the normalized catalog row identified by the integer `skillId`. The client computes the destination or force locally and immediately applies it through the active Body / `MovementComponent`.
-3. Only after movement succeeds, stamp the local cooldown, play guarded effects/sound, and call the `@ExecSpace("Server")` request with the integer `skillId`.
-4. Send only `skillId` to the server. Never send client-supplied distance, power, cooldown, direction, or destination; both sides read the configured values from the catalog row.
-5. The server verifies the sender owns the player, resolves the same row, checks dead/HIT/climbing/attack policy, target map mode, and the server cooldown, then stamps the server cooldown. This is server-side **use validation/accounting**, not server-authoritative relocation.
-6. Do not re-run the teleport/jump on the server, wait for an acceptance response, roll the client back when validation fails, or add a per-skill destination reconciliation RPC. The engine's player-movement synchronization propagates the owning client's resulting position to other clients.
-7. Keep local gating equivalent to the server gates so ordinary casts are not locally executed and then rejected. The server gate protects skill-use accounting and server-owned gameplay interactions; it does not retroactively undo movement already executed by the owning client.
-8. Send the server request only after a real movement succeeds. A cancelled teleport or failed double jump must neither stamp local/server cooldown nor play effects/sound.
-9. Keep one state owner per value. Air-jump charge belongs to the movement adapter; server cooldown accounting belongs to the Movement Registry; attack-cast state belongs to the attack adapter.
-
-Canonical call order:
-
-```text
-client gate → resolve from catalog → SetWorldPosition/SetForce succeeds
-→ local cooldown/effect/sound → RequestUseMovementSkill(skillId)
-→ server sender/state/map/cooldown validation and cooldown stamp
-→ engine player-movement synchronization
-```
+| Step | Normative claim |
+|---|---|
+| 1 | The Player Movement Adapter performs local ownership/input, state, map-mode, attack-interaction, charge, and local-cooldown gates equivalent to the server gates. |
+| 2 | Resolve direction and every movement value from the normalized catalog row keyed by integer `skillId`; immediately apply the local destination/force through the active Body or `MovementComponent`. |
+| 3 | Only after movement succeeds, stamp local cooldown, play guarded effects/sound, then call the server request with `skillId`. Failed/cancelled movement performs none of these. |
+| 4 | Send only `skillId`; never accept client distance, power, cooldown, direction, origin, or destination as server input. Both sides read the catalog row. |
+| 5 | The server verifies sender ownership, resolves the same row, checks dead/HIT/climbing/attack policy, map mode, and server cooldown, then stamps server cooldown. This is use validation/accounting, not relocation. |
+| 6 | Never re-run movement on the server, wait for acceptance, roll back, or reconcile a per-skill destination; engine player-movement synchronization propagates the client's result. |
+| 7 | The server gate protects accounting and server-owned interactions; it never retroactively undoes owning-client movement. |
+| 8 | Air-jump charge belongs to the movement adapter, server cooldown accounting to the Movement Registry, and attack-cast state to the attack adapter. |
 
 ### Forbidden prediction/reconciliation topology
 
-The call order above is exact for this project. Do not reinterpret "server use validation" as server-authoritative movement prediction or reconciliation.
+Reject each condition independently:
 
-Reject an implementation when any of these are present:
-
-- The client request sends `direction`, requested origin, destination, power, distance, or a `predictionId` instead of only `skillId`.
-- A server method calls the teleport destination resolver or `MovementComponent:SetWorldPosition` / Body force for the player's movement skill.
-- The server sends an accepted position back to the client.
-- The client has `PendingPredictionId`, `ApplyTeleportResult`, positional confirmation, rollback, or snap-to-server-result logic.
-- The client waits for a server result before stamping local cooldown or playing a successful movement effect/sound.
-- A pending server response blocks every later movement cast with no local lifecycle cleanup.
-- The input component hardcodes `KeyboardKey.F` / `skillId = 2002` instead of resolving `SkillBindingData` through the shared family router.
-- The input router lacks a local-player ownership check, or the server request lacks `senderUserId == PlayerComponent.UserId` validation.
-
-The required bootstrap shape is:
-
-```text
-local-player shared router resolves binding
-→ Player Movement Adapter performs local state/map/cooldown/direction/landing gates
-→ local SetWorldPosition/SetForce succeeds
-→ local cooldown/effect/sound
-→ RequestUseMovementSkill(skillId)
-→ server sender/state/map/cooldown validation and cooldown stamp only
-```
+| Rejection condition | Violation |
+|---|---|
+| Request payload | Sends anything beyond `skillId`, including direction, origin, destination, power, distance, cooldown, or `predictionId`. |
+| Server movement | Calls a destination resolver, `SetWorldPosition`, or Body force; or returns an accepted position. |
+| Client reconciliation | Adds `PendingPredictionId`, `ApplyTeleportResult`, confirmation, rollback, snap-to-result, or waits for the server before local cooldown/effect/sound. |
+| Pending lifecycle | An uncleared pending response can block later movement casts. |
+| Binding | Hardcodes `KeyboardKey.F` or `skillId = 2002` instead of shared-router `SkillBindingData` resolution. |
+| Ownership | Omits the local-player router check or server `senderUserId == PlayerComponent.UserId` validation. |
 
 Static review must confirm there is no movement-position RPC payload and no server-side relocation before runtime verification begins.
 

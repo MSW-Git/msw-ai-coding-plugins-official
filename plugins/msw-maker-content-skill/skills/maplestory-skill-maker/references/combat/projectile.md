@@ -1,6 +1,8 @@
 # Projectile Attack Skill
 
-The projectile type (`projectile_attack_skill`). Its **gameplay judgment is identical to `normal_attack_skill`** — cast-time `OverlapBox` snapshot, single lump-sum `TakeDamage`, shared judgment, the same knockback / damage-skin / hit-effect / death rules. It diverges from `normal_attack_skill` in exactly two ways: (1) `hitDelay` is **computed at runtime from a flying projectile's travel time** instead of being an authored constant, and (2) a **pooled projectile entity** visually travels from caster to target so the hit presentation coincides with the projectile arriving. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index. Data fields: [../architecture/datasets.md](../architecture/datasets.md). Judgment model this reuses: [targeting.md](targeting.md).
+**Enforcement:** completion-blocking — the applicable player-attack harness rows.
+
+The projectile type (`projectile_attack_skill`). Its **gameplay judgment is identical to `normal_attack_skill`** — cast-time `OverlapBox` snapshot, single lump-sum `TakeDamage`, shared judgment, the same knockback / damage-skin / hit-effect / death rules. It diverges from `normal_attack_skill` in exactly two ways: (1) `hitDelay` is **computed at runtime from a flying projectile's travel time** instead of being an authored constant, and (2) a **pooled projectile entity** visually travels from caster to target so the hit presentation coincides with the projectile arriving. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog. Data fields: [../architecture/datasets.md](../architecture/datasets.md). Judgment model this reuses: [targeting.md](targeting.md).
 
 ## Core divergence — computed `hitDelay`, not authored
 

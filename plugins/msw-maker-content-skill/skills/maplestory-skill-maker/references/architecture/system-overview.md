@@ -1,4 +1,4 @@
-﻿# MSW Skill System Overview
+# MSW Skill System Overview
 
 This is a project-specific context map. It does not define detailed gameplay behavior.
 

@@ -1,12 +1,14 @@
 # Damage Presentation
 
-How a single real judgment's damage renders as damage-skin pops and hit effects — a purely visual concern, separate from the real HP/judgment logic in [targeting.md](targeting.md). See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
+**Enforcement:** completion-blocking — evidence is the applicable damage-skin and hit-effect rows of [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md), which `MHP-02` and `MHP-03` depend on. Gate M's own IDs are owned by [hit-reaction.md](hit-reaction.md) and [death.md](death.md).
+
+How a single real judgment's damage renders as damage-skin pops and hit effects — a purely visual concern, separate from the real HP/judgment logic in [targeting.md](targeting.md). See [../../SKILL.md](../../SKILL.md) for the Reference Catalog.
 
 Any attack path that can hit or kill a monster **MUST** prove this presentation through [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md). A calculated delay or scheduled timer without captured ordering and visible-presentation evidence is not a pass.
 
 ## Contents
 
-- [Manual Damage & Damage-Skin Rule (see ../architecture/divergences.md)](#manual-damage--damage-skin-rule-see-divergence-declarationsmd)
+- [Manual Damage & Damage-Skin Rule (see ../architecture/divergences.md)](#manual-damage--damage-skin-rule-see-architecturedivergencesmd)
 - [Damage-Skin Anchor Position Rule (defender-side, applies to every monster / every skill)](#damage-skin-anchor-position-rule-defender-side-applies-to-every-monster--every-skill)
 - [Hit Effect Policy Rule](#hit-effect-policy-rule)
 - [MUST — Damage-Skin Overkill Hold Rule (current immediate-judgment contract)](#must--damage-skin-overkill-hold-rule-current-immediate-judgment-contract)
@@ -75,7 +77,7 @@ Like the caster's cast effect (see [../player/cast-effects.md](../player/cast-ef
 - **Direction source**: reuse the same `dirX` already computed for hitbox placement/knockback/cast effect — do not derive a separate direction for the hit effect.
 - **Flip condition**: `FlipX = dirX > 0`, identical condition to the cast effect flip (flip only when facing right, since the default art faces left).
 - Implementation shape: `_EffectService:PlayEffectAttached(hitEffectRuid, target, Vector3.zero, 0, Vector3.one, false, { FlipX = dirX > 0 })`.
-- Both cast and hit effects use `PlayEffectAttached`; they differ only in the parent entity (caster vs target). The flip logic is identical.
+- For attack skills, both cast and hit effects use `PlayEffectAttached`; they differ only in the parent entity (caster vs target). The flip logic is identical. A movement skill's effect anchor is decided per [../movement/skills.md](../movement/skills.md) instead.
 
 ### Hit Effect Offset Rule (default for every skill's hit effect)
 

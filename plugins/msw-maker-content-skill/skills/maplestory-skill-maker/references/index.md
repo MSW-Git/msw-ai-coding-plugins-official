@@ -15,5 +15,6 @@ This is navigation only. Use [execution-core.md](execution-core.md) as the sole 
 
 - Leaf contracts are authoritative for their named behavior.
 - `MUST`, `MUST NOT`, required defaults, rejection conditions, examples, and completion-blocking gates remain binding.
+- Each reference states its enforcement tier on the line under its title. The tier tells you what blocks completion, not what may be skipped; the tiers are defined in [execution-core.md](execution-core.md#enforcement-tiers).
 - Read behavior contracts before illustrative code.
 - Do not replace project-specific defaults with generic alternatives unless code/API evidence proves equivalence and every applicable harness row passes.

@@ -1,6 +1,8 @@
 # Targeting & Judgment Timing
 
-When the real damage judgment fires, who it targets, and how multi-hit judgment is shared. Player skills apply damage via a direct manual call (`target.Monster:TakeDamage(...)`), not `AttackComponent:Attack()` — see [../architecture/divergences.md](../architecture/divergences.md) and [damage-presentation.md](damage-presentation.md)'s Manual Damage & Damage-Skin Rule. The Runtime Sequence below runs inside the Registry Logic's `normal_attack_skill` type handler — one handler shared by every skill of this type, not a per-skill method (see [../architecture/framework.md](../architecture/framework.md)). See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index. Data field definitions: [../architecture/datasets.md](../architecture/datasets.md).
+**Enforcement:** completion-blocking — `PAJ-01`–`PAJ-04`. Evidence is the candidate snapshot, immediate result/skip, delayed presentation result/skip, and final presented-hit count for every affected attack path.
+
+When the real damage judgment fires, who it targets, and how multi-hit judgment is shared. Player skills apply damage via a direct manual call (`target.Monster:TakeDamage(...)`), not `AttackComponent:Attack()` — see [../architecture/divergences.md](../architecture/divergences.md) and [damage-presentation.md](damage-presentation.md)'s Manual Damage & Damage-Skin Rule. The Runtime Sequence below runs inside the Registry Logic's `normal_attack_skill` type handler — one handler shared by every skill of this type, not a per-skill method (see [../architecture/framework.md](../architecture/framework.md)). See [../../SKILL.md](../../SKILL.md) for the Reference Catalog. Data field definitions: [../architecture/datasets.md](../architecture/datasets.md).
 
 ## Count Ownership Rule — consolidated judgment
 

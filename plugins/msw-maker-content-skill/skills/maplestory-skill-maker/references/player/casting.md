@@ -1,8 +1,10 @@
 # Casting Input & Animation Lock
 
+**Enforcement:** completion-blocking — `PAP-01`–`PAP-04`. Evidence is the applicable `P0`–`P14` rows of [../verification/player-control-harness.md](../verification/player-control-harness.md).
+
 Every implementation of this contract **MUST** execute [../verification/player-control-harness.md](../verification/player-control-harness.md). Filenames and internal structure may vary; observable input policy, physics preservation, animation/facing ownership, cleanup, and race behavior may not.
 
-Attacker-side input handling, movement lock, and animation-end detection during a skill cast — independent of the damage/judgment logic in [../combat/targeting.md](../combat/targeting.md). This lives entirely on the per-player Player Adapter Component (see [../architecture/framework.md](../architecture/framework.md)) — the damage/judgment logic it's independent of runs in the Registry Logic. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
+Attacker-side input handling, movement lock, and animation-end detection during a skill cast — independent of the damage/judgment logic in [../combat/targeting.md](../combat/targeting.md). This lives entirely on the per-player Player Adapter Component (see [../architecture/framework.md](../architecture/framework.md)) — the damage/judgment logic it's independent of runs in the Registry Logic. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog.
 
 The lock state below is generic (`CastingLockActive`/`CastingSkillId`), not one flag per skill. `CastingSkillId` is the integer `AttackSkillData.id`; resolve its row through `SkillCatalogLogic` to obtain `animationKey`. See [../architecture/framework.md](../architecture/framework.md)'s Casting State Ownership section for why this is one pair of properties, not one pair per skill.
 
@@ -10,6 +12,7 @@ The lock state below is generic (`CastingLockActive`/`CastingSkillId`), not one 
 
 - [Cooldown Before Presentation Lock Rule](#cooldown-before-presentation-lock-rule)
 - [MUST — Player Skill Animation Dispatch Contract](#must--player-skill-animation-dispatch-contract)
+- [Cast Window Resolution](#cast-window-resolution)
 - [Cast Instance Ownership Rule (absolute precedence)](#cast-instance-ownership-rule-absolute-precedence)
 - [MUST — Player Casting Input & Animation-End Lock Rule (required for every skill)](#must--player-casting-input--animation-end-lock-rule-required-for-every-skill)
 - [Extended PlayerController Jump Gate](#extended-playercontroller-jump-gate)
@@ -45,7 +48,7 @@ This contract has absolute precedence over `msw-avatar`'s general animation-sele
 
 ### Data preservation
 
-- The catalog/loader **MUST** preserve the raw `animationKey` and **MUST allow a legacy/imported attack row when it is nil or empty**. Every newly authored or reconstructed attack row starts with `animationKey = "swingO1"`; do not infer another value from its skill name. Empty remains a concrete basic-Attack fallback choice resolved by the Player Adapter, not missing animation data. A different native/custom key is opt-in only after explicit request and verification.
+- The catalog/loader **MUST** preserve the raw `animationKey` and **MUST allow a legacy/imported attack row when it is nil or empty**. Empty remains a concrete basic-Attack fallback choice resolved by the Player Adapter, not missing animation data. Which value a row is authored with — the `swingO1` default and the opt-in rule for any other native/custom key — is owned by [../architecture/datasets.md](../architecture/datasets.md#animation-key-authoring-rule).
 - Dispatch **MUST** branch first by skill family and then, for attacks, by supported native body-action name vs. custom action id. It MUST NOT branch by `skillId`.
 
 ### Attack-family dispatch
@@ -83,6 +86,22 @@ This contract has absolute precedence over `msw-avatar`'s general animation-sele
 | Server rejects or safety timer fires | No stale animation mutation | Only the matching `castId` releases; a newer cast is untouched. |
 | Allowed airborne cast | Family-correct animation event | Existing airborne velocity and trajectory remain unchanged. |
 
+## Cast Window Resolution
+
+The cast window is the bounded, `castId`-guarded duration the normal release path waits before restoring input, movement, facing, and State. This section owns how that duration is resolved; [Playback and cleanup ownership](#playback-and-cleanup-ownership) owns what the release then does.
+
+**The window MUST NOT end before the cast animation's visible end.** An early release fails in the same way a release through the server safety timeout fails: the player regains control while the swing is still on screen, locomotion overwrites the remaining frames, and the attack reads as cancelled. A too-short window fails `P13` in [../verification/player-control-harness.md](../verification/player-control-harness.md) even when every cast-id, cleanup, and restore rule passes.
+
+Resolve the duration in this order:
+
+1. The resolved key is `swingO1` — use the project-verified default **`0.81s`**. This is a measured playback duration for this project's clip, not an engine constant; re-verify it whenever the clip changes.
+2. Any other non-empty key, native or custom — **must-ask**. Ask the user for the intended window, or measure the actual clip and confirm the measured value with them. Do not infer a duration from the key name, and do not reuse `swingO1`'s value for a different action.
+3. Empty key (native basic Attack) — the action that plays depends on the weapon the avatar holds, so its length is not fixed. Measure the effective clip or ask, exactly as in step 2.
+
+Never derive the window from `hitDelay`. A formula such as `hitDelay + a short recovery margin` is a design choice about when damage is presented, not a statement about how long the animation runs; the two are independent and `hitDelay` is frequently much shorter. Never reuse the `cooldown` value either, even when it happens to be of the same magnitude — see the `cooldown` entry in [../architecture/datasets.md](../architecture/datasets.md).
+
+`SpriteAnimPlayerEndEvent` is the preferred completion signal for an action proven to be one-shot, and it fires on `AvatarRendererComponent:GetBodyEntity()`. The measured behavior in this project is that it does **not** fire on the avatar root entity, so a listener armed on the root silently never runs and the cast then depends entirely on the timer. Arm the listener on the body entity, converge it with the resolved timer on the same idempotent `castId` cleanup, and keep the timer correct on its own for the case where the event never arrives.
+
 ## Cast Instance Ownership Rule (absolute precedence)
 
 A cast is one semantic operation, but its **client presentation lock** and **server validation lock** have different owners. Never represent both with one `@Sync` property that the client and server both write.
@@ -103,33 +122,27 @@ Why this is mandatory: an earlier server release can arrive after the client has
 These are the foundational **Animation Execution Principles** for every attack skill in this project:
 
 1. **Absolute Physics Integrity (No Floating/Freezing)**:
-   - NEVER disable `PlayerControllerComponent` or `MovementComponent`, and never zero the Body's full velocity vector. Those approaches also block gravity/physics or prevent an explicitly allowed movement skill from using `SetWorldPosition`/`SetForce` during the attack.
-   - The verified default is a project-specific component extending `PlayerControllerComponent` that overrides the script-overridable `ActionJump()` and `ActionDownJump()` entry points and delegates to `__base` only when `JumpAllowedDuringCast` permits the input. A different implementation is allowed only when native API/code evidence proves that it intercepts the same effective jump/down-jump path before Body mutation and it passes every applicable row in `../verification/player-control-harness.md`; do not invent an equivalent hook. For a grounded cast, cache `MovementComponent.InputSpeed`, call `MovementComponent:Stop()`, and temporarily set `InputSpeed = 0`. On an already-airborne cast allowed by `allowAirborneCast`, **do not call `Stop()` and do not change `InputSpeed`**: both operations alter the movement that formed the current jump arc. Preserve the Body and MovementComponent state exactly until the cast finishes. A movement skill's `allowDuringAttack` remains the independent gate for double jump/teleport input. Guard the cache with `HasCachedInputSpeed`; an airborne-preservation branch or a cast whose data allows ordinary movement must not restore a value it never changed.
-   - Do not add `MoveLeft`/`MoveRight` action conditions merely to implement jump locking. Direction-input policy is separate from jump policy and can change an airborne trajectory; add and test it only when explicitly required.
-   - If horizontal Body drift must also be removed, clear only the horizontal component (`body.MoveVelocity = Vector2(0, body.MoveVelocity.y)`) and preserve vertical velocity. `InputSpeed = 0` gates input; it is not a substitute for rewriting Body physics.
-
-   - This principle only covers *velocity* (movement). It does NOT stop the character from *turning in place* — see principle 9 for the separate facing-lock mechanism.
+   - Never disable `PlayerControllerComponent`/`MovementComponent` or zero full Body velocity; preserve gravity and any allowed movement skill's `SetWorldPosition`/`SetForce` path.
+   - Gate native jump/down-jump before Body mutation through the verified [extended controller](#extended-playercontroller-jump-gate). An alternative requires native API/code evidence plus every applicable player-control harness row.
+   - Grounded lock: cache `InputSpeed`, call `Stop()`, set speed `0`, and restore only when `HasCachedInputSpeed`. Allowed airborne cast: do none of those and preserve its existing Body/Movement trajectory. Movement `allowDuringAttack` remains independent.
+   - Do not add `MoveLeft`/`MoveRight` conditions for jump locking. If explicitly required to remove horizontal drift, set only X to `0` and preserve Y.
+   - Velocity locking does not lock turning; principle 9 separately owns facing.
 
 2. **MUST — Native State Machine Integration**:
-   - The client disables `StateComponent` for the cast presentation window so locomotion state changes cannot overwrite the attack animation. Do not remove the component or let the server toggle it; re-enable it in matching local cleanup.
-   - Resolve the raw `data.animationKey` from the attack DataSet through the catalog. Preserve `nil`/`""` until this family-specific dispatch; do not normalize it to the string `"attack"` in the loader or Registry.
-     - **Attack skill + empty key (`nil`/`""`)**: send `BodyActionStateChangeEvent(MapleAvatarBodyActionState.Attack)` with `needResetAction = true` to the avatar root on the client. This is the required basic weapon-resolved attack fallback, not a no-animation path.
-     - **Attack skill + supported native key**: convert the key through the centralized native classifier and send `BodyActionStateChangeEvent(MapleAvatarBodyActionState.CastFrom(PascalCase(key)))` with `needResetAction = true` to the avatar root on the client.
-     - **Attack skill + other non-empty key**: treat the value as an explicit custom sprite action id and send `ActionStateChangedEvent(actionName, actionName, 1, SpriteAnimClipPlayType.Onetime)` to `AvatarRendererComponent:GetBodyEntity()` on the client.
-     - **Movement skill boundary**: movement owns a separate adapter and does not inherit the attack fallback. Its empty `animationKey` means no animation event; it must never send `BodyActionStateChangeEvent(MapleAvatarBodyActionState.Attack)`. A non-empty movement key, when that movement type supports an animation, uses the same custom one-shot body-entity path. See [../movement/skills.md](../movement/skills.md#movement-animation-rule).
-   - The server-to-client animation notification carries `castId`; the client ignores it unless `castId == ActiveLocalCastId` and the local cast is still active. This prevents late animation RPCs from a rejected/released cast from replacing the current presentation.
-   - Keep State disabled while an `allowDuringAttack = true` movement skill executes. That movement adapter may reposition/apply force, but it does not own attack animation cleanup.
-   - Implementation owner: the discovered per-player attack adapter owns local movement lock, animation dispatch/classification, and the targeted cast notification. Preserve the behavior, not example method names.
+   - Apply the [animation dispatch contract](#must--player-skill-animation-dispatch-contract) exactly; preserve raw `animationKey`, family-first classification, target/event choice, State lock, and client-only cleanup ownership there instead of duplicating its branches here.
+   - Carry `castId` in the targeted animation notification and ignore it unless the same local cast is active.
+   - Keep State disabled while an `allowDuringAttack = true` movement executes; movement never owns attack cleanup.
+   - The discovered per-player attack adapter owns movement lock, dispatch/classification, and the targeted notification; method names are not contractual.
 
 3. **Zero-Latency Client-Side Input Gating**:
-   - Keep one client-local `CastingLockActive`/`CastingSkillId` pair, plus `LocalCastSequence` and `ActiveLocalCastId`. Do not annotate the local lock or jump policy with `@Sync`.
-   - On accepted key-down, increment the sequence, store the resulting `castId`, set the local lock immediately, apply facing/movement/state presentation locks, and call `RequestUseSkill(skillId, castId)`. Do not subscribe the animation-end handler yet: the currently playing jump/fall/idle clip can end before the server's cast-animation notification arrives and falsely release the new cast.
-   - The server keeps a separate `ServerCastingLockActive`/`ActiveServerCastId` pair. It may reject an overlapping request, but its response must include the rejected request's `castId`; the client releases only if that id is still locally active.
+   - Follow the [Cast Instance Ownership Rule](#cast-instance-ownership-rule-absolute-precedence): on accepted key-down, allocate `castId`, set local lock plus facing/movement/State locks immediately, and call `RequestUseSkill(skillId, castId)`.
+   - Do not subscribe to animation end at raw input time; an ending locomotion clip could release the new cast before its animation notification.
+   - An overlap rejection carries its request `castId`; release only when that id is still locally active.
 
 4. **MUST — Zero-Latency Native Animation-End Detection**:
-   - Do not assume the effective attack action is one-shot. The empty/native Attack path may resolve through the equipped avatar/weapon to a looping action, in which case `SpriteAnimPlayerEndEvent` never arrives. Every cast therefore needs a bounded local normal-release path guarded by `castId`, using a verified clip duration or an explicit cast-lock duration policy. Connect `SpriteAnimPlayerEndEvent` only after dispatch and only for an action proven to be one-shot; it may release earlier through the same idempotent cleanup. Never connect at raw input time, where the previous locomotion clip can be mistaken for cast completion.
-   - Capture the current `castId` in the event closure. After any required one-frame/deferred wait, call `ReleaseCastingLockLocally(castId)`; stale callbacks return without touching a newer cast.
-   - Unsubscribe from the event, restore local presentation/input properties, then send `RequestReleaseCastingLock(castId)`. The server clears only the matching `ActiveServerCastId`; it never clears the client's local lock through sync.
+   - Apply [Playback and cleanup ownership](#playback-and-cleanup-ownership): every cast has a bounded, `castId`-guarded normal release; only a proven one-shot may additionally release from `SpriteAnimPlayerEndEvent` connected after dispatch.
+   - Capture `castId`; after any required deferred frame, stale callbacks return and the matching callback enters the single local cleanup path.
+   - Cleanup disconnects first, restores only owned local values, then requests matching server release; the server never sync-clears the client lock.
 
 5. **Flinch & Hit Interruption Immunity**:
    - If the design requires hit/flinch immunity during attacks, the authoritative hit check reads the server-owned `ServerCastingLockActive`, not the client-local `CastingLockActive`. Client presentation may consult its local flag for immediate visuals, but it cannot authorize immunity.
@@ -144,17 +157,13 @@ These are the foundational **Animation Execution Principles** for every attack s
    - Required ownership: the player adapter owns idempotent client cleanup and the attack Registry/adapter pair owns the longer server recovery timer, both keyed by the same cast instance id.
 
 7. **MUST — Custom Cast Animation Cutoff**:
-   - Bug class: a custom one-shot action can be replaced by native locomotion/state animation before its final frame, preventing the expected `SpriteAnimPlayerEndEvent` and leaving cleanup dependent on the safety path.
-   - Fix: disable `StateComponent` locally before requesting/playing the cast, then dispatch the attack through exactly one branch: empty-key basic Attack on the avatar root, supported-native root event, or custom one-shot body event. Keep the State lock until matching local release; an allowed movement skill must not re-enable it.
-   - Do not combine the custom one-shot event with a competing state/action-sheet mapping in the same presentation path. The supported-native root event and custom body-action event are mutually exclusive branches.
-   - Implementation owner: the discovered player adapter owns the State presentation lock, action classification, and targeted animation notification.
+   - Native locomotion must not replace a custom one-shot before its final frame: follow the [dispatch and cleanup contract](#must--player-skill-animation-dispatch-contract), disabling State locally before request/play and keeping it disabled through matching release.
+   - Emit exactly one mutually exclusive empty/native-root/custom-body branch; never combine the custom event with a competing state/action-sheet mapping. The discovered player adapter owns this lock, classification, and notification.
 
 8. **MUST — Consecutive-Cast Sync Overwrite Race Protection**:
-   - Confirmed symptom: while holding a direction key and rapidly repeating the same attack, the player enters a walking animation in place and can no longer move. Teleport can make the timing easier to hit but is not required.
-   - Confirmed flow: cast A restores locally and requests server release; cast B immediately caches the normal input speed, sets `InputSpeed = 0`, and disables state locally; then cast A's delayed server release sync reaches the client and overwrites cast B's shared `CastingLockActive` to `false` and `StateComponent.Enable` to `true`. `InputSpeed` is still the client-local value `0`. Cast B no longer reaches its valid local cleanup, so the server safety timer eventually fires while the client walks in place.
-   - Fix: follow the Cast Instance Ownership Rule. Remove `@Sync` from client casting/jump presentation state, stop server writes to client `StateComponent`/`MovementComponent`/`FixedLookAt`, and carry a monotonically increasing `castId` through every request and response. Keep separate `ActiveLocalCastId` and `ActiveServerCastId` values and reject stale callbacks on both sides.
-   - `NotifyPlayCastAnimation(actionName, castId)` must ignore an id that is no longer locally active. `NotifyCastRejected(castId)` and a server safety notification must call the same `ReleaseCastingLockLocally(castId)`. `RequestReleaseCastingLock(castId)` must clear only the matching server id.
-   - Regression test: hold a direction key and repeatedly press the same attack key through many animation boundaries, then repeat while inserting an `allowDuringAttack = true` teleport. The player must always regain the exact cached input speed; no old release/rejection/timer may affect the next cast.
+   - The confirmed failure is a delayed cast-A server release overwriting cast B's client lock/State while B retains `InputSpeed = 0`, producing walk-in-place and permanent movement loss. Apply the [Cast Instance Ownership Rule](#cast-instance-ownership-rule-absolute-precedence); this is a message-ordering race, not a shared-memory thread race.
+   - Animation, rejection, safety, and release callbacks all carry monotonically increasing `castId`: stale local ids do nothing, rejection/safety converge on local cleanup, and server release clears only its matching active id.
+   - Regress by holding direction through repeated attack boundaries, then repeat with an `allowDuringAttack = true` teleport; exact cached speed must restore and no old callback may affect the next cast.
 
 9. **MUST — Facing Lock During Cast**:
 
@@ -176,30 +185,6 @@ This section fixes the required behavior, not the filename. If the project alrea
 - When the cast policy permits a jump, delegate through `__base:ActionJump()` / `__base:ActionDownJump()`. Otherwise return without touching Body physics.
 - Do not use `AddCondition("Jump", ...)` as the primary gate for this pipeline; intercept the native action entry point directly.
 - Keep custom double jump gating in the movement adapter through `allowDuringAttack`.
-
-```lua
-@Component
-script PlayerJumpGateController extends PlayerControllerComponent
-
-    method boolean CanUseJumpInput()
-        local attack = self.Entity.PlayerAttack
-        if isvalid(attack) == false or attack.CastingLockActive == false then
-            return true
-        end
-        return attack.JumpAllowedDuringCast
-    end
-
-    method void ActionJump()
-        if self:CanUseJumpInput() == false then return end
-        __base:ActionJump()
-    end
-
-    method void ActionDownJump()
-        if self:CanUseJumpInput() == false then return end
-        __base:ActionDownJump()
-    end
-end
-```
 
 ## Jump-During-Cast and Airborne-Cast Gates (two independent per-skill policies)
 

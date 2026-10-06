@@ -1,5 +1,7 @@
 # Knockback & Hit Reaction Reference Code
 
+**Enforcement:** illustrative — example fragments only. Evidence belongs to [hit-reaction.md](hit-reaction.md), and every name here is resolved through the role map.
+
 ## Contents
 
 - [Attack Logic Fragment](#attack-logic-fragment)

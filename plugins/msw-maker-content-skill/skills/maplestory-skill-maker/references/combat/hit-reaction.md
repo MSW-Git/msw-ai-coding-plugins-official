@@ -1,6 +1,8 @@
 # Knockback & Hit Reaction
 
-The defender's physical reaction to a landed hit: knockback force, facing, hit-reaction animation, and the physics tuning that keeps it from fighting the target's own AI movement. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
+**Enforcement:** completion-blocking — `MHP-02`. Evidence is the applicable `H` rows of [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md) for every effective target class.
+
+The defender's physical reaction to a landed hit: knockback force, facing, hit-reaction animation, and the physics tuning that keeps it from fighting the target's own AI movement. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog.
 
 Every implementation of this contract **MUST** execute the static and runtime gates in [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md). The acceptance matrix below defines behavior; the harness defines the evidence required to claim that behavior works.
 

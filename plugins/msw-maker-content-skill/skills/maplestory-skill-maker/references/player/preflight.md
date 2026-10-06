@@ -1,5 +1,7 @@
 # Project State and Animation Preflight
 
+**Enforcement:** mixed — the effective target-class inventory is `MHP-01` evidence; the remaining discovery and ownership rules are implementation discipline.
+
 Read this before changing player cast animation, monster HIT/DEAD presentation, facing, or cast/reaction locks. The reference implementation is not permission to create a parallel State topology in an existing project.
 
 ---
@@ -46,10 +48,10 @@ If any fact is unknown, keep the relevant presentation gate open. Do not fill th
 
 ### Player animation and cast release
 
-- Author `animationKey = "swingO1"` by default if there is no information. Do not infer a custom action from the skill name. Empty values are not allowed.
+- `animationKey` authoring follows [../architecture/datasets.md](../architecture/datasets.md#animation-key-authoring-rule); preflight neither re-decides that value nor repairs it. An empty key on an existing or imported row is valid data, so preflight MUST NOT reject, rewrite, or backfill it — the Player Adapter resolves it to the basic Attack fallback per [casting.md](casting.md#data-preservation).
 - A custom action (or a valid action with content) is allowed only after its existence, target entity, visible playback, and play type are verified. If completion is not handled by a separate specific event, use `SpriteAnimPlayerEndEvent`.
-- Normal cast release depends on time or a verified event. It must have a bounded, cast-id-guarded local path that does not depend on an unverified animation-end event. Resolve the duration from a verified one-shot clip or an explicit per-skill/project cast-lock policy. A formula such as `hitDelay + a short recovery margin` is a design choice, not a universal engine rule; record and verify it before use.
-- `swingO1` handles the player's basic attack animation and does not have a separate playback completion event, but the timing of animation completion can be detected through `SpriteAnimPlayerEndEvent`.
+- Normal cast release depends on time or a verified event. It must have a bounded, cast-id-guarded local path that does not depend on an unverified animation-end event. The duration itself, the `swingO1` default, and the must-ask rule for every other animation key are owned by [casting.md](casting.md#cast-window-resolution) — resolve it there rather than deriving it from `hitDelay` or `cooldown`.
+- Discover, per project, which entity actually emits `SpriteAnimPlayerEndEvent` for the effective action, and whether the action is a verified one-shot at all. Record both facts in the capability matrix; an armed handler is not proof that the event fires.
 - The server safety timeout remains last-resort recovery. Reaching a two-to-three-second safety timeout during an ordinary cast is failure.
 - Every release source must converge on the same idempotent `castId`-checked cleanup and must not release a newer cast.
 

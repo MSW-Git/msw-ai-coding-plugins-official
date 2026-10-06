@@ -7,6 +7,7 @@ Navigation only; use [../execution-core.md](../execution-core.md) to select requ
 - [hotkeys.md](hotkeys.md) — shared binding/input layer
 - [hotbar-ui.md](hotbar-ui.md) — hotbar, icon, cooldown fill, and UIBuilder integration
 - [bootstrap.md](bootstrap.md) — missing first-build infrastructure
+- [resource-selection.md](resource-selection.md) — how any presentation RUID is chosen, confirmed, and persisted
 - [divergences.md](divergences.md) — project precedence over generic combat guidance
 
 [system-overview.md](system-overview.md) is context only. It MUST NOT override a detailed contract.

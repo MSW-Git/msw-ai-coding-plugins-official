@@ -1,6 +1,8 @@
 # Multi-Target Staggered Presentation
 
-How simultaneous multi-target hits are spread out in time so they don't visually overlap. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index. Per-target judgment mechanics: [targeting.md](targeting.md).
+**Enforcement:** completion-blocking — the applicable rows of [../verification/monster-visual-harness.md](../verification/monster-visual-harness.md).
+
+How simultaneous multi-target hits are spread out in time so they don't visually overlap. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog. Per-target judgment mechanics: [targeting.md](targeting.md).
 
 ## Multi-Target Staggered Hit Presentation Rule (required for multi-target attacks)
 

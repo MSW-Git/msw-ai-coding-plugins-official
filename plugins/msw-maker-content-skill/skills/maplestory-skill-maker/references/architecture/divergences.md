@@ -1,6 +1,10 @@
 # Divergence Declarations
 
-Where this project's attack-skill pipeline intentionally overrides `msw-combat-system`'s generic defaults. See [../../SKILL.md](../../SKILL.md) for the Domain Reference Files index.
+**Enforcement:** implementation discipline — this file owns no evidence row; the resolved conflict is recorded in the progress ledger.
+
+Where this project's skill pipeline intentionally diverges from guidance that arrives from outside this package — `msw-combat-system`'s generic defaults, another external skill, or the target project's own documented conventions. See [../../SKILL.md](../../SKILL.md) for the Reference Catalog.
+
+Two precedence directions live here and they are not the same rule. Against a generic external skill, this package wins. Against the target project's own documented and approved procedure, the project wins. Record either resolution in the progress ledger with the source that was inspected.
 
 ## ⚠ Absolute Precedence Rule
 
@@ -24,3 +28,12 @@ Where this project's attack-skill pipeline intentionally overrides `msw-combat-s
 - **No i-frame on monsters.** `msw-combat-system` §3-2 documents the `HitComponent:IsHitTarget` + `_UtilLogic.ElapsedSeconds` deadline pattern (as implemented on the player's `PlayerHit.mlua`) as the standard i-frame approach. `Monster.mlua` does not implement this — monsters can be hit on every frame a skill's judgment lands, with no immunity window. This is intentional for the current skill set (single consolidated judgment per cast, not a rapid multi-attack spam), not a gap to silently "fix" by porting `PlayerHit`'s pattern over — ask the user first if a future skill's rapid-fire timing means monsters actually need one.
 
 Everything else this file documents (`CalcDamage`/`CalcCritical`/`IsAttackTarget` override conventions, no-`@ExecSpace`-on-override) matches `msw-combat-system`'s own guidance — these four are the only known deliberate reversals. Add to this list whenever a new skill's requirements force another one.
+
+## ⚠ Project Convention Precedence Rule
+
+The rules above override a *generic external skill*. The opposite direction applies when the conflict is with the **target project's own documented procedure**: a platform default in this package is a safe fallback for a project that has not defined one, not a veto over a project that has.
+
+**When the target project documents an approved procedure for an operation this package restricts, follow the project.** Discover the source first — the project's `AGENTS.md`/`CLAUDE.md`, a project skill, or a workspace convention referenced by them — then record in the progress ledger which source was inspected, the exact approved procedure, and the artifact it touches. Absent such a documented procedure, this package's default stands unchanged.
+
+- **`Global/` model editing.** [../platform/maker-pitfalls.md](../platform/maker-pitfalls.md) defaults to treating `Global/` models as read-only and routes the agent to an authored user model or a user-performed Maker step. A project that documents an approved in-place workflow for those models — for example a `ModelBuilder` plus Maker-refresh procedure defined in its `AGENTS.md` or `msw-general` — supersedes that default for the models it names. This matters because attaching a player-side movement or attack component may have no other working path; a blocked attachment is a blocked skill, so resolve the precedence before reporting the work as impossible.
+- Do not generalize one approved procedure into blanket permission. The project source authorizes the specific operation it describes on the artifacts it names, and every other platform default in this package still applies.

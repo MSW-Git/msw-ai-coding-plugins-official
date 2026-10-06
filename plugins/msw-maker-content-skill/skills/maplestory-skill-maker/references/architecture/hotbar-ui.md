@@ -1,5 +1,7 @@
 # Skill Hotbar UI — Default Deliverable
 
+**Enforcement:** completion-blocking — the hotbar contract evidence named in this file. A hotbar-only request does not require unrelated combat or movement harnesses.
+
 Every skill created or modified through `maplestory-skill-maker` includes a visible hotbar entry by default. Do not wait for a separate UI request and do not ask whether the user wants the UI. Skip it only when the user explicitly opts out.
 
 ## Contents
@@ -53,14 +55,14 @@ Use this default bright Maple-style hotbar recipe unless the target project alre
 - Skill icon: `104 x 104` near the top of the slot.
 - Key badge: `52 x 31`, top-left over the icon.
 - Skill-name box: `126 x 30`, centered at the bottom.
-- Theme: `simplefantasy` sprite-backed frame recipes through `msw-ui-design-tokens`.
+- Theme: `simplefantasy` sprite-backed frame recipes, taken from the `msw-ui-kit` skill's `references/themes/simplefantasy.md` palette (long-tail parts: grep its `data/themes/simplefantasy.ruids.json` by name keyword). Use the palette's part RUID together with its native size and 9-slice type; do not mix parts from another theme into the same hotbar.
 - Text color: opaque black for key, skill name, and cooldown text.
 - Key label: compact engine-key aliases such as `SHF`, `ALT`, and `SPC`.
 - Display name: compact UpperCamelCase, for example `energy_bolt` -> `EnergyBolt` and `double jump` -> `DoubleJump`.
 - Skill name must remain one line: centered, `BestFit = true`, `Overflow = Truncate`, width/height constraints matching the name box, and a token-derived readable font range.
 - Only slots with active bindings are visible at runtime.
 
-All `.ui` reads and writes must go through `UIBuilder` from `msw-ui-system`. Do not edit raw `.ui` JSON directly. Apply visual values through `msw-ui-design-tokens`, then use UIBuilder binding injection so that `.mlua` component properties receive the generated entity UUIDs.
+All `.ui` reads and writes must go through `UIBuilder` from `msw-ui-system`. Do not edit raw `.ui` JSON directly. Take frame, slot, and badge part RUIDs from the `msw-ui-kit` theme palette above and pass them as UIBuilder `image_ruid` node options — no package install is required — then use UIBuilder binding injection for the runtime values. The slot/icon/badge dimensions in this recipe are the authored layout sizes; a palette part's native size is the art's own size and is not a reason to change the recipe.
 
 ## 4. Maple-Style Cooldown Presentation
 
@@ -77,26 +79,12 @@ The UI reads the remaining time from the owning family of the cooldown. Attack c
 
 ## 5. Icon Resolution Policy
 
-Icon resolution happens at authoring time, never at game runtime.
+Selection follows the ladder and required procedure in [resource-selection.md](resource-selection.md), including the appearance confirmation step and the MCP-unavailable reporting rule. This section adds only what is specific to a hotbar icon.
 
-Use this priority order for every concrete skill:
-
-1. A dedicated icon RUID already stored in the authoritative skill data.
-2. An existing skill presentation resource that is legible as a square icon, such as its projectile or distinctive cast effect.
-3. Resource search through the `msw-search` skill, which invokes the validated `msw-mcp` resource pipeline. Do not call `asset_search_resources` directly.
-
-When search is needed:
-
-1. Load `msw-search` and read its required resource search/detail references.
-2. Search sprites first using the concrete skill name and semantic variants such as `blue magic projectile`, `teleport lightning`, or terms inferred from element, motion, weapon, and skill type.
-3. If the exact name has no strong result, search for the visual concept the skill communicates. Choose the closest readable, centered, high-contrast icon rather than an unrelated exact-name result.
-4. Inspect resource details when the result type or thumbnail behavior is uncertain.
-5. Apply the correct RUID/thumbnail convention from `msw-search` and the renderer-RUID rules.
-6. Persist the selected RUID into the authoritative catalog/DataSet so subsequent sessions are deterministic. Never run MCP searches from `OnBeginPlay`, `OnUpdate`, or a cast handler.
-
-If `msw-mcp` is unavailable in the current environment, reuse the closest valid presentation RUID as a temporary icon when possible and explicitly report the unresolved dedicated-icon search. Never silently leave a bound slot blank.
-
-If the current skill schema has no dedicated `iconRuid` field, either reuse a stable existing presentation field or extend the DataSet/catalog/normalization/runtime shape atomically before storing a dedicated icon. Do not add a field in only one layer.
+- Icon-specific ladder step: before searching, prefer an existing skill presentation resource that is legible as a square icon, such as its projectile or distinctive cast effect.
+- Icon-specific search terms: sprites first, using the concrete skill name and semantic variants such as `blue magic projectile`, `teleport lightning`, or terms inferred from element, motion, weapon, and skill type. When the exact name has no strong result, search the visual concept the skill communicates and choose the closest readable, centered, high-contrast icon rather than an unrelated exact-name result.
+- Icon-specific blocked state: never silently leave a bound slot blank. A temporary presentation RUID plus an explicit report of the unresolved dedicated-icon search is the only accepted blocked state for a bound slot.
+- If the current skill schema has no dedicated `iconRuid` field, either reuse a stable existing presentation field or extend the DataSet/catalog/normalization/runtime shape atomically before storing a dedicated icon. Do not add a field in only one layer.
 
 ## 6. Verification
 

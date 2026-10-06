@@ -1,5 +1,7 @@
 # Fresh Combat Bootstrap — Canonical First Build
 
+**Enforcement:** completion-blocking — Gate B in [../verification/non-negotiable-presentation-gates.md](../verification/non-negotiable-presentation-gates.md), plus both player-attack harnesses. Gate P and Gate M still apply in full.
+
 Use this reference when a project does not yet have the complete player-attack/monster-defense infrastructure, when one of the required role owners is missing, or when repairing an earlier incomplete bootstrap. This is not the workflow for adding another concrete row to an already-working type.
 
 The recurring failure this reference prevents is a partial first build: damage works, but moving casts lose their animation or wait for a safety timeout; monsters lose HIT playback, AI/state ownership, or death timing. Do not build those capabilities incrementally and call the intermediate state complete.
@@ -16,7 +18,7 @@ The server safety timeout is emergency recovery. If ordinary casts reach it, the
 
 ## Player animation bootstrap requirements
 
-- Preserve raw `animationKey` through the catalog, but seed every newly created baseline row with `animationKey = "swingO1"`. Never generate a custom key from the skill name or copy one from an example row.
+- Preserve raw `animationKey` through the catalog, and seed every newly created baseline row per the [Animation Key Authoring Rule](datasets.md#animation-key-authoring-rule).
 - Empty attack key uses native basic Attack on the avatar root.
 - Supported native key uses the corresponding native root event.
 - Any other key uses one custom one-shot event on the body entity.
