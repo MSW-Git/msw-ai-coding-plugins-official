@@ -29,6 +29,29 @@
 
 const BASE_URL = 'https://maplestoryworlds-resourcesearch-new.nexon.com/api';
 const DEFAULT_TIMEOUT_MS = 15_000; // SKILL.md recommends 15s
+
+// Cap concurrent outgoing requests to avoid unbounded resource consumption
+// (file descriptors / sockets / memory) under repeated or bursty callers.
+const MAX_CONCURRENT_REQUESTS = 10;
+let _activeRequests = 0;
+const _requestQueue = [];
+
+function _acquireSlot() {
+  if (_activeRequests < MAX_CONCURRENT_REQUESTS) {
+    _activeRequests++;
+    return Promise.resolve();
+  }
+  return new Promise((resolve) => _requestQueue.push(resolve));
+}
+
+function _releaseSlot() {
+  const next = _requestQueue.shift();
+  if (next) {
+    next();
+  } else {
+    _activeRequests--;
+  }
+}
 const DEFAULT_LIMIT = 3;           // skill convention (server defaults are 5/10)
 
 class MswApiError extends Error {
@@ -103,44 +126,49 @@ function _buildQuery(query) {
 }
 
 async function _request(method, path, { query, body, timeout = DEFAULT_TIMEOUT_MS } = {}) {
-  const url = BASE_URL + path + _buildQuery(query);
-
-  const headers = { Accept: 'application/json' };
-  let payload;
-  if (body !== undefined && body !== null) {
-    payload = Buffer.from(JSON.stringify(body), 'utf8');
-    headers['Content-Type'] = 'application/json; charset=utf-8';
-  }
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeout);
-
-  let resp;
+  await _acquireSlot();
   try {
-    resp = await fetch(url, {
-      method,
-      headers,
-      body: payload,
-      signal: controller.signal,
-    });
-  } catch (err) {
+    const url = BASE_URL + path + _buildQuery(query);
+
+    const headers = { Accept: 'application/json' };
+    let payload;
+    if (body !== undefined && body !== null) {
+      payload = Buffer.from(JSON.stringify(body), 'utf8');
+      headers['Content-Type'] = 'application/json; charset=utf-8';
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+
+    let resp;
+    try {
+      resp = await fetch(url, {
+        method,
+        headers,
+        body: payload,
+        signal: controller.signal,
+      });
+    } catch (err) {
+      clearTimeout(timer);
+      const reason = err && err.name === 'AbortError'
+        ? `timeout after ${timeout}ms`
+        : (err && err.message) || String(err);
+      throw new MswApiError(0, url, reason);
+    }
     clearTimeout(timer);
-    const reason = err && err.name === 'AbortError'
-      ? `timeout after ${timeout}ms`
-      : (err && err.message) || String(err);
-    throw new MswApiError(0, url, reason);
-  }
-  clearTimeout(timer);
 
-  const text = await resp.text();
-  if (!resp.ok) {
-    throw new MswApiError(resp.status, url, text);
-  }
-  if (!text) return null;
-  try {
-    return JSON.parse(text);
-  } catch (_e) {
-    return text;
+    const text = await resp.text();
+    if (!resp.ok) {
+      throw new MswApiError(resp.status, url, text);
+    }
+    if (!text) return null;
+    try {
+      return JSON.parse(text);
+    } catch (_e) {
+      return text;
+    }
+  } finally {
+    _releaseSlot();
   }
 }
 
