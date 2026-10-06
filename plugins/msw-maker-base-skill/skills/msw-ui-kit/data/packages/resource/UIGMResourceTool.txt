@@ -1,0 +1,40 @@
+# UIGMResourceTool — 37 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_Model_UIGMResourceTool 2520x1680
+  Panel 1800x960 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5
+      Text_UserTimeOffset 143x55 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@30
+        Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+          Panel_TooTip 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+            tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+            Text_Desc 352x60 text:#362517@24
+    Tab 315x308
+      View 280x135 e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    TargetUser 315x308 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Label_UserID 170x70 text:#653122@24
+      Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+        Panel_TooTip 315x80 b5f829660fbc4a58aaac8b8f4e22775f
+          tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+          Text_Desc 287x60 text:#362517@24
+      UIText_UserID 279x140 text:#653122@20
+    Page 1400x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Scroll_Label 1360x90
+        Label_Type 300x70 text:#653122@24
+        Label_Value 300x70 text:#653122@24
+        Label_NextRechargeTime 300x70 text:#653122@24
+        Label_PedictedValue 300x70 text:#653122@24
+      deco_line 1400x2
+      Scroll_Layout 1355x473
+      DummyItem 1355x100
+        Text_Type 300x100 text:#653122@24
+        Text_Value 300x100 text:#653122@24
+        Text_NextRechargeTime 300x100 text:#653122@24
+        Text_PedictedValue 300x100 text:#653122@24
+      deco_line_1 1400x2
+      UIText_LastSaveTime 577x100 text:#653122@24
+      Btn_Add 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Btn_Edit 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Btn_Refresh 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36

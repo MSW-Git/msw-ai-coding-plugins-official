@@ -1,0 +1,167 @@
+# GameShop — 165 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UIGameShop, UIGameShopNeedProductPopup, UIGameShopGachaTablePopup
+UIR_CasualSurvival_Sample_GameShop 1920x1080
+  UIGameShop 1920x1080
+    Black 3920x3080
+    ShopContents 1286x726 5bf3708196264a08ae53b28dc77c8626 (Sliced)
+      DotLine1 724x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      Overlay 1090x673
+      UIShopTabs 198x520
+        UITabProto 164x68 a92334cf6e7442aca1cd2465e85dde4e (Sliced) states:highlighted=4a8e1d5c98034cbfa719c788160f7ad7,pressed=02366c412fa9444fa3fae8b39a4c30d9,selected=02366c412fa9444fa3fae8b39a4c30d9,disabled=02366c412fa9444fa3fae8b39a4c30d9
+          UIText 164x68 text:#FFFFFF@22+o#000000
+      UIShopStorageButton 164x77 c7274689bafb4213b3db2038f96e51ac (Sliced) states:highlighted=4a8e1d5c98034cbfa719c788160f7ad7,pressed=02366c412fa9444fa3fae8b39a4c30d9,selected=02366c412fa9444fa3fae8b39a4c30d9,disabled=02366c412fa9444fa3fae8b39a4c30d9
+        UIText 164x77 text:#FFFFFF@23+o#000000
+      UIRefundRuleButton 172x50 50b624ca473f4f56bbdb2f4cb7dafd9d (Sliced) states:highlighted=4a8e1d5c98034cbfa719c788160f7ad7,pressed=02366c412fa9444fa3fae8b39a4c30d9,selected=02366c412fa9444fa3fae8b39a4c30d9,disabled=02366c412fa9444fa3fae8b39a4c30d9
+        UIText 172x50 text:#FFFFFF@20+o#000000
+      UIGachaShopPage 1090x673
+        UIFreeGachaPanel 1090x673 5c8365520eb6494c82e1051a16bbbfd0
+          UIGachaPanel 653x673
+            UIGachaButton1 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 119x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 86x34 text:#FFFFFF@23+o#000000
+            UIGachaTitle1 640x72 text:#FFC635@56+o#000000+s#000000/50%
+            UIGachaTitle2 640x56 text:#FFFFFF@27+o#000000
+            UILimitCount 640x24 text:#FFFFFF@16+o#000000/50%
+            UIRemainTime 640x24 text:#FFFFFF@16+o#000000/50%
+        UISpecialGachaPanel 1090x673 88e314fe63aa4cf08fa0d43de0bb2f4c
+          UIGachaPanel 653x673
+            UIGachaButton1 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 104x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 13x34 text:#FFFFFF@23+o#000000
+            UIGachaButton2 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 119x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 26x34 text:#FFFFFF@23+o#000000
+            UIGachaTitle1 650x72 text:#FFC635@56+o#000000+s#000000/50%
+            UIGachaTitle2 640x56 text:#FFFFFF@27+o#000000
+            UIRefundLabel 640x39 text:#FFFFFF@17+o#000000/50%
+        UINormalGachaPanel 1090x673 5c8365520eb6494c82e1051a16bbbfd0
+          UIGachaPanel 653x673
+            UIGachaButton1 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 104x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 13x34 text:#FFFFFF@23+o#000000
+            UIGachaButton2 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 119x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 26x34 text:#FFFFFF@23+o#000000
+            UIGachaTitle1 640x72 text:#FFC635@56+o#000000+s#000000/50%
+            UIGachaTitle2 640x56 text:#FFFFFF@27+o#000000
+            UIRefundLabel_1 640x39 text:#FFFFFF@17+o#000000/50%
+        UIEventGachaPanel 1090x673 d184a7957de14a46b4e916905abdf113
+          UIGachaPanel 653x673
+            UIGachaButton1 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 104x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 13x34 text:#FFFFFF@23+o#000000
+            UIGachaButton2 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 119x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 26x34 text:#FFFFFF@23+o#000000
+            UIGachaTitle1 640x72 text:#FFC635@56+o#000000+s#000000/50%
+            UIGachaTitle2 640x56 text:#FFFFFF@27+o#000000
+            UIRemainTimeBg 356x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+              UIRemainTime 253x27 text:#FFFFFF@18+o#000000/50%
+        UIEliteGachaPanel 1090x673 d184a7957de14a46b4e916905abdf113
+          UIGachaPanel 653x673
+            UIGachaButton1 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 104x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 13x34 text:#FFFFFF@23+o#000000
+            UIGachaButton2 224x104 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+              UIText 119x40 text:#FFFFFF@27+o#000000
+              UIPricePanel 224x62
+                UIPriceIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+                UIPriceAmount 26x34 text:#FFFFFF@23+o#000000
+            UIGachaTitle1 640x72 text:#FFC635@56+o#000000+s#000000/50%
+            UIGachaTitle2 640x56 text:#FFFFFF@27+o#000000
+            UIRemainTimeBg 400x48 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+              UIRemainTime 282x30 text:#FFFFFF@20+o#000000/50%
+            UIRefundLabel 640x24 text:#FFFFFF@16+o#000000/50%
+        UIWallet 172x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+          UIWalletIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          UIWalletAmount 120x34 text:#FFFFFF@23+o#000000
+        UIGachaInfoButton 224x50 50b624ca473f4f56bbdb2f4cb7dafd9d (Sliced)
+          UIText 224x50 text:#FFFFFF@20+o#000000
+        UIDebugText 1090x673 text:#FFFFFF
+      UIItemShopPage 1090x673
+        UIRemainTime 1050x32 text:#FFFFFF@22+o#000000
+        UIWallet 172x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+          UIWalletIcon 36x36 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          UIWalletAmount 120x34 text:#FFFFFF@23+o#000000
+        UIDotLine1 1027x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/20%
+        UIShopItemScroll 1054x585 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+          UIShopItemProto 250x274 1fcf4c3fc0274ecdbaef1b67a01e5abc (Sliced)
+            UIIconPanel 98x98 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              UIItemIcon 72x72 930b06e12a454e85aee2b0a10538a396
+              UIItemCount 99x36 text:#FFFFFF@20+o#000000
+            UIItemName 228x32
+              Text 133x33 text:#FFFFFF@22+o#000000/50%
+            UILimitCount 210x24 text:#E6B848@13+o#000000/50%
+            UIPricePanel 160x39 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+              UIPriceIcon 33x33 a8f3146382c07494d8dbce9b93c1a5c3
+              UIPriceAmount 120x30 text:#FFFFFF@22+o#000000/50%
+    ShopHead 1376x180 9f47d8fe9be04eecb7782ebd9672881b
+      ShopHeadTitle 180x56 text:#FFFFFF@38+o#000000
+      UIShopCloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+  UIGameShopNeedProductPopup 1920x1080
+    Bg 3920x3080
+    UIPopup 1090x826
+      BottomBG 1090x826 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG 1090x60
+        Title 998x49 text:#FFFFFF@26+o#000000
+        DotLine 1084x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+        UICloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+      Title1 1090x50 text:#FFFFFF@22+o#000000
+      UIShopStorageButton 164x60 c7274689bafb4213b3db2038f96e51ac (Sliced) states:highlighted=4a8e1d5c98034cbfa719c788160f7ad7,pressed=02366c412fa9444fa3fae8b39a4c30d9,selected=02366c412fa9444fa3fae8b39a4c30d9,disabled=02366c412fa9444fa3fae8b39a4c30d9
+        UIText 164x60 text:#FFFFFF@23+o#000000
+      UIRefundRuleButton 172x50 50b624ca473f4f56bbdb2f4cb7dafd9d (Sliced) states:highlighted=4a8e1d5c98034cbfa719c788160f7ad7,pressed=02366c412fa9444fa3fae8b39a4c30d9,selected=02366c412fa9444fa3fae8b39a4c30d9,disabled=02366c412fa9444fa3fae8b39a4c30d9
+        UIText 172x50 text:#FFFFFF@20+o#000000
+      DotLine1 1026x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/20%
+      UIShopItemScroll 1090x583 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+        UIShopItemProto 250x274 1fcf4c3fc0274ecdbaef1b67a01e5abc (Sliced)
+          UIIconPanel 98x98 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+            UIItemIcon 72x72 930b06e12a454e85aee2b0a10538a396
+            UIItemCount 99x36 text:#FFFFFF@20+o#000000
+          UIItemName 230x32
+            Text 133x33 text:#FFFFFF@22+o#000000/50%
+          UILimitCount 210x24 text:#E6B848@13+o#000000/50%
+          UIPricePanel 160x39 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+            UIPriceIcon 33x33 a8f3146382c07494d8dbce9b93c1a5c3
+            UIPriceAmount 120x32 text:#FFFFFF@22+o#000000/50%
+      InfoLabel 970x60 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#000000/30%
+        UIText 938x58 text:#FFFFFF/50%@15
+  UIGameShopGachaTablePopup 1920x1080
+    Bg 3920x3080
+    UIPopup 604x699
+      BottomBG 604x699 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG 604x60
+        Title 512x49 text:#FFFFFF@26+o#000000
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+        CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+      UIGachaRateScroll 562x504 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+        UIGachaRateScrollInternal 537x100
+        UISpacingProto 537x20
+        UIGachaRateProto 537x68
+          DotLine1 505x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/20%
+          UIGachaName 444x66 text:#FFFFFF@19
+          UIIconPanel 50x50 d7ddc6b76a6c4d4b8bd8c5fc3790a58e (Sliced)
+            UIMonsterIcon 44x44 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+            UIDNAIcon 16x16 8a887b2760374d83954e88143fc43e1c
+          UIGachaProbText 444x66 text:#FFFFFF@19
+        UIGradeProto 537x44
+          UIBg 537x39 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#000000/30%
+          UIGradeName 505x36 text:#FFE400@19
+          UIGradeRate 505x36 text:#FFFFFF@19
+      InfoLabel 572x80 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#7B643C/40%
+        UIText 574x78 text:#FFFFFF/50%@17+o#000000/30%

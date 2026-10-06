@@ -1,0 +1,86 @@
+# Crafting — 84 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Crafting
+UIR_CasualSurvival_Sample_Crafting 1920x1080
+  Crafting 479x662 62135fba0e98086459fb2a1c6737addf (Sliced) color:#FFFFFF/0%
+    TopBG 470x60 9a1c631a270e4fb9ad25bedbbab15095 (Sliced)
+      DotPatterLeft 118x40 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      DotPatterRight 117x38 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      Title 378x49 text:#FFFFFF@26+o#000000
+      DotLine 460x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+    BottomBG 470x603 5bf3708196264a08ae53b28dc77c8626 (Sliced)
+    TabCategory 181x718
+      TabInstantCraft 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabConstruction 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabCrafting1 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabCrafting2 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabCooking 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabDrying 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabWeaving 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+      TabSmelting 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x78 text:#FFFFFF@22+o#000000
+    RecipeList 460x586 60b77dd045714d06b6140e93e3e95c77 (Sliced) color:#FFFFFF/0% ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:4bc2f32b51ba43d9b67423b43b944adc
+      RecipeListInternal 440x100
+    RecipeInfo 470x662
+      BGTop 470x560 aba92c2b59ef4f23928a339f2e5bbced (Sliced)
+      BGBottom 470x102 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 460x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      TextIContentName 456x64 text:#E6B848@28+o#000000
+      PrevButton 50x50 dce7d13395f44d4bb1090593851681c3 (Sliced) states:highlighted=901185e9f8f740f69420b4ade5cf44f1,pressed=7e8ffded66844819aaf1cf902bbfc430,selected=null,disabled=77a508be41e94a11bea9ae74221d27ce
+      NextButton 50x50 dce7d13395f44d4bb1090593851681c3 (Sliced) states:highlighted=901185e9f8f740f69420b4ade5cf44f1,pressed=7e8ffded66844819aaf1cf902bbfc430,disabled=77a508be41e94a11bea9ae74221d27ce
+      TextRequireCraftingTime 334x40 text:#FFFFFF@22
+      OutputSlot 120x120 57cb623ae1b946b6856a2a4bfff30313 (Sliced)
+        ContentIcon 64x64 thumbnail://a9a6d596a3d44ad7b5e76895c9e5eac7 (Sliced)
+        ContentCount 99x36 text:#FFFFFF@20
+      InputInfos 441x383 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:4bc2f32b51ba43d9b67423b43b944adc
+        UIInputItemSlot 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 336x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIInputItemSlot_1 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 336x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIInputItemSlot_2 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 336x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIRecipeRequire 420x125
+          TopText 237x30 text:#FFFFFF@22
+          Icons 431x116
+            IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              Icon 50x50 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+            IconFrame_1 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              Icon 50x50 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+            IconFrame_2 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              Icon 50x50 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+            IconFrame_3 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              Icon 50x50 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+            IconFrame_4 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              Icon 50x50 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+        UIDotLine 410x10
+          Line 410x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+        UIDescription 17x40 text:#FFFFFF/80%@20
+      ButtonCrafting 446x82 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        AnimatedSprite 446x82 658001a9c7e6420d8d96f39551b531fc (Tiled) color:#D88100/25%
+        Texts 446x82
+          CraftBox 446x40
+            EIcon 40x40 058737be043b47dda2631557fa0332f4 (Sliced)
+            Text 66x42 text:#FFFFFF@28+o#000000
+          DestroyContructionText 212x24 text:#FFFFFF@16+o#000000
+        Alert 316x123 3bd7f37dcb394495821db05c22e323ee (Sliced)
+          Text 272x66 text:#FFFFFF@19+o#000000
+          Icon 50x50 db55aa0df7564884b259a917936edd81 (Sliced)
+      CurrentNumber 100x40
+        Icon 30x30 79eaaccd4a5e4795b5d76a1d7ee63cec (Sliced) color:#FFC535
+        Number 60x40 text:#FFFFFF@20+o#000000
+    CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e

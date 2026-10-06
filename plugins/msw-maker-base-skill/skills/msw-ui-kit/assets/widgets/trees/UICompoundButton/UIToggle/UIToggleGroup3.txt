@@ -1,0 +1,11 @@
+UIToggleGroup3 606x80 [UICompoundButtonGroup]
+  Img_BG 600x74
+    UIToggle1 200x80 [UIToggle] e5a52f08de84b204eb9cc2df8e1e539a BTN
+      Img_Frame 194x74 e5a52f08de84b204eb9cc2df8e1e539a
+      Text 200x80 text:#6746FC
+    UIToggle2 200x80 [UIToggle] e5a52f08de84b204eb9cc2df8e1e539a BTN
+      Img_Frame 194x74 e5a52f08de84b204eb9cc2df8e1e539a
+      Text 200x80 text:#6746FC
+    UIToggle3 200x80 [UIToggle] e5a52f08de84b204eb9cc2df8e1e539a BTN
+      Img_Frame 194x74 e5a52f08de84b204eb9cc2df8e1e539a
+      Text 200x80 text:#FFFFFF

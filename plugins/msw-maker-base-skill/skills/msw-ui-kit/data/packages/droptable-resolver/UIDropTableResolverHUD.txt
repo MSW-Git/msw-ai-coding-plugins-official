@@ -1,0 +1,18 @@
+# UIDropTableResolverHUD — 15 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIDropTableResolverHUD 1920x1080
+  Panel 390x521 c24adedc9faa457daf4e4aae7cd663bb
+    Btn_Single 130x80 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@28
+    Btn_Multi 130x80 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@28
+    Btn_Exit 60x60 298eb9b732264ea89c34001857d841a5
+    Label_Id 90x60 fb270c91dd5ece34ab03cbb662d9bab3 text:#653122@27
+    Text_Id 260x60 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Label_RollCount 180x60 fb270c91dd5ece34ab03cbb662d9bab3 text:#653122@27
+    Text_RollCount 170x60 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Label_RateMul 180x60 fb270c91dd5ece34ab03cbb662d9bab3 text:#653122@27
+    Text_RateMul 170x60 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Label_CountMul 180x60 fb270c91dd5ece34ab03cbb662d9bab3 text:#653122@27
+    Text_CountMul 170x60 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Btn_Simulate 150x90 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@28
+    Btn_Roll 150x90 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@28

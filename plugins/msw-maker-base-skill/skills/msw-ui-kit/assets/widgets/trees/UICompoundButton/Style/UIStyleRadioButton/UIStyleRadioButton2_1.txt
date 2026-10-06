@@ -1,0 +1,5 @@
+UIStyleRadioButton2_1 300x60 [UIStyleRadioButton] BTN
+  Img_Outline 40x40 5a990aca536417e40bb5e01452fe374e
+    Img_Frame 34x34 5a990aca536417e40bb5e01452fe374e
+    Img_Dot 18x18 0ea6543c431b35d479aacf745a513ebb
+  Text 240x60 text:#8A8FB0@20

@@ -1,0 +1,96 @@
+# TransferGroup — 94 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Panel
+UIR_CuteCasual_Sample_TransferGroup 1920x1080
+  Dim 2520x1680
+  Panel 1130x830 b72a08f5f8204035b120d26f40321e57
+    TitleBg 800x80
+      TxtTitle 800x80 text:#FFFFFF@38B+o#64492E
+    NoticeText 800x65 text:#FA5246@26
+    Line_Top 1050x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E7DDC5
+    Line_Bottom 1050x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E7DDC5
+    MoneyPanel 845x140
+      Panel 680x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#D6C7AA/90%
+      MoneyTitle 305x50 text:#7D5D25@28B
+      Money 111x45 text:#FFFFFF@30B+o#7D5D25
+        Icon 40x40 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+      OverLimit 34x45 text:#FFFFFF@30B+o#7D5D25
+        Icon 40x40 1348f74d7fd04c19ab99727346ab907e
+      MoneyDesc 800x60 text:#8D7865@26
+      Money_1 182x47 text:#FFFFFF@32B+o#7D5D25
+    CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+      UISprite 120x120
+    OkButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+      UIText 220x70 text:#FFFFFF@32B+o#C15E14
+    Model_EmployeeDetail 995x330
+      BG 995x330 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+        Pattern_L 226x299 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/40%
+        Color_R 739x300
+        Pattern_R 739x300 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+        Bar 15x298
+      Bg_Title 213x75 82694ea66c2749199275198a0db977bc (Tiled) color:#E1C48E
+        Color 212x63
+      Blur 172x172 61aa92b6616d498bbd95b4a2fcb3437f
+      Portrait 150x150
+        UISpriteCardBg 70x70 7e69a6541fbb4cd9ad2fe9306ffef865
+        equip 70x70 2432e675a7f1484f9a9b548edff6f1f9
+        Name 148x61 eb4c1db0cddb41f5b032a8b5b54c9b24 (Sliced) color:#3CACCC text:#FFFFFF@26B+o#927338
+      Line 300x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#F8DEAB
+      ChuChuLevel 96x50 text:#FFFFFF@28B+o#7A5D1F
+      ChuChuLv 57x50 text:#FFFFFF@28B+o#594315
+      TypeIcon 44x44 1e41533d59f54cd8901e0bd31bb26961
+      Info_1 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+        Text 210x50 text:#856C4C@26B
+        Count 128x50 text:#FFFFFF@26B+o#8C7352
+        Deco 48x26 1527b3a3228145da874907de122d9683
+      Info_2 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+        Text 200x50 text:#856C4C@26B
+        Count 125x50 text:#FFFFFF@26B+o#8C7352
+        Deco 48x26 1527b3a3228145da874907de122d9683
+      Speed 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+        Text 170x50 text:#856C4C@26B
+          InfoBtn 30x30 f59006224a184fdeb8f9ecb09ae3af7d color:#C8AB73
+            Icon 8x22 0423dcf92c594efc87944a00028c4ea2 color:#FFEFD0
+            ToolTip 173x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+        Count 110x50 text:#FFFFFF@26B+o#8C7352
+        Deco 48x26 1527b3a3228145da874907de122d9683
+        SpeedIcon 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+        SpeedLevel 102x52 text:#6B6150@26B+o#FFFFFF
+      Salary 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+        Text 210x50 text:#856C4C@26B
+        Count 98x38 text:#FFFFFF@26B+o#8C7352
+          Coin 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        Deco 48x26 1527b3a3228145da874907de122d9683
+        SpeedIcon 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+        SpeedLevel 102x52 text:#6B6150@26B+o#FFFFFF
+      Deposit 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+        Text 210x50 text:#856C4C@26B
+        Cost 98x38 text:#FFFFFF@26B+o#8C7352
+          Coin 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        Deco 48x26 1527b3a3228145da874907de122d9683
+        SpeedIcon 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+        SpeedLevel 102x52 text:#6B6150@26B+o#FFFFFF
+      TypeName 106x50 text:#FFFFFF@26B+o#7A5D1F
+      Skill1 164x164 5905497a9fa043ce8f16a64e1229ec6c
+        TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+        Name 150x60 text:#FFFFFF@26B+o#857665
+        Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+          UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+        UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+          Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+          ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      Skill2 164x164 5905497a9fa043ce8f16a64e1229ec6c
+        TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+        Name 150x60 text:#FFFFFF@26B+o#857665
+        Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+          UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+        UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+          Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+          ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      Tag1 44x44 2297ba892dbf4bd09a93d54d045a9066 color:#FFFFFF/0%
+        Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+      Tag2 44x44 2297ba892dbf4bd09a93d54d045a9066 color:#FFFFFF/0%
+        Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+      Deco1 12x12 4920e8b7ee7643468a5807753bef00d3 color:#BFA26D
+      Deco2 15x15 4920e8b7ee7643468a5807753bef00d3 color:#BFA26D

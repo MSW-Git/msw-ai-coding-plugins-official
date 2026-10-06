@@ -1,0 +1,30 @@
+# ChallengeSelect — 28 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Dim, Img_BG
+UIR_SimpleFantasy_Sample_ChallengeSelect 1920x1080
+  Img_Dim 2520x1680
+  Img_BG 1920x838 2737458ada9945d9b83a8629a5baffe7
+    Layout_Top 808x216
+      Deco 1400x406 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#000000/40%
+      Deco_Challenge 808x216 05ccdd10222b45818f6224e26ad35c36
+      Text_Title 128x63 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#8B8BE4/72% text:#FFFFFF@36B
+    Btn_Boss 446x584
+      Deco_Back 449x585 2fa510cbaf8e4fde8a2f396dbeebc58a (Sliced) color:#5F6189/40%
+      Img_Thumb 424x560
+        Deco 404x76 ca1a795f009f43cfb873a2b3b0179147
+        Text_StageType 127x62 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#000000/36% text:#FFFFFF@42B
+        Text_Desc 400x71 text:#A0A0A0@22
+      Img_Lock 424x561 72e7bae87931470aab7f1efe693fdb2e color:#000000/60%
+        Img 428x260 ad6b5c78581f49669db6c35f4a3d97fd
+        Img 424x84 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/65%
+          Text 400x38 text:#CF774F@26
+    Btn_MirrorInvasion 446x584
+      Deco_Back 449x585 2fa510cbaf8e4fde8a2f396dbeebc58a (Sliced) color:#5F6189/40%
+      Img_Thumb 424x560
+        Deco 404x76 ca1a795f009f43cfb873a2b3b0179147
+        Text_Name 127x62 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#000000/36% text:#FFFFFF@42B
+        Text_Desc 400x71 text:#A0A0A0@22
+      Img_Lock 424x562 72e7bae87931470aab7f1efe693fdb2e color:#000000/60%
+        Img 428x260 ad6b5c78581f49669db6c35f4a3d97fd
+        Img 424x84 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/65%
+          Text 400x38 text:#CF774F@26
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)

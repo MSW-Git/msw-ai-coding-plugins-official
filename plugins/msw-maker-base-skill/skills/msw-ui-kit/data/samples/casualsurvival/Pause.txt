@@ -1,0 +1,13 @@
+# Pause — 11 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UISprite, BGUV1, BGUV2, BI, Title, Text, BackBtn, TitleBtn
+UIR_CasualSurvival_Sample_Pause 1920x1080
+  UISprite 3920x3080
+  BGUV1 3920x3080 1986542d903a419caed70b6331030831 (Tiled) color:#FFFFFF/8%
+  BGUV2 3920x3080 be81e16ae87e481a96fc8ecce1fbf61d (Tiled) color:#FFFFFF/8%
+  BI 250x250 5afbe1d606a943ab955fa10737b10b50
+  Title 1760x100 text:#FBC134@100+o#000000/80%
+  Text 729x84 text:#FFFFFF@24+o#000000/80%
+  BackBtn 337x87 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null
+    UIText_1 337x87 text:#FFFFFF@30+o#000000
+  TitleBtn 284x73 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+    UIText_1 284x73 text:#FFFFFF@26+o#000000

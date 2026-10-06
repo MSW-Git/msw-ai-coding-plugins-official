@@ -1,0 +1,5 @@
+UISwtich3_1 120x60 [UISwitch] BTN
+  Img_Track 112x52 34ae8156029e5634ebab54158a871a09
+    Img_On 20x17 57ba0c6231f043d44b93d8db732dbd34
+    Img_Off 20x20 e0849565b05fc804a89ff14bca02cfd9
+    Img_Handle 50x44 34ae8156029e5634ebab54158a871a09

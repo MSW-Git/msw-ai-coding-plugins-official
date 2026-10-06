@@ -1,0 +1,91 @@
+# GuideModule — 89 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, GuideButton, Panel
+UIR_CardGame_Sample_GuideModule 1920x1080
+  Block 2520x1680
+  GuideButton 73x79 98443474704148978f4637c3da984663 states:highlighted=a5348e82685d4bd2b15423a0cc5cb236,pressed=5175b7638b414238ab5ee8f5a4ea733d
+  Panel 1040x820
+    Pattern 979x713 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 1004x792 d9b68fae16404c5c81228b6c45cf40a5 (Sliced)
+    Background_2 346x53 55fc3c207dc24c3481f8dc2dac76e804
+    Title 976x49 text:#FFFFFF@27B+o#000000/50%
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    ControlButton 389x65 1a38ba20789c416da0a5d2194201d6ed states:highlighted=cb53081ffd9c4920b7edda18a521e403,pressed=cb53081ffd9c4920b7edda18a521e403,selected=cb53081ffd9c4920b7edda18a521e403
+      Text 374x38 text:#EEC78F@25B+o#000000/50%
+    HowButton 389x65 1a38ba20789c416da0a5d2194201d6ed states:highlighted=cb53081ffd9c4920b7edda18a521e403,pressed=cb53081ffd9c4920b7edda18a521e403,selected=cb53081ffd9c4920b7edda18a521e403
+      Text 374x38 text:#EEC78F@25B+o#000000/50%
+    Background_3 979x634 2ae5f6fdb0b8431aaa3d46acafbd1542
+    Background_4 972x623 4e2c18c56e79488589c4de82cf766610 (Sliced)
+    ControlMenu 0x0
+      LeftArrowButton 56x65 af055ed16a39470fae34ec6e0a6f4c94 states:highlighted=4359bb66c7ee4a16a8a900a01b3daccd,pressed=4f90b0d2ef824aba84b2892ebdf6f9ef,disabled=3c3af30db09c48ca90ef74e5df332b22
+      RightArrowButton 56x65 9424ae88567049fe8f99ca4f77deb2a2 states:highlighted=f5a5463d30f048749591d6a1f19835a8,pressed=29ec9ba586ba451aae51ba5c55b2775d,disabled=bc8258bc89e54bf2ad51a40b0600afde
+      Content_1 0x0
+        Text 516x104 text:#29160E@30
+        Image 318x275 11f2f6f2364e4dc685bbf122372ca7e6
+        Frame 342x300 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Arrow 154x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_1 581x104 text:#29160E@30
+      Content_2 0x0
+        Text 516x104 text:#29160E@30
+        Text_1 581x104 text:#29160E@30
+        Arrow 85x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_2 133x37 text:#29160E@21B
+        Text_3 205x137 text:#29160E@16
+        Arrow_1 85x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_4 133x37 text:#29160E@21B
+        Text_5 205x137 text:#29160E@16
+        Arrow_2 85x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_6 133x37 text:#29160E@21B
+        Text_7 205x137 text:#29160E@16
+      Content_3 0x0
+        Image_1 419x360 c87bebf1411247eabfd862bdb7be9cb3
+        Frame_1 441x380 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Text 659x104 text:#29160E@30
+    HowMenu 0x0
+      LeftArrowButton 56x65 af055ed16a39470fae34ec6e0a6f4c94 states:highlighted=4359bb66c7ee4a16a8a900a01b3daccd,pressed=4f90b0d2ef824aba84b2892ebdf6f9ef,disabled=3c3af30db09c48ca90ef74e5df332b22
+      RightArrowButton 56x65 9424ae88567049fe8f99ca4f77deb2a2 states:highlighted=f5a5463d30f048749591d6a1f19835a8,pressed=29ec9ba586ba451aae51ba5c55b2775d,disabled=bc8258bc89e54bf2ad51a40b0600afde
+      Content_1 0x0
+        Text 516x104 text:#29160E@30
+        Image 414x220 5354021f3fe54f36ac4cc02e28ff5d83
+        Frame 436x242 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Image_1 414x222 8685a91771e64fe2a3b9b89e5945f805
+        Frame_1 437x245 ac319875b43f40ea86a069c468a1a26e (Tiled)
+      Content_2 0x0
+        Text 653x104 text:#29160E@30
+        Image 358x256 df9ee88ae83d4366a4a51867c7e579dd
+        Frame 381x278 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Arrow 76x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_1 675x104 text:#29160E@24
+      Content_3 0x0
+        Text 653x104 text:#29160E@30
+        Image 457x326 1888bf6764654f1bb21df165bb429418
+        Frame 481x348 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Text_1 733x104 text:#29160E@24
+      Content_4 0x0
+        Text 653x104 text:#29160E@30
+        Image 410x341 d68b9c0118f944d0aba9bd4df977082f
+        Frame 433x363 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Text_1 733x104 text:#29160E@24
+      Content_5 0x0
+        Text 811x104 text:#29160E@30
+        Image 414x220 5354021f3fe54f36ac4cc02e28ff5d83
+        Frame 436x242 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Image_1 414x222 8685a91771e64fe2a3b9b89e5945f805
+        Frame_1 437x245 ac319875b43f40ea86a069c468a1a26e (Tiled)
+      Content_6 0x0
+        Image 487x276 06f6ed3e2ef3492ca1bcdcf4d4182705
+        Frame 510x299 ac319875b43f40ea86a069c468a1a26e (Tiled)
+        Arrow_1 184x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_1 133x37 text:#29160E@21B
+        Text_2 370x100 text:#29160E@16
+        Arrow_2 93x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_3 133x37 text:#29160E@21B
+        Text_4 180x137 text:#29160E@16
+        Arrow_3 97x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_5 133x37 text:#29160E@21B
+        Text_6 286x85 text:#29160E@16
+        Arrow_4 85x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_7 133x37 text:#29160E@21B
+        Text_8 167x137 text:#29160E@16
+        Arrow_5 178x41 41c8eec251bf42e0b02f486b2aa3c637 (Sliced)
+        Text_9 130x40 text:#29160E@21B
+        Text_10 408x64 text:#29160E@16

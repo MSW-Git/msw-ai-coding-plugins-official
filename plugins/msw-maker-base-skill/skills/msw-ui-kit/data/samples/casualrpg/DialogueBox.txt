@@ -1,0 +1,18 @@
+# DialogueBox — 16 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: QuestUICover, Model_Dialog_Rect, SkipButton
+UIR_CasualRPG_Sample_DialogueBox 1920x1080
+  QuestUICover 2520x1680
+  Model_Dialog_Rect 1361x330
+    ThumbParent 100x100
+      Avatar 378x378
+      Npc 352x400 ec0baf7455b143a5aaba261ab8e5ce55
+    Rect 1361x330 5af4157ff49e4d97b1d2986267848697
+      Deco_1 1221x285 91bed2f4134a451fb8d3df29b4c648c8 color:#E7E9F0
+      Deco_2 1273x285 91bed2f4134a451fb8d3df29b4c648c8 color:#E7E9F0
+      Icon_Next 39x23 ae1ed24af8cd45c0a433732291da1203 color:#82899A
+    Text_Dialog 1241x195 text:#53596B@32
+    Title_Left 607x74 10265303f2724c278f78e7c40e41217a
+      PanelName 547x68 text:#FFFFFF@32
+    Title_Right 607x74 10265303f2724c278f78e7c40e41217a
+      PanelName 547x68 text:#FFFFFF@32
+  SkipButton 188x98 6e4ce9a60f3c4f949ceb073cab3e61f5 color:#FFFFFF/90% text:#FFFFFF@32B

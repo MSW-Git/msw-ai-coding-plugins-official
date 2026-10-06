@@ -1,0 +1,110 @@
+# UIShopGroup — 108 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Pattern, UIShop, UIShopPurchasePopup, ButtonScroll
+UIR_CuteCasual_Sample_UIShopGroup 1920x1080
+  Dim 2520x1680
+  Pattern 4000x4000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  UIShop 1920x1080
+    Line 710x6
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    TabMenu 295x710
+      BoundaryLine 650x6 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/60%
+      Menu 295x710
+        Model_UIShopMenuRenderer 264x104 64dd11110c2949c1a28f3d5053c02d9b (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#D98A1A
+          CategoryImage 264x104 6cc87742434e42e3b3a988e83142db83
+            IconImage 90x90 af2986d1a1664a4b935addc65915c135
+          Line 224x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+          UIText 145x90 text:#FFFFFF@30B+o#985F05
+        Model_UIShopMenuRenderer_1 264x104 64dd11110c2949c1a28f3d5053c02d9b (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#D98A1A
+          CategoryImage 264x104 6cc87742434e42e3b3a988e83142db83
+            IconImage 90x90 af2986d1a1664a4b935addc65915c135
+          Line 224x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+          UIText 145x90 text:#FFFFFF@30B+o#985F05
+    ContextMenu 1350x910
+      SubscriptionInfo 150x350 be8782fbef4e4db1ae3f9c6d3590eb02 color:#FFFFFF/0%
+        SubscriptionTitle 180x75 text:#FFFFFF@28B+o#AF7E28
+        SubscriptionList 91x259
+          Model_SubscriptionProgressSlot1 75x75 855f16223df04b30bd5b77660da5cee7
+            Icon 50x50 366e2b6c1c834baa8cce92fdeb24b33b
+            ProgressText 58x42 text:#FFFFFF@26B+o#4E3A20
+          Model_SubscriptionProgressSlot2 75x75 855f16223df04b30bd5b77660da5cee7
+            Icon 50x50 366e2b6c1c834baa8cce92fdeb24b33b
+            ProgressText 58x42 text:#FFFFFF@26B+o#4E3A20
+          Model_SubscriptionProgressSlot3 75x75 855f16223df04b30bd5b77660da5cee7
+            Icon 50x50 366e2b6c1c834baa8cce92fdeb24b33b
+            ProgressText 58x42 text:#FFFFFF@26B+o#4E3A20
+      Context 1268x810
+        Model_UIShopProductRenderer 385x480 74aca352367d45bb8ad00d223977c296 (Sliced)
+          Bottom 365x98 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#E1D9D1
+          PriceText 54x47 text:#7C6747@32B
+            CurrencyImage 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          ItemNameText 345x95 text:#72634B@30B+o#FFFFFF
+          ItemThumnail 120x120 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+            ItemCountText 160x50 text:#635743@30B+o#FFFFFF
+          ItemInfo 345x55
+            RemainCountText 345x55 text:#8B7B63@26B+o#FFFFFF
+          BlockBuyComponent 385x480 da17d62eb62e4c83866a45a84cd10f19 color:#F5CD2C/70%
+            UISprite 200x54 0e9e20dd01574e5a815f871ffe4fb4bb text:#FFFFFF@22B+o#C5444E
+          BlockArchieve 385x480 da17d62eb62e4c83866a45a84cd10f19 color:#3D2B08/65%
+            UIText 220x120 text:#FFFFFF@22B+o#79551B
+            UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          SaleEntity 104x104 6a1cfbdbdb7b44bd934db1ab37f755e0
+            SalePercent 104x45 text:#FFFFFF@26B+o#A3062F
+            OffText 104x40 text:#FFFFFF@26B+o#A3062F
+      Gradiant 1350x80 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+      CategoryText 1235x54 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F0BF64/90% text:#FFFFFF@28B+o#AF7E28
+      Bottom 1320x100
+        ResetButton 232x88 7c014c28f4284370b09fb493f8194202 (Sliced)
+          ResetPriceText 140x36 text:#FFFFFF@24B+o#B95B0C
+            CurrencyImage 30x30 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          ResetText 182x45 text:#FFFFFF@26B+o#B95B0C
+        RemainResetTime 500x80 text:#93640A@24B
+    TopMenu 1920x1080
+      CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+        UISprite 110x110
+      TitleBar 241x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+        GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+          UIText 100x100 text:#FFFFFF@40
+          Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+  UIShopPurchasePopup 735x825 638b8111393b44ec91acfee386ab789f color:#FFFFFF/0%
+    Dim 2535x1725
+    Contents 735x825
+      Pin 100x48 0aa7ba13792f4d6b9c5acc2caa9928e3
+      Paper 735x825 638b8111393b44ec91acfee386ab789f
+      Pattern 715x455 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#EEEBE5/40%
+      Gray 710x355 a971746cec0946748504f429a777c7c7 (Sliced) color:#F2ECDF
+      ItemPanel 715x440
+        ItemName 602x65 text:#685942@32B+o#FFFFFF
+        Line 420x8 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#D0BF9C
+        ItemImage 120x120 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        ItemDesc 625x110 be8782fbef4e4db1ae3f9c6d3590eb02 color:#EFECEA/0% text:#736752@26B
+        OwnCountText 420x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E8DCC3 text:#FFFFFF@26B+o#987F5F
+      CountPanel 707x200
+        RemainCountText 607x40 text:#8B7B63@26B+o#FFFFFF
+        CountSlice 620x84 d48c2bc7370d43158e62ccef8a2a0fb6 (Sliced) text:#72634B@30B
+          IncreaseButton 103x84
+            Icon 24x24 c6e810fc41704ad2b744b63c2f22c45a color:#818181 text:#72634B@50
+          DecreaseButton 127x84
+            Icon 24x8 ae7cce9f299344c1ad5adab38b30e880 color:#818181 text:#818181@50B
+        ButtonPanel 660x75
+          MinButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+          TenButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+          FiftyButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+          HundredButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+          MaxButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+        Line 700x4 1ea419d4b96a4f7fa31f42058e541fa4 (Sliced) color:#E1D5B9
+      ButtonPanel 715x135
+        BuyButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+          BuyPriceText 45x38 text:#FFFFFF@26B+o#C15E14
+            CurrencyImage 28x28 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          BuyText 200x45 text:#FFFFFF@28B+o#C15E14
+        CancelButton 256x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@32B+o#9F1F15
+  ButtonScroll 200x545
+    SpecialShopButton 120x130
+      Icon 120x120 1c864bec5fbd4997930910a6edaffffe
+      NameText 160x65 text:#FFFFFF@28B+o#6D4D14
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    BoosterPackButton 120x130
+      Icon 120x120 9886f3890751465da569588a11274293
+      NameText 160x65 text:#FFFFFF@28B+o#6D4D14
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf

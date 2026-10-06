@@ -1,0 +1,71 @@
+# UIPiggyBankGroup — 69 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Model_ItemDescToolTip
+UIR_CuteCasual_Sample_UIPiggyBankGroup 1920x1080
+  Dim 2520x1680
+    Panel 2520x1680 6d025e5609c2430b837b7662689fe0fc (Sliced) color:#FFFFFF/0%
+      CloseBtn 2520x1680 fd7b01e6116641599482520b95ead287 color:#FFFFFF/0%
+      Pig 584x444 dbd837ab91634c77813e71569e2eda36 originRUID:dbd837ab91634c77813e71569e2eda36
+      Img_Panel 780x810 6d025e5609c2430b837b7662689fe0fc (Sliced) color:#A07D46
+      BG 760x793 6d025e5609c2430b837b7662689fe0fc (Sliced) color:#F4EDDB
+        Grid 760x315 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#EDE3CC
+        Panel_Top 760x84 a8ab4067794f40af9df54eda4618028a color:#EEDFBD
+        Line_Bottom 750x5 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#CCBE9B
+        Panel_Bottom 760x130 a8ab4067794f40af9df54eda4618028a (Tiled) color:#E8DABB
+        Gradiant 8x780 e53d6dd932a24381931190333626f3ad color:#CDA15E/20%
+      Title 448x272 596df07f19a142088806867801316db3
+        TitleText 400x56 text:#FFFFFF@38B+o#000000
+          Btn_Guide 80x80
+            InfoBg 60x60 f59006224a184fdeb8f9ecb09ae3af7d color:#F9F4ED/40%
+            InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FFF9F0
+        Deco 152x152 b4bd5fb3d2134ab6bfd4533a2a5330a4
+      InfoText 445x120 text:#FFFFFF@28B
+      TopSection 730x350
+        Dia_1 90x90 11018217aca84c53bce5df36bef1698a
+        Dia_2 115x115 6746e44d4b9c45ee81f030ba601c6a9e
+        PiggyBankIcon 340x340 f0466493ce8c46da8a09759a446518cf
+        MyCurrentPointBg 220x72  fa38390b79434182852e89ded7d3067e
+          DiamondIcon 46x46 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+          MyCurrentPointText 74x38 text:#FFFFFF@26B+o#684A1F
+        GaugeBg 685x32 4a5d5bf5811044338631ade8ff45b087 (Sliced)
+          GaugeFillSprite 188x32 71c082b7efb34a7192a8387c27c0e100 (Sliced)
+          LevelTextText 254x44 text:#FFFFFF@30B+o#7B5C27
+          MaxPointText 135x64 2deb5285914448de9330abc7d129e7a1 color:#FFFFFF/0% text:#FFFFFF@30B+o#684A1F
+            DiamondIcon 48x48 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        UIDiscountRate 140x140 9a3a8fba7dad45eeb72b3c2618bb966d
+          DiscountRateText 62x42 text:#FFFFFF@28B+o#906301
+          OFFText 57x42 text:#FFFFFF@28B+o#906301
+      MidSection 730x125
+        PurchaseButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+          PriceText 59x47 text:#FFFFFF@32B+o#C15E14
+            CurrencyImage 42x42 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        PruchaseDesc 410x125
+          PruchaseDescText1 410x45 text:#6B573D@28B
+          PruchaseDescLayout 320x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#D1BE93
+            MaxPointCurrent 130x45 text:#FFFFFF@28B+o#665743
+            Arrow 16x20 b0a74423c30b49bdb418d5937ceb41e5 color:#947B53
+            MaxPointNext 120x50 text:#D6FF30@30B+o#59472F
+          PruchaseDescText2 410x80 text:#6B573D@28B
+      BottomSection 760x285
+        LevelUpRewardTitleText 500x60 text:#FFFFFF@28B+o#7F623D
+        LevelUpRewardList 760x230
+          Reward1 180x220
+            LevelTextBg 128x48 d6d35645bee645bcabd4f2d653efb218 (Sliced)
+              LevelText 90x45 text:#FFFFFF@26B+o#665743
+            RewardItemRender 124x124 dedf9be979e84c799fa812df4ea9c2f3
+              Effect_Special 105x105 61aa92b6616d498bbd95b4a2fcb3437f
+              ItemThumnail 80x80 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+              CountText 100x45 text:#FFFFFF@26B+o#665743
+              SlotDim 124x124 dedf9be979e84c799fa812df4ea9c2f3 color:#000000/60%
+                IconCheck 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+              IconLock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      DecoDia 160x160 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+      PolicyText 1305x75 text:#CBC4B2@24B+o#000000
+        Tip 36x32 3ec049c173514dcea835c256f93198e1 color:#AAA086
+          Icon 6x22 0423dcf92c594efc87944a00028c4ea2 color:#ECE6D3
+    WiderrufsrechtButton 230x50 4a5d5bf5811044338631ade8ff45b087 (Sliced) color:#FFFFFF/0%
+      WiderrufsrechtText 350x50 text:#FFFFFF@24B+o#7B5C27
+      Icon 32x32 f65cf352af7b4fb585144cceaaaee348
+        UIText 40x40 text:#FFFFFF@18B
+  Model_ItemDescToolTip 372x180 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    ItemName 300x50 text:#635743@27B+o#FFFFFF

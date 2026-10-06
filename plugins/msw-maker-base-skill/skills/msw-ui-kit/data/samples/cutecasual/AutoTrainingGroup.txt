@@ -1,0 +1,135 @@
+# AutoTrainingGroup — 133 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG, Pattern, TitleBg, TxtTitle_1, TrainingGauge, BG_Parking, ParkingPanel, DescText, RewardAllButton, UpgradePanel, CloseButton, ShopButton
+UIR_CuteCasual_Sample_AutoTrainingGroup 1920x1080 e818a726aafc4c36968053261d9da3d1 (Sliced) color:#FFFFFF/0%
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  TitleBg 357x54
+    TxtTitle 333x42 text:#FFFFFF@28B+o#6D4D14+s#6D4D14
+      Btn_Guide 40x40 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        UISprite 100x100
+  TxtTitle_1 470x136 f375c7542e6444668767be2215570519 text:#FFFFFF@28B+o#3D5506+s#3D5506
+  TrainingGauge 218x32
+    GaugeBg 285x36 bad929e2e53e44b88e741e92723590b8 (Sliced)
+      Gauge 285x36 FillRectImageRUID:0078192ecde6496ea86f6980f69961a3
+      GaugeText 200x45 text:#FFFFFF@26B+o#698E10
+      ShopButton 335x59 3e9d52ed52d64794bbd6f72bab8ee3d9
+    Icon 65x65 bd7ed10738124fe592de0e62400bd26d (Sliced)
+  BG_Parking 1580x348
+  ParkingPanel 1603x602
+    TruckSlot_1 420x580 d58f704efa19433daa46bb200fc8c767
+      InfoPanel 308x268 c408dcfb0b9446e69002aa27c2bbf226
+        DecoIcon 48x48 6711210c17754519af2fb48e0f6afb63
+        Title 210x50 6711210c17754519af2fb48e0f6afb63 color:#000000/0% text:#226569@30B
+        StateText 220x85 text:#FFFFFF@26B+o#327D80
+        TimerPanel 225x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#327D80
+          ClockIcon 24x32 7209ecd7b44845fb9aaea412c81cfba4
+          Time 150x45 2860136c06ab075439721c027de365af (Sliced) color:#000000/54% text:#FFFFFF@28B
+          UIText 200x45 text:#FFFFFF@28B+o#327D80
+      TruckImg 248x168 446d4870d0694e6c8f551a8a3b83c800
+        Cover 260x164 115ade407a2140769f895ee5bde6032f
+        Model_EmployeeListSlot 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+          ImgPlus 124x124 5c5eadf5254b409aa7b5369e09c5a56c
+          Portrait 100x100 9bfa4701c09649938849a452a1e49791
+          SkillIcon 36x36 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 112x112 ac7789748cf24e948d7af5cd067c6311 color:#000000/50% text:#A5DC3C@26B+o#253908
+            Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 112x28 text:#6B6150@22B+o#FFFFFF
+      NoParkingSign 136x184 05293b4212444154aae6e776106b3049
+      Balloon 300x78 7118dda5ec1f4b778d976ee225a8c6d2
+        Tip 16x16 4f1c24cd50fa4c8098b44bfb911a6130
+        UIText 260x60 text:#694723@26B+o#FFFFFF
+      OkButton 300x84 ace686d5d348471e941f3778a064c2af
+        ButtonText 240x65 text:#FFFFFF@30B+o#907335
+        LunchBox 66x66 bd7ed10738124fe592de0e62400bd26d (Sliced)
+          Count 50x55 3ab38ca64ce64cf59aa66c8850969c9a text:#FFFFFF@30B+o#907335
+        Dim 300x84 ace686d5d348471e941f3778a064c2af color:#000000/70%
+          UIText 170x70 text:#FFFFFF@30B+o#6C5623
+        LockIcon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+    TruckSlot_2 420x580 d58f704efa19433daa46bb200fc8c767
+      InfoPanel 308x268 76f6d35d483847aaa4ac21443f05f341
+        DecoIcon 48x48 97562ddac24243e5a5d20f3dbe92ad7c
+        Title 210x50 text:#CC4451@30B
+        StateText 220x85 text:#FFFFFF@26B+o#BD6E67
+        TimerPanel 225x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#D67171
+          ClockIcon 24x32 7209ecd7b44845fb9aaea412c81cfba4
+          Time 150x45 2860136c06ab075439721c027de365af (Sliced) color:#000000/54% text:#FFFFFF@28B
+          UIText 200x45 text:#FFFFFF@28B+o#BD6E67
+      TruckImg 248x168 ffccc60fdf9142e482de36cf76eff30f
+        Cover 260x164 115ade407a2140769f895ee5bde6032f
+        Model_EmployeeListSlot 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+          ImgPlus 124x124 5c5eadf5254b409aa7b5369e09c5a56c
+          Portrait 100x100 db3f9b67eed542648de521dee8558fae
+          SkillIcon 36x36 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 112x112 ac7789748cf24e948d7af5cd067c6311 color:#000000/50% text:#A5DC3C@26B+o#253908
+            Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 112x28 text:#6B6150@22B+o#FFFFFF
+      NoParkingSign 136x184 05293b4212444154aae6e776106b3049
+      Balloon 300x78 7118dda5ec1f4b778d976ee225a8c6d2
+        UIText 260x60 text:#694723@26B+o#FFFFFF
+        Tip 16x16 4f1c24cd50fa4c8098b44bfb911a6130
+      OkButton 300x84 ace686d5d348471e941f3778a064c2af
+        ButtonText 240x70 text:#FFFFFF@30B+o#907335
+        LunchBox 66x66 bd7ed10738124fe592de0e62400bd26d (Sliced)
+          Count 50x55 3ab38ca64ce64cf59aa66c8850969c9a text:#FFFFFF@30B+o#907335
+        Dim 300x84 ace686d5d348471e941f3778a064c2af color:#000000/70%
+          UIText 170x70 text:#FFFFFF@30B+o#6C5623
+        LockIcon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+    TruckSlot_3 420x580 d58f704efa19433daa46bb200fc8c767
+      InfoPanel 308x268 fad789cf79bb4e4db6405bf24629d2b1
+        DecoIcon 48x48 92e2986e77cc43c39c035849d0fce9f2
+        Title 210x50 text:#3E5F05@30B
+        StateText 220x85 text:#FFFFFF@26B+o#658A21
+        TimerPanel 225x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#6B971F
+          ClockIcon 24x32 7209ecd7b44845fb9aaea412c81cfba4
+          Time 150x45 2860136c06ab075439721c027de365af (Sliced) color:#000000/54% text:#FFFFFF@28B
+          UIText 200x45 text:#FFFFFF@28B+o#658A21
+      TruckImg 248x168 81c1b5dade874ca1bb02f93214ca5e18
+        Cover 260x164 115ade407a2140769f895ee5bde6032f
+        Model_EmployeeListSlot 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+          ImgPlus 124x124 5c5eadf5254b409aa7b5369e09c5a56c
+          Portrait 100x100 d2e513aabcb54e4ca728fc27c7e002af
+          SkillIcon 36x36 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 112x112 ac7789748cf24e948d7af5cd067c6311 color:#000000/50% text:#A5DC3C@26B+o#253908
+            Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 112x28 text:#6B6150@22B+o#FFFFFF
+      NoParkingSign 136x184 05293b4212444154aae6e776106b3049
+      Balloon 300x78 7118dda5ec1f4b778d976ee225a8c6d2
+        UIText 260x60 text:#694723@26B+o#FFFFFF
+        Tip 16x16 4f1c24cd50fa4c8098b44bfb911a6130
+      OkButton 300x84 ace686d5d348471e941f3778a064c2af
+        ButtonText 240x65 text:#FFFFFF@30B+o#907335
+        LunchBox 66x66 bd7ed10738124fe592de0e62400bd26d (Sliced)
+          Count 50x55 3ab38ca64ce64cf59aa66c8850969c9a text:#FFFFFF@30B+o#907335
+        Dim 300x84 ace686d5d348471e941f3778a064c2af color:#000000/70%
+          UIText 170x70 text:#FFFFFF@30B+o#6C5623
+        LockIcon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+  DescText 1742x60 text:#93640A@24B
+  RewardAllButton 164x124 4214714d3bca4cdfb28c3724a8906926
+    Dim 164x124 4214714d3bca4cdfb28c3724a8906926 color:#000000/50%
+    Icon 100x96 7b3038c2800e484aab23c0f059adb9b6
+      IconDim 100x96 7b3038c2800e484aab23c0f059adb9b6 color:#000000/50%
+    Text 165x80 text:#FFFFFF@28B+o#A15205
+  UpgradePanel 680x120 0bc068b33d154593ba1618259530bfd0 (Sliced)
+    UpgradeBtn1 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 f95609244e9c44b2be304cfd0a0b81c3
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x50 text:#7E5738@24
+    Line_Left 95x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EEDAB4
+    UpgradeBtn2 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 14979ef258cd425a99a1cadc4fe0619e
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x50 text:#7E5738@24
+    Line_Right 95x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EEDAB4
+    UpgradeBtn3 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 f3f81e4eee4a431daa65881419b3d92b
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x50 text:#7E5738@24
+  CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    UISprite 120x120
+  ShopButton 110x110
+    Icon 110x110 ed136e5692364d31b2af2c65c2d941cf
+    Text 160x80 text:#FFFFFF@28B+o#6D4D14

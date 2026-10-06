@@ -1,0 +1,5 @@
+UIRadioButton3_1 300x60 [UIRadioButton] BTN
+  Img_Outline 40x40 5a990aca536417e40bb5e01452fe374e
+    Img_Frame 32x32 5a990aca536417e40bb5e01452fe374e
+      Img_Dot 24x24 0ea6543c431b35d479aacf745a513ebb
+  Text 240x60 text:#000000@20

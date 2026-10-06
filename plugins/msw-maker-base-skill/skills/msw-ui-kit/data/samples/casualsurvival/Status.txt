@@ -1,0 +1,84 @@
+# Status — 82 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: TopBG, BottomBG, CloseButton, GamePlayerSprite, NickName, Equipment, StatList, StatInfoButton, Preset, LockIcons, UIRevivalTicket
+UIR_CasualSurvival_Sample_Status 700x660
+  TopBG 700x60 9a1c631a270e4fb9ad25bedbbab15095 (Sliced)
+    DotPatterLeft 117x40 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+    DotPatterRight 117x38 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+    Title 604x49 text:#FFFFFF@26+o#000000
+    DotLine 700x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+  BottomBG 700x602 5bf3708196264a08ae53b28dc77c8626 (Sliced)
+    UISprite 700x602 a9ec4df22c794274aae14f0bcf763e4b (Tiled) color:#FFFFFF/3%
+  CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+  GamePlayerSprite 200x400 8810ff1a15b74cd5a57f6c26a29a2178
+    Hair 200x400 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+    Face 200x400 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+    Body 200x400 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+    Head 200x400 60b77dd045714d06b6140e93e3e95c77 (Sliced)
+  NickName 337x40 text:#E6B848@28+o#000000
+  Equipment 370x230
+    ItemSlot_Head 100x100 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+      BackgroundIcon 70x70 732280125bdc4dfcb7b2ad14552174b2 (Sliced) color:#FFFFFF/10%
+      ItemIcon 70x70 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+    ItemSlot_Body 100x100 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+      BackgroundIcon 70x70 7f2cb1556968483290644e8fd9345aa5 (Sliced) color:#FFFFFF/10%
+      ItemIcon 70x70 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+    ItemSlot_Hand 100x100 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+      BackgroundIcon 70x70 c1ffd4fbf1ec44a88f144f038e721166 (Sliced) color:#FFFFFF/10%
+      ItemIcon 70x70 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+    ItemSlot_Foot 100x100 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+      BackgroundIcon 70x70 64a0ddd447de42129c402be77874c3ed (Sliced) color:#FFFFFF/10%
+      ItemIcon 70x70 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+    ItemSlot_Back 100x100 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+      BackgroundIcon 70x70 103a0156bd65428685bfefa992f73d11 (Sliced) color:#FFFFFF/10%
+      ItemIcon 70x70 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+  StatList 300x550 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+    UIStatItem_HealthPoint 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIStatItem_HungerPoint 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIStatItem_Temperature 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIMergedStatItem_AttackPower 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIMergedStatItem_Armor 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIMergedStatItem_ArmorPenetration 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIStatItem_CriticalRate 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+    UIStatItem_MoveSpeed 290x58
+      DotLine 300x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+      StatName 180x54 text:#FFFFFF@20
+      StatValue 200x54 text:#E6B848@20
+  StatInfoButton 292x60 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+    UIText 292x60 text:#FFFFFF@20+o#000000
+  Preset 340x50
+    ButtonSlot1 80x50 6e9683296ff84740a40a19f3ede1f7f0
+      TextNumber 80x49 text:#FFFFFF@26+o#000000
+    ButtonSlot2 80x50 62be58f580f94ac1a70facf6d2782150
+      TextNumber 80x49 text:#FFFFFF@26+o#000000
+    ButtonSlot3 80x50 62be58f580f94ac1a70facf6d2782150
+      TextNumber 80x49 text:#FFFFFF@26+o#000000
+    ButtonSlot4 80x50 62be58f580f94ac1a70facf6d2782150
+      TextNumber 80x49 text:#FFFFFF@26+o#000000
+  LockIcons 340x50
+    IconLock 30x30 14ddedccafb247a5825135a3476da1a8
+    IconLock 30x30 14ddedccafb247a5825135a3476da1a8
+    IconLock 30x30 14ddedccafb247a5825135a3476da1a8
+  UIRevivalTicket 100x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+    UIRevivialTicketSprite 34x34 edf338175aec4dac88ab10ff053e291c
+    UIRevivalTicketCountText 40x31 text:#FFFFFF@21+o#000000/50%

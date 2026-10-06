@@ -1,0 +1,5 @@
+UIFilledProgressBar2 300x80 [UIFilledProgressBar]
+  Img_BG 300x80 6e6629b7f2bc438cbff8e817504d589c
+  Img_BackValue 264x44 b8d2dcc4c80d4c83a3257ec6b388a5be (Filled)
+  Img_Value 264x44 b8d2dcc4c80d4c83a3257ec6b388a5be (Filled)
+  Text 190x30 text:#FFFFFF@23

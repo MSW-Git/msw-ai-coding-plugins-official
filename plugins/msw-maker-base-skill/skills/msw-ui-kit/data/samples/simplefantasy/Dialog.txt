@@ -1,0 +1,20 @@
+# Dialog — 18 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Bg_Dim, BG_Portrait, Btn_NextConversation, Scroll_SelectList, Layout_SelectedText, Scroll_Up, Scroll_Down
+UIR_SimpleFantasy_Sample_Dialog 1920x1080
+  Dim 2520x1680
+  Bg_Dim 2520x660 00cf705ae2404bdab7d93d140e8bce22 color:#000000/90%
+  BG_Portrait 452x452
+    Img_Sprite 10x452 716a7e1c497048a69475c55046587904
+    Img_Avatar 452x452
+  Btn_NextConversation 358x203 states:pressed=913a39bdc24b481c8dd63621d32c998d
+    Text 83x50 text:#D2CBCB@34B
+    Img_Icon 64x64 0a3e1de2c216460d800e93b9670fe4dd (Sliced)
+  Scroll_SelectList 676x574
+    Btn_SelectItem 676x108 2b1b2841a4af49f18fb998b4c8cec11a (Sliced) states:pressed=4c276fb0f112432cb5a42f36f1be2d17,selected=4c276fb0f112432cb5a42f36f1be2d17
+      Text_SelectText 608x75 text:#FFFFFF@28B
+      Text_SelectNum 62x100 text:#FFFFFF@28B
+  Layout_SelectedText 676x108 4c276fb0f112432cb5a42f36f1be2d17 (Sliced)
+    Text_SelectText 608x75 text:#515F7A@28B
+    Text_SelectNum 62x100 text:#515F7A@28B
+  Scroll_Up 44x32 bd1198d411cd40fa9fad30ec3143452c
+  Scroll_Down 44x32 bd1198d411cd40fa9fad30ec3143452c

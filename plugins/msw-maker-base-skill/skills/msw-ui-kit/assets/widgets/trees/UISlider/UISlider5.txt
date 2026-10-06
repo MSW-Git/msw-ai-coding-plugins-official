@@ -1,0 +1,3 @@
+UISlider5 300x100 [UISlider]
+  BG_Img 260x30 b1b803aab1b74de98d9271e0f1aa6342
+  Slider 260x30 SLD

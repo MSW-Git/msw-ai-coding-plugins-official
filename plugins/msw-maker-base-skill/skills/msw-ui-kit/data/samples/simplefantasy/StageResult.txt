@@ -1,0 +1,57 @@
+# StageResult — 55 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout
+UIR_SimpleFantasy_Sample_StageResult 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+    Img_Deco 1703x868 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#1D66B1/45%
+  Layout 1920x1080
+    Text_Title 122x74 text:#FFFFFF@50B
+      Img_Deco 504x76 ca1a795f009f43cfb873a2b3b0179147
+    Text_Name 91x44 text:#D5E4FF@30B
+    Img_ClearRank 248x248 b3288eba53394ecd8e267c58cea30501
+    Layout_ClearCount 400x100
+      Text_ClearCount 55x53 text:#E99E60@36B+o#134168
+        Img_AutoClear 88x100 c08639de382a412586f9b585dd4ac451
+    Layout_Exp 1920x270
+      Layout_CharExp 403x252
+        Thumbnail 86x86 480031aa16484f0993004073fccb8a32
+          Img_ThumbnailBG 86x86
+            Avatar_Thumbnail 148x144
+        Text_CharExpTitle 286x33 text:#FFFFFF@22B
+          Img_DotL 15x15 36338acb0cfe498cac27bf667fc29979
+          Img_DotR 15x15 36338acb0cfe498cac27bf667fc29979
+        Layout_Exp 332x20 a01a88b5240746f693a8c0c1e6b80c0e color:#000000/50%
+          Img_ExpGageBonus 332x20 34335a0a99a44457a21d727698b9e589 (Filled) color:#C3FCAD
+          Img_ExpGage 332x20 34335a0a99a44457a21d727698b9e589 (Filled) color:#5ED872
+          Text_Exp 200x25 text:#FFFFFF@17B
+          Img_Point 8x22 ed46741ae5ab4c72b0fc8a1427f61f9f
+          Text_Level 200x25 text:#FFFFFF@30B
+          Img_Fx 100x100 42fd20996679458a8b88fc1387320f9f
+      Deco 20x188 80fd823f9f504c4b8778c403168298aa (Sliced)
+      Layout_AcctExp 403x252
+        Thumbnail 86x86 480031aa16484f0993004073fccb8a32
+          Img_ThumbnailBG 86x86
+            Avatar_Thumbnail 148x144
+        Text_AccExpTitle 267x33 text:#FFFFFF@22B
+          Img_DotL 15x15 36338acb0cfe498cac27bf667fc29979
+          Img_DotR 15x15 36338acb0cfe498cac27bf667fc29979
+        Layout_Exp 332x20 a01a88b5240746f693a8c0c1e6b80c0e color:#000000/50%
+          Img_ExpGageBonus 332x20 34335a0a99a44457a21d727698b9e589 (Filled) color:#A0FFF5
+          Img_ExpGage 332x20 34335a0a99a44457a21d727698b9e589 (Filled) color:#2ACFFF
+          Text_Exp 200x25 text:#FFFFFF@17B
+          Img_Point 8x22 ed46741ae5ab4c72b0fc8a1427f61f9f
+          Text_Level 200x25 text:#FFFFFF@30B
+          Img_Fx 100x100 42fd20996679458a8b88fc1387320f9f
+    Layout_RewardInfo 1320x241 203fb3932f4548f297119b77586c0493 color:#02154B
+      Text_RewardTitle 301x33 text:#FFFFFF@22B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979
+      Meso 270x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/50%
+        Img_Meso 60x60 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+        Text_Meso 230x40 text:#FFFFFF@24B
+      Scroll_RewardSlot 1148x120 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#070A14/50%
+        Item_RewardSlot 105x105 aa931a755e5949699233b817029a3e36 (Sliced)
+          Item_ItemIcon 60x60 thumbnail://936664c79ace436bb8d415346f176a4f
+          Text_ItemCount 85x35 text:#FFFFFF@24B+o#4D4D4D
+    Btn_Exit 270x95 states:pressed=8fadb381e50347438061629534be07fe
+      Text_Exit 200x49 text:#FFFFFF@34B
+      Img_Exit 64x64 197011b959f54703a1703639f52e6105 (Sliced)

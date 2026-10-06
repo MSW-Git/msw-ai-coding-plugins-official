@@ -1,0 +1,10 @@
+# PopupModule — 8 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, Popup
+UIR_CardGame_Sample_PopupModule 1920x1080
+  Block 2520x1680
+  Popup 521x411 a21e588bb2cf4656817ede0d7e0706db
+    Text 457x211 text:#FFFFFF@22
+    OkButton 164x75 a3c52fbb13164dccbd280d91a8da71e7 states:highlighted=4c91a8870a674993940dbe166cca9dad,pressed=dd15288c56ac4f9a9cff8f46be31a291
+      Text 132x44 text:#FFFFFF@22B+o#000000/50%
+    CancelButton 164x75 6f768884ce24428eb54e9e0184e78b07 states:highlighted=ae849a5b58e543598cb12faae8fc65c5,pressed=7fe9632cf4884c2fbed68d625b12a165
+      Text 132x44 text:#FFFFFF@22B+o#000000/50%

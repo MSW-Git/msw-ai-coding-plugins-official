@@ -1,0 +1,5 @@
+UICheckBox2_1 300x60 [UICheckBox] BTN
+  Img_Outline 40x40 9482b46cd6017824ba0b86e53acb1d18
+    Img_Frame 32x32 9482b46cd6017824ba0b86e53acb1d18
+    Img_Mark 52x52 2e91332a8bef68b4b9d2f75690f8e359
+  Text 240x60 text:#000000@20

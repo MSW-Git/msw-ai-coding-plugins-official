@@ -1,0 +1,151 @@
+# Shop — 149 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Panel_Default, Panel_Gacha, Img_Tab_BG, Scroll_Tab, Btn_CurrencyPurchase, Layout_Cost_Popup
+UIR_SimpleFantasy_Sample_Shop 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Panel_Default 1640x955
+    Img_Bg 1940x1255
+    Line 1380x170 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#FFFFFF/50%
+    Img_Res 307x54 b84c111b20d6446488c7cc75bd87c2b7 (Sliced) color:#000000/25%
+      Img_Res 45x45 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+      Text_Res 230x50 text:#FFFFFF@26B
+    Scroll_SubTab 950x94
+      Btn_SubTab1 300x94 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#FFFFFF@30B
+      Btn_SubTab2 300x94 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#FFFFFF@30B
+        Deco_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+      Btn_SubTab3 300x94 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#FFFFFF@30B
+        Deco_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+    Scroll 1640x865
+    Btn_Item_1 382x391 e9291ac7c7c14578a46b484436c758d7
+      Img_Bg 362x100 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#0074A4/50%
+      Scroll_Name 302x81
+        Text_ItemName 300x50 text:#EEEDE8@24B
+        Text_LimitTimer 300x30 text:#CF7851@20B
+      Deco_Star 17x17 36338acb0cfe498cac27bf667fc29979 color:#000000/20%
+        Deco_LineR 125x2 7f867c5525ad4830889d445835d9b5b4 color:#000000/20%
+        Deco_LineL 125x2 7f867c5525ad4830889d445835d9b5b4 color:#000000/20%
+      Slot_Item 140x140 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#000000/20%
+        Img_Item 140x140 3bee7ba0853b4fe698ff6adb5c65480e (Sliced)
+          Img_ItemIcon 62x62 003d9ef555d1461c84716e45f4cc6876
+          Text_Count 100x27 text:#FFFFFF@23B+o#404040
+      Layout_Cost 382x100
+        Text_Price 209x36 text:#FFFFFF@24B
+          Img_ResIcon 37x37 a8f3146382c07494d8dbce9b93c1a5c3
+        Text_SaledPrice 200x34 text:#FFFFFF@23B
+          Text_OriginPrice 174x30 text:#FFFFFF@20B
+            Img_SaledLine 184x3 e4ce1ef6edfa4a838d483d13c8e1ff4e color:#9EBA3B
+            Img_Sale 76x36 0ffe39ffdb2f4d72abf111f2e644eaf3 text:#FFFFFF@19B+o#607418
+          Img_ResIcon 37x37 a8f3146382c07494d8dbce9b93c1a5c3
+        Layout_PurchaseLimit 260x57
+          Img_LimitBalloon 258x60 e385d19a080e405a8e9e96972954e9d9 (Sliced) color:#EBE3C5
+            Text_LimitCount 226x29 text:#65604C@19B
+          Img_LimitBalloonTip 16x12 7b1cb775aa304924826969e78cc2a3d6 color:#EBE3C5
+      Layout_Tags 100x100
+      SoldOut 382x391 e9291ac7c7c14578a46b484436c758d7 color:#000000/60%
+        Text 139x44 text:#D46C50@30B+o#311F11
+      Btn_BuyProduct 352x361 9eee37f21d974889947d021f08bcda62 (Sliced) color:#FFFFFF/0%
+    Btn_Item_2 516x420 99fe6885881f4f3c9cdb1fd94a0b8f5f
+      Img_BG 516x100 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#0074A4/50%
+      Scroll_Title 300x105
+        Text_Name 250x40 text:#EEEDE8@24B
+        Text_Remain 200x40 text:#CF7851@B
+      Img_Deco_Star 17x17 36338acb0cfe498cac27bf667fc29979 color:#000000/20%
+        Img_Deco_LineR 125x2 7f867c5525ad4830889d445835d9b5b4 color:#000000/20%
+        Img_Deco_LineL 125x2 7f867c5525ad4830889d445835d9b5b4 color:#000000/20%
+      Mask 460x165
+      Btn_Cost 516x100
+        Text_Price 182x36 text:#FFFFFF@24B
+          Img_ResIcon 37x37 a8f3146382c07494d8dbce9b93c1a5c3
+        Text_SaledPrice 175x34 text:#FFFFFF@23B
+          Text_OriginPrice 156x29 text:#FFFFFF@B
+            Img_SaledLine 166x3 e4ce1ef6edfa4a838d483d13c8e1ff4e color:#9EBA3B
+            Label_Sale 76x36 0ffe39ffdb2f4d72abf111f2e644eaf3 text:#FFFFFF@20B+o#607418
+          Img_ResIcon 37x37 a8f3146382c07494d8dbce9b93c1a5c3
+        Img_Limit 186x86
+          Img_Balloon 260x60 e385d19a080e405a8e9e96972954e9d9 (Sliced) color:#EBE3C5
+            Text 260x38
+          Img_BalloonTip 16x12 7b1cb775aa304924826969e78cc2a3d6 color:#EBE3C5
+      Scroll_Tag 100x100
+      Img_SoldOut 516x420 e9291ac7c7c14578a46b484436c758d7 color:#000000/60%
+        Text 300x45 text:#D46C50@32B+o#311F11
+  Panel_Gacha 1640x955
+    Bg 1940x1255
+    Mask 800x960
+      Img_Card 800x960
+    Layout_Info_Left 10x10
+      Btn_PickupInfo 88x88 60b3dacf1291422a91897d49422ae16f (Sliced)
+        Img_Icon 68x68 918479bb8ae341bf8e368b18a561ab85
+      Btn_CardInfo 88x88 60b3dacf1291422a91897d49422ae16f (Sliced)
+        Img_Icon 68x68 92753c4276e24868924276304930e97d
+      BG_CardRarity 381x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/40%
+        DecoImg 16x16 36338acb0cfe498cac27bf667fc29979
+        Text 150x50 text:#D9D9D9@26B
+        Img_Rarity 76x76 2058341fc4ef4e2cad0a3c6fc02ef330
+      BG_CardJob 381x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/40%
+        DecoImg 16x16 36338acb0cfe498cac27bf667fc29979
+        Text 150x50 text:#D9D9D9@26B
+        Text_Job 150x50 text:#FFFFFF@22B
+    Layout_Info_Right 950x960
+      Layout_Btn_Pickup 935x180
+        Btn_Pickup_1 304x162 b9a371be0ae84edea33478069a3f917f
+          Text_GachaName 300x100 text:#A0E9EA@30B+o#182B58
+          Img_Selected 320x180 c59afc900ba04483a9b64fb391c5c627
+        Btn_Pickup_2 304x162 04b6d92bcfe84835b75d71a1569366d5
+          Text_GachaName 300x100 text:#BCC6CF@30B+o#182B58
+          Img_Selected 320x180 c59afc900ba04483a9b64fb391c5c627
+        Btn_Pickup_3 304x162 cfd0971207354fe384a14da08ee6372d
+          Text_GachaName 300x100 text:#BCC6CF@30B+o#182B58
+          Img_Selected 320x180 c59afc900ba04483a9b64fb391c5c627
+      Line 1060x700 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#FFFFFF/40%
+      Deco 402x172 7e7c6550928340dcb717b25f82cdc2de
+        Img_Pack 104x104 81b9096ef61642f6874539c5e6a5ccfa
+      Deco_1 402x172 7e7c6550928340dcb717b25f82cdc2de
+        Img_Packs 104x104 c29a9ce7ed064f6bbb38af41b9b8a115
+      TitleDeco 704x96 85073fd6e29d4235bd54676c54b75082 color:#FFFFFF/30%
+        Text_LimitTime 700x29 text:#92BC82@20
+        Text_GachaName 604x62 text:#A0E9EA@38B
+      Text_Desc 149x66 text:#D3CCCC@24B
+        Dot 16x16 36338acb0cfe498cac27bf667fc29979
+        Dot_1 16x16 36338acb0cfe498cac27bf667fc29979
+      Text_Desc2 821x85 text:#A3A3A3@22
+        Dot 16x16 36338acb0cfe498cac27bf667fc29979
+        Dot_1 16x16 36338acb0cfe498cac27bf667fc29979
+      Btn_DrawOne 428x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced)
+        Text 200x50 text:#FFFFFF@26B
+        BG_Cost 165x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/30%
+          Text_Cost 75x25 text:#FFFFFF@27B
+          Img_Icon 40x40 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+      Btn_DrawTen 428x88 3a72c0cef5c94f7b9b6491a997f12fb9 (Sliced)
+        UIText 200x50 text:#FFFFFF@26B
+        BG_Cost 165x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/30%
+          Text_Cost 75x25 text:#FFFFFF@27B
+          Img_Icon 40x40 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+      Text_Warning 484x75 text:#EF7C59@22
+        Img_Icon 34x34 0c63b557ed0b4fc2b163760297ba3e54
+      Layout_Bottom 1060x670 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#032587/40%
+        BG_Piece 500x53 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#000000/30%
+          Text_Piece 200x50 text:#84C1E7@30B
+          Img_Icon 90x90 1d0f91a3d7e94b3b9f3047fc227aa12c
+          Text_PieceName 200x50 text:#FFFFFF@26B
+        Btn_Exchange 265x65 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+  Img_Tab_BG 280x955
+  Scroll_Tab 280x825
+    Item_ShopTab 272x120 ec83f469ce1440208cd5dd49cb5ddb0f (Sliced) color:#FCFCFC states:highlighted=ec83f469ce1440208cd5dd49cb5ddb0f,pressed=1983ab40892144f490764b16a454c032,selected=ec83f469ce1440208cd5dd49cb5ddb0f,disabled=ec83f469ce1440208cd5dd49cb5ddb0f
+      Img_SelectTab 272x120 1983ab40892144f490764b16a454c032 (Sliced)
+      Text_ShopName 232x60 text:#B3D4EC@30
+      Img_CashFx 231x118 184060bdf2af4cd2b357d9ccd5ba9e79 (Sliced)
+  Btn_CurrencyPurchase 280x120 ec83f469ce1440208cd5dd49cb5ddb0f (Sliced) color:#FCFCFC states:highlighted=ec83f469ce1440208cd5dd49cb5ddb0f,pressed=1983ab40892144f490764b16a454c032,selected=ec83f469ce1440208cd5dd49cb5ddb0f,disabled=ec83f469ce1440208cd5dd49cb5ddb0f
+    Text_ShopName 240x60 text:#B3D4EC@30
+    Img_CashFx 231x118 184060bdf2af4cd2b357d9ccd5ba9e79 (Sliced)
+  Layout_Cost_Popup 1920x1080
+    Btn_Close 1920x1080 states:pressed=283fd3419a8349e683df222362652e1d
+    Panel 787x512 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 293x38 text:#FFFFFF@26B
+    Btn_Close 52x52 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+    Btn_Confirm 225x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@26B
+    Text_Desc 468x77 text:#757474@26B
+    Text_Desc2 261x38 text:#757474@26B
+      Dot_L 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+      Dot_R 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    BG_Cost 439x42 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#E5E2D4
+    Text_Cost 81x38 text:#757474@26B
+      Img_Res 40x40 9b8936f08455493ab28cf7333b33fcbc (Sliced)

@@ -1,0 +1,41 @@
+# InGameResult — 39 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, ResultPanel, GoodsResultPanel, ItemResultPanel, ExitButton
+UIR_CasualRPG_Sample_InGameResult 1920x1080
+  Background 7920x7080
+  ResultPanel 1600x146 9a50c1ca754f41ecb326256631542bf4 color:#000000/90%
+    ResultTitle 1600x70 9a50c1ca754f41ecb326256631542bf4 color:#3A3A3A text:#FFFFFF@28
+    ResultLayout 800x155
+      ClearTimePanel 780x36
+        ClearTimeTitle 376x50 text:#899BBF@24
+        ClearTimeText 491x50 text:#FFFFFF@24
+      KillCountPanel 780x36
+        KillCountTitle 376x50 text:#899BBF@24
+        KillCountText 491x50 text:#FFFFFF@24
+      LevelPanel 780x36
+        LevelTitle 376x50 text:#899BBF@24
+        LevelText 491x50 text:#FFFFFF@24
+  GoodsResultPanel 1600x129 9a50c1ca754f41ecb326256631542bf4 color:#000000/90%
+    GoodsTitle 1600x70 9a50c1ca754f41ecb326256631542bf4 color:#212A46 text:#FFFFFF@28
+    GoodsPanel 1600x129
+      GoldCount 170x44 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+        GoldSprite 31x30 bdac712ae9564f6c88e1bb2c7387d61a
+      WeaponScrollCount 170x44 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+        WeaponScrollSprite 31x30 065d2794b61842539640a7d71992809d
+      EssenceCount 170x44 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+        EssenceSprite 31x30 f70af980ea3c40a986f7615d53501b5e
+  ItemResultPanel 1600x180 9a50c1ca754f41ecb326256631542bf4 color:#000000/90%
+    ItemTitle 1600x70 9a50c1ca754f41ecb326256631542bf4 color:#212A46 text:#FFFFFF@28
+    ItemResultLayout 1600x180
+      Slot_Meso 140x140 affef48538564b6f9c55695a6096a0dd
+        Sprite 80x80 bdac712ae9564f6c88e1bb2c7387d61a
+        UIText 130x130 text:#FFFFFF@24B+o#000000
+      Slot_Scroll 140x140 affef48538564b6f9c55695a6096a0dd
+        Sprite 80x80 065d2794b61842539640a7d71992809d
+        UIText 130x130 text:#FFFFFF@24B+o#000000
+      Slot_Essence 140x140 affef48538564b6f9c55695a6096a0dd
+        Sprite 80x80 f70af980ea3c40a986f7615d53501b5e
+        UIText 130x130 text:#FFFFFF@24B+o#000000
+      Slot 140x140 affef48538564b6f9c55695a6096a0dd
+        Sprite 80x80 b69a52860ed84d509f58f98dd20e3fcd
+        UIText 130x130 text:#FFFFFF@24B+o#000000
+  ExitButton 350x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#557F2D

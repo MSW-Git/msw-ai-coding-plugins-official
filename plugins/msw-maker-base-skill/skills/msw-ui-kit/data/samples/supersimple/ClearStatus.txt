@@ -1,0 +1,47 @@
+# ClearStatus — 45 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG
+UIR_SuperSimple_Sample_ClearStatus 2520x1680
+  BG 981x999 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Panel 935x870
+      MapName 917x93 text:#847252@40B
+      ClearPercent 669x96 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Percent 457x111 text:#F3855A@100B
+        ClearPercentTitle 171x98 text:#BBAE96@26B
+      FirstClear 871x72 762648601a704516a395792e0e46d74c (Sliced) color:#E6EBBB
+        Title 151x62 text:#BBAE96@26B
+        NickName 348x70 text:#847252@30B
+        Time 321x59 text:#847252@26B
+      BestClear 924x531
+        BestClearTitle 438x72 bbff40bff00c43bb99eee92899dd0df5 color:#E6EBBB text:#847252@30B
+          ListButton 56x56 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6
+            Icon 50x50 1db43baf7086484a9a7baa126ad7da76
+        Bg 955x459
+        First 922x152 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+          Avatar 108x116 516b89d1635e4d7db32be5e2b6d4b04b
+            Mask 97x103
+              Avatar 95x148
+              Thumbnail_Empty 56x72 39c1a4fc8dcc49239fff30dd9459ee1b color:#A9C6D7
+          Time 207x59 text:#847252@26B
+          NickName 397x38 text:#847252@30B
+          Line 900x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+          Rank_Img 56x72 7250562fb4e7402685c8a238e5ca9992
+        Second 922x152 3e9d52ed52d64794bbd6f72bab8ee3d9
+          Avatar 108x116 516b89d1635e4d7db32be5e2b6d4b04b
+            Mask 97x103
+              Avatar 95x148
+              Thumbnail_Empty 56x72 39c1a4fc8dcc49239fff30dd9459ee1b color:#A9C6D7
+          Time 207x59 text:#847252@26B
+          NickName 397x38 text:#847252@30B
+          Rank_Img 56x72 0037515e9ca4436285cf6fe962cb7cf1
+          Line 900x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Third 922x152 3e9d52ed52d64794bbd6f72bab8ee3d9
+          Avatar 108x116 516b89d1635e4d7db32be5e2b6d4b04b
+            Mask 97x103
+              Avatar 95x148
+              Thumbnail_Empty 56x72 39c1a4fc8dcc49239fff30dd9459ee1b color:#A9C6D7
+          Time 207x59 text:#847252@26B
+          NickName 397x38 text:#847252@30B
+          Rank_Img 56x72 cc7cc5ee553f4cf6a3954f91491c3e7e
+          Line 900x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+    Title 712x60 text:#FFFFFF@34B
+    CancelButton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079

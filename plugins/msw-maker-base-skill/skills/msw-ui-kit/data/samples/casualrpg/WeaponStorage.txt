@@ -1,0 +1,264 @@
+# WeaponStorage — 262 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG, Result_Upgrade
+UIR_CasualRPG_Sample_WeaponStorage 1920x1080
+  BG 2920x2080
+    Panel 1920x1080
+      Bg_Gra 2920x1444 4bee2d471f9942caa99d4a82bf7fc388
+      Top 1920x136 4d156f1ac7e34018801a8d72ff44a599
+        UIText 794x70 text:#7DB3FC@32B
+        ButtonClose 88x88 3c97d9d55e814174ad04a38ebe3e9127 (Sliced) color:#FFFFFF/0%
+          CloseIcon 33x41 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+      Panel_Left 562x897
+        Panel_Character 562x115
+          TextCharacterName 432x52 text:#FFFFFF@24
+          Panel_Power 435x48 d685ceb1beb9492ea5dd6ec905a1fbce color:#2F3950
+            Icon_Power 37x37 0e11e2bd6343446089773690f50e98f1
+            Title_Power 225x38 text:#8495B8@24
+              TextCharacterPower 257x40 text:#FFFFFF@24
+          Illust 94x94 00b59eb2634048269faf54e0c0ab6363
+            Img_Cover 112x112 3587d0735e8a444d9aaccf2d6857ff77
+              Icon_Category_Weapon 38x38 3a4379ea29c8405eb66656c135e8c66e color:#1D1D1D
+            TextCharacterLevel 34x36 text:#FFFFFF@24B+o#000000
+              UIText 24x26 text:#FFFFFF@18B+o#000000
+        Panel_Weapon_Empty 562x520 788439cb3ad94c41b0ade30f989a3b2d
+          TextItemName 562x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#899BBF@20
+          Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#899BBF/50%
+          Text_Empty 450x100 text:#899BBF/50%@24
+        Panel_Weapon_Spec 562x527 788439cb3ad94c41b0ade30f989a3b2d
+          TextItemName 562x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#FFFFFF@24
+            Icon_Weapon_Category 48x48 f46dd92e795d4d5fb19a543af907f578
+            Text_Match_Weapon 125x32 b075056fab1c49948afc2844b365ee1a color:#222630/15% text:#FFF110@22
+          Contents_Top 520x124
+            Slot_Item_1 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Thumb_Item 90x90 b12ab4e0b761415c9e9b58c89c3a2489
+              IconLock 24x31 70f3b3b05b8149f19f2ff283f10079ab
+            Gauge_Level_Panel 404x14 562fe78dc6dc4afc8991f0ecbe866e08 color:#222630
+              Gauge_Level 404x14 9dafff5f492842e2b278517c688a32df (Filled)
+              Text_Level 150x40 text:#FFFFFF@22
+              Text_Next_Level 250x40 text:#899BBF@22
+            Status_Panel 404x50
+              Icon_Status 37x37 694059274e8a4dbda40faa7702331f7b
+              Text_Title_Status 263x36 text:#8495B8@24
+                Text_ItemStatus 166x40 text:#FFFFFF@24
+          Scroll_Layout 520x212 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            TextWeaponClass 175x33 text:#899BBF@22
+            TextWeaponSpec 46x33 text:#FFFFFF@22
+            TextWeaponSpec_Locked_1 136x33 text:#6F6F6F@22
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#9BD522
+            TextWeaponSpec_Locked_2 136x33 text:#6F6F6F@22
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#36BAFF
+            TextWeaponSpec_Locked_3 136x33 text:#6F6F6F@22
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#E362FF
+            TextWeaponSpec_Locked_4 136x33 text:#6F6F6F@22
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#FF524E
+          Weapon_Graph 518x125
+            Graph_Weapon_01 516x25
+              Graph_Name 115x30 text:#899BBF@22
+              Graph_1 404x10 8a37fa562aef4cf0a3ef8403073009ca (Sliced) color:#222630
+              WeaponGraph_01 404x10 23a75091ddbf49c59ff139d5de0d9ce1 (Filled) color:#899BBF
+            Graph_Weapon_02 516x25
+              Graph_Name 115x30 text:#899BBF@22
+              Graph_1 404x10 8a37fa562aef4cf0a3ef8403073009ca (Sliced) color:#222630
+              WeaponGraph_02 404x10 23a75091ddbf49c59ff139d5de0d9ce1 (Filled) color:#899BBF
+            Graph_Weapon_03 516x25
+              Graph_Name 115x30 text:#899BBF@22
+              Graph_1 404x10 8a37fa562aef4cf0a3ef8403073009ca (Sliced) color:#222630
+              WeaponGraph_03 404x10 23a75091ddbf49c59ff139d5de0d9ce1 (Filled) color:#899BBF
+            Graph_Weapon_04 516x25
+              Graph_Name 115x30 text:#899BBF@22
+              Graph_1 404x10 8a37fa562aef4cf0a3ef8403073009ca (Sliced) color:#222630
+              WeaponGraph_04 404x10 23a75091ddbf49c59ff139d5de0d9ce1 (Filled) color:#899BBF
+            Graph_Weapon_05 516x25
+              Graph_Name 115x30 text:#899BBF@22
+              Graph_1 404x10 8a37fa562aef4cf0a3ef8403073009ca (Sliced) color:#222630
+              WeaponGraph_05 404x10 23a75091ddbf49c59ff139d5de0d9ce1 (Filled) color:#899BBF
+        Panel_Egg 562x231 52849ae90e6e4aa392d5cf856f5e359c
+          Empty 49x62 0b8b08a13e6b4e259221f661900836d2 color:#899BBF/50%
+            Text_Empty 450x74 text:#899BBF/50%@24
+          Panel_Egg_Scroll 562x227 9fc787336d8e462885d2a44157e971af (Sliced) color:#FFFFFF/0%
+            BaseEggItem 528x92 890cc18c22ad42d3bea9967b110289ad
+              Deco_Shadow 83x25 a6022c4a8b90429b9bcf0854f9aa95c1 color:#000000/30%
+              EggIcon 60x60 c0a5ee2465734773bbab5a2a86e42b1f
+              TextCount 43x33 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/60% text:#FFFFFF@20B+o#1A1A1A
+              Button_Use 165x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@20B+o#5F9A3C
+              Button_Use_All 130x80 a921b49abb4c4808a9749bdfa1bd049d (Sliced) text:#FFFFFF@25
+              TextEggName 254x48 text:#FFFFFF@24
+              Text_Desc 254x33 text:#899BBF@22
+          Btn_Info 80x80 01a50e24d1f74b609bb9a9c6697b09d8
+      Panel_Merge 1274x648
+        Parent 1274x648 52849ae90e6e4aa392d5cf856f5e359c
+          Pattern 1250x624 e8977578995b4b6a8a5d131eebfdfa69 (Tiled) color:#2A364F/50%
+            Model_UI_New_MergeWeapon 84x84 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 80x80 1de369cf2f47402e8e0a532054245b3d
+              Expback 38x8 4f5c386b3b844099bc501b39a537a074
+              Exp 36x6 abdaa77c5a4c495bba2f0151213b7573 (Filled)
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              Equip 88x88 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B5FA4D@18B+o#000000/50%
+              SelectedOutline 102x102 02ba8404a6f547b4a233ac4e08eb7666
+              Reddot 57x28 a0cba0e3d88e4bb383ea9889aff17e6b text:#FFFF00@25B+o#000000
+              Lock 24x31 70f3b3b05b8149f19f2ff283f10079ab
+              Panel_Category 36x36 f8410525a90f4e2e8be0ae22623944f3
+                Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+            Model_UI_New_MergeWeapon_1 84x84 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 80x80 1de369cf2f47402e8e0a532054245b3d
+              Expback 38x8 4f5c386b3b844099bc501b39a537a074
+              Exp 36x6 abdaa77c5a4c495bba2f0151213b7573 (Filled)
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              Equip 88x88 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B5FA4D@18B+o#000000/50%
+              SelectedOutline 102x102 02ba8404a6f547b4a233ac4e08eb7666
+              Reddot 57x28 a0cba0e3d88e4bb383ea9889aff17e6b text:#FFFF00@25B+o#000000
+              Lock 24x31 70f3b3b05b8149f19f2ff283f10079ab
+              Panel_Category 36x36 f8410525a90f4e2e8be0ae22623944f3
+                Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+            Model_UI_New_MergeWeapon_2 84x84 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 80x80 1de369cf2f47402e8e0a532054245b3d
+              Expback 38x8 4f5c386b3b844099bc501b39a537a074
+              Exp 36x6 abdaa77c5a4c495bba2f0151213b7573 (Filled)
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              Equip 88x88 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B5FA4D@18B+o#000000/50%
+              SelectedOutline 102x102 02ba8404a6f547b4a233ac4e08eb7666
+              Reddot 57x28 a0cba0e3d88e4bb383ea9889aff17e6b text:#FFFF00@25B+o#000000
+              Lock 24x31 70f3b3b05b8149f19f2ff283f10079ab
+              Panel_Category 36x36 f8410525a90f4e2e8be0ae22623944f3
+                Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+            Model_UI_New_MergeWeapon_3 84x84 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 80x80 1de369cf2f47402e8e0a532054245b3d
+              Expback 38x8 4f5c386b3b844099bc501b39a537a074
+              Exp 36x6 abdaa77c5a4c495bba2f0151213b7573 (Filled)
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              Equip 88x88 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B5FA4D@18B+o#000000/50%
+              SelectedOutline 102x102 02ba8404a6f547b4a233ac4e08eb7666
+              Reddot 57x28 a0cba0e3d88e4bb383ea9889aff17e6b text:#FFFF00@25B+o#000000
+              Lock 24x31 70f3b3b05b8149f19f2ff283f10079ab
+              Panel_Category 36x36 f8410525a90f4e2e8be0ae22623944f3
+                Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+        Guide 90x90 083e3cd2816e45c58855ec7da30d485e color:#676060
+        BlockEquipSlot 999999x999999
+        Equip_Slot 830x142 845389127a9d4e86b04ff244be589440
+          EquipSlot_1 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+          EquipSlot_2 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+          EquipSlot_3 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+          EquipSlot_4 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+          EquipSlot_5 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+          EquipSlot_6 104x104 b850b77a823e4f96b6a5071bab857a42
+            Lock 25x32 c48b5e7f851542859780d038530112b7 color:#38425C
+            Empty 104x104 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Weapon 73x56 f8b9df6c92fd48dca8ff866d614fb36d color:#38425C
+              SlotNumber 100x100 text:#38425C@20B
+            Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Item 90x90 1de369cf2f47402e8e0a532054245b3d
+              Expback 54x8 4f5c386b3b844099bc501b39a537a074
+              Exp 52x6
+              Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+              GuideEquip 115x115 b5e046e6da844e5ba8afe6f676671d5d
+                Arrow_Guide 42x48 11c064305cb3496f9f35864af32d8537
+              Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+              Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+        TextGuideEquip 1250x50 text:#FFFFFF@24B+o#000000
+        DragItem 90x90
+        Slot_Count 164x52 1a922bea304248a0b231671bde199f91 text:#899BBF@24
+      ButtonSorting 80x80 eb122a1efc00481c86efe2696d20771a color:#222C41 text:#FFFFFF@32B+o#416CB9
+        Icon 41x43 8c9c146c0638435e84c3d6ec9eb8e4db
+        ContextMenuSort 555x346 9fc787336d8e462885d2a44157e971af (Sliced)
+          SortingBackground 99999x99999
+          Btn_Sort_Level_Ascend 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+          Btn_Sort_Level_Descend 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+          Btn_Sort_Category 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+      Panel_Button 1337x132
+        ButtonSellWeapon 160x90 ab05ba935aeb49448a9dda69998e20fa text:#FFFFFF@24B+o#416CB9
+        ButtonUnlockWeapon 160x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3286CB
+          Icon_Lock 24x30 623ce782eed5429da3c7c2515064841b
+        ButtonLockWeapon 160x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3286CB
+          Icon_Lock 24x31 c48b5e7f851542859780d038530112b7
+        UnequipButton 240x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#659F3D
+        EquipButton 240x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#659F3D
+        AutoMergeButton 240x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+        AllMergeButton 240x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+  Result_Upgrade 3920x3080
+    Result_Panel 2115x366 9a50c1ca754f41ecb326256631542bf4 color:#000000/90%
+      Title_Panel 2115x85 9a50c1ca754f41ecb326256631542bf4 color:#2F2F2F/90% text:#FFFFFF@28B
+      Text_Guide 1000x100 text:#FFFFFF@28
+      Img_Light 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+      EquipSlot_1 104x104 b850b77a823e4f96b6a5071bab857a42
+        Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item 90x90 1de369cf2f47402e8e0a532054245b3d
+          Expback 54x8 4f5c386b3b844099bc501b39a537a074
+          Exp 52x6
+          Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+          Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+          Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+        Text_Weapon_Name 500x60 text:#FFFFFF@28
+      Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+      Arrow 58x32 c81824b8090e4472ba218bad12f207d3
+        Text_Grade_Result 400x60 text:#FFFFFF@32
+        Text_Grade_Previous 400x60 text:#FFFFFF@32

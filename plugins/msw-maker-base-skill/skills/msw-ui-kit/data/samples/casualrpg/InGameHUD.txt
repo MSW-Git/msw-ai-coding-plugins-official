@@ -1,0 +1,139 @@
+# InGameHUD — 137 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BuffStat_Panel, DPS_Panel, BattleUI, PCOnly, SettingButton, BattleButtonLayout, SuddenMissionUI, SuddenMissionSuccess, CurrentWaveText, Stage_Info
+UIR_CasualRPG_Sample_InGameHUD 1920x1080
+  BuffStat_Panel 700x282 eb122a1efc00481c86efe2696d20771a color:#000000/50%
+    Panel_Gra 700x160
+    TopPanel 700x98 4d156f1ac7e34018801a8d72ff44a599 color:#FFFFFF/0%
+      UIText 700x82 text:#FFFFFF@32B+s#0874DE/50%
+    ContentPanel 700x282
+      HealthSlot 330x33
+        Sprite 30x30 09ce54e6dda040dcac8a2cdf2d558579
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      RecoverySlot 330x33
+        Sprite 30x30 064dad3f9a45484a9f7f0a9ef0aa953d
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      AbsorbSlot 330x33
+        Sprite 30x30 cdc2214ca7334b42aee12ab295b9d2c8
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      AttackSlot 330x33
+        Sprite 30x30 043d30b5581945e2a21f061a0cfc64b3
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      PhysicalAttackSlot 330x33
+        Sprite 30x30 ca56486c7c394341b8e845653fb8ed73
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      MagicalAttackSlot 330x33
+        Sprite 30x30 418b381709a647f7a20ec725a4b9b731
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      CriPercentSlot 330x33
+        Sprite 30x30 5ec0d36f83e3459381699f2697361e81
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      CriDamageSlot 330x33
+        Sprite 30x30 843a07964b524c75921326db3642648e
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      AttackSpeedSlot 330x33
+        Sprite 30x30 39dfb7d3137a48beb17bd428aaf3fea9
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      EvadeSlot 330x33
+        Sprite 30x30 4b98d1dc28fa4a6da5f265a14ea5acfa
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      RangeSlot 330x33
+        Sprite 30x30 058f8729adf74aa4ba0a96d7eb427449
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      SpeedSlot 330x33
+        Sprite 30x30 3287a4d1a95948c18d53eba9a5df6715
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      EngiineeringSlot 236x33
+        Sprite 30x30 553c341196f046fb8c97ef2862854cc6
+        StatTitle 114x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      ExpSlot 330x33
+        Sprite 30x30 d132014bf9bc49598d88324a628a1778
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      HitDamageSlot 330x33
+        Sprite 30x30 0b67b8c69856445487b7821c7d91fdff
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+      BossDamageSlot 330x33
+        Sprite 30x30 43a61c7e32cf433fb72f7e08e35db048
+        StatTitle 208x40 text:#FFFFFF@24+o#000000/30%
+        StatText 90x40 text:#B5FA4C@24+o#000000/30%
+  DPS_Panel 612x260 eb122a1efc00481c86efe2696d20771a color:#000000/50%
+    DpsLayout 434x260
+      DpsPanel_1 420x40
+        DpsIcon 50x50 8112f2b06f8c4ab5acced156ad9c6c04
+        DpsGauge 370x24 text:#FFFFFF@18B+o#000000
+    AccumulatedButton 150x70 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) text:#FFFFFF@20B
+    DPSButton 150x70 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50% text:#FFFFFF@20B
+    AttackCountButton 150x70 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50% text:#FFFFFF@20B
+  BattleUI 1920x1080
+    Bg_Statinfo 1950x1110 b94f57f5db1646998b726cee0aaefaac (Sliced)
+    EXP_Bar_1 1084x36 74bb4691124d4b2fb3888ac4ff0fb73c (Sliced) FillRectImageRUID:b19f49260f144e00b185f2ee43b7821a
+      UIText 83x34 text:#FFFFFF@20
+      Text_Lv 1094x50 text:#ECEDED@24B+o#000000+s#000000/72%
+    Key_Guide 524x54 text:#FFFFFF@30B+o#0B0B0B
+  PCOnly 1920x1080
+    BuffList 446x113
+      Icon_Buff 77x77
+        Icon 77x77 thumbnail://36983cdfbd19464c95399834ffe81dab (Sliced)
+    Extra_Skill 138x138 6e4ce9a60f3c4f949ceb073cab3e61f5
+      Skill_Cover 120x120 ccccc4688ec543e9b85e39a970029f1f (Filled) color:#F40000/40%
+      Icon_Skill 64x64 b9b6daa2479c453aa0ff627b03c2c3aa
+      Text 127x53 text:#FFFFFF@24B+o#000000
+      Text_Key 127x47 text:#FFFFFF@20B+o#000000
+    Dash_Sprite 138x138 6e4ce9a60f3c4f949ceb073cab3e61f5
+      Dash_Cover 120x120 ccccc4688ec543e9b85e39a970029f1f (Filled) color:#00FF00/40%
+      Dash_Icon 64x64 39df9830d42c4bc0b6d5984ceb0e393b
+      Dash_Count 127x53 text:#FFFFFF@24B+o#000000
+      Text_Key 127x47 text:#FFFFFF@20B+o#000000
+  SettingButton 70x76 1d8347eb386d400c8ed20c86fcd13f1b text:#FFFFFF@28B+o#416CB9
+  BattleButtonLayout 117x344 785cacd8c36b4e1bb9040df26683f949 (Sliced) color:#000000/60%
+    PauseButton 98x98 6e4ce9a60f3c4f949ceb073cab3e61f5 text:#FFFFFF@20B+o#416CB9
+      Icon_Pause 34x35 42bd41a15d05485a9950173c09527e7c
+      UIText 100x40 text:#FFFFFF@18+o#000000/70%
+    StatButton 98x98 63606ce01e07416aaf7186e454a8879c states:highlighted=dc24bfa182074100a8662d792c15475c,pressed=dc24bfa182074100a8662d792c15475c,selected=dc24bfa182074100a8662d792c15475c,disabled=dc24bfa182074100a8662d792c15475c text:#FFFFFF@20B+o#416CB9
+      Icon_Stat 41x48 e7cee15a8b0d4cb49b25be5259991165
+      UIText 100x40 text:#FFFFFF@18+o#000000/70%
+    DPSButton 98x98 63606ce01e07416aaf7186e454a8879c states:highlighted=dc24bfa182074100a8662d792c15475c,pressed=dc24bfa182074100a8662d792c15475c,selected=dc24bfa182074100a8662d792c15475c,disabled=dc24bfa182074100a8662d792c15475c text:#FFFFFF@20B+o#416CB9
+      Icon_DPS 40x41 2dacf012eb87469fbecea84018117365
+  SuddenMissionUI 400x170 eb122a1efc00481c86efe2696d20771a color:#000000/50%
+    SuddenMissionTitle 400x50 6a769454862a41c6bfd47aaada576b43 color:#000000/60% text:#FDF002@24B
+    SuddenMissionContext 366x80 text:#FFFFFF@24
+      Reward 366x80 ecabb6fff10ac864697292bdbeda2606 color:#CDCDCD/0%
+        Icon 346x60 0d9121e290f04851b7b4ee208f06c442 color:#FFFFFF/0%
+    SuddenMissionObjective 412x30 text:#FDF002@24
+    SuddenMissionGaugeBG 400x8
+      SuddenMissionGauge 400x8 text:#FFFFFF+o#000000
+      TimerSprite 72x76 92e557c68b6c4aada42de42f7361820f
+        TimerText 56x56 text:#FFFFFF@20B+o#000000
+  SuddenMissionSuccess 400x50 eb122a1efc00481c86efe2696d20771a color:#000000/80% text:#FDF002@24B
+  CurrentWaveText 224x35 34b5ddda935a4a96bc9d963ef0e89f76 color:#000000/70% text:#FFFFFF@24B+o#000000/30%+s#000000/30%
+    Navi_Wave 270x54 dc28d2365e0e45149744ec106f840b29 color:#000000/70%
+      Wave_1 29x29 2d70b131a4344ca28e7f6a3e2c647129
+        Wave_On 23x23 d35834c37d78474c8740379600d41cbc
+      Wave_2 29x29 2d70b131a4344ca28e7f6a3e2c647129
+        Wave_On 23x23 d35834c37d78474c8740379600d41cbc
+      Wave_3 29x29 2d70b131a4344ca28e7f6a3e2c647129
+        Wave_On 23x23 d35834c37d78474c8740379600d41cbc
+      Wave_4 29x29 2d70b131a4344ca28e7f6a3e2c647129
+        Wave_On 23x23 d35834c37d78474c8740379600d41cbc
+      Wave_5 29x29 2d70b131a4344ca28e7f6a3e2c647129
+        Wave_On 23x23 d35834c37d78474c8740379600d41cbc
+      Boss 40x38 eb60250e4d9f4cf890e0a51b46a2f3dd
+        Wave_On 40x38 73e570067c524dc295ad2cd5a5ed2f16 (Sliced)
+    TimerText 270x54 dc28d2365e0e45149744ec106f840b29 color:#000000/70% text:#FFF110@24B+o#000000
+  Stage_Info 360x74 9a50c1ca754f41ecb326256631542bf4 color:#000000/50%
+    ChapterTitle 500x40 text:#7DE9FC@24+o#000000/70%
+    StageText 500x50 text:#FFFFFF@28+o#000000/70%

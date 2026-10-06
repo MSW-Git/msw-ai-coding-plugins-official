@@ -1,0 +1,18 @@
+# PublishCheckPopup — 16 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BackGroundImages, Text_Title, InputText_MapName, InputText_MapDesc, BtnConfirm
+UIR_SuperSimple_Sample_PublishCheckPopup 1920x1080
+  BackGroundImages 1920x1080
+    UISprite_back 1920x1080
+    UISprite_top 1920x483 7d3374f6fae147feb3dfc5648e89ab65
+    DecoImages 1920x1080
+      UISprite_Deco_01 246x300 e0fa44845a614f96b64b1313c9d0a125 color:#ECDFBC
+      UISprite_Deco_02 172x172 5217a9f151dd4da4a6d126467a6477df color:#ECDFBC
+      UISprite_Deco_03 343x418 e0fa44845a614f96b64b1313c9d0a125 color:#ECDFBC
+      UISprite_Deco_04 172x172 5217a9f151dd4da4a6d126467a6477df color:#ECDFBC
+      UISprite_Deco_05 303x370 e0fa44845a614f96b64b1313c9d0a125 color:#F59FA1
+      UISprite_Deco_06 349x349 5217a9f151dd4da4a6d126467a6477df color:#ECDFBC
+      UISprite_Deco_07 292x292 5217a9f151dd4da4a6d126467a6477df color:#F59FA1
+  Text_Title 1460x221 text:#FFFFFF@70B
+  InputText_MapName 1048x111 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#F3EDD5 text:#847252@40B
+  InputText_MapDesc 1048x198 f51159ec72df4b628633edd0e9fee0f5 (Sliced) color:#F3EDD5 text:#DF8887@32B
+  BtnConfirm 300x72 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#12C4B6 text:#FFFFFF@28B

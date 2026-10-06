@@ -1,0 +1,49 @@
+# PublishMapList — 47 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: ListPanel, Slot
+UIR_SuperSimple_Sample_PublishMapList 2520x1680
+  ListPanel 1277x1004 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    InfoButton 72x72 af4ed64ca7e74f07af6586b85b79c048 color:#F3B55A text:#FFFFFF@40B
+    RandomEnterButton 270x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+      UIText 270x72 text:#FFFFFF@20B
+    Bg 1257x691
+      RankInfo 1117x56 text:#F3855A@24B
+    Category 1257x72 3e9d52ed52d64794bbd6f72bab8ee3d9
+      Preset 251x72 bbff40bff00c43bb99eee92899dd0df5 color:#F5F7E1/0% text:#847252@30B
+      Popular 251x72 bbff40bff00c43bb99eee92899dd0df5 color:#F5F7E1 text:#847252@30B
+      New 251x72 bbff40bff00c43bb99eee92899dd0df5 color:#F5F7E1 text:#847252@30B
+      Recent 251x72 bbff40bff00c43bb99eee92899dd0df5 color:#F5F7E1 text:#847252@30B
+      MyMap 251x72 bbff40bff00c43bb99eee92899dd0df5 color:#F5F7E1 text:#847252@30B
+    Cancelbutton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079
+    SlotPanel 1257x522
+    SearchTitleUI 364x100
+      Icon 50x50 cea0473a89f74a48845301114c6919c2 color:#12C4B6
+        UIText 140x27 text:#12C4B6@26B
+    SearchUI 871x100
+      Input 705x80 762648601a704516a395792e0e46d74c (Sliced) color:#E6EBBB text:#BDC57B@26B
+        Check 164x80 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#12C4B6
+          UIText 100x100 text:#FFFFFF@26B
+        SearchField2 153x78 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#000000/40% text:#FFFFFF@24B
+      Field 80x80 edb1da4314584887b45854f8c5eca0da color:#12C4B6
+        Icon 50x50 80fcb2e0e235412a9e8dcc6821925a47
+        MapCode 358x88 8afbab5399a74b37b27880383341a7ce states:selected=39a6b61013bc44afa0bd0b1e9d34fdbb text:#847252@30B
+        ProfileCode 358x88 8afbab5399a74b37b27880383341a7ce states:selected=39a6b61013bc44afa0bd0b1e9d34fdbb text:#847252@30B
+        MapName 358x88 8afbab5399a74b37b27880383341a7ce states:selected=39a6b61013bc44afa0bd0b1e9d34fdbb,disabled=7461df59bbc84cafacd8bba31dc8737d text:#847252@30B
+    PagePanel 480x80 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#E6EBBB
+      Prev 72x72 af4ed64ca7e74f07af6586b85b79c048
+        Icon 42x42 96841dd80ba04fff97cf57468d3187f8
+      Next 72x72 af4ed64ca7e74f07af6586b85b79c048
+        Icon 42x42 654f8b920bb24d109d34066f8f54daf9
+      PageNumText 317x79 text:#847252@30B
+    TitleText 1018x50 text:#FFFFFF@34B
+  Slot 1257x130
+    Name 479x44 text:#847252@30B
+      Tag_Clear 100x32 84ed705a098742b6aaba18c1ff68488d (Sliced) color:#71CE0E
+        UIText 100x32 text:#FFFFFF@20B
+    RecommendNum 250x33 text:#847252@30B
+      UIText 250x33 text:#BBAE96@28B
+    PlayNum 250x33 text:#847252@30B
+      UIText 250x33 text:#BBAE96@28B
+    CreatorName 223x30 text:#BBAE96@30B
+      AuthorityIcon 45x45 ec3017f95f784498abcef95164dc4820
+    Rank 180x130 text:#847252@70B
+    Line 1257x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1

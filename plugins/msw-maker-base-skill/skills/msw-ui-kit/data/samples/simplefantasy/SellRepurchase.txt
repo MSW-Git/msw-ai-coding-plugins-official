@@ -1,0 +1,87 @@
+# SellRepurchase — 85 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Scroll_Tab, Layout_Sell, Layout_Repurchase, Layout_ItemList
+UIR_SimpleFantasy_Sample_SellRepurchase 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Scroll_Tab 860x78 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#3B4864/50%
+    Btn_SellTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8
+      Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+      Text 180x72 text:#293753@27B
+    Btn_RepurchaseTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0%
+      Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+      Text 180x72 text:#EEEDE8@27B
+  Layout_Sell 860x864 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#1F2734/35%
+    Text 900x210 text:#ACACAC@28B
+    GridView 860x764 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+    Item 850x228 d35e3e3f8e36419b9c7bfae425ea46df
+      Img_Icon 140x140 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#D3D9DF/0%
+      Text_ItemName 475x69 text:#6C7995@30B
+      Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced) color:#536386
+      Layout_Amount 607x71
+        Btn_Minus 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:highlighted=null,pressed=b6dc5346bcf044a99ba00a502e3c3f31,disabled=null text:#FFFFFF@40B
+        Btn_Plus 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@30B
+        BG_Count 312x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#D3D9DF
+        Text_Count 294x34 text:#757474@32B
+        Btn_Max 158x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@22B
+      Layout_Meso 502x50
+        Img_Res 40x40 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+        Text_Meso 91x44 text:#4E5C7A@26B
+      Btn_Buy 224x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@22B
+    Layout_Info 860x95 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#2C3D59
+      Layout_Meso 416x65
+        Img_Res 46x46 eb8be3fd3ff6451883ee12e9a84f3867 (Sliced)
+        Text_Meso 345x38 text:#FFFFFF@26B
+        Text_Label 158x36 text:#757474@26B
+      Btn_Reset 183x80 50426b5b1ee44bc5a1c10355b0e9ad03 (Sliced) states:pressed=b5ce0faaa7ed411db61c022e60feadaa text:#FFFFFF@28B
+      Btn_Sell 225x80 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@28B
+  Layout_Repurchase 860x864 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#1F2734/35%
+    GridView 860x764 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+    Layout_Info 860x95 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#1F2734/70%
+      Text_Info 200x33 text:#FF9E54@22B
+        Img_Icon 36x36 0c63b557ed0b4fc2b163760297ba3e54
+  Layout_ItemList 1000x950
+    Scroll_InvenTab 1000x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#3B4864/50%
+      Btn_EquipTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8
+        Img_TabIcon 60x60 1fb08f89a470402bad82e82323082d5f color:#293652
+        Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_ConsumeTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0% states:pressed=36ad9f62ab654c6ca946ca654f232c24,selected=36ad9f62ab654c6ca946ca654f232c24
+        Img_TabIcon 60x60 1d302b29bdce4e0ebf1ec903e363550c color:#293652
+        Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_EtcTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0%
+        Img_TabIcon 60x60 3b84dff4692a45b9b02ca964dc140867 color:#293652
+        Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+    Panel 1000x770
+      Scroll_InvenSubTab 1000x76
+        CommonTab 167x76
+          Btn_Disable 60x60 34781b95771d41f7a5568b88d5659a56 (Sliced) color:#546179
+          Btn_Enable 92x92 638950a2ffe74f88a0feca0530476e20 (Sliced)
+          Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+        WarriorTab 167x76
+          Btn_Disable 60x60 d64d0971fc774627a2240ff7067931d0 (Sliced) color:#546179
+          Btn_Enable 92x92 703fd5ca4e4e4c348e3353cbbabec5bb (Sliced)
+          Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+        WizardTab 167x76
+          Btn_Disable 60x60 db8bdc14dd454b39ad259e82276bc7dd (Sliced) color:#546179
+          Btn_Enable 92x92 27e54730fb5e445f99d28a4597fce238 (Sliced)
+          Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+        Archer 167x76
+          Btn_Disable 60x60 9554c441583b40d6896116ea3d607f40 (Sliced) color:#546179
+          Btn_Enable 92x92 bd3165a7d9e246eb86d226111714f32e (Sliced)
+          Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+        Assassin 167x76
+          Btn_Disable 60x60 06ac9b8fa75042f0b82a278bfca66d3b (Sliced) color:#546179
+          Btn_Enable 92x92 793cf4e2fb2142e7b9d4be1d4700300d (Sliced)
+          Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+        Pirate 167x76
+          Btn_Disable 60x60 7975eff948d44351b5f08d692a98872a (Sliced) color:#546179
+          Btn_Enable 92x92 6ab1ca10e362416cbde68e981ed41906 (Sliced)
+          Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+      Layout_Gear 1000x694
+        GridView 1000x694 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+      Layout_Common 1000x770
+        GridView 1000x770 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+    Layout_Bottom 1000x95 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#2C3D59
+      Img_Bag 44x48 341c9cc01dc74de1aa0dcfef788fca38
+      Text_Capacity 88x44 text:#DEDEDE@30B
+      Btn_AutoSelect 225x80 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@28B
+      Btn_Sort 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=	62106a4f0e434060a4d92a7afe3596b0
+        Img_Sort 100x100 fafc87dfc7354354b8b2d63ae75fd4f6

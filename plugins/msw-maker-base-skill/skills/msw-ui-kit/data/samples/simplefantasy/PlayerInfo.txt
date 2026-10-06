@@ -1,0 +1,160 @@
+# PlayerInfo — 158 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout_JobInfo, Layout_CharInfo
+UIR_SimpleFantasy_Sample_PlayerInfo 1920x1080 766893751a134664ba8849f38311021a
+  Layout_JobInfo 390x1080
+    Text_JobName 111x33 text:#96F8FF@22B
+    Text_AbilityDetail 206x36 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/60% text:#FFFFFF@24B
+      Btn_AbilityDetail 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced)
+        Img_AbilityDetail 52x52 754890ba284e441ea0bba9b02de160f9 (Sliced)
+    Img_AvatarAura 400x400 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#79F3FF/50%
+    Avatar 259x276
+    Text_Level 86x37 text:#EEEDE8@25B
+      Img_DecoL 40x16 0c213a6310b742dcbe2fc09c9006ac9e color:#8B9EC1
+      Img_DecoR 40x16 0c213a6310b742dcbe2fc09c9006ac9e color:#8B9EC1
+    Text_CharName 122x33 text:#B5B5B5@22B
+    Btn_BattleScore 360x60 a284a5997dd24bf3927f8b71887c322f (Sliced)
+      Text_BattleScore 69x36 text:#F3F1F1@24B
+      Icon 20x32 3119d2807ea7466e8e9056d0590a35cc
+  Layout_CharInfo 1025x730
+    DecoLeft 20x20 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/20%
+      line 350x2 ed8f7ee22e604c59b5052910508a7a86 color:#FFFFFF/20%
+      line_1 350x2 ed8f7ee22e604c59b5052910508a7a86 color:#FFFFFF/20%
+    DecoTop 524x16 66b6a9dde07b4c3abb90c16c0feeed3f
+    Layout_Tab 1022x88
+      Btn_SubTab1 230x70 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#42526A@25B
+      Btn_SubTab2 245x70 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#42526A@25B
+        Deco_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+      Btn_SubTab3 245x70 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#42526A@25B
+        Deco_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+      Btn_SubTab4 245x70 07d90a3597561504f90752a4137b57f2 color:#6187AE/0% text:#FFFFFF@25B
+        Deco_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+    Layout_InfoList 1025x630
+      Layout_Skill 1025x630 9be3db2398544fa5ba722b57425b0c07 (Tiled)
+        Scroll 1025x630
+          Scroll_Path_1 1025x170 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#060606/30%
+            Info 188x176
+              Img_Background 120x120 6791a49d630642ffbeb232d3ac758aad (Sliced) color:#FFB6B6
+              Text_PathName 100x50 text:#EC7D5B@22
+              Layout_PathGem 100x25 466c1f1dc119420e98251fbf068f89be (Sliced) color:#000000/45%
+                Img_PathGem 19x19 98594c096bef473fb75d9111a326ecbd
+                Text_PathCount 66x30 text:#FFFFFF@20B
+            Basic 275x176
+              Basic 280x70
+                Img_Icon 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#DEDEDE
+                Text 62x33 text:#9F9F9F@22B
+              BasicIcons 263x106
+            Combination 294x176
+              Combination 330x70
+                Img_Icon 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#DEDEDE
+                Text 153x33 text:#9F9F9F@22B
+              CombinationIcons 330x106
+            Awakening 206x176
+              Awakening 190x70
+                Img_Icon 28x28 735eb57c3e4d46ec8f45784a86a8cef5 color:#DEDEDE
+                Text 128x33 text:#9F9F9F@22B
+              AwakeningIcons 192x106
+          Scroll_Path_2 1025x170 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#060606/30%
+            Info 188x176
+              Img_Background 120x120 6791a49d630642ffbeb232d3ac758aad (Sliced) color:#FFB6B6
+              Text_PathName 100x50 text:#EC7D5B@22
+              Layout_PathGem 100x25 466c1f1dc119420e98251fbf068f89be (Sliced) color:#000000/45%
+                Img_PathGem 19x19 98594c096bef473fb75d9111a326ecbd
+                Text_PathCount 66x30 text:#FFFFFF@20B
+            Basic 275x176
+              Basic 280x70
+                Img_Icon 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#DEDEDE
+                Text 62x33 text:#9F9F9F@22B
+              BasicIcons 263x106
+            Combination 294x176
+              Combination 330x70
+                Img_Icon 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#DEDEDE
+                Text 153x33 text:#9F9F9F@22B
+              CombinationIcons 330x106
+            Awakening 206x176
+              Awakening 190x70
+                Img_Icon 28x28 735eb57c3e4d46ec8f45784a86a8cef5 color:#DEDEDE
+                Text 128x33 text:#9F9F9F@22B
+              AwakeningIcons 192x106
+          Scroll_Path_3 1025x170 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#060606/30%
+            Info 188x176
+              Img_Background 120x120 6791a49d630642ffbeb232d3ac758aad (Sliced) color:#FFB6B6
+              Text_PathName 100x50 text:#EC7D5B@22
+              Layout_PathGem 100x25 466c1f1dc119420e98251fbf068f89be (Sliced) color:#000000/45%
+                Img_PathGem 19x19 98594c096bef473fb75d9111a326ecbd
+                Text_PathCount 66x30 text:#FFFFFF@20B
+            Basic 275x176
+              Basic 280x70
+                Img_Icon 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#DEDEDE
+                Text 62x33 text:#9F9F9F@22B
+              BasicIcons 263x106
+            Combination 294x176
+              Combination 330x70
+                Img_Icon 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#DEDEDE
+                Text 153x33 text:#9F9F9F@22B
+              CombinationIcons 330x106
+            Awakening 206x176
+              Awakening 190x70
+                Img_Icon 28x28 735eb57c3e4d46ec8f45784a86a8cef5 color:#DEDEDE
+                Text 128x33 text:#9F9F9F@22B
+              AwakeningIcons 192x106
+      Layout_Rune 1025x630
+        Item_Rune_1 265x602
+          Layout 265x602 ec6631586aef41339c497212bc51b018 (Sliced)
+            Img_Rune 152x152 e39223b939e44360948b601c15688171
+              Img_Bg 171x172 de3e81ffaa4d4f2a96332e329ef864ca color:#833C0B
+              Img_Icon 68x68 a43212ebc94b48459e1a1b29eb2a83e8
+            Text_Name 210x89 text:#CB934A@24B
+            Text_Level 50x34 text:#AB7330@23B
+              Img_Deco 188x14 3c513b52c92f48fc88aa810007c4bc1b color:#FFFFFF/50%
+            Text_Desc 200x193 text:#A39F9F@20
+          Layout_Empty 265x602 ec6631586aef41339c497212bc51b018 (Sliced) color:#000000/30%
+        Item_Rune_2 265x602
+          Layout 265x602 ec6631586aef41339c497212bc51b018 (Sliced)
+            Img_Rune 152x152 e39223b939e44360948b601c15688171
+              Img_Bg 171x172 de3e81ffaa4d4f2a96332e329ef864ca color:#833C0B
+              Img_Icon 68x68 a43212ebc94b48459e1a1b29eb2a83e8
+            Text_Name 210x89 text:#CB934A@24B
+            Text_Level 50x34 text:#AB7330@23B
+              Img_Deco 188x14 3c513b52c92f48fc88aa810007c4bc1b color:#FFFFFF/50%
+            Text_Desc 200x193 text:#A39F9F@20
+          Layout_Empty 265x602 ec6631586aef41339c497212bc51b018 (Sliced) color:#000000/30%
+        Item_Rune_3 265x602
+          Layout 265x602 ec6631586aef41339c497212bc51b018 (Sliced)
+            Img_Rune 152x152 e39223b939e44360948b601c15688171
+              Img_Bg 171x172 de3e81ffaa4d4f2a96332e329ef864ca color:#833C0B
+              Img_Icon 68x68 a43212ebc94b48459e1a1b29eb2a83e8
+            Text_Name 210x89 text:#CB934A@24B
+            Text_Level 50x34 text:#AB7330@23B
+              Img_Deco 188x14 3c513b52c92f48fc88aa810007c4bc1b color:#FFFFFF/50%
+            Text_Desc 200x193 text:#A39F9F@20
+          Layout_Empty 265x602 ec6631586aef41339c497212bc51b018 (Sliced) color:#000000/30%
+      Layout_Card 1025x630
+        Layout_Card1 922x286
+          Layout 708x274 d858c4b704ff4386bd4eb2ef9de32819
+            CardSkillIcon 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+              Icon 65x65 1a935157958843328b5848ee4b27a0fe (Sliced)
+                Text_Level 68x36 text:#FFFFFF@24B+o#232323
+              KeyBG 70x40
+                Name 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+            CardSkillDetail 708x87
+              Detail_1 467x33
+                Text_Desc 137x33 text:#FFFFFF@22B
+                  Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+              Detail_2 467x33
+                Text_Desc 137x33 text:#FFFFFF@22B
+                  Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+        Layout_Card2 922x286
+          CardSkillInfo 708x274 d858c4b704ff4386bd4eb2ef9de32819
+            CardSkillIcon 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+              Icon 65x65 1a935157958843328b5848ee4b27a0fe (Sliced)
+                Text_Level 68x36 text:#FFFFFF@24B+o#232323
+              KeyBG 70x40
+                Name 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+            CardSkillDetail 708x87
+              Detail_1 467x33
+                Text_Desc 137x33 text:#FFFFFF@22B
+                  Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+              Detail_2 467x33
+                Text_Desc 137x33 text:#FFFFFF@22B
+                  Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+        Text_Empty 500x100 text:#FFFFFF@25B

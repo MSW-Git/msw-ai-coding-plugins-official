@@ -1,0 +1,4 @@
+UIFilledProgressBar1 100x100 [UIFilledProgressBar] 90553c22dcd630e4f9726eeaffbac54b
+  Img_BackValue 100x100 90553c22dcd630e4f9726eeaffbac54b (Filled)
+  Img_Value 100x100 90553c22dcd630e4f9726eeaffbac54b (Filled)
+  Text 84x84 90553c22dcd630e4f9726eeaffbac54b text:#479CFE@24

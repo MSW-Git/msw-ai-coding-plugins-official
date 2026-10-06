@@ -1,0 +1,41 @@
+# PotentialReset — 39 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout
+UIR_SimpleFantasy_Sample_PotentialReset 1920x1080
+  Layout 794x962 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Img_Deco 576x172 587b69b562194571a3e22a599ca5e3c2 color:#567B8F
+    Text_Title 63x38 text:#FFFFFF@26B
+    Text_ItemName 734x45 text:#7A7A7A@25B
+    Layout_PotenInfo 711x264 552a11490267476daec41dac4e8fd920 (Sliced)
+      Deco_Panel_DiaPattern 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Deco_Panel_DiaPattern_1 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Star_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Img_Grade 680x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#83C2EE
+        Text_Grade 82x38 text:#FFFFFF@26B
+      Scroll_Stat 690x145
+      Item 670x35
+        Dot 20x20 8c70e1b4b0a24a128f30b790115cb13c
+        StatTitle 302x36 text:#757474@24B
+        StatValue 98x38 text:#757474@26B
+    Layout_TryCount 521x30
+      SliderBack 521x30 144b1561436c4a199c24c0fc193212c7
+      Slider 512x24 0b43bd87fe2345ac854fec4c92e417b7 (Filled)
+      SliderBlock 490x30 FillRectImageRUID:3b67edc286a64f5e88a2a4615be2ec75
+      Img_GradeCur 35x35
+        Img 33x33
+        Text 15x34 text:#FFFFFF@23B
+      Img_GradeNext 35x35
+        Img 33x33
+        Text 14x34 text:#FFFFFF@23B
+      Text_Desc 152x30 text:#757474@20B
+      Text_Count 65x33 text:#4F679C@22B
+    Deco_Line 750x4
+    Layout_Cost 794x66
+      Img_BG 590x51 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#E5E2D4
+      Text_Cost 213x40 text:#858585@27B
+        Img_Cost 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+      Label_Cost 54x37 text:#8F8F8F@25B
+        Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#BEBAAA
+    Btn_Info 200x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF
+    Btn_Ok 240x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B

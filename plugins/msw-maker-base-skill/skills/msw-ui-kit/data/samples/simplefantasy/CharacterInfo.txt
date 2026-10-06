@@ -1,0 +1,47 @@
+# CharacterInfo — 45 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Info_Bg, Img_Illust, CharacterInfo, BtnGroup
+UIR_SimpleFantasy_Sample_CharacterInfo 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Info_Bg 1209x1928 318185d2ad2d451b997215c82b618455 color:#000000
+    Info_Bg_1 1209x1928 318185d2ad2d451b997215c82b618455 color:#000000/30%
+  Img_Illust 960x315 1af7c682da5545838489842857b88a98
+  CharacterInfo 650x833
+    Text_JobName 151x44 text:#FFFFFF@30B
+    Scroll_JobDesc 480x77 text:#E8E8E8@20
+      Text_JobDesc 89x33 text:#E8E8E8@22
+    Text_SkillTitle1 143x38 text:#CDCDCD@26B
+      Img_DecoL 240x20 56009a4babfb46a9aa9c0e085a6ca6b8 (Sliced) color:#FFFFFF/50%
+      Img_DecoR 240x20 ee6474d16fe64c5190ad8191d7dae934 (Sliced) color:#FFFFFF/50%
+    Scroll_JobPoint 480x82
+      Text_JobPoint 101x33 text:#E8E8E8@22
+    Text_SkillTitle2 143x38 text:#CDCDCD@26B
+      Img_DecoL 240x20 56009a4babfb46a9aa9c0e085a6ca6b8 (Sliced) color:#FFFFFF/50%
+      Img_DecoR 240x20 ee6474d16fe64c5190ad8191d7dae934 (Sliced) color:#FFFFFF/50%
+    AbilityInfo 618x470
+      Ability1 600x150
+        Img_Ability 120x38 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#EC7D5B
+          Text_AbilityName 77x36 text:#FFFFFF@24B+o#000000/20%
+            Img_Icon 32x32 98594c096bef473fb75d9111a326ecbd
+        Scroll_AbilityDesc 600x110 7a5efed3eaeb446abe7173d4763b391a
+          Text_AbilityDesc 48x31 text:#E8E8E8@21
+      Ability2 600x150
+        Img_Ability 120x38 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#8E5CED
+          Text_AbilityName 77x36 text:#FFFFFF@24B+o#000000/20%
+            Img_Icon 32x32 b6ceee69735b47dbb8bed24e348f93e7
+        Scroll_AbilityDesc 600x110 7a5efed3eaeb446abe7173d4763b391a
+          Text_AbilityDesc 48x31 text:#E8E8E8@21
+      Ability3 600x150
+        Img_Ability 120x38 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#5CC5ED
+          Text_AbilityName 77x36 text:#FFFFFF@24B+o#000000/20%
+            Img_Icon 32x32 ffda778447f14eb5ad7f15ae9d58bb08
+        Scroll_AbilityDesc 600x110 7a5efed3eaeb446abe7173d4763b391a
+          Text_AbilityDesc 48x31 text:#E8E8E8@21
+  BtnGroup 821x100
+    Btn_Purchase 480x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22
+      Text_Purchase 250x38 text:#FFFFFF@26B
+      Img_Cost 157x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#3D4A66
+        Img_Icon 50x50 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+        Text_Cost 29x36 text:#FFFFFF@24B
+    Btn_AbilityDetail 323x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced)
+      Text_AbilityDetail 232x36 text:#FFFFFF@24B
+      Img_AbilityDetail 52x52 754890ba284e441ea0bba9b02de160f9 (Sliced)

@@ -1,0 +1,66 @@
+# CardModule — 64 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, CardPanel, DeckPanel, DeckEditPanel
+UIR_CardGame_Sample_CardModule 1920x1080
+  Block 2520x1680
+  CardPanel 0x0
+    Background 1094x805 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 1117x830 216c3ce4b3a84cbbbc00fd21be02206f (Sliced)
+    Background_2 1087x798 4e2c18c56e79488589c4de82cf766610 (Sliced)
+    Background_3 216x38 a6760be9ea2f49faa2d47907e0bba8f8 color:#E3C892
+    Title 470x33 text:#29160E@28B
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    CommonButton 94x93 5f0b4b38581e460b82c72a1cd3cf6e74
+    WarriorButton 94x93 52029a7f7e434e93a484b317e5fb6539
+    MagicianButton 94x93 7569481738174053bc6bf571bac423c7
+    BowmanButton 94x93 34e2995f7d9044659ac3a6adca800a7f
+    ThiefButton 94x93 353e6526d3e24d49b1ce90947cc365dd
+    PirateButton 94x93 eec1f56b76514d7c9b038bbefa54e7ae
+    CardBackButton 111x93 c8b28f75993b4c34b99d6f655353986a
+    Unowned 0x0
+      Button 148x62 c59b852af9434655b8f2f74cb752148f
+      Text 79x40 text:#29160E@23B
+      Icon 49x38 f0e16abd9baa4baeab39f1e62a018f44
+    LeftArrowButton 56x65 af055ed16a39470fae34ec6e0a6f4c94 states:highlighted=4359bb66c7ee4a16a8a900a01b3daccd,pressed=4f90b0d2ef824aba84b2892ebdf6f9ef,disabled=3c3af30db09c48ca90ef74e5df332b22
+    RightArrowButton 56x65 9424ae88567049fe8f99ca4f77deb2a2 states:highlighted=f5a5463d30f048749591d6a1f19835a8,pressed=29ec9ba586ba451aae51ba5c55b2775d,disabled=bc8258bc89e54bf2ad51a40b0600afde
+  DeckPanel 0x0
+    Background 540x803 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 565x828 216c3ce4b3a84cbbbc00fd21be02206f (Sliced)
+    Deck 0x0
+      Image 533x100 b362d317e3a54a4891d493ad8e5742b7 (Sliced)
+      Text 348x52 text:#FFFFFF@29B+o#000000/50%
+    NewDeck 0x0
+      Image 533x95 b362d317e3a54a4891d493ad8e5742b7 (Sliced)
+      Text 348x52 text:#FFFFFF@29B+o#000000/50%
+    WarriorDeckImage 348x436 f6cadfd8acf24e47a0ee2695ed921f9a
+    Warrior 0x0
+      Label 124x45 bc07791f871e48b2bf0596663b87e023
+      Text 118x33 text:#C3C3C3@19B
+    MagicianDeckImage 348x436 cea0bf4dd1d64d0aa1206eabe7738eff
+    Magician 0x0
+      Label 124x45 bc07791f871e48b2bf0596663b87e023
+      Text 118x33 text:#C3C3C3@19B
+    BowmanDeckImage 348x436 07c9a8ba02ea4d11bd0e8fc8e177e89d
+    Bowman 0x0
+      Label 124x45 bc07791f871e48b2bf0596663b87e023
+      Text 118x33 text:#C3C3C3@19B
+    ThiefDeckImage 348x436 0b9293b1ccd8404989eb7fa3cd1ae4d2
+    Thief 0x0
+      Label 124x45 bc07791f871e48b2bf0596663b87e023
+      Text 118x33 text:#C3C3C3@19B
+    PirateDeckImage 348x436 3f5bf94887104278974a0037ee6f5b8a
+    Pirate 0x0
+      Label 124x45 bc07791f871e48b2bf0596663b87e023
+      Text 118x33 text:#C3C3C3@19B
+  DeckEditPanel 0x0
+    Background 540x803 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 595x858 668f1c7d7bd742e99198ffa436cd0dae (Sliced)
+    DeckName 0x0
+      Image 533x100 12d1a1e889264eb7a2a68fd9a5d44a42 (Sliced)
+      Text 348x52 text:#FFFFFF@29B+o#000000/50%
+    DeleteButton 0x0
+      Button 89x89 6a1c0b1d5e9d41429421127cb58b0dea states:highlighted=1edb47d0dd334466bbabe50e7a952c03,pressed=b92db0735f9b4165a670f9c6c2fe5c44
+      Icon 30x35 799d93f379794cfab91cc423173a4952
+    DeckSizeText 186x64 text:#FFFFFF@25B+o#000000
+    FinishButton 0x0
+      Button 134x89 efb199cdd41d47a3bed624b58e24240f states:highlighted=a9fb4f56097d4c7dba7d17b71ef809c3,pressed=309e369edeb84a909558e0611d16a631
+      Text 103x58 text:#FFFFFF@26B+o#000000/50%

@@ -1,0 +1,45 @@
+# Costume — 43 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout_PlayerInfo, Layout_Item
+UIR_SimpleFantasy_Sample_Costume 1920x1080
+  Img_BG 2520x1680 766893751a134664ba8849f38311021a
+  Layout_PlayerInfo 900x791
+    Img_Title 537x55 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/20%
+      Deco_02 632x24 74098e289d6643ae8fc13779028e8d39 color:#FFFFFF/50%
+      Deco_01 620x4 fa0726261212442da1569a29ad032520 color:#FFFFFF/80%
+      Text_Title 350x40 text:#FFFFFF@27B
+    Avatar 408x330
+    Layout_Control 900x791
+      Layout_Left 900x791
+        Btn_Preset 91x165 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/30%
+          Img_Preset1 73x75 a7bc30a4e30d43abb4a52fe70537992c (Sliced) text:#FFFFFF@36B
+            Text_Preset2 20x53 text:#C3BFC3@36B
+          Img_Preset2 73x75 a7bc30a4e30d43abb4a52fe70537992c (Sliced) text:#FFFFFF@36B
+            Text_Preset1 20x53 text:#C3BFC3@36B
+      Btn_Change 270x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@28B
+      Btn_Reset 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+        Img_Icon 36x36 4948bd19e6cd459da09b7e06796b8b35
+      Btn_Attack 152x152 e314c09b9b39486bb1c68d018b2abded (Sliced)
+        Img_Icon 102x102 9fcc6db9544f79342b26396f85336141
+      Btn_Jump 152x152 e314c09b9b39486bb1c68d018b2abded (Sliced)
+        Img_Icon 153x134 b44742a7c3de2604ba4999a54ae0b4ed
+  Layout_Item 1000x791
+    Layout 1000x791
+      Img_BG 1000x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#3B4864/50%
+      Layout_Search 450x60 9eee37f21d974889947d021f08bcda62 (Sliced) color:#293652/80%
+        Text_Search 410x60 text:#FFFFFF@24B
+        Btn_Search 70x70
+          Img_Icon 60x60 754890ba284e441ea0bba9b02de160f9 (Sliced)
+        Btn_Cancel 76x76
+          Img_Icon 50x50 07096261a9944312b01dee501fed7599 (Sliced)
+      Layout_ItemGroup 1000x711 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#1F2734/50%
+        Layout_Category 1000x76
+        Btn_Category 167x76
+          Btn_Disable 60x60 34781b95771d41f7a5568b88d5659a56 (Sliced) color:#546179
+          Btn_Enable 60x60 638950a2ffe74f88a0feca0530476e20 (Sliced)
+          Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+        GridView 1000x621 0 color:#000000/0% ScrollBarHandleImageRUID:98832c7aa8c44f02b5c9e02cebbc9f25
+        Item 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+          Img_Icon 51x51 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+          Text_Name 100x50 text:#626F83@17
+          Img_Select 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+            Img_Check 60x48 2e36df32385a4026a963af9e552b06df

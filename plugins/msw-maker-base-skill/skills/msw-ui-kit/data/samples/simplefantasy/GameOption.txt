@@ -1,0 +1,201 @@
+# GameOption — 199 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Btn_Dim, Panel, Panel_JoystickOption
+UIR_SimpleFantasy_Sample_GameOption 1920x1080
+  Btn_Dim 2920x2080
+  Panel 1393x955 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Text_Title 793x67 text:#FFFFFF@26B
+    Tab 1333x83
+      Btn_Sount 325x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) text:#FFFFFF@32B
+      Btn_Effect 325x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) color:#FFFFFF/0% text:#515F7A@32B
+      Btn_Game 325x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) color:#FFFFFF/0% text:#515F7A@32B
+      Btn_Input 325x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) color:#FFFFFF/0% text:#515F7A@32B
+    Img_TabBG 1333x100 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#E7E5DB/15%
+    Panel_SoundOption 1253x700
+      Master 1210x120 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        SoundVolume 1170x60 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Slider_BG 1110x35 f8c075c3f94a478087b53e0b33f6a3c2
+            Slider 1110x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+      Deco_Line 1210x4
+      BGM 1210x120 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        SoundVolume 1170x60 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Slider_BG 1110x35 f8c075c3f94a478087b53e0b33f6a3c2
+            Slider 1110x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+      SFX 1210x120 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        SoundVolume 1170x60 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Slider_BG 1110x35 f8c075c3f94a478087b53e0b33f6a3c2
+            Slider 1110x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+      SkillVoice 1210x120 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        SoundVolume 1170x60 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Slider_BG 1110x35 f8c075c3f94a478087b53e0b33f6a3c2
+            Slider 1110x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+      Img_Block 1254x518
+    Panel_EffectOption 1253x700
+      Layout_EffectAlpha 1210x220 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Layout_Option 1170x160 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Layout_Alpha_1 1170x60
+            Text_Title 250x50 text:#757474@24B
+            Slider_BG 750x35 f8c075c3f94a478087b53e0b33f6a3c2
+              Slider 750x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+            Text_Value 100x30 text:#EF8A59@22B
+          Layout_Alpha_2 1170x60
+            Text_Title 250x50 text:#757474@24B
+            Slider_BG 750x35 f8c075c3f94a478087b53e0b33f6a3c2
+              Slider 750x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+            Text_Value 100x30 text:#EF8A59@22B
+      Deco_Line 1210x4
+      Layout_ScreenShake 1210x50 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Btn_Toggle 115x60 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#253250/0%
+          Img_On 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/70%
+            Img_Btn 60x60 a7bc30a4e30d43abb4a52fe70537992c (Sliced)
+          Img_Off 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/30%
+            Img_Btn 60x60 ae87047170e84b84b44a04af194ccfca (Sliced)
+      Deco_Line 1210x4
+      Layout_DamageSkin 1210x300 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Option 1170x240 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Show 1170x60
+            Text_Title 250x50 text:#757474@24B
+            Btn_Toggle 115x60 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#253250/0%
+              Img_On 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/70%
+                Img_Btn 60x60 a7bc30a4e30d43abb4a52fe70537992c (Sliced)
+              Img_Off 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/30%
+                Img_Btn 60x60 ae87047170e84b84b44a04af194ccfca (Sliced)
+          Scale 1170x60
+            Text_Title 250x50 text:#757474@24B
+            Slider_BG 750x35 f8c075c3f94a478087b53e0b33f6a3c2
+              Slider 750x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+            Text_Value 100x30 text:#EF8A59@22B
+          Effect 1170x60
+            Text_Title 250x50 text:#757474@24B
+            Btn_Group 750x90
+              Btn_01 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+              Btn_02 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+              Btn_03 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+          Img_Block 1175x166
+    Panel_GameOption 1253x700
+      Layout_AutoAttack 1210x50 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Btn_Toggle 115x60 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#253250/0%
+          Img_On 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/70%
+            Img_Btn 60x60 a7bc30a4e30d43abb4a52fe70537992c (Sliced)
+          Img_Off 59x115 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/30%
+            Img_Btn 60x60 ae87047170e84b84b44a04af194ccfca (Sliced)
+      Deco_Line 1210x4
+      Layout_MonsterInfo 1210x170 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        BG 1170x110 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+        Btn_Group 1170x110
+          Btn_01 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+          Btn_02 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+          Btn_03 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+          Btn_04 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#FFFFFF/60% states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+    Panel_InputOption 1253x700
+      Layout_Input 1210x660 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC/0%
+        Text_Title 1150x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Layout_CombatKey 1170x250 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          NormalSkill 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          Jump 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          ActiveSkill_1 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          ActiveSkill_2 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          AdditionalSkill 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+        Deco_Line_1 1210x4
+        Layout_ShortcutKey 1170x170 9eee37f21d974889947d021f08bcda62 (Sliced) color:#E7E5DC
+          Mailbox 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          Inventory 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+          Adventure 550x70
+            Text 300x50 text:#757474@24B
+            Btn_Key 250x60 7def203e7509458b8aaacbd9427b0ffa
+              KeyText 250x60 text:#757474@25B
+            Text_InputGuide 250x60 7def203e7509458b8aaacbd9427b0ffa color:#C8C8C8
+              Text 250x60 text:#757474@22
+              Text_NegativeNotification 250x60 text:#E23A00@22
+        Btn_Group 1210x90
+          Btn_Enable 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+          Btn_Disable 234x88 50426b5b1ee44bc5a1c10355b0e9ad03 (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+  Panel_JoystickOption 1920x1080
+    Layout_Option 1200x220 c7ff582a3917416ea2d7fd3c30df39a5
+      Layout_Button 250x200
+        Btn_Reset 234x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+        Btn_Exit 234x88 501210f182594602b16e083351ea3ab3 (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+      Layout_Scale 930x60
+        Text_Label 290x50 text:#757474@24B
+        Slider_BG 510x35 f8c075c3f94a478087b53e0b33f6a3c2
+          Slider 510x35 HandleImageRUID:475469dc7a674a3a948176ac48f1fe50
+        Text_Value 100x30 text:#EF8A59@22B
+    Layout_Window 610x587
+      Jump 220x220
+        Btn 220x220 463955b1860342a2a53380dd0a5e6265 (Sliced)
+          Select 220x220 4eed2985436c4007890c3314c4d42dc0 (Sliced)
+        Icon 96x82 251f9677601344598f0c777c96716741
+      SkillType1 610x587
+        DefaultActive 150x150
+          Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced) text:#FFFFFF@22B
+            Select 150x150 4eed2985436c4007890c3314c4d42dc0 (Sliced)
+        Active1 150x150
+          Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced) text:#FFFFFF@30B
+            Select 150x150 4eed2985436c4007890c3314c4d42dc0 (Sliced)
+        Active2 150x150
+          Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced) text:#FFFFFF@22B
+            Select 150x150 4eed2985436c4007890c3314c4d42dc0 (Sliced)
+        BonusActive1 150x150
+          Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced) text:#FFFFFF@30B
+            Select 150x150 4eed2985436c4007890c3314c4d42dc0 (Sliced)

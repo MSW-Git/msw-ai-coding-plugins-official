@@ -1,0 +1,19 @@
+# Dead — 17 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Ticket, Icon, DeadText, DescText, RefundText, Buttons
+UIR_CasualSurvival_Sample_Dead 1920x1080
+  Background 3920x3080
+  Ticket 190x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/50%
+    TicketSprite 34x34 edf338175aec4dac88ab10ff053e291c
+    TicketCountTitle 84x31 text:#FFFFFF@21+o#000000/50%
+    TicketCountText 17x31 text:#FFFFFF@21+o#000000/50%
+  Icon 284x284 09ce66b706634b45a68c6bc56160b4ba
+  DeadText 1920x120 text:#A01D2A@66+o#000000
+  DescText 1920x80 text:#FFFFFF@27+o#000000/50%
+  RefundText 1000x60 text:#FFFFFF@17+o#000000/50%
+  Buttons 1920x1080
+    ReviveButton 480x77 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+      Text 480x77 text:#FFFFFF@28+o#000000
+    ImmediateReviveButton 480x77 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+      Text 327x42 text:#FFFFFF@28+o#000000
+      WorldCoinOrTicketSprite 40x40 0ed521a0effa4a2184a28b4835ec7797
+      CostOrCount 64x42 text:#FFFFFF@28+o#000000

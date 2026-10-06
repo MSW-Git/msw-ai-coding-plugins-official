@@ -1,0 +1,2 @@
+UILoadingSpinner1 100x100 [UILoadingSpinner]
+  Img_Rotation 100x100 bcc2e54c2a0148a381d31d7b6c5f526d

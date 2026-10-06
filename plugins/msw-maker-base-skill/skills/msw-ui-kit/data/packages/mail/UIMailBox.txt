@@ -1,0 +1,29 @@
+# UIMailBox — 26 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIMailBox 2580x1740
+  Panel 1860x1020 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1810x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    Page 1706x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Scroll_Label 1666x90
+        Label_Title 250x70 text:#653122@24
+        Label_Message 489x70 text:#653122@24
+        Label_Sender 120x70 text:#653122@24
+        Label_DueDate 120x70 text:#653122@24
+        Label_IsRead 170x70 text:#653122@24
+        Label_ItemID 170x70 text:#653122@24
+      deco_line 1706x2
+      GridView 1673x614
+      Item 1664x100
+        BtnReceive 89x75 869b38cc8e41f9649923b8877f0f22a5 text:#653122
+        Text_Title 167x100 text:#653122@24
+        Text_Message 489x100 text:#653122@24
+        Text_Sender 120x100 text:#653122@24
+        Text_DueDate 120x100 text:#653122@24
+        Text_IsRead 170x100 text:#653122@24
+        GridView 505x100
+        ItemUI 180x100
+          Text_ID 170x100 text:#653122@24
+          Text_Count 68x43 text:#653122@24

@@ -1,0 +1,71 @@
+# DailyGift — 69 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, ContentPanel
+UIR_CasualRPG_Sample_DailyGift 1920x1080
+  Background 7920x7080
+  ContentPanel 1600x533 f47ee45115114234bd8a140b5d02729c
+    TopPanel 1560x84 text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@56B+o#000000
+    DailyGiftPanel 1560x403
+      DailyGiftSlot 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_1 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_2 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_3 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_4 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_5 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF
+      DailyGiftSlot_6 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        DailyGiftDayNum 205x68 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/50% text:#899BBF@28
+        DailyGift 150x150 affef48538564b6f9c55695a6096a0dd
+          DailyGiftSprite 120x120 0f878c5370e54070a96c9ff7df688140
+          DailyGiftNum 150x150 text:#FFFFFF@32B+o#000000
+        DailyGiftName 205x120 text:#FFFFFF@24
+        DailyGiftButton 180x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+        Cover 205x340 d685ceb1beb9492ea5dd6ec905a1fbce color:#272A36/80%
+          Stamp 71x49 46c34255c019473482b09e491cf1ec73 text:#FF0000@86B+o#FFFFFF

@@ -1,5 +1,5 @@
 {
-  "description": "msw-maker-base-skill auto-registered hooks — CoreVersion check + per-turn skill router reminder + Bash partial-read blocking for skill files + direct read/write blocking for .model/.ui files + automatic mlua diagnostics + daemon warm-up",
+  "description": "msw-maker-base-skill auto-registered hooks — per-turn skill router reminder + Bash partial-read blocking for skill files + direct read/write blocking for .model/.ui files + automatic mlua diagnostics + daemon warm-up",
   "hooks": {
     "SessionStart": [
       {
@@ -21,11 +21,6 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/core-version-check/core-version-check.cjs\"",
-            "timeout": 5
-          },
           {
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/skill-router-reminder/skill-router-reminder.cjs\"",

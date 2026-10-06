@@ -1,0 +1,175 @@
+# EventModule — 173 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, EventButton, EventPanel
+UIR_CardGame_Sample_EventModule 1920x1080
+  Block 2520x1680
+  EventButton 0x0
+    Background 112x112 796e915db9aa4b74afd7f5d8315d67e2
+    Button 71x75 d6a4c860b7204e35bcc24c40bdb8f73c states:highlighted=372ed7e200da41bba0d8c6b6ce6692f1,pressed=6d9db0a06e844ae3850174e033792ebd
+    Text 118x43 text:#FFFFFF@21B+o#000000/70%
+  EventPanel 0x0
+    Pattern 852x790 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 365x54 99a4751574294ff8b02d8b1c5aa40f0c color:#FFFFFF/50%
+    Background_2 876x866 3d0a8d286751470f8f9e042adc667608 (Sliced)
+    Title 848x49 text:#FFFFFF@27B+o#000000/50%
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    LeftTab 0x0
+      Background 222x353 7a45d28eee9d48a5ad7b4acc73588453
+      Button_1 0x0
+        Button 171x78 cc87cc30a9a84425a2a809d85f176009 (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_2 0x0
+        Button 171x78 cc87cc30a9a84425a2a809d85f176009 (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_3 0x0
+        Button 171x78 cc87cc30a9a84425a2a809d85f176009 (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+    Content_1 0x0
+      Img_Event 844x779 9365c65552394be6a06b50f01023dd9f (Sliced)
+      Deco_1 149x185 c2bb243247a74cf9b5e50480131ae79a
+      Deco_2 92x132 ba24503f81184de896fef8b1c5c6749c
+      Txt_1 635x44 text:#BCBBBB@28B+o#000000/50%
+      Txt_2 635x70 text:#FFFEFE@49B+o#000000/50%
+      Txt_3 318x44 text:#929292@19B+o#000000/50%
+      Btn_note 28x28 123400cf22814d8fab2fe98d7fbeff76
+      TxtTime_1 635x29 text:#BCBCBC@20B+o#000000/50%
+      TxtTime_2 635x29 text:#BCBCBC@20B+o#000000/50%
+      Slot_1 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 5a760ea933b54a9692cd0865970df3a6
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_2 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 e6561ba656c6476180b30e2ae8e1cddf
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_3 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 249fbf762d3741e399a4a38d21ce010d
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_4 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 ef11ef1bf4674ae4998e4f9fbeb578fa
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_5 138x232
+        BG 136x198 196e030a1937455382c3e1f68ee7a8e3
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 83b140f98ed8469a912c0bb7e5d259d5
+        Deco 36x36 610efa309b6d4eb9a397766e621d1177
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 741876c7f8934ea1b7079a8c56e12b0f states:highlighted=741876c7f8934ea1b7079a8c56e12b0f,pressed=5335e1c42244461a9e4ad9d2d0d0428d,disabled=ea0e033f977e47f19bd0af23e577c194
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_6 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 e6561ba656c6476180b30e2ae8e1cddf
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_7 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 5a760ea933b54a9692cd0865970df3a6
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_8 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 ef11ef1bf4674ae4998e4f9fbeb578fa
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_9 138x232
+        BG 136x198 3dec99420d6e43b29fa5b79d3a686bbc
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 249fbf762d3741e399a4a38d21ce010d
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 eeff7f17d65146fc99ccd07fbb9341fa states:highlighted=eeff7f17d65146fc99ccd07fbb9341fa,pressed=90fa4aaa36cd43d7a9982fd6eec9e82f,disabled=ec8e26704de14520aa3af70ee67adb64
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+      Slot_10 138x232
+        BG 136x198 196e030a1937455382c3e1f68ee7a8e3
+        Num 110x41 text:#FFFFFF@18B+o#000000/50%
+        Image 348x444 7dbfc6d3688641a69ba8df80e2a10131
+        Deco 36x36 610efa309b6d4eb9a397766e621d1177
+        CardNumBg 74x32 41f98dc20c864b81980f1c80afa170d6 (Sliced)
+        CardNum 50x38 text:#4DFEE7@22B+o#000000
+        Check 0x0
+          ImgDim 129x189 543e956818b047bd9227a50ca004c0b5 (Sliced)
+          Icon 116x102 2c2c61aab7074c2ca78fe505a3506925
+        GetButton 0x0
+          Button 129x40 741876c7f8934ea1b7079a8c56e12b0f states:highlighted=741876c7f8934ea1b7079a8c56e12b0f,pressed=5335e1c42244461a9e4ad9d2d0d0428d,disabled=ea0e033f977e47f19bd0af23e577c194
+          Text 114x32 text:#FFFFFF@17B+o#000000/50%
+    Content_2 0x0
+      Img_Event 827x762 6d022049df154e578c556069743f6a32
+      Title 635x34 text:#FFFFFF@22B+o#000000/80%
+      Title_Sub 635x64 text:#FFFFFF@22B+o#000000/80%
+      Title_Sub_1_1 241x41 text:#FFFFFF@23B+o#000000/50%
+      Title_Sub_1_2 305x59 text:#29160E@23B
+      Title_Sub_2_1 241x41 text:#FFFFFF@23B+o#000000/50%
+      Title_Sub_2_2 305x59 text:#29160E@23B
+    Content_3 0x0
+      Img_Event 844x779 9365c65552394be6a06b50f01023dd9f (Sliced)
+      Deco_1 149x185 c2bb243247a74cf9b5e50480131ae79a
+      Deco_2 92x132 ba24503f81184de896fef8b1c5c6749c
+      Txt_1 635x44 text:#BCBBBB@28B+o#000000/50%
+      Txt_2 635x70 text:#FFFEFE@42B+o#000000/50%
+      Txt_3 635x195 text:#BCBBBB@21B+o#000000/50%
+      Txt_4 635x44 text:#BCBBBB@28B+o#000000/50%
+      Txt_5 635x113 text:#FFDC51@64B+o#000000/50%
+      Txt_6 661x195 text:#BCBBBB@21B+o#000000/50%

@@ -1,0 +1,3 @@
+UISlider2 500x100 [UISlider]
+  Slider 250x10 SLD
+  Text 150x76 text:#B585FA@22

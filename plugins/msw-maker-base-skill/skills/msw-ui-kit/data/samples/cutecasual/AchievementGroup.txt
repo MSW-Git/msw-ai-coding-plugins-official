@@ -1,0 +1,58 @@
+# AchievementGroup — 56 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG, Pattern, CloseButton, TopMenu, Line, MenuBar, AchievementMenu
+UIR_CuteCasual_Sample_AchievementGroup 1920x1080 e818a726aafc4c36968053261d9da3d1 (Sliced)
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+  TopMenu 301x54
+    TitleBar 426x53 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+  Line 710x6
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+  MenuBar 273x710
+    Tabs 273x710
+      UITab1 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        UISpriteIcon 90x90 8f4080fce9d443bc87e8bcba5add3962
+        UITextDesc 150x95 text:#FFFFFF@30B+o#985F05
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITab2 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        UISpriteIcon 90x90 18d06cd0327a4877ab8ed6058d55d5e5
+        UITextDesc 150x95 text:#BB9A59@30B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITab3 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 6cc87742434e42e3b3a988e83142db83
+        UISpriteIcon 90x90 53e4db2ca91c4b788c41544c4ce6913a
+        UITextDesc 150x95 text:#BB9A59@30B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITab4 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 6cc87742434e42e3b3a988e83142db83
+        UISpriteIcon 90x90 0d32289149c744c0b09c875fa9afa07f
+        UITextDesc 150x95 text:#BB9A59@30B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITab5 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        UISpriteIcon 90x90 5c6a284c715e454686aca1f927c98f3b
+        UITextDesc 150x95 text:#BB9A59@30B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+  AchievementMenu 1400x920
+    Context 1520x780
+      Model_UIAchievementSlotRenderer 1425x180 9e87e06427454410a2f8489f7bb45933 (Sliced)
+        Panel 300x158 e5bdbbd4b79f4ce7956f57e12080581e (Sliced) color:#E8DEC9
+        Btn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Disabled 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/40%
+        CompleteSprite 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+        Gauge 815x40 34e86e4450634bf8a0d8fe2fbe00caa8 (Sliced) FillRectImageRUID:c585cd5d34754ce79d9b253cfdff22ac
+          Text 750x40 text:#FFFFFF@28B+o#577B02
+        Item 134x134 eb17e4fba2844c71b467cb84b465d5d7
+          ImgShadow 64x18 8a3a3120059e416fb64d641a6d03acfb color:#2E7792/20%
+          Icon 90x90 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          TxtNum 110x42 text:#5C4C39@30B+o#FFFFFF
+        Title 850x70 text:#72634B@30B
+        Line 155x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#DDBD83
+        Dim 1425x180 9e87e06427454410a2f8489f7bb45933 (Sliced) color:#000000/50%
+    Gradiant 1450x60 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+    GetAllRewardButton 224x80
+      Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+      Disabled 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/40%

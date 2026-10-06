@@ -1,0 +1,591 @@
+# LobbyHUDGroup — 589 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: PlayerCurrencyPlaceholder, Time, SubscriptionInfoHolder, CameraSetting, CustomChatArea, ReportParent, LeftTop, MainMenuButton, StoreManageSlide, ButtonsScroll, DropdownItemGroup_Shop, DropdownItemGroup_Event, KitchenAppNone, StoreInfoArea (+6)
+UIR_CuteCasual_Sample_LobbyHUDGroup 1920x1080
+  PlayerCurrencyPlaceholder 878x79 0b889c0833d4415ea8093148fc3a74a5 (Sliced) color:#FFFFFF/0%
+    Clover 255x64 3d4660a897204faea0eecdd3ad756130 (Sliced)
+      Icon 72x72 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+      Value 168x60 text:#36240B@32B
+      Tooltip 400x222 5000213d7ed4477a9a768736ff0781dd text:#36240B@28
+        Title 350x50 text:#FFFFFF@28B+o#36240B
+        Desc 345x125 text:#36240B@26
+    Line 2x28
+    Heart 255x64 3d4660a897204faea0eecdd3ad756130 (Sliced)
+      Icon 72x72 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+      Value 168x60 text:#36240B@32B
+      Tooltip 400x222 5000213d7ed4477a9a768736ff0781dd
+        Title 350x50 text:#FFFFFF@28B+o#36240B
+        Desc 345x125 text:#36240B@26
+    Line1 2x28
+    Meso 353x64 3d4660a897204faea0eecdd3ad756130 (Sliced)
+      Icon 68x68 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      Value 270x60 text:#36240B@32B
+      Tooltip 400x222 5000213d7ed4477a9a768736ff0781dd
+        Title 350x50 text:#FFFFFF@28B+o#36240B
+        Desc 345x125 text:#36240B@26
+    Diamond 264x64 3d4660a897204faea0eecdd3ad756130 (Sliced)
+      DiamondInfoButton 264x94
+        ButtonBg 242x86 ee4fddbe1d8549ac9758c61cd47fb1e8 color:#F6F0EF
+        Text_Info 195x40 text:#574C3E@24B
+        Circle 28x28 f59006224a184fdeb8f9ecb09ae3af7d color:#FEBC4A
+        Icon_Info 6x20 0423dcf92c594efc87944a00028c4ea2
+        DiamondInfoTooltip 240x112 5000213d7ed4477a9a768736ff0781dd text:#36240B@20
+      bg 250x64 3d4660a897204faea0eecdd3ad756130 (Sliced)
+      Icon 68x68 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+      Value 165x60 text:#36240B@32B
+      ShopBtnIcon 30x30 a6eb69c57ad041f7ab9db8dae34bec4a
+      Tooltip 400x150 5000213d7ed4477a9a768736ff0781dd text:#36240B@28
+        Title 440x50 text:#FFFFFF@28B+o#36240B
+        Desc 345x70 text:#36240B@26
+    Tut_Meso 291x77
+  Time 164x132 328ba119ca6b4c08a72c607f48178dd5
+    Icon 32x32 fc8ab2a0a05c4166a683971b7015cb87
+    Year 130x50 text:#FFFFFF@28B+o#36240B
+    MonthDay 140x55 text:#36240B@28B+o#FFFFFF
+  SubscriptionInfoHolder 300x100
+    SubscriptionProgress 300x100
+    OpenShopBtn 300x120
+  CameraSetting 100x100
+    UIOffGuideText 360x110 90e103e8c7f8496c81b05e95b5aa7415 color:#FFFFFF/70% text:#FFFFFF@24+o#65563F
+    UIOnOffButton 160x110 5b0dab17efb34f8381aa84c88cbe3864 (Sliced) text:#FFFFFF@20
+      UIOnOfffTitle 90x37 text:#65563F@24B+o#FFFFFF
+      UIOnOffText 100x35 text:#65563F@28B+o#FFFFFF
+    CameraSetBg 480x110
+      FullViewButton 135x110 90e103e8c7f8496c81b05e95b5aa7415 color:#FFFFFF/70% text:#65563F@26B+o#FFFFFF
+      CookingViewButton 135x110 90e103e8c7f8496c81b05e95b5aa7415 color:#FFFFFF/70% text:#65563F@26B+o#FFFFFF
+      ServingViewButton 135x110 90e103e8c7f8496c81b05e95b5aa7415 color:#FFFFFF/70% text:#65563F@26B+o#FFFFFF
+      EntranceViewButton 135x110 90e103e8c7f8496c81b05e95b5aa7415 color:#FFFFFF/70% text:#65563F@26B+o#FFFFFF
+    CameraSetOptions 369x56
+      OptionBG 396x56 4794714a5c1c4e20a7963d86ecaf915e (Sliced) color:#000000/60%
+        OptionList 330x50
+          CookingView 100x50 text:#FFFFFF@26B+o#36240B
+          Line 5x40
+          ServingView 95x50 text:#FFFFFF@26B+o#36240B
+          Line 5x40
+          EntranceView 100x50 text:#FFFFFF@26B+o#36240B
+    CameraSetToggle 62x86 c41a6817e8ea4800a7bf3c0953789cfb text:#65563F@26B+o#FFFFFF
+      Icon 45x30 1ba83a88c1e05e34c8cf2397b4430125 color:#65563F
+    CameraResetBtn 112x112 64f5f2c1837d4e75a67cddbb6f185c2c text:#65563F@26B+o#FFFFFF
+      Icon 72x64 1fd8a0f4418a4ef58e560951c69603c0
+      Icon2 30x30 4234d59ffb744f0394cf5a6694198be7 color:#65563F
+  CustomChatArea 930x200
+    OnFold 932x80
+      Panel 825x64 d99103dab8ab4862bd23e0b7f53b1978
+      text_msg 730x48
+        icon 44x44 4da8805437fb4f77b7ad21398d010555
+        text 690x48 text:#FFFFFF@26+o#452E0F
+      OpenBtn 90x90 64f5f2c1837d4e75a67cddbb6f185c2c
+        UISprite 60x52 608d2204ac094e9a97382f75e6f49df6
+    OnOpen 930x80
+      BG 820x148 a3d0ddb1d8234ec7a49a16e8ca410c40 color:#FFFFFF/25%
+      input_chat 820x65 b8564db81a0041cd855c72c1d3e204c2 (Sliced) text:#BDBDBD@22
+        button_input 820x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+        button_submit 74x65
+        placeholder_banned 705x45 text:#FF3A3A@20B+o#200202
+      grid 820x130 ScrollBarBackgroundImageRUID:5553b72f34c64be1b17e822d9b7009a8 ScrollBarHandleImageRUID:5553b72f34c64be1b17e822d9b7009a8
+      text_msg 810x48
+        icon 64x32 01c3aaf19e9349a2b6955cbfcfb73bd0
+        text 730x48 text:#FFFFFF@22+o#452E0F
+      FoldBtn 62x86 c41a6817e8ea4800a7bf3c0953789cfb
+  ReportParent 1920x1080
+    Report 276x48 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#771F1F/85% text:#FFFFFF@24B
+      Icon 28x28 d270a4ce74554426b6bc705632690c5c
+  LeftTop 450x128
+    Management 124x128 68a70f03432c400b9be3e4b08a05bd85
+      GradeBG 92x68 f8b46190cc0a4572b17c4ad1051473d8 color:#B3BA47
+      RedDot 120x120 fa19563ce5124b739178b24481dfb927
+      GradeIcon 80x80 94f74425dd174cdc9e456dce83229274
+      Gauge 92x24 75938ee7904a47c088e0516c6a06848a color:#493527
+        Bar 92x24 c29e353ce8c54f8891eeb2576e992ad7 (Filled) color:#CEEA0F
+      Maple 64x56 671204b541654553954d8dc21502dd9f color:#D3BE97
+    NameDeco 252x80 cf144731c94941a294c0fab3543ba238 color:#FFFFFF/80%
+    Name 848x47 text:#FFFFFF@32B+o#36240B+s#36240B
+      RenameIcon 40x40 7cd516e382ec43d683ef54bb18342f0a
+    Reputation 310x56
+      Stars 240x56 ScrollBarBgImageRUID:null
+        Star1 52x52 951bbeade75f4063a618b30da34bdad2
+          Filled 52x52 47036e53ab9f40f687f1aff17cc4078d (Filled)
+        Star2 52x52 951bbeade75f4063a618b30da34bdad2
+          Filled 52x52 47036e53ab9f40f687f1aff17cc4078d (Filled)
+        Star3 52x52 951bbeade75f4063a618b30da34bdad2
+          Filled 52x52 47036e53ab9f40f687f1aff17cc4078d (Filled)
+        Star4 52x52 951bbeade75f4063a618b30da34bdad2
+          Filled 52x52 47036e53ab9f40f687f1aff17cc4078d (Filled)
+        Star5 52x52 951bbeade75f4063a618b30da34bdad2
+          Filled 52x52 47036e53ab9f40f687f1aff17cc4078d (Filled)
+      ScoreText 65x56 text:#FFFFFF@32B+o#36240B
+    ReputationBtn 319x61 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+  MainMenuButton 236x136 65f5b114aba7476596d784de4d654493
+    Material 236x136 eba021c0fca84cf8ad5a546ff0a5d869
+    Deco 200x128 09d7186e979545878ecec67427c4a0fa
+    Icon 172x140 401f5e12f96a446ebe2f871832747b93
+      Book 120x128 b12aabfa4eb74e0bbe9f2d0caf1517ee
+      Burger 68x64 cbcafe14a2094352aad1854c3556b124
+      RedDot 28x28 1e5bff6830894d9987f60249de4d3c18
+    UIText 185x70 text:#FFFFFF@36B+o#36240B+s#36240B
+    ToDoInfoMenuBtn 100x100 ecd48cb0475c4dd698cca2d77d113ae1
+      Icon 60x60 0d32289149c744c0b09c875fa9afa07f
+  StoreManageSlide 550x110
+    Slide 600x110 5ef1d881de724baea6d3944805834262 (Sliced) color:#000000/65%
+      Supplyment 228x88 c74198bdd7c84b91864787ee82a22870
+        Icon 68x72 a4edaff3d2c74fbaaa2424f0c2ae08e8
+        Title 140x45 text:#FFFFFF@24B+o#2A420B
+        Cost 29x36 text:#FFFFFF@24B+o#2A420B
+          Clover 34x34 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+        CoolTime 228x88 c74198bdd7c84b91864787ee82a22870 (Filled) color:#000000/75%
+          Count 44x53 text:#FF3F3F@36B+o#FFFFFF+s#FFFFFF/90%
+      Promotion 228x88 c74198bdd7c84b91864787ee82a22870
+        Icon 80x80 bca25df248e142dea7783148acfebbdf
+        Title 140x45 text:#FFFFFF@24B+o#2A420B
+        Cost 29x36 text:#FFFFFF@24B+o#2A420B
+          Clover 34x34 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+        CoolTime 228x88 c74198bdd7c84b91864787ee82a22870 (Filled) color:#000000/75%
+          Count 44x53 text:#FF3F3F@36B+o#FFFFFF+s#FFFFFF/90%
+  ButtonsScroll 150x430
+    Store 100x100
+      Icon 80x110 8e1eb908084c4b54bd8cdc0a06a9092c
+      Deco 36x60 9b7d69e4dce94446afc45b0193e24cfb
+      Text 120x70 text:#FFFFFF@28B+o#36240B
+    GetTipButton 120x130
+      Icon 84x56 628e1a07d3fe40a1b60750ec2e0c0997
+      Icon2 88x76 e5e36283f92240df992c1bdc03538865
+      Deco 40x40 a55eba0c4e5f49309b386fbea035722b
+      Meterial 120x120 dca6222fc35d4898a393e600eb19f6ab
+      CountText 74x38 text:#FFFFFF@26B+o#36240B+s#36240B
+        Heart 26x26 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+      MaxText 64x32 dc91390c020c421c92775aad7610ad57 text:#FFFFFF@30B+o#4D4239
+      Effect 120x130 8954464adb284257b3371f908e9f6c5b color:#FFFFFF/90%
+    VipOrderButton 120x130
+      Icon 120x120 6512629e3fbc41088846de3f41089cf7
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      CloseToEndText 150x50 text:#FFFFFF@22B+o#4D4239
+      Effect 120x120 05362907b09e49e28524c33a40d41b8f
+    GetSubscriptionBoxButton 120x130
+      Icon 120x120 de34bc8137594ad393dd8c74f64f3472
+      CountText 120x45 text:#FFFFFF@28B+o#36240B
+    MoveNextStageBtn 120x130 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+      Icon 120x120 847519b1eb304f259e41708bba677c8e
+      Deco 136x84 296e8e2f2ede4ae6be1d3f17c78f1ba3
+      UIText 120x70 text:#FFFFFF@28B+o#36240B
+      New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+  DropdownItemGroup_Shop 820x80 44b28e4d884f4757aa25604ebf3f09ec color:#000000/65%
+    ItemList 740x150
+      SpecialShopButton 120x130
+        Icon 115x115 1c864bec5fbd4997930910a6edaffffe
+        NameText 120x45 text:#FFFFFF@28B+o#36240B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      ShopButton 120x120
+        Icon 120x120 ed136e5692364d31b2af2c65c2d941cf
+        NameText 120x45 text:#FFFFFF@28B+o#36240B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        Lock 50x50 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      StagePassButton 120x130
+        Icon 110x110 96d70ce1b9c24f19af4751fd18a4cfe2
+        NameText 120x45 text:#FFFFFF@28B+o#36240B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      BoosterPackButton 120x150
+        Icon 90x90 9886f3890751465da569588a11274293
+        NameText 120x45 text:#FFFFFF@28B+o#36240B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      PiggyBankButton 120x150
+        Icon 105x105 b4bd5fb3d2134ab6bfd4533a2a5330a4
+        GaugeBg 100x28 b6b81c4d9a46402cac30145f74296202
+          Gauge 100x28 0078192ecde6496ea86f6980f69961a3 (Sliced) FillRectImageRUID:2a5aa68b468a46cb8fba7032b06c4e29
+          GaugeText 10x27 text:#FFFFFF@18B+o#698E10
+          TouchBlock 252x42
+          Bar_L 3x26
+        LevelText 50x29 text:#FFFFFF@20B+o#372A1E
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    DropDownButton 75x80 021b91cf03044cc1b13654108b429f2c color:#FFFFFF/0%
+      DropDownIcon 20x32 2ecb7b134836429c8d75bdb9ebefe953 color:#F7F7F7/80%
+      RedDot 22x22 3af9b8375087419fb1b509de5060f6cf
+  DropdownItemGroup_Event 680x80 44b28e4d884f4757aa25604ebf3f09ec color:#000000/65%
+    ItemList 680x210
+      GetIngreSubsBtn 120x130
+        Icon 115x115 0c1f80c3c66045b688ef7bafcb9c324a
+        NameText 120x45 text:#FFFFFF@24B+o#36240B
+        RedDot 26x26 3af9b8375087419fb1b509de5060f6cf
+        Tooltip 280x115 277783e1ece94a31935d0d92b0f88768
+          SlotHolder 280x115
+            Slot1 60x60 b99392bee7fe4f9f8760b7fdb2418ff1
+              Count 46x33 text:#FFFFFF@22B+o#584225
+            Slot2 60x60 b99392bee7fe4f9f8760b7fdb2418ff1
+              Count 46x33 text:#FFFFFF@22B+o#584225
+            Slot3 60x60 b99392bee7fe4f9f8760b7fdb2418ff1
+              Count 46x33 text:#FFFFFF@22B+o#584225
+          MoveToShopBtn 280x80
+      VIPOrderBtn 120x130
+        Icon 105x105 6512629e3fbc41088846de3f41089cf7
+        NameText 120x45 text:#FFFFFF@28B+o#36240B
+        RedDot 26x26 3af9b8375087419fb1b509de5060f6cf
+    DropDownButton 75x80 021b91cf03044cc1b13654108b429f2c color:#FFFFFF/0%
+      DropDownIcon 20x32 2ecb7b134836429c8d75bdb9ebefe953 color:#F7F7F7/80%
+      RedDot 22x22 3af9b8375087419fb1b509de5060f6cf
+  KitchenAppNone 555x1015
+    Bg 500x610 24189221debc4b81a4f3d35e6606634a (Sliced) color:#FFFFFF/95%
+    Pattern 472x425 f8881ed3c005472a95134806d8852871 (Tiled) color:#FFFFFF/45%
+    Bottom 474x90 ee4fddbe1d8549ac9758c61cd47fb1e8 color:#D0CCC4
+    GuideBtn 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#B0AA9F
+      Icon 8x24 0423dcf92c594efc87944a00028c4ea2
+      TitleText 160x80 text:#FFFFFF@32B+o#403939
+    Name 340x60 text:#FFFFFF@30B+o#36240B
+    Desc 450x110 text:#36240B@26B
+    Tip 450x80 text:#FA5246@24
+    UISprite 120x88 5e266882caf64038a69144a0723796df text:#FFFFFF
+    CloseBtn 36x36 0c33c943f60b4c269d9b0130484f006c
+    UpgradeBtn 210x76 7c014c28f4284370b09fb493f8194202 (Sliced)
+      UIText 180x60 text:#FFFFFF@28B+o#B95B0C
+      Dim 210x76 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+  StoreInfoArea 620x500
+    InfoPanelBg 620x500
+      Page1 525x512 24189221debc4b81a4f3d35e6606634a (Sliced)
+        Pattern 500x416 f8881ed3c005472a95134806d8852871 (Tiled) color:#FFFFFF/45%
+        PageTitle_Sales 350x60
+          Deco 84x84 0fbc03837bc342a1ad9a0f3ac72668aa
+          UIText 375x60 text:#FFFFFF@30B+o#36240B
+        CategoryFinance 455x45 text:#36240B@26B
+        ItemMonthlySalesMoney 175x45 text:#419614@26B
+          Value 235x45 text:#419614@26B
+          Deco 28x28 39b416aad268424ebb36be810a477a9f
+          Sign 16x16 c6e810fc41704ad2b744b63c2f22c45a color:#3C8017 text:#0049FF@24
+        ItemMonthlyMaintenaceCost 175x45 text:#FA5246@26B
+          Value 235x45 text:#FA5246@26B
+          Deco 28x28 1f875329a23a44bf896c36e56a0f04a3
+          Sign 18x6 ae7cce9f299344c1ad5adab38b30e880 color:#FA5246 text:#0049FF@24
+        ItemMonthlyWage 195x45 text:#FA5246@24
+          Value 210x45 text:#FA5246@24
+          Deco 14x14 4920e8b7ee7643468a5807753bef00d3 color:#C2AD94
+        ItemMonthlyStoreManaging 195x45 text:#FA5246@24
+          Value 210x45 text:#FA5246@24
+          Deco 14x14 4920e8b7ee7643468a5807753bef00d3 color:#C2AD94
+        Tut_StoreInfoMaintenanace 471x95
+        CategorySales 455x45 text:#36240B@26B
+        ItemMonthlyCustomerCount 175x45 text:#62543E@26B
+          Value 235x45 text:#62543E@26B
+          Deco 18x18 4920e8b7ee7643468a5807753bef00d3 color:#C2AD94
+        ItemMonthlyBurgerCount 175x45 text:#62543E@26B
+          Value 235x45 text:#62543E@26B
+          Deco 18x18 4920e8b7ee7643468a5807753bef00d3 color:#C2AD94
+        PageCloseButton 36x36 0c33c943f60b4c269d9b0130484f006c
+        Bottom 500x90 ee4fddbe1d8549ac9758c61cd47fb1e8 color:#D0CCC4
+        DetailButton 210x76 7c014c28f4284370b09fb493f8194202 (Sliced)
+          DetailText 180x70 text:#FFFFFF@28B+o#B95B0C
+          DetailIcon 60x60 6683b715fd41404b8cd255013faf944e
+          WIP 100x100 text:#FF0000@50+o#000000
+        Line 468x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#C6BAAA
+      Page2 1200x512 24189221debc4b81a4f3d35e6606634a (Sliced)
+        Pattern 1060x328 f8881ed3c005472a95134806d8852871 (Tiled) color:#FFFFFF/30%
+        PageTitle_Recipe 700x60
+          Deco 84x84 a547b45fbdf640a3b59f125f40a2ac98
+          UIText 700x60 text:#FFFFFF@30B+o#36240B
+        TrendInfoText 300x60 text:#000000@30
+        MenuLayout 1200x295
+        PageCloseButton 36x36 0c33c943f60b4c269d9b0130484f006c
+        Bottom 1175x100 ee4fddbe1d8549ac9758c61cd47fb1e8 color:#E8E5DE
+        TrendInfoBar 900x70
+          PositiveTrendInfo 400x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#D0C7B6
+            Icon 48x48 33f4a4d126d64ae1ba05a77b4d714a1e (Sliced)
+            NoTrendText 162x54 text:#6E6458@26B
+            UIText 165x50 text:#FFFFFF@24B+o#72634B
+            ValidTrend 395x54
+              RecipeTag 144x44 fcc3dfb6b07f4159a11e3a145062d27c (Sliced)
+                TagIcon 32x32 66302220bfdf489ab2d77ecf90246212 (Sliced)
+                TagText 124x34 text:#FFFFFF@24B+o#B2B2B2
+          NegativeTrendInfo 400x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#D0C7B6
+            Icon 48x48 df1904cc7947484690e4a303a2faa803 (Sliced)
+            UIText 165x50 text:#FFFFFF@24B+o#72634B
+            NoTrendText 162x54 text:#6E6458@26B
+            ValidTrend 395x54
+              RecipeTag 144x44 fcc3dfb6b07f4159a11e3a145062d27c (Sliced)
+                TagIcon 32x32 66302220bfdf489ab2d77ecf90246212 (Sliced)
+                TagText 124x34 text:#FFFFFF@24B+o#B2B2B2
+        DetailButton 230x78 7c014c28f4284370b09fb493f8194202 (Sliced)
+          DetailText 180x70 text:#FFFFFF@32B+o#B95B0C
+          DetailIcon 60x60 6683b715fd41404b8cd255013faf944e
+          Dim 230x78 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+      Page3 975x512 24189221debc4b81a4f3d35e6606634a (Sliced)
+        Pattern 950x417 f8881ed3c005472a95134806d8852871 (Tiled) color:#FFFFFF/45%
+        PageTitle_Log 700x60
+          Deco 84x84 90925ea65bd84889b945b4273fd88121
+          UIText 700x60 text:#FFFFFF@30B+o#36240B
+        PageLayout 970x417
+        PageCloseButton 36x36 0c33c943f60b4c269d9b0130484f006c
+      Page4 975x512 24189221debc4b81a4f3d35e6606634a (Sliced)
+        Pattern 950x417 f8881ed3c005472a95134806d8852871 (Tiled) color:#FFFFFF/45%
+        PageTitle_ToDo 700x60
+          Deco 84x84 7c5551aa78704330b94b940c14d13960
+          UIText 700x60 text:#FFFFFF@30B+o#36240B
+        PageLayout 970x417
+        PageCloseButton 36x36 0c33c943f60b4c269d9b0130484f006c
+      ReportOrigin 930x93 69113f034b954541971ad6b2f8348857 text:#62543E@26
+  StoreInfoTabBg 120x520
+    Monthly 256x84 f9e454b0ae294220ac048d2ea7e66f63
+      Title 270x50 text:#FFFFFF@26B+o#36240B
+      Record 193x38 text:#36240B@26B
+        Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      Best 90x42 04867236731d46d7944549a42fd96f79
+    Tab1Button 120x120
+      OnDeco 152x152 7c5861fd54fd4abda6b1701b377c531f
+      TabOff 120x120 181348a4e80c49c09670edd42fda7a50 color:#FFFFFF/90%
+      Icon 104x104 588d958fa8c94421a33194a9f9cb8b75
+      TabOn 60x52 cf274751032e4e60bfa5b5a32e1ee089
+      UIText 130x60 text:#FFFFFF@28B+o#36240B+s#36240B
+    Tab2Button 120x120
+      OnDeco 152x152 7c5861fd54fd4abda6b1701b377c531f
+      TabOff 120x120 181348a4e80c49c09670edd42fda7a50 color:#FFFFFF/0%
+      Icon 104x104 33483f271ddc40428d2ef6a019ffe597
+      TabOn 60x52 cf274751032e4e60bfa5b5a32e1ee089
+      UIText 130x60 text:#FFFFFF@28B+o#36240B+s#36240B
+    Tab3Button 120x120
+      OnDeco 152x152 7c5861fd54fd4abda6b1701b377c531f
+      TabOff 120x120 181348a4e80c49c09670edd42fda7a50 color:#FFFFFF/0%
+      Icon 104x104 035dabf019c84a519a1e28148597bb44
+      TabOn 60x52 cf274751032e4e60bfa5b5a32e1ee089
+      UIText 130x60 text:#FFFFFF@28B+o#36240B+s#36240B
+    Tab4Button 120x120
+      OnDeco 152x152 7c5861fd54fd4abda6b1701b377c531f
+      TabOff 120x120 181348a4e80c49c09670edd42fda7a50 color:#FFFFFF/0%
+      Icon 104x104 8b04e06470b645c5876170f69236e3cf
+      TabOn 60x52 cf274751032e4e60bfa5b5a32e1ee089
+      UIText 130x60 text:#FFFFFF@28B+o#36240B+s#36240B
+      RedDot 30x30 3af9b8375087419fb1b509de5060f6cf
+  StartDayToast 2520x1680 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+    BG 1000x200 2c9042cee22e40738fb3ea7a915a77a0 (Sliced)
+      Deco 200x200 61aa92b6616d498bbd95b4a2fcb3437f color:#FFFFFF/95%
+      TitleText 439x100 text:#FFFFFF@32B+o#492302+s#492302
+      Icon 72x100 8e1eb908084c4b54bd8cdc0a06a9092c
+      DayText 1000x100 text:#FFFFFF@40B+o#492302+s#492302
+  MainMenuPanel 1920x1080
+    Dim 2720x1880
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    LeftDownButtonBg 220x360 eb25237c9c3d2f642a84bfb3c0cfd830 color:#FFFFFF/0%
+    Menu_TutorialGuide 120x120 c9ab80da5d534e9fa6a0ab5998201f7a (Sliced) color:#FFFFFF/0%
+      Icon 88x68 e13c139799eb46959a197bd14c6ba272
+      TitleText 135x65 text:#FFFFFF@24B+o#6D4D14
+    Menu_TitleScreen 120x120 c9ab80da5d534e9fa6a0ab5998201f7a (Sliced) color:#FFFFFF/0%
+      Icon 120x100 3b13497b7411415687daf5a89e9b7060
+      TitleText1 170x90 text:#FFFFFF@28B+o#36240B
+      TitleText2 110x50 text:#FFFFFF@24B+o#746854
+      WIP 100x100 text:#FF0000@50+o#000000
+    UIMainMenu 1920x1080 5ea25ac422394609b28b38fbe752fe5a color:#FFFFFF/0%
+      Line 1120x7 2f3997a6e57b4a14b1e0c22d48928a63 (Sliced)
+      TitleDeco 200x96 1c8784bd982b4d93a0d53dc0b082434a
+      MainMenuTitle 286x53 7794b2d35bcc41d495c29deb4738e5fb color:#FFFFFF/0% text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+      BackToLobbyBtn 72x100 8e1eb908084c4b54bd8cdc0a06a9092c
+        Text 150x65 text:#FFFFFF@28B+o#6D4D14
+      MainMenuContents 1920x1080
+        MainMenuTitle_Group1 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c text:#FFFFFF@40B+o#36240B+s#36240B
+          Deco 370x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          CategoryText 408x50 text:#FFFFFF@34B+o#4A310E+s#4A310E
+          MainMenuContents_Group1 420x355
+            Menu_Management 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 a06f3afae3a84725b8e752edbb43fab9
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Rank 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 0746afe7dfac4208a7c9564447d1ca1f
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_ShopInfo 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 18d06cd0327a4877ab8ed6058d55d5e5
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Achievement 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 713a5206d25045d397e91109fcaf9ec7
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        MainMenuTitle_Group2 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c text:#8B2E25@30B+o#FFFFFF
+          Deco 388x358 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          CategoryText 408x50 text:#FFFFFF@34B+o#4A310E+s#4A310E
+          MainMenuContents_Group1 420x355
+            Menu_Upgrade 150x150 3002f830425f4a08a49d5f90b287eaac (Sliced) color:#FFFFFF/0%
+              Icon 115x115 e7d72d5dec0740f5a002a01639a9f6a0
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_EmployeeManage 150x150 3002f830425f4a08a49d5f90b287eaac (Sliced) color:#FFFFFF/0%
+              Icon 115x115 53e4db2ca91c4b788c41544c4ce6913a
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Recipe 150x150 3002f830425f4a08a49d5f90b287eaac (Sliced) color:#FFFFFF/0%
+              Icon 115x115 5c6a284c715e454686aca1f927c98f3b
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_VipOrder 150x150 3002f830425f4a08a49d5f90b287eaac (Sliced) color:#FFFFFF/0%
+              Icon 115x115 6512629e3fbc41088846de3f41089cf7
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              CloseToEndText 153x66 7118dda5ec1f4b778d976ee225a8c6d2 text:#FFFFFF@24B+o#6D4D14
+                Tip 30x30 4f1c24cd50fa4c8098b44bfb911a6130
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        MainMenuTitle_Group3 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c text:#456781@30B+o#FFFFFF
+          Deco 370x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          CategoryText 408x50 text:#FFFFFF@34B+o#36240B+s#36240B
+          MainMenuContents_Group3 420x355
+            Menu_Trial 150x150 d4f8d8d2e3d047729b769cbbd8616077 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 c2148eb14f844cae83c6d772ea5abe57
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Employment 150x150 d4f8d8d2e3d047729b769cbbd8616077 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 571e50b921974a0c9fcd7d004f67b6f2
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_IngreGacha 150x150 d4f8d8d2e3d047729b769cbbd8616077 (Sliced) color:#FFFFFF/0%
+              Icon 110x110 50ef6e329c054d578a89dfd2e9fb8633
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Shop 150x150 d4f8d8d2e3d047729b769cbbd8616077 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 ed136e5692364d31b2af2c65c2d941cf
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        MainMenuTitle_Group4 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c text:#4C5E22@30B+o#FFFFFF
+          MainMenuContents_Group4 420x355
+            Deco 370x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+            CategoryText 408x50 text:#FFFFFF@34B+o#36240B+s#36240B
+            TrainingGauge 250x70
+              GaugeBg 200x32 bad929e2e53e44b88e741e92723590b8 (Sliced)
+                Gauge 200x32 0078192ecde6496ea86f6980f69961a3 (Sliced) FillRectImageRUID:0078192ecde6496ea86f6980f69961a3
+                GaugeText 135x40 text:#FFFFFF@26B+o#698E10
+                TouchBlock 252x42
+              Icon 50x50 bd7ed10738124fe592de0e62400bd26d (Sliced)
+              TimerBg 130x50 528f6c23a13e45aebf6e1a0cbf927132 color:#FFFFFF/90%
+                TimerText 80x30 text:#72634B@24B+o#FFFFFF
+              Btn_Guide 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#BFA073
+                UISprite 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FEF1D4
+            Menu_Training 150x150 f76b7e3c740b46c7b681da302a6fa54b (Sliced) color:#FFFFFF/0%
+              Icon 115x115 0d32289149c744c0b09c875fa9afa07f
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_TrainingAuto 150x150
+              Icon 115x115 c2338e5dc79c4da59924e9a1421c4b35
+                Plus 44x44 c6e810fc41704ad2b744b63c2f22c45a color:#E6FDA7
+                Portrait 75x75 762ea0da146740588fed4a1345332912
+                Timer 160x60 text:#FFFFFF@30B+o#36240B
+                Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+            TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+        MainMenuTitle_Group5 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c
+          Deco 370x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          CategoryText 408x50 text:#FFFFFF@34B+o#4A310E+s#4A310E
+          MainMenuContents_Group5 420x355
+            Menu_StageInfo 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 dd077610fd64433192c7773205e01f7f
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_Badge 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 a4cf63fe1f2d4a14826f60ceafb7a44d
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_IngreBunCollection 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 8b87c4131d82406ebee244021c1a915f
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+            Menu_ChuchuCollection 150x150 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+              Icon 115x115 9c64038a4b3d41959eabe8badf682184
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        MainMenuTitle_Group6 420x390 eef5f9adbd0245ed8a1a738ba5c7d28c text:#456781@30B+o#FFFFFF
+          Deco 370x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          CategoryText_1 408x50 text:#FFFFFF@34B+o#36240B+s#36240B
+          MainMenuContents_Group6 420x355
+            Menu_Exchange 150x150
+              Icon 115x115 83bdb483cf7247c9a41d666d951b58f4
+              TitleText 160x70 text:#FFFFFF@26B+o#6D4D14
+              RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            Menu_IngreSynth 150x150
+              Icon 115x115 7148b011f07d4466b39996a972de8da4
+              UIText 160x70 text:#FFFFFF@26B+o#6D4D14
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        MailBoxButton 120x120
+          Icon 70x70 e3df0d2a781941e09cf61e67f914b3c7
+          NameText 130x65 text:#FFFFFF@24B+o#6D4D14
+          RedDot 26x26 3af9b8375087419fb1b509de5060f6cf
+        DiscordButton 120x120
+          Icon 80x80 d1f17dbe2e7642d88e65888725f17b1a
+          NameText 130x65 text:#FFFFFF@24B+o#6D4D14
+          RedDot 26x26 3af9b8375087419fb1b509de5060f6cf
+        ForumButton 120x120
+          Icon 80x80 b1cb2b89cad745fa80c10dfd990578bf
+          NameText 130x65 text:#FFFFFF@24B+o#6D4D14
+          RedDot 26x26 3af9b8375087419fb1b509de5060f6cf
+        Menu_StageSelect 72x100 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+          Icon 100x100 847519b1eb304f259e41708bba677c8e
+          TitleText 150x65 text:#FFFFFF@28B+o#6D4D14
+          Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Menu_SpecialShop 72x100 4bb584fcade34125a388f136a98459d3 (Sliced) color:#FFFFFF/0%
+          Icon 110x110 1c864bec5fbd4997930910a6edaffffe
+          TitleText 150x65 text:#FFFFFF@28B+o#6D4D14
+          Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    ToDoInfoMenuPanel 1090x70
+      Arrow 48x44 77e33cbeea704bf6a5e8165aaf4aa137
+      Title 135x75 text:#FFFFFF@26B+o#7F5D28
+      Text 797x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F0BF64/75% text:#FFFFFF@24B+o#AF7E28
+      Icon 64x64
+  ReportBtnParent 1920x1080
+  StartStageToast 742x335
+    Particle 100x100
+    BG 1000x250 2c9042cee22e40738fb3ea7a915a77a0 (Sliced)
+    Blur 350x350 6e899a6478b84758b6c1ba2f89da835c color:#FFFAE6/60%
+    IconHolder 200x200 37da3ca1a2e14cae832c03ccec65a094 color:#FFFFFF/0%
+      Icon 160x160
+    Name 430x53 text:#FFFFFF@36B+o#492302+s#492302
+    TouchProtect 2520x1680
+  UIGetOfflineRewardPopup 2520x1680
+    BG 810x860 517f55caf96c456b9b66d03c8ac14565
+    Color 795x630
+      Grid 795x630 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+    Line_Top 795x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#DACBA9
+    Line_Bottom 795x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#DACBA9
+    Deco_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+    Deco_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+    TitleText 540x70 text:#FFFFFF@36B+o#9C7B48
+    InfoText1 700x50 text:#715A3F@24
+    InfoText2 700x50 text:#AF8A5F@24
+    Area 690x325 d6d1c1080cb742529c3e209d1b937e90 color:#F3E2C0
+      MiddleBar 690x80
+      TopBar 690x90 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#E3CA9C
+      MoneyDeco 200x200 7c5861fd54fd4abda6b1701b377c531f
+        1 16x16 4920e8b7ee7643468a5807753bef00d3 color:#AED806
+        2 12x12 4920e8b7ee7643468a5807753bef00d3 color:#9CD685
+        3 10x10 4920e8b7ee7643468a5807753bef00d3 color:#61B93E
+      MoneySprite 152x152 70b0cb9789044a9f9df0e55dd1ad9cc2
+      ClearedStageList 660x65
+        ClearedStageSlot 60x60 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E6CEA2
+          StageIconSprite 50x50 5c9a4b3734bd472fb065ac118f10b59e
+        ClearedStageSlot_1 60x60 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E6CEA2
+          StageIconSprite 46x46 5c9a4b3734bd472fb065ac118f10b59e
+        ClearedStageSlot_2 60x60 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E6CEA2
+          StageIconSprite 46x46 5c9a4b3734bd472fb065ac118f10b59e
+        ClearedStageSlot_2_1 60x60 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E6CEA2
+          StageIconSprite 46x46 5c9a4b3734bd472fb065ac118f10b59e
+      EmployeeSprite2 90x90 f6616f8f8da74218aaf4948bace9013c
+      EmployeeSprite1 90x90 f6616f8f8da74218aaf4948bace9013c
+      CommentText 436x76 7118dda5ec1f4b778d976ee225a8c6d2 text:#795A37@24B
+        Tip 20x20 4f1c24cd50fa4c8098b44bfb911a6130
+      RewardMoney 325x60
+        RewardMoneyText 150x38 text:#FFF728@26B+o#6C3E02
+          IconSprite 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      BonusTitle 312x33 text:#FFFFFF@22B+o#715A3F
+        BonusText 252x33 text:#FFF728@22B+o#715A3F
+    TimeSlider 664x26 bb82fbed1f43432d9ce156f8524d93f1 FillRectImageRUID:bcf6996ba2b34dc1a2b3579cb4d4cc58
+      RewardTimeText 117x38 text:#FFFFFF@26B+o#516609
+    TimeLimit 680x45
+      IconSprite 24x32 7209ecd7b44845fb9aaea412c81cfba4 color:#634623
+      TimeLimitTitleText 282x45 text:#634623@26B
+      TimeLimitValueText 365x45 text:#634623@26B
+    GetRewardButton 260x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@32B+o#AF7016

@@ -1,0 +1,59 @@
+# BadgeGroup — 57 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Panel
+UIR_CuteCasual_Sample_BadgeGroup 1920x1080
+  Dim 2520x1680
+  Panel 1050x910 b72a08f5f8204035b120d26f40321e57
+    Tabs 1050x910
+      UITab1 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 163x92 189b591b4e694a25a57e7d68aa7e1be1 (Sliced)
+        UISpriteIcon 70x70 8b87c4131d82406ebee244021c1a915f
+        UITextDesc 125x85 text:#5B483C@28B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITab2 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 224x92 4043c56d30de408cb46d83c6eaee1991 (Sliced)
+        UISpriteIcon 72x72 a4cf63fe1f2d4a14826f60ceafb7a44d
+        UITextDesc 125x85 text:#FFFFFF@28B+o#936502
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+    Title 650x70 text:#FFFFFF@38B+o#64492E+s#64492E
+      HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        Icon 110x110
+    BadgeList 980x700 6d025e5609c2430b837b7662689fe0fc (Sliced) color:#EBE4D6
+      BadgeSlotSample 930x175 12c68dd021444b619b9fbb28e9ae1cbe
+        Icon 105x105 fbe49f2c7d19448bbdb185132da51afc
+        Grade 180x42 1983503487974a1ebc54df681436fbda color:#5F48D9 text:#FFFFFF@22B
+          Star 20x20 9c9fbd5210b54202867284a78b221f0b
+        Name 745x45 text:#FFFFFF@26B+o#735747
+        Desc 730x50 text:#806A5D@26B
+        ProgressSlider 420x34 34e86e4450634bf8a0d8fe2fbe00caa8 (Sliced) FillRectImageRUID:c585cd5d34754ce79d9b253cfdff22ac
+          ProgressText 395x40 text:#FFFFFF@26B+o#577B02
+    ProgressBar 625x60
+      Title 185x80 text:#FFFFFF@28B+o#35470D
+      Icon 52x52 a4cf63fe1f2d4a14826f60ceafb7a44d
+      ProgressSlider 290x36 bad929e2e53e44b88e741e92723590b8 (Sliced) FillRectImageRUID:0078192ecde6496ea86f6980f69961a3
+        ProgressText 250x50 text:#FFFFFF@26B+o#577B02
+      PercentText 90x60 text:#FFFFFF@30B+o#35470D+s#35470D
+    FilterSortBar 320x50
+      FilterBtn 320x48 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#D5C8B0
+        Icon 24x24 f3ccce2392be4824a66f9ba6884d3487 color:#9E896E
+        NowFilter 220x50 text:#FFFFFF@26B+o#8A7357
+        OpenIcon 20x28 c550cadddaa0410ca2c86290e05bf95c color:#9E896E
+        FilterSelectArea 230x325 03d991db79bf4348b001270d5d8b6b82
+          Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+          9 219x74 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+            BG 219x74 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+            Text 219x74 text:#72634B@24B+o#FFFFFF
+          Line 195x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+          0 219x70 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+            BG 219x70
+            Text 219x70 text:#72634B@24B+o#FFFFFF
+          Line 195x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+          1 219x70 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+            BG 219x68
+            Text 219x70 text:#72634B@24B+o#FFFFFF
+          Line 195x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+          2 219x74 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+            BG 219x74 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+            Text 219x70 text:#72634B@24B+o#FFFFFF
+    EmptyText 980x700 text:#806A5D@28B

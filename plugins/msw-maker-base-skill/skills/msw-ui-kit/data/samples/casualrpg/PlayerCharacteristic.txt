@@ -1,0 +1,139 @@
+# PlayerCharacteristic — 137 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg, MainPanel, CharacteristicCoinReset, SelectPopUp
+UIR_CasualRPG_Sample_PlayerCharacteristic 1920x1080
+  Bg 7920x7080
+  MainPanel 1706x874 f47ee45115114234bd8a140b5d02729c
+    Line_1 117x744 49385274eabe48c49fc357c99547d7e0
+    Top 1666x84
+      Title 1666x84 text:#7DB3FC@28
+      CloseButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+    Background 1706x874 785cacd8c36b4e1bb9040df26683f949 (Sliced) color:#FFFFFF/0%
+      CharacteristicCoin 200x40 60447bb7562d471ea29963eed6a0454c (Sliced) text:#FFFFFF@24
+        Icon 30x30 acbc2a04e46845f8b5b52aa4ff5704e4
+        Btn_Info_1 200x40
+        Icon_Info_1 22x22 052e86fae1b14ed88e70599c739a9224
+    CategoryPanel 1140x700 788439cb3ad94c41b0ade30f989a3b2d
+      Button_PetType 200x660 52849ae90e6e4aa392d5cf856f5e359c
+        PetType 200x541 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Slot_1 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 32773813706f430db7bc9cb14e30480a
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_2 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 6cad8831ac144e2c88aa76e5d9d95942
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/80%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+        Cover 200x121 9ff12837c41a4eff9c5331412caa3a57
+          Text_Category 160x100 text:#899BBF@24
+        Title 215x77 text:#D4D4D4@32
+      Button_WeaponType 200x660 52849ae90e6e4aa392d5cf856f5e359c
+        Cover_1 200x121 9ff12837c41a4eff9c5331412caa3a57
+          Text_Category 160x100 text:#899BBF@24
+        WeaponType 200x541 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Slot_1 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 8a89eee4b5ee41b7890e3a8b9c4e4b4a
+            Count 83x50 9f591a9cdc3149859c8c91c3fdea6f80 text:#FFFFFF@32B+o#000000
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_2 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 3379ace452914603bd333b90e3714f17
+            Count_1_7 83x50 9f591a9cdc3149859c8c91c3fdea6f80 text:#FFFFFF@32B+o#000000
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_3 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 a44d20d4666d45afbcc4967f7bc830e2
+            Count_1 83x50 9f591a9cdc3149859c8c91c3fdea6f80 text:#FFFFFF@32B+o#000000
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+        Title 215x77 text:#D4D4D4@32
+      Button_LaboratoryType 200x660 52849ae90e6e4aa392d5cf856f5e359c
+        Cover_2 200x121 9ff12837c41a4eff9c5331412caa3a57
+          Text_Category 160x100 text:#899BBF@24
+        LaboratoryType 200x541 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Slot_1 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 39df9830d42c4bc0b6d5984ceb0e393b
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_2 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 b9b6daa2479c453aa0ff627b03c2c3aa
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_3 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 9485a91e94864c7cb4f74588653ea12c
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+        Title 215x77 text:#D4D4D4@32
+      Button_PhysicsType 200x660 52849ae90e6e4aa392d5cf856f5e359c
+        Cover_3 200x121 9ff12837c41a4eff9c5331412caa3a57
+          Text_Category_4 160x100 text:#899BBF@24
+        PhysicsType 200x541 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Slot_1 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 ffa35056d0e24c48a3a342bc7193e221
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_2 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 ab1c5650d3074d43b5ae2d94fadec43a
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_3 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 b0e74e62aa984ae387ed3882bb7a7d82
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_4 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 70880f8842d541db9eb7b7c4c78b49a7
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+        Title 215x77 text:#D4D4D4@32
+      Button_RelicType 200x660 52849ae90e6e4aa392d5cf856f5e359c
+        Cover_4 200x121 9ff12837c41a4eff9c5331412caa3a57
+          Text_Category 160x100 text:#899BBF@24
+        RelicType 200x541 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Slot_1 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 281cbf3935fd45519042b79051d7f3b8
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_2 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 6c31b65dfdfd4dff81df9606b5241473
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+          Slot_3 150x150 affef48538564b6f9c55695a6096a0dd
+            Icon 130x130 c86d2cbeb0134c59b343f48e384cb083
+            Count 60x32 text:#2900FF
+            Cover 150x150 eb122a1efc00481c86efe2696d20771a color:#000000/70%
+              Icon 34x43 b754262471af48769ea7fd3e1cd2a76a
+        Title 215x77 text:#D4D4D4@32
+    Right_Panel 426x700 788439cb3ad94c41b0ade30f989a3b2d
+    Empty 426x700 text:#899BBF@24
+    DescPanel 426x700
+      IconPanel 130x130 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#2A2C2F
+        Icon 130x130
+      Desc 386x269 60447bb7562d471ea29963eed6a0454c (Sliced) text:#899BBF@24
+      LearnPanel 378x53 5a990aca536417e40bb5e01452fe374e color:#222630
+        Icon 40x40 acbc2a04e46845f8b5b52aa4ff5704e4
+        Count 308x53 text:#FFFFFF@24
+        LearnButton 380x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Name 386x74 60447bb7562d471ea29963eed6a0454c (Sliced) text:#FFFFFF@24
+  CharacteristicCoinReset 257x64 c7b38a460c434e0aa6901e187062ff10 (Sliced)
+    ResetText 257x64 text:#FFFFFF@24B+o#53596B/50%
+    Icon_Reset 28x24 92394a8a87d047bba1f4d48141274309
+    ResetIcon 40x40 cba4f8c4a4104443862d7db244848cf4
+      ResetPrice 157x30 text:#FFFFFF@24B+o#53596B/50%
+  SelectPopUp 7920x7080
+    PopupPanel_1 1056x624 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Deco_2_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Deco_1_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Title 1016x80 text:#7DB3FC@28
+      Text 920x290 text:#DFE6F6@24
+      Ok 328x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      No 328x90 ab05ba935aeb49448a9dda69998e20fa text:#FFFFFF@24B+o#416CB9

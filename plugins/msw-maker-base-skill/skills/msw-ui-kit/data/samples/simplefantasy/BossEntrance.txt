@@ -1,0 +1,116 @@
+# BossEntrance — 114 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout_BossSelect
+UIR_SimpleFantasy_Sample_BossEntrance 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Layout_BossSelect 1860x925
+    BossSelect 630x925 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#1F2734/70%
+      Scroll_BossList 630x925
+        Item_BossSelect 626x148
+          Img_NoneSelect 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced)
+          Img_Select 626x148 17cc9c3e65ab404dbfd4918befec018c (Sliced)
+          Img_Complete 80x80 65289ae489cd4dfca1be0ba562054b17
+          Img_Boss 168x120 b55756d7f0964490866bd27ffe700e5e
+          Text_BossName 91x44 text:#EEEDE8@30B
+          Text_BossName_Select 91x44 text:#565656@30B
+          Text_WeeklyCount 215x38 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#3D4963/70% text:#C9C8C2@24
+          Text_WeeklyCount_Select 215x38 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#D8D7D1/70% text:#727272@24
+          Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Img_Lock 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced) color:#000000/40%
+            Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+        Item_BossSelect_1 626x148
+          Img_NoneSelect 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced)
+          Img_Select 626x148 17cc9c3e65ab404dbfd4918befec018c (Sliced)
+          Img_Complete 80x80 65289ae489cd4dfca1be0ba562054b17
+          Img_Boss 168x120 b55756d7f0964490866bd27ffe700e5e
+          Text_BossName 84x35 text:#EEEDE8@30B
+          Text_BossName_Select 91x44 text:#565656@30B
+          Text_WeeklyCount 187x30 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#3D4963/70% text:#C9C8C2@24
+          Text_WeeklyCount_Select 215x38 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#D8D7D1/70% text:#727272@24
+          Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Img_Lock 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced) color:#000000/40%
+            Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+        Item_BossSelect_2 626x148
+          Img_NoneSelect 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced)
+          Img_Select 626x148 17cc9c3e65ab404dbfd4918befec018c (Sliced)
+          Img_Complete 80x80 65289ae489cd4dfca1be0ba562054b17
+          Img_Boss 168x120 b55756d7f0964490866bd27ffe700e5e
+          Text_BossName 91x44 text:#EEEDE8@30B
+          Text_BossName_Select 84x35 text:#565656@30B
+          Text_WeeklyCount 215x38 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#3D4963/70% text:#C9C8C2@24
+          Text_WeeklyCount_Select 183x38 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#D8D7D1/70% text:#727272@24
+          Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Img_Lock 626x148 1a30dc3b686a446a8d3c353ea55e6064 (Sliced) color:#000000/40%
+            Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+    BossInfo 1210x925 e33e34fcc7da4705b7228cdce486d477
+      BossInfo 1178x713
+        Mask_Boss 1178x713
+          Img_Boss 1178x713
+          DiaPattern1 336x352 c82192b1a89049b2a50c83592d84b448 color:#FFFFFF/20%
+          DiaPattern2 336x352 c82192b1a89049b2a50c83592d84b448 color:#FFFFFF/20%
+          Img_Line 1162x697 bb85cc236c9e48d9965478a750f52502 color:#FFFFFF/35%
+        Text_BossName 292x94 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#FF7EF8/34% text:#FFFFFF@50B
+        Btn_BossDetail 88x88 60b3dacf1291422a91897d49422ae16f (Sliced)
+          Img_BossDetail 52x52 6e15e0bad96c46c98e46b1715b6abe08
+        Scroll_Diff 300x550
+          Item_DiffEasy 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced)
+            Text_Diff 62x36 text:#FFFFFF@24B
+            Img_LockBG 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#000000/50%
+              Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+            Img_Select 226x108 1f08c23598f04b2ab479c025ed4af1fd (Sliced)
+            Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Item_DiffNormal 204x88 afa28786b49c4d17850eff171e1b211a (Sliced)
+            Text_Diff 108x36 text:#FFFFFF@24B
+            Img_LockBG 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#000000/50%
+              Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+            Img_Select 226x108 1f08c23598f04b2ab479c025ed4af1fd (Sliced)
+            Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Item_DiffHard 204x88 d583d93f095148868a52da1cd4a932b9 (Sliced)
+            Text_Diff 70x36 text:#FFFFFF@24B
+            Img_LockBG 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#000000/50%
+              Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+            Img_Select 226x108 1f08c23598f04b2ab479c025ed4af1fd (Sliced)
+            Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Item_DiffChaos 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#808080
+            Text_Diff 88x36 text:#FFFFFF@24B
+            Img_LockBG 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#000000/50%
+              Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+            Img_Select 226x108 1f08c23598f04b2ab479c025ed4af1fd (Sliced)
+            Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+          Item_DiffExtreme 204x88 d583d93f095148868a52da1cd4a932b9 (Sliced) color:#804040
+            Text_Diff 118x36 text:#FFFFFF@24B
+            Img_LockBG 204x88 d3c485285afd4d8b9b2c0cbbfd8bd88c (Sliced) color:#000000/50%
+              Img_LockIcon 28x36 421dc3606d764fa7a08d963687535f99
+            Img_Select 226x108 1f08c23598f04b2ab479c025ed4af1fd (Sliced)
+            Img_RedDot 20x20 5206778466fe4ccd94696968848766bc color:#E55032
+        BossUnlock_Alart 493x60 e385d19a080e405a8e9e96972954e9d9 (Sliced) color:#D66846 text:#FFFFFF@24B
+          Img_Tail 16x12 7b1cb775aa304924826969e78cc2a3d6 color:#D66846
+          Icon_Alert_White 28x28 f47306336ded4c5d8842a9a63abbe92e
+        Text_NeedLevel 381x42 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/30% text:#EEEDE8@24B
+          Icon_Level 22x22 ffac0cb81fc14860aede1243354df10d
+        Text_NeedChar 342x42 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/30% text:#EEEDE8@24B
+          Icon_Char 36x36 d914664c1e0c40568cca756db84d8fca
+        Text_NeedPower 425x42 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/30% text:#EEEDE8@24B
+          Img_Power 20x32 3119d2807ea7466e8e9056d0590a35cc
+      BossInfo2 1210x197
+        ClearReward 350x180
+          Text_RewardTitle 137x30 text:#A9947B@20B
+            Img_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+            Img_Dot_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+          Slot 100x100
+          Text_ClearReward 175x32 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#CEC4B5 text:#757474@26B
+          Btn_Receive 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B
+            Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+          Line 3x200 b0faab8f23db44bf9c706f0de6d6be10 (Sliced) color:#A9947B
+        Text_RewardTitle 80x30 text:#A9947B@20B
+          Img_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+          Img_Dot_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+        Scroll_Reward 495x120
+        Btn_Entrance 320x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22
+          Text_Start 120x38 text:#FFFFFF@26B
+          Require 124x32 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#3D4A66
+            Img 36x36 5e4e7ab1499c4abca06f094c46e3b1a0
+            Text_Price 80x40 text:#FFFFFF@22B
+          Dim 320x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#000000/50%
+        Text_ChargingTime 300x60 e385d19a080e405a8e9e96972954e9d9 (Sliced) color:#F9F79B text:#494B3F@23
+          Img_Tail 16x12 7b1cb775aa304924826969e78cc2a3d6 color:#F9F79B
+      Img_BgCoverLine 1210x925 e476fa5edda3454d9096c3691783bccd (Sliced)

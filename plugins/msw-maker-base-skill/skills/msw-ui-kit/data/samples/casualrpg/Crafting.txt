@@ -1,0 +1,166 @@
+# Crafting — 164 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg_1, CraftingPopup, Result_Crafting
+UIR_CasualRPG_Sample_Crafting 1920x1080
+  Bg_1 7920x7080
+  CraftingPopup 1706x874 f47ee45115114234bd8a140b5d02729c
+    Panel_Title 1666x84 text:#7DB3FC@28
+      Panel_Help 61x61 0ea6543c431b35d479aacf745a513ebb color:#000000/50%
+        Icon 31x31 ddb97d3e2544ae948b5b24752a0c750b color:#899BBF
+    Bg_Line_01 1390x2
+      Bg 437x653
+      Bg_Line_02 1390x2
+      Bg_Line_02 740x3
+      Bg_Line_03 654x3
+    Button_CraftingClose 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+    CategoryPanel_1 265x739
+      Button_CategoryOriginal_Acc 263x110 994e2ad676fe4b4c9782186b06f02a4a (Sliced)
+        Text 152x80 text:#FFFFFF@24+o#000000/20%
+        Icon 68x68 0c7ad746be6d4b468b9ce61f44dfc5c4
+        Dot 25x28 e1005c6204da49428aab3cca2cb982ee color:#000000/80%
+    TypeList 1386x90 eb25237c9c3d2f642a84bfb3c0cfd830 color:#FFFFFF/0%
+      Button_Type 209x86 a98b037c6b0f45288ce63cb8414b83b5 (Sliced) color:#FFFFFF/50% text:#FFFFFF@24+o#000000/20%
+    ResultItemList 439x658
+      Slot_ResultItemOriginal 408x127 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+        Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item_Icon 68x68 10d6c81b682f4742891f88eb8eed61f8
+          Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+            Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 100x100 text:#FFFFFF@18B+o#000000/50%
+          EnableCrafting_Tag 271x33 bcab1970515a4f1cb77c697e40389490 text:#4D7732@20+s#F0FF70/32%
+          SelectedOutline 420x137 02ba8404a6f547b4a233ac4e08eb7666
+        Name_ResultItem 287x69 text:#FFFFFF@24
+    SelectedItemPanel 421x471 061a2d01294149b8b7cf064c5f573fd4
+      Img_Acc 26x33 6aae17832b3443528c741f73f58e8bd0
+      Item_Info 421x471
+        Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item_Icon 68x68 10d6c81b682f4742891f88eb8eed61f8
+          Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+            Category_Icon 32x32 0c7ad746be6d4b468b9ce61f44dfc5c4
+          LevelPanel 100x100
+            LevelText 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+        Text_Item 421x100
+          Item_Desc_Short 100x45 text:#FFFFFF@20
+          Item_Name 233x36 text:#FFFFFF@24
+        Item_Sort 250x45 text:#A0ACCA@20
+        Text_Panel 420x229
+          Item_Desc_Long 420x229 text:#FFFFFF@24
+        Img_Frame 440x494 9ef2e01e074241c6bb5f4826f442d3db
+    Bg_MaterialItemList 446x493 289a4b803af24fffb32b2e421c629e4e
+    MaterialItemList 446x462 289a4b803af24fffb32b2e421c629e4e
+      Slot_MaterialItemOriginal 408x127 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+        Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item_Icon 68x68 53bce023c85e49cb9f3d20175be638d4
+          Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+            Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 100x100 text:#FFFFFF@18B+o#000000/50%
+        Count_MaterialItem 270x43 eb8af7b5d2a74a53acf558b635062a09 text:#FFFFFF@24
+        Name_MaterialItem 294x59 text:#FFFFFF@24
+    Deco_Scroll_Dark_1 1391x44 bdfa2e8232bf4f6b9306ad7d8bedab0a
+    Button_DoCraft 243x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#5F9A3C
+    ButtonPanel 626x100
+      Button_CountMinimum 70x70 7dc0a010da0a48539e4a9aa69184afc9 (Sliced) text:#FFFFFF@24B+s#000000/30%
+      Button_CountMinus 70x70 7dc0a010da0a48539e4a9aa69184afc9 (Sliced)
+        Icon 32x8 ea1605bebcd7441fae0b05e824d8726e color:#FFFFFF/90%
+      Button_CountMaximum 70x70 7dc0a010da0a48539e4a9aa69184afc9 (Sliced) text:#FFFFFF@24B+s#000000/72%
+      Button_CountPlus 70x70 7dc0a010da0a48539e4a9aa69184afc9 (Sliced)
+        Icon 32x34 60630efead6f4327adec33f9fb006b29 color:#FFFFFF/90%
+      CountPanel 284x60 b4dd050e16504159a521c0e6e769bcb6
+        Text_CraftingCount 100x48 text:#FFFFFF@28
+  Result_Crafting 3920x3080
+    Result_Panel 2115x366 9a50c1ca754f41ecb326256631542bf4 color:#000000/90%
+      Title_Panel 2115x85 9a50c1ca754f41ecb326256631542bf4 color:#2F2F2F/90% text:#FFFFFF@28B
+      Text_Guide 1000x100 text:#FFFFFF@28
+      EquipSlot_1 104x104 b850b77a823e4f96b6a5071bab857a42
+        Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item 90x90 1de369cf2f47402e8e0a532054245b3d
+          Expback 54x8 4f5c386b3b844099bc501b39a537a074
+          Exp 52x6
+          Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+          Panel_Category 43x43 f8410525a90f4e2e8be0ae22623944f3
+          Icon_Category 44x44 d521776a39af494ea839b1cd26092093
+      Item_Slot_NotAcc 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+        Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+          Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+            Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+          ItemCount 100x100 text:#FFFFFF@28B+o#000000
+          ItemName 350x60 text:#FFFFFF@28
+      Item_Slot_ACC 2115x366
+        Item_Slot_B 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+            Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+              Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+            Grade_Alphabet 60x32 d361f6a0859f48b8a5c7fcfd2a06e2d9 (Sliced)
+            Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            ItemCount 100x100 text:#FFFFFF@28B+o#000000
+            ItemName 350x60 text:#FFFFFF@28
+        Item_Slot_A 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+            Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+              Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+            Grade_Alphabet 60x32 f08e8e6d509745918691c3140a9054a5 (Sliced)
+            Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            ItemCount 100x100 text:#FFFFFF@28B+o#000000
+            ItemName 350x60 text:#FFFFFF@28
+        Item_Slot_S 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+            Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+              Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+            Grade_Alphabet 60x32 d990e606d152483390373baf339fe14a
+            Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            ItemCount 100x100 text:#FFFFFF@28B+o#000000
+            ItemName 350x60 text:#FFFFFF@28
+        Item_Slot_SS 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+            Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+              Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+            Grade_Alphabet 60x32 e68baaa4531b4fa793f2b577811b1b28
+            Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            ItemCount 100x100 text:#FFFFFF@28B+o#000000
+            ItemName 350x60 text:#FFFFFF@28
+        Item_Slot_SSS 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          Item_Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Item_Icon 75x75 10d6c81b682f4742891f88eb8eed61f8
+            Category_Bg 42x42 f8410525a90f4e2e8be0ae22623944f3
+              Category_Icon 32x32 87cf429145814827a1b159aac55234b3
+            Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+            Effect 10x10 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+              Effect_1_1_1_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            ItemCount 100x100 text:#FFFFFF@28B+o#000000
+            ItemName 350x60 text:#FFFFFF@28

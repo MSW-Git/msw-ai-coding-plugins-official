@@ -44,7 +44,7 @@ Optional overrides (long flags, case-insensitive):
 Example with overrides:
 
 ```bash
-node "scripts/build-spec.cjs" --projectRoot "C:/path/to/project" --coreVersion 26.7.0.0
+node "scripts/build-spec.cjs" --projectRoot "C:/path/to/project" --coreVersion <CoreVersion>
 ```
 
 The script throws if `Environment/config` is absent and `--coreVersion` is not passed — there is no fallback default.

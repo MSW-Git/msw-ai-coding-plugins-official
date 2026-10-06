@@ -1,0 +1,12 @@
+# NewContents — 10 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: EffectBack, BackGround, MainText, SubText, CloseButton, NewContents, ConfirmButton
+UIR_CasualSurvival_Sample_NewContents 472x720
+  EffectBack 807x761 ca1a46d261e9442589fb2a2fca01a46d
+  BackGround 472x720 98e3ae11d7784063ab864ae3fe94b705
+  MainText 440x40 text:#E6B848@28+o#000000
+  SubText 440x40 text:#FFFFFF@22+o#000000/60%
+  CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+  NewContents 500x380 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+  ConfirmButton 446x82 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+    AnimatedSprite 446x82 658001a9c7e6420d8d96f39551b531fc (Tiled) color:#D88100/25%
+    Text 446x82 text:#FFFFFF@28+o#000000

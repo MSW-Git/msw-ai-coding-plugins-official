@@ -1,0 +1,20 @@
+# ScrollItemUse — 18 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout
+UIR_SimpleFantasy_Sample_ScrollItemUse 1920x1080
+  Layout 787x940 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 63x38 text:#FFFFFF@26B
+    Btn_Info 200x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Text_Desc 750x90 text:#757474@24B
+    Layout_Info 787x284
+      Text_ItemName1 250x70 text:#757474@22B
+      Text_ItemName2 250x70 text:#757474@22B
+      Img_Arrow 40x40 92fcce8206a2423bb6eae5944c33c5a6 (Sliced) color:#BBA58A
+      Deco_ItemFrame 155x155 8621f2a537b745c29cf520fd35e8a0e2 color:#9D8A74
+      Deco_ItemTransBG 220x224 62a8c8b0a33c475698e665d4b4636364 color:#9D8A74
+        Deco_ItemFrame_1 155x155 8621f2a537b745c29cf520fd35e8a0e2 color:#9D8A74
+    Text_Select 278x36 text:#A9947B@24B
+      Deco 20x20 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+      Deco 20x20 36338acb0cfe498cac27bf667fc29979 color:#A9947B
+    GridView_Item 767x280 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E3E1D6 ScrollBarHandleImageRUID:98832c7aa8c44f02b5c9e02cebbc9f25
+    Btn_Use 250x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B

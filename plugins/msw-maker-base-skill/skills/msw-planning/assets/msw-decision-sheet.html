@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design choices</title>
+<!--
+  msw-planning decision sheet — PRE-BUILT, READ-ONLY briefing form shipped with the skill.
+  * Renders the CURRENT design choice (decision-data.json, authored per gate by the session).
+  * This sheet only BRIEFS — the actual answer is given in the chat, matching the A/B/C labels.
+  * decision-data.json is transient presentation data, never a planning record (the GDD is).
+  * AI agents: never edit this form, never read it (or decision-data.json) back as input.
+ * The gate is fetched and JSON.parse'd — never executed — so a tampered or badly quoted
+ * file can only fail to parse. That is also why the page must be served over http.
+-->
+<style>
+  :root {
+    --bg: #eef1f6; --card: #ffffff; --text: #1b2030; --muted: #5a6474; --line: #e5e8ee;
+    --brand1: #5b6cff; --brand2: #9b59ff; --brand-soft: #eef0ff;
+    /* the hero is the only place white text sits on the accent, and the accent itself is tuned for
+       small text ON a light surface — a separate, darker pair keeps white text at AA there */
+    --hero1: #4453d6; --hero2: #7b3fd6;
+    --wait: #ef7d00; --wait-soft: #fff2e2;
+    --done: #17b26a; --done-soft: #e6f7ef;
+    --pick: #7a5af5; --pick-soft: #efeaff;
+    --shadow: 0 10px 30px rgba(30, 40, 80, .08);
+    /* text colors for soft backgrounds — in light mode the raw accents drop to 2.4–3.7 contrast */
+    --ink-brand: #3a49d6; --ink-wait: #9a4d00; --ink-done: #0f7a48; --ink-pick: #5b3fd6; --ink-danger: #c2373b;
+    /* filled surfaces that carry WHITE text (number badge, copy button, its success flash). The raw
+       accents are tuned for coloured text on a soft background and are far too light underneath
+       white — these are the darker variants, plus the edge colour for the selected-card border. */
+    --brand-solid: #4453d6; --done-solid: #0f7a48; --done-edge: #0f7a48;
+  }
+  .dark {
+    --bg: #12141a; --card: #1c1f28; --text: #eceef2; --muted: #98a0ae; --line: #2b2f3a;
+    --brand1: #7d8bff; --brand2: #b07aff; --brand-soft: #262b45;
+    --hero1: #5566d9; --hero2: #8452d9;
+    --wait: #ffa040; --wait-soft: #3c2c17;
+    --done: #34d38b; --done-soft: #17352a;
+    --pick: #b9a6ff; --pick-soft: #2c2350;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    /* dark mode accents are already bright enough — only the danger color is lifted a step */
+    --ink-brand: var(--brand1); --ink-wait: var(--wait); --ink-done: var(--done); --ink-pick: var(--pick); --ink-danger: #ff8a8d;
+    /* dark keeps a brighter selected-border (it sits on a dark card) but still needs darker fills */
+    --brand-solid: #5566d9; --done-solid: #118350; --done-edge: var(--done);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--text); font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+    /* CJK text with word-break:normal wraps between syllables, which cuts a word in half mid-line;
+       keep-all breaks on spaces only. Long unbreakable tokens (RUIDs, URLs) still wrap via
+       break-word so they cannot overflow. */
+    word-break: keep-all; overflow-wrap: break-word;
+  }
+  #wrap { max-width: 980px; margin: 0 auto; padding: 26px 18px 110px; }
+  .ansbar .inner { max-width: 980px; }   /* same base width as #wrap — the media queries below widen both together */
+  /* responsive: widen the container on large screens so option cards fit on one row */
+  @media (min-width: 1100px) {
+    #wrap, .ansbar .inner { max-width: 1320px; }
+    .qcard h1 { font-size: 27px; }
+  }
+  @media (min-width: 1600px) { #wrap, .ansbar .inner { max-width: 1520px; } }
+  .topbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px; }
+  .topbar button { background: var(--card); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; min-height: 40px; cursor: pointer; font-size: 12.5px; }
+
+  .qcard { background: linear-gradient(135deg, var(--hero1), var(--hero2)); color: #fff; border-radius: 24px; padding: 26px 30px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .qcard .qbadge { display: inline-block; background: rgba(0,0,0,.22); border-radius: 999px; padding: 4px 14px; font-size: 12px; font-weight: 700; }
+  .qcard h1 { margin: 12px 0 8px; font-size: 24px; line-height: 1.4; }
+  .qcard .heroq { margin: 0 0 10px; font-size: 17px; font-weight: 800; line-height: 1.5; }
+  /* keep the data's \n as real line breaks; no width cap, so the banner's right side isn't left empty on wide screens */
+  .qcard .ctx { font-size: 13.5px; line-height: 1.75; opacity: .92; white-space: pre-line; }
+  .qcard .ctx + .ctx { margin-top: 8px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .opt { background: var(--card); border-radius: 24px; box-shadow: var(--shadow); padding: 24px 24px 20px; position: relative; border: 2px solid transparent; display: flex; flex-direction: column; }
+  .opt.rec { border-color: var(--brand1); }
+  /* the recommend ribbon shares the row with the id and the selected badge (it was corner-absolute, so the badges sat at different heights) */
+  .opt .ribbon { margin-left: auto; flex: none; white-space: nowrap; background: var(--brand-soft); color: var(--ink-brand); font-size: 11.5px; font-weight: 800; border-radius: 999px; padding: 4px 12px; }
+  /* id (A/B/C) and the "selected" badge side by side — the badge used to be stamped on top of the id */
+  .opt .opthead { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; min-height: 44px; }
+  .opt .oid {
+    width: 44px; height: 44px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; background: var(--brand-soft); color: var(--ink-brand);
+  }
+  .opt .oid.multi { border-radius: 12px; background: var(--pick-soft); color: var(--ink-pick); }   /* multi-select = square */
+  .opt h3 { margin: 0 0 2px; font-size: 18px; line-height: 1.4; }
+  .opt .tagline { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 14px; }
+  .visual { background: var(--bg); border-radius: 16px; padding: 10px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; min-height: 130px; }
+  .visual svg { width: 100%; max-width: 230px; height: auto; }
+  .visual .bigemoji { font-size: 56px; }
+  .sect { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; color: var(--muted); margin: 10px 0 6px; }
+  .opt ul { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.75; }
+  .mvp { background: var(--brand-soft); border-radius: 12px; padding: 10px 14px; font-size: 13px; line-height: 1.6; margin-top: 12px; }
+  .mvp b { color: var(--ink-brand); }
+  .trade { background: var(--wait-soft); border-radius: 12px; padding: 10px 14px; font-size: 13px; line-height: 1.6; margin-top: 10px; }
+  .trade b { color: var(--ink-wait); }
+  .meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .badge { font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 4px 12px; background: var(--bg); color: var(--muted); }
+  .badge.e1 { background: var(--done-soft); color: var(--ink-done); }
+  .badge.e2 { background: var(--wait-soft); color: var(--ink-wait); }
+  .badge.e3 { background: var(--wait-soft); color: var(--ink-danger); }
+
+  /* selected state */
+  .opt { cursor: pointer; }
+  .opt:hover { border-color: var(--line); }
+  .opt.sel { border-color: var(--done-edge); }
+  .opt .selbadge {
+    display: none; flex: none; white-space: nowrap;
+    background: var(--done-soft); color: var(--ink-done); font-size: 11.5px; font-weight: 800;
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .opt.sel .selbadge { display: inline-block; }
+
+  .selmode { margin-top: 10px; font-size: 12.5px; opacity: .85; }
+
+  /* multi-question block */
+  .qblock { margin-bottom: 26px; }
+  .qhead { display: flex; gap: 14px; align-items: flex-start; margin: 0 4px 14px; }
+  .qnum {
+    width: 30px; height: 30px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: var(--brand-solid); color: #fff; font-size: 14px; font-weight: 800;
+  }
+  .qtitle { font-size: 17px; font-weight: 800; line-height: 1.45; }
+  /* selection-mode tag — a visible label instead of small grey text */
+  .qmode {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+    border-radius: 999px; padding: 5px 13px; font-size: 12.5px; font-weight: 800; letter-spacing: -.01em;
+  }
+  .qmode.single { background: var(--brand-soft); color: var(--ink-brand); }
+  .qmode.multi { background: var(--pick-soft); color: var(--ink-pick); }
+  .qcard .qmode { background: rgba(0,0,0,.22); color: #fff; }
+  .qctx { font-size: 12.5px; color: var(--muted); line-height: 1.65; margin-top: 3px; white-space: pre-line; }
+  .delegate {
+    margin: 12px 4px 0; display: inline-block; cursor: pointer; user-select: none;
+    background: var(--card); border: 2px dashed var(--line); border-radius: 999px;
+    padding: 9px 18px; font-size: 13px; color: var(--muted);
+  }
+  .delegate:hover { color: var(--text); }
+  .delegate.sel { border-style: solid; border-color: var(--done); color: var(--ink-done); font-weight: 700; }
+  .escapes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .delegate.custom.sel { border-color: var(--brand1); color: var(--ink-brand); }
+  .qfoot textarea.needs { border-color: var(--brand1); background: var(--brand-soft); }
+
+  /* per-question note + copy-this-item */
+  .qfoot { display: flex; gap: 12px; align-items: flex-start; margin: 14px 4px 0; flex-wrap: wrap; }
+  .qfoot textarea {
+    flex: 1; min-width: 240px; min-height: 44px; resize: vertical; font-family: inherit; font-size: 13px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; color: var(--text);
+  }
+  .qfoot textarea:focus { outline: 2px solid var(--brand1); border-color: transparent; }
+  .qcopy {
+    flex: none; background: var(--brand-soft); color: var(--ink-brand); border: none; border-radius: 999px;
+    padding: 11px 20px; font-size: 13px; font-weight: 800; cursor: pointer;
+  }
+  .qcopy:disabled { opacity: .45; cursor: not-allowed; }
+  .qcopy.ok { background: var(--done-solid); color: #fff; }
+
+  /* free-text inputs */
+  .inputs-card { background: var(--card); border-radius: 24px; box-shadow: var(--shadow); padding: 26px 28px; margin-top: 20px; }
+  .inputs-card h2 { margin: 0 0 14px; font-size: 13px; font-weight: 800; letter-spacing: .08em; color: var(--muted); }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label { display: block; font-size: 13.5px; font-weight: 700; margin-bottom: 7px; }
+  .field .req { color: var(--wait); }
+  .field input, .field textarea {
+    width: 100%; box-sizing: border-box; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 10px; padding: 11px 13px; color: var(--text); font-size: 14px; font-family: inherit;
+  }
+  .field input:focus, .field textarea:focus { outline: 2px solid var(--brand1); border-color: transparent; }
+  .field textarea { min-height: 72px; resize: vertical; }
+  /* starts one line tall and grows with the content — write a single line or list several */
+  .field textarea.in1 { min-height: 0; resize: none; overflow-y: hidden; line-height: 1.55; max-height: 240px; }
+  .inputs-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+  .inputs-hint { flex: 1; min-width: 200px; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+  /* bottom answer bar */
+  .ansbar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: none;
+    background: var(--card); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(0, 0, 0, .14);
+    padding: 13px 0;   /* the horizontal padding lives on .inner so it matches #wrap exactly (edge alignment) */
+  }
+  .ansbar.show { display: block; }
+  /* same width as #wrap — the bar used to be narrower and misaligned with the cards' right edge on wide screens */
+  .ansbar .inner { margin: 0 auto; padding: 0 18px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  @media (min-width: 1100px) {
+    .inputs-card { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; align-items: start; }
+    .inputs-card h2 { grid-column: 1 / -1; }
+    .inputs-card .field.wide { grid-column: 1 / -1; }
+    .inputs-card .inputs-foot { grid-column: 1 / -1; }
+  }
+  /* a one-line ellipsis cuts exactly what matters ("remaining items / input notice") — show two lines */
+  .ansbar .preview {
+    flex: 1 1 260px; font-size: 12.5px; color: var(--muted); line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  /* on narrow screens the bar folds into two rows (notice + button), so allow three lines; JS sizes the body's bottom padding to the bar */
+  @media (max-width: 700px) { .ansbar .preview { -webkit-line-clamp: 3; } }
+  .ansbar button.copy {
+    background: var(--brand-solid); color: #fff; border: none; border-radius: 999px;
+    padding: 12px 24px; font-size: 14px; font-weight: 800; cursor: pointer; flex: none;
+  }
+  .ansbar button.copy:disabled { opacity: .4; cursor: not-allowed; }
+  .ansbar button.copy.ok { background: var(--done-solid); }
+  /* "the sheet just changed under you" — shown where the user already is, not at the top */
+  .ansbar .swapped {
+    display: none; align-items: center; gap: 8px; flex: none;
+    background: var(--brand-soft); color: var(--ink-brand); border-radius: 999px;
+    padding: 8px 16px; font-size: 12.5px; font-weight: 800; white-space: nowrap;
+  }
+  .ansbar .swapped.show { display: inline-flex; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; line-height: 1.8; }
+  .gate-error { background: var(--wait-soft); border: 2px solid var(--wait); border-radius: 18px; padding: 18px 22px; margin-bottom: 18px; color: var(--ink-wait); }
+  .gate-error b { font-size: 15px; }
+  .gate-error p { margin: 8px 0 10px; font-size: 13px; line-height: 1.7; }
+  .gate-error ul { margin: 0; padding-left: 20px; font-size: 12.5px; line-height: 1.8; }
+  /* the cards are keyboard-operable widgets, so the focus ring must be visible */
+  .opt:focus-visible, .delegate:focus-visible, button:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--brand1); outline-offset: 2px;
+  }
+  .empty { background: var(--card); border-radius: 24px; box-shadow: var(--shadow); text-align: center; padding: 90px 20px; color: var(--muted); line-height: 2; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div class="topbar"><button id="btnRefresh"></button><button id="btnTheme"></button></div>
+  <div id="root">
+    <div class="empty"></div>
+  </div>
+  <footer id="foot"></footer>
+</div>
+<div class="ansbar" id="ansbar"><div class="inner">
+  <div class="preview" id="ansPreview"></div>
+  <div class="swapped" id="swapped" role="status" aria-live="polite"></div>
+  <button class="copy" id="btnCopy" disabled></button>
+</div></div>
+
+<script>
+"use strict";
+/* ---------- UI strings — English base, per-language overrides ----------
+   Chrome language resolves in this order: MSW_DECISION.lang → browser language → English.
+   The gate's own content (title/context/questions/options/inputs) is always authored by the
+   session in the user's language and is never translated here. A language with no table
+   falls back to English, so shipping a new locale means adding one entry below. */
+var STR = {
+  en: {
+    docTitle: "Design choices", locale: "en-US",
+    refresh: "🔄 Refresh", theme: "🌓 Theme",
+    emptyTitle: "Nothing to choose right now.",
+    emptyBody: "When the planning chat needs a decision, this sheet opens automatically.",
+    barIdle: "Pick a card — each item has [📋 Copy this item] to paste into the matching chat question.",
+    copyAll: "📋 Copy everything",
+    effortLow: "Effort · low", effortMid: "Effort · medium", effortHigh: "Effort · high",
+    gateBadge: "🤔 A design choice is needed",
+    fallbackTitle: "Pick from these {n}",
+    selmode: "📋 Use [Copy this item] on each one and paste them into the chat one at a time",
+    modeMulti: "☑️ Pick any number", modeSingle: "◉ Pick one",
+    selected: "✔ Selected", recommended: "★ Recommended",
+    buildsSect: "What this builds",
+    firstBuild: "🎮 <b>First result</b> · ", tradeoff: "⚖️ <b>What it postpones</b> · ",
+    samples: "Similar games · ",
+    delegate: "🤝 You decide this one (go with the recommendation)",
+    custom: "✏️ My answer isn't listed (write it in)",
+    notePh: "Anything to add to this item? (optional)",
+    customPh: "Write the answer you want here (this is what gets sent)",
+    copyOne: "📋 Copy this item", copyOnePlus: "📋 Copy this item + inputs",
+    inputsTitle: "Write-in", inputsH2: "✍️ Write-in",
+    inputsCtx: "These aren't picked, they're written (you may leave them blank).\nFill them in first and they ride along when you copy the last question. If you filled them in later, send them with [📋 Copy this item] below.",
+    noteLabel: "Extra notes (optional)",
+    notePh2: "Why you chose it, or anything you'd like — write freely",
+    inputsHint: "Answering one question at a time? Send these values with this button too",
+    footGen: "Generated · ",
+    footMulti: "When the chat asks one question at a time, use <b>[📋 Copy this item]</b> and paste each answer into its question. Anything in <b>Write-in</b> rides along <b>when you copy the last item</b>. If your chat takes them all at once, use <b>[📋 Copy everything]</b> below.",
+    footSingle: "Pick a card, fill anything in, then <b>[📋 Copy everything]</b> → paste it into the chat and it's decided.",
+    footSplit: "<br>Depending on the chat, the questions may arrive <b>in batches rather than all at once</b>. If so, answering keeps them coming until <b>all {n} have been asked</b> — nothing was cut off.",
+    ansNone: "(not selected)",
+    ansDelegate: "(delegated — go with the recommendation)",
+    ansCustom: "(not in the options · written in) ",
+    blockOne: "[Planning answer {n}/{total} · gate {gate}]",
+    blockInputs: "[Planning answer · inputs · gate {gate}]",
+    blockAll: "[Planning answer · gate {gate}]",
+    notePrefix: "note", extraNote: "Extra notes",
+    barProgress: "Picked {done}/{total} — use each item's [📋 Copy this item] and paste it into the matching chat question",
+    barRemaining: " (remaining: {list})",
+    barDone: "All {total} picked — paste them item by item, or send everything at once with the button on the right",
+    barRequired: "  ·  ⚠ Fill the required input (*)",
+    barPending: "  ·  ✍️ Your write-in values haven't been sent yet — they ride along with the last item's [📋 Copy this item + inputs], or use the copy button in the write-in card",
+    barOptional: "  ·  ✍️ The write-in fields are optional — fill them now and they go out with the last item",
+    copyFail: "Copy failed. Please copy the text below manually:\n\n",
+    copiedPaste: "✔ Copied! Paste it into the chat",
+    copiedWithInputs: "✔ Copied! (write-in included)",
+    copiedThisQ: "✔ Copied! Paste it into this question",
+    refreshSame: "✔ Already up to date", refreshNew: "✔ Updated to the new questions", refreshBroken: "⚠ Could not read the data", refreshClosed: "✔ That question is settled — nothing to choose now",
+    swapped: "🔄 The chat sent a new question — this sheet just updated"
+    , checking: "⏳ Checking…", errTitle: "Something went wrong while drawing the choices.", errBody: "Please ask for it again in the chat."
+    , badGateTitle: "⚠ This sheet can't be answered as it stands",
+    badGateBody: "The planning session has to fix the gate data and reopen the sheet. Copying is disabled so a broken answer can't be pasted into the chat.",
+    barBlocked: "⚠ Copying is disabled — the gate data is incomplete (see the notice at the top)",
+    probNoQuestion: "Q{i}: the question text is missing",
+    probNoOptions: "Q{i} \"{q}\": no options — this question would silently vanish from the sheet",
+    probNoId: "Q{i} \"{q}\": an option has no id",
+    probDupId: "Q{i} \"{q}\": duplicate option id \"{id}\"",
+    probNoTradeoff: "Q{i} \"{q}\" · option {id}: tradeoff is missing (required — it is what a text-only choice always loses)",
+    probBadRecommended: "Q{i} \"{q}\": recommended \"{id}\" matches no option",
+    probDupQid: "duplicate question id \"{id}\"",
+    probOptionsType: "Q{i} \"{q}\": options is not a list",
+    probQuestionsType: "questions is not a list — nothing can be drawn",
+    probInputsType: "inputs is not a list — the write-in fields were skipped",
+    probNoInputKey: "an input has no key",
+    probDupInputKey: "duplicate input key \"{id}\" — the two fields would share one value",
+    probReservedInputKey: "input key \"__note\" is reserved for the extra-notes box",
+    probBadQuestion: "Q{i}: this entry is not an object (null/undefined?)",
+    probBadOption: "Q{i} \"{q}\": one of the options is not an object (null/undefined?)",
+    probBadInput: "one of the inputs is not an object (null/undefined?)",
+    probNoQuestions: "the data declares no question — \"questions\" must be a non-empty list (or \"options\" for a single-question gate)",
+    probReservedOptionId: "Q{i} \"{q}\": option id \"{id}\" is reserved by the form's own escapes",
+    probDataError: "the gate data could not be used: {msg}",
+    probDataType: "the gate data is not an object",
+    probNoGateId: "gateId is missing — every gate needs its own id so an answer can be traced back to it",
+  probBadGateId: "gateId contains a line break or a \"]\" — the id is printed inside every paste header, and either one would split that header in two",
+  probIdNewline: "question {i} ({q}): id \"{id}\" contains a line break — every id anchors one line of the paste, so ids and keys must be single-line",
+  probInputKeyNewline: "input key \"{id}\" contains a line break — ids and keys must be single-line",
+    probNoLabel: "Q{i} \"{q}\": option \"{id}\" has no label — the card would be blank and the pasted answer unreadable",
+    probNoQid: "Q{i}: the question has no id — every paste names it, so it cannot be left out",
+    probNoInputLabel: "input \"{id}\" has no label — the box would be titled with its machine key",
+    probIdType: "Q{i} \"{q}\": the id {id} is not text — ids come back out of the page as strings, so a number would never match",
+    probTextType: "Q{i}: the question is {kind}, not text",
+    probUnreachable: "This page was opened straight off the disk, so the browser refuses to read the gate data. Ask the chat to run the packer with --serve and open the http://127.0.0.1 address it prints.",
+    renderFailed: "The sheet could not be drawn from this data. Ask the chat to write the gate again."
+  },
+  ko: {
+    docTitle: "기획 선택지 비교", locale: "ko-KR",
+    refresh: "🔄 새로고침", theme: "🌓 테마",
+    emptyTitle: "지금은 고를 것이 없어요.",
+    emptyBody: "기획 대화 중 선택이 필요해지면 이 시트가 자동으로 열립니다.",
+    barIdle: "카드를 눌러 선택하세요 — 항목마다 [📋 이 항목만 복사]로 대화창 질문에 하나씩 붙여넣을 수 있어요.",
+    copyAll: "📋 전체 한 번에 복사",
+    effortLow: "난이도 낮음", effortMid: "난이도 중간", effortHigh: "난이도 높음",
+    gateBadge: "🤔 기획 선택이 필요해요",
+    fallbackTitle: "아래 {n}가지를 골라주세요",
+    selmode: "📋 항목마다 [이 항목만 복사]로 대화창에 하나씩 붙여넣으면 됩니다",
+    modeMulti: "☑️ 여러 개 선택 가능", modeSingle: "◉ 하나만 선택",
+    selected: "✔ 선택됨", recommended: "★ 추천",
+    buildsSect: "이걸 고르면 만들어져요",
+    firstBuild: "🎮 <b>첫 결과물</b> · ", tradeoff: "⚖️ <b>대신 미루는 것</b> · ",
+    samples: "비슷한 게임 · ",
+    delegate: "🤝 이 항목은 맡길게요 (추천안대로 진행)",
+    custom: "✏️ 여기 없는 답을 할게요 (직접 입력)",
+    notePh: "이 항목에 덧붙일 말이 있으면 적어주세요 (선택)",
+    customPh: "여기에 원하시는 답을 적어주세요 (이 내용이 답변으로 전달됩니다)",
+    copyOne: "📋 이 항목만 복사", copyOnePlus: "📋 이 항목 + 입력 복사",
+    inputsTitle: "직접 입력", inputsH2: "✍️ 직접 입력",
+    inputsCtx: "고르는 항목이 아니라 적어주시는 항목이에요 (비워두셔도 됩니다).\n먼저 적어두면 마지막 질문을 복사할 때 함께 담겨 나갑니다. 나중에 적었다면 아래 [📋 이 항목만 복사]로 따로 전달해 주세요.",
+    noteLabel: "추가 의견 (선택)",
+    notePh2: "선택한 이유나 바라는 점이 있으면 자유롭게 적어주세요",
+    inputsHint: "질문을 하나씩 답하는 중이라면, 이 입력값도 이 버튼으로 전달하세요",
+    footGen: "생성 · ",
+    footMulti: "대화창이 질문을 하나씩 물어보면 <b>[📋 이 항목만 복사]</b>로 그 질문에 하나씩 붙여넣으세요. 적어주신 <b>직접 입력</b>은 <b>마지막 항목을 복사할 때 함께</b> 담깁니다. 질문을 한꺼번에 받는 환경이라면 아래 <b>[📋 전체 한 번에 복사]</b>를 쓰면 됩니다.",
+    footSingle: "카드 선택·입력 후 <b>[📋 전체 한 번에 복사]</b> → 대화창에 붙여넣으면 그대로 결정돼요.",
+    footSplit: "<br>대화창에 따라 질문이 <b>한 번에 다 나오지 않고 나눠서</b> 올 수 있어요. 그럴 땐 답한 만큼 <b>이어서 {n}개가 모두</b> 나옵니다 — 중간에 끊긴 게 아니에요.",
+    ansNone: "(미선택)",
+    ansDelegate: "(맡김 — 추천안대로)",
+    ansCustom: "(보기에 없음 · 직접 답변) ",
+    blockOne: "[기획 선택 응답 {n}/{total} · gate {gate}]",
+    blockInputs: "[기획 선택 응답 · 입력 · gate {gate}]",
+    blockAll: "[기획 선택 응답 · gate {gate}]",
+    notePrefix: "메모", extraNote: "추가 의견",
+    barProgress: "선택 {done}/{total} — 각 항목의 [📋 이 항목만 복사]로 대화창 질문마다 붙여넣으면 됩니다",
+    barRemaining: " (남은 항목: {list})",
+    barDone: "선택 완료 {total}/{total} — 항목별로 붙여넣거나, 한 번에 붙여넣으려면 오른쪽 버튼",
+    barRequired: "  ·  ⚠ 필수 입력(*)을 채워주세요",
+    barPending: "  ·  ✍️ 적어두신 입력 항목은 아직 전달 전 — 마지막 항목의 [📋 이 항목 + 입력 복사]에 함께 담기고, 따로 보내려면 입력칸의 복사 버튼을 누르세요",
+    barOptional: "  ·  ✍️ '직접 입력'은 비워두셔도 됩니다 — 적으실 거면 지금 적으면 마지막 항목과 함께 전달됩니다",
+    copyFail: "복사에 실패했어요. 아래 내용을 직접 복사해 주세요:\n\n",
+    copiedPaste: "✔ 복사됨! 대화창에 붙여넣으세요",
+    copiedWithInputs: "✔ 복사됨! (입력 항목까지 함께)",
+    copiedThisQ: "✔ 복사됨! 이 질문에 붙여넣으세요",
+    refreshSame: "✔ 이미 최신이에요", refreshNew: "✔ 새 질문으로 갱신됐어요", refreshBroken: "⚠ 데이터를 읽지 못했어요", refreshClosed: "✔ 질문이 닫혔어요 — 지금은 고를 것이 없습니다",
+    swapped: "🔄 대화창이 새 질문을 보냈어요 — 이 시트가 방금 갱신됐습니다"
+    , checking: "⏳ 확인 중…", errTitle: "선택지를 그리는 중 문제가 생겼어요.", errBody: "대화에서 다시 요청해 주세요."
+    , badGateTitle: "⚠ 이 시트는 지금 상태로 답할 수 없어요",
+    badGateBody: "기획 세션이 게이트 데이터를 고쳐 다시 열어야 합니다. 잘못된 답이 대화창으로 넘어가지 않도록 복사를 막아 두었습니다.",
+    barBlocked: "⚠ 복사가 막혀 있어요 — 게이트 데이터가 불완전합니다 (상단 안내 참고)",
+    probNoQuestion: "Q{i}: 질문 문구가 없습니다",
+    probNoOptions: "Q{i} \"{q}\": 선택지가 없습니다 — 이 질문은 시트에서 조용히 사라집니다",
+    probNoId: "Q{i} \"{q}\": id 없는 선택지가 있습니다",
+    probDupId: "Q{i} \"{q}\": 선택지 id \"{id}\" 가 중복입니다",
+    probNoTradeoff: "Q{i} \"{q}\" · 선택지 {id}: tradeoff 가 없습니다 (필수 — 텍스트 선택지가 항상 잃는 정보입니다)",
+    probBadRecommended: "Q{i} \"{q}\": recommended \"{id}\" 에 해당하는 선택지가 없습니다",
+    probDupQid: "질문 id \"{id}\" 가 중복입니다",
+    probOptionsType: "Q{i} \"{q}\": options 가 배열이 아닙니다",
+    probQuestionsType: "questions 가 배열이 아닙니다 — 아무것도 그릴 수 없습니다",
+    probInputsType: "inputs 가 배열이 아닙니다 — 직접 입력 항목을 건너뛰었습니다",
+    probNoInputKey: "key 없는 입력 항목이 있습니다",
+    probDupInputKey: "입력 key \"{id}\" 가 중복입니다 — 두 칸이 같은 값을 공유하게 됩니다",
+    probReservedInputKey: "입력 key \"__note\" 는 추가 의견 칸이 쓰는 예약어입니다",
+    probBadQuestion: "Q{i}: 항목이 객체가 아닙니다 (null/undefined?)",
+    probBadOption: "Q{i} \"{q}\": 선택지 중 객체가 아닌 항목이 있습니다 (null/undefined?)",
+    probBadInput: "입력 항목 중 객체가 아닌 것이 있습니다 (null/undefined?)",
+    probNoQuestions: "질문이 하나도 선언되지 않았습니다 — \"questions\" 가 비어 있지 않은 배열이어야 합니다 (단일 질문이면 \"options\")",
+    probReservedOptionId: "Q{i} \"{q}\": 선택지 id \"{id}\" 는 폼이 쓰는 예약어입니다",
+    probDataError: "게이트 데이터를 쓸 수 없습니다: {msg}",
+    probDataType: "게이트 데이터가 객체가 아닙니다",
+    probNoGateId: "gateId 가 없습니다 — 답변이 어느 게이트 것인지 가리려면 게이트마다 고유 id 가 필요합니다",
+  probBadGateId: "gateId 에 줄바꿈이나 \"]\" 가 들어 있습니다 — 이 id 는 모든 붙여넣기 헤더 안에 찍히므로 헤더가 둘로 갈라집니다",
+  probIdNewline: "질문 {i} ({q}): id \"{id}\" 에 줄바꿈이 있습니다 — id 는 붙여넣기의 한 줄을 이루므로 id·key 는 한 줄이어야 합니다",
+  probInputKeyNewline: "입력 key \"{id}\" 에 줄바꿈이 있습니다 — id·key 는 한 줄이어야 합니다",
+    probNoLabel: "Q{i} \"{q}\": 선택지 \"{id}\" 에 label 이 없습니다 — 카드 제목이 비고 붙여넣은 답도 읽을 수 없습니다",
+    probNoQid: "Q{i}: 질문에 id 가 없습니다 — 모든 붙여넣기가 id 로 질문을 가리키므로 생략할 수 없습니다",
+    probNoInputLabel: "입력 \"{id}\" 에 label 이 없습니다 — 칸 제목이 기계용 key 로 표시됩니다",
+    probIdType: "Q{i} \"{q}\": id {id} 가 문자열이 아닙니다 — 화면에서 돌아오는 id 는 항상 문자열이라 숫자는 절대 일치하지 않습니다",
+    probTextType: "Q{i}: question 이 문자열이 아니라 {kind} 입니다",
+    probUnreachable: "이 페이지를 파일로 직접 열어서 브라우저가 게이트 데이터를 읽지 못합니다. 대화창에 패커를 --serve 로 실행해 출력되는 http://127.0.0.1 주소로 열어달라고 해주세요.",
+    renderFailed: "이 데이터로는 시트를 그릴 수 없습니다. 대화창에 게이트를 다시 써달라고 해주세요."
+  }
+};
+var LANG = "en", T = STR.en;
+function matchLang(str) {
+  for (var k in STR) {
+    if (k === "en") continue;
+    if (String(str).indexOf(k) >= 0) return k;   /* "ko", "ko-KR", "ko_KR" all match "ko" */
+  }
+  return "en";                                   /* no table for that language → English */
+}
+function resolveLang() {
+  var explicit = String((window.MSW_DECISION || {}).lang || "").toLowerCase();
+  if (explicit) return matchLang(explicit);      /* the gate's own declaration wins outright */
+  return matchLang([(navigator.language || ""), (navigator.languages || []).join(",")].join(",").toLowerCase());
+}
+function t(key, vars) {
+  var v = (T && T[key] != null) ? T[key] : STR.en[key];
+  if (v == null) return key;
+  if (vars) for (var name in vars) v = v.split("{" + name + "}").join(vars[name]);
+  return v;
+}
+/* apply the language to everything the markup ships statically */
+function applyLang() {
+  LANG = resolveLang();
+  T = STR[LANG] || STR.en;
+  document.documentElement.lang = LANG;
+  document.title = t("docTitle");
+  var m = { btnRefresh: "refresh", btnTheme: "theme", btnCopy: "copyAll" };
+  for (var id in m) { var el = document.getElementById(id); if (el) el.textContent = t(m[id]); }
+  var empty = document.querySelector("#root .empty");
+  if (empty) empty.innerHTML = esc(t("emptyTitle")) + "<br>" + esc(t("emptyBody"));
+  var pv = document.getElementById("ansPreview");
+  if (pv) pv.textContent = t("barIdle");
+}
+/* localStorage throws outright when storage is blocked — the theme must never take the page down */
+function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* not fatal */ } }
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+/* attribute values also need the quote forms — a " inside data would otherwise close the attribute */
+function escA(s) { return esc(s).replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
+/* a data key becomes part of a DOM id, so keep only characters an id may hold */
+var FIELD_SEQ = 0;
+function fieldId(key) {
+  /* one id per rendered field, never per key: duplicate keys in the data must not produce
+     duplicate DOM ids (the value collision itself is reported by gateProblems) */
+  return (String(key).replace(/[^A-Za-z0-9_-]/g, "") || "f") + "-" + (++FIELD_SEQ);
+}
+/* attribute lookups without building a selector: a qid with a quote or bracket would break querySelector */
+function byAttr(sel, name, value) {
+  var all = document.querySelectorAll(sel), i;
+  for (i = 0; i < all.length; i++) if (all[i].getAttribute(name) === value) return all[i];
+  return null;
+}
+
+/* built-in structural schematics — model picks a kind, never draws */
+function svgFor(kind, emoji) {
+  var s = 'stroke="var(--muted)" stroke-width="2" fill="none"';
+  var b = 'stroke="var(--brand1)" stroke-width="2.5" fill="none"';
+  var dot = '<circle cx="100" cy="62" r="7" fill="var(--brand1)"/>';
+  if (kind === "topdown") return '<svg viewBox="0 0 200 120">' +
+    '<rect x="30" y="14" width="140" height="92" rx="8" ' + s + "/>" +
+    '<path d="M65 14v92M100 14v92M135 14v92M30 45h140M30 76h140" stroke="var(--line)" stroke-width="1.5"/>' +
+    dot +
+    '<path d="M100 40v-14M100 84v14M78 62h-14M122 62h14" ' + b + ' marker-end="none"/>' +
+    '<path d="M96 28l4-6 4 6M96 94l4 6 4-6M84 58l-6 4 6 4M116 58l6 4-6 4" ' + b + "/></svg>";
+  if (kind === "sideview") return '<svg viewBox="0 0 200 120">' +
+    '<path d="M14 100h172" ' + s + "/>" +
+    '<path d="M56 72h38M120 50h36" ' + s + "/>" +
+    '<circle cx="40" cy="90" r="8" fill="var(--brand1)"/>' +
+    '<path d="M50 84 Q70 48 92 66" ' + b + ' stroke-dasharray="4 4"/>' +
+    '<path d="M88 60l5 7-8 1z" fill="var(--brand1)"/></svg>';
+  if (kind === "maple") return '<svg viewBox="0 0 200 120">' +
+    '<path d="M14 102h172M40 74h60M110 48h60M60 26h50" ' + s + "/>" +
+    '<path d="M90 74v28M140 48v54" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 4"/>' +
+    '<circle cx="70" cy="66" r="8" fill="var(--brand1)"/>' +
+    '<path d="M80 60 Q95 40 112 42" ' + b + ' stroke-dasharray="4 4"/></svg>';
+  if (kind === "boardui") return '<svg viewBox="0 0 200 120">' +
+    '<rect x="16" y="14" width="110" height="92" rx="8" ' + s + "/>" +
+    '<path d="M16 45h110M16 76h110M53 14v92M90 14v92" stroke="var(--line)" stroke-width="1.5"/>' +
+    '<circle cx="71" cy="60" r="6" fill="var(--brand1)"/>' +
+    '<rect x="138" y="14" width="48" height="92" rx="8" ' + s + "/>" +
+    '<path d="M146 32h32M146 50h32M146 68h24" ' + b + "/></svg>";
+  if (kind === "systems") return '<svg viewBox="0 0 200 120">' +
+    '<rect x="20" y="20" width="56" height="30" rx="8" ' + s + "/>" +
+    '<rect x="124" y="20" width="56" height="30" rx="8" ' + s + "/>" +
+    '<rect x="72" y="72" width="56" height="30" rx="8" ' + b + "/>" +
+    '<path d="M76 40h48M100 50v22M152 50 Q152 66 128 76" ' + s + ' stroke-dasharray="4 4"/></svg>';
+  return '<div class="bigemoji">' + esc(emoji || "🎮") + "</div>";
+}
+function effortBadge(e) {
+  if (/낮|low|easy/i.test(e || "")) return '<span class="badge e1">' + esc(t("effortLow")) + "</span>";
+  if (/높|high|hard/i.test(e || "")) return '<span class="badge e3">' + esc(t("effortHigh")) + "</span>";
+  if (e) return '<span class="badge e2">' + esc(t("effortMid")) + "</span>";
+  return "";
+}
+
+/* data normalization: accept both a single question (question/options) and many (questions[]) */
+/* Free text that lives on a single protocol/display line must actually be single-line: a break
+   inside it would mint a bare line in the paste, which §5 obliges the reader to treat as
+   protocol. Ids and keys are refused instead (gateProblems) — collapsing those would break the
+   letter-for-letter mapping back to the JSON. */
+function oneLine(s) { return String(s).replace(/\s*[\r\n]+\s*/g, " "); }
+function questionsOf(D) {
+  if (!D) return [];
+  /* a malformed shape must surface as a listed problem, never as a thrown render */
+  var many = Array.isArray(D.questions) ? D.questions : [];
+  var one = Array.isArray(D.options) ? D.options : [];
+  var list = many.length
+    ? many
+    : (one.length ? [{ id: "Q1", question: D.question, context: D.context, multiSelect: D.multiSelect, recommended: D.recommended, options: one }] : []);
+  return list.map(function (q, i) {
+    /* an element may be null/undefined/a string — read nothing off it until that is known */
+    var ok = !!q && typeof q === "object";
+    var src = ok ? q : {};
+    /* Ids leave the page through data- attributes and come back as strings, so anything that is
+       not already text (a JSON number, say) would compare unequal on the way back: the card
+       would refuse to select and the label would drop out of the pasted answer. Normalize here,
+       once, so render / select / copy all speak the same type — and remember that it happened
+       so gateProblems can tell the session to fix the data. */
+    var wrongIds = [];
+    if (src.id != null && typeof src.id !== "string") wrongIds.push(String(src.id));
+    var rawOpts = Array.isArray(src.options) ? src.options : [];
+    var opts = rawOpts.map(function (o) {
+      if (!o || typeof o === "string" || typeof o !== "object") return o;   /* reported as probBadOption */
+      var copy = {}, k;
+      for (k in o) if (Object.prototype.hasOwnProperty.call(o, k)) copy[k] = o[k];
+      if (o.id != null && typeof o.id !== "string") { wrongIds.push(String(o.id)); copy.id = String(o.id); }
+      /* the label shares the answer line ("A. label") — a break inside it forges a bare line */
+      if (copy.label != null) copy.label = oneLine(copy.label);
+      return copy;
+    });
+    return {
+      qid: String(src.id == null ? "" : src.id) || ("Q" + (i + 1)),
+      /* text fields are read back with string methods, so a number or boolean here used to
+         throw and lose the specific complaint behind the generic render-failure screen */
+      question: src.question == null ? "" : oneLine(src.question),
+      questionType: src.question == null || typeof src.question === "string" ? "" : (Array.isArray(src.question) ? "a list" : typeof src.question),
+      /* the fallback below keeps the card drawable; the gate is still refused (probNoQid) */
+      missingQid: !String(src.id == null ? "" : src.id).trim(),
+      context: src.context == null ? "" : String(src.context),
+      multiSelect: !!src.multiSelect,
+      recommended: src.recommended == null ? "" : String(src.recommended),
+      options: opts,
+      wrongIds: wrongIds,
+      badOptions: src.options != null && !Array.isArray(src.options),
+      badEntry: !ok,
+    };
+  });   /* nothing is filtered out here — a broken question must stay visible (see gateProblems) */
+}
+/* ---------- loading the gate ----------
+   The gate is DATA. It is fetched and JSON.parse'd, never executed: a file that was tampered
+   with, or that the session built with a quoting mistake, can then only fail to parse — it
+   cannot run. Parsing is also all-or-nothing, which removes two states the old <script> load
+   could produce: "the file ran but declared nothing" and "it threw halfway, leaving half a gate".
+   The page must therefore be served over http — see LOAD_HINT for what the user is told when
+   it is opened straight off the disk instead. */
+var DATA_URL = "decision-data.json";
+var DATA_ERROR = null;      /* the file is there but unusable (bad JSON) */
+var DATA_ABSENT = true;     /* no gate open — the calm empty screen */
+var DATA_UNREACHABLE = false; /* opened as a local file, so the browser refuses to read it */
+/* fetch is blocked for file:// origins, and so is XHR; try both, then say so plainly */
+function loadGate(cb) {
+  var url = DATA_URL + "?t=" + Date.now();
+  function handle(status, text) {
+    if (status === 0) { cb({ unreachable: true }); return; }
+    if (status === 404 || status === 410) { cb({ absent: true }); return; }
+    if (status >= 400) { cb({ error: "HTTP " + status }); return; }
+    if (!String(text || "").trim()) { cb({ error: "the file is empty" }); return; }
+    var data;
+    try { data = JSON.parse(text); } catch (e) { cb({ error: String(e.message || e) }); return; }
+    /* A file holding literal null parses fine and would otherwise look exactly like no file at
+       all — the calm "nothing to choose" screen for a gate that is still open. Only a MISSING
+       file means the gate was closed; a present file that declares nothing is broken data. */
+    if (data === null) { cb({ error: "the file contains null — no gate is declared" }); return; }
+    cb({ data: data });
+  }
+  if (window.fetch) {
+    window.fetch(url, { cache: "no-store" }).then(function (r) {
+      return r.text().then(function (txt) { handle(r.status, txt); });
+    })["catch"](function () { xhr(); });
+    return;
+  }
+  xhr();
+  function xhr() {
+    try {
+      var x = new XMLHttpRequest();
+      x.open("GET", url, true);
+      x.onreadystatechange = function () {
+        if (x.readyState !== 4) return;
+        /* a file:// read that succeeds reports status 0 with content — treat that as OK */
+        if (x.status === 0 && String(x.responseText || "").trim()) { handle(200, x.responseText); return; }
+        handle(x.status, x.responseText);
+      };
+      x.send();
+    } catch (e) { cb({ unreachable: true }); }
+  }
+}
+/* fold one load result into the module state the renderer reads */
+function adoptGate(res) {
+  DATA_ERROR = null; DATA_ABSENT = false; DATA_UNREACHABLE = false;
+  if (res.unreachable) { DATA_UNREACHABLE = true; DATA_ABSENT = true; window.MSW_DECISION = null; return; }
+  if (res.absent) { DATA_ABSENT = true; window.MSW_DECISION = null; return; }
+  if (res.error) { DATA_ERROR = res.error; window.MSW_DECISION = null; return; }
+  window.MSW_DECISION = res.data;
+}
+function dataProblems(QS) {
+  var D = window.MSW_DECISION;
+  if (DATA_UNREACHABLE) return [t("probUnreachable")];
+  if (DATA_ERROR) return [t("probDataError", { msg: String(DATA_ERROR).slice(0, 140) })];
+  if (D === undefined || D === null) return [];   /* no gate open — the calm empty screen */
+  if (typeof D !== "object" || Array.isArray(D)) return [t("probDataType")];
+  /* Past this point the data object is real, so "no question came out of it" can only mean the gate
+     is malformed — {} , a misspelled key, questions:[] . The genuinely-closed gate is the ABSENT
+     file, handled above, and it is the only path that may reach the calm empty screen. */
+  if (!QS.length) return [t("probNoQuestions")];
+  return [];
+}
+/* What the gate must supply for the sheet to be answerable. A missing piece used to be
+   dropped or rendered blank, which let the sheet and the chat drift apart unnoticed. */
+function gateProblems(QS, D) {
+  /* a plain {} inherits constructor/toString/__proto__, so an id with one of those names would read
+     back as "already seen" (and, in the state maps below, as a value that is not an array) */
+  var out = [], seenQ = Object.create(null);
+  /* No usable gate object? Then dataProblems() already said why — a closed gate must not also
+     collect schema complaints about an object that does not exist, or "no gate open" would
+     render as an error instead of the calm empty screen. */
+  if (!D || typeof D !== "object" || Array.isArray(D)) return out;
+  /* without it every paste block is anonymous and a stale tab's answer is indistinguishable */
+  if (!String(D.gateId || "").trim()) out.push(t("probNoGateId"));
+  /* the id is printed inside "[… · gate <id>]"; a newline or a "]" ends that header early and the
+     rest of the block turns into stray text the session has to guess at */
+  else if (/[\r\n\]]/.test(String(D.gateId))) out.push(t("probBadGateId"));
+  if (D.questions != null && !Array.isArray(D.questions)) out.push(t("probQuestionsType"));
+  if (D.inputs != null && !Array.isArray(D.inputs)) out.push(t("probInputsType"));
+  QS.forEach(function (q, i) {
+    var n = i + 1, label = { i: n, q: String(q.question || "").slice(0, 40) };
+    if (q.questionType) out.push(t("probTextType", { i: n, kind: q.questionType }));
+    if (q.badEntry) { out.push(t("probBadQuestion", label)); return; }
+    if (q.missingQid) out.push(t("probNoQid", { i: n }));
+    /* every id anchors one line of the paste — a break inside it splits that line in two */
+    if (/[\r\n]/.test(q.qid)) out.push(t("probIdNewline", { i: n, q: label.q, id: q.qid.replace(/[\r\n]+/g, "⏎") }));
+    q.wrongIds.forEach(function (id) { out.push(t("probIdType", { i: n, q: label.q, id: id })); });
+    if (seenQ[q.qid]) out.push(t("probDupQid", { id: q.qid })); else seenQ[q.qid] = 1;
+    if (!String(q.question || "").trim()) out.push(t("probNoQuestion", label));
+    if (q.badOptions) { out.push(t("probOptionsType", label)); return; }
+    if (!q.options.length) { out.push(t("probNoOptions", label)); return; }
+    var seenO = Object.create(null);
+    q.options.forEach(function (o) {
+      if (!o || typeof o !== "object") { out.push(t("probBadOption", label)); return; }
+      var id = String(o.id || "").trim();
+      if (!id) { out.push(t("probNoId", label)); return; }
+      /* "__delegate"/"__custom" are the form's own escapes: an option carrying one would share its
+         selection state, so it is reported and dropped rather than drawn */
+      if (id === "__delegate" || id === "__custom") { out.push(t("probReservedOptionId", { i: n, q: label.q, id: id })); return; }
+      if (/[\r\n]/.test(id)) out.push(t("probIdNewline", { i: n, q: label.q, id: id.replace(/[\r\n]+/g, "⏎") }));
+      if (seenO[id]) out.push(t("probDupId", { i: n, q: label.q, id: id })); else seenO[id] = 1;
+      if (!String(o.label || "").trim()) out.push(t("probNoLabel", { i: n, q: label.q, id: id }));
+      if (!String(o.tradeoff || "").trim()) out.push(t("probNoTradeoff", { i: n, q: label.q, id: id }));
+    });
+    if (q.recommended && !seenO[q.recommended]) out.push(t("probBadRecommended", { i: n, q: label.q, id: q.recommended }));
+  });
+  /* write-in fields: a duplicate or reserved key silently makes two boxes share one value */
+  var seenK = Object.create(null);
+  inputsOf(D).forEach(function (inp) {
+    if (!inp || typeof inp !== "object") { out.push(t("probBadInput")); return; }
+    var k = String(inp.key || "").trim();
+    if (!k) { out.push(t("probNoInputKey")); return; }
+    if (k === "__note") { out.push(t("probReservedInputKey")); return; }
+    if (/[\r\n]/.test(k)) out.push(t("probInputKeyNewline", { id: k.replace(/[\r\n]+/g, "⏎") }));
+    if (!String(inp.label || "").trim()) out.push(t("probNoInputLabel", { id: k }));
+    if (seenK[k]) out.push(t("probDupInputKey", { id: k })); else seenK[k] = 1;
+  });
+  return out;
+}
+/* the one place that decides what counts as a list of inputs */
+function inputsOf(D) {
+  var raw = Array.isArray((D || {}).inputs) ? D.inputs : [];
+  return raw.map(function (inp) {
+    if (!inp || typeof inp !== "object" || inp.label == null || !/[\r\n]/.test(String(inp.label))) return inp;
+    var copy = {}, k;
+    for (k in inp) if (Object.prototype.hasOwnProperty.call(inp, k)) copy[k] = inp[k];
+    copy.label = oneLine(copy.label);   /* the label shares the "key · label: value" line */
+    return copy;
+  });
+}
+
+/* What a write-in box must show. inputLines() copies from the same VAL, so reading the value
+   through one helper keeps the screen and the paste block in step by construction. */
+function valueOf(key) {
+  var v = VAL[key];
+  return v == null ? "" : String(v);
+}
+function render() {
+  var D = window.MSW_DECISION;
+  var QS = questionsOf(D);
+  /* validate first: with a malformed gate there is nothing to draw, and returning early used to
+     leave the previous cards on screen with no warning anywhere */
+  GATE_PROBLEMS = dataProblems(QS).concat(gateProblems(QS, D));
+  if (!QS.length) {
+    var rootEl = document.getElementById("root");
+    var barEl = document.getElementById("ansbar");
+    if (GATE_PROBLEMS.length) {
+      rootEl.innerHTML = '<div class="gate-error" role="alert"><b>' + esc(t("badGateTitle")) + "</b>" +
+        "<p>" + esc(t("badGateBody")) + "</p><ul>" +
+        GATE_PROBLEMS.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></div>";
+      barEl.classList.add("show");
+    } else {
+      rootEl.innerHTML = '<div class="empty">' + esc(t("emptyTitle")) + "<br>" + esc(t("emptyBody")) + "</div>";
+      barEl.classList.remove("show");   /* nothing to copy between gates */
+    }
+    updateBar();
+    return;
+  }
+  var multi = QS.length > 1;
+  /* author-facing notice (never shown to the user): a chat picker usually takes 4 questions per call,
+     so the rest must be asked in a follow-up once these are answered — skipping it silently drops that axis. */
+  if (QS.length > 4 && window.console && console.info)
+    console.info("[decision-sheet] " + QS.length + " questions — the chat picker usually takes 4 per call; ask the rest in a follow-up call so none is left unasked.");
+  var html = "";
+  if (GATE_PROBLEMS.length) {
+    html += '<div class="gate-error" role="alert"><b>' + esc(t("badGateTitle")) + "</b>" +
+      "<p>" + esc(t("badGateBody")) + "</p><ul>" +
+      GATE_PROBLEMS.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></div>";
+  }
+  html += '<div class="qcard"><span class="qbadge">' + esc(t("gateBadge")) + "</span>" +
+    "<h1>" + esc(D.title || (multi ? t("fallbackTitle", { n: QS.length }) : QS[0].question)) + "</h1>" +
+    /* with one question the title may be a gate headline, so show the question itself too — it used to disappear whenever title was set */
+    (!multi && QS[0].question && QS[0].question !== D.title ? '<div class="heroq">' + esc(QS[0].question) + "</div>" : "") +
+    (D.context ? '<div class="ctx">' + esc(D.context) + "</div>" : "") +
+    /* a single question has no block header, so show that question's context here too (so it isn't lost) */
+    (!multi && QS[0].context && QS[0].context !== D.context ? '<div class="ctx">' + esc(QS[0].context) + "</div>" : "") +
+    (multi
+      ? '<div class="ctx selmode">' + esc(t("selmode")) + "</div>"
+      : '<span class="qmode ' + (QS[0].multiSelect ? "multi" : "single") + '">' +
+        esc(QS[0].multiSelect ? t("modeMulti") : t("modeSingle")) + "</span>") +
+    "</div>";
+
+  QS.forEach(function (q, qi) {
+    if (multi) {
+      html += '<div class="qblock"><div class="qhead"><span class="qnum">' + (qi + 1) + "</span>" +
+        '<div><div class="qtitle">' + esc(q.question) + "</div>" +
+        (q.context ? '<div class="qctx">' + esc(q.context) + "</div>" : "") +
+        '<span class="qmode ' + (q.multiSelect ? "multi" : "single") + '">' +
+        esc(q.multiSelect ? t("modeMulti") : t("modeSingle")) + "</span></div></div>";
+    }
+    html += '<div class="grid" role="' + (q.multiSelect ? "group" : "radiogroup") + '" aria-label="' + escA(q.question || q.qid) + '" data-qid="' + escA(q.qid) + '">';
+    q.options.forEach(function (o) {
+      if (!o || typeof o !== "object") return;   /* reported by gateProblems; drawing it would throw */
+      if (o.id === "__delegate" || o.id === "__custom") return;   /* reserved id — reported by gateProblems */
+      var rec = q.recommended && o.id === q.recommended;
+      /* redraw the live state: a re-render must not silently drop what the user already picked */
+      var onNow = (SEL[q.qid] || []).indexOf(o.id) >= 0;
+      html += '<div class="opt' + (rec ? " rec" : "") + (onNow ? " sel" : "") + '" role="' + (q.multiSelect ? "checkbox" : "radio") + '" tabindex="0" aria-checked="' + (onNow ? "true" : "false") + '"' +
+        ' data-qid="' + escA(q.qid) + '" data-oid="' + escA(o.id || "") + '">';
+      /* one row: [id] [selected] …… [recommended] — the id badge's shape shows the selection mode (single = circle, multi = square) */
+      html += '<div class="opthead"><div class="oid' + (q.multiSelect ? " multi" : "") + '">' + esc(o.id || "?") + "</div>" +
+        '<div class="selbadge">' + esc(t("selected")) + "</div>" + (rec ? '<div class="ribbon">' + esc(t("recommended")) + "</div>" : "") + "</div>";
+      html += "<h3>" + esc(o.label || "") + "</h3>";
+      if (o.tagline) html += '<div class="tagline">' + esc(o.tagline) + "</div>";
+      /* "none" opts out of the visual box entirely; an unknown kind falls back to the emoji */
+      if (o.visual !== "none" && (o.visual || o.emoji)) html += '<div class="visual">' + svgFor(o.visual, o.emoji) + "</div>";
+      if (Array.isArray(o.summary) && o.summary.length) {
+        html += '<div class="sect">' + esc(t("buildsSect")) + "</div><ul>";
+        o.summary.slice(0, 5).forEach(function (li) { html += "<li>" + esc(li) + "</li>"; });
+        html += "</ul>";
+      }
+      if (o.firstBuild) html += '<div class="mvp">' + t("firstBuild") + esc(o.firstBuild) + "</div>";
+      if (o.tradeoff) html += '<div class="trade">' + t("tradeoff") + esc(o.tradeoff) + "</div>";
+      var meta = effortBadge(o.effort) + (o.samples ? '<span class="badge">' + esc(t("samples")) + esc(o.samples) + "</span>" : "");
+      if (meta) html += '<div class="meta">' + meta + "</div>";
+      html += "</div>";
+    });
+    html += "</div>";
+    /* the two escapes the form always provides — delegate (no pick) and an answer outside the options */
+    var delOn = (SEL[q.qid] || []).indexOf("__delegate") >= 0;
+    var cusOn = (SEL[q.qid] || []).indexOf("__custom") >= 0;
+    html += '<div class="escapes">' +
+      '<div class="delegate' + (delOn ? " sel" : "") + '" role="button" tabindex="0" aria-pressed="' + (delOn ? "true" : "false") + '" data-qid="' + escA(q.qid) + '" data-oid="__delegate">' + esc(t("delegate")) + "</div>" +
+      '<div class="delegate custom' + (cusOn ? " sel" : "") + '" role="button" tabindex="0" aria-pressed="' + (cusOn ? "true" : "false") + '" data-qid="' + escA(q.qid) + '" data-oid="__custom">' + esc(t("custom")) + "</div>" +
+      "</div>";
+    /* per-question note + copy-this-item — for pasting into each step when the chat asks one at a time */
+    /* one box, two independent slots: the free-text answer while "__custom" is picked, the note
+       otherwise. Re-rendering (a language switch, say) must bring back whichever one is active. */
+    var noteMode = isCustom(q);
+    var noteText = String((noteMode ? CUSTOM[q.qid] : NOTE[q.qid]) || "");
+    html += '<div class="qfoot">' +
+      '<textarea id="note-' + fieldId(q.qid) + '" aria-label="' + escA(noteMode ? t("customPh") : t("notePh")) + '"' +
+        ' data-note="' + escA(q.qid) + '" data-mode="' + (noteMode ? "custom" : "note") + '"' +
+        (noteMode && !noteText ? ' class="needs"' : "") +
+        ' placeholder="' + escA(noteMode ? t("customPh") : t("notePh")) + '">' + esc(noteText) + "</textarea>" +
+      '<button class="qcopy" data-copyq="' + escA(q.qid) + '" disabled>' + esc(t("copyOne")) + "</button>" +
+      "</div>";
+    if (multi) html += "</div>";
+  });
+
+  /* free-text inputs + extra note — with several questions they appear as the "last numbered step", so they follow the same rhythm (write → copy this item) instead of becoming a separate errand */
+  var hasInputs = inputsOf(D).length || D.allowNote !== false;
+  if (hasInputs) {
+    if (multi) {
+      html += '<div class="qblock"><div class="qhead"><span class="qnum">' + (QS.length + 1) + "</span>" +
+        '<div><div class="qtitle">' + esc(t("inputsTitle")) + "</div>" +
+        '<div class="qctx">' + esc(t("inputsCtx")) + "</div></div></div>";
+    }
+    html += '<div class="inputs-card">' + (multi ? "" : "<h2>" + esc(t("inputsH2")) + "</h2>");
+    inputsOf(D).forEach(function (inp) {
+      if (!inp || typeof inp !== "object") return;   /* reported by gateProblems */
+      /* an auto-growing textarea instead of a one-line <input> — so "list everything that comes to mind" fields can hold several lines.
+         multiline: true starts three rows tall and spans the whole row. */
+      var fid = "in-" + fieldId(inp.key);
+      html += '<div class="field' + (inp.multiline ? " wide" : "") + '"><label for="' + fid + '">' + esc(inp.label || inp.key) + (inp.required ? ' <span class="req">*</span>' : "") + "</label>" +
+        '<textarea id="' + fid + '" class="in1" rows="' + (inp.multiline ? 3 : 1) + '" data-ikey="' + escA(inp.key) + '"' + (inp.required ? ' data-req="1" aria-required="true"' : "") +
+        ' placeholder="' + escA(inp.placeholder || "") + '">' + esc(valueOf(inp.key)) + "</textarea>" +
+        (inp.hint ? '<div class="tagline" style="margin:6px 2px 0;">' + esc(inp.hint) + "</div>" : "") +
+        "</div>";
+    });
+    if (D.allowNote !== false) {
+      html += '<div class="field wide"><label for="in-note">' + esc(t("noteLabel")) + '</label><textarea id="in-note" class="in1" rows="2" data-ikey="__note" placeholder="' + escA(t("notePh2")) + '">' + esc(valueOf("__note")) + "</textarea></div>";
+    }
+    /* inputs belong to no single question, so they must be sendable on their own in the per-item paste flow */
+    html += '<div class="inputs-foot">' +
+      (multi ? "" : '<span class="inputs-hint">' + esc(t("inputsHint")) + "</span>") +
+      '<button class="qcopy" id="btnCopyInputs" disabled>' + esc(t("copyOne")) + "</button>" +
+      "</div>";
+    html += "</div>";
+    if (multi) html += "</div>";
+  }
+
+  document.getElementById("root").innerHTML = html;
+  document.getElementById("ansbar").classList.add("show");
+  autoGrowSettled();   /* set the initial height of the auto-growing inputs */
+  updateBar();
+  var genDate = D.generatedAt ? new Date(D.generatedAt) : null;
+  var gen = genDate && !isNaN(genDate.getTime()) ? genDate.toLocaleString(t("locale")) : "";
+  document.getElementById("foot").innerHTML = (gen ? esc(t("footGen")) + esc(gen) + "<br>" : "") +
+    (multi
+      ? t("footMulti")
+      : t("footSingle")) +
+    /* the sheet shows all N at once while the chat may ask them in chunks — say so up front so it doesn't read as "the flow stopped".
+       (How many per call differs per agent, so no number is hard-coded.) */
+    (QS.length > 4
+      ? t("footSplit", { n: QS.length })
+      : "");
+  syncBarSpaceSettled();
+}
+/* on first paint the bar text hasn't wrapped yet and measures short — re-measure next frame and after fonts load */
+function syncBarSpaceSettled() {
+  syncBarSpace();
+  if (window.requestAnimationFrame) requestAnimationFrame(syncBarSpace);
+  if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(syncBarSpace);
+}
+/* reserve as much bottom space as the fixed bar is tall — a hard-coded 130px fell short once the bar folded into two rows on narrow screens */
+function syncBarSpace() {
+  var bar = document.getElementById("ansbar"), wrap = document.getElementById("wrap");
+  if (!bar || !wrap) return;
+  var h = Math.round(bar.getBoundingClientRect().height);
+  wrap.style.paddingBottom = Math.max(110, h + 32) + "px";
+}
+/* right after a resize the bar still has its old height — re-measure on the next frame, once layout settles */
+window.addEventListener("resize", function () {
+  if (window.requestAnimationFrame) requestAnimationFrame(syncBarSpace); else syncBarSpace();
+});
+
+/* ---------- selections & inputs → compose the answer · copy ---------- */
+/* Object.create(null), not {}: these are keyed by ids that come from the data file, and an id like
+   "constructor" or "__proto__" would otherwise resolve to an inherited value instead of undefined. */
+var SEL = Object.create(null);    /* qid → [selected option ids …] ("__delegate" = leave it to the AI) */
+var VAL = Object.create(null);    /* data-ikey → input value */
+var NOTE = Object.create(null);   /* qid → per-question note (only while the answer is NOT free text) */
+var CUSTOM = Object.create(null); /* qid → free-text answer (kept apart so switching answers can't leak it) */
+var GATE_PROBLEMS = [];   /* filled by render() — non-empty means the gate can't be answered as-is */
+var INPUTS_SENT = false;   /* whether the inputs were copied (sent) — guards against writing them and never sending them */
+function requiredOk() {
+  var D = window.MSW_DECISION;
+  var ok = true;
+  inputsOf(D).forEach(function (inp) {
+    if (!inp || typeof inp !== "object") return;   /* reported by gateProblems — never read off it */
+    if (inp.required && !String(VAL[inp.key] || "").trim()) ok = false;
+  });
+  return ok;
+}
+function isAnswered(q) {
+  var picked = SEL[q.qid] || [];
+  if (!picked.length) return false;
+  /* the free-text escape only counts as an answer once something is actually written */
+  if (picked.indexOf("__custom") >= 0) return !!String(CUSTOM[q.qid] || "").trim();
+  return true;
+}
+function unanswered() {
+  return questionsOf(window.MSW_DECISION).filter(function (q) { return !isAnswered(q); });
+}
+function answerTextOf(q) {
+  var picked = SEL[q.qid] || [];
+  if (!picked.length) return t("ansNone");
+  if (picked.indexOf("__delegate") >= 0) return t("ansDelegate");
+  if (picked.indexOf("__custom") >= 0) {
+    /* the first line stays on the answer line so the mapping "question → answer" survives; the
+       rest follows as "- item", which is the one shape that cannot be read as a new answer */
+    var parts = valueLines(CUSTOM[q.qid]);
+    return t("ansCustom") + (parts[0] || "") + parts.slice(1).map(function (p) { return "\n" + bullet(p); }).join("");
+  }
+  return picked.map(function (id) {
+    var o = q.options.filter(function (x) { return x && x.id === id; })[0];
+    var lbl = o ? String(o.label == null ? "" : o.label).trim() : "";
+    return lbl ? id + ". " + lbl : id;   /* a label-less option is reported by gateProblems */
+  }).join(" · ");
+}
+function isCustom(q) { return (SEL[q.qid] || []).indexOf("__custom") >= 0; }
+/* Which gate an answer belongs to. Question wording repeats across gates ("shall I write the
+   GDD in this direction?" appears in every direction check), so the text alone cannot tell a
+   current answer from one pasted out of a tab still showing the previous gate. */
+function gateId() { return String((window.MSW_DECISION || {}).gateId || "").trim(); }
+/* one question's worth — the shape pasted into a step when the chat asks step by step */
+function composeOne(q, i, total) {
+  var lines = [t("blockOne", { n: i + 1, total: total, gate: gateId() }),
+               q.qid + " · " + q.question + " → " + answerTextOf(q)];
+  noteLines(q, "").forEach(function (l) { lines.push(l); });
+  var out = lines.join("\n");
+  /* the last question carries any not-yet-sent shared inputs — answering step by step ends at 4/4,
+     which leaves no turn to send the inputs on their own */
+  if (bundlesInputs(i, total)) out += "\n\n" + composeInputs();
+  return out;
+}
+function bundlesInputs(i, total) { return i === total - 1 && !INPUTS_SENT && inputLines().length > 0; }
+/* inputs only — shared values (game name etc.) that belong to no question, sent separately in the per-item flow */
+function inputLines() {
+  var D = window.MSW_DECISION, out = [];
+  inputsOf(D).forEach(function (inp) {
+    if (!inp || typeof inp !== "object") return;   /* reported by gateProblems — never read off it */
+    pushValue(out, inp.key + " · " + (inp.label || inp.key), VAL[inp.key]);
+  });
+  pushValue(out, "__note · " + t("extraNote"), VAL.__note);
+  return out;
+}
+/* Free text the user typed can run to several lines, and a bare continuation line is
+   indistinguishable from the protocol's own lines: it can read as another gate's header, or as an
+   answer to a question they never touched. So EVERY multi-line value — an input, a note, a
+   written-in answer — is expanded the same way: the label alone, then one "- item" per line.
+   Squashing it into a single line would lose where each item ends. */
+function valueLines(raw) {
+  return String(raw || "").split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+}
+function bullet(p) { return "- " + p.replace(/^[-•*]\s+/, ""); }
+function pushValue(out, label, raw) {
+  var parts = valueLines(raw);
+  if (!parts.length) return;
+  if (parts.length === 1) { out.push(label + ": " + parts[0]); return; }
+  out.push(label + ":");
+  parts.forEach(function (p) { out.push(bullet(p)); });
+}
+/* the note under one question, as the lines it should occupy (indented in the whole-gate shape) */
+function noteLines(q, indent) {
+  if (isCustom(q)) return [];            /* a free-text answer is already in the answer line */
+  var out = [];
+  pushValue(out, t("notePrefix"), NOTE[q.qid]);
+  return out.map(function (l) { return indent + l; });
+}
+/* auto height — one line stays one line, grows with the content, scrolls past the cap */
+function autoGrow(el) {
+  if (!el || !el.classList || !el.classList.contains("in1")) return;
+  el.style.height = "auto";
+  var max = 240;
+  el.style.height = Math.min(el.scrollHeight, max) + "px";
+  el.style.overflowY = el.scrollHeight > max ? "auto" : "hidden";
+}
+function autoGrowAll() { Array.prototype.forEach.call(document.querySelectorAll("textarea.in1"), autoGrow); }
+/* on first paint fonts and layout aren't settled and the height can measure too tall — re-fit next frame and after fonts load */
+function autoGrowSettled() {
+  autoGrowAll();
+  if (window.requestAnimationFrame) requestAnimationFrame(autoGrowAll);
+  if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(autoGrowAll);
+}
+function composeInputs() {
+  return [t("blockInputs", { gate: gateId() })].concat(inputLines()).join("\n");
+}
+/* everything at once — the shape for environments without a stepped picker */
+function compose() {
+  var D = window.MSW_DECISION;
+  var QS = questionsOf(D);
+  var lines = [t("blockAll", { gate: gateId() })];
+  QS.forEach(function (q, i) {
+    lines.push((i + 1) + ") " + q.qid + " · " + q.question + " → " + answerTextOf(q));
+    noteLines(q, "   ").forEach(function (l) { lines.push(l); });
+  });
+  inputLines().forEach(function (l) { lines.push(l); });
+  return lines.join("\n");
+}
+function updateBar() {
+  var QS = questionsOf(window.MSW_DECISION);
+  var left = unanswered();
+  /* per-question copy buttons: enabled individually once that question has an answer */
+  var lastQid = QS.length ? QS[QS.length - 1].qid : null;
+  Array.prototype.forEach.call(document.querySelectorAll(".qcopy[data-copyq]"), function (b) {
+    var qid = b.getAttribute("data-copyq");
+    var q = QS.filter(function (x) { return x.qid === qid; })[0];
+    b.disabled = GATE_PROBLEMS.length > 0 || !(q && isAnswered(q));
+    /* the last question's button announces that it carries the inputs too (left alone while "✔ copied" is showing) */
+    if (qid === lastQid && b.textContent.charAt(0) === "\uD83D")
+      b.textContent = bundlesInputs(QS.length - 1, QS.length) ? t("copyOnePlus") : t("copyOne");
+  });
+  var bi = document.getElementById("btnCopyInputs");
+  if (bi) bi.disabled = GATE_PROBLEMS.length > 0 || inputLines().length === 0;
+  /* a broken gate blocks copying outright — never let a later condition re-enable it */
+  var can = !GATE_PROBLEMS.length && left.length === 0 && requiredOk();
+  document.getElementById("btnCopy").disabled = !can;
+  var pendingInputs = inputLines().length > 0 && !INPUTS_SENT;
+  var p;
+  if (GATE_PROBLEMS.length) { document.getElementById("ansPreview").textContent = t("barBlocked"); syncBarSpace(); return; }
+  if (left.length) {
+    p = t("barProgress", { done: QS.length - left.length, total: QS.length }) +
+      (QS.length > 1 ? t("barRemaining", { list: left.map(function (q) { return q.question; }).join(" / ") }) : "");
+  } else {
+    p = t("barDone", { total: QS.length });
+    if (!requiredOk()) p += t("barRequired");
+  }
+  var hasInputDefs = (((window.MSW_DECISION || {}).inputs) || []).length > 0;
+  if (pendingInputs)
+    p += t("barPending");
+  else if (!left.length && hasInputDefs && !INPUTS_SENT && requiredOk())
+    /* while a required (*) input is empty, "fill the required input" is the right notice — don't also say "you may leave it blank" */
+    p += t("barOptional");
+  document.getElementById("ansPreview").textContent = p;
+  syncBarSpace();   /* the bar's height changes with the number of notice lines */
+}
+document.getElementById("root").addEventListener("click", function (e) {
+  if (e.target.closest && e.target.closest("input, textarea, a, button")) return;
+  var card = e.target.closest ? e.target.closest(".opt, .delegate") : null;
+  if (!card) return;
+  var qid = card.getAttribute("data-qid");
+  var id = card.getAttribute("data-oid");
+  var q = questionsOf(window.MSW_DECISION).filter(function (x) { return x.qid === qid; })[0];
+  if (!q) return;
+  var cur = SEL[qid] || [];
+  var i = cur.indexOf(id);
+  if (id === "__delegate" || id === "__custom") {
+    cur = i >= 0 ? [] : [id];                       /* delegate and free-text answer are always mutually exclusive */
+  } else if (q.multiSelect) {
+    cur = cur.filter(function (x) { return x !== "__delegate" && x !== "__custom"; });
+    i = cur.indexOf(id);
+    if (i >= 0) cur.splice(i, 1); else cur.push(id);
+  } else {
+    cur = i >= 0 ? [] : [id];
+  }
+  SEL[qid] = cur;
+  /* choosing the free-text escape turns the note box into the answer box — switch the hint and focus */
+  var ta = byAttr("textarea[data-note]", "data-note", qid);
+  if (ta) {
+    var custom = cur.indexOf("__custom") >= 0;
+    /* the box changes meaning here: park what it holds in the slot it was editing, then load the
+       other one. Without this the abandoned text kept being pasted as a note next to a different answer. */
+    if (custom !== (ta.getAttribute("data-mode") === "custom")) {
+      if (custom) NOTE[qid] = ta.value; else CUSTOM[qid] = ta.value;
+      ta.value = String((custom ? CUSTOM[qid] : NOTE[qid]) || "");
+      ta.setAttribute("data-mode", custom ? "custom" : "note");
+    }
+    ta.placeholder = custom
+      ? t("customPh")
+      : t("notePh");
+    ta.setAttribute("aria-label", custom ? t("customPh") : t("notePh"));
+    ta.classList.toggle("needs", custom && !String(ta.value).trim());
+    if (custom) ta.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".opt, .delegate"), function (c) {
+    var cq = c.getAttribute("data-qid"), co = c.getAttribute("data-oid");
+    var on = (SEL[cq] || []).indexOf(co) >= 0;
+    c.classList.toggle("sel", on);
+    /* assistive tech reads the state from the attribute, not from the class */
+    c.setAttribute(c.classList.contains("delegate") ? "aria-pressed" : "aria-checked", on ? "true" : "false");
+  });
+  updateBar();
+});
+/* the cards are div-based widgets, so Enter/Space have to be wired by hand */
+document.getElementById("root").addEventListener("keydown", function (e) {
+  if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+  var card = e.target.closest ? e.target.closest(".opt, .delegate") : null;
+  if (!card) return;
+  e.preventDefault();          /* Space would scroll the page */
+  card.click();
+});
+document.getElementById("root").addEventListener("input", function (e) {
+  var t = e.target;
+  var k = t.getAttribute && t.getAttribute("data-ikey");
+  if (k) { VAL[k] = t.value; inputsVersion++; autoGrow(t); INPUTS_SENT = false; updateBar(); return; }   /* a changed value goes back to "needs sending" */
+  var nq = t.getAttribute && t.getAttribute("data-note");
+  if (nq) {
+    var custom = t.getAttribute("data-mode") === "custom";
+    if (custom) CUSTOM[nq] = t.value; else NOTE[nq] = t.value;
+    /* a free-text answer only counts when filled, so recompute the button states */
+    if (custom) {
+      t.classList.toggle("needs", !String(t.value).trim());
+      updateBar();
+    }
+  }
+});
+
+/* shared copy helper — falls back to execCommand when the clipboard API fails */
+/* The clipboard write resolves later, and by then the watcher may have swapped in the next
+   gate. Anything the callback wants to record belongs to the gate that was on screen when the
+   button was pressed — so the caller states which gate that was, and the update is dropped if
+   it no longer matches. */
+function whenStillOnGate(fn) {
+  var mine = gateId();
+  return function () { if (gateId() === mine) fn(); };
+}
+/* Bumped by every keystroke in a write-in box. A clipboard write resolves later, and marking
+   the inputs "sent" then would be a lie about values the user has since changed — what went to
+   the clipboard is the older text. Only the version that was actually copied may be marked. */
+var inputsVersion = 0;
+function whenInputsUnchanged(fn) {
+  var mine = gateId(), v = inputsVersion;
+  return function () { if (gateId() === mine && inputsVersion === v) fn(); };
+}
+function copyText(text, btn, okLabel, backLabel, onCopied) {
+  function done() {
+    btn.classList.add("ok"); btn.textContent = okLabel;
+    setTimeout(function () { btn.classList.remove("ok"); btn.textContent = backLabel; }, 2400);
+    if (onCopied) onCopied();   /* only now is the text really on the clipboard */
+  }
+  function fail() { alert(t("copyFail") + text); }
+  function fallback() {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    /* execCommand signals failure by returning false, not by throwing — check both paths */
+    try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+    document.body.removeChild(ta);
+    if (ok) done(); else fail();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+  else fallback();
+}
+
+/* per-question copy — pasted into the step the chat is currently asking */
+document.getElementById("root").addEventListener("click", function (e) {
+  var btn = e.target.closest ? e.target.closest(".qcopy") : null;
+  if (!btn || btn.disabled) return;
+  if (btn.id === "btnCopyInputs") {
+    /* the inputs count as sent only once the clipboard write actually resolved */
+    copyText(composeInputs(), btn, t("copiedPaste"), t("copyOne"), whenInputsUnchanged(function () { INPUTS_SENT = true; updateBar(); }));
+    return;
+  }
+  var QS = questionsOf(window.MSW_DECISION);
+  var qid = btn.getAttribute("data-copyq");
+  var i = -1;
+  QS.forEach(function (q, k) { if (q.qid === qid) i = k; });
+  if (i < 0) return;
+  var bundled = bundlesInputs(i, QS.length);
+  copyText(
+    composeOne(QS[i], i, QS.length), btn,
+    bundled ? t("copiedWithInputs") : t("copiedThisQ"),
+    t("copyOne"),
+    whenInputsUnchanged(function () { if (bundled) { INPUTS_SENT = true; updateBar(); } })
+  );
+});
+
+document.getElementById("btnCopy").addEventListener("click", function () {
+  /* compose() includes the input block, so once this copy succeeds the inputs HAVE been handed
+     over — leaving INPUTS_SENT false would keep nagging for them and re-bundle them elsewhere */
+  copyText(compose(), this, t("copiedPaste"), t("copyAll"), whenInputsUnchanged(function () {
+    if (inputLines().length) INPUTS_SENT = true;
+    updateBar();
+  }));
+});
+
+/* ---------- refresh: re-read the gate data, bypassing any cache, so the view matches this gate ---------- */
+var DATA_SIG = "";
+/* The signature answers "is the screen already showing this?", so it has to say WHICH screen —
+   not just which gate. Signing only the gate collapsed empty, broken and unreachable into one
+   "null": a refresh that read a broken file in the empty state compared "null" with "null",
+   concluded nothing changed, and skipped the render — while the watcher, whose guard trusts that
+   state and screen agree, then had no reason to draw the error either. */
+function signature() {
+  try {
+    if (DATA_ERROR) return "error:" + DATA_ERROR;
+    if (DATA_UNREACHABLE) return "unreachable";
+    return JSON.stringify(window.MSW_DECISION == null ? null : window.MSW_DECISION);
+  } catch (e) { return ""; }
+}
+function flashBtn(btn, text) {
+  btn.textContent = text;
+  setTimeout(function () { btn.textContent = t("refresh"); }, 1900);
+}
+document.getElementById("btnRefresh").addEventListener("click", function () {
+  var btn = this, prev = DATA_SIG, prevHadGate = !!window.MSW_DECISION;
+  btn.disabled = true;
+  btn.textContent = t("checking");
+  /* what is on screen right now decides whether "unchanged" may skip the redraw: after a failed
+     load the screen is a warning banner, so re-reading the very same file still has to redraw it */
+  var wasBroken = !!DATA_ERROR || DATA_UNREACHABLE || GATE_PROBLEMS.length > 0;
+  /* this read supersedes anything the watcher has in flight — otherwise its older reply
+     could land afterwards and re-apply, clearing answers a second time */
+  var myGen = ++watchGen;
+  pendingGate = null;
+  /* The button must come back no matter whose read wins. A watcher tick starting during this
+     read supersedes it (the generation moves on), and a read against a dying server may never
+     resolve at all — neither may leave the only manual control disabled for the session. */
+  var revive = setTimeout(function () { btn.disabled = false; btn.textContent = t("refresh"); }, 8000);
+  loadGate(function (res) {
+    clearTimeout(revive);
+    btn.disabled = false;
+    if (myGen !== watchGen) { btn.textContent = t("refresh"); return; }   /* superseded — the newer read owns the screen */
+    flashBtn(btn, t(applyRefreshed(res, prev, prevHadGate, wasBroken)));
+  });
+});
+/* One authoritative read, applied — named rather than inline so the state sweep drives the exact
+   code the button runs. Returns the notice key to flash. */
+function applyRefreshed(res, prev, prevHadGate, wasBroken) {
+  adoptGate(res);
+  gateReady = true;   /* this read owns the gate now, even if init's never landed */
+  /* Parsed, but not a gate — the watcher calls this broken, and so must we: adopted as data it
+     would read as "a different gate", wiping answers and announcing new questions over a file
+     that cannot be answered at all. */
+  if (window.MSW_DECISION && (typeof window.MSW_DECISION !== "object" || Array.isArray(window.MSW_DECISION))) {
+    window.MSW_DECISION = null;
+    DATA_ERROR = t("probDataType");
+    DATA_ABSENT = false;
+  }
+  /* the screen is about to match the file exactly, so the watcher's disagreement counters restart */
+  absentStreak = 0; errorStreak = 0;
+  var fresh = signature();
+  var same = fresh === prev;
+  if (same && !wasBroken) return "refreshSame";
+  /* Only a DIFFERENT GATE'S DATA invalidates the answers. An unreadable read keeps them — the
+     file may be mid-write, and the same gate coming back must find them, exactly as it does on
+     the watcher's path — and a gate identical to the one a broken read took down gets them back.
+     A missing file is the close signal, which clears them just as the watcher's close does. */
+  if (window.MSW_DECISION) {
+    var restored = !!brokenFromSig && fresh === brokenFromSig;
+    brokenFromSig = "";
+    if (!same && !restored) { SEL = Object.create(null); NOTE = Object.create(null); VAL = Object.create(null); CUSTOM = Object.create(null); INPUTS_SENT = false; }
+  } else if (DATA_ERROR || DATA_UNREACHABLE) {
+    if (prevHadGate) brokenFromSig = prev;   /* this read took a gate off the screen */
+  } else {
+    SEL = Object.create(null); NOTE = Object.create(null); VAL = Object.create(null); CUSTOM = Object.create(null); INPUTS_SENT = false;
+    brokenFromSig = "";
+  }
+  DATA_SIG = fresh;
+  applyLang();                                /* a refreshed gate may declare a different language */
+  safeRender();
+  /* "updated to the new questions" would be a lie when the gate was closed rather than replaced */
+  if (DATA_ERROR || DATA_UNREACHABLE) return "refreshBroken";
+  if (DATA_ABSENT) return "refreshClosed";
+  return same ? "refreshSame" : "refreshNew";
+}
+/* ---------- watch for the next gate ----------
+   The session replaces the gate data when it moves on, and the Refresh button lives at the TOP
+   of the page while the user is down among the cards — telling them to scroll up is the wrong
+   answer. The sheet notices by itself and swaps, announcing it in the answer bar, which is
+   pinned to the bottom where they already are.
+   Rules that keep this safe:
+   · Detection is side-effect free — nothing is adopted until a different gate has parsed.
+   · A half-written file (the session is mid-write) fails to parse and is ignored on its own;
+     only a file that parses AND differs triggers the swap, so there are no false alarms.
+   · One missing read is ignored too — replacing a gate deletes and rewrites the file, and a poll
+     landing in that gap must not blank the screen.
+   · A RUN of failures is not a pause, it is a state: two absences in a row mean the gate was
+     closed, three unreadable ones mean it can no longer be answered. Both take whatever is on
+     screen away, from whichever screen is up — the questions, an earlier error, or a page that
+     could not read at all. Only the empty screen is already correct and is left alone.
+   · A swap never happens while a text box has focus — it waits until the user stops typing. */
+var WATCH_MS = 1500;
+var watchBusy = false;
+var watchTicks = 0;
+var watchLast = 0;
+/* Deleting the data file is how a gate is closed, so the sheet has to follow it to the empty
+   state — leaving the decided question on screen with live copy buttons is exactly what closing
+   is meant to prevent. But a single missing read is not proof: a session replacing the gate can
+   delete and rewrite, and a poll landing in that gap would blank the page for a moment. So an
+   absence has to be seen twice in a row before it counts. (A file being written is a parse
+   failure, not a 404, and is ignored either way.) */
+var absentStreak = 0;
+/* Same treatment for a file that parses badly. Ignoring it outright — which is what happened
+   before — leaves the previous questions on screen with live copy buttons for as long as the
+   file stays broken, and the user answers a gate that no longer exists. A write in progress is
+   short, so ride out a couple of reads; past that the gate is genuinely unusable and has to go.
+   Three at 1.5s ≈ 4.5s, comfortably longer than a file being rewritten. */
+var errorStreak = 0;
+/* the signature of the gate a broken file took off the screen — if the very same gate comes
+   back, the answers that were on it are still valid and must not be thrown away */
+var brokenFromSig = "";
+/* Every request carries a generation. A reply from an older one (the 8s safety timeout can
+   release the lock while a slow load is still in flight) is discarded rather than applied. */
+var watchGen = 0;
+/* a reply that arrived while the user was typing, waiting for them to stop */
+var pendingGate = null;
+/* The interval is registered while the very first load is still in flight. A tick landing
+   before init() has adopted anything would treat the initial gate as a NEW one and announce
+   "the chat sent a new question" on first paint. Nothing is watched until init says so. */
+var gateReady = false;
+/* Typing must never be interrupted. The focus check has to happen when the answer ARRIVES —
+   checking only at request time leaves the whole round-trip open, and a user who starts
+   typing during it would have the box wiped out from under them. A deferred swap is retried
+   as soon as the field loses focus. */
+function typingNow() {
+  var ae = document.activeElement;
+  return !!(ae && (ae.tagName === "TEXTAREA" || ae.tagName === "INPUT"));
+}
+function announceClosed() { announce(t("refreshClosed")); }
+/* Is anything on screen that outlives the file it describes? The questions, a "this file is
+   broken" message and a "the page cannot read the file" message all do; only the calm empty
+   screen is already the truth. Both closing transitions ask this instead of asking whether the
+   QUESTIONS are up — a broken gate whose file is then deleted has no questions left, and used to
+   keep its error on screen for the rest of the session because of it. */
+function somethingOnScreen() { return !!window.MSW_DECISION || !!DATA_ERROR || DATA_UNREACHABLE; }
+/* a gate whose file stopped being readable: take the questions away, say why, block copying */
+function applyBroken(msg) {
+  brokenFromSig = DATA_SIG;
+  window.MSW_DECISION = null;
+  DATA_ERROR = String(msg || "");
+  DATA_ABSENT = false; DATA_UNREACHABLE = false;
+  DATA_SIG = signature();
+  safeRender();
+  toTop();
+  announce(t("refreshBroken"));
+}
+function applyClosed() {
+  brokenFromSig = ""; errorStreak = 0;
+  window.MSW_DECISION = null;
+  DATA_ERROR = null; DATA_ABSENT = true; DATA_UNREACHABLE = false;
+  SEL = Object.create(null); NOTE = Object.create(null); VAL = Object.create(null); CUSTOM = Object.create(null);
+  INPUTS_SENT = false;
+  DATA_SIG = signature();
+  safeRender();
+  toTop();
+  announceClosed();
+}
+/* Jump, don't animate. A smooth scroll is nicer to watch but measurably does nothing in an
+   in-app preview pane that isn't compositing — which is exactly where this sheet lives — and a
+   scroll that silently no-ops leaves the user staring at the middle of a gate they already
+   answered. The bar notice carries the "something changed" signal instead. */
+function toTop() {
+  try { window.scrollTo(0, 0); } catch (e) { document.documentElement.scrollTop = 0; }
+}
+var noticeTimer = null;
+function announce(text) {
+  var el = document.getElementById("swapped");
+  if (!el) return;
+  el.textContent = text;
+  el.classList.add("show");
+  syncBarSpace();
+  if (noticeTimer) clearTimeout(noticeTimer);   /* the previous hide must not cut this one short */
+  noticeTimer = setTimeout(function () { noticeTimer = null; el.classList.remove("show"); syncBarSpace(); }, 6000);
+}
+function announceSwap() { announce(t("swapped")); }
+function applyWatched(fresh) {
+  var incoming = "";
+  try { incoming = JSON.stringify(fresh); } catch (e) { incoming = ""; }
+  /* the gate a broken file had removed is coming back unchanged — the answers on it still apply */
+  var restored = !!incoming && incoming === brokenFromSig;
+  brokenFromSig = "";
+  errorStreak = 0;
+  window.MSW_DECISION = fresh;
+  DATA_ERROR = null; DATA_ABSENT = false; DATA_UNREACHABLE = false;
+  if (!restored) {
+    /* a different gate: the previous gate's answers belong to it, not to this one */
+    SEL = Object.create(null); NOTE = Object.create(null); VAL = Object.create(null); CUSTOM = Object.create(null);
+    INPUTS_SENT = false;
+  }
+  DATA_SIG = signature();
+  applyLang();
+  safeRender();
+  toTop();          /* a new gate starts at its first question, not wherever the last one was read */
+  announceSwap();
+}
+function watchTick() {
+  watchTicks++;
+  if (!gateReady || watchBusy) return;
+  watchLast = Date.now();
+  watchBusy = true;
+  var gen = ++watchGen;
+  var done = false;
+  function finish() { if (done) return; done = true; watchBusy = false; }
+  /* a load that never resolves must not disable the watcher for the rest of the session */
+  setTimeout(finish, 8000);
+  loadGate(function (res) {
+    if (done) return;
+    finish();
+    if (gen !== watchGen) return;      /* a newer request already went out — this reply is stale */
+    if (typingNow()) { pendingGate = { res: res, gen: gen }; return; }   /* hold it until they stop typing */
+    applyResult(res);
+  });
+}
+/* what to do with a reply, once it is safe to touch the screen */
+function applyResult(res) {
+  {
+    /* An unreachable read says nothing about the FILE — the page itself could not look.
+       It counts toward nothing and resets nothing, so "in a row" always means consecutive
+       reads that actually reached the file. */
+    if (res.unreachable) return;
+    if (res.absent) {
+      absentStreak++;
+      errorStreak = 0;   /* a missing file ends any run of unreadable ones — a different signal */
+      /* Twice in a row: the gate was closed, and everything the file left behind goes with it.
+         Requiring the questions to still be up would strand the two screens that survive a
+         deleted file — an error and an unreachable read. The empty screen is skipped because it
+         is already right, which also stops this from re-announcing on every later tick. */
+      if (absentStreak >= 2 && somethingOnScreen()) applyClosed();
+      return;
+    }
+    absentStreak = 0;
+    if (res.error) {
+      errorStreak++;
+      /* Say it once, from wherever we are. "Nothing to choose right now" in front of a file that
+         is sitting there unreadable sends the user to report the wrong thing; the guard is that
+         the screen does not ALREADY say this, not that questions are up. */
+      if (errorStreak >= 3 && !DATA_ERROR) applyBroken(res.error);
+      return;
+    }
+    var fresh = res.data;
+    if (!fresh || typeof fresh !== "object" || Array.isArray(fresh)) {
+      /* parsed, but not a gate — as unusable as a parse failure, and just as persistent */
+      errorStreak++;
+      if (errorStreak >= 3 && !DATA_ERROR) applyBroken(t("probDataType"));
+      return;
+    }
+    errorStreak = 0;
+    var sig = "";
+    try { sig = JSON.stringify(fresh); } catch (e) { return; }
+    if (!sig || sig === DATA_SIG) return;        /* same gate */
+    applyWatched(fresh);
+  }
+}
+/* Three ways in, because none of them is reliable on its own:
+   · the timer — browsers throttle or freeze it outright on a page they consider hidden, and
+     some in-app panes report hidden while the user is plainly looking at them;
+   · becoming visible / focused — covers the tab the user comes back to;
+   · any interaction with the sheet — covers a pane whose timers the browser has frozen but
+     where the user is actively working. Rate-limited, so a mousemove costs nothing. */
+setInterval(watchTick, WATCH_MS);
+document.addEventListener("visibilitychange", function () { if (!document.hidden) watchTick(); });
+window.addEventListener("focus", watchTick);
+/* they stopped typing: apply whatever was held back, then resume normal checking */
+document.addEventListener("focusout", function () {
+  setTimeout(function () {
+    if (typingNow()) return;                     /* focus only moved to another box */
+    if (pendingGate) {
+      var held = pendingGate;
+      pendingGate = null;
+      /* Apply it only if nothing newer has read since. A fresher tick or refresh may already
+         have put a NEWER gate on screen while this one waited — applying it then would roll
+         the screen back to a gate the session has replaced. Read fresh instead. */
+      if (held.gen === watchGen) { applyResult(held.res); return; }
+    }
+    watchTick();
+  }, 300);
+});
+function watchSoon() { if (Date.now() - watchLast >= 2500) watchTick(); }
+["pointerdown", "keydown", "wheel", "scroll", "mousemove"].forEach(function (ev) {
+  document.addEventListener(ev, watchSoon, { passive: true });
+});
+document.getElementById("btnTheme").addEventListener("click", function () {
+  document.body.classList.toggle("dark");
+  storeSet("msw-viewer-dark", document.body.classList.contains("dark") ? "1" : "0");
+});
+/* render() must never leave a half-drawn or stale screen behind: on failure the sheet says so
+   and copying stays disabled, instead of the previous gate's cards lingering under new data. */
+function safeRender() {
+  try { render(); return true; }
+  catch (e) {
+    GATE_PROBLEMS = [t("renderFailed")];
+    try {
+      document.getElementById("root").innerHTML =
+        '<div class="gate-error" role="alert"><b>' + esc(t("badGateTitle")) + "</b><p>" + esc(t("renderFailed")) + "</p></div>";
+      document.getElementById("ansbar").classList.add("show");
+      updateBar();
+    } catch (e2) { /* nothing else can be done here */ }
+    if (window.console && console.error) console.error("[decision-sheet] render failed:", e);
+    return false;
+  }
+}
+(function init() {
+  var d = storeGet("msw-viewer-dark");
+  if (d === "1" || (d === null && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) document.body.classList.add("dark");
+  applyLang();   /* chrome in the browser's language until the gate declares its own */
+  /* The first read is asynchronous like any other, so a Refresh pressed while it is still in
+     flight would otherwise be overwritten when the older initial reply finally lands. */
+  var initGen = ++watchGen;
+  loadGate(function (res) {
+    if (initGen !== watchGen) return;   /* a refresh already superseded this read */
+    adoptGate(res);
+    gateReady = true;   /* only now may the watcher compare against something real */
+    try { applyLang(); safeRender(); DATA_SIG = signature(); } catch (e) {
+      document.getElementById("root").innerHTML = '<div class="empty">' + esc(t("errTitle")) + "<br>" + esc(t("errBody")) + "</div>";
+    }
+  });
+})();
+</script>
+</body>
+</html>

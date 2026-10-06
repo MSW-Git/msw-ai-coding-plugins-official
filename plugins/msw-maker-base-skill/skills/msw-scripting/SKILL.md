@@ -154,7 +154,7 @@ end
 
 > ⚠️ **`@Logic` has no `self.Entity`** — Logic parent only exposes `ConnectEvent`/`DisconnectEvent`/`IsClient`/`IsServer`/`SendEvent`. `self.Entity.xxx` compiles but is a runtime nil-access. To bind a world entity, inject via property (`property Entity x = "uuid"` / `property EntityRef x = ""`) or look it up with `_EntityService:GetEntityByPath(...)` / `:FindEntityByName(...)`. Property injection (UUID literal) is preferred. See §7.
 >
-> ⚠️ **`OnMapEnter` / `OnMapLeave` never fire on `@Logic`** — they're Component-only (see §5). Declaring them on a Logic is silent dead code.
+> ⚠️ **`OnMapEnter` / `OnMapLeave` never fire on `@Logic`** — they're Component-only (see §5). Declaring them on a Logic is silent dead code. For per-map setup/cleanup either (1) move the behavior to a `@Component` on the map entity (preferred; the only option that works on the server), or (2) **client-side only**: poll `_UserService.LocalPlayer.CurrentMap` from `OnUpdate` — `LocalPlayer` is available only on the client (nil on the server). A Logic survives map transitions, so any timer / event handler / mutable state that should reset per map must be cleared via one of these — there is no automatic hook.
 
 > **Decision: @Component vs @Logic — by lifetime, not "is it global?"**
 >
@@ -224,6 +224,8 @@ OnInitialize → OnBeginPlay → OnUpdate(delta) → OnEndPlay → OnDestroy
 | `OnEndPlay` | Game end | Component + Logic | **Disconnect events, clear timers (mandatory!)** |
 | `OnDestroy` | Removal | Component + Logic | Final cleanup (rarely used) |
 
+On the client, `OnMapEnter` also fires for other players already in the map — not only for the local player's own entry.
+
 **Required pattern**: everything connected in `OnBeginPlay` must be released in `OnEndPlay` (events, timers).
 
 ```lua
@@ -239,6 +241,8 @@ method void OnEndPlay()
     if self.timerId then _TimerService:ClearTimer(self.timerId) end
 end
 ```
+
+**`OnMapEnter` pairs with `OnMapLeave` — the map-transition timer leak.** `OnMapEnter` fires on **every** map re-entry, and a Component whose entity survives transitions (player, persistent objects) is **not** destroyed on leave — so a timer/handler started in `OnMapEnter` stacks one more live copy per re-entry. Clear it in `OnMapLeave`, not `OnEndPlay` (which fires only on final removal, so it never runs between transitions). A **repeating** timer (`SetTimerRepeat`, or `SetTimer(..., isRepeat = true)`) left registered is what the engine reports as `[LEA-3051] MemoryLeak` at the next play-mode start, naming the create line; once-timers (`SetTimerOnce`) self-clear after firing and are never flagged. Rule: whatever `OnMapEnter` starts, `OnMapLeave` must clear.
 
 ---
 
@@ -393,7 +397,7 @@ For synced collections in your own scripts, use `SyncTable<V>` (array form) or `
 
 ### `OnSyncProperty` callback
 
-Client-side hook fired when a `@Sync` property changes. **Must be `ClientOnly`** (cannot be changed). Available on Component and Logic.
+Client-side hook fired when a `@Sync` property finishes synchronizing. **Must be `ClientOnly`** (cannot be changed). Available on Component and Logic. Not called for properties whose sync setting is None.
 
 ```lua
 @ExecSpace("ClientOnly")
@@ -728,6 +732,8 @@ The procedure for verifying behavior in **play mode** in Maker, then narrowing d
 
 > ⚠️ **Empty build logs ≠ build OK.** Refresh-stage **mlua conversion errors** (Maker popup *"An error occurred during mlua conversion"*) bypass the Build Console entirely: `refresh` still reports ok, `logs(kind="build")` stays at 0, and the error text lands **only in `logs(kind="normal")`**. If build logs are empty but a script still fails to load — or that popup is reported — read `logs(kind="normal")` next instead of looping refresh→build-check. Do **not** `clear_logs` until the cause is captured: clearing wipes the normal-log bucket, i.e. the only copy of the conversion error.
 
+> ⚠️ **A stale build error does not clear by re-running `refresh`.** Refresh reprocesses only files whose modified time advanced, so a second `refresh` with no edit in between recompiles nothing — same build-log timestamp, same errors. Cross-file signature changes are the classic trigger (parameter list changed in one script, call sites in another → an argument-mismatch `LEA-1102` lingering against the old signature). Force one real cycle: make a harmless edit (a comment) in the caller file, `refresh`, and judge that result.
+
 ### 17.2 Error Classification
 
 | Class | Signs | Where to look |
@@ -737,13 +743,15 @@ The procedure for verifying behavior in **play mode** in Maker, then narrowing d
 | **Component missing** | nil component / `GetComponent` fails | `Components` array in `.model`; name typos |
 | **Sync / network** | Only client breaks, values mismatch or converge late | `@Sync`, `ExecSpace`, RPC flow |
 | **`Info` LIA 1113/1114/1115** (false positives on read/call sites) | Static-analysis can't resolve user cross-script refs (`_LogicName`, user `@Component` dot/method). Build still passes (errors=0/warnings=0) | Treat as noise; verify with `log()`. **Exception**: `LIA-1114` on an assignment target (`self.<name> = ...` with `<name>` undeclared) is a real runtime-error signal — `cannot set <name>, no such field` at play time; declare the `property` or use `self._T` (§7). Scope next `logs` call to higher severity if they drown real issues. |
-| **User type `Symbol not found` / `type not found`** | Usage site authored before the user-type body `.mlua` exists. | Write the body `.mlua` first, then Maker `refresh` to regenerate the `.codeblock`. Build-log cache can hold one stale cycle — judge by the next diagnose. |
+| **User type `Symbol not found` / `type not found`** | Usage site authored before the user-type body `.mlua` exists. | Write the body `.mlua` first, then Maker `refresh` to regenerate the `.codeblock`. Build-log cache can hold one stale cycle — judge by the next diagnose (a `refresh` with no file change is not a new cycle, §17.1). |
 
-If logs are inconclusive, add `log()` in `.mlua` to inspect entity/component/property state.
+If logs are inconclusive, add `[VRF]`-prefixed `log()` in `.mlua` to inspect entity/component/property state (one shared prefix keeps later log reads scoped).
 
 ### 17.3 Test-Result Report
 
 Summarize briefly: **Scenario** (one line) · **Env** (map, refreshed?) · **Steps** (input/Lua) · **Result** (Pass/Fail/Blocked) · **Evidence** (1–2 log lines, screenshot if requested) · **Next action**.
+
+With multiple findings, list them in severity order (blocks play > wrong behavior > cosmetic), each with its reproduction steps and the §17.2 class it maps to.
 
 ### 17.4 Workflow
 
@@ -754,12 +762,14 @@ edit → refresh → logs(kind="build")  ──┐
                                            ↓ (errors? fix and refresh again)
                   clear_logs (optional) → play
                                            ↓
-                   keyboard_input / mouse_input to reproduce
+                   reproduce (one maker_execute_script probe, or simulated input)
                                            ↓
                    logs(kind="normal") → classify with §17.2 table
                                            ↓ (insufficient? add log() in .mlua, refresh, replay)
                                           stop → fix → loop
 ```
+
+**Reproduction economy** — every tool call is a full model round-trip, and its output stays in context for the rest of the session. Prefer **one `maker_execute_script` probe** that drives the scenario and emits `[VRF]` logs over a long `keyboard_input` / `mouse_input` chain; simulate real input only when the input path itself is under test. Plant the `[VRF]` markers for **all** of the turn's changes before playing so one cycle verifies everything.
 
 **Variants** — same loop, different entry conditions:
 
@@ -773,7 +783,7 @@ edit → refresh → logs(kind="build")  ──┐
 
 ### 17.5 Final Verification (PASS/FAIL)
 
-**"No errors ≠ Pass."** Before reporting done, gather positive `log()`-based evidence that the intended logic actually executed. Full checklist: [references/verify-checklist.md](references/verify-checklist.md) (Runtime → Code Review → Log Evidence → PASS/FAIL).
+**"No errors ≠ Pass."** Before reporting done, gather positive `[VRF]` `log()` evidence that the intended logic actually executed. Full checklist: [references/verify-checklist.md](references/verify-checklist.md) (Runtime → Code Review → Log Evidence → PASS/FAIL) — run **once per turn**, one runtime cycle covering all of the turn's changes.
 
 ### 17.6 Related Skills
 

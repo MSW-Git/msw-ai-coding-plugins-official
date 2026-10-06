@@ -1,0 +1,11 @@
+UIEntityToggleGroup3 613x104 [UICompoundButtonGroup]
+  Img_BG 607x125
+    EntityToggle1 200x100 [UIEntityToggle]
+      Btn_Off 200x100 6efbbb88fb1b4ea9960c04320dbc211d (Sliced) BTN text:#BCBCBC@32
+      Btn_On 200x100 0a0194a2dc554eaabe47240600e2b109 (Sliced) BTN text:#FFFFFF@32
+    EntityToggle2 200x100 [UIEntityToggle]
+      Btn_Off 200x100 6efbbb88fb1b4ea9960c04320dbc211d (Sliced) BTN text:#BCBCBC@32
+      Btn_On 200x100 0a0194a2dc554eaabe47240600e2b109 (Sliced) BTN text:#FFFFFF@32
+    EntityToggle3 200x100 [UIEntityToggle]
+      Btn_Off 200x100 6efbbb88fb1b4ea9960c04320dbc211d (Sliced) BTN text:#BCBCBC@32
+      Btn_On 200x100 0a0194a2dc554eaabe47240600e2b109 (Sliced) BTN text:#FFFFFF@32

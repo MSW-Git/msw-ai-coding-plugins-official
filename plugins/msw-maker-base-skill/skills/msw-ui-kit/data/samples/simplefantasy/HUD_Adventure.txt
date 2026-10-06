@@ -1,0 +1,47 @@
+# HUD_Adventure — 45 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout_StageProgress, Layout_Info, Layout_Gauge, Btn_Burning, Img_ExpBar_Effect, Layout_ExpBar, Layout_Level, Layout_Clear
+UIR_SimpleFantasy_Sample_HUD_Adventure 1920x1080
+  Layout_StageProgress 420x128 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/45%
+    Img_1 599x100 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#9A1F05
+    Img_2 383x217 f27a014119c3465dbeadbca30144e3c2
+    Img_3 423x242 f27a014119c3465dbeadbca30144e3c2
+    Layout_Room 420x128
+  Layout_Info 455x71
+    Meso 251x63 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#000000/60%
+      Img_Meso 60x60 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+      Eff 112x106 12995a48d4f3453b8518a9f5085a48bb
+      Text_Count 124x36 text:#FFFFFF@24B
+    Equip 117x63 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#000000/60%
+      Img_Equip 48x44 50baeda901af47d78bd8264f5b903d5b
+      Eff 112x106 12995a48d4f3453b8518a9f5085a48bb
+      Text_Count 14x36 text:#FFFFFF@24B
+  Layout_Gauge 1920x1080
+    Img_BG 152x152 e299cdb910ea4a488025f1cffe092304
+    Layout_Gauge_Inner 152x152
+      Img_Gague_C 152x152 916a1201548046ae9a08b51545ce6c64 (Filled)
+      Img_Gague_B 152x152 094486385585495ab8f7d71c097e1790 (Filled)
+      Img_Gague_A 152x152 4fae70775a8042c7a2fa73434b7cbc5e (Filled)
+      Img_Gague_S 152x152 c6c079d2eec042c29b45e6de47b36b76 (Filled)
+    Img_Rank 84x84 1a9d3ab3fc7f4c74b1f491fffd65c9d1
+    Layout_LeftTime 120x32 7c859b179fac45268c96267bce9ead1a color:#000000/80%
+      Text_LeftTime 100x37 text:#FFFFFF@24B
+    Img_GaugeFx 8x20 ed46741ae5ab4c72b0fc8a1427f61f9f
+    Img_Effect_Max 152x152 3400889e6fd64b189e54c134041f6a2f
+  Btn_Burning 88x100 fd058ec2adf544d086fb551dc687b940
+    Panel_Tooltip 612x227 2860136c06ab075439721c027de365af color:#171F2D/90%
+      Text 612x227 text:#B2B2B2@20B
+      Btn_BG 3000x3000 d712e76fb66e38140adf81cba8b0068c (Sliced)
+  Img_ExpBar_Effect 1920x100 fbcc5c683c4e4c04bb9b24ad60c59169 color:#FFFFFF/80%
+    Img_Bonus 137x52 1384d552a23340caa8a511dbf4e5ba62 (Sliced)
+      Text_Value 53x36 text:#FFFFFF@24B
+  Layout_ExpBar 1920x15
+    Img_ExpBar 1920x15
+    Text_ExpRate 200x25 text:#C8FFC8@22B
+  Layout_Level 142x100
+    Text_Level1 200x25 text:#FFFFFF@25B
+    Text_Level2 138x41 text:#FFFFFF@35B
+    Deco_SkillLv 16x72 0db2a75107344e7296619f591e5ab833
+  Layout_Clear 848x172 ab58be1f40d845c8ab987c0bb915927a color:#0E121A/90%
+    Text_Result 262x116 text:#60FFC5@78B
+    Text_ResultDesc 138x37 text:#FFFFFF@25
+    Deco 20x528 e2fc175d16ed4bd8aeb2af4ae15fc658 color:#FFFFFF/50%

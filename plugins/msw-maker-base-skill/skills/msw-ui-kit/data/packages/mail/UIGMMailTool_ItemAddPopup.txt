@@ -1,0 +1,31 @@
+# UIGMMailTool_ItemAddPopup — 28 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIGMMailTool_ItemAddPopup 2520x1680
+  Panel 1860x1020 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1810x110
+      Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    Pages 1750x743
+      Page_Add 1750x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Left 819x718
+          Scroll_Label 799x90
+            Label_Id 430x70 text:#653122@24+o#B2B2B2
+            Label_Count 200x70 text:#653122@24+o#B2B2B2
+          Item 800x450
+            Text_Id 430x440 text:#653122@24+o#B2B2B2
+            Text_Count 200x440 text:#653122@24+o#B2B2B2
+          Btn_Add 200x100 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36+o#B2B2B2
+        Right 874x712
+          Scroll_Label 834x90
+            Label_Id 430x70 text:#653122@24+o#B2B2B2
+            Label_Count 250x70 text:#653122@24+o#B2B2B2
+          GridView 845x591
+          ItemInfoUI 820x100
+            Text_ID 430x100 text:#653122@24+o#B2B2B2
+            Text_Count 250x100 text:#653122@24+o#B2B2B2
+            Btn_Remove 100x100 e22dca176e7c48b39d5b40554b546e22 (Sliced)
+              Text_Desc 95x75 text:#653122@24+o#B2B2B2
+        deco_line 1750x2
+        deco_line_2 2x743
+        deco_line_1 830x2

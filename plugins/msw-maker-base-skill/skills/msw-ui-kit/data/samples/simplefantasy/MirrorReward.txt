@@ -1,0 +1,28 @@
+# MirrorReward — 26 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Btn_Close, Img_BG
+UIR_SimpleFantasy_Sample_MirrorReward 1920x1080
+  Btn_Close 1920x1080
+  Img_BG 2520x655 2737458ada9945d9b83a8629a5baffe7
+    Img_RoundLight 1708x809 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#8193A6/43%
+    Img_BG_Content 850x178 2d5da24718f7405e967ab46cae718001 (Sliced) color:#FFFFFF/50%
+    Text_Result 151x73 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#FFFFFF/20% text:#FFFFFF@36B
+      Deco 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+      Deco_1 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+    Deco_Star 17x17 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/20%
+      Deco_LineR 150x2 7f867c5525ad4830889d445835d9b5b4 color:#FFFFFF/20%
+      Deco_LineL 150x2 7f867c5525ad4830889d445835d9b5b4 color:#FFFFFF/20%
+    Layout_Rank 750x80
+      Text_Title 63x36 text:#A4A4A4@24B
+        Img_DotL 32x28 70c7c00235b049829e008e16db52694a color:#A4A4A4
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979 color:#757474/70%
+      Text_Rank 380x60 text:#8EB1E2@30B
+    Layout_Score 750x80 f688c9690f4f4f0b9e556259d8a1a53c (Sliced) color:#FFFFFF/0%
+      Text_Title 72x36 text:#A4A4A4@24B
+        Img_DotL 32x28 a15c8375530541b3b932b6b1a3164109 color:#A4A4A4
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979 color:#757474/70%
+      Text_Score 380x60 text:#DEDFDF@30B
+    Layout_Reward 1000x259 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#0E121A/50%
+      Text_Title 96x36 text:#A4A4A4@24B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979 color:#757474/70%
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979 color:#757474/70%
+    Btn_Close 240x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B

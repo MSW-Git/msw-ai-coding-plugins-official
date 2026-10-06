@@ -1,0 +1,15 @@
+# UIPopupConfirm — 12 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIPopupConfirm 1920x1080
+  Dim 2520x1680
+  Panel 800x640 25e9e89579644202805f535d038a9edb (Sliced)
+    Text_Title 145x45 text:#FFE398@30
+    Img_BG 694x440 c24adedc9faa457daf4e4aae7cd663bb
+      Text_Message 634x270 text:#653122@27
+      deco_line 694x2
+      Panel_OneBtn 654x100
+        Btn_Confirm 250x88 e22dca176e7c48b39d5b40554b546e22 (Sliced) text:#653122@36
+      Panel_TwoBtn 654x100
+        Btn_OK 250x88 e22dca176e7c48b39d5b40554b546e22 (Sliced) text:#653122@36
+        Btn_Cancel 250x88 e22dca176e7c48b39d5b40554b546e22 (Sliced) text:#653122@36

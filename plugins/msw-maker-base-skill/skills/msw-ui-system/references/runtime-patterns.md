@@ -217,7 +217,7 @@ end
 
 ## 5. GridView Large List
 
-For 100+ items, use GridView instead of ScrollLayout.
+For unbounded lists, or bounded ones large enough that rendering every child costs too much, use GridView instead of ScrollLayout. Bounded lists below that point belong on ScrollLayout (§4) — see [`component-api.md`](component-api.md) §"ScrollLayoutGroupComponent vs GridViewComponent".
 
 ```lua
 @Logic
@@ -230,7 +230,7 @@ script InventoryGrid extends Logic
     method void OnBeginPlay()
         self.data = {}
         -- initialize data
-        for i = 1, 200 do
+        for i = 1, 5000 do
             table.insert(self.data, "Item " .. tostring(i))
         end
 
@@ -253,6 +253,12 @@ script InventoryGrid extends Logic
     end
 end
 ```
+
+`OnRefresh` injects and rebinds cell data; `OnClear` fires when a cell stops being used and is where per-row state it picked up gets released. Those two are the only supported places to touch a cell. Three consequences:
+
+- **`Refresh()` is asynchronous.** It never runs `OnRefresh` inline, so code that calls `Refresh()` and then reads or edits the cells on the next line always sees stale or unbuilt ones. Do the work inside the callback.
+- **A disabled GridView refreshes nothing.** While the entity is `Enable = false` — a dropdown list that starts closed, a tab that has not been opened — `OnRefresh` does not fire at all, with no error or log. It fires a frame or more after the entity is enabled. So "post-process the cells once they are drawn" silently no-ops on anything closed by default; hook the enable instead.
+- **Cloned cells are named `<template>_<n>`, and `n` is not the row index.** It is a recycling-pool slot number, so a 500-row list may only ever contain `Item_0`…`Item_9`, and `Item_3` is bound to a different row each time it scrolls into view. Never look a cell up by name expecting a particular row — the row number arrives as the `index` argument. Note this differs from other cloning code in the ecosystem (the bundled scroll picker names its clones `Item1`, 1-based), so the convention is not shared.
 
 ---
 

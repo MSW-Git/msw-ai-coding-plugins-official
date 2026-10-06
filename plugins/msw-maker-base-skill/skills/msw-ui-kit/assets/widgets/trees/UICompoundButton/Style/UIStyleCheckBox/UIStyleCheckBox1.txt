@@ -1,0 +1,3 @@
+UIStyleCheckBox1 60x60 [UIStyleCheckBox] BTN
+  Img_Frame 60x60 cc3457b8e97b3e14f9d5c39ccdd640bf
+    Img_Mark 24x18 2e91332a8bef68b4b9d2f75690f8e359

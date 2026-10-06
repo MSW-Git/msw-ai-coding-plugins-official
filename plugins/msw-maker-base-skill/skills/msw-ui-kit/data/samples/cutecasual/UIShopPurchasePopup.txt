@@ -1,0 +1,35 @@
+# UIShopPurchasePopup — 33 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Contents
+UIR_CuteCasual_Sample_UIShopPurchasePopup 735x825 638b8111393b44ec91acfee386ab789f color:#FFFFFF/0%
+  Dim 2535x1725
+  Contents 735x825
+    Pin 100x48 0aa7ba13792f4d6b9c5acc2caa9928e3
+    Paper 735x825 638b8111393b44ec91acfee386ab789f
+    Pattern 715x455 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#EEEBE5/40%
+    Gray 710x355 a971746cec0946748504f429a777c7c7 (Sliced) color:#F2ECDF
+    ItemPanel 715x440
+      ItemName 602x65 text:#685942@32B+o#FFFFFF
+      Line 420x8 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#D0BF9C
+      ItemImage 120x120 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+      ItemDesc 625x110 be8782fbef4e4db1ae3f9c6d3590eb02 color:#EFECEA/0% text:#736752@26B
+      OwnCountText 420x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E8DCC3 text:#FFFFFF@26B+o#987F5F
+    CountPanel 707x200
+      RemainCountText 607x40 text:#8B7B63@26B+o#FFFFFF
+      CountSlice 620x84 d48c2bc7370d43158e62ccef8a2a0fb6 (Sliced) text:#72634B@30B
+        IncreaseButton 103x84
+          Icon 24x24 c6e810fc41704ad2b744b63c2f22c45a color:#818181 text:#72634B@50
+        DecreaseButton 127x84
+          Icon 24x8 ae7cce9f299344c1ad5adab38b30e880 color:#818181 text:#818181@50B
+      ButtonPanel 660x75
+        MinButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+        TenButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+        FiftyButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+        HundredButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+        MaxButton 120x68 84875550e8f54585a2cc4ccf0d71c5d8 text:#7D6342@28B
+      Line 700x4 1ea419d4b96a4f7fa31f42058e541fa4 (Sliced) color:#E1D5B9
+    ButtonPanel 715x135
+      BuyButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        BuyPriceText 48x38 text:#FFFFFF@26B+o#C15E14
+          CurrencyImage 28x28 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        BuyText 200x45 text:#FFFFFF@28B+o#C15E14
+      CancelButton 256x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@32B+o#9F1F15

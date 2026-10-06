@@ -1,0 +1,49 @@
+# ObjectHandler — 47 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UIforScale, Center, ObjectSettingPanel
+UIR_SuperSimple_Sample_ObjectHandler 1920x1080
+  UIforScale 1920x1080
+    PresetObjectHandler 700x700 40efef4d569b45eb9fbcba10490a8288 color:#FFFFFF/51%
+      UIButton_Rotation 100x100 559b26f008b34a378a15eb44cf3dae2f
+        SizeRotation 100x100
+          UISprite_toLeft 130x130 7c5958ff6ef743b1b786fcfb6646e2a8
+          UISprite_toRight 130x130 8284d57889444935bc66789fe3a2bbac
+      SizeSub 100x100
+        UISprite_toSmall 80x80 0116952f619643fca492d34cfad466fb
+        UISprite_toBig 80x80 3297808b800a4a668b62d8bbe0b60d9b
+      UIButton_Size 100x100 bd95e77993bc4e06a3cd6edaef402c10 states:pressed=c245ff6521b54310a33f3d5d64389796
+      UIButton_Flip 100x100 a3a81f058fe64dd6acdac600a8cfb7b7
+      UIButton_Trash 100x100 4f4f1d07f9124f38809cfe9834017ada
+      UIButton_Property 100x100 5315ade0b175483da2fb2fcafcc3fbb3
+      UIButton_Copy 100x100 a32aaeda97ce4afd88c155b2c7f12c76
+      UIButton_LayerUp 100x100 b23899ed251741e1b00ad26186387ae9
+      UIButton_LayerDown 100x100 ca699bccf1144ff59fecf66e40ef752a
+  Center 1x1 9836afcd21f10c34badca902fb9131c1
+  ObjectSettingPanel 669x474
+    PhysicsSetting 669x474 1770565d64de4bd49c5584ea8e465a75
+      PhysicsEnable 492x50 text:#847252@30B
+        Bullet 42x42 654f8b920bb24d109d34066f8f54daf9 color:#847252
+        Checkbutton 50x50 c83d901bab8547cf96443030d8ef50d7 (Sliced) color:#C7BDA5
+          On 50x50 c83d901bab8547cf96443030d8ef50d7 (Sliced) color:#12C4B6
+            Icon 42x42 bbc23188bd544d5a9dec38e25e3082bd
+      Friction 544x50 text:#847252@30B
+        Bullet 42x42 654f8b920bb24d109d34066f8f54daf9 color:#847252
+        CustomPanel 541x80
+          L 70x70 af4ed64ca7e74f07af6586b85b79c048 color:#BBAE96
+            Icon 52x52 ebb2d070b51e4fc387fdc8155892c0ee
+            UIText 200x40 text:#BBAE96@24B
+          R 70x70 af4ed64ca7e74f07af6586b85b79c048 color:#BBAE96
+            Icon 52x52 8530ce8f5e9740a88f339c364a039701
+            UIText 200x40 text:#BBAE96@24B
+          Bg 405x16
+          FrictionValueSlider 325x16 03f6d71230384c808632bdb6dab56096 (Sliced) color:#BBAE96 HandleImageRUID:06a927e839d347b7ab9a92cc9f8e4109
+      Restitution 532x50 text:#847252@30B
+        Bullet 42x42 654f8b920bb24d109d34066f8f54daf9 color:#847252
+        CustomPanel 541x80
+          L 70x70 af4ed64ca7e74f07af6586b85b79c048 color:#BBAE96
+            Icon 52x52 58e8407333d94ea4bd70b23865f1eb99
+            UIText 200x40 text:#BBAE96@24B
+          R 70x70 af4ed64ca7e74f07af6586b85b79c048 color:#BBAE96
+            Icon 52x52 53569eff70e5457dafce55d0b3c3d33e
+            UIText 200x40 text:#BBAE96@24B
+          Bg 405x16
+          RestitutionValueSlider 325x16 03f6d71230384c808632bdb6dab56096 (Sliced) color:#BBAE96 HandleImageRUID:06a927e839d347b7ab9a92cc9f8e4109

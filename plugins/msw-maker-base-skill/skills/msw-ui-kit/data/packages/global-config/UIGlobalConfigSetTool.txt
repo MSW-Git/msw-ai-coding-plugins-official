@@ -1,0 +1,25 @@
+# UIGlobalConfigSetTool — 22 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGlobalConfigSetTool 2520x1680
+  Panel 1280x960 25e9e89579644202805f535d038a9edb (Sliced) color:#FAF8F6
+    Title 1230x110
+      Title_Text 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    View 1190x755 c24adedc9faa457daf4e4aae7cd663bb
+      Labels 1150x100
+        Lable_Id 100x100 text:#653122@24
+        Label_Name 100x100 text:#653122@24
+        Label_Value 250x100 text:#653122@24
+        Label_Sync 150x100 text:#653122@24
+      Button_LoadAll 150x80 9bb8e4d004fb46bb9c1b528b3c1ebf9f (Sliced) text:#FFE398@30
+      DecoLine 1190x2
+      GridView 1190x602
+      Item 1145x100
+        Text_Id 100x100 text:#653122@24
+        Text_Name 300x100 text:#653122@24
+        Text_Value 250x100 text:#653122@24
+        Text_Sync 100x100 text:#653122@24
+        Button_Load 130x75 9bb8e4d004fb46bb9c1b528b3c1ebf9f (Sliced) text:#FFE398@30
+        Button_Save 130x75 9bb8e4d004fb46bb9c1b528b3c1ebf9f (Sliced) text:#FFE398@30
+        Button_Reset 130x75 9bb8e4d004fb46bb9c1b528b3c1ebf9f (Sliced) text:#FFE398@30

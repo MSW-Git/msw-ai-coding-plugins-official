@@ -1,0 +1,90 @@
+# Ranking — 88 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Popup
+UIR_CasualRPG_Sample_Ranking 1920x1080
+  Background 7920x7080
+  Popup 1706x874 f47ee45115114234bd8a140b5d02729c
+    Title 1666x84 text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+    WeeklyRankingRewardPanel 800x366 788439cb3ad94c41b0ade30f989a3b2d
+      WeeklyRankingRewardTitle 800x70 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/40% text:#FFFFFF@24
+      WeeklyRankingRewardDetailPanel 800x296
+        LimitLandRecord 731x40 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/0%
+          LimitLandRecordTitle 461x40 text:#899BBF@24
+          LimitLandRecordText 251x40 text:#FFFFFF@24B
+        LimitLandClearedTime 731x80 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/0%
+          LimitLandClearedTimeTitle 461x80 text:#899BBF@24
+          LimitLandClearedTimeText 251x80 text:#FFFFFF@24B
+        WeeklyRankingRewardButtonPanel 740x120 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/50%
+          MyWeeklyLimitLandRankText 430x80 text:#FFFFFF@28
+          WeeklyRankingRewardButton 250x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+    BestRecordPanel 800x301 788439cb3ad94c41b0ade30f989a3b2d
+      BestRecordTitle 800x70 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/40% text:#FFFFFF@24
+      BestRecordDetailPanel 800x215
+        BattlePowerRecord 730x60 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/0%
+          BatttlePowerTitle 472x40 text:#899BBF@24
+          BattlePowerText 250x60 text:#FFFFFF@24B
+        LimitLandRecord 730x60 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/0%
+          LimitLandRecordTitle 472x40 text:#899BBF@24
+          LimitLandRecordText 250x60 text:#FFFFFF@24B
+        LimitLandClearedTime 730x60 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) color:#FFFFFF/0%
+          LimitLandClearedTimeTitle 472x40 text:#899BBF@24
+          LimitLandClearedTimeText 250x60 text:#FFFFFF@24B
+    LimitLandLeaderboard 772x592
+      Img_Panel 772x592 3d355ae7efc15cd4eb036ee178a6b277 (Sliced) color:#FFFFFF/40%
+      Top_Bar 772x60
+        Icon_Leaderboard 36x31 8201175a9b40e5a46bf77f27091fdfda (Sliced) color:#899BBF
+        Name 230x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24+o#000000/10%
+        Score 220x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24+o#000000/10%
+        RecordedTime 274x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24+o#000000/10%
+        RankingTitle 772x94 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#151621/80% text:#FFFFFF@24
+      Layout 772x466 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        OriginalItem 770x40
+          Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Name 227x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Score 200x70 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_RecordedTime 272x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+        OriginalItem_1 770x40
+          Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Name 227x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Score 200x70 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_RecordedTime 272x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+      My_Rank 772x70 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/30%
+        Text_Rank 94x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Name 227x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Score 200x70 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_RecordedTime 272x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+    AccountLevelLeaderboard 772x592
+      Img_Panel 772x592 3d355ae7efc15cd4eb036ee178a6b277 (Sliced) color:#FFFFFF/40%
+      Top_Bar 772x60
+        Icon_Leaderboard 36x31 8201175a9b40e5a46bf77f27091fdfda (Sliced) color:#899BBF
+        Name 369x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24
+        Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24
+        RankingTitle 772x94 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#151621/80% text:#FFFFFF@24
+      Layout 772x466 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        OriginalItem 770x40
+          Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Name 367x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+      My_Rank 772x70 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/30%
+        Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Name 369x70 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+    BattlePowerLeaderboard 772x592
+      Img_Panel 772x592 3d355ae7efc15cd4eb036ee178a6b277 (Sliced) color:#FFFFFF/40%
+      Top_Bar 772x60
+        Icon_Leaderboard 36x31 8201175a9b40e5a46bf77f27091fdfda (Sliced) color:#899BBF
+        Name 403x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24
+        Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#899BBF@24
+        RankingTitle 772x94 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#151621/80% text:#FFFFFF@24
+      Layout 772x479 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        OriginalItem 770x40
+          Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Name 400x49 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+          Text_Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24
+      My_Rank 772x70 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#000000/30%
+        Text_Rank 90x39 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Name 403x70 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+        Text_Score 308x60 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#7DE9FC@24
+    RankingButtonPanel 772x94
+      PreviousRankingButton 50x50 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+      NextRankingButton 50x50 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)

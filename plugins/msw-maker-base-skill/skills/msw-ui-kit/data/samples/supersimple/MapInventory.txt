@@ -1,0 +1,70 @@
+# MapInventory — 68 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg, Top, Middle, Bottom
+UIR_SuperSimple_Sample_MapInventory 1300x942 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+  Bg 1280x638
+  Top 1300x100
+    Text_PanelTitle 1018x65 text:#FFFFFF@34B
+    Btn_CloseBtn 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079
+  Middle 1280x743
+    Top_TabArea 1280x72
+      Btn_TabBtn 640x72 bbff40bff00c43bb99eee92899dd0df5 color:#FFAA00 text:#847252@30B
+    Img_EmptySlot 150x150 9481476814724644bc4e375d22ccc7f4 color:#FFFFFF/0%
+      Txt_Loading 876x100 text:#BBAE96@26B
+    Middle_MyMapListController 1260x642
+      Slot_MyMapListEmptyItem 1240x204
+        Line 1240x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Btn_Empty 1030x144
+          UIText_Type1 260x33 text:#BBAE96@30B
+            Img_Add 42x42 1db43baf7086484a9a7baa126ad7da76 color:#12C4B6
+          UIText_Type2 700x33 text:#BBAE96@30B
+        Text_SlotNumber 180x204 text:#847252@70B
+        Btn_Import 300x144
+          UIText_Type1 105x33 text:#BBAE96@30B
+            Img_Add 42x42 1db43baf7086484a9a7baa126ad7da76 color:#12C4B6
+      Slot_MyMapListItem 1240x204
+        Line 1240x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        MainInfo 1240x204 d712e76fb66e38140adf81cba8b0068c
+          Text_SlotNumber 180x204 text:#847252@70B
+          Img_ItemStatus 150x36 8e33ebcb96034af893995195af9c7e53 color:#E98315
+            Text_ItemStatusText 150x36 text:#FFFFFF@20B
+          Text_ItemMapName 906x45 text:#847252@30B
+          Text_ItemDate 500x34 text:#BBAE96@25B
+          Btn_ModyfyText 80x100
+            Icon 42x42 4d9b207cdc5d4e0e9b7b95cef2d52bef color:#F3B55A
+        SubBtns 1040x72 d712e76fb66e38140adf81cba8b0068c
+          Released 956x72 762648601a704516a395792e0e46d74c (Sliced) color:#E6EBBB
+            Text_RecommandTitle 211x72 text:#BBAE96@30B
+            Text_Recommand 211x72 text:#847252@30B
+            Text_PlayCountTitle 211x72 text:#BBAE96@30B
+            Text_PlayCount 211x72 text:#847252@30B
+          ReleaseWait 956x72
+            Btn_DoRelease 236x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+              Icon 42x42 bbc23188bd544d5a9dec38e25e3082bd
+              UIText 141x72 text:#FFFFFF@28B
+              UI_PublishLimit 463x72 762648601a704516a395792e0e46d74c (Sliced) color:#E6EBBB text:#A28F6F@28B
+            Btn_CancelReleaseWait 236x72 762648601a704516a395792e0e46d74c (Sliced) color:#F3B55A
+              Icon 22x22 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced)
+              UIText 141x72 text:#FFFFFF@28B
+          Continue 956x72
+            Btn_Continue 500x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+              Icon 42x42 bbc23188bd544d5a9dec38e25e3082bd
+              UIText 405x72 text:#FFFFFF@28B
+          Btn_Remove 72x72 af4ed64ca7e74f07af6586b85b79c048 color:#F3B55A
+            Icon 42x42 c01b8dd18a7c4c00ba976720f64189b6
+    Img_Loading 1280x646
+      Txt_Loading 300x100 text:#BBAE96@26B
+  Bottom 1300x91
+    UseSlotInfo 1300x91
+      Text_ReaminTerm 666x99 text:#F3855A@26B
+      Btn_BM_AddSlot 497x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#E5E7D1
+        BG 54x54 af4ed64ca7e74f07af6586b85b79c048 color:#FFCB04
+          Icon 42x42 1db43baf7086484a9a7baa126ad7da76
+      Text_RemainSlotCheck 402x51 text:#847252@30B
+    ReleasedMapSlotInfo 1300x128
+      UISprite 480x80 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#E6EBBB
+      Btn_Previous 72x72 af4ed64ca7e74f07af6586b85b79c048
+        Icon 42x42 96841dd80ba04fff97cf57468d3187f8
+      Panel_numbers 300x74
+        Text_PageNumber 293x100 text:#847252@30B
+      Btn_Next 72x72 af4ed64ca7e74f07af6586b85b79c048
+        Icon 42x42 654f8b920bb24d109d34066f8f54daf9

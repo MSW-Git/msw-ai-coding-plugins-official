@@ -1,0 +1,436 @@
+# EmployeeManageGroup — 434 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: BG, Pattern, EmployeeList, DeployList, Model_EmployeeDetail, TransferBtn, UpgradeBtn
+UIR_CuteCasual_Sample_EmployeeManageGroup 1920x1080
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  EmployeeList 1920x1080
+    Title 515x53 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        UIText 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921 text:#FFFFFF@40
+        UISprite 100x100
+    List 1020x440
+      Model_EmployeeListSlot 160x160 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+        Select 176x176 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+        Mask 126x126
+          Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+        TypeIcon 40x40 1e41533d59f54cd8901e0bd31bb26961
+        Disable 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#A5DC3C@26B+o#253908
+          Check 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          UISprite 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+          Text 85x40 text:#6B6150@22B+o#FFFFFF
+        Ban 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#FA5246@26B+o#2C0000
+          UISprite 52x52 f876b201888e40dc8ce5a833a524290f
+      Model_EmployeeListSlot_1 160x160 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+        Select 176x176 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+        Mask 126x126
+          Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+        TypeIcon 40x40 1e41533d59f54cd8901e0bd31bb26961
+        Disable 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#A5DC3C@26B+o#253908
+          Check 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          UISprite 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+          Text 85x40 text:#6B6150@22B+o#FFFFFF
+        Ban 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#FA5246@26B+o#2C0000
+          UISprite 52x52 f876b201888e40dc8ce5a833a524290f
+    Grdiant 1010x95 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+    CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    OptionGroup 850x100 287b3d980c584bbcbe8d2821df942173 color:#FFFFFF/0%
+      DeployBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14/93%
+        Disable 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+    Filter 309x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F0BF64
+      Text 66x38 text:#FFFFFF@26B+o#AF7E28
+        Icon 34x32 1e41533d59f54cd8901e0bd31bb26961
+      IconL 30x30 f3ccce2392be4824a66f9ba6884d3487 color:#C18A2A
+      IconR 24x36 c550cadddaa0410ca2c86290e05bf95c color:#C18A2A
+      Pannel 194x222 03d991db79bf4348b001270d5d8b6b82
+        All 170x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 183x64 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 170x60 text:#72634B@24B+o#FFFFFF
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Cook 170x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@14B
+          BG 183x58
+          Text 170x60 text:#72634B@14B+o#FFFFFF
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Serving 170x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 183x70 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 170x60 text:#72634B@24B+o#FFFFFF
+        Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+    Sort 151x68 0198d59b48de40799a40002e24361952 text:#5D2F09@30B+o#FFFFFF/93%
+      Pannel 194x151 03d991db79bf4348b001270d5d8b6b82
+        Up 170x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 183x65 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 170x60 text:#72634B@24B+o#FFFFFF
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Down 170x65 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 183x70 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 170x60 text:#72634B@24B+o#FFFFFF
+        Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+      UISprite_1 40x36 c07af1d03a614dcab4e573cc8f7997bc color:#8B693E
+    TotalSalary 540x70 c93ae566ef4a4349adf31073df1c8c4b color:#FFFFFF/0%
+      Salary 285x48 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#E8C88B text:#FFFFFF@28B+o#A27E4C
+      UIText 235x70 text:#FFFFFF@28B+o#A27E4C
+      MoneyIcon 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+  DeployList 910x1080 e818a726aafc4c36968053261d9da3d1 (Sliced)
+    Panel 870x830 2106e7b7edb74b8599f029b972315032 (Sliced)
+      Deco_R 140x140 5745fea68cb849c180a4cf9fa2b9f2dc color:#9E794E
+      Deco_L 140x140 5745fea68cb849c180a4cf9fa2b9f2dc color:#9E794E
+      Left 410x745 27322464405d4c19b9e97e88ed0df461 (Sliced)
+        Line 400x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#F8E9CA
+      Right 410x745 27322464405d4c19b9e97e88ed0df461 (Sliced)
+        Line 400x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#F8E9CA
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+      Spring 36x16 f25dc5c9b0034a31aaf7daaeb6211b3b
+    TitleBG 390x92 fe72d3053c294d86b985f9b3a96162bd (Sliced)
+    Text_Title 300x60 c93ae566ef4a4349adf31073df1c8c4b text:#FBFFEA@30B+o#4B681C
+    CookDeco 100x96 876d0bc780da4bbb9bc114d9a95c17e1
+    ServingDeco 100x96 876d0bc780da4bbb9bc114d9a95c17e1
+    CookList 387x630
+      EmployeeStoreSlot 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 108fa24d68b9440ebe22eea38134739d
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_1 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_2 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_3 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_4 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_5 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_6 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_7 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_8 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_9 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_10 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_11 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_12 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_13 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_14 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+    ServingList 387x630
+      EmployeeStoreSlot 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_1 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_2 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_3 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_4 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_5 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_6 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_7 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_8 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_9 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_10 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_11 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_12 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_13 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      EmployeeStoreSlot_14 120x120 3e9d52ed52d64794bbd6f72bab8ee3d9
+        Select 138x138 ffc51ec23a5c4677b3df8440428f2b25
+        Slot 120x120 45ba66b401804e8f8df24d1357dfd864
+        SlotEmpty 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#F0DFBE
+        Portrait 70x70 de7ea37fa4e54b578ce84263d9fef85a
+        Level 90x50 text:#FFFFFF@26B+o#7A5D1F
+        StatIcon 32x32 c9b09ef2db2c45a5b0e8c4f8b1827079
+        Lock 112x112 d6d1c1080cb742529c3e209d1b937e90 color:#DAC49F
+          UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+    Tabs 820x115
+      Cook 60x60 1e41533d59f54cd8901e0bd31bb26961 text:#FFFFFF@28B+o#8C6F53
+        UISpriteIcon 60x60 1e41533d59f54cd8901e0bd31bb26961
+        EmployeeCount 100x42 text:#000000@20B
+        UIText 340x55 text:#FFFFFF@28B+o#8C6F53
+      Serving 60x60 19b4cbd961934ed387b4ae080435585a text:#FFFFFF@28B+o#8C6F53
+        UISpriteIcon 16x16 4920e8b7ee7643468a5807753bef00d3 color:#E0AA1C
+        EmployeeCount 100x42 text:#000000@20B
+        UIText 340x55 text:#FFFFFF@28B+o#8C6F53
+    Btn_Guide 8x32 5958c1c2b22f43f1a40de09297722086
+      UISprite 80x80
+  Model_EmployeeDetail 995x330
+    BG 995x330 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Pattern_L 226x299 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/40%
+      Color_R 739x300
+      Pattern_R 739x300 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+      Bar 15x298
+    Bg_Title 213x77 a971746cec0946748504f429a777c7c7 (Sliced) color:#E8CE9E
+    Line 300x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#F8DEAB
+    Blur 172x172 61aa92b6616d498bbd95b4a2fcb3437f
+    Portrait 150x150
+      UISpriteCardBg 70x70 7e69a6541fbb4cd9ad2fe9306ffef865
+      Name 190x61 eb4c1db0cddb41f5b032a8b5b54c9b24 (Sliced) color:#3CACCC text:#FFFFFF@24B+o#927338
+    ChuChuLevel 96x50 text:#FFFFFF@28B+o#7A5D1F
+    ChuChuLv 57x50 text:#FFFFFF@28B+o#594315
+    TypeIcon 42x42 1e41533d59f54cd8901e0bd31bb26961
+    Btn_Collection 44x44 dacf650002884077aad1acdcffc04309
+      TouchArea 214x297 4fea64a3307cda641809ad8be0d4890b color:#FFFFFF/1%
+    Info_1 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+      Text 210x50 text:#856C4C@26B
+      Count 128x50 text:#FFFFFF@26B+o#8C7352
+      Deco 48x26 1527b3a3228145da874907de122d9683
+    Info_2 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+      Text 205x50 text:#856C4C@26B
+      Count 120x50 text:#FFFFFF@26B+o#8C7352
+      Deco 48x26 1527b3a3228145da874907de122d9683
+    Speed 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+      Text 204x50 text:#856C4C@26B
+        InfoBtn 30x30 f59006224a184fdeb8f9ecb09ae3af7d color:#C8AB73
+          Icon 8x22 0423dcf92c594efc87944a00028c4ea2 color:#FFEFD0
+          ToolTip 386x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      Count 95x50 text:#FFFFFF@26B+o#8C7352
+      Deco 48x26 1527b3a3228145da874907de122d9683
+    Salary 365x52 2a6a810a9b484849a0057db28603f97a (Sliced) color:#F0E1BE
+      Text 210x50 text:#856C4C@26B
+      Count 108x38 text:#FFFFFF@26B+o#8C7352
+        Coin 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      Deco 48x26 1527b3a3228145da874907de122d9683
+    Skill1 164x164 703672e5cf2644f9a1ff51e637c17479
+      TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+      Name 150x60 text:#FFFFFF@26B+o#857665
+      Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+        UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+      UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+        Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+        ToolTip 250x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Skill2 164x164 aeeb07535960453a832a0157f177c191
+      TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+      Name 150x60 text:#FFFFFF@26B+o#857665
+      Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+        UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+      UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+        Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+        ToolTip 104x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Tag1 64x64 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#D3B079
+      Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+    Tag2 64x64 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#D3B079
+      Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+  TransferBtn 168x76 0198d59b48de40799a40002e24361952 text:#8B693E@28
+    Dim 168x76 0198d59b48de40799a40002e24361952 color:#000000/50%
+  UpgradeBtn 168x76 0198d59b48de40799a40002e24361952 text:#8B693E@28

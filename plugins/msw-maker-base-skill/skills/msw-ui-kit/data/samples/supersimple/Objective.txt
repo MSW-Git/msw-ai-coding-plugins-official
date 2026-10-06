@@ -1,0 +1,56 @@
+# Objective — 54 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_Objective 2520x1680
+  Panel 1653x915 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Title 1629x80
+      Title_Text 1443x80 text:#FFFFFF@34B
+      CloseButton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079
+    Tab_List 1235x358
+    List_ScrollCover 60x364 a8fd0855571e486ebc99803dd97dbaec
+    Tab_Item 288x342 d178e94695d7e354b97a29230afe77e8 color:#FFFFFF/0%
+      Reward_Slider 66x80
+      Default 288x342
+        Default_Bg 288x342 a7c5f38f6eb74336bbb069a57594e372 color:#E6EBBB
+        Badge_Img 142x142 cf580a234d844a7c864a2f351c6710a2
+        Btn_ShortCut 254x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#F3B55A text:#FFFFFF@28B
+      Complete 288x342
+        Complete_Bg 288x342 cf5fdb06fd6b4e2698db608bb4c35daf
+        Badge_Img 400x388 150004257c3e44858e0ce0c08d47dd58
+          Badge 142x142 9900f47cf24d4b69a68394f5b3b9b684
+        Complete 254x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#9EC6C6/60%
+          UIText 254x60 text:#4F9C04@28B
+        Btn_Get 254x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#12C4B6 text:#FFFFFF@28B
+      Title 268x76 text:#847252@28B
+      Reward 288x342
+        Complete_Bg 288x342 cf5fdb06fd6b4e2698db608bb4c35daf
+        UIText 268x77 text:#5A8452@28B
+        Item_Img 197x197 b4f292b801c24d44ac5ad44e89ead342
+        Btn_Info 60x60 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6 text:#FFFFFF@36B
+      Select 288x342 2035c650ab284b1dafc2d8fb19e41de9
+        Arrow 40x40 3c12779ab98d40a5958072c981916e26
+    Objective_Panel 1589x423
+      Title 1589x72 bbff40bff00c43bb99eee92899dd0df5 color:#E6EBBB
+        UIText 1569x72 text:#A28F6F@30B
+      Objective_List 1589x352
+      Objective_Item 1588x124
+        Num_Text 150x114 text:#847252@60B
+        Title_Text 65x42 text:#847252@28B
+          Clear_Text 126x42 text:#A28F6F@28B
+            Clear_Img 110x32 84ed705a098742b6aaba18c1ff68488d (Sliced) color:#71CE0E
+              UIText 100x32 text:#FFFFFF@22B
+        Btn_Go 125x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+          Replay_Img 52x52 4ef31ce06bd34f8d83b8eb2e91c19b41
+          Play_Img 52x52 2339b0f708964add873dd566c1f63037
+        Line 1588x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+      Dim 1589x348
+        UIText 810x64 5ab57d2084f4457392caffe7d94a5eb0 color:#000000/70% text:#E77137@30B
+    ClearReward 288x342
+      Complete_Bg 288x342 cf5fdb06fd6b4e2698db608bb4c35daf
+      Fx 366x366 150004257c3e44858e0ce0c08d47dd58
+      UIText 268x77 text:#5A8452@26B
+      Btn_Info 60x60 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6 text:#FFFFFF@36B
+      Item_Img 197x197 a7d7c89b9cb74de1be400e05b257c4a9
+      Arrow_Icon 40x40 3c12779ab98d40a5958072c981916e26
+      Complete 254x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#9EC6C6/60%
+        UIText 254x60 text:#4F9C04@28B
+      Btn_Get 254x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#12C4B6 text:#FFFFFF@28B

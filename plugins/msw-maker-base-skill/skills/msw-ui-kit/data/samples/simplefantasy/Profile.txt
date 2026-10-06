@@ -1,0 +1,27 @@
+# Profile — 25 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Block, Panel
+UIR_SimpleFantasy_Sample_Profile 1920x1080
+  Img_Block 1980x1140
+  Panel 700x850 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Img_Bg 654x710 2d5da24718f7405e967ab46cae718001 (Sliced)
+    Text_Title 100x67 text:#FFFFFF@26B
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Avatar_light 347x339 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#DCE6FB
+    Avatar_Char 301x188
+      Img_Shadow 340x93 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#D0D0D0
+      Text_Name 304x58 text:#757474@26
+    Layout_Slot 276x266
+      Deco 153x276 096c80ec4adf4f90b7ad05b3ee929bfe color:#BBBECC
+        Deco 153x276 096c80ec4adf4f90b7ad05b3ee929bfe color:#BBBECC
+      Img_Bg 146x146 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#C4C4C6
+      Btn_Form 150x150 1e5e576fa39554b4a9d4b356354219c6 (Sliced) color:#1B223D
+        Img_BG 164x164 676ac9ceb90e4f19aa47490747a34d2e (Sliced)
+        Img_Empty 110x110 b441627f58b9435ba2771b8f30ddf0e7 color:#000000/20%
+    Line 676x106 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#D9D9D9
+    GridView 631x343
+    Item 600x50
+      TitleBg 270x50
+        Text_Title 330x29 text:#999688@20
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Deco_Line 2x50
+      Text_Desc 200x49 text:#757474@20

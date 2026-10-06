@@ -1,0 +1,532 @@
+# StageInfoGroup — 530 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: StageSelect, StageSetting, StageInfo
+UIR_CuteCasual_Sample_StageInfoGroup 1920x1080
+  StageSelect 1920x1080
+    BG 2520x1680
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    Title 356x53 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        Icon 110x110
+    CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    MiddleArea 1920x1000
+      List 1700x1000
+      StageSelectSlot 488x670 ff9b587a776b4a7ab6833a02f6392a03 (Sliced)
+        Deco -944x625
+          Air 216x48 e39ab6d2a950402d91f538c33d23f68c
+          BarCode 180x48 d0700f8e2d44431b8a66deba194e02ba
+          Dot 430x20 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#DBC9AE
+          Punch_L 20x32 b2d36c3958a641b3b87111632f783072
+          Punch_R 20x32 b2d36c3958a641b3b87111632f783072
+          Top 480x64 40e7bf1ed4254e3ab36a29b653132f95 (Sliced) color:#E08D95
+          Bottom 478x40 9d458de346a54377be6e110aa8411447 (Sliced) color:#E2979B
+        Name 420x55 text:#4C3319@34B+o#FFFFFF
+        Ing 150x44 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#95C20C text:#FFFFFF@26B
+        CollectionProgress 428x120
+          Title 400x55 text:#455F12@28B
+          Slider 384x35 34e86e4450634bf8a0d8fe2fbe00caa8 (Sliced) FillRectImageRUID:c585cd5d34754ce79d9b253cfdff22ac
+            Text 200x45 text:#FFFFFF@26B+o#597D02
+        Selected 524x706 3d19c539b6444fc6a9d572da7d7d2ba9
+        Icon_mini 88x88
+        LockedDim 488x670 ff9b587a776b4a7ab6833a02f6392a03 (Sliced) color:#000000/65%
+        Icon 416x416 70818ca5456c4089bcad4891ae8eb1c0
+          Dim 416x416 70818ca5456c4089bcad4891ae8eb1c0 color:#000000/50%
+        Complete 120x120 5f8d623c43634327afbf43e1deb09873
+          UISprite 128x48 3f8a4a4b191f467b90575a3d72c17968
+        OverLockedDim 488x670
+          LockIcon 92x124 620fdd2661e149b69dbe14e89c7c97e8 color:#FDEEBE
+          ComingSoon 450x100 text:#FDEEBE@38B
+    ButtonBar 1920x150
+      StartNewButton 164x124 4214714d3bca4cdfb28c3724a8906926 text:#FFFFFF@26B+o#A15205
+        Dim 164x124 4214714d3bca4cdfb28c3724a8906926 color:#000000/50%
+        Icon 135x135 e7d39748af354622abb7b7f8d0888f42
+          Dim 135x135 e7d39748af354622abb7b7f8d0888f42 color:#000000/50%
+      ContinueButton 164x124 4214714d3bca4cdfb28c3724a8906926 text:#FFFFFF@26B+o#A15205
+        Dim 164x124 4214714d3bca4cdfb28c3724a8906926 color:#000000/50%
+        Icon 80x110 8e1eb908084c4b54bd8cdc0a06a9092c
+          Dim 80x110 8e1eb908084c4b54bd8cdc0a06a9092c color:#000000/50%
+      InfoButton 164x124 8fdc7881f16b4783ba11803bc14b80dd text:#FFFFFF@26B+o#BA6909
+        Dim 164x124 8fdc7881f16b4783ba11803bc14b80dd color:#000000/50%
+        Icon 105x105 dd077610fd64433192c7773205e01f7f
+          Dim 105x105 dd077610fd64433192c7773205e01f7f color:#000000/50%
+      StagePassButton 130x130
+        Icon 120x120 96d70ce1b9c24f19af4751fd18a4cfe2
+        NameText 150x65 text:#FFFFFF@26B+o#4E4794
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    ChustarLevel 332x140 955707d65042483eb1bed8831be29ebd
+      Icon 120x120 b447001e2ba7417ea7d3c632b1a02348
+      Text 300x60 text:#FFFFFF@26B+o#815A16
+    Arrow_L 52x72 2766591456284f8f87d4e3c3839b576e
+    Arrow_R 52x72 2766591456284f8f87d4e3c3839b576e
+  StageSetting 1920x1080
+    BG 2520x1680
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    Title 340x53 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        Icon 110x110
+    SubTitle 710x45 text:#836545@20B
+    CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    Navigator 250x30 253bd7ca324b4cf19de591c212fff41d (Sliced)
+      1 40x40 0236c08af5c44cd68b724fa040079eaa
+      2 40x40 0236c08af5c44cd68b724fa040079eaa
+      3 40x40 01136e84a55f4f71b0030f16c1d136b7
+      4 40x40 01136e84a55f4f71b0030f16c1d136b7
+      Indicator 28x40 d314e97190ec443590b514f60f2afbbd
+    SettingPages 1920x1080
+      StageInfo 1920x1080
+        BGDeco 1920x1080
+          Line1 400x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#FFF1C7
+          Line2 395x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#FCC55E
+          BGTicket 1185x520 6d025e5609c2430b837b7662689fe0fc (Sliced) color:#FACC75
+          Cloud2 240x96 0ff27cc240c5406dbc13aed7117c381f
+          Cloud1 160x68 c7712406e8db479bb3a56703a69cc394
+          Plane 184x88 30ee8f7286554b28ad3b4306ab004b1c
+        Drawing 471x340 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+          Grid 436x306 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F4E1B9
+          IMG 440x144 b291eaf709ee4aafbbb51175d03f4c70
+          Sun 140x140 b4a158a862064047a6315b341f9aa2f7
+        Photo 540x460 56337f68c31547689e053c5d496e96be
+          IMG 480x340 55703e850262476e87e189be8350a291
+          Pin 48x48 54378c20dd29495e9e7214bbc0a4a3c1
+          Sticker1 72x64 7017221077964f9c9b23989876039abf
+          Sticker2 72x64 7017221077964f9c9b23989876039abf
+        Main 1240x492 ff9b587a776b4a7ab6833a02f6392a03 (Sliced)
+          DecoEntity -800x-1272
+            Map 633x285 e276b26b96bc4646b78fc8162627f095
+            Dot 16x445 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#DBC9AE
+            Top 1232x52 1bc4401a3d7e4eb79fb66a5ad5d07eef (Sliced) color:#7BB0B0
+            Bottom 1224x28 0be7e9b472f143179d5e5bb8c12b6f46 (Sliced) color:#8DB7BA
+            BarCode 160x48 d0700f8e2d44431b8a66deba194e02ba
+            Air 216x48 e39ab6d2a950402d91f538c33d23f68c
+            Sticker1 76x72 33f4a4d126d64ae1ba05a77b4d714a1e (Sliced)
+            Sticker2 76x72 df1904cc7947484690e4a303a2faa803 (Sliced)
+            Clip 104x44 90db0b4320e04015affd3b0ecea883a8
+            Punch_T 32x24 288a9446eafd4a4cae64d7b485e75fd9
+            Punch_B 32x24 288a9446eafd4a4cae64d7b485e75fd9
+          StageIconBG 421x230 42f368c0bc0a43e9bcef6debef0314fb (Sliced)
+            IMG 471x240 089cbe9271b94934b3b621ca12ebe53e (Tiled)
+          StageIcon 400x400 eeca482088b04b55b703cbea0f91495e
+          StageIconMini 88x88
+          StageTitle 330x55 text:#846D54@32+o#FFFFFF
+          StageName 367x60 text:#4C3319@38B+o#FFFFFF
+          StageDesc 430x250 text:#75593F@26B
+          StageCollectProgress 205x201
+            Title 200x80 text:#455F12@28B+o#FFFFFF
+            Slider 148x148 b88226cfa2c742f6a16b993e5ec873ed
+              SliderFill 148x148 cb6759307e0f4bb69a4eaec25d457c5a (Filled)
+              Text 90x90 text:#FFFFFF@30B+o#4C6A24
+            Deco 56x20 561698e6feff4a84bf43b353bcf4768f
+          Right_StageName 390x50 text:#DFCDB3@24B
+          Right_NameDeco 378x45 text:#DFCDB3@22B
+          Right_UserName 375x50 text:#B8A892@24B
+          Right_DecoLine 438x4
+      Ingredient 1920x1080
+        InfoText 1310x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F1C26A text:#FFFFFF@26B+o#AF7E28
+          Deco_L 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FCDCA8
+          Deco_R 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FCDCA8
+        SpecialIngredient 615x580
+          Panel 600x450 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+            Top 632x100 c34a2b1c0e454540bcd6da99be285201
+            Bottom 600x120 1266207eeb1649dca8a560a94e6ad327 (Sliced)
+            Logo 248x88 5458e244fdd04d43af646fa0b932e432
+          Title 615x75 text:#FFFFFF@34B+o#644117+s#644117
+          IngreList 530x300
+            Slot3 144x144 d0f1e5ed9f1046869f9836155da8cdb0
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot2 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot1 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 90x90 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot5 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot4 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+        PromotedIngredient 615x580
+          Panel 600x450 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+            Top 632x100 c34a2b1c0e454540bcd6da99be285201
+            Bottom 600x120 1266207eeb1649dca8a560a94e6ad327 (Sliced)
+            Logo 248x88 5458e244fdd04d43af646fa0b932e432
+          Title 615x75 text:#FFFFFF@34B+o#644117+s#644117
+          IngreList 530x300
+            Slot2 144x144 d0f1e5ed9f1046869f9836155da8cdb0
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 90x90 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot1 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 90x90 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot4 144x144 d0f1e5ed9f1046869f9836155da8cdb0
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 90x90 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Slot3 144x144 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 90x90 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              New 68x32 d6e6224a0fb34aba91886886c6f31ee6
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+              Check 40x30 84e2190c1cb546738f9778fc87e570f3
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+          RerollButton 260x84 8094f81aa0c2463195e20da6fa046d8f (Sliced)
+            Icon 48x40 4234d59ffb744f0394cf5a6694198be7
+      Employee 1920x1080
+        Info 1310x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F1C26A text:#FFFFFF@26B+o#AF7E28
+          Deco_L 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FCDCA8
+          Deco_R 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FCDCA8
+        CookSlot 445x594 37da3ca1a2e14cae832c03ccec65a094 color:#FFFFFF/0%
+          Panel 448x550 2106e7b7edb74b8599f029b972315032 (Sliced)
+            Paper 410x507 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+            Grid 382x475 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7
+            White 382x142
+            Bar 380x20
+            IconBG 148x148 a6f12a4e7d054e088a3745af740aefdb
+            Line 380x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E9D0A0
+          Icon 80x80 1e41533d59f54cd8901e0bd31bb26961
+          Slot 165x170 fc22920926d643759eadc0027b95ec66
+            1 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            2 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            3 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            4 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+          Empty 445x594
+            UISprite 44x44 c6e810fc41704ad2b744b63c2f22c45a color:#FFF8E6
+          Contents 445x594
+            Slot 165x170 12c68dd021444b619b9fbb28e9ae1cbe color:#FFFFFF/0%
+              Portrait 125x130
+            Name 360x100 text:#FFFFFF@32B+o#846840
+        ServingSlot 445x594 37da3ca1a2e14cae832c03ccec65a094 color:#FFFFFF/0%
+          Panel 448x550 2106e7b7edb74b8599f029b972315032 (Sliced)
+            Paper 410x507 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+            Grid 382x475 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7
+            White 382x142
+            Bar 380x20
+            IconBG 148x148 a6f12a4e7d054e088a3745af740aefdb
+            Line 380x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E9D0A0
+          Icon 80x80 19b4cbd961934ed387b4ae080435585a
+          Slot 165x170 fc22920926d643759eadc0027b95ec66
+            1 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            2 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            3 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+            4 32x32 30c26d27705f41fcbb36ddb96b8f05c7 color:#F0D49F
+          Empty 445x594
+            UISprite 44x44 c6e810fc41704ad2b744b63c2f22c45a color:#FFF8E6
+          Contents 445x594
+            Slot 165x170 12c68dd021444b619b9fbb28e9ae1cbe color:#FFFFFF/0%
+              Portrait 125x130
+            Name 360x100 text:#FFFFFF@32B+o#846840
+      Strategy 1920x1080
+        MenuBar 273x710
+          UITab1 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+            UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+            UISpriteIcon 90x90 e7d72d5dec0740f5a002a01639a9f6a0
+            UITextDesc 140x100 text:#FFFFFF@30B+o#985F05
+            RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+          UITab2 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+            UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+            UISpriteIcon 90x90 bd7ed10738124fe592de0e62400bd26d (Sliced)
+            UITextDesc 140x100 text:#BB9A59@30B
+            RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        StrategyList 960x771
+          StrategySlot 311x444 37da3ca1a2e14cae832c03ccec65a094 color:#FFFFFF/0%
+            Strategy 311x444 74aca352367d45bb8ad00d223977c296 (Sliced)
+              Name 260x65 text:#4F3924@28B
+              Bottom 288x88 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F1E5CF
+              Level 177x35
+                LevelSlot 28x28 423637a7f3fa4c2fa6cf615becfe05f0
+                  Check 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+              Icon 115x115
+                GoodsIcon 40x40
+              Desc 270x115 text:#816742@24
+              Recommended 100x56 6532ebc20a2b44c89210ead4ab7e0a84 text:#FFFFFF@24B+o#A7330B
+              SetBtn 200x66 ace686d5d348471e941f3778a064c2af
+                CostText 77x52 text:#FFFFFF@30B+o#907335
+                  Icon 44x40 cc6f5521cbd04100aa7411c06fcf4b97
+              MaxLevel 250x60 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#B4B4B4/0% text:#AA9061@30B
+            SideMenu 311x444 74aca352367d45bb8ad00d223977c296 (Sliced)
+              Name 250x65 text:#4F3924@28B
+              Bottom 288x88 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F1E5CF
+              Icon 130x130
+              Desc 270x110 text:#816742@24
+              SetBtn 200x66 ace686d5d348471e941f3778a064c2af text:#FFFFFF@24B+o#907335
+              SetState 250x70 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#B4B4B4/0% text:#56811A@28B
+              BuyBtn 200x66 ace686d5d348471e941f3778a064c2af
+                Icon 42x42 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+                CostText 94x45 text:#FFFFFF@26B+o#907335
+              Condition 260x80 text:#AA9061@24
+        CurrentState 621x763 517f55caf96c456b9b66d03c8ac14565
+          Title 470x65 9c41fefc633e4969b86fdf36ddc4790a (Sliced) color:#FFFFFF/0% text:#FFFFFF@32B+o#785A3A
+          Deco_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Deco_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Bottom 605x100
+          White 605x562
+          CurrentSideMenuSlot 545x142
+            Empty 545x142 d6d1c1080cb742529c3e209d1b937e90 color:#F0E1BE
+              UIText 545x142 text:#B6A385@32B
+            Contents 545x142 a972f0517f4c461da8334cb3980a0826
+              Deco_1 152x136 9480f82a42944edf8340f546f25e3871
+              Deco_2 72x116 acf4e77da00f4ac4a2ac0fec02a0cc23
+              Icon 128x128 878b86a716584fc7b54974f377d316e3
+              Line 315x4
+              Name 328x50 text:#4F3924@28B+o#FFF1CC
+              Effect 328x72 text:#6D4728@26B
+              MinusBtn 56x56 f1dcd3fece0b40fe9b51ef84003de667
+          CurrentList 552x388
+            CurrentStrategySlot 550x133 2fcf688b0e9847c8b863d691ce3a59f4
+              Slot 113x113 e5bdbbd4b79f4ce7956f57e12080581e (Sliced) color:#E7DECC
+              Line 315x4
+              Icon 100x100 09040990864941fb957297c94b195abc
+                GoodsIcon 25x25
+              Name 320x55 text:#4F3924@26B+o#FFFFFF
+              Effect 318x55 text:#816742@26B
+              MinusBtn 56x56 f1dcd3fece0b40fe9b51ef84003de667
+          Gradiant 593x100 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FAECCF
+          SP 317x54 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#D5BB8E
+            Icon 48x34 cc6f5521cbd04100aa7411c06fcf4b97
+            Value 146x54 text:#FFFFFF@28B+o#8C7352
+          ClearBtn 58x58 4eeb98e3c474433caa095add5bf686d1 color:#D3B47A
+            UISprite 36x30 4234d59ffb744f0394cf5a6694198be7 color:#FFF9E3
+          PassBtn 225x84 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@26B+o#AF7016
+            RedDot 30x30 3af9b8375087419fb1b509de5060f6cf
+            RedDotText 184x60 fa38390b79434182852e89ded7d3067e text:#635743@22B+o#FFFFFF
+          NoText 500x150 text:#B6A385@28B
+    ButtonBar 1920x150
+      NextButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+      PreviousButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+      DoneButton 256x86 1667de997d3a40d7a08fb9a9c308ec26 text:#FFFFFF@32B+o#536C17
+      Tut_DoneButton 256x86
+    StageInfoBar 1220x100
+      StageIcon 78x78
+      StageName 210x100 text:#6D5844@30B+o#FFFBE2
+      StageDesc 890x100 text:#977754@26B
+      Icon_Arrow 64x60 77e33cbeea704bf6a5e8165aaf4aa137
+      Line 1310x6 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#F0CA84
+  StageInfo 1920x1080
+    Dim 2520x1680
+    Panel 1190x905 7bac2074c8d042cdb06f9789efa94917
+      CloseButton 34x34 0c33c943f60b4c269d9b0130484f006c
+      Grid 1170x725 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#EEEBE5/60%
+      Title 342x50 text:#FFFFFF@34B+o#694B28+s#694B28
+        HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#89633A
+          Info 10x26 0423dcf92c594efc87944a00028c4ea2 color:#F0C992
+          Icon 110x110
+      StageTitle 1170x130 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#EBE0CC
+        StageIcon 100x100 c6b929bb96ab4e369e72e604a509ad7e
+        Blur 120x180 1017b56203214f24b30ed211cb20a0b8 color:#F4E8D3/75%
+        StageName 675x55 text:#6D5844@32B+o#FFFFFF
+        StageDesc 927x65 be8782fbef4e4db1ae3f9c6d3590eb02 color:#FFFFFF/0% text:#9D896D@26B
+        Ing 150x40 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#95C20C text:#FFFFFF@22B
+        Line 1168x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+      MenuBar 273x432
+        UITab1 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+          UISpriteSelect 224x92 4043c56d30de408cb46d83c6eaee1991 (Sliced)
+          UISpriteIcon 72x72 847519b1eb304f259e41708bba677c8e
+          UITextDesc 125x85 text:#FFFFFF@28B+o#936502
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        UITab2 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+          UISpriteSelect 163x92 189b591b4e694a25a57e7d68aa7e1be1 (Sliced)
+          UISpriteIcon 70x70 8b87c4131d82406ebee244021c1a915f
+          UITextDesc 125x85 text:#5B483C@28B
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        UITab3 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+          UISpriteSelect 163x92 189b591b4e694a25a57e7d68aa7e1be1 (Sliced)
+          UISpriteIcon 70x70 9c64038a4b3d41959eabe8badf682184
+          UITextDesc 125x85 text:#5B483C@28B
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        UITab4 264x92 states:highlighted=null,pressed=null,selected=null,disabled=null
+          UISpriteSelect 163x92 189b591b4e694a25a57e7d68aa7e1be1 (Sliced)
+          UISpriteIcon 70x70 f81d015019844f5a82331b23799399ec
+          UITextDesc 125x85 text:#5B483C@28B
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      Contents 1185x820
+        Stage 1185x820
+          Line 670x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+          StageCollectProgress 465x687 be8782fbef4e4db1ae3f9c6d3590eb02 color:#FFFFFF/0%
+            Title 450x80 text:#FFFFFF@30B+o#7B613D
+            Slider 240x240 9852de3b58554d1198c9f8692cf74393
+              SliderFill 240x240 4535efd9d32b49b6b3fc2c4abe11de7c (Filled)
+              Text 150x70 text:#FFFFFF@36B+o#4C6A24
+            Icon_Arrow 32x36 1eb0c746a8f94806827e8a7da0b96e32 color:#BFB197
+            Icon_Plus 32x32 c6e810fc41704ad2b744b63c2f22c45a color:#8D7C66
+            ChuCount 350x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EEE8DB
+              Title 235x50 text:#463621@26B+o#FFFFFF
+              Count 76x50 text:#685942@26B+o#FFFFFF
+            IngreCount 350x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EEE8DB
+              Title 235x50 text:#463621@26B+o#FFFFFF
+              Count 76x50 text:#685942@26B+o#FFFFFF
+          StageReward 715x687 be8782fbef4e4db1ae3f9c6d3590eb02 color:#FFFFFF/0%
+            Title 320x80 text:#FFFFFF@30B+o#7B613D
+              Deco_R 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#A99983
+              Deco_L 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#A99983
+            RewardSideMenu 450x350
+              SideSlot 340x104 ea276181aaf44204933446fc132b0578
+                Icon 205x205 17664e2bc2d640c6b24f8b9e280de63a
+              Balloon 84x88 af850a6bb76748cd9fb4a7cb7d6c7ec3
+                Locked 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                Check 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+              Name 375x64 e64599da427d4ea5b95fc6b153f0d1ff (Sliced) text:#463621@26B+o#FFFCF3
+                InfoBtn 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#C4B49C
+                  Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFF9F0
+                  Tooltip 300x167 cd4fc03ceb624ac7a9c5ff76d0f5560f text:#635743@24B+o#FFFFFF
+            RewardSlot1 145x145 3b8e8d79a18a4b0e8a442f956380f799 (Sliced)
+              Effect 185x185 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 145x145 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 105x105 cc6f5521cbd04100aa7411c06fcf4b97
+              CountText 100x45 text:#635743@30B+o#FFFFFF
+              Info 130x56 6acc7b7fdb59436883f66a8dbdca9ea2 (Sliced) text:#FFFFFF@24B+o#9D7239
+              Check 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+            RewardSlot2 145x145 3b8e8d79a18a4b0e8a442f956380f799 (Sliced)
+              Effect 185x185 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 145x145 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 105x105 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+              CountText 100x45 text:#635743@30B+o#FFFFFF
+              Info 130x56 6acc7b7fdb59436883f66a8dbdca9ea2 (Sliced) text:#FFFFFF@24B+o#9D7239
+            RewardSlot1_Name 190x44 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#EEE8DB text:#463621@26B+o#FFFCF3
+              InfoBtn 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#C4B49C
+                Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFF9F0
+                Tooltip 300x167 cd4fc03ceb624ac7a9c5ff76d0f5560f text:#635743@24B+o#FFFFFF
+            RewardSlot2_Name 190x44 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#EEE8DB text:#463621@26B+o#FFFCF3
+              InfoBtn 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#C4B49C
+                Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFF9F0
+                Tooltip 300x167 cd4fc03ceb624ac7a9c5ff76d0f5560f text:#635743@24B+o#FFFFFF
+        Ingredient 1185x820
+          Panel 1170x120 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F1E9DC text:#78654D@24B
+            Text 1050x95 text:#78654D@24B
+              Balloon 36x32 3ec049c173514dcea835c256f93198e1 color:#8F7E69 text:#78654D@24B
+                Icon 6x20 0423dcf92c594efc87944a00028c4ea2
+          Line 552x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+          PromotedTitle 500x80 text:#FFFFFF@30B+o#7B613D
+          PromotedList 450x400
+          PromotedListEmpty 530x160 text:#685942@26B+o#FFFFFF
+          SpecialTitle 500x70 text:#FFFFFF@30B+o#7B613D
+          SpecialList 550x400
+            IngreSlot1 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Check 40x32 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            IngreSlot2 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Check 40x32 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            IngreSlot3 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Check 40x32 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            IngreSlot4 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Check 40x32 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            IngreSlot5 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+              Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+              Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+              Icon 80x80 69e307f5a6594149afa97243f97444a9
+              CountText 100x45 text:#635743@24B+o#FFFFFF
+              UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Check 40x32 84e2190c1cb546738f9778fc87e570f3
+              Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          IngreSlotSample 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+            Effect 160x160 3d77a6d8208045c59c5fc55c3e8cc092
+            Slot 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+            Icon 80x80 69e307f5a6594149afa97243f97444a9
+            CountText 100x45 text:#635743@24B+o#FFFFFF
+            UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+            Check 40x32 84e2190c1cb546738f9778fc87e570f3
+            Lock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Employee 1185x820
+          Line 600x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+          Info 1170x73 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F1E9DC
+            Text 1050x65 text:#78654D@24B
+              Balloon 36x32 3ec049c173514dcea835c256f93198e1 color:#8F7E69
+                Icon 6x20 0423dcf92c594efc87944a00028c4ea2
+          StartingEmpTitle 330x60 text:#FFFFFF@30B+o#7B613D
+          StartingEmpList 340x200
+          StartingEmpEmpty 350x240 text:#685942@26B+o#FFFFFF
+          StageEmpTitle 650x60 text:#FFFFFF@30B+o#7B613D
+          StageEmpList 725x550
+          EmpSlotSample 140x140 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+            Slot 130x130 a4efcb3e9d2e47a3ac47fda81c167aa2
+            Mask 110x110 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#FF0000/0%
+              Portrait 60x60 108fa24d68b9440ebe22eea38134739d
+            TypeIcon 36x36 1e41533d59f54cd8901e0bd31bb26961
+            Check 40x32 84e2190c1cb546738f9778fc87e570f3
+        Strategy 1185x820
+          SPInfo 980x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EEE8DB text:#685942@26B+o#FFFCF3
+          StrategyList 1050x613
+          StrategyListEmpty 600x300 text:#685942@26B+o#FFFCF3
+          StrategySlotSample 985x162 2fcf688b0e9847c8b863d691ce3a59f4
+            Slot 146x140 e5bdbbd4b79f4ce7956f57e12080581e (Sliced) color:#E7DECC
+            Line 775x4
+            Icon 124x124
+              GoodsIcon 40x40
+            Name 700x60 text:#5E4F37@30B
+            Desc 772x70 text:#72634B@26B
+    EndStageSettingBtn 256x88 1667de997d3a40d7a08fb9a9c308ec26 states:highlighted=d8304091ad5945b395d0d53482aa796f,pressed=d8304091ad5945b395d0d53482aa796f,selected=d8304091ad5945b395d0d53482aa796f,disabled=null
+      Text 200x80 text:#FFFFFF@28B+o#536C17
+    Tut_EndStageSettingBtn 256x88

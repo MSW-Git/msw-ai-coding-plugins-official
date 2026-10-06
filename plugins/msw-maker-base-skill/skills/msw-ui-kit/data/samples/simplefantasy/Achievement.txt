@@ -1,0 +1,41 @@
+# Achievement — 39 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Contents_Bg, Tab_Bg, Layout_Main
+UIR_SimpleFantasy_Sample_Achievement 1920x1080
+  Img_BG 2920x2080 766893751a134664ba8849f38311021a
+  Contents_Bg 2520x1255
+  Tab_Bg 627x1235
+  Layout_Main 1920x955
+    Scroll_Type 330x955
+      Item_Type 320x120 ec83f469ce1440208cd5dd49cb5ddb0f (Sliced)
+        Img_Select 320x120 1983ab40892144f490764b16a454c032 (Sliced)
+        Text 291x100 text:#FFFFFF@30B
+        Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+    GridView_Achieve 1590x767
+    Item 1560x200 c26a3cc43a2347979a54ad4d35292271 (Sliced)
+      Text_Title 73x44 text:#6C7995@30B
+        Img_Dot 20x20 36338acb0cfe498cac27bf667fc29979 color:#8C99B4
+        Img_Dot 20x20 36338acb0cfe498cac27bf667fc29979 color:#8C99B4
+      Text_Desc 161x38 text:#8C99B4@26B
+        Btn_ShowChild 25x25 d8f842cdebe445d9b4a76f932eb9358a text:#FFFFFF
+      Img_BG 1070x90 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#D2DCE4
+      Img_Bar_BG 1005x25 a40db267d5044076954c1ffa2f4ca862 color:#C7D2DB
+        Img_Bar 999x19 a40db267d5044076954c1ffa2f4ca862 (Filled) color:#778DBD
+        Text_Count 820x32 text:#8C99B4@23B
+      Layout_RewardSlotPos 100x100
+      Btn_Receive 268x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B
+      Btn_Move 268x88 50426b5b1ee44bc5a1c10355b0e9ad03 (Sliced) states:highlighted=null,pressed=b5ce0faaa7ed411db61c022e60feadaa text:#FFFFFF@26B
+    Layout_Bottom 1591x120
+      Img_BG 1600x100 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#0E121A/20%
+      Layout_Progress 1161x97
+        Text_LeftTime 130x38 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1B2438/60% text:#DFDDA2@20
+          Img_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#9099AF
+      Btn_ReceiveAll 276x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B
+        Img_Dim 276x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#000000/45%
+    Popup_Set 600x411 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#171F2D/90%
+      Text_Title 550x30 text:#FFFFFF@25B
+      Btn_Close 64x64 07096261a9944312b01dee501fed7599 (Sliced)
+      Scroll_Set 550x290
+        Item 550x66
+          Img_Icon 45x45 27fa9662e44d4eeca22580aa92575ee5
+          Text_Name 480x61 text:#FFF6F6@22B
+      Btn_BG 3000x3000 d712e76fb66e38140adf81cba8b0068c (Sliced)

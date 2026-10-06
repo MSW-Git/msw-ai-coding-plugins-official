@@ -1,0 +1,62 @@
+# SkillDetail — 60 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout_SkillDetail, Popup_SkillDetail
+UIR_SimpleFantasy_Sample_SkillDetail 1920x1080
+  Layout_SkillDetail 1770x965 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Layout_Top 1750x78
+      Btn_Close 100x100 07096261a9944312b01dee501fed7599 (Sliced)
+      Text_Title 73x44 text:#FFFFFF@30B
+    Scroll_Ability 1730x855 d712e76fb66e38140adf81cba8b0068c (Sliced)
+      Item 1730x759
+        Text_Name 1630x44 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#EC7D5B/70% text:#FFFFFF@26B
+        List_AbilityRarity 1740x703
+          Normal 524x694
+            Text_Title 303x38 text:#486192@26B
+              Img_Deco 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#486192
+            List_AbilityItem 524x646
+            Item 524x128 56bfbdd3503340ba978baeac40681ce7
+              Icon 96x96 6791a49d630642ffbeb232d3ac758aad (Sliced) color:#0061FF/20%
+                Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+                Text_SkillLevel 44x30 text:#FFFFFF@20B+o#202020
+              Text_AbilityName 384x44 text:#6C7995@23B
+              Scroll_AbilityDesc 380x59
+                Text_AbilityDesc 111x30 text:#8C99B4@20
+              Disable 524x128 56bfbdd3503340ba978baeac40681ce7 color:#000000/45%
+            DecoLine 16x517 6bf35659e0d545a3aa2aabd94b8f1750
+          Enhanced 524x694
+            Text_Title 274x38 text:#486192@26B
+              Img_Deco 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#486192
+            List_AbilityItem 524x646
+            DecoLine 16x517 6bf35659e0d545a3aa2aabd94b8f1750
+          Transcendent 524x694
+            Text_Title 330x38 text:#486192@26B
+              Img_Deco 28x28 735eb57c3e4d46ec8f45784a86a8cef5 color:#486192
+            List_AbilityItem 524x646
+  Popup_SkillDetail 1920x1080
+    Img_BG 1920x1080
+    Layout_SkillInfo 575x830 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#171F2D/90%
+      Img_BG 555x810 d858c4b704ff4386bd4eb2ef9de32819 color:#FFFFFF/60%
+      Img_Deco 156x156 bf662cb7b268437cb9630c9b87c21965 color:#FFFFFF/70%
+      Grade 550x58 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#535964/30%
+        Text_Grade 76x36 text:#FFFFFF@24B
+          Img_Grade 28x28 63398b3a23e84daab2db3d580f6ffe17
+      Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+      Layout_Icon 170x170
+        Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+      AbilityLevel 575x37
+        Img_Level 32x32 98594c096bef473fb75d9111a326ecbd
+        Img_Level 32x32 98594c096bef473fb75d9111a326ecbd
+      Text_Name 537x49 text:#EEEDE8@25B
+      AbilityType 68x36 text:#FFFFFF@24B+o#000000/20%
+        Img_DecoL 190x30 56009a4babfb46a9aa9c0e085a6ca6b8 (Sliced) color:#FFFFFF/20%
+        Img_DecoR 190x20 ee6474d16fe64c5190ad8191d7dae934 (Sliced) color:#FFFFFF/20%
+        Text_AbilityType 95x40 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#EC7D5B text:#FFFFFF@25B+o#000000/20%
+      Btn_LevelBox 490x54 b84c111b20d6446488c7cc75bd87c2b7 (Sliced) color:#1E2E3E/80%
+        Text_SelectLevel 450x34 text:#FFFFFF@26B
+        Arrow 30x30 21a4739b4d654e51810c638f273d9c54
+      Layout_Desc 546x320
+        Desc 546x320
+          Text_SkillType 200x37 text:#CCCAC2@25B
+          Text_Desc 475x210 text:#757474@22B
+        Btn_Change 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31
+          Img_Icon 20x16 33049778f88c4be0bf5baf4398af8404
+      Scroll_SelectLevel 490x314 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#1E2E3E/80%

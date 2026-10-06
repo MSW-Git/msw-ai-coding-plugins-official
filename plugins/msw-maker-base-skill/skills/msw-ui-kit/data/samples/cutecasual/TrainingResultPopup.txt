@@ -1,0 +1,149 @@
+# TrainingResultPopup — 147 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: ResultPopup
+UIR_CuteCasual_Sample_TrainingResultPopup 2520x1680
+  ResultPopup 1311x915 517f55caf96c456b9b66d03c8ac14565
+    Deco_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Deco 80x48 fd8abba6e4e242dda8ee6a523cb74518
+    Deco_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Deco 80x48 fd8abba6e4e242dda8ee6a523cb74518
+    Color 1296x340
+      Pattern 1296x340 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+    Bar 1296x18
+    Line 1270x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#E9D0A1
+    Title 700x70 text:#FFFFFF@36B+o#9C7B48
+    BurgerPanel 630x305
+      Title 550x60 text:#FFFFFF@30B+o#735B44
+      BurgerPriceTitle 510x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E7D5AB text:#856C4C@28B
+        BurgerPrice 162x42 text:#FFFFFF@28B+o#8C7352
+          MesoIcon 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      CustomerNumTitle 510x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E7D5AB text:#856C4C@28B
+        CustomerNum 274x42 text:#FFFFFF@28B+o#8C7352
+      TotalMoneyPanel 510x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#DADD79 text:#E4FF30@28B+o#4F7702
+        Money 162x42 text:#E4FF30@28B+o#4F7702
+          MesoIcon 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      TotalCloverPanel 510x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#DADD79 text:#E4FF30@28B+o#4F7702
+        Clover 162x42 text:#E4FF30@28B+o#4F7702
+          Icon 40x40 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+    Line 305x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#E9D0A1
+    RewardPanel 630x305
+      Title 550x60 text:#FFFFFF@30B+o#735B44
+      Model_RewardScroll 630x232
+        Model_UIItemRewardSlot_1 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_2 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_3 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_4 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_5 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_6 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_7 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_8 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_9 110x110 a5b12188ef36466c90ce247212266c5b
+          Icon 60x60 49327025c40044b580caf9bfc6c9a3ce
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+        Model_UIItemRewardSlot_10 110x110 3491171517e844c58db2ebce1884eb39 color:#DAC49F
+          Icon 60x60
+          CountText 73x45 text:#635743@26B+o#FFFFFF
+    ChuchuPanel 1296x336
+      Title 1272x55 069ec544352145a0b51c7787b6193328 color:#D0A00B text:#FFFFFF@28B+o#9A6D0E
+      SelectedEmployeeScroll 517x167
+        EmployeeListSlot_IconVer1 150x150 de7ea37fa4e54b578ce84263d9fef85a
+          Portrait 107x107 108fa24d68b9440ebe22eea38134739d
+          SkillIcon 45x45 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 150x150 de7ea37fa4e54b578ce84263d9fef85a color:#000000/67% text:#FFFFFF@30B
+            Icon 64x50 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 91x40 text:#91D614@20B+o#312C2C
+          Outline 180x180 ffc51ec23a5c4677b3df8440428f2b25
+        EmployeeListSlot_IconVer2 150x150 de7ea37fa4e54b578ce84263d9fef85a
+          Portrait 107x107 108fa24d68b9440ebe22eea38134739d
+          SkillIcon 45x45 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 150x150 de7ea37fa4e54b578ce84263d9fef85a color:#000000/67% text:#FFFFFF@30B
+            Icon 64x50 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 91x40 text:#91D614@20B+o#312C2C
+          Outline 180x180 ffc51ec23a5c4677b3df8440428f2b25
+        EmployeeListSlot_IconVer3 150x150 de7ea37fa4e54b578ce84263d9fef85a
+          Portrait 107x107 108fa24d68b9440ebe22eea38134739d
+          SkillIcon 45x45 54117f06afd24b8e95dce3aa17fe2e11
+          Disable 150x150 de7ea37fa4e54b578ce84263d9fef85a color:#000000/67% text:#FFFFFF@30B
+            Icon 64x50 40cf31c68b9c41c381d86f17e4eaa31d
+            Text 91x40 text:#91D614@20B+o#312C2C
+          Outline 180x180 ffc51ec23a5c4677b3df8440428f2b25
+      Scroll 308x100
+      Chuchu_1 415x320
+        Panel 365x220 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E7D5AB/40%
+        Deco 164x164 6097af76c194472189fab6fef52f7810
+          Deco2 200x200 61aa92b6616d498bbd95b4a2fcb3437f
+        Frame 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+          ChuChu 90x90
+          SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        SkillSlot 104x104 287eea4dffa84c32ba1a570479a8dae2
+          Name 180x58 text:#8B7B63@24B
+          TypeIcon 70x70 a3f17829c6c045549fb50a1480273103 text:#8B7B63
+          Disable 104x104 287eea4dffa84c32ba1a570479a8dae2 color:#363532/60%
+            UISprite 24x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 40x40 07be8d61ffc841ccbeb24f3ef950a801
+            ToolTip 365x110 277783e1ece94a31935d0d92b0f88768 text:#635743@24B+o#FFFFFF
+        Skill1 365x220
+          Icon 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+          Title 365x50 text:#FFFFFF@28B+o#735B44
+          Desc 330x90 text:#856C4C@24B
+        NoSkillText 330x90 text:#646262@24B
+      Chuchu_2 415x320
+        Panel 365x220 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E7D5AB/40%
+        Deco 164x164 6097af76c194472189fab6fef52f7810
+          Deco2 200x200 61aa92b6616d498bbd95b4a2fcb3437f
+        Frame 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+          ChuChu 90x90
+          SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        SkillSlot 104x104 287eea4dffa84c32ba1a570479a8dae2
+          Name 180x58 text:#8B7B63@24B
+          TypeIcon 70x70 a3f17829c6c045549fb50a1480273103 text:#8B7B63
+          Disable 104x104 287eea4dffa84c32ba1a570479a8dae2 color:#363532/60%
+            UISprite 24x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 40x40 07be8d61ffc841ccbeb24f3ef950a801
+            ToolTip 365x110 277783e1ece94a31935d0d92b0f88768 text:#635743@24B+o#FFFFFF
+        Skill1 365x220
+          Icon 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+          Title 365x50 text:#FFFFFF@28B+o#735B44
+          Desc 330x90 text:#856C4C@24B
+        NoSkillText 330x90 text:#646262@24B
+      Chuchu_3 415x320
+        Panel 365x220 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#E7D5AB/40%
+        Deco 164x164 6097af76c194472189fab6fef52f7810
+          Deco2 200x200 61aa92b6616d498bbd95b4a2fcb3437f
+        Frame 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+          ChuChu 90x90
+          SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        SkillSlot 104x104 287eea4dffa84c32ba1a570479a8dae2
+          Name 180x58 text:#8B7B63@24B
+          TypeIcon 70x70 a3f17829c6c045549fb50a1480273103 text:#8B7B63
+          Disable 104x104 287eea4dffa84c32ba1a570479a8dae2 color:#363532/60%
+            UISprite 24x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 40x40 07be8d61ffc841ccbeb24f3ef950a801
+            ToolTip 365x110 277783e1ece94a31935d0d92b0f88768 text:#635743@24B+o#FFFFFF
+        Skill1 365x220
+          Icon 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+          Title 365x50 text:#FFFFFF@28B+o#735B44
+          Desc 330x90 text:#856C4C@24B
+        NoSkillText 330x90 text:#646262@24B
+    OkButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@30B+o#B95B0C
+    Line 1270x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#E9D0A1
+    Model_CloverInfoBtn 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#82A01B
+      Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#D6F361

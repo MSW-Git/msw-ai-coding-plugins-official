@@ -1,0 +1,34 @@
+# UIGMMailTool_DetailPopup — 31 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIGMMailTool_DetailPopup 2520x1680
+  Panel 1800x960 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    Page 1706x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Scroll_Label 1666x90
+        Label_Title 250x70 text:#653122@24
+        Label_Message 489x70 text:#653122@24
+        Label_Sender 120x70 text:#653122@24
+        Label_RetentionDays 120x70 text:#653122@24
+        Label_StartDate 170x70 text:#653122@24
+        Label_EndDate 170x70 text:#653122@24
+        Label_ItemID 170x70 text:#653122@24
+        Label_ItemCount 170x70 text:#653122@24
+      deco_line 1706x2
+      Item 1664x469
+        Text_Title 250x449 text:#653122@24
+        Text_Message 489x449 text:#653122@24
+        Text_Sender 120x449 text:#653122@24
+        Text_RetentionDays 120x449 text:#653122@24
+        Text_StartDate 170x449 text:#653122@24
+        Text_EndDate 170x449 text:#653122@24
+        GridView 354x457
+        ItemUI 334x100
+          Text_ID 170x100 text:#653122@24
+          Text_Count 170x100 text:#653122@24
+      deco_line_1 1706x2
+      PlayerAddData 1660x100
+        Text_DueDate 536x100 92146fa5b25e7e84ab60801499cbf483 text:#653122@24
+        Text_IsRead 536x100 92146fa5b25e7e84ab60801499cbf483 text:#653122@24

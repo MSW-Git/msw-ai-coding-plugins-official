@@ -1,0 +1,90 @@
+# ShopModule — 88 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, ShopPanel, BuyPanel
+UIR_CardGame_Sample_ShopModule 1920x1080
+  Block 2520x1680
+  ShopPanel 1300x900
+    Background 852x744 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 876x820 3d0a8d286751470f8f9e042adc667608 (Sliced)
+    Background_2 365x54 99a4751574294ff8b02d8b1c5aa40f0c
+    Title 848x49 text:#FFFFFF@27B+o#000000/50%
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    LeftTab 222x353 7a45d28eee9d48a5ad7b4acc73588453
+      Button_1 171x78 cc87cc30a9a84425a2a809d85f176009 (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_2 171x78 8809de80ad114281b9c5a0164e64a37a (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_3 171x78 8809de80ad114281b9c5a0164e64a37a (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+    TopTab 733x81
+      Button_1 168x65 baadf4c3d2714343877ba2014870f86f states:highlighted=baadf4c3d2714343877ba2014870f86f,pressed=baadf4c3d2714343877ba2014870f86f
+        Text 132x44 text:#EEC78F@22B+o#000000/50%
+      Button_2 168x65 baadf4c3d2714343877ba2014870f86f states:highlighted=baadf4c3d2714343877ba2014870f86f,pressed=baadf4c3d2714343877ba2014870f86f
+        Text 132x44 text:#EEC78F@22B+o#000000/50%
+    Background_3 852x660 d6bda2420fec4eceb755d70e0dbd2c1d (Sliced)
+    Content_1 0x0
+      Background 844x648 4e2c18c56e79488589c4de82cf766610 (Sliced)
+      NormalEpic 0x0
+        Title 178x50 text:#29160E@20B
+        Image 348x444 5a760ea933b54a9692cd0865970df3a6
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 7b2eacdb80c94c669ac073396399066b
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+      GoldEpic 0x0
+        Title 178x50 text:#29160E@2B
+        Image 348x444 c81eff198df048e89d9c78ad8744e8e8
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 e1f0e6d76be949038551a92768278b54
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+      NormalUnique 0x0
+        Title 178x50 text:#29160E@20B
+        Image 348x444 249fbf762d3741e399a4a38d21ce010d
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 7b2eacdb80c94c669ac073396399066b
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+      GoldUnique 0x0
+        Title 178x50 text:#29160E@20B
+        Image 348x444 240946e5a11c4c3faa655f41a85ca481
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 e1f0e6d76be949038551a92768278b54
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+      NormalLegendary 0x0
+        Title 178x50 text:#29160E@20B
+        Image 348x444 83b140f98ed8469a912c0bb7e5d259d5
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 7b2eacdb80c94c669ac073396399066b
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+      GoldLegendary 0x0
+        Title 178x50 text:#29160E@20B
+        Image 348x444 7bce1bebc7304e0ba423abd81454b746
+        Button 130x60 e4e32e73b4434b1e9cca8352c065dec2 states:highlighted=f72871cfc7e34af086cffe400f6383ff,pressed=ff5a81d6f7b14981bf60fefd6e47e85c
+          Icon 28x28 e1f0e6d76be949038551a92768278b54
+          Text 105x36 text:#FFFFFF@19B+o#000000/50%
+  BuyPanel 1300x900
+    Background 852x741 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 876x820 3d0a8d286751470f8f9e042adc667608 (Sliced)
+    Background_2 365x54 99a4751574294ff8b02d8b1c5aa40f0c
+    Background_3 844x626 4e2c18c56e79488589c4de82cf766610 (Sliced)
+    Deco_R 172x222 cad81d4b6e76422ea68295c94f73ee43 color:#CBAB6E
+    Deco_L 172x222 cad81d4b6e76422ea68295c94f73ee43 color:#CBAB6E
+    Title 848x49 text:#FFFFFF@27B+o#000000/50%
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    Background 222x353 7a45d28eee9d48a5ad7b4acc73588453
+      Button_1 171x78 46b2350c6db44ab2a0a342e5881f7604 states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_2 171x78 46b2350c6db44ab2a0a342e5881f7604 states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+      Button_3 171x78 8809de80ad114281b9c5a0164e64a37a (Sliced) states:highlighted=cc87cc30a9a84425a2a809d85f176009,pressed=cc87cc30a9a84425a2a809d85f176009,disabled=8809de80ad114281b9c5a0164e64a37a
+        Text 156x59 text:#EEC78F@23B+o#000000/50%
+    Name 635x64 text:#29160E@30B
+    CardPack 0x0
+      CardPackSingle 348x444 5a760ea933b54a9692cd0865970df3a6
+      CardPackMultiple 0x0
+        Image_1 348x444 5a760ea933b54a9692cd0865970df3a6
+        Image_2 348x444 5a760ea933b54a9692cd0865970df3a6
+        Image_3 348x444 5a760ea933b54a9692cd0865970df3a6
+        Image_4 348x444 5a760ea933b54a9692cd0865970df3a6
+        Image_5 348x444 5a760ea933b54a9692cd0865970df3a6
+    Description 741x152 text:#88662D@19
+    Button 823x98 3b67f77b9dfc49a782fd7cd0647f63b5 states:highlighted=18dee31304bc48f79fcccf404d13f872,pressed=b0108a9087ab46b9b6ab9713657bfcb6
+      Icon 40x40 627c810aa54044cdb9669f8446c0dc17 (Sliced)
+      Text 313x66 text:#FFFFFF@28B+o#000000/50%

@@ -1,0 +1,245 @@
+# UIStagePassGroup — 243 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, UIStagePass, TabMenu, PassRewardInfoDim
+UIR_CuteCasual_Sample_UIStagePassGroup 1920x1080
+  Dim 2520x1680
+  UIStagePass 2520x1080 89862c14198546048a28854f6f81967f
+    Grid 2520x1040 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/75%
+    PassGroupInfo 1645x55 069ec544352145a0b51c7787b6193328 color:#E6DAC1
+      PassGroupDescText 1300x45 text:#806A5D@28B+o#F3EEE1
+    PassMenu 1310x790
+      PassLineBg 1310x790
+        Pass0Line 1360x150
+        Pass1Line 1310x370
+          Top 1310x12
+        Pass2Line 1310x370
+          Bottom 1310x12
+          Particle 1270x313
+      PassGauge 1298x26 bb82fbed1f43432d9ce156f8524d93f1
+      Model_RecycleScrollView 1280x666
+        Model_PassLevelRenderer 170x660
+          GaugeFillSprite 200x26 bcf6996ba2b34dc1a2b3579cb4d4cc58 (Sliced)
+          PassLevelBackground 80x80 2e7266175f644199872b2432eb6e713e color:#715A3F
+          PassLevelColumn 175x730
+            Line_Blue 310x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#9A9ED1
+            Line_Orange 310x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#F9BA11
+            RewardItemSlot0 92x96
+              PassRewardRenderer 92x96 41833d99c7dc42ef96836e7b4a2fdfd7
+                ItemThumnail 68x68 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CountText 80x40 text:#FFFFFF@22B+o#705A45
+                SlotDim 92x96 41833d99c7dc42ef96836e7b4a2fdfd7 color:#000000/70%
+                  IconCheck 40x32 84e2190c1cb546738f9778fc87e570f3
+                IconLock 24x36 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                RedDot 24x24 3af9b8375087419fb1b509de5060f6cf
+                Clear 90x40 text:#FFFFFF@20B+o#9E805D
+            RewardItemSlot1 124x124
+              PassRewardRenderer 124x124 dedf9be979e84c799fa812df4ea9c2f3
+                ItemThumnail 90x90 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CountText 100x45 text:#FFFFFF@28B+o#594A2F
+                SlotDim 124x124 c0cc90b356154bb0a6675f0e6529de2d color:#000000/60%
+                  IconCheck 80x80 40cf31c68b9c41c381d86f17e4eaa31d
+                IconLock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+            RewardItemSlot2 124x124
+              PassRewardRenderer 124x124 dedf9be979e84c799fa812df4ea9c2f3
+                ItemThumnail 90x90 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CountText 100x45 text:#FFFFFF@28B+o#594A2F
+                SlotDim 124x124 c0cc90b356154bb0a6675f0e6529de2d color:#000000/60%
+                  IconCheck 80x80 40cf31c68b9c41c381d86f17e4eaa31d
+                IconLock 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+          PassLevelRewardEnable 180x180 fa19563ce5124b739178b24481dfb927
+          PassLevelIcon 80x80 94f74425dd174cdc9e456dce83229274
+          PassLevelNameTag 70x40 452032ad70d74e008b600ae9038b5802 color:#FFFFFF/0%
+            PassLevelNameText 80x45 text:#FFFFFF@26B+o#493511
+      GradiantL 1280x666
+        Top 107x351 e53d6dd932a24381931190333626f3ad color:#B3BBDB
+        Middle 50x26 e53d6dd932a24381931190333626f3ad color:#715A3F
+        Bottom 107x351 e53d6dd932a24381931190333626f3ad
+        MiddleDeco 40x100
+      GradiantR 1280x666
+        Top 35x351 e53d6dd932a24381931190333626f3ad color:#B3BBDB
+        Middle 96x26 e53d6dd932a24381931190333626f3ad color:#715A3F
+        Bottom 35x360 e53d6dd932a24381931190333626f3ad
+        Right1 12x375
+        Deco1 120x40 de643758da5341d48ad86469bd2b6df7
+        Right2 12x375
+        Deco2 120x40 11e5fc4511eb497888b93d6bd00e4cbc
+    ProductMenu 400x860
+      Ruby 330x390 ee2fe4c593164402a7430d5fbb8fae5c
+        Panel 330x390 4f29ad1207794969bf6584ee796b8542
+        Bottom 312x116 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F8B1B2
+        Punch_R 24x36 b2dace208b1543479f396d359180ea13 color:#EE6B6E
+        Punch_L 24x36 b2dace208b1543479f396d359180ea13 color:#EE6B6E
+        Deco 100x100 7e989769437044699735ee777dc76f88
+        ItemThumnail 152x152 0d4525d7246d4bc98ac26175bec4a47d
+        SaleEntity 112x112 06df8a5dc57b4e44a117756a605fa927
+          X2Text 80x40 text:#FFFFFF@24B+o#8B0A2E
+          BonusText 116x40 text:#FFFFFF@24B+o#8B0A2E
+        RewardInfo 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#FA7D80
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2
+          Touch 100x100
+        PurchaseRewardBg 100x100 97947391d0ed45f5973bc057130277e8 color:#FFFFFF/0%
+          PurchaseRewardText 223x44 1a781ce290044d1fa2069b1afb58ba02 (Sliced) color:#F59B9C text:#FFFFFF@26B
+          Dish 100x100 97947391d0ed45f5973bc057130277e8
+          RewardEnable 110x110 61aa92b6616d498bbd95b4a2fcb3437f
+            RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+          ItemIcon 64x64 031dd54a42124da1805f572cbd0381c2
+          PurchaseRewardDim 100x100 97947391d0ed45f5973bc057130277e8 color:#000000/50%
+            IconCheck 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          IconLock 26x38 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        PriceText 59x47 text:#FFFFFF@32B+o#C15E14
+          CurrencyImage 40x40 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        PurchaseDoneText 270x80 text:#FFFFFF@32B+o#8B0A2E
+          IconCheckSmall 35x35 84e2190c1cb546738f9778fc87e570f3
+        Title 200x55 text:#FFFFFF@28B+o#B75153
+      Platinum 330x390 b3b4390ef62845549d373270531927fa
+        Deco1 96x216 4908c2ff1db944eeac9e3dfc393c8ce4
+        Panel 330x390 355c25684222455689b197ae46bee0c5
+        Bottom 312x116 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#AA91F0
+        Punch_R 24x36 b2dace208b1543479f396d359180ea13 color:#6D42AD
+        Punch_L 24x36 b2dace208b1543479f396d359180ea13 color:#6D42AD
+        Deco4 192x216 6c07d95c062f4edca91dd521cfc6fd22 color:#C3F4FF
+        Deco5 200x200 6729774dfb7e465b94f576b8eae137ec color:#FFFFFF/80%
+        Deco2 100x100 fd33d25d694b4489a3831cc8f50ff427
+        Deco3 84x100 0fd201f989934cb4ae0828b6a40099d5
+        ItemThumnail 152x152 8520402600894ea2865b8fe901ed5140
+        SaleEntity 112x112 d5e7578c9f7d4b1f8ab9ff3e9190a0e6
+          X2Text 80x40 text:#FFFFFF@24B+o#5B368D
+          BonusText 120x40 text:#FFFFFF@24B+o#5B368D
+        RewardInfo 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#664DE5
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2
+          Touch 100x100
+        PurchaseRewardBg 100x100 97947391d0ed45f5973bc057130277e8 color:#FFFFFF/0%
+          PurchaseRewardText 223x44 1a781ce290044d1fa2069b1afb58ba02 (Sliced) color:#AA91F0 text:#FFFFFF@26B
+          Dish 100x100 97947391d0ed45f5973bc057130277e8
+          RewardEnable 110x110 61aa92b6616d498bbd95b4a2fcb3437f
+            RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+          ItemIcon 64x64 b532cf02f02d4c5c84011c1f5988c4cd
+          PurchaseRewardDim 100x100 97947391d0ed45f5973bc057130277e8 color:#000000/50%
+            IconCheck 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          IconLock 26x38 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        PriceText 59x47 text:#FFFFFF@32B+o#C15E14
+          CurrencyImage 40x40 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        PurchaseDoneText 270x80 text:#FFFFFF@32B+o#2A17BB
+          IconCheckSmall 35x35 84e2190c1cb546738f9778fc87e570f3
+        Title 200x55 text:#FFFFFF@28B+o#2A17BB
+      Silver 330x390 ee2fe4c593164402a7430d5fbb8fae5c
+        Panel 330x390 ee2fe4c593164402a7430d5fbb8fae5c
+        Bottom 312x116 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#B6BDE0
+        Punch_R 24x36 b2dace208b1543479f396d359180ea13 color:#7171AA
+        Punch_L 24x36 b2dace208b1543479f396d359180ea13 color:#7171AA
+        Deco 100x100 c1d1ef2477fc40d4941513482006ac24
+        ItemThumnail 152x152 ed824bc813f843d8a54f9a5b928c9934
+        SaleEntity 112x112 d5e7578c9f7d4b1f8ab9ff3e9190a0e6
+          X2Text 80x40 text:#FFFFFF@24B+o#3F3B98
+          BonusText 116x40 text:#FFFFFF@24B+o#3F3B98
+        RewardInfo 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#8898D1
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2
+          Touch 100x100
+        PurchaseRewardBg 100x100 97947391d0ed45f5973bc057130277e8 color:#FFFFFF/0%
+          PurchaseRewardText 223x44 1a781ce290044d1fa2069b1afb58ba02 (Sliced) color:#A5ACD9 text:#FFFFFF@26B
+          Dish 100x100 97947391d0ed45f5973bc057130277e8
+          RewardEnable 110x110 61aa92b6616d498bbd95b4a2fcb3437f
+            RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+          ItemIcon 64x64 031dd54a42124da1805f572cbd0381c2
+          PurchaseRewardDim 100x100 97947391d0ed45f5973bc057130277e8 color:#000000/50%
+            IconCheck 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          IconLock 26x38 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        PriceText 59x47 text:#FFFFFF@32B+o#C15E14
+          CurrencyImage 40x40 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        PurchaseDoneText 270x80 text:#FFFFFF@32B+o#7171AA
+          IconCheckSmall 35x35 84e2190c1cb546738f9778fc87e570f3
+        Title 200x55 text:#FFFFFF@28B+o#757691
+      Gold 330x390 b3b4390ef62845549d373270531927fa
+        Deco1 96x216 369a01e94f334bd6893e4af8b665b9fb
+        Panel 330x390 b3b4390ef62845549d373270531927fa
+        Bottom 312x116 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#F6B93A
+        Punch_R 24x36 b2dace208b1543479f396d359180ea13 color:#A67C46
+        Punch_L 24x36 b2dace208b1543479f396d359180ea13 color:#A67C46
+        Deco4 192x216 6c07d95c062f4edca91dd521cfc6fd22
+        Deco5 200x200 61aa92b6616d498bbd95b4a2fcb3437f color:#FFFDEF
+        Deco2 100x100 35a4c76f2c264f2bbe685e69a8615e2f
+        Deco3 84x100 8abcc9420aa14a599a91ac2cd4d047f8
+        ItemThumnail 152x152 56f1d3b070a8447aacc9fb3ef975acf7
+        SaleEntity 112x112 9a3a8fba7dad45eeb72b3c2618bb966d
+          X2Text 80x40 text:#FFFFFF@24B+o#906301
+          BonusText 120x40 text:#FFFFFF@24B+o#906301
+        RewardInfo 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#EEAB1B
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2
+          Touch 100x100
+        PurchaseRewardBg 100x100 97947391d0ed45f5973bc057130277e8 color:#FFFFFF/0%
+          PurchaseRewardText 223x44 1a781ce290044d1fa2069b1afb58ba02 (Sliced) color:#F2B126 text:#FFFFFF@26B
+          Dish 100x100 97947391d0ed45f5973bc057130277e8
+          RewardEnable 110x110 61aa92b6616d498bbd95b4a2fcb3437f
+            RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+          ItemIcon 64x64 b532cf02f02d4c5c84011c1f5988c4cd
+          PurchaseRewardDim 100x100 97947391d0ed45f5973bc057130277e8 color:#000000/50%
+            IconCheck 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          IconLock 26x38 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        PriceText 59x47 text:#FFFFFF@32B+o#C15E14
+          CurrencyImage 40x40 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+        PurchaseDoneText 270x80 text:#FFFFFF@32B+o#BB7107
+          IconCheckSmall 35x35 84e2190c1cb546738f9778fc87e570f3
+        Title 200x55 text:#FFFFFF@28B+o#CB8F0D
+    GetAllRewardButton 224x80
+      Button 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+      Disabled 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/40%
+    NextButtonL 150x56 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced)
+      ItemIcon 54x54 cc6f5521cbd04100aa7411c06fcf4b97
+        StageLevelText 100x45 text:#FFFFFF@24B+o#8A693D
+      Arrow 18x22 e999df09c3474ab1a8269e3d6df7de61
+    NextButtonR 150x56 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced)
+      ItemIcon 54x54 cc6f5521cbd04100aa7411c06fcf4b97
+        StageLevelText 95x40 text:#FFFFFF@24B+o#8A693D
+      Arrow 18x22 e999df09c3474ab1a8269e3d6df7de61
+    WiderrufsrechtButton 280x50 4a5d5bf5811044338631ade8ff45b087 (Sliced) color:#FFFFFF/0%
+      WiderrufsrechtText 380x50 text:#FFFFFF@24B+o#806A5D
+      Icon 32x32 f65cf352af7b4fb585144cceaaaee348
+        UIText 40x40 text:#FFFFFF@18B
+    PolicyExplanationForValueText1 1360x100 text:#957958@26B
+      Tip 36x32 3ec049c173514dcea835c256f93198e1 color:#957958
+        Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FFE8B6
+  TabMenu 1920x1080
+    Line 760x6
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    Menu 230x710
+      Model_PassGroupTab 192x90 7a69ab85130e49a9b9d26ae3cc9434f6
+        PassGroupIcon 80x80 8e7dca106816432793bd5dc1d7b40a22
+        PassGroupNameText 110x70 text:#FFFFFF@28B+o#985F05
+        RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+      Model_PassGroupTab_1 192x90 a74e2cf4e0444e9c82086e0d9d922d01 color:#F0CE8B
+        PassGroupIcon 80x80 8e7dca106816432793bd5dc1d7b40a22
+        PassGroupNameText 110x70 text:#BB9A59@28B
+        RedDot 50x50 3af9b8375087419fb1b509de5060f6cf
+  PassRewardInfoDim 2520x1680
+    Panel 850x910 cb1f9312d3814526be50b6381c574bba (Sliced)
+      Title 600x70 text:#FFFFFF@38B+o#5C409E
+      WiderrufsrechtButton 160x30 4a5d5bf5811044338631ade8ff45b087 (Sliced) color:#FFFFFF/0%
+        WiderrufsrechtText 350x45 text:#FFFFFF@26B+o#6657B1
+        Icon 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#9182E0
+          UIText 40x40 text:#FFFFFF@24B
+      CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+      RewardListBg 850x825 f76bc8d505034f5294829b711dc04411 color:#EBE4D6/0%
+        RewardList 780x680
+          Model_PassRewardSumSlot 725x160
+            RewardSumInfo 725x160 2fcf688b0e9847c8b863d691ce3a59f4
+              Line 510x4
+              ItemName 460x55 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#FFFFFF/0% text:#5E4F37@30B+o#FFFFFF
+              ItemCount 515x65 text:#72634B@26B
+            ItemSlot 145x140 e5bdbbd4b79f4ce7956f57e12080581e (Sliced) color:#D7D7F4
+              ItemThumnail 100x100 cc6f5521cbd04100aa7411c06fcf4b97
+            IsLimited 225x56 6acc7b7fdb59436883f66a8dbdca9ea2 (Sliced) text:#FFFFFF@24B+o#9D7239
+            IsPurchaseReward 279x56 6acc7b7fdb59436883f66a8dbdca9ea2 (Sliced) text:#FFFFFF@24B+o#9D7239
+          Content 850x980
+        Bottom 850x145 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#CDCAE9
+          ProductPassButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+            PriceText 72x47 text:#FFFFFF@32B+o#C15E14
+              CurrencyImage 40x40 a8f3146382c07494d8dbce9b93c1a5c3 (Sliced)
+            PurchaseCompleteText 297x47 text:#FFFFFF@32B+o#C15E14
+            PurchaseCompleteText_1 297x47 text:#FFFFFF@32B+o#C15E14
+      Gradiant 800x80 715ba2f9541b424586c970bb547e9036 (Sliced) color:#F2F2F2

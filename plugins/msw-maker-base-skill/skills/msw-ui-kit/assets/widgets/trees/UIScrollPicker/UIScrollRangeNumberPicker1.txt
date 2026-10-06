@@ -1,0 +1,6 @@
+UIScrollRangeNumberPicker1 100x300 [UITouchReceiveComponent,UIScrollRangeNumberPicker] 76359b32034643c6b5da0717f9c380bb
+  Viewport 80x280
+  Item 80x100 [UIScrollPickerItem]
+    Text 80x100 text:#3A80FF@32
+  Img_Line1 64x4
+  Img_Line2 64x4

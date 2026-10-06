@@ -1,0 +1,82 @@
+# MirrorEntrance — 80 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout_EnemyInfo, Layout_PartyBuilder, Layout_Bottom
+UIR_SimpleFantasy_Sample_MirrorEntrance 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Layout_EnemyInfo 630x920 b4c09361575647cb83560c9d1ad1fb7d
+    Img_Boss 608x556
+      Img 608x555 2f3070f4380547da932e8c2b3d6e4a71
+    Text_Title 265x66 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/30% text:#EEEDE8@40B
+    Name_Bg 630x122 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#080B17/35%
+      Label_RoundName 540x36 text:#E8E8E8@24B+o#414D67
+      Text_RoundName 540x56 text:#FFFFFF@38B+o#414D67
+    Label_EndDate 140x45 text:#757474@26B
+      Icon_Level 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    Text_EndDate 400x42 text:#757474@26B
+    Label_Weakness 140x45 text:#757474@26B
+      Icon_Level_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    Weakness 400x42 25e5f99bdc562c241bf1b96a0d76f493 (Sliced) color:#E5E2D4
+    WeaknessItem 95x40 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#979BA6
+      Text_Path 95x45 text:#FFFFFF@22B+o#000000/20%
+    Label_Rank 140x45 text:#757474@26B
+      Icon_Level_2 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    Text_Rank 400x42 text:#757474@26B
+      Btn_ShowRank 150x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31
+        Icon_Detail 52x52 754890ba284e441ea0bba9b02de160f9 (Sliced)
+    Label_ScoreAcc 140x45 text:#757474@26B
+      Icon_Level_3 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    Text_ScoreAcc 400x42 text:#757474@26B
+      Btn_ShowScoreAccReward 160x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@22B
+        Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+    Label_ScoreDayBest 140x45 text:#757474@26B
+      Icon_Level_4 16x16 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+    Text_ScoreDayBest 400x42 text:#757474@26B
+  Layout_PartyBuilder 1920x1080
+    Layout 1195x920 8c4814f86c784aa0a890932825c4ce34 (Sliced)
+      Deco_Bg1 440x608 99273560008f400f81e02598866f8eb5 color:#90AECB/70%
+      Deco_Bg2 440x608 99273560008f400f81e02598866f8eb5 color:#90AECB/70%
+      PartyList 1173x835
+        Item 190x780
+          Img_Order 164x116 f01733d4b1b645089602c5a675e6877e
+            Text_Order 26x67 text:#CFDCF8@45B+o#3A4359
+          Img_Deco 20x64 46713fa01ff9449b969a66b1e8c7b639 color:#FFFFFF/15%
+          Btn_Thumbnail 163x163 1e5e576fa39554b4a9d4b356354219c6 (Sliced) color:#1B223D
+            Slot_Portrait_Normal 173x173 676ac9ceb90e4f19aa47490747a34d2e (Sliced)
+            Img_Empty 70x70 07096261a9944312b01dee501fed7599 (Sliced) color:#B0B5BE
+            Img_Thumbnail 140x140 308848ab8a7944e0a7572d362805c484
+            Boss_Portrait_Line 159x159 30dbddd9ee1a4058a35a5b9926cc1234 (Sliced)
+            Img_Path 104x55 637b146839954bd1a7da437f3874aaa1 (Sliced) color:#FB9935
+              Text_Path 84x45 text:#FFFFFF@20B+o#000000/20%
+          Avatar_Empty 103x161 b9461709154c400b86a3dde7f3efab68 (Sliced) color:#212A4F/70%
+          Img_Shadow 224x64 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#232D52/70%
+            Img_BackLight_1 302x302 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFFFFF/44%
+            Img_BackLight 183x229 3359353b23cc4a5c8437d4e89cb78b31 color:#FFFFFF/12%
+          Avatar 200x200
+          Layout_BakeInfo 190x250
+            Layout_JobInfo 190x160
+              Text_Level 86x37 text:#EEEDE8@25B
+                Img_DecoL 40x16 0c213a6310b742dcbe2fc09c9006ac9e color:#8B9EC1
+                Img_DecoR 40x16 0c213a6310b742dcbe2fc09c9006ac9e color:#8B9EC1
+              Text_Nickname 136x37 text:#BABABA@25B
+              Text_Job 126x37 text:#8CE6EE@25B+o#3A3B3B
+            Layout_Power 190x38 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#17243D/50%
+              Text_Value 150x34 text:#D3CCCC@24B
+              Img_Power 20x25 3119d2807ea7466e8e9056d0590a35cc color:#D4CDCD
+            Layout_Bonus 190x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#17243D/50%
+              Text_Value 38x36 text:#86B5D8@24B
+                Icon_Multiply 38x38 07096261a9944312b01dee501fed7599 (Sliced) color:#86B5D8
+                Tag_CharBonus 120x52 1384d552a23340caa8a511dbf4e5ba62 (Sliced)
+                  Text_Value 37x38 text:#FFFFFF@26B+o#2D540C/55%
+              Img_Power 28x20 7ca6def2c852447292673899543e5b35 color:#D4CDCD
+  Layout_Bottom 1195x920
+    Btn_Desc 240x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+    Btn_AutoSelect 200x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+      Dim 200x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#000000/45%
+    Btn_Reset 88x88 60b3dacf1291422a91897d49422ae16f (Sliced)
+      Img_Reset 36x36 4948bd19e6cd459da09b7e06796b8b35
+    Btn_Start 380x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+      Ticket_Num 164x36 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#3D4A66
+        Ticket 36x36 18205b8ecbde4fd4a1ad1b1ec5059539
+        Text_Num 100x36 text:#FFFFFF@24B
+      Img_Dim 380x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) color:#000000/50%
+      Text_RemainTimeEntryCount 336x60 e385d19a080e405a8e9e96972954e9d9 (Sliced) color:#F9F79B text:#494B3F@24B
+        SpeechBubble_tail 16x12 7b1cb775aa304924826969e78cc2a3d6 color:#F9F79B

@@ -1,0 +1,100 @@
+# GearItemInfo — 98 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Text_Title, Layout_ItemInfo, Layout_StarForce, Img_Line, Label_Class, Text_Class, Label_Job, Text_Job, Layout_ItemPower, Btn_Close, Layout_Option, Layout_Button1, Layout_Button2
+UIR_SimpleFantasy_Sample_GearItemInfo 780x950 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+  Text_Title 124x40 text:#FFFFFF@27B
+  Layout_ItemInfo 760x169
+    Img_Thumbnail 135x135 dcbbede8a7a0478b97e2ffa23b7fc14a
+    Text_Grade 140x32 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#8CDF6F text:#FFFFFF@20B
+    Text_Name 457x38 text:#757474@26B
+    Text_Category 97x33 text:#8D8C8C@22B
+    Text_ReqLevel 195x30 text:#8D8C8C@20B
+    Text_Duration 380x33 text:#FA7753@22B
+    Text_Bind 53x33 text:#788399@22B
+      Img_Bind 40x40 6953d828d99748fb93cc49a191867f5c color:#788399
+    Btn_Share 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31
+      Img_Share 24x32 b7d850a200ee4c418e613e3dccd96fb9
+  Layout_StarForce 760x50
+    StarForceGroup 130x54
+      Img_StarForce 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_1 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_2 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_3 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_4 25x25 a80c808cc5a443c482ab8beab205c068
+    StarForceGroup_1 130x54
+      Img_StarForce 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_1 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_2 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_3 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_4 25x25 a80c808cc5a443c482ab8beab205c068
+    StarForceGroup_2 130x54
+      Img_StarForce 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_1 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_2 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_3 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_4 25x25 a80c808cc5a443c482ab8beab205c068
+    StarForceGroup_3 130x54
+      Img_StarForce 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_1 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_2 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_3 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_4 25x25 a80c808cc5a443c482ab8beab205c068
+    StarForceGroup_4 130x54
+      Img_StarForce 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_1 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_2 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_3 25x25 a80c808cc5a443c482ab8beab205c068
+      Img_StarForce_4 25x25 a80c808cc5a443c482ab8beab205c068
+  Img_Line 740x3
+  Label_Class 308x33 text:#999689@22B
+    Img_Dot 30x30 0d03305ddddf450c837fa3d524ab8337 color:#707070
+  Text_Class 55x30 text:#757474@20B
+  Label_Job 287x33 text:#999689@22B
+    Img_Dot 30x30 0d03305ddddf450c837fa3d524ab8337 color:#707070
+  Text_Job 39x30 text:#757474@20B
+  Layout_ItemPower 780x60 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E3E1D6
+    Text_Power 69x33 text:#757474@22B
+      Img_Power 33x33 3119d2807ea7466e8e9056d0590a35cc color:#BEB899
+  Btn_Close 52x50 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+  Layout_Option 770x368
+    Layout_Stat 760x40
+      Scroll_Stat 760x40
+      Item_Stat 760x40
+        Dot 15x15 8c70e1b4b0a24a128f30b790115cb13c
+        Label_Stat 48x33 text:#999689@22B
+        Text_ChangedValue 42x36 text:#757474@24B
+          Img_Icon 24x20 10981d693e294a5392d7eb1ccbe41181 color:#8ECA78
+            Text_ResultValue 69x36 text:#757474@24B
+    Layout_Potential 760x167
+      StatLine 730x30
+        Img_Line 730x3
+      Text_Poten 33x33 text:#FFFFFF@20B
+        Text_PotenTitle 123x33 text:#8CDF6F@22B
+      Scroll_Poten 760x35
+      Item_Stat 760x35
+        Dot 15x15 8c70e1b4b0a24a128f30b790115cb13c
+        Label_Stat 48x33 text:#999689@22B
+        Text_Stat 35x30 text:#757474@20B
+      PotenEmpty 760x35
+        Dot 15x15 8c70e1b4b0a24a128f30b790115cb13c
+        StatTitle 75x33 text:#999689@22B
+    Layout_SetStat 760x164
+      StatLine 730x30
+        Img_Line 730x3
+      Text_Set 58x32 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#5C729C text:#FFFFFF@18B
+      Text_SetName 162x33 text:#5C729C@22B
+        Btn_SetInfo 25x25 d8f842cdebe445d9b4a76f932eb9358a
+      Scroll_SetStat 760x35
+      Item_SetStat 760x35
+        Dot 15x15 8c70e1b4b0a24a128f30b790115cb13c
+        Label_Stat 138x33 text:#999689@22B
+        Text_Stat 117x33 text:#757474@22B
+  Layout_Button1 590x120
+    Btn_StarForce 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@25B
+    Btn_Poten 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@25B
+    Btn_Equip 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@25B
+    Btn_Transmission 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@25B
+  Layout_Button2 190x120
+    Btn_Discard 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+      Img_Discard 40x40 9f207027c5954e8f91a8bc14824455fe (Sliced)
+    Btn_Lock 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+      Img_Lock 40x40 c506125bbc8b4de693fb15de56eb559f

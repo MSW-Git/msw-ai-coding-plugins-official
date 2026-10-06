@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const MSCORLIB = "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
-const MOD_CORE_VERSION = process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION || "26.7.0.0";
+const MOD_CORE_VERSION = process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION || resolveCoreVersion();
 const MOD_CORE = `MOD.Core, Version=${MOD_CORE_VERSION}, Culture=neutral, PublicKeyToken=null`;
 const MOD_CORE_SHORT = "MOD.Core";
 
@@ -203,6 +203,21 @@ function modelDefinition(modelJsonOrContent, label = "model") {
   throw new Error(`Invalid ${label}: missing ContentProto.Json.Components`);
 }
 
+// Rewrites the MOD.Core assembly version inside type strings: every version when
+// `from` is null, otherwise only strings stamped with `from`.
+function restampModCoreVersion(value, version = MOD_CORE_VERSION, from = null) {
+  if (typeof value === "string") {
+    return from == null
+      ? value.replace(/MOD\.Core, Version=[\d.]+/g, `MOD.Core, Version=${version}`)
+      : value.split(`MOD.Core, Version=${from},`).join(`MOD.Core, Version=${version},`);
+  }
+  if (Array.isArray(value)) return value.map((item) => restampModCoreVersion(item, version, from));
+  if (value && typeof value === "object") {
+    for (const key of Object.keys(value)) value[key] = restampModCoreVersion(value[key], version, from);
+  }
+  return value;
+}
+
 function normalizeModelId(value) {
   if (value == null) return null;
   const modelId = String(value).trim().replace(/^model:\/\//, "");
@@ -210,9 +225,40 @@ function normalizeModelId(value) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
-// set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
-// "script.<name>" custom component, with a one-time advisory on stderr.
+// Workspace root: the nearest directory holding Environment/config, searched upward
+// from startDir (the file being written), then the working directory, then this script.
+function workspaceRoot(startDir) {
+  for (const start of [startDir, process.cwd(), __dirname]) {
+    if (!start) continue;
+    let dir = path.resolve(start);
+    for (;;) {
+      if (fs.existsSync(path.join(dir, "Environment", "config"))) return dir;
+      const parent = path.dirname(dir);
+      if (parent === dir) break;
+      dir = parent;
+    }
+  }
+  return null;
+}
+// CoreVersion stamped into newly created content: the workspace's own value, or
+// 26.7.0.0 outside a workspace.
+function resolveCoreVersion(startDir) {
+  const root = workspaceRoot(startDir);
+  if (root) {
+    try {
+      const text = fs.readFileSync(path.join(root, "Environment", "config"), "utf8");
+      const version = JSON.parse(text.replace(/^\uFEFF/, "")).CoreVersion;
+      if (typeof version === "string" && /^\d+(\.\d+){1,3}$/.test(version.trim())) return version.trim();
+    } catch (_) {
+      // unreadable config: use the fallback
+    }
+  }
+  return "26.7.0.0";
+}
+// Native MSW component class names. A bare name in this set, or one declared under
+// the workspace's Environment/NativeScripts/Component, is auto-qualified to
+// "MOD.Core.<name>"; any other bare name is treated as a "script.<name>" custom
+// component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
   "AIChaseComponent", "AIComponent", "AIWanderComponent", "AnimationSequenceControllerComponent",
   "AreaParticleComponent", "AttackComponent", "AvatarBodyActionSelectorComponent", "AvatarFaceActionSelectorComponent",
@@ -241,6 +287,21 @@ const NATIVE_COMPONENTS = new Set([
   "WebSpriteComponent", "WebViewComponent", "WeldJointComponent", "WheelJointComponent",
   "WorldComponent", "YoutubePlayerCommonComponent", "YoutubePlayerGUIComponent", "YoutubePlayerWorldComponent"
 ]);
+let _workspaceNativesLoaded = false;
+function nativeComponents() {
+  if (_workspaceNativesLoaded) return NATIVE_COMPONENTS;
+  _workspaceNativesLoaded = true;
+  const root = workspaceRoot();
+  if (!root) return NATIVE_COMPONENTS;
+  try {
+    for (const file of fs.readdirSync(path.join(root, "Environment", "NativeScripts", "Component"))) {
+      if (file.endsWith(".d.mlua")) NATIVE_COMPONENTS.add(file.slice(0, -".d.mlua".length));
+    }
+  } catch (_) {
+    // no NativeScripts folder: the bundled catalog stands alone
+  }
+  return NATIVE_COMPONENTS;
+}
 const _resolveWarned = new Set();
 function _editDistance(a, b) {
   const m = a.length, n = b.length;
@@ -265,7 +326,7 @@ function _editDistance(a, b) {
 function _nearestNative(name) {
   const limit = name.length <= 6 ? 1 : 2;
   let best = null, bestD = limit + 1;
-  for (const n of NATIVE_COMPONENTS) {
+  for (const n of nativeComponents()) {
     const d = _editDistance(name, n);
     if (d < bestD) { bestD = d; best = n; }
   }
@@ -275,7 +336,7 @@ function normalizeComponentName(name) {
   if (name == null) throw new TypeError("Component name must not be null");
   const value = String(name);
   if (value.startsWith("MOD.") || value.startsWith("script.")) return value;
-  if (NATIVE_COMPONENTS.has(value)) {
+  if (nativeComponents().has(value)) {
     const out = "MOD.Core." + value;
     if (!_resolveWarned.has(value)) {
       _resolveWarned.add(value);
@@ -319,6 +380,7 @@ class ModelBuilder {
     this.base_model_id = options.base_model_id ?? options.baseModelId ?? null;
     this.version = options.version ?? 1;
     this._data = null;
+    this._fromTemplate = false;
     this._source_path = options.source_path || options.sourcePath || null;
     this._warnedInheritedComponents = new Set();
   }
@@ -351,6 +413,11 @@ class ModelBuilder {
 
   static fromTemplate(templatePath, name, options = {}) {
     const instance = ModelBuilder.load(templatePath);
+    for (const field of ["properties", "values", "event_links", "children"]) {
+      instance[field] = restampModCoreVersion(instance[field]);
+    }
+    if (instance._data.CoreVersion) instance._data.CoreVersion = resolveCoreVersion();
+    instance._fromTemplate = true;
     return instance.renameModel(name, options.model_id || options.modelId);
   }
 
@@ -516,7 +583,7 @@ class ModelBuilder {
 
   childFromTemplate(name, templatePath, options = {}) {
     if (!templatePath || !String(templatePath).trim()) throw new Error("childFromTemplate() requires templatePath");
-    const model = modelDefinition(readJsonFile(templatePath, "child template"), "child template");
+    const model = restampModCoreVersion(modelDefinition(readJsonFile(templatePath, "child template"), "child template"));
     return this.child(name, { preserve_model_id: false, ...options, model });
   }
 
@@ -868,8 +935,14 @@ class ModelBuilder {
       const message = errors.map((f) => `${f.rule}: ${f.message}`).join("; ");
       throw new Error(`Model validation failed: ${message}`);
     }
+    const data = this.build();
+    const targetVersion = resolveCoreVersion(path.dirname(filepath));
+    if (this._fromTemplate && data.CoreVersion) data.CoreVersion = targetVersion;
+    if (!process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION && targetVersion !== MOD_CORE_VERSION) {
+      restampModCoreVersion(data.ContentProto.Json, targetVersion, MOD_CORE_VERSION);
+    }
     fs.mkdirSync(path.dirname(filepath), { recursive: true });
-    fs.writeFileSync(filepath, `${JSON.stringify(this.build(), null, 2)}\n`, "utf8");
+    fs.writeFileSync(filepath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
     console.log(`Written model '${this.name}' (${this.components.length} components, ${this.values.length} values, ${this.children.length} children) to ${filepath}`);
     console.log(`  Model ID: ${this.model_id} (use this in SpawnByModelId)`);
     return this;

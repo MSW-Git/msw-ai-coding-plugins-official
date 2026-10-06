@@ -1,0 +1,8 @@
+# Loading_Play — 6 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Pattern, PlayIntroText
+UIR_SuperSimple_Sample_Loading_Play 2520x1680
+  Img_Pattern 2520x1680 0bde4eff9aa64eae8a4e30c65d223ba9 (Tiled) color:#E7D95E
+    LoadingText 1820x150 text:#C3A93B@50B
+  PlayIntroText 1761x295
+    MapName 1761x120 text:#655852@80B
+    CreatorName 1761x80 text:#6E661C@50B

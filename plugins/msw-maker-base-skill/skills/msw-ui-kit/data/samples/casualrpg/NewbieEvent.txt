@@ -1,0 +1,73 @@
+# NewbieEvent — 71 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg_Dark, NewbieEventBackground
+UIR_CasualRPG_Sample_NewbieEvent 1920x1080
+  Bg_Dark 7920x7080
+  NewbieEventBackground 1306x874 f47ee45115114234bd8a140b5d02729c
+    NewbieEventTopPanel 1266x84 text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@56B+o#000000
+    NewbieEventContentPanel 1266x744
+      NewbieEventDescriptionPanel 1226x286 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+        NewbieEventDescriptionText 1226x50 af113675713a400fb4929d1824669974 color:#000000/30% text:#FFFFFF@24
+        NewbieEventProgressPanel 1226x236
+          NewbieEventMissionPoint 200x230 f2b45b4042254ef0a9c0138067a2392b text:#FFFFFF@24B+o#000000
+          NewbieEventProgressBarPanel 800x230
+            NewbieEventProgressBarbg 800x20
+            NewbieEventProgressBar 800x20
+              NewbieEventProgressDisplayRewardTop 800x100
+                NewbieEventRewardBoxButton_1 100x80 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+                NewbieEventRewardBoxButton_3 100x80 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+                NewbieEventRewardBoxButton_5 100x80 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+                NewbieEventRewardBoxButton_7 100x80 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+              NewbieEventProgressDisplayRewardTop_1 800x100
+                NewbieEventRewardBoxButton_2 100x90 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+                NewbieEventRewardBoxButton_4 100x90 28145fc80c784312979e4542d0e7f99a (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+                NewbieEventRewardBoxButton_6 100x90 thumbnail://b8913abcec79441fbb78298e4c05076f (Sliced) text:#FFFFFF@24B+o#000000
+                  Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+              Line 800x20
+                Scroll_Image 2x20
+                Scroll_Image_1 2x20
+                Scroll_Image_2 2x20
+                Scroll_Image_3 2x20
+                Scroll_Image_4 2x20
+                Scroll_Image_5 2x20
+                Scroll_Image_5_1 2x20
+          NewbieEventRewradPanel 200x230
+            NewbieEventRewradButton 156x156 affef48538564b6f9c55695a6096a0dd
+              ClearRewardEffect 325x325 010e7f7270c2408790b64fe7daebad49
+              NewbieEventRewradIcon 110x110 53f5a00f8a08457999760f8e4674d560
+              NewbieEventRewradPointText 180x60 text:#FFFFFF@24B+o#000000
+              Icon_Check 48x33 46c34255c019473482b09e491cf1ec73
+      NewbieEventAchievementPanel 1226x402 52849ae90e6e4aa392d5cf856f5e359c color:#232C40/50%
+        NewbieEventRemainTimeText 327x136 8f35027df24c4376b2776202d5f5304f text:#53596B@24
+          Img_Npc 76x86 713e5a36f61242b39f06f97851bc957a
+        NewbieEventAchieveLayout 1226x321
+          NewbieEventAchieveSlot 1183x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+            NewbieEventPointPanel 100x100 f2b45b4042254ef0a9c0138067a2392b text:#FFFFFF@24B+o#000000
+            NewbieEventMissionPanel 783x104
+              NewbieEventMissionObjective 783x57 text:#FFFFFF@24
+              Progress_Bg 742x20
+              NewbieEventMissionProgress 742x20
+                NewbieEventMissionProgressText 742x20 text:#FFFFFF@20B+o#000000
+            NewbieEventRewardPanel 264x100
+              NewbieEventRewardButton 90x90 c58c6f4200d4b7341ba11994d157ce12 color:#23252D
+                ClearRewardEffect 92x92 8b8b29976a784279885f1bc595146f3b color:#FFE633
+                NewbieEventRewardSprite 70x70 cba4f8c4a4104443862d7db244848cf4
+                UIText 90x90 text:#FFFFFF@22B+o#000000
+                Cover 90x90 c58c6f4200d4b7341ba11994d157ce12 color:#23252D/60%
+                  Icon_Check_1 48x33 46c34255c019473482b09e491cf1ec73
+              NewbieEventMoveButtonPanel 176x90
+                NewbieEventMoveButton 160x90 53535e31b205418aaa2410b4f671fc30 text:#FFFFFF@24B+o#3784C4
+        NewbieEventDayButtonLayout 1226x88 9ff12837c41a4eff9c5331412caa3a57
+          DayButton_1 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_2 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_3 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_4 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_5 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_6 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%
+          DayButton_7 160x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) states:highlighted=680e8f1997ed470a8f599c1f671a36a8,pressed=680e8f1997ed470a8f599c1f671a36a8,selected=680e8f1997ed470a8f599c1f671a36a8,disabled=c7b38a460c434e0aa6901e187062ff10 text:#FFFFFF@24B+o#53596B/50%

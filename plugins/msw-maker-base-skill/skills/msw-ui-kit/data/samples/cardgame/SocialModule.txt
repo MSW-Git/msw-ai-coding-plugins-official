@@ -1,0 +1,12 @@
+# SocialModule — 10 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: SocialButton, FriendRequestPopup
+UIR_CardGame_Sample_SocialModule 1920x1080
+  SocialButton 73x79 e3330c5b0dea46f9b24a264ba393949a states:highlighted=7669acd7257b4440b67c77fe9e12d39a,pressed=3e0b35da2eec473994403cb5c44c7fa8
+  FriendRequestPopup 440x80
+    Background 442x86 16b391d441ad46afae46305de48b354c (Sliced)
+    NicknameText 181x24 text:#FACA33@21B+o#000000/50%
+    RequestText 181x24 text:#FFFFFF@13B+o#000000/50%
+    AcceptButton 115x60 a1327acdf0974af58faa3ee2a5d26c0f states:highlighted=0983a7a556e648bf9761d45745cc65be,pressed=b6c411cc09b541eeb096fb57c0467dd7
+      Text 90x36 text:#FFFFFF@20B+o#000000/50%
+    RefuseButton 115x60 5106eb372a4d42709ec6880747690018 states:highlighted=859aab7760eb4f9a9701622683677bb8,pressed=6745a334cef1429a9809b092dcdc4cc4
+      Text 90x36 text:#FFFFFF@20B+o#000000/50%

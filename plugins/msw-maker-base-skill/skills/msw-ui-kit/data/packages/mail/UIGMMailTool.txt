@@ -1,0 +1,60 @@
+# UIGMMailTool — 57 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIGMMailTool 2520x1680
+  Panel 1800x960 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+      Text_TimeOffset 143x55 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@30
+        Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+          Panel_TooTip 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+            tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+            Text_Desc 352x60 text:#362517@24
+    TabButtons 315x308
+      Btn_View 280x135 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Btn_Add 280x135 9bb8e4d004fb46bb9c1b528b3c1ebf9f (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@36
+    TargetUser 315x308 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Label_UserID 170x70 text:#653122@24
+      Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+        Panel_TooTip 315x80 b5f829660fbc4a58aaac8b8f4e22775f
+          tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+          Text_Desc 287x60 text:#362517@24
+      UIText_UserID 279x140 text:#653122@20
+    Pages 1400x743
+      Page_View 1400x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1360x90
+          Label_UUID 800x70 text:#653122@24
+          Label_Idx 100x70 text:#653122@24
+          Label_Info 373x70 text:#653122@24
+        deco_line 1400x2
+        GridView 1400x500
+        MailViewItemUI 1360x170
+          Text_UUID 800x150 text:#653122@24
+          Text_Idx 100x150 text:#653122@24
+          Btn_Info 200x100 e22dca176e7c48b39d5b40554b546e22 (Sliced)
+            Text_Desc 100x75 text:#653122@24
+          Btn_Revoke 113x100 e22dca176e7c48b39d5b40554b546e22 (Sliced)
+            Text_Desc 95x75 text:#653122@24
+        deco_line_1 1400x2
+        Btn_Refresh 240x100 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Page_Add 1400x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1360x90
+          Label_Title 200x70 text:#653122@24
+          Label_Message 560x70 text:#653122@24
+          Label_Sender 120x70 text:#653122@24
+          Label_RetentionDays 120x70 text:#653122@24
+          Label_StartDate 170x70 text:#653122@24
+          Label_EndDate 170x70 text:#653122@24
+        deco_line 1400x2
+        Item 1360x450
+          Text_Title 200x350 text:#653122@24
+          Text_Message 560x350 text:#653122@24
+          Text_Sender 120x350 text:#653122@24
+          Text_RetentionDays 120x350 text:#653122@24
+          Text_StartDate 170x350 text:#653122@24
+          Text_EndDate 170x350 text:#653122@24
+          Btn_Item 275x65 e22dca176e7c48b39d5b40554b546e22 (Sliced)
+            Text_Desc 250x65 text:#653122@24
+        deco_line_1 1400x2
+        Btn_Register 240x100 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36

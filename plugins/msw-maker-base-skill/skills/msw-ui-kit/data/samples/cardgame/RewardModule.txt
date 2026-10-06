@@ -1,0 +1,51 @@
+# RewardModule — 49 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: RewardButton, RewardPanel
+UIR_CardGame_Sample_RewardModule 1920x1080
+  RewardButton 110x120
+    Background 112x112 796e915db9aa4b74afd7f5d8315d67e2
+    Button 81x81 f95261175be24b499633cb7957a78d21 states:highlighted=372ed7e200da41bba0d8c6b6ce6692f1,pressed=6d9db0a06e844ae3850174e033792ebd
+    Text 118x43 text:#FFFFFF@21B+o#000000/70%
+  RewardPanel 439x741 f63a4c0b9eae411297e0bd9e86859cbc (Sliced)
+    Title 318x29 text:#FACA33@26B+o#000000/50%
+    DailyButton 182x52 41be38775d084c1588494ea41e926df8
+      Text 167x35 text:#EEC78F@20B+o#000000/50%
+    RankButton 182x52 41be38775d084c1588494ea41e926df8
+      Text 167x35 text:#EEC78F@20B+o#000000/50%
+    DailyMenu 439x580
+      RewardSlot_1 415x97
+        Line 414x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+        Title 200x35 text:#FFFFFF@24B+o#000000/50%
+        ProgressText 79x35 text:#FFFFFF@24B+o#000000/50%
+        MesoText 64x32 text:#FFFFFF@18B+o#000000/50%
+        Background 70x76 9c23e723bd9d4f50a13ed2e198c79737
+        Icon 38x38 627c810aa54044cdb9669f8446c0dc17 (Sliced)
+        Fade 415x97
+        Check 73x58 f0e16abd9baa4baeab39f1e62a018f44
+      RewardSlot_2 415x97
+        Line 414x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+        Title 200x35 text:#FFFFFF@24B+o#000000/50%
+        ProgressText 127x35 text:#FFFFFF@24B+o#000000/50%
+        Icon 38x38 627c810aa54044cdb9669f8446c0dc17 (Sliced)
+        Fade 415x97
+        Check 73x58 f0e16abd9baa4baeab39f1e62a018f44
+      RewardResetText 381x64 text:#FFFFFF@17B
+    RankMenu 439x580
+      RewardSlot_1 415x97
+        Line 414x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+        Title 287x41 text:#FFFFFF@24B+o#000000/50%
+        MesoText 64x32 text:#FFFFFF@18B+o#000000/50%
+        Background 70x76 9c23e723bd9d4f50a13ed2e198c79737
+        Icon 38x38 627c810aa54044cdb9669f8446c0dc17 (Sliced)
+        Fade 415x97
+        Check 73x58 f0e16abd9baa4baeab39f1e62a018f44
+      RewardSlot_2 415x97
+        Line 414x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+        Title 287x41 text:#FFFFFF@24B+o#000000/50%
+        MesoText 64x32 text:#FFFFFF@18B+o#000000/50%
+        Background 70x76 9c23e723bd9d4f50a13ed2e198c79737
+        Icon 38x38 627c810aa54044cdb9669f8446c0dc17 (Sliced)
+        Fade 415x97
+        Check 73x58 f0e16abd9baa4baeab39f1e62a018f44
+      PageNumberText 76x36 text:#FFFFFF@23B+o#000000/50%
+      LeftArrowButton 56x65 de8f55e3fcc24ac3ba93ce63387385a1 states:highlighted=b445f3ccba0f46f59b5b4fed0413d0e3,pressed=bf0d9f60123447739c50d436c47cc2b4,disabled=5f2bef0422664642895c5d9072af0d10
+      RightArrowButton 56x65 990efe92562b49389e27194d4cdb2817 states:highlighted=b52ca557f9ca4a2b942cbd3015b3188e,pressed=304b6fc851e6461ebd56d0e7d43e7df7,disabled=e38decc6595a46c5a6418670b99c8a84

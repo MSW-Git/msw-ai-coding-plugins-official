@@ -1,0 +1,34 @@
+# UIQuest — 31 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIQuest 2520x1680
+  Panel 1400x940 25e9e89579644202805f535d038a9edb (Sliced)
+    Panel_Title 1350x110
+      Text_Title 390x100 text:#FFE398@50
+      Btn_Debug 120x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@26
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    Panel_Category 315x740
+      ScrollLayout 295x729
+      Item 280x135 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Panel_Content 1020x738 360816ef52c648b788f50821e360e732
+      GridView 1000x727
+      Item 1000x320 6dfb3edaaaf74ce5966eed140e0e09c2
+        Img_Icon 42x38 0a0a800bf0924ff7bba89d7642881ac2
+        Text_Title 131x40 text:#FFE398@27
+        Text_Desc 680x70 text:#FFE398@25
+        Text_Progress 680x135 text:#FFFFFF@22+o#000000
+        GridView_Reward 230x80
+        Item_Reward 70x70 a7928ea51274446898d8453eb96ee06f
+          Img_Icon 34x43 354f7770bded480b98c003aa3e068dc4
+          Text_Num 50x40 text:#FFFFFF@24
+        Btn_OK 250x90 976f304c3d3340d49728226e64212ed8 (Sliced) states:highlighted=e4e06f6334ae490b9bf4732b82003c17,pressed=e4e06f6334ae490b9bf4732b82003c17,selected=e4e06f6334ae490b9bf4732b82003c17,disabled=976f304c3d3340d49728226e64212ed8 text:#434343@30
+        Panel_Debug 480x117 360816ef52c648b788f50821e360e732
+          Label_Cond 120x47 text:#FFE398@20
+          Text_CondIndex 80x60 8122dd6f67f3d9b4db8a3152172f9063 (Sliced) text:#FFFFFF@20
+          Btn_Step_Subtract 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          Btn_Step_Add 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          Btn_Min 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          Btn_Subtract 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          Btn_Add 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          Btn_Max 70x50 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+        Img_Dim 1000x320 6dfb3edaaaf74ce5966eed140e0e09c2 color:#000000/40%

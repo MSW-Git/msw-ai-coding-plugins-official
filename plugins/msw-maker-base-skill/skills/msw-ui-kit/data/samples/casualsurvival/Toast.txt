@@ -1,0 +1,7 @@
+# Toast — 5 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Toast
+UIR_CasualSurvival_Sample_Toast 1920x1080
+  Toast 1200x60 0607f897c08942ba9460fc37f0afbec4 (Sliced)
+    ScrollingText 1190x60
+      Text 1652x42 text:#FFFFFF@28+o#000000
+    UISprite 110x110 1e88cfca129e49c78e931696abffd79d

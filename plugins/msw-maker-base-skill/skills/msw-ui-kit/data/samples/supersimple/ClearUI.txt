@@ -1,0 +1,30 @@
+# ClearUI — 28 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UISprite_back, UISprite_top, DecoImages, Panel
+UIR_SuperSimple_Sample_ClearUI 1920x1080
+  UISprite_back 2320x1480
+  UISprite_top 2320x483 8c9f4def2c6e4368b50d3546207273a9
+  DecoImages 1879x1080
+    UISprite_Deco_01 246x300 e0fa44845a614f96b64b1313c9d0a125 color:#F5F19A
+    UISprite_Deco_02 172x172 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_03 343x418 e0fa44845a614f96b64b1313c9d0a125 color:#F5F19A
+    UISprite_Deco_04 172x172 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_05 303x370 e0fa44845a614f96b64b1313c9d0a125 color:#E5D75C
+    UISprite_Deco_06 349x349 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_07 292x292 5217a9f151dd4da4a6d126467a6477df color:#E5D75C
+  Panel 1920x1080
+    MapCode 268x59 text:#9E8307@40B
+      IconButton 42x42 2728468aa07e43968c4dafbd48dbb52a color:#9E8307
+    MapName 1878x94 text:#FFFFFF@68B+o#A98105
+    TimePanel 1865x434
+      UIText 1000x91 text:#F29800@42B
+      CurrentTime 1821x150 text:#847252@140B
+      Worldbest 750x72 762648601a704516a395792e0e46d74c (Sliced) color:#FCFDD5
+        Worldbest 259x80 text:#A58A5B@40B
+        Timetext 380x70 text:#847252@40B
+        New 108x40 e3237e5ba12e4f719c4d4be899930736 text:#FFFFFF@28B
+      Mybest 750x72 762648601a704516a395792e0e46d74c (Sliced) color:#FCFDD5
+        Mybest 259x80 text:#A58A5B@40B
+        Timetext 380x70 text:#847252@40B
+        New 108x40 e3237e5ba12e4f719c4d4be899930736 text:#FFFFFF@28B
+    BroadcastingInputField 1030x140 3691eb0e2f42440ea7e9725438d5de88 (Sliced) color:#FCFDD5 text:#847252@28B
+    FinishButton 300x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@28B

@@ -1,0 +1,22 @@
+# RankedMatchModule — 20 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, Panel
+UIR_CardGame_Sample_RankedMatchModule 1920x1080
+  Block 2520x1680
+  Panel 480x760
+    Pattern 417x229 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Pattern_1 417x243 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background 442x308 44f785790c9f4f7a8d672214182f5dc9
+    Background_02 442x268 216c3ce4b3a84cbbbc00fd21be02206f (Sliced)
+    Deco 25x71 5424785befc944239b99da63fae37271
+    Deco_1 25x71 5424785befc944239b99da63fae37271
+    TitleText 414x49 text:#FFFFFF@27B+o#000000/50%
+    Rank 0x0
+      Label 154x74
+      RankName 414x28 text:#FFFFFF@24B
+      RankPoint 414x28 text:#FFFFFF@20
+    GameStartButton 442x98 7882b590091b41d58a21b9e9f2d8e928 states:highlighted=028c8c6192da4fb5b6d3f88d11e7725a,pressed=23e11f4265c140319b7241e8ed04021b
+      Text 411x67 text:#FFFFFF@28B+o#000000/50%
+    CancelButton 442x98 2925bb30d9784439aba4d2002b2aafce states:highlighted=ef4b4919722444a489db8d057502f397,pressed=a8e05aaba9594c19aaaf375ec8eb0f04
+      Text 411x67 text:#FFFFFF@28B+o#000000/50%
+    Message 470x57 ffdc4b11ef384e2cb4996562d867dd80 (Sliced)
+      Text 318x32 text:#FFFFFF@21B

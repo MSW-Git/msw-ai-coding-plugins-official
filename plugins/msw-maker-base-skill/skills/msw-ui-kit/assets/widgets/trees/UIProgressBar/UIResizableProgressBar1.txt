@@ -1,0 +1,3 @@
+UIResizableProgressBar1 400x20 [UIResizableProgressBar] 86cb0ffa0826868499ac5518f20d930c
+  Img_BackValue 400x20 86cb0ffa0826868499ac5518f20d930c (Sliced)
+  Img_Value 400x20 86cb0ffa0826868499ac5518f20d930c (Sliced)

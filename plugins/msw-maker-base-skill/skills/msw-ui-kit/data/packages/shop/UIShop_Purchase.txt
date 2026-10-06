@@ -1,0 +1,21 @@
+# UIShop_Purchase — 18 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIShop_Purchase 2520x1680
+  Panel 1162x972 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1112x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5
+    Main 976x736 c24adedc9faa457daf4e4aae7cd663bb
+      Text_Name 942x82 text:#653122@24
+      deco_line 976x2
+      Body 950x470
+        UISprite_Icon 350x350
+        Text_Desc 550x350 text:#653122@24
+        CountGroup 950x100
+          UIText_Count 200x75 8122dd6f67f3d9b4db8a3152172f9063 (Sliced) text:#FFFFFF@20
+          Btn_Plus 80x80 92146fa5b25e7e84ab60801499cbf483 text:#653122@24
+          Btn_Minus 80x80 92146fa5b25e7e84ab60801499cbf483 text:#653122@24
+      deco_line_1 976x2
+      Bottom 954x100
+        Btn_Purchase 413x100 92146fa5b25e7e84ab60801499cbf483 text:#653122@24

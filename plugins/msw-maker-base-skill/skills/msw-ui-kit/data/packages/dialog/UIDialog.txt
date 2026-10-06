@@ -1,0 +1,24 @@
+# UIDialog — 21 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BackgroundDim, DialogDim, Bg_Portrait, Btn_NextScript, Bg_Selection
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIDialog 1920x1080
+  BackgroundDim 2520x1680
+  DialogDim 2520x660 00cf705ae2404bdab7d93d140e8bce22 color:#000000/90%
+    ScriptContainer 1200x300
+      Bg_CharacterName 1088x69
+        Text_CharacterName 500x100 text:#FFFFFF@34
+      Bg_Script 1141x200
+        Text_Script 1141x200 text:#D1D1D1@26
+  Bg_Portrait 452x452
+    Img_Sprite 452x452 660bfa18a9ab4562a1f9aabe2d1c90c5
+    Img_Avatar 500x500
+  Btn_NextScript 358x203 states:pressed=913a39bdc24b481c8dd63621d32c998d text:#FFFFFF@30
+    Text 165x60 text:#D2CBCB@34
+    Icon 64x64 0a3e1de2c216460d800e93b9670fe4dd
+  Bg_Selection 676x574
+    SelectionParent 676x574
+      Btn_Selection 676x108 2b1b2841a4af49f18fb998b4c8cec11a (Sliced) states:pressed=4c276fb0f112432cb5a42f36f1be2d17,selected=4c276fb0f112432cb5a42f36f1be2d17
+        Text_SelectionScript 608x75 text:#FFFFFF@28
+    ScrollArrows 676x574
+      ArrowUp 44x32 bd1198d411cd40fa9fad30ec3143452c
+      ArrowDown 44x32 bd1198d411cd40fa9fad30ec3143452c

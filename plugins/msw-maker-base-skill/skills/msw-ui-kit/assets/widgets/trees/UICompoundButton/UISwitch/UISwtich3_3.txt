@@ -1,0 +1,5 @@
+UISwtich3_3 140x60 [UISwitch] BTN
+  Img_Track 132x52 34ae8156029e5634ebab54158a871a09
+    Text_On 132x52 text:#416800
+    Text_Off 132x52 text:#871413
+    Img_Handle 60x44 34ae8156029e5634ebab54158a871a09

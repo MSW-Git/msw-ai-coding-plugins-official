@@ -34,9 +34,40 @@ function resolvePreserveSprite(extra = {}) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
-// set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
-// "script.<name>" custom component, with a one-time advisory on stderr.
+// Workspace root: the nearest directory holding Environment/config, searched upward
+// from startDir (the file being written), then the working directory, then this script.
+function workspaceRoot(startDir) {
+  for (const start of [startDir, process.cwd(), __dirname]) {
+    if (!start) continue;
+    let dir = path.resolve(start);
+    for (;;) {
+      if (fs.existsSync(path.join(dir, "Environment", "config"))) return dir;
+      const parent = path.dirname(dir);
+      if (parent === dir) break;
+      dir = parent;
+    }
+  }
+  return null;
+}
+// CoreVersion stamped into newly created content: the workspace's own value, or
+// 26.7.0.0 outside a workspace.
+function resolveCoreVersion(startDir) {
+  const root = workspaceRoot(startDir);
+  if (root) {
+    try {
+      const text = fs.readFileSync(path.join(root, "Environment", "config"), "utf8");
+      const version = JSON.parse(text.replace(/^\uFEFF/, "")).CoreVersion;
+      if (typeof version === "string" && /^\d+(\.\d+){1,3}$/.test(version.trim())) return version.trim();
+    } catch (_) {
+      // unreadable config: use the fallback
+    }
+  }
+  return "26.7.0.0";
+}
+// Native MSW component class names. A bare name in this set, or one declared under
+// the workspace's Environment/NativeScripts/Component, is auto-qualified to
+// "MOD.Core.<name>"; any other bare name is treated as a "script.<name>" custom
+// component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
   "AIChaseComponent", "AIComponent", "AIWanderComponent", "AnimationSequenceControllerComponent",
   "AreaParticleComponent", "AttackComponent", "AvatarBodyActionSelectorComponent", "AvatarFaceActionSelectorComponent",
@@ -65,6 +96,21 @@ const NATIVE_COMPONENTS = new Set([
   "WebSpriteComponent", "WebViewComponent", "WeldJointComponent", "WheelJointComponent",
   "WorldComponent", "YoutubePlayerCommonComponent", "YoutubePlayerGUIComponent", "YoutubePlayerWorldComponent"
 ]);
+let _workspaceNativesLoaded = false;
+function nativeComponents() {
+  if (_workspaceNativesLoaded) return NATIVE_COMPONENTS;
+  _workspaceNativesLoaded = true;
+  const root = workspaceRoot();
+  if (!root) return NATIVE_COMPONENTS;
+  try {
+    for (const file of fs.readdirSync(path.join(root, "Environment", "NativeScripts", "Component"))) {
+      if (file.endsWith(".d.mlua")) NATIVE_COMPONENTS.add(file.slice(0, -".d.mlua".length));
+    }
+  } catch (_) {
+    // no NativeScripts folder: the bundled catalog stands alone
+  }
+  return NATIVE_COMPONENTS;
+}
 const _resolveWarned = new Set();
 function _editDistance(a, b) {
   const m = a.length, n = b.length;
@@ -89,7 +135,7 @@ function _editDistance(a, b) {
 function _nearestNative(name) {
   const limit = name.length <= 6 ? 1 : 2;
   let best = null, bestD = limit + 1;
-  for (const n of NATIVE_COMPONENTS) {
+  for (const n of nativeComponents()) {
     const d = _editDistance(name, n);
     if (d < bestD) { bestD = d; best = n; }
   }
@@ -99,7 +145,7 @@ function normalizeComponentName(name) {
   if (name == null) throw new TypeError("Component name must not be null");
   const value = String(name);
   if (value.startsWith("MOD.") || value.startsWith("script.")) return value;
-  if (NATIVE_COMPONENTS.has(value)) {
+  if (nativeComponents().has(value)) {
     const out = "MOD.Core." + value;
     if (!_resolveWarned.has(value)) {
       _resolveWarned.add(value);
@@ -181,6 +227,59 @@ function assertNoParentOption(methodName, name, options = {}) {
   }
 }
 
+// An option key the builder does not read is dropped without a trace: the node is created with
+// defaults, write() succeeds, and ui_lint sees nothing wrong — the mistake only surfaces on
+// screen. These sets let the two methods with the largest, most divergent key vocabularies say
+// so out loud. Extending this to other methods requires enumerating their keys from the source
+// first; an incomplete set would warn about valid code, which is worse than staying silent.
+const _TRANSFORM_OPTION_KEYS = ["anchor", "pos", "rect_size", "pivot"];
+const _SORT_OPTION_KEYS = ["world_ui", "sorting_layer", "order_in_layer", "ignore_map_layer_check", "override_sorting"];
+const _COMMON_OPTION_KEYS = [..._TRANSFORM_OPTION_KEYS, ..._SORT_OPTION_KEYS, "enable"];
+const TEXT_OPTION_KEYS = new Set([
+  ..._COMMON_OPTION_KEYS,
+  "size", "font_size", "text_size", "color", "bold", "alignment",
+  "overflow", "bestfit", "min_size", "max_size",
+  "outline", "outline_color", "outline_width", "face_dilate",
+  "use_constraint_x", "constraint_x", "use_constraint_y", "constraint_y",
+]);
+const BUTTON_OPTION_KEYS = new Set([
+  ..._COMMON_OPTION_KEYS,
+  "image_ruid", "bg_color", "alpha", "sprite_type", "font_size", "color",
+]);
+const _unknownOptionWarned = new Set();
+
+function assertKnownOptions(methodName, options, allowed) {
+  if (!options || typeof options !== "object") return;
+  for (const key of Object.keys(options)) {
+    if (allowed.has(key)) continue;
+    const dedupe = `${methodName}:${key}`;
+    if (_unknownOptionWarned.has(dedupe)) continue;
+    _unknownOptionWarned.add(dedupe);
+    const near = _nearestOptionKey(key, allowed);
+    console.warn(
+      `[builder:ui] ${methodName}() does not read option "${key}" - it is being ignored` +
+        (near ? `. Did you mean "${near}"?` : ".")
+    );
+  }
+}
+
+function _nearestOptionKey(key, allowed) {
+  let best = null;
+  let bestScore = Infinity;
+  for (const candidate of allowed) {
+    // _editDistance short-circuits to 3 when the lengths differ by more than 2, so a candidate
+    // that far away never has a real distance to compare - skip it rather than let the sentinel
+    // masquerade as a near miss (that is how "typo_font_size" ended up suggesting "anchor").
+    if (Math.abs(key.length - candidate.length) > 2) continue;
+    const d = _editDistance(key, candidate);
+    if (d < bestScore) {
+      bestScore = d;
+      best = candidate;
+    }
+  }
+  return bestScore <= (key.length <= 6 ? 1 : 2) ? best : null;
+}
+
 const KNOWN_COMPONENTS = new Set([
   "MOD.Core.UITransformComponent",
   "MOD.Core.SpriteGUIRendererComponent",
@@ -223,7 +322,7 @@ const INT32_COMPONENT_FIELDS = new Set([
 
 const NUMBER_COMPONENT_FIELDS = new Set([
   "ChatEmotionDuration", "ColorMultiplier", "ConstraintX", "ConstraintY", "DropShadowAngle",
-  "DropShadowDistance", "FadeDuration", "FillAmount", "Flexibility", "GroupAlpha",
+  "DropShadowDistance", "FaceDilate", "FadeDuration", "FillAmount", "Flexibility", "GroupAlpha",
   "MaxValue", "MinValue", "OutlineWidth", "ParticleCount", "ParticleLifeTime", "ParticleSize",
   "ParticleSpeed", "PlayRate", "PlaySpeed", "ScrollBarThickness", "Spacing", "Value", "Width",
 ]);
@@ -720,11 +819,13 @@ class UIBuilder {
     const horizontal = HORIZONTAL[((a % 3) + 3) % 3];
     const vertical = VERTICAL[Math.min(Math.max(Math.floor(a / 3), 0), 2)];
     const outlineOn = Boolean(options.outline);
+    const outlineWidth = outlineOn ? Number(options.outline_width ?? 0.2) : 0.0;
     return {
       "@type": "MOD.Core.TextGUIRendererComponent",
       BestFit: Boolean(options.bestfit),
       ConstraintX: Number(options.constraint_x ?? 100.0),
       ConstraintY: Number(options.constraint_y ?? 100.0),
+      FaceDilate: outlineOn ? Number(options.face_dilate ?? outlineWidth) : 0.0,
       Font: "Default",
       FontColor: colorDict(color),
       FontSize: Number(fontSize),
@@ -735,7 +836,7 @@ class UIBuilder {
       MinSize: options.min_size != null ? options.min_size : 10,
       OrderInLayer: sort.OrderInLayer,
       OutlineColor: options.outline_color != null ? colorDict(options.outline_color) : { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
-      OutlineWidth: outlineOn ? Number(options.outline_width ?? 0.2) : 0.0,
+      OutlineWidth: outlineWidth,
       Overflow: options.overflow != null ? options.overflow : 0, // TextOverflowMode: Overflow 0, Ellipsis 1, Truncate 2, Page 3
       OverrideSorting: sort.OverrideSorting,
       Padding: { left: 0, right: 0, top: 0, bottom: 0 },
@@ -770,6 +871,7 @@ class UIBuilder {
         outline: options.text_outline ?? options.outline ?? false,
         outline_color: options.text_outline_color ?? options.outline_color ?? null,
         outline_width: options.text_outline_width ?? options.outline_width ?? null,
+        face_dilate: options.text_face_dilate ?? options.face_dilate ?? null,
         use_constraint_x: options.text_use_constraint_x ?? options.use_constraint_x ?? false,
         constraint_x: options.text_constraint_x ?? options.constraint_x ?? 100.0,
         use_constraint_y: options.text_use_constraint_y ?? options.use_constraint_y ?? false,
@@ -1465,7 +1567,16 @@ class UIBuilder {
 
   text(name, text = "", options = {}) {
     assertNoParentOption("text", name, options);
-    const size = options.size ?? 24;
+    if (text != null && typeof text === "object") {
+      throw new Error(
+        `UIBuilder.text() takes the string content as its 2nd argument, not an options object. ` +
+          `Call text("${name}", "your text", { ... }). Passing options 2nd would have written them into the label.`
+      );
+    }
+    assertKnownOptions("text", options, TEXT_OPTION_KEYS);
+    // `size` here vs `font_size` on button()/panel()/sprite()/textInput() is a historical
+    // inconsistency; accept all three spellings rather than silently defaulting to 24.
+    const size = options.size ?? options.font_size ?? options.text_size ?? 24;
     let rectSize = options.rect_size;
     if (rectSize == null) rectSize = [Math.max(String(text).length * size, 400), size + 16];
     const sort = _resolveSortOptions(options);
@@ -1480,6 +1591,7 @@ class UIBuilder {
         outline: options.outline ?? false,
         outline_color: options.outline_color ?? null,
         outline_width: options.outline_width ?? null,
+        face_dilate: options.face_dilate ?? null,
         use_constraint_x: options.use_constraint_x ?? false,
         constraint_x: options.constraint_x ?? 100.0,
         use_constraint_y: options.use_constraint_y ?? false,
@@ -1507,13 +1619,17 @@ class UIBuilder {
 
   button(name, text = "", options = {}) {
     assertNoParentOption("button", name, options);
+    assertKnownOptions("button", options, BUTTON_OPTION_KEYS);
     const imageRuid = options.image_ruid != null ? options.image_ruid : this.default_ruid;
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextGUIRendererComponent", "UIButton", "uibutton", [
+    // UITouchReceiveComponent ships with every button: without it UITouchEnterEvent never fires,
+    // so hover sound and hover art are silently dead on a button that otherwise works.
+    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextGUIRendererComponent,MOD.Core.UITouchReceiveComponent", "UIButton", "uibutton", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), tuple(options.rect_size, [200, 50]), options.pivot ?? null),
       this._spriteRenderer(options.bg_color ?? null, options.alpha ?? null, true, 0, options.sprite_type ?? null, imageRuid, sort),
       this._buttonComponent(sort),
       this._textGuiRenderer(text, options.font_size ?? 24, options.color ?? "#FFFFFF", false, 4, sort),
+      this._touchReceiveComponent(),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
@@ -1721,7 +1837,9 @@ class UIBuilder {
         else if (component === "MOD.Core.SoftMaskComponent") kind = "MASK";
         else if (component === "MOD.Core.GridViewComponent") kind = "GRID";
         else if (component === "MOD.Core.AvatarGUIRendererComponent") kind = "AVATAR";
-        else if (component === "MOD.Core.UITouchReceiveComponent") kind = "TOUCH";
+        // Every button now carries this component, so it must not relabel one; anything else
+        // holding it (touchReceive(), a drag surface) is still a TOUCH entity.
+        else if (component === "MOD.Core.UITouchReceiveComponent" && kind !== "BTN") kind = "TOUCH";
         else if (component === "MOD.Core.SkeletonGUIRendererComponent") kind = "SKEL";
         else if (component === "MOD.Core.UIAreaParticleComponent" || component === "MOD.Core.UIBasicParticleComponent" || component === "MOD.Core.UISpriteParticleComponent") kind = "PARTICLE";
         else if (component === "MOD.Core.JoystickComponent") kind = "JOY";
@@ -1772,7 +1890,7 @@ class UIBuilder {
       Usage: 0,
       UsePublish: 1,
       UseService: 0,
-      CoreVersion: "26.7.0.0",
+      CoreVersion: resolveCoreVersion(),
       StudioVersion: "0.1.0.0",
       DynamicLoading: 0,
       ContentProto: { Use: "Binary", Entities: this.entities },
@@ -1805,6 +1923,7 @@ class UIBuilder {
     }
 
     const data = this.build();
+    if (!this._data) data.CoreVersion = resolveCoreVersion(path.dirname(filepath));
     fs.mkdirSync(path.dirname(filepath), { recursive: true });
     fs.writeFileSync(filepath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
     console.log(`Written ${this.entities.length} entities to ${filepath}`);

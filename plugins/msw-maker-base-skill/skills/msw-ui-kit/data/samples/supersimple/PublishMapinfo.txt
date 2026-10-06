@@ -1,0 +1,39 @@
+# PublishMapinfo — 37 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: PublishMapinfo
+UIR_SuperSimple_Sample_PublishMapinfo 1920x1080
+  PublishMapinfo 1017x824 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Panel 945x552
+      Avatar 220x236 516b89d1635e4d7db32be5e2b6d4b04b
+        Mask 194x209
+          Avatar 121x189
+      NickName 649x59 text:#BBAE96@30B
+        NickNameText 163x30 text:#847252@30B
+          AuthorityIcon 45x45 ec3017f95f784498abcef95164dc4820
+      ProfileCode 649x59 text:#847252@30B
+        Title 159x59 text:#BBAE96@30B
+        CopyButton 484x59
+          Btn_Bg 56x56 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6
+            Icon 42x42 2728468aa07e43968c4dafbd48dbb52a
+      Info 646x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#E6EBBB
+        Recommend 132x60 text:#BBAE96@30B
+          UIText 134x60 text:#847252@30B
+        Play 133x60 text:#BBAE96@30B
+          UIText 143x60 text:#847252@30B
+        Statics 56x56 af4ed64ca7e74f07af6586b85b79c048 color:#F3B55A
+          Icon 50x50 081a66edb9da40eca41b180e37e08d2c
+      Line 945x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+      MapCode 476x36 text:#847252@30B
+        CopyButton 342x36 e75c54db1fe7f7c4eb8e60e52a24623b color:#FFFFFF/0%
+          Btn_Bg 56x56 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6
+            Icon 42x42 2728468aa07e43968c4dafbd48dbb52a
+        Title 120x33 text:#BBAE96@20B
+      PublishDate 896x59 text:#BBAE96@20B
+        UIText 726x59 text:#847252@30B
+      DescText 945x156 text:#847252@30B
+    Title 717x60 text:#FFFFFF@34B
+    BtnMore 80x80 32b5379471a3457faea03d11a647c9e6 (Sliced)
+      BtnReport 287x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@28B
+        Icon 60x60 07cf796566f9460eb27978537b41aff7
+    PlayButton 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@28B
+    CloseButton 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#D4D7B6 text:#807663@28B
+    Cancelbutton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079

@@ -1,0 +1,8 @@
+# Loading_Wisesaying — 6 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Pattern, Return Text
+UIR_SuperSimple_Sample_Loading_Wisesaying 2520x1680
+  Img_Pattern 2520x1680 0bde4eff9aa64eae8a4e30c65d223ba9 (Tiled) color:#59CDBF
+    LoadingText 1820x150 text:#2A817E@50B
+  Return Text 1157x295
+    Saying 1157x120 text:#205D5B@50B
+    Name 1157x80 text:#2A746F@50B

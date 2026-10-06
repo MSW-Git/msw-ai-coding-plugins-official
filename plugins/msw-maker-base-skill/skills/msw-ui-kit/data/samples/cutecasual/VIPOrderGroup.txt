@@ -1,0 +1,216 @@
+# VIPOrderGroup — 214 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG, Pattern, Dim, VIPOrderPanel, VIPOrderNewSeasonPopupDim, VIPOrderScoreExtraReward, ScoreEntityParent
+UIR_CuteCasual_Sample_VIPOrderGroup 1920x1080
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  Dim 2520x1680
+  VIPOrderPanel 1920x1080
+    CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+      UIEmpty 130x130
+    SeasonInfo 1920x274
+      BG 2520x274 fb528edde96e440a8c442ff463177219
+        Left 32x32 808fbca17a984b668f74ee1a08df1136
+        Right 32x32 808fbca17a984b668f74ee1a08df1136
+      Char1 100x30 37e317eaf81f4c9dac50da19d564de03
+      LeftDayText 220x48 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#9F998E text:#FFFFFF@28B+o#594D39
+      DurationText 250x60 text:#474237@30B
+      SeasonText 250x60 text:#474237@30B
+      Model_RecipeTag 220x48 fcc3dfb6b07f4159a11e3a145062d27c (Sliced) color:#FFFFFF/0%
+        UISprite 220x48 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#9F998E
+        TagIcon 36x36
+        TagText 157x38 text:#FFFFFF@28B+o#594D39
+      MiddleArea 600x135
+        CompleteRewardTitle 379x41 text:#FFFFFF@28B+o#474237
+          InfoBtn 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#8D8980
+            Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#F5F3EF
+            BonusInfoTooltip 500x220 277783e1ece94a31935d0d92b0f88768 color:#FFFFFF/0%
+              BG 500x220 277783e1ece94a31935d0d92b0f88768
+              InfoList 450x180
+                Collection 450x80
+                  Title 255x80 text:#635743@24B+o#FFFFFF
+                  Value 151x39 text:#635743@26B+o#FFFFFF
+                  Dot 12x12 4920e8b7ee7643468a5807753bef00d3 color:#97886E
+                  Line 440x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3CBC0
+                St_CloverRewardBonus 450x80
+                  Title 255x80 text:#635743@24B+o#FFFFFF
+                  Value 98x39 text:#635743@26B+o#FFFFFF
+                  Dot 12x12 4920e8b7ee7643468a5807753bef00d3 color:#97886E
+                  Line 440x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3CBC0
+          Left 16x16 4920e8b7ee7643468a5807753bef00d3 color:#999180
+          Right 16x16 4920e8b7ee7643468a5807753bef00d3 color:#999180
+        Slider 500x33 1eecadea6b3c423089457cb1e7a404d5 color:#1E1E1E/80% FillRectImageRUID:6ba14b88b3b143f498541ec0db1e40f2
+          Icon 60x60 c844fdbeec65482b90093b616b48b392
+        RewardBar 527x35
+    OrderInfo 1920x700
+      OrderList 1700x740
+        Model_VIPOrderSlot 400x550
+          BG 500x650 7af20a1ceb514314a56233ac3868d1a5
+            Bar 482x119 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#DDD4C9
+            Progress 400x550
+              OrderType 100x38 1a781ce290044d1fa2069b1afb58ba02 (Sliced) text:#000000@24
+              Ingre 300x192
+                IngreSlot 140x140 b02d992e118b41d6a9bce359015eba2e
+                  IngreIcon 80x80
+                  CountText 100x60 text:#635743@30B+o#FFFFFF
+                  Tooltip 224x150 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Recipe 440x227
+              Reward 420x197
+                Left 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                Right 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                TitleText 210x50 text:#FFFFFF@28B+o#796848
+                RewardList 460x250
+              ButtonBar 400x75
+                SubmitBtn 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@28B+o#C15E14
+                  Dim 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+                RerollBtn 215x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@28B+o#9F1F15
+                  Icon 75x57 4234d59ffb744f0394cf5a6694198be7
+                  CostInfo 120x45
+                    BG 184x60 fa38390b79434182852e89ded7d3067e
+                    CostText 115x50 text:#635743@26B+o#FFFFFF
+                    Icon 30x30 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+            Complete 400x550 6a6e329dc1b74c8ab5a44a8745e43371
+              Left 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Right 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Deco 132x108 665e12ac1d734e129e17c93d301502a7
+              CompleteImg 52x56 9dafea1c8ef240dba78904ae36122b61
+              CompleteImg_2 46x69 06432244a5894236b5eaf88dbb102777
+              CompleteImg_3 46x67 6403475c35e04a8689f3483ece5c888d
+              CompleteText 300x80 text:#FFFFFF@26B+o#796848
+              GetNewOrderBtn 264x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+                InfoText 225x80 text:#FFFFFF@28B+o#C15E14
+                Balloon 184x60 fa38390b79434182852e89ded7d3067e
+                Icon 34x34 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CostText 120x50 fa38390b79434182852e89ded7d3067e color:#FFFFFF/0% text:#635743@26B+o#FFFFFF
+              LeftDayText 280x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E0D8C7 text:#635743@28B+o#FFFFFF
+                Icon 24x32 7209ecd7b44845fb9aaea412c81cfba4 color:#635743
+              UIText 370x60 text:#604F3A@32B
+          Pin 208x96 a6345cec99e84aa58654bc4f62c0b7bc
+        Model_VIPOrderSlot_1 400x550
+          BG 500x650 7af20a1ceb514314a56233ac3868d1a5
+            Bar 482x119 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#DDD4C9
+            Progress 400x550
+              OrderType 100x38 1a781ce290044d1fa2069b1afb58ba02 (Sliced) text:#000000@24
+              Ingre 300x192
+                IngreSlot 140x140 b02d992e118b41d6a9bce359015eba2e
+                  IngreIcon 80x80
+                  CountText 100x60 text:#635743@30B+o#FFFFFF
+                  Tooltip 224x179 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Recipe 440x227
+              Reward 420x197
+                Left 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                Right 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                TitleText 210x50 text:#FFFFFF@28B+o#796848
+                RewardList 460x250
+              ButtonBar 400x75
+                SubmitBtn 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@28B+o#C15E14
+                  Dim 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+                RerollBtn 215x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@28B+o#9F1F15
+                  CostInfo 120x45
+                    BG 184x60 fa38390b79434182852e89ded7d3067e
+                    CostText 115x50 text:#635743@26B+o#FFFFFF
+                    Icon 30x30 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+            Complete 400x550 6a6e329dc1b74c8ab5a44a8745e43371
+              Left 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Right 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Deco 132x108 665e12ac1d734e129e17c93d301502a7
+              CompleteImg 52x56 9dafea1c8ef240dba78904ae36122b61
+              CompleteImg_2 46x69 06432244a5894236b5eaf88dbb102777
+              CompleteImg_3 46x67 6403475c35e04a8689f3483ece5c888d
+              CompleteText 300x80 text:#FFFFFF@26B+o#796848
+              GetNewOrderBtn 264x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+                InfoText 225x80 text:#FFFFFF@28B+o#C15E14
+                Balloon 184x60 fa38390b79434182852e89ded7d3067e
+                Icon 34x34 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CostText 120x50 fa38390b79434182852e89ded7d3067e color:#FFFFFF/0% text:#635743@26B+o#FFFFFF
+              LeftDayText 280x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E0D8C7 text:#635743@28B+o#FFFFFF
+                Icon 24x32 7209ecd7b44845fb9aaea412c81cfba4 color:#635743
+              UIText 370x60 text:#604F3A@32B
+          Pin 208x96 a6345cec99e84aa58654bc4f62c0b7bc
+        Model_VIPOrderSlot_2 400x550
+          BG 500x650 7af20a1ceb514314a56233ac3868d1a5
+            Bar 482x119 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#DDD4C9
+            Progress 400x550
+              OrderType 100x38 1a781ce290044d1fa2069b1afb58ba02 (Sliced) text:#000000@24
+              Ingre 300x192
+                IngreSlot 140x140 b02d992e118b41d6a9bce359015eba2e
+                  IngreIcon 80x80
+                  CountText 100x60 text:#635743@30B+o#FFFFFF
+                  Tooltip 224x179 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Recipe 440x227
+              Reward 420x197
+                Left 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                Right 105x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1D5B9
+                TitleText 210x50 text:#FFFFFF@28B+o#796848
+                RewardList 460x250
+              ButtonBar 400x75
+                SubmitBtn 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@28B+o#C15E14
+                  Dim 215x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+                RerollBtn 215x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@28B+o#9F1F15
+                  CostInfo 120x45
+                    BG 184x60 fa38390b79434182852e89ded7d3067e
+                    CostText 115x50 text:#635743@26B+o#FFFFFF
+                    Icon 30x30 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+            Complete 400x550 6a6e329dc1b74c8ab5a44a8745e43371
+              Left 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Right 60x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#C9BDAB
+              Deco 132x108 665e12ac1d734e129e17c93d301502a7
+              CompleteImg 52x56 9dafea1c8ef240dba78904ae36122b61
+              CompleteImg_2 46x69 06432244a5894236b5eaf88dbb102777
+              CompleteImg_3 46x67 6403475c35e04a8689f3483ece5c888d
+              CompleteText 300x80 text:#FFFFFF@26B+o#796848
+              GetNewOrderBtn 264x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+                InfoText 225x80 text:#FFFFFF@28B+o#C15E14
+                Balloon 184x60 fa38390b79434182852e89ded7d3067e
+                Icon 34x34 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+                CostText 120x50 fa38390b79434182852e89ded7d3067e color:#FFFFFF/0% text:#635743@26B+o#FFFFFF
+              LeftDayText 280x46 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E0D8C7 text:#635743@28B+o#FFFFFF
+                Icon 24x32 7209ecd7b44845fb9aaea412c81cfba4 color:#635743
+              UIText 370x60 text:#604F3A@32B
+          Pin 208x96 a6345cec99e84aa58654bc4f62c0b7bc
+      VIPOrderCountBar 220x48 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#9F998E
+        Title 250x60 text:#474237@30B
+        UpgradeBtn 46x46 8e66330dfab24da194b036720ba9449e
+        CountText 170x46 text:#FFFFFF@30B+o#594D39
+      Tut_VIPOrderCountBar 255x167
+    Title 307x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        UIText 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921 text:#FFFFFF@40
+        UISprite 100x100
+  VIPOrderNewSeasonPopupDim 2520x1680
+    Panel 1920x1080
+      Left 1260x520 cfc38067d82a4eb0ae888003c5c8edaf (Sliced)
+      Right 1260x520 cfc38067d82a4eb0ae888003c5c8edaf (Sliced)
+      Title 550x70 text:#FFFCE6@38B+o#2C1C0A+s#2C1C0A
+      Line_1 780x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#6C583B
+      Line_2 200x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#5C492C
+      Line_3 780x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#41321E
+      ConfirmBtn 1920x1080 text:#A0A0A0@24B
+      InfoText 800x60 text:#FFF1C2@24
+      PeriodInfo 390x220
+        TitleArea 120x200
+        TitleText 340x65 text:#FFFFFF@32B
+        PeriodText 250x52 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F5C06E/45% text:#FFFFFF@30B+o#311C06
+      MainTagInfo 390x220 74aca352367d45bb8ad00d223977c296 (Sliced) color:#FFFFFF/0%
+        TitleArea 370x60 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#FFF75D
+        TitleText 340x65 text:#FFFFFF@32B
+        MainTagSlot 250x52 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F5C06E/45%
+          TagIcon 34x34
+          TagText 180x50 text:#FFFFFF@30B+o#311C06
+      Deco 160x160 fa19563ce5124b739178b24481dfb927 color:#FFFFFF/30%
+        Star 164x116 b5085fa998ea4728bcb73247b2d1f5c6
+        Icon 120x120 6512629e3fbc41088846de3f41089cf7
+  VIPOrderScoreExtraReward 1920x1080
+    BG 700x168 a0d3dd48aefd4581b494954c56eea820 (Sliced)
+      Deco 270x140 2f43d457e55d443c8f367778bb5c26d6 (Sliced)
+        Side 92x140 83bd8cc1deed4567956290c168bce2d6
+      Mask 432x327
+        NPC 100x100 48dec76fca2043b98c488caac2000c93
+      ItemSlot 120x120 d0f1e5ed9f1046869f9836155da8cdb0 color:#FFFFFF/0%
+        Effect 228x148 cce6bf0aea6d4d9f8b6ef5040d6bea37
+        Slot 120x120 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+        Icon 180x180 c844fdbeec65482b90093b616b48b392
+        CountText 150x80 text:#5E4F35@36B+o#FFFFFF
+        UISpriteDesc 372x110 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      ResultText 132x48 8a8b9eb52bfa402b822e9eee05ce8a34 text:#FFFCD6@80B
+      InfoText 260x100 text:#FFFFFF@28B+o#E5710A
+  ScoreEntityParent 1920x1080

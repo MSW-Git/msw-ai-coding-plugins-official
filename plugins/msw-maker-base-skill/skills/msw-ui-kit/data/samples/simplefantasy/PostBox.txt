@@ -1,0 +1,37 @@
+# PostBox — 35 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Img_Block, Layout
+UIR_SimpleFantasy_Sample_PostBox 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Img_Block 2198x1140
+  Layout 1920x1080
+    Layout_MessageList 818x915 68221c9a70128be45b3e1d383c6fc6d4 color:#000000/50%
+      Img_BG_PostCount 252x42 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#000000/50%
+      Text_PostCount 175x45 text:#FFFFFF@30B
+      Icon_Post 100x100 ddd22765340c4c31b6a8a01a3d902e5d (Sliced)
+      Btn_ReceiveAll 218x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=null,pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B
+      GridView 818x650 ScrollBarBackgroundImageRUID:null
+      Item 810x147 1a30dc3b686a446a8d3c353ea55e6064 (Sliced)
+        Img_Selected 810x147 17cc9c3e65ab404dbfd4918befec018c (Sliced)
+        Icon_Reward 110x110 9eee37f21d974889947d021f08bcda62 (Sliced) color:#444D64
+        Text_Title 600x50 text:#FFFFFF@30B
+        Text_RemainTime 300x40 text:#BBBBBB@22B
+        Img_New 100x48 5e94ec20ee214fa08d9c9a1b70330a14
+      Text_Desc 231x27 text:#EF8A59@18B
+        Img_Icon 27x27 5fc9e15f755642319b57a4be0f731651
+      Btn_Left 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+        Img_Icon 24x36 002ca90cd5794836b1e44da160de287a
+      Btn_Right 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+        Img_Icon 24x36 740aba24726c4c6580cf054b0e1e1fd5
+      BG_PostPage 315x42 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#000000/50%
+      Text_PostPage 250x40 text:#FFFFFF@27B
+      Btn_DeleteAllReadPost 248x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+    Img_BG_MessageDetail 1016x925 b4c09361575647cb83560c9d1ad1fb7d color:#FFFFFF/0% text:#FFFFFF@28B
+    Layout_MessageDetail 1016x925 b4c09361575647cb83560c9d1ad1fb7d
+      BG_Title 600x70 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E5E2D4
+      Text_Title 346x45 text:#A9947B@30B
+        Deco 51x51 4cb807acd9ea4ba9b7821cc5830eba9a color:#A9947B
+        Deco_1 51x51 4cb807acd9ea4ba9b7821cc5830eba9a color:#A9947B
+      Text_Body 966x365 text:#808080@26
+      Scroll_Reward 888x140 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E5E2D4
+      Btn_Receive 278x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=null text:#FFFFFF@26B
+      Btn_Delete 278x88 501210f182594602b16e083351ea3ab3 (Sliced) states:pressed=00afa05edae044839424ba9e78053f67,selected=null text:#FFFFFF@26B

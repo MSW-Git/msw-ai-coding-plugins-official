@@ -1,0 +1,11 @@
+# Revive — 9 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Text_GuideText, Img_Bar_BG, Text_GuideText2, Layout_PartyInfo, Btn_Ok
+UIR_SimpleFantasy_Sample_Revive 1920x1080
+  Img_BG 1920x1080 4e841a44c833450fa3abd852e6c52c5e (Sliced)
+  Text_GuideText 233x52 text:#FFFFFF@35B
+  Img_Bar_BG 704x16 f944652728a54ed0ad5dfc1749ac1644 color:#0F1117
+    Img_Bar 700x12 41034c003b494765abe50ce834c952a5 color:#CD694F
+  Text_GuideText2 883x38 text:#8D8D8D@26B
+  Layout_PartyInfo 694x178
+    Img_Deco 524x16 66b6a9dde07b4c3abb90c16c0feeed3f
+  Btn_Ok 230x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B

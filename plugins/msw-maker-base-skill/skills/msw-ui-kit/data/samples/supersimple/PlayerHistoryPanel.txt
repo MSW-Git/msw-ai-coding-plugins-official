@@ -1,0 +1,84 @@
+# PlayerHistoryPanel — 82 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Top, Middle
+UIR_SuperSimple_Sample_PlayerHistoryPanel 1653x897 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+  Top 1653x100
+    Text_PanelTitle 1018x65 text:#FFFFFF@34B
+    Btn_CloseBtn 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079
+  Middle 1621x776
+    Top_TabArea 1621x72
+      Btn_TabBtn 817x72 bbff40bff00c43bb99eee92899dd0df5 color:#FFAA00/0% text:#847252@30B
+    Middle_Infomation 1621x704
+      Panel_PlayerInfo 790x704
+        MainInfo 790x704
+          PlayerProfile 790x704
+            Mask 790x374
+              PlayerInfo 790x374
+                PlayerBG 792x400 3d4b022abc754c40a8a01ce576b2caaa color:#FFFFFF/35%
+                UIAvatarEntity 140x291
+                UIPotEntity 111x111 4d416fb653194c0886c10ab5514847b6
+                UISpikeEntity 35x183 4c054f181e984fd98594dc89c0fd94e5
+          InfoData 790x361
+            UIText_InfoData_Title 790x53 text:#847252@20B
+            UIText_InfoData_Desc 790x44 text:#F3B55A@20B
+            Data_1 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_TotalMapClearData_Result 328x50 text:#F3B55A@24B
+              UIText_TotalMapClearData_Title 328x50 text:#847252@24B
+            Data_2 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_SelfClearMap_Result 328x50 text:#F3B55A@24B
+              UIText_SelfClearMap_Title 328x50 text:#847252@24B
+            Data_3 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_TotalSuccessRateData_Title 328x50 text:#847252@24B
+              UIText_TotalSuccessRateData_Result 328x50 text:#F3B55A@24B
+            Data_4 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_SelfClearSuccessRate_Title 328x50 text:#847252@24B
+              UIText_SelfClearSuccessRate_Result 328x50 text:#F3B55A@24B
+            Data_5 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_FirstClearData_Title 328x50 text:#847252@24B
+              UIText_FirstClearData_Result 328x50 text:#6DBB28@24B
+          Achivement 241x191
+            UIText_Achivement_Title 241x50 text:#847252@26B
+            Fx 212x206 150004257c3e44858e0ce0c08d47dd58
+            UISprite_Badge 142x142 9900f47cf24d4b69a68394f5b3b9b684
+            UIText_NotAchieve 241x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB/0% text:#F35A5A@26B
+        TotalInfo 790x704
+          Bg 828x652 3842d059f78a46aca40eea556ceae276 color:#FFFFFF/20%
+          UIText_Desc 748x105 text:#EE9F2B@26B
+          Info 748x413
+            Data_1 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_TotalPlayTime_Title 328x50 text:#847252@24B
+              UIText_Data_TotalPlayTime_Result 328x50 text:#6DBB28@24B
+            Data_2 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_TotalMapNum_Title 328x50 text:#847252@24B
+              UIText_Data_TotalMapNum_Result 328x50 text:#F3B55A@24B
+            Data_3 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_TotalClearNum_Title 328x50 text:#847252@24B
+              UIText_Data_TotalClearNum_Result 328x50 text:#F3B55A@24B
+            Data_4 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_ClearRate_Title 328x50 text:#847252@24B
+              UIText_Data_ClearRate_Result 328x50 text:#F3B55A@24B
+            Data_5 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_SelfClearNum_Title 328x50 text:#847252@24B
+              UIText_Data_SelfClearNum_Result 328x50 text:#F3B55A@24B
+            Data_6 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_SelfClearRate_Title 328x50 text:#847252@24B
+              UIText_Data_SelfClearRate_Result 328x50 text:#F3B55A@24B
+            Data_7 748x50 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB
+              UIText_Data_FirstClear_Title 328x50 text:#847252@24B
+              UIText_Data_FristClear_Result 328x50 text:#F3B55A@24B
+      PlayerHistoryMapListController 817x704
+        ListTitle 817x72
+          UIText_MapTitle 409x72 bbff40bff00c43bb99eee92899dd0df5 color:#E6EBBB text:#A28F6F@30B
+        ScrollViewList 817x624
+          Scroll_Item 817x140
+            UIText_index 100x140 text:#847252@67B
+            UIText_mapName 520x35 text:#847252@28B
+            UIText_ClearTime 126x42 text:#A28F6F@28B
+              Img_Clear 100x28 84ed705a098742b6aaba18c1ff68488d (Sliced) color:#71CE0E
+                UIText 75x27 text:#FFFFFF@18B
+              Img_FirstClear 60x28 84ed705a098742b6aaba18c1ff68488d (Sliced) color:#12C4B6
+                UIText 32x30 text:#FFFFFF@20B
+            UIButton_Play 72x72 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6 text:#FFFFFF@36B
+            Line 817x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        UIText_EmptySlot 786x80 text:#847252@28B
+    LoadingScreen 1621x652
+      UIText 652x652 text:#847252@38B

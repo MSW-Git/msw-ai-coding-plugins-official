@@ -1,0 +1,165 @@
+# OverLimitGroup — 163 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BlockBg, Main, LevelUpEffect, LevelUpEffect2, SkillOpenPopupDim, OverLimitPopupDim, Tut_ShopButton, ShopButton
+UIR_CuteCasual_Sample_OverLimitGroup 1920x1080
+  BlockBg 2520x1680
+  Main 1920x1080
+    BG 2520x1680
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    UIButtonClose 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    TitleBg 357x54
+      TxtTitle 473x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+        GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+          UIText 100x100 text:#FFFFFF@40
+          Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+    ItemSlotGroup 1920x1080
+      Line 710x6
+        Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+        Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+      StatCategory 295x710
+        LevelUp 264x104 text:#FFFFFF@30B+o#985F05
+          Select 264x104 f65cf352af7b4fb585144cceaaaee348
+            On 32x32 9a860eab2c514e489b7eef6132b02840
+          Icon 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+            UISprite 90x90 1e41533d59f54cd8901e0bd31bb26961
+          UIText 140x90 text:#FFFFFF@30B+o#985F05
+        OverLimit 264x104 text:#BB9A59@32B
+          Select 32x32 f65cf352af7b4fb585144cceaaaee348
+            On 32x32 9a860eab2c514e489b7eef6132b02840
+          Icon 264x104 6cc87742434e42e3b3a988e83142db83
+            UISprite 90x90 1348f74d7fd04c19ab99727346ab907e
+          UIText 140x90 text:#BB9A59@30B
+      OverLimitGroup 1920x1080
+        Bg 1168x600 89862c14198546048a28854f6f81967f
+          Decol_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_L_2 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_R_2 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Color 1150x298
+            Bar 1150x20
+            Line1 1150x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EAD2A4
+            Line2 270x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EAD2A4
+          Pattern 1150x565 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/30%
+        Text 190x190
+          MaxLevelText 182x55 text:#736752@28B
+          SpeedText 182x55 text:#736752@28B
+          WagePerLevelText 129x38 text:#FFFFFF@24B+o#9A6D0E
+          WageText 182x55 text:#736752@28B
+          SkillText 137x42 text:#EFEEEE@24B+o#9A6D0E
+          SkillText_1 137x42 text:#EFEEEE@24B+o#9A6D0E
+        Panel_1 320x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1E3C1
+          Arrow 16x20 b0a74423c30b49bdb418d5937ceb41e5 color:#96B01E
+        Panel_2 320x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1E3C1
+          Arrow 16x20 b0a74423c30b49bdb418d5937ceb41e5 color:#96B01E
+        Panel_3 320x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1E3C1
+          Arrow 16x20 b0a74423c30b49bdb418d5937ceb41e5 color:#96B01E
+        CurData 150x190
+          MaxLevel 127x50 text:#FFFFFF@28B+o#8C7352
+          Speed 127x50 text:#FFFFFF@28B+o#8C7352
+            SpeedIcon 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+          WagePerLevel 92x38 text:#FFFFFF@24B+o#9A6D0E
+            UISprite 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          Wage 127x50 text:#FFFFFF@28B+o#8C7352
+            UISprite_1 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        NextData 150x190
+          MaxLevel 127x50 text:#D6FF30@28B+o#8C7352
+          Speed 127x50 text:#D6FF30@28B+o#8C7352
+            SpeedIcon 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+          WagePerLevel 92x38 text:#FFFFFF@24B+o#9A6D0E
+            UISprite 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          Wage 127x50 text:#D6FF30@28B+o#8C7352
+            UISprite_1 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        EmployeeSkillSlot_Small 164x164 5905497a9fa043ce8f16a64e1229ec6c
+          TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+          Name 150x60 text:#FFFFFF@26B+o#857665
+          Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+            UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+            Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+            ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+        SkillDesc 520x60 text:#736752@28B
+        SkillDesc_Center 500x80 text:#736752@28B
+          SkillComplete 192x88 2434a8446ccb44a28216617db917076b color:#F3EDE2
+        SkillDesc_OnlyText 503x100 text:#736752@28B
+        NextData 280x60
+          Level 91x40 text:#FFF603@15B+o#9A6D0E
+          StatName_1 147x38 text:#FFFFFF@24B+o#9A6D0E
+          Icon_1_1 36x36 f5f867dc77fb4ded8e9bd7a46bd57f58
+          Level_1 79x38 text:#FFF603@24B+o#9A6D0E
+        Tut_EffectArea 562x280
+        JemCost 240x50
+          Panel 240x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A
+          Icon 42x42 139aff5e54714632a3c79ca62d018c95
+          Cost 165x50 text:#FFFFFF@28B+o#AF7E28
+        CloverCost 240x50
+          Panel 240x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A
+          Icon 42x42 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+          Cost 165x50 text:#FFFFFF@28B+o#AF7E28
+        MesoCost 240x50
+          Panel 240x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A
+          Icon 46x46 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          Cost 165x50 text:#FFFFFF@28B+o#AF7E28
+        LevelCost 745x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A
+          UIText 600x50 text:#FFFFFF@28B+o#AF7E28
+          Deco_L 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FFE3B8
+          Deco_R 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FFE3B8
+        MoneyTitle 230x60 text:#FFFFFF@30B+o#AA8453
+        LevelTitle 230x60 text:#FFFFFF@30B+o#AA8453
+        OverLimitBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Disabled 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/60%
+        ChuChu 380x245
+          Chu 172x172 61aa92b6616d498bbd95b4a2fcb3437f color:#FFFFFF/0%
+            Sprite 90x90 b190c410c1714ddda677e42716667818
+          Name 72x72 7582caed7c3e4b69921dd154d90596d4 color:#DAB882
+            Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+            Name 395x55 text:#FFFFFF@30B+o#695133
+            Line 220x6 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#ECD2A0
+        Level 530x60
+          LV 100x60 text:#FFFFFF@32B+o#7A5D1F
+          Now 111x60 text:#FFFFFF@32B+o#7A5D1F
+          Next 111x60 text:#D6FF30@32B+o#7A5D1F
+          Arrow 16x20 b0a74423c30b49bdb418d5937ceb41e5 color:#6D833B
+        OverLimitJemToolTip 271x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      FinishOverLimitGroup 1920x1080
+        Bg 1168x600 89862c14198546048a28854f6f81967f
+          Pattern 1150x565 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/35%
+          Decol_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_L_2 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+          Decol_R_2 80x48 fd8abba6e4e242dda8ee6a523cb74518
+        Panel 1150x100 82694ea66c2749199275198a0db977bc (Tiled) color:#E8CE9E
+          Color 1150x90
+        TextBig 455x70 text:#FFFFFF@30B+o#946D22
+        TextSmall 453x62 text:#FFFFFF@25B+o#9A6D0E
+        ChuChu 380x245
+          Chu 172x172 61aa92b6616d498bbd95b4a2fcb3437f
+            Sprite 90x90 b190c410c1714ddda677e42716667818
+          Name 72x72 7582caed7c3e4b69921dd154d90596d4 color:#DAB882
+            Icon 44x44 1e41533d59f54cd8901e0bd31bb26961
+            Name 395x60 text:#FFFFFF@30B+o#695133
+            Line 220x6 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#ECD2A0
+  LevelUpEffect 120x60 082679e14ca6436f844e3a97baea5a0f
+  LevelUpEffect2 200x100 58a7d48901d64cc8a4a5d7c2a6c1174c
+  SkillOpenPopupDim 2520x1680
+    BG 2520x600
+      Effect 160x160 fac69dc285f44650b9fc20b9475c27a2
+      BgSlot 164x164 703672e5cf2644f9a1ff51e637c17479
+      SkillIcon 128x128 adddb55db3204351ad110f628f6e76ef
+      SkillName 2520x100 text:#635743@30B+o#F6F2EC
+      SkillDesc 1200x150 text:#F6F2EC@28
+    Title 2520x100 text:#FFFFFF@32B+o#49300D+s#291A06/90%
+    TouchToClose 2520x100 text:#E9E9E9@26B
+  OverLimitPopupDim 2520x1680
+    BG 2520x600
+      Effect 280x280 fac69dc285f44650b9fc20b9475c27a2
+      BgSlot 164x164 703672e5cf2644f9a1ff51e637c17479
+      SkillIcon 128x128 adddb55db3204351ad110f628f6e76ef
+      SkillName 2520x100 text:#635743@30B+o#F6F2EC
+      SkillDesc 1200x150 text:#F6F2EC@28
+      Chuchu 166x166 b190c410c1714ddda677e42716667818
+    Title 2520x100 text:#FFFFFF@35B+o#49300D+s#291A06/90%
+    TouchToClose 2520x100 text:#E9E9E9@26B
+  Tut_ShopButton 134x142
+  ShopButton 110x110 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+    Icon 110x110 ed136e5692364d31b2af2c65c2d941cf
+    UIText 160x80 text:#FFFFFF@28B+o#6D4D14

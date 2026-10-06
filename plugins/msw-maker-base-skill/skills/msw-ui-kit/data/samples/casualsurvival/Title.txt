@@ -1,0 +1,18 @@
+# Title — 16 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: PositionHelper, UITitleGroup
+UIR_CasualSurvival_Sample_Title 1920x1080
+  PositionHelper 1920x1080
+    SpawnArea 1780x974
+    LogoArea 642x556
+  UITitleGroup 1920x1080
+    BI 730x730 5afbe1d606a943ab955fa10737b10b50
+    UITeleport_map_Hard01 446x80 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null
+      AnimatedSprite 446x80 658001a9c7e6420d8d96f39551b531fc (Tiled) color:#D88100/25%
+      UIText 446x80 text:#FFFFFF@30+o#000000
+    DanceBtn 300x70 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=a2fbd78d13db483a9e16de6aa608293b
+      UIText 300x70 text:#FFFFFF@28+o#000000
+    UITestButtons 300x1080
+      TestBtn1 160x50 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b text:#FFFFFF@18+o#000000
+      TestBtn2 160x50 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b text:#FFFFFF@18+o#000000
+    NoticeBtn 80x83 e363fe71863482e40954b62b58bf4ac8 (Sliced)
+      UIIcon 50x50 4033dc5fb53c4fd2ad420c72d9535800 (Sliced)

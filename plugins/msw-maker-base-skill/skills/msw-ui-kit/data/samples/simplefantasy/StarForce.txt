@@ -1,0 +1,77 @@
+# StarForce — 75 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SimpleFantasy_Sample_StarForce 1920x1080 ed10d856cfcb48288bf9a444a5873100 (Sliced) color:#000000/50%
+  Panel 794x962 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 73x44 text:#FFFFFF@30B
+    Btn_Info 200x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Img_Deco 145x145
+      Deco_StarForce_L 284x244 f51b628039c246daa208a6d223845808 color:#A9947B
+      Deco_StarForce_R 284x244 f51b628039c246daa208a6d223845808 color:#A9947B
+    Text_ItemName 734x45 text:#7A7A7A@25B
+    StarForceLevel 700x55 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E3E1D6/80%
+      Text_PrevLevel 36x44 text:#757474@30B
+      Model_IncreaseArrow 100x40
+        Arrow1 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A/30%
+        Arrow2 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A/85%
+        Arrow3 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A
+      Text_NextLevel 36x44 text:#74A139@30B
+    Scroll_Stat 767x143 d712e76fb66e38140adf81cba8b0068c (Sliced)
+    Item 755x44
+      Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#999999
+      Text_Stat 52x36 text:#8A8A8A@24B
+      Text_Cur 27x33 text:#878787@22B
+      Text_Next 27x33 text:#889E16@22B
+      Layout_IncreaseArrow 100x40
+        Arrow1 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A/30%
+        Arrow2 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A/65%
+        Arrow3 14x24 d07db9b1c49d4ef18791cd0c41dc2493 color:#AAC32A
+    Deco_Line 764x4
+    Layout_Prob 315x215
+      Success 280x45
+        PrecentTitle 135x35
+          Text_Label 93x33 text:#999797@22B
+        PercentBG 148x42 25e5f99bdc562c241bf1b96a0d76f493 (Sliced) color:#E5E2D4
+          Text_Percent 120x35 text:#72A036@26B
+      Keep 280x45
+        PrecentTitle 135x35
+          Text_Label 58x33 text:#999797@22B
+        PercentBG 148x42 25e5f99bdc562c241bf1b96a0d76f493 (Sliced) color:#E5E2D4
+          Text_Percent 120x35 text:#757474@26B
+      Decrease 280x45
+        PrecentTitle 135x35
+          Text_Label 66x33 text:#999797@22B
+        PercentBG 148x42 25e5f99bdc562c241bf1b96a0d76f493 (Sliced) color:#E5E2D4
+          Text_Percent 120x35 text:#757474@26B
+      Destroy 280x45
+        PrecentTitle 135x35
+          Text_Label 91x33 text:#999797@22B
+        PercentBG 148x42 25e5f99bdc562c241bf1b96a0d76f493 (Sliced) color:#E5E2D4
+          Text_Percent 120x35 text:#DC761B@26B
+    Layout_Item 452x222
+      Layout_Safety 386x50 004e5fc9c660a1342a055ae7157e5aeb (Sliced) color:#D9D5C9
+        Text_Type 88x38 text:#A9947B@26B
+          DIa_Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+          DIa_Deco_1 18x18 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+        Img_Item 38x38 279f6b0b5c91478eb89987b5dd4de024
+        Text_Count 15x38 text:#757474@26B
+        SelectBG 40x40 c58c6f4200d4b7341ba11994d157ce12 color:#C1B8A7
+          Icon_NotSelect 24x28 c738218488cc48b4987dc4668055a78a color:#A69B85
+          Icon_Check 60x48 2e36df32385a4026a963af9e552b06df
+      Layout_Protect 386x50 004e5fc9c660a1342a055ae7157e5aeb (Sliced) color:#D9D5C9
+        Text_Type 103x38 text:#A9947B@26B
+          DIa_Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+          DIa_Deco_1 18x18 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+        Img_Item 38x38 8e130e0925d448f3b4941239e307ecb9
+        Text_Count 81x38 text:#757474@26B
+        SelectBG 40x40 c58c6f4200d4b7341ba11994d157ce12 color:#C1B8A7
+          Icon_NotSelect 24x28 c738218488cc48b4987dc4668055a78a color:#A69B85
+          Icon_Check 60x48 2e36df32385a4026a963af9e552b06df
+    Deco_Line 764x4
+    Layout_Cost 794x66
+      Img_BG 590x51 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#E5E2D4
+        Img_Cost 60x60 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+      Text_Cost 235x40 text:#858585@27B
+      Label_Cost 59x37 text:#8F8F8F@25B
+        Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#BEBAAA
+    Btn_Enchant 250x84 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B

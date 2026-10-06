@@ -1,0 +1,5 @@
+UIScrollValuePicker3 200x300 [UITouchReceiveComponent,UIScrollValuePicker] 9482b46cd6017824ba0b86e53acb1d18
+  Img_BG 200x100 9482b46cd6017824ba0b86e53acb1d18
+  Viewport 200x300
+  Item 200x100 [UIScrollPickerItem]
+    Text 200x100 text:#2F2F2F@32

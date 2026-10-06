@@ -1,0 +1,6 @@
+UIDropdown1 300x60 [UIDropdown]
+  Img_Outline 306x235 c58c6f4200d4b7341ba11994d157ce12
+  Btn 300x60 c58c6f4200d4b7341ba11994d157ce12 BTN text:#FFFFFF
+    Img_Icon 24x24 1ba83a88c1e05e34c8cf2397b4430125
+  GridView 300x166 [GridViewComponent] c58c6f4200d4b7341ba11994d157ce12
+  Item 274x60 [UIDropdownItem] c58c6f4200d4b7341ba11994d157ce12 BTN text:#FFFFFF@20

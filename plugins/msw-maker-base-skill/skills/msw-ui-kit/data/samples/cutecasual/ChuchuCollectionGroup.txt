@@ -1,0 +1,219 @@
+# ChuchuCollectionGroup — 217 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BlockBg, BG, Pattern, TitleBg, CloseBtn, CollectionProgress, CollectionBonus, StgScroll, Gradiant, Line, StgPanel, StgChuchuGroupLists, Gradiant, DefaultPanel (+2)
+UIR_CuteCasual_Sample_ChuchuCollectionGroup 1920x1080
+  BlockBg 2520x1680
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  TitleBg 357x54
+    TxtTitle 456x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        UIText 100x100 text:#FFFFFF@40
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+  CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+  CollectionProgress 750x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F4C774
+    HelpBtn 38x38 4eeb98e3c474433caa095add5bf686d1 color:#CC9847
+      Info 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FDDD86
+      UISprite 100x100
+    UIText 485x38 text:#FFFFFF@26B+o#8D6932
+    Icon 65x65 9c64038a4b3d41959eabe8badf682184
+    PercentText 105x45 text:#FFFFFF@30B+o#8D6932+s#8D6932
+    Deco 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FFF6D8
+  CollectionBonus 780x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F4C774
+    UIText 350x50 text:#FFFFFF@26B+o#8D6932
+    Icon 54x54 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+    EffectText 350x50 text:#FFFFFF@26B+o#8D6932
+    Deco 18x18 4920e8b7ee7643468a5807753bef00d3 color:#FFF6D8
+  StgScroll 230x710 e363fe71863482e40954b62b58bf4ac8
+    StgBtn_Origin 192x92 7a69ab85130e49a9b9d26ae3cc9434f6
+      Icon 68x68 7a6fee7392974acbb7d565300f36798f
+      LockText 170x100 text:#FDEEBE@24B
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+  Gradiant 190x70 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+  Line 760x6
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+  StgPanel 750x70
+    StgIcon 38x38 7a6fee7392974acbb7d565300f36798f
+    StgName 230x70 text:#FFFFFF@28B+o#8D6932
+    StageCollectProgress 335x32 4a5d5bf5811044338631ade8ff45b087 (Sliced) FillRectImageRUID:71c082b7efb34a7192a8387c27c0e100
+      EffectText 100x53 text:#FFFFFF@30B+o#714B1F+s#714B1F
+    Line 735x4
+    RewardIcon1 60x60 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+      Count 75x40 text:#FFFFFF@22B+o#714B1F
+    RewardIcon2 60x60 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+      Count 75x40 text:#FFFFFF@22B+o#714B1F
+  StgChuchuGroupLists 800x770
+    ChuchuGroupSlot_0 743x230 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Pattern 710x150 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F4E1BC/85%
+      GroupPanel 711x55 a971746cec0946748504f429a777c7c7 (Sliced) color:#ECD09B
+        GroupName 260x55 text:#FFFFFF@26B+o#927338
+        GroupLevel1 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        GroupLevel2 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        GroupLevel3 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        GroupLevel4 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        GroupLevel5 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        GroupLevel6 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+        SetBtn 118x48 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced)
+          Text 100x50 text:#FFFFFF@24B+o#8A693D
+      RedDot 22x22 3af9b8375087419fb1b509de5060f6cf
+      ChuchuSlots 700x145 4fea64a3307cda641809ad8be0d4890b color:#FFF4DC/0%
+        1 125x125 a4efcb3e9d2e47a3ac47fda81c167aa2
+          Mask 110x110 05da28c5137443319d8aea527b749480 color:#FF0000/0%
+            Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+          RedDot 45x45 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+    Content 800x770
+  Gradiant 770x70 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+  DefaultPanel 800x845 2106e7b7edb74b8599f029b972315032 (Sliced)
+    BG 760x800 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Pattern 728x768 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/60%
+    UIText 600x85 text:#8D6932@26B
+    UISprite 100x100 918f48752f45437f8a666f1acc89e8ec
+    UISprite 100x100 c8995be2cc2a48ae9b21291bc126ecb0
+  ChuchuInfoPanel 800x845 2106e7b7edb74b8599f029b972315032 (Sliced)
+    BG 760x800 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Color_B 733x769
+      Pattern_R 734x774 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+      On 760x800
+        Color_T 732x298
+        Pattern_T 734x293 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B8/40%
+        Bar 732x20
+        Line1 727x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#EAD2A4
+        Line2 727x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#EAD2A4
+        Line3 340x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#EAD2A4
+    Title 504x80 1281b65be67145a0a87404871430e6e1 color:#F6D89F
+    Portrait 460x212
+      UISpriteCardBg 160x160 7e69a6541fbb4cd9ad2fe9306ffef865
+        equip 160x160 7e69a6541fbb4cd9ad2fe9306ffef865
+      Name 460x65 text:#FFFFFF@28B+o#836735
+    ChuchuChatBalloon 648x82 03d991db79bf4348b001270d5d8b6b82 color:#FFFFFF/80%
+      Text 620x65 text:#795A37@24
+      Tip 24x12 e797792d2c534d0b81e046a2e71c250b
+    GroupBtn 118x48 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced)
+      Text 102x50 text:#FFFFFF@24B+o#8A693D
+      Icon 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+    EquipPanel 360x360
+      Icon 85x85 2fc0645097f74670aea2882166319964
+      LockedIcon 148x148 2fc0645097f74670aea2882166319964
+      Stars 284x52
+        Level1 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level2 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level3 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level4 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level5 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level6 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level7 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+        Level8 28x28 d2eb9e98c80e43c8ab3be3da9fe553d5
+      Name 330x60 eb4c1db0cddb41f5b032a8b5b54c9b24 (Sliced) color:#3CACCC text:#635743@26B+o#FFFFFF
+      UpgradeEquipBtn 245x84 8094f81aa0c2463195e20da6fa046d8f (Sliced)
+        UIText 198x70 text:#FFFFFF@28B+o#AF7016
+      BuyEquipBtn 245x84 8094f81aa0c2463195e20da6fa046d8f (Sliced)
+        UIText 198x70 text:#FFFFFF@28B+o#AF7016
+        Balloon 184x60 fa38390b79434182852e89ded7d3067e
+          Icon 36x36 ca87423d38c4401c8eaf24ed9b4f6845
+          Count 105x45 text:#635743@28B+o#FFFFFF
+      EquipTitle 330x60 text:#FFFFFF@28B+o#8D6C3C
+      Complete 290x80 text:#C3A878@32B
+        Right 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#C3A878
+        Left 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#C3A878
+    EquipInfoPanel 734x98 a971746cec0946748504f429a777c7c7 (Sliced) color:#F2DEB7
+      Text 200x90 text:#FFFFFF@26B+o#8D6932
+      LvText 450x45 text:#846028@26B
+        Desc 450x50 text:#846028@26
+      HelpBtn 32x32 4eeb98e3c474433caa095add5bf686d1 color:#C8AB73
+        Info 6x22 0423dcf92c594efc87944a00028c4ea2 color:#FFEFD0
+        UISprite 120x120
+    TypeBG 72x72 7582caed7c3e4b69921dd154d90596d4 color:#DCC195
+    TypeIcon 44x44 1e41533d59f54cd8901e0bd31bb26961
+    TypeName 90x55 text:#FFFFFF@24B+o#927338
+    SkillTitle 330x60 text:#FFFFFF@28B+o#8D6C3C
+    Skill1 164x164 5905497a9fa043ce8f16a64e1229ec6c
+      TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+      Name 150x60 text:#FFFFFF@26B+o#857665
+      Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+        UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+      UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#75716C
+        Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FEEFD3
+        ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Skill2 164x164 5905497a9fa043ce8f16a64e1229ec6c
+      TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+      Name 150x60 text:#FFFFFF@26B+o#857665
+      Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+        UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+      UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#75716C
+        Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FEEFD3
+        ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+  GroupInfoPanel 800x845 2106e7b7edb74b8599f029b972315032 (Sliced)
+    BG 760x800 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Pattern_L 201x775 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/40%
+      Color_R 730x770
+      Pattern_R 734x772 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+      Bar 730x20
+      Line_T 725x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EAD2A4
+      Line_B 725x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EAD2A4
+    GroupName 730x190 1d8156fdaeac426896155fb0d0dad2fa
+      Text 670x55 text:#FFFFFF@30B+o#38280E
+    GroupImg 535x170
+      1 120x120 762ea0da146740588fed4a1345332912
+      2 120x120 6fd1a25057a34e09aecc380ad21a307c
+      3 120x120 6fd1a25057a34e09aecc380ad21a307c
+      4 120x120 6fd1a25057a34e09aecc380ad21a307c
+      5 120x120 6fd1a25057a34e09aecc380ad21a307c
+    GroupLevel1 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupLevel2 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupLevel3 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupLevel4 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupLevel5 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupLevel6 235x193 b2d0d44f402f4cc1ac18ee111373374b (Sliced)
+      Check 48x44 ffd6bbfb3cc44a86a9ab1989995169d6
+      Condition 210x60 text:#7E684E@24B
+      Shine 90x90 61aa92b6616d498bbd95b4a2fcb3437f
+      RewardButton 65x65 c81394a61a9c40e29841d7169aa5d465 (Sliced)
+        Complete 40x32 84e2190c1cb546738f9778fc87e570f3
+        Lock 22x34 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Count 42x36 text:#FFFFFF@24B+o#714B1F
+    GroupEffectPanel 730x137 a971746cec0946748504f429a777c7c7 (Sliced) color:#F2DEB7
+      Desc 610x55 text:#FFFFFF@26B+o#8D6932
+      Desc2 680x75 text:#9E835E@24
+      HelpBtn 32x32 4eeb98e3c474433caa095add5bf686d1 color:#C8AB73
+        Info 8x22 0423dcf92c594efc87944a00028c4ea2 color:#FFEFD0
+        UISprite 100x100
+        Tooltip 439x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24
+          Icon 36x36 ffd6bbfb3cc44a86a9ab1989995169d6
+          Desc 248x56 text:#635743@24

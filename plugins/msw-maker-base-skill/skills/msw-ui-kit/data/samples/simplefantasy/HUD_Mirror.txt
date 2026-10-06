@@ -1,0 +1,18 @@
+# HUD_Mirror — 16 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout, Layout_UIPartyInfo, Text_Trial
+UIR_SimpleFantasy_Sample_HUD_Mirror 1920x1080
+  Layout 600x117
+    Layout_Timer 360x84 2f4458d6268049c8a033d252b76a87b4
+      Label_LeftTime 48x30 text:#A8A8A8@20
+      Text_LeftTIme 103x53 text:#FFFFFF@36B
+      Slider_LeftTime 120x12 140dfe05f971494d994dafe6e069d2b5 color:#192436 FillRectImageRUID:140dfe05f971494d994dafe6e069d2b5
+      Slider_Block 120x12 140dfe05f971494d994dafe6e069d2b5 color:#FFFFFF/0%
+    Layout_Score 360x84 2f4458d6268049c8a033d252b76a87b4
+      Label_Score 54x30 text:#A8A8A8@20
+      Text_Score 113x53 text:#FFFFFF@36B
+    Layout_Phase 166x168 d20ea06acc624e63bb32f096dc10f26e
+      Label_Phase 174x31 text:#AAC5FF@21B+o#2D2D2D
+      Text_Phase 100x37 text:#FFFFFF@45B
+  Layout_UIPartyInfo 546x115 90ec55005a0b436ca5c826fc778c8290
+    Img_PartyDeco 442x28 52cdd4e635f74df09a727db5aba368ab
+  Text_Trial 170x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#48A517/90% text:#FFFFFF@26+o#155F12

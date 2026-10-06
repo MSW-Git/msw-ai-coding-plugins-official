@@ -1,0 +1,71 @@
+# QuickSlotWindow — 69 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Interact, Jump, Skills
+UIR_SimpleFantasy_Sample_QuickSlotWindow 610x587
+  Interact 125x125
+    Btn 125x125 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    Img_PlusImage 70x70 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+    Img_Icon 80x80 219f03429ccb49eb92beccfeb9dfd1bd
+    Img_CoolGauge 104x104 9d0fcc9395f94d5aa12f219106e95f31 (Filled) color:#000000/50%
+    KeyBG 70x40
+      Text_Key 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+    Text_ChargeCount 15x36 text:#FFFFFF@24B+o#2D2D2D
+    Text_CoolText 100x100 text:#FFFFFF@20B+o#2D2D2D
+  Jump 220x220
+    Btn 220x220 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    Img_Icon 96x82 251f9677601344598f0c777c96716741
+    KeyBG 70x40
+      Text_Key 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+  Skills 610x587
+    DefaultActive 150x150
+      Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+      Img_PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+      Img_Icon 60x60 a19629eacf934ccbb47ca33d4fd1db77 (Sliced)
+      Lock 60x60
+        Img_BG 40x40 c506125bbc8b4de693fb15de56eb559f
+      Img_CoolGauge 150x150 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+      Text_ChargeCount 150x150 d712e76fb66e38140adf81cba8b0068c (Sliced) text:#FFFFFF@24B+o#2D2D2D
+        Stack 24x24 dbf56b1dbf4d4cc791bc324300430444
+          StackImg 24x24 84e100e5c41a40638818291b87e159b1
+      Text_CoolText 100x100 text:#FFFFFF@20B+o#2D2D2D
+      Eff_Auto 400x401 d1742481e0054d26bb8677d4fee11117
+      KeyBG 15x40
+        Text_Key 40x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+    Active1 150x150
+      Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+      Img_PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+      Img_Icon 60x60
+      Lock 60x60
+        Img_BG 40x40 c506125bbc8b4de693fb15de56eb559f
+      Img_CoolGauge 158x158 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+      KeyBG 15x40
+        Text_Key 40x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+      Text_ChargeCount 150x150 d712e76fb66e38140adf81cba8b0068c (Sliced) text:#FFFFFF@24B+o#2D2D2D
+        Stack 24x24 dbf56b1dbf4d4cc791bc324300430444
+          StackImg 24x24 84e100e5c41a40638818291b87e159b1
+      Text_CoolText 100x100 text:#FFFFFF@20B+o#2D2D2D
+    Active2 150x150
+      Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+      Img_PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+      Img_Icon 60x60
+      Lock 60x60
+        Img_BG 40x40 c506125bbc8b4de693fb15de56eb559f
+      Img_CoolGauge 158x158 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+      Text_ChargeCount 150x150 d712e76fb66e38140adf81cba8b0068c (Sliced) text:#FFFFFF@24B+o#2D2D2D
+        Stack 24x24 dbf56b1dbf4d4cc791bc324300430444
+          StackImg 24x24 84e100e5c41a40638818291b87e159b1
+      Text_CoolText 100x100 text:#FFFFFF@20B+o#2D2D2D
+      KeyBG 15x40
+        Text_Key 40x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+    BonusActive 150x150
+      Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+      Img_PlusImage 70x70 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+      Img_Icon 45x45
+      Lock 45x45
+        Img_BG 40x40 c506125bbc8b4de693fb15de56eb559f
+      Img_CoolGauge 104x104 9d0fcc9395f94d5aa12f219106e95f31 (Filled) color:#000000/50%
+      KeyBG 82x36
+        Text_Key 102x36 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+      Text_ChargeCount 150x150 d712e76fb66e38140adf81cba8b0068c (Sliced) text:#FFFFFF@24B+o#2D2D2D
+        Stack 24x24 dbf56b1dbf4d4cc791bc324300430444
+          StackImg 24x24 84e100e5c41a40638818291b87e159b1
+      Text_CoolText 100x100 text:#FFFFFF@20B+o#2D2D2D

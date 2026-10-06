@@ -120,7 +120,7 @@ Server identifier in MCP calls: **`user-msw-guide-mcp`**.
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "26.7.0.0",
+  "CoreVersion": "<CoreVersion from Environment/config>",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -140,7 +140,7 @@ Server identifier in MCP calls: **`user-msw-guide-mcp`**.
 Invariants:
 
 - `EntryKey` is `"material://" + <uuid>` and the `<uuid>` **must match** `ContentProto.Json.id`. If they drift, scripts that lookup by `EntryKey` will silently miss.
-- `ContentType` is always `"x-mod/material"`. `CoreVersion` must equal the project CoreVersion (`26.7.0.0`).
+- `ContentType` is always `"x-mod/material"`. `CoreVersion` is the value in `Environment/config`.
 - `Id` / `GameId` / `Content` are populated by Maker; leave them empty on hand-authored files and let `refresh` finalize.
 - `ContentProto.Json.shadertype` is the **shader name** (e.g. `"Hologram"`, `"InnerOutline"`, `"Rainbow"`, `"Pixel"`, `"Vignette"`) — **not** the category name.
 - `IsUIMaterial` / `RequiresUIStencilStateChange` are always present; set `IsUIMaterial=true` only if the material is being applied to UI renderer components (`RawImageGUIRendererComponent`, `PolygonGUIRendererComponent`, …).

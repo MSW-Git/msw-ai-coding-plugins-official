@@ -1,0 +1,37 @@
+# Event — 35 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_Event 2520x1680
+  Panel 981x939 1770565d64de4bd49c5584ea8e465a75
+    Title 1112x142 d4edf8038db5411e884326a4f26a8cb3
+      Title_Text 899x81 text:#FFFFFF@36B
+      CloseButton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#7C3226
+    Tab_List 935x72
+      Tab_Item_1 468x72 d178e94695d7e354b97a29230afe77e8 color:#FFFFFF/0%
+        Default 468x72 bbff40bff00c43bb99eee92899dd0df5 color:#FFFFFF/0%
+          UIText 448x42 text:#847252@28B
+        Select 468x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 448x42 text:#FFFFFF@28B
+      Tab_Item_2 468x72 d178e94695d7e354b97a29230afe77e8 color:#FFFFFF/0%
+        Default 468x72 bbff40bff00c43bb99eee92899dd0df5 color:#FFFFFF/0%
+          UIText 448x42 text:#847252@28B
+        Select 468x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 448x42 text:#FFFFFF@28B
+    Bg 936x646
+    Reward_Panel 931x325
+      Reward_Item 354x321
+        Fx 400x388 150004257c3e44858e0ce0c08d47dd58
+        Slot_Item 160x160
+          Bg 160x160 293164fc7a7845ed8041be934fb4a693
+          Icon 80x80 14d135968aa141e8ab5086a2b2a56819
+        Btn_Reward 127x44 8e33ebcb96034af893995195af9c7e53 color:#12C4B6 text:#FFFFFF@B
+        Reward_Item_Text 640x92 text:#847252@26B
+    Mission_Panel 941x334
+      Mission_List 941x334
+        Mission_Item 918x163
+          Title 588x56 text:#847252@28B
+          Progress_BG 594x22 54862ac688aa4844bc167796e49e26f6 (Sliced) color:#E6EBBB
+            Progress 594x22 54862ac688aa4844bc167796e49e26f6 (Filled) color:#F2CF49
+            Progress_Text 255x22 text:#847252@22B
+          Btn_Complete 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#DADFAF text:#6DBB28@26B
+          Btn_Go 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@26B
+          Line 918x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1

@@ -1,0 +1,205 @@
+# InGameLevelUp — 203 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Btn_Skill_01, Btn_Skill_02, Btn_Skill_03, Panel_HP, BuffStatInfo, Btn_Reroll, GuideText_SelectBuff, PlayerWeaponStatusPanel
+UIR_CasualRPG_Sample_InGameLevelUp 1920x1080
+  Background 7920x7080
+  Btn_Skill_01 469x666 6343362b32894c5c8ac8890e25a38b28
+    Deco_Dark 435x264 e31b84b71a994737b92ce5047b71a6c5
+    Img_Thumbnail 100x100
+      Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+        Item 90x90
+        Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+        Panel_Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+        Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+      Type_Buff 130x130 01258e98da494e75886d2ba135b8edc9
+    Description 402x247
+      Type_1 402x247 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+      Type_2 402x150 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+        Weapon_Category 402x93
+          Category_Magic 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 bb5d1f295e044c2ca95bdcaa9aa9b863
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+          Category_Physics 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 9d9bea17c36f4ef2930ee0cdb29acee2
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+    Title 379x85 6fc91a7377b94070a60cb35d3d8ed7b7 (Sliced) color:#1E1F20 text:#FFFFFF@28+s#000000/72%
+    Line_Selected 525x722 698f4d294efd407ebf8abbce9db47fe0
+    Keyboard 70x72 a8930cc257194b63aa0bc3752ab6f6ea text:#2A2D34@28B
+    Star 410x100
+      Icon_Star_1 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_2 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_3 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+  Btn_Skill_02 469x666 6343362b32894c5c8ac8890e25a38b28
+    Deco_Dark 435x264 e31b84b71a994737b92ce5047b71a6c5
+    Img_Thumbnail 100x100
+      Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+        Item 90x90
+        Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+        Panel_Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+        Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+      Type_Buff 130x130 01258e98da494e75886d2ba135b8edc9
+    Description 402x247
+      Type_1 402x247 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+      Type_2 402x150 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+        Weapon_Category 402x93
+          Category_Magic 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 bb5d1f295e044c2ca95bdcaa9aa9b863
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+          Category_Physics 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 bb5d1f295e044c2ca95bdcaa9aa9b863
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+    Title 379x85 6fc91a7377b94070a60cb35d3d8ed7b7 (Sliced) color:#1E1F20 text:#FFFFFF@28+s#000000/72%
+    Line_Selected 525x722 698f4d294efd407ebf8abbce9db47fe0
+    Keyboard 70x72 a8930cc257194b63aa0bc3752ab6f6ea text:#2A2D34@28B
+    Star 410x100
+      Icon_Star_1 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_2 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_3 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+  Btn_Skill_03 469x666 6343362b32894c5c8ac8890e25a38b28
+    Deco_Dark 435x264 e31b84b71a994737b92ce5047b71a6c5
+    Img_Thumbnail 100x100
+      Type_Weapon 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+        Item 90x90
+        Text 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+        Panel_Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+        Icon_Category 36x36 d37581d4124c4a1cab93912154f01a2a
+      Type_Buff 130x130
+    Description 402x247
+      Type_1 402x247 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+      Type_2 402x150 a5bcc5882785429aa14a40620bc8ce7b (Sliced) text:#FFFFFF@28
+        Weapon_Category 402x93
+          Category_Magic 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 bb5d1f295e044c2ca95bdcaa9aa9b863
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+          Category_Physics 402x44 f4d22c41d4eb4071b93205edd0a6e4d2
+            UIText 150x44 72c213710b61445e9ee95b7c43afbb5f color:#000000/20% text:#FFFFFF@24
+            Icon_Arrow 29x38 bb5d1f295e044c2ca95bdcaa9aa9b863
+            Icon_Weapon_Category 232x44
+              Scroll_Image 50x50 65633b6bb4ef4fc6b7d4d0d8e855d4ed (Sliced)
+    Title 379x85 6fc91a7377b94070a60cb35d3d8ed7b7 (Sliced) color:#1E1F20 text:#FFFFFF@28+s#000000/72%
+    Line_Selected 525x722 698f4d294efd407ebf8abbce9db47fe0
+    Keyboard 70x72 a8930cc257194b63aa0bc3752ab6f6ea text:#2A2D34@28B
+    Star 410x100
+      Icon_Star_1 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_2 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+      Icon_Star_3 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+        Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+  Panel_HP 372x40 218c172093d23494d94608c94cafc934 color:#000000/50%
+    Panel_Circle 54x54 b4257635e2b444e8ae052b9aa283c0fd color:#000000/50%
+      Icon_HP 48x48 691fb3a497044f349554b85c2c4b1159
+    Gauge_Bg 332x29 b77604d601524143b3f2fd6351b8b5fa (Filled) color:#7A7A7A/30%
+    Gauge_HP 332x29 e9b7e2945f764a568134a2a88688c206 (Filled)
+      Gauge_Shield 351x29 c6701f881dd34fa5a5c073f852cd64c6 (Filled)
+  BuffStatInfo 400x596 eb122a1efc00481c86efe2696d20771a color:#000000/50%
+    ContentPanel 400x592
+      HealthSlot 368x39
+        Sprite 32x32 09ce54e6dda040dcac8a2cdf2d558579
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      RecoverySlot 368x39
+        Sprite 32x32 064dad3f9a45484a9f7f0a9ef0aa953d
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      AbsorbSlot 368x39
+        Sprite 32x32 cdc2214ca7334b42aee12ab295b9d2c8
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      AttackSlot 368x39
+        Sprite 32x32 043d30b5581945e2a21f061a0cfc64b3
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      PhysicalAttackSlot 368x39
+        Sprite 32x32 ca56486c7c394341b8e845653fb8ed73
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      MagicalAttackSlot 368x39
+        Sprite 32x32 418b381709a647f7a20ec725a4b9b731
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      CriPercentSlot 368x39
+        Sprite 32x32 5ec0d36f83e3459381699f2697361e81
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      CriDamageSlot 368x39
+        Sprite 32x32 843a07964b524c75921326db3642648e
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      AttackSpeedSlot 368x39
+        Sprite 32x32 39dfb7d3137a48beb17bd428aaf3fea9
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      EvadeSlot 368x39
+        Sprite 32x32 4b98d1dc28fa4a6da5f265a14ea5acfa
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      RangeSlot 368x39
+        Sprite 32x32 058f8729adf74aa4ba0a96d7eb427449
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      SpeedSlot 368x39
+        Sprite 32x32 3287a4d1a95948c18d53eba9a5df6715
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      EngiineeringSlot 292x39
+        Sprite 32x32 553c341196f046fb8c97ef2862854cc6
+        StatTitle 160x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      ExpSlot 368x39
+        Sprite 32x32 d132014bf9bc49598d88324a628a1778
+        StatTitle 236x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+      HitDamageSlot 368x39
+        Sprite 32x32 0b67b8c69856445487b7821c7d91fdff
+        StatTitle 236x40 text:#FFFFFF@24+o#000000+s#000000/72%
+        StatText 90x40 text:#B5FA4D@24+o#000000
+      BossDamageSlot 368x39
+        Sprite 32x32 43a61c7e32cf433fb72f7e08e35db048
+        StatTitle 243x40 text:#FFFFFF@24+o#000000/50%+s#000000/30%
+        StatText 90x40 text:#B5FA4D@24+o#000000/50%+s#000000/30%
+  Btn_Reroll 400x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+    UISprite 43x38 92394a8a87d047bba1f4d48141274309
+  GuideText_SelectBuff 1200x99 text:#FFFFFF@28
+  PlayerWeaponStatusPanel 838x110 14d21a0f23984de1b6de183a0c97e530 color:#FFFFFF/0%
+    WeaponLayout 790x250 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+      OriginalSlot 100x100 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+        State_Empty 100x100 14de6ee22ced4410ae2adf112ade8bf6 color:#FFFFFF/10%
+          Icon_Locked 20x27 c48b5e7f851542859780d038530112b7 color:#FFFFFF/15%
+        State_Equip 100x100
+          Effect_Ultimate 188x188 370af2d8316b466c8137ec8a93306fae
+          Bg_Grade 100x100 87f20108334748dc94da9983a1e7e96c
+          Icon_Weapon 75x75 8d29f8388ab8478dbcedcfa072f3fb94
+          GradeStar 60x30
+            Star_3 23x24 cdb4f75585614caa9647d7eb04545dfe
+            Star_2 23x24 cdb4f75585614caa9647d7eb04545dfe
+            Star_1 23x24 cdb4f75585614caa9647d7eb04545dfe
+          Level_Panel 30x22 4ec480eced2b46d2832287d622cf77f2
+            Level_Txt 120x50 text:#FFFFFF@18B
+          WeaponCategory 42x42 267e7186eac54d24a83968c66febc10c text:#6B6E7A@18+s#FFFFFF/40%
+            Icon_Weapon_Category 40x40 ec110598c48a460e8e7afedeae261794
+          Cover_Dark 122x122 57000fc656f44073b78d334461defd4f color:#000000/60%
+    EquipCharacterInfoPanel 116x118
+      LevelPanel 116x118 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        Img_Bg 96x96 e631ce0541de3ac44a936b608c9c44f2 color:#303139
+        Illust 100x100 00b59eb2634048269faf54e0c0ab6363
+        Deco_Cover 116x118 35d38ca9d5404a4cb4e9e0b34d618dc5
+        Level 29x36 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24B+o#000000+s#000000
+          UIText 40x40 text:#FFFFFF@18B+o#000000+s#000000
+        Panel_Weapon 32x32 1928dd523bf14ab4bcc275e4f71607da
+          Icon_Weapon 40x40 0cdc95ad140c43488ab6ec6e53ad7704 color:#1D1D1D

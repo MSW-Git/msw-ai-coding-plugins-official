@@ -1,0 +1,49 @@
+# Shop — 47 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_Shop 2807x1880
+  Panel 1468x865 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Title 1259x83 text:#FFFFFF@36B
+    CloseButton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced)
+    Filter 1427x72
+      All 280x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+        Default 280x72
+          UIText 240x32 text:#847252@28B
+        Select 280x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 240x32 text:#FFFFFF@28B
+      Package 280x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+        Default 280x72
+          UIText 240x32 text:#847252@28B
+        Select 280x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 240x32 text:#FFFFFF@28B
+      Pot 280x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+        Default 280x72
+          UIText 260x32 text:#847252@28B
+        Select 280x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 260x32 text:#FFFFFF@28B
+      Stick 280x72
+        Default 280x72
+          UIText 240x32 text:#847252@28B
+        Select 280x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 240x32 text:#FFFFFF@28B
+      Consume 280x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+        Default 280x72
+          UIText 240x32 text:#847252@28B
+        Select 280x72 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+          UIText 240x32 text:#FFFFFF@28B
+    Shop_List 1427x641
+      ListItem 332x597 762648601a704516a395792e0e46d74c (Sliced) color:#E6EBBB
+        Title 292x66 text:#847252@28B
+        Slot_Item 156x156
+          Bg 156x156 293164fc7a7845ed8041be934fb4a693
+          Icon 76x76
+        Desc 292x103 text:#BBAE96@24B
+          UIText 0x0 text:#BBAE96@24B
+        ButtonDetail 278x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#DADFAF
+          Icon 50x50 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6
+            UIText 9x44 text:#FFFFFF@30B
+          UIText 195x60 text:#847252@20B
+        Line 312x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#CCD1A4
+        CannotBuy 278x72 text:#FFFFFF
+        ButtonBuy 278x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+          UIText 70x42 text:#FFFFFF@28B
+            Icon 40x40 e026395977704770bfc95fbdcdc3fe70

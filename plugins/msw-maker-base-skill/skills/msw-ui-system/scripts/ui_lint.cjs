@@ -27,6 +27,14 @@ const MIRROR_SUFFIXES = [["Left", "Right"], ["left", "right"]];
 // mode); text/button entities are left to L023.
 const SLICE_IMAGE_TYPE = 1; // ImageType.Sliced — border ring only renders in this mode
 const SLICE_ALPHA_MIN = 0.1; // below this the sprite is effectively invisible
+// L032 default-skin tint on custom art. SpriteGUIRendererComponent.Color multiplies the
+// sprite texture, and the builder fills an omitted color with the dark skin gray — so art
+// passed via image_ruid without a color renders as a dark ghost. Matching the RGB triple
+// only (not alpha) also catches the alpha-override path, where the caller adjusted opacity
+// but never chose a color.
+const DEFAULT_SKIN_RUID = "2860136c06ab075439721c027de365af";
+const DEFAULT_SKIN_RGB = [26 / 255, 26 / 255, 26 / 255];
+const COLOR_EPS = 1e-3;
 
 function finding(rule, severity, path, message, hint = "") {
   return { rule, severity, path, message, hint };
@@ -79,6 +87,86 @@ function parentPath(p) {
   if (!p || p === "/" || p === "?") return null;
   const idx = p.lastIndexOf("/");
   return idx <= 0 ? null : p.slice(0, idx);
+}
+
+// Parents that place their children at runtime: the authored anchoredPosition of a child is
+// discarded and recomputed, so geometry rules judged on authored coordinates are meaningless
+// there (and previously fired as false positives on every layout-group child).
+const LAYOUT_MANAGED_PARENTS = ["MOD.Core.ScrollLayoutGroupComponent", "MOD.Core.GridViewComponent"];
+// Parents that clip their children to their own rect, making an overflowing child harmless.
+// A layout group builds its own viewport, so it clips as well as repositions.
+const MASK_PARENTS = ["MOD.Core.MaskComponent", "MOD.Core.SoftMaskComponent"];
+const CLIPPING_PARENTS = [...LAYOUT_MANAGED_PARENTS, ...MASK_PARENTS];
+
+function isEnabled(entity) {
+  const js = entity?.jsonString || {};
+  return js.enable !== false && js.visible !== false;
+}
+
+// Disabled entities and everything under a disabled ancestor never render, so overlapping is
+// normal for them (clone templates, closed popups, alternate button states).
+function isRendered(entity, byPath) {
+  let p = entityPath(entity);
+  while (p && p !== "?") {
+    const e = byPath.get(p);
+    if (e && !isEnabled(e)) return false;
+    p = parentPath(p);
+  }
+  return true;
+}
+
+function parentOf(entity, byPath) {
+  const pp = parentPath(entityPath(entity));
+  return pp ? byPath.get(pp) || null : null;
+}
+
+function hasAnyComp(entity, types) {
+  return Boolean(entity) && types.some((t) => findComp(entity, t));
+}
+
+// Walks up to the nearest layout-group ancestor and reports which of that group's direct
+// children (the "row") this entity lives under. Checking only the immediate parent is not
+// enough: in a row-template list the labels are grandchildren (`List/RowA/Name`), so their
+// authored coordinates are just as runtime-determined as the row's, even though their own
+// parent is an ordinary container. Returns null when nothing above is a layout group.
+function layoutSlot(entity, byPath) {
+  let p = entityPath(entity);
+  let child = null;
+  while (p && p !== "?") {
+    const e = byPath.get(p);
+    if (e && hasAnyComp(e, LAYOUT_MANAGED_PARENTS)) return { group: p, row: child };
+    child = p;
+    p = parentPath(p);
+  }
+  return null;
+}
+
+// Whatever hangs outside a masking ancestor is cut before it reaches the screen, so it cannot
+// collide with anything: compare the visible remainder, not the authored rect. Returns null when
+// nothing survives the clip. Stops at a layout group - below one the authored rect is discarded
+// at runtime, so intersecting it with the viewport would only invent an answer.
+function visibleRect(entity, byPath, rectCache) {
+  const authored = computeWorldRect(entity, byPath, rectCache);
+  if (!authored) return null;
+  let r = authored;
+  let p = parentPath(entityPath(entity));
+  while (p && p !== "?") {
+    const e = byPath.get(p);
+    if (e && hasAnyComp(e, LAYOUT_MANAGED_PARENTS)) return authored;
+    if (e && hasAnyComp(e, MASK_PARENTS)) {
+      const clip = computeWorldRect(e, byPath, rectCache);
+      if (clip && !isFullCanvas(clip)) {
+        r = [Math.max(r[0], clip[0]), Math.max(r[1], clip[1]), Math.min(r[2], clip[2]), Math.min(r[3], clip[3])];
+        if (r[2] <= r[0] || r[3] <= r[1]) return null;
+      }
+    }
+    p = parentPath(p);
+  }
+  return r;
+}
+
+function isRelatedPath(a, b) {
+  return a === b || a.startsWith(`${b}/`) || b.startsWith(`${a}/`);
 }
 
 function ruleL001L002L010(entity, isRoot) {
@@ -226,12 +314,12 @@ function ruleL006(entity) {
 
 function ruleL006LegacyText(entity, tc) {
   const out = [];
-  const alignment = Number.parseInt(tc.Alignment ?? 0, 10);
+  const alignment = Number.parseInt(tc.Alignment ?? 4, 10); // missing Alignment -> engine default MiddleCenter(4)
   const path = entityPath(entity);
   const aname = ALIGN_NAMES[alignment] || String(alignment);
   const ut = findComp(entity, "MOD.Core.UITransformComponent");
   if (!ut) {
-    if (alignment === 0) out.push(finding("L006", SEVERITY_WARN, path, "TextComponent.Alignment == UpperLeft(0) (default)", "Explicit alignment recommended. Center=4, MiddleLeft=3, MiddleRight=5."));
+    if (alignment === 0) out.push(finding("L006", SEVERITY_WARN, path, "TextComponent.Alignment == UpperLeft(0)", "Text will stick to the top-left. Center=4, MiddleLeft=3, MiddleRight=5."));
     return out;
   }
   const mn = xy(ut.AnchorsMin);
@@ -247,7 +335,7 @@ function ruleL006LegacyText(entity, tc) {
   } else if (ah === "C" && ["L", "R"].includes(h) && alignment !== 4) {
     out.push(finding("L006", SEVERITY_INFO, path, `Alignment=${aname}(${alignment}) is edge-aligned but anchor is horizontal-center`, "If text should sit centered under the anchor, use MiddleCenter(4)."));
   } else if (alignment === 0 && ah !== "L" && av !== "U") {
-    out.push(finding("L006", SEVERITY_WARN, path, "TextComponent.Alignment == UpperLeft(0) (default) with non-top-left anchor", "Explicit alignment recommended. Center=4, MiddleLeft=3, MiddleRight=5."));
+    out.push(finding("L006", SEVERITY_WARN, path, "TextComponent.Alignment == UpperLeft(0) with non-top-left anchor", "Text will stick to the top-left. Center=4, MiddleLeft=3, MiddleRight=5."));
   }
   return out;
 }
@@ -312,6 +400,20 @@ function ruleL008(entity) {
   return !ruid.DataId && alpha > 0.01
     ? [finding("L008", SEVERITY_WARN, entityPath(entity), "Sprite has empty ImageRUID.DataId but is visible (alpha>0)", "Assign a resource RUID, or set alpha=0 if used only as a Button hit area.")]
     : [];
+}
+
+function ruleL032(entity) {
+  const sprite = findComp(entity, "MOD.Core.SpriteGUIRendererComponent");
+  if (!sprite) return [];
+  const ruidRef = sprite.ImageRUID && typeof sprite.ImageRUID === "object" ? sprite.ImageRUID : {};
+  const ruid = String(ruidRef.DataId || "");
+  if (!ruid || ruid === DEFAULT_SKIN_RUID) return [];
+  const color = sprite.Color && typeof sprite.Color === "object" ? sprite.Color : null;
+  if (!color) return [];
+  const rgb = [Number(color.r), Number(color.g), Number(color.b)];
+  if (rgb.some((c, i) => !Number.isFinite(c) || Math.abs(c - DEFAULT_SKIN_RGB[i]) > COLOR_EPS)) return [];
+  if (Number(color.a ?? 1.0) <= 0.01) return [];
+  return [finding("L032", SEVERITY_WARN, entityPath(entity), "Sprite has a custom ImageRUID but keeps the default skin gray (26,26,26) — that tint multiplies the art into a dark ghost", "Pass color together with image_ruid (bg_color on button/slider/textInput). Use \"#FFFFFF\" to render the art as authored.")];
 }
 
 function ruleL009(entity) {
@@ -482,6 +584,10 @@ function ruleL014(entity, byPath, rectCache) {
   if (!ut || !pp) return [];
   const parentEntity = byPath.get(pp);
   if (!parentEntity || !findComp(parentEntity, "MOD.Core.UITransformComponent")) return [];
+  // A clipping parent cuts the child at its own rect, so the overflow never reaches the screen.
+  // A layout-managed child's authored position is discarded at runtime, so it proves nothing.
+  if (hasAnyComp(parentEntity, CLIPPING_PARENTS)) return [];
+  if (!isRendered(entity, byPath)) return [];
   const rect = computeWorldRect(entity, byPath, rectCache);
   const pRect = computeWorldRect(parentEntity, byPath, rectCache);
   if (!rect || !pRect || isFullCanvas(pRect) || pRect[2] <= pRect[0] || pRect[3] <= pRect[1]) return [];
@@ -493,7 +599,25 @@ function ruleL014(entity, byPath, rectCache) {
   if (xMax - px1 > threshold) sides.push(`right ${(xMax - px1).toFixed(0)}px`);
   if (yMax - py1 > threshold) sides.push(`top ${(yMax - py1).toFixed(0)}px`);
   if (py0 - yMin > threshold) sides.push(`bottom ${(py0 - yMin).toFixed(0)}px`);
-  return sides.length ? [finding("L014", SEVERITY_INFO, entityPath(entity), `Child overflows parent '${pp}': ${sides.join(", ")}`, "Intentional for badges/tooltips. If unintended, shrink RectSize or adjust anchoredPosition / OffsetMin/Max.")] : [];
+  if (!sides.length) return [];
+  // A small overhang is a deliberate idiom (badge, tooltip tail, drop shadow). A child that
+  // clears its parent entirely, or hangs out by more than its own size, is the shape that
+  // silently lands on top of an unrelated widget — that one is worth a warning.
+  const w = xMax - xMin;
+  const h = yMax - yMin;
+  const escaped = xMin >= px1 || xMax <= px0 || yMin >= py1 || yMax <= py0;
+  const worstX = Math.max(px0 - xMin, xMax - px1);
+  const worstY = Math.max(py0 - yMin, yMax - py1);
+  const major = escaped || (w > 0 && worstX > w) || (h > 0 && worstY > h);
+  return [finding(
+    "L014",
+    major ? SEVERITY_WARN : SEVERITY_INFO,
+    entityPath(entity),
+    `${escaped ? "Child sits entirely outside parent" : "Child overflows parent"} '${pp}': ${sides.join(", ")}`,
+    major
+      ? "Nothing clips this child, so it renders over whatever occupies that area — often an unrelated widget with a different parent. The overlap rules compare text nodes only, so a sprite or button landing under it is never reported. Reposition it, or give the parent a MaskComponent if the overflow is meant to be cut."
+      : "Intentional for badges/tooltips. If unintended, shrink RectSize or adjust anchoredPosition / OffsetMin/Max.",
+  )];
 }
 
 function groupRulesL015L016(byPath, rectCache) {
@@ -509,7 +633,12 @@ function groupRulesL015L016(byPath, rectCache) {
     const parentEntity = byPath.get(pp);
     const parentRect = parentEntity ? computeWorldRect(parentEntity, byPath, rectCache) : null;
     if (!parentRect) continue;
-    const kidRects = kids.map((k) => [k, computeWorldRect(k, byPath, rectCache)]).filter(([, r]) => r && r[2] - r[0] > 0 && r[3] - r[1] > 0);
+    // Alignment judged on authored coordinates says nothing when the parent lays its children
+    // out at runtime.
+    if (hasAnyComp(parentEntity, LAYOUT_MANAGED_PARENTS)) continue;
+    const kidRects = kids
+      .filter((k) => isRendered(k, byPath))
+      .map((k) => [k, computeWorldRect(k, byPath, rectCache)]).filter(([, r]) => r && r[2] - r[0] > 0 && r[3] - r[1] > 0);
     if (kidRects.length < 2) continue;
     const rows = [];
     for (const [k, r] of kidRects) {
@@ -587,37 +716,55 @@ function ruleL017(byPath, rectCache) {
   return out;
 }
 
+// Scope is the whole file, not one parent's children: the overlaps that actually reach the
+// screen are usually between nodes with different parents (a dropdown list over a picker, a
+// panel's caption over a neighbouring panel's row). Filtering by "renders at all" and by
+// "position is authored, not computed at runtime" is what keeps that widening quiet.
 function ruleL023(byPath, rectCache) {
   const out = [];
-  const childrenByParent = new Map();
-  for (const [p, e] of byPath.entries()) {
-    const pp = parentPath(p);
-    if (!pp) continue;
-    if (!childrenByParent.has(pp)) childrenByParent.set(pp, []);
-    childrenByParent.get(pp).push(e);
-  }
+  // Siblings share one coordinate frame, so even a small bleed between two columns is a real
+  // authoring slip. Nodes with different parents routinely sit shoulder to shoulder by design,
+  // so demand a clearly visible collision there before saying anything.
   const tol = 4.0;
-  for (const [pp, kids] of childrenByParent.entries()) {
-    const textKids = kids
-      .filter((k) => findComp(k, "MOD.Core.TextComponent") || findComp(k, "MOD.Core.TextGUIRendererComponent"))
-      .map((k) => [k, computeWorldRect(k, byPath, rectCache)])
-      .filter(([, r]) => r && r[2] - r[0] > 0 && r[3] - r[1] > 0);
-    if (textKids.length < 2) continue;
-    const reported = new Set();
-    for (let i = 0; i < textKids.length; i += 1) {
-      for (let j = i + 1; j < textKids.length; j += 1) {
-        const [a, ra] = textKids[i];
-        const [b, rb] = textKids[j];
-        const ox = Math.min(ra[2], rb[2]) - Math.max(ra[0], rb[0]);
-        const oy = Math.min(ra[3], rb[3]) - Math.max(ra[1], rb[1]);
-        if (ox <= tol || oy <= tol) continue;
-        const an = entityPath(a).split("/").pop();
-        const bn = entityPath(b).split("/").pop();
-        const key = [an, bn].sort().join("\0");
-        if (reported.has(key)) continue;
-        reported.add(key);
-        out.push(finding("L023", SEVERITY_WARN, pp, `Sibling text rects overlap: '${an}' vs '${bn}' (overlap ${ox.toFixed(0)}x${oy.toFixed(0)}px)`, "Two text columns share canvas area - likely default RectSize (e.g. 400x29) bleeding into the next column. Set explicit RectSize per column or tighten anchors."));
+  const crossParentTol = 8.0;
+  const texts = [];
+  for (const [p, e] of byPath.entries()) {
+    if (!findComp(e, "MOD.Core.TextComponent") && !findComp(e, "MOD.Core.TextGUIRendererComponent")) continue;
+    if (!isRendered(e, byPath)) continue;
+    const r = visibleRect(e, byPath, rectCache);
+    if (!r || r[2] - r[0] <= 0 || r[3] - r[1] <= 0) continue;
+    texts.push([p, r, layoutSlot(e, byPath)]);
+  }
+  const reported = new Set();
+  for (let i = 0; i < texts.length; i += 1) {
+    for (let j = i + 1; j < texts.length; j += 1) {
+      const [pa, ra, la] = texts[i];
+      const [pb, rb, lb] = texts[j];
+      // An ancestor/descendant pair overlapping is the normal nesting relationship.
+      if (isRelatedPath(pa, pb)) continue;
+      // Once a layout group is in play, authored coordinates only mean something between two
+      // labels of the same row - the rows themselves get placed at runtime, so labels in
+      // different rows (or one inside a list and one outside it) are not comparable at all.
+      if (la || lb) {
+        if (!la || !lb || la.group !== lb.group || la.row !== lb.row) continue;
       }
+      const sameParent = parentPath(pa) === parentPath(pb);
+      const limit = sameParent ? tol : crossParentTol;
+      const ox = Math.min(ra[2], rb[2]) - Math.max(ra[0], rb[0]);
+      const oy = Math.min(ra[3], rb[3]) - Math.max(ra[1], rb[1]);
+      if (ox <= limit || oy <= limit) continue;
+      const key = [pa, pb].sort().join("\0");
+      if (reported.has(key)) continue;
+      reported.add(key);
+      out.push(finding(
+        "L023",
+        SEVERITY_WARN,
+        pa,
+        `Text rects overlap: '${pa}' vs '${pb}' (overlap ${ox.toFixed(0)}x${oy.toFixed(0)}px)`,
+        sameParent
+          ? "Two text columns share canvas area - likely default RectSize (e.g. 400x29) bleeding into the next column. Set explicit RectSize per column or tighten anchors."
+          : "These two have different parents, so nothing about the tree keeps them apart - one label is printing on top of the other. Move one, or shrink the RectSize that is bleeding across.",
+      ));
     }
   }
   return out;
@@ -759,7 +906,7 @@ function ruleL030(byPath, rectCache, rootPath) {
     if (!childrenByParent.has(pp)) childrenByParent.set(pp, []);
     childrenByParent.get(pp).push(e);
   }
-  const rootKids = childrenByParent.get(rootPath) || [];
+  const rootKids = (childrenByParent.get(rootPath) || []).filter((entity) => isRendered(entity, byPath));
   const texts = rootKids.filter((entity) => {
     const js = entity?.jsonString || {};
     return (js.modelId === "uitext" || js.modelId === "uitextguirenderer") &&
@@ -849,6 +996,7 @@ function lintUiFile(filepath, opts = {}) {
     findings.push(...ruleL009(entity));
     findings.push(...ruleL024(entity));
     findings.push(...ruleL031(entity));
+    findings.push(...ruleL032(entity));
     findings.push(...ruleL029(entity, idx === 0));
     findings.push(...ruleL027(entity));
     findings.push(...ruleL028(entity));

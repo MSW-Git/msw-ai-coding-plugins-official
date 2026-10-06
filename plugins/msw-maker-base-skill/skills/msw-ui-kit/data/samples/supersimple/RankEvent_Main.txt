@@ -1,0 +1,37 @@
+# RankEvent_Main — 35 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_RankEvent_Main 2520x1680
+  Panel 2520x817
+    Deco_Anim 316x359 f2c76747c19b4445870b65cb00c7be33
+    Bg 3120x821 fd85b11e23bb4b8d940e2ae6802d6b82
+    Img_Title 880x224 423524a812d442588233571578d8cd98
+    Event_Period UIText 1000x47 text:#DCB8FF@22B
+    Btn_Close 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#5E1B9F
+    NPC 934x611
+      NPC_Portrait 362x440 8a48995c62b5463481c5ac0818717289
+      Text_Bubble 630x174 bf40f2310a0341bcb18a26022288854f
+        UIText 548x93 text:#847252@26B
+    Reward_Panel 613x329 464d3a2fb3ff441495bf817c3dae68de
+      Slot_Item 160x160
+        Bg 160x160 293164fc7a7845ed8041be934fb4a693
+        Icon 90x90 a9318e0c75c3409797f249302b4722ea
+    Info 678x607
+      Info_1 678x104
+        Title 678x50 text:#847252@26B
+        Desc 678x54 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB text:#8F7C58@24B
+      Info_2 678x104
+        Title 678x50 text:#847252@26B
+        Desc 678x54 bdd5cc037155465f88f5d843789e57d6 (Sliced) color:#E6EBBB text:#8F7C58@24B
+      Btn_Rank 370x72 762648601a704516a395792e0e46d74c (Sliced) color:#F7CF34
+        UIText 302x56 text:#FFFFFF@24B
+          Icon 40x40 434a1a94ffc54184aa303b0d19748127
+      Btn_GotoMapInven 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@20B
+      Btn_HowTo 237x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@20B
+      UIText 777x33 text:#F3855A@22B
+        Icon 40x40 af4ed64ca7e74f07af6586b85b79c048 color:#F3855A
+          UIText 100x100 text:#FFFFFF@30B
+      ToolTip 700x104 f8c7c91bc5054280a7fb0e6ddffa66e3
+        UIText_1 510x30 text:#847252@20B
+          Dot 8x8 105b41095a714afa8db4e03c6b141acd color:#847252
+        UIText_2 616x30 text:#847252@20B
+          Dot 8x8 105b41095a714afa8db4e03c6b141acd color:#847252

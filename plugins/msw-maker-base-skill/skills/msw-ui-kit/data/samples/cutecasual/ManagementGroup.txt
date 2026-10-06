@@ -1,0 +1,63 @@
+# ManagementGroup — 61 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, UIManagement, ManagementLevelUpReward
+UIR_CuteCasual_Sample_ManagementGroup 1920x1080
+  Dim 2520x1680
+  UIManagement 810x945 6116010c04934b118f9e33be890fa066
+    GradeIcon 180x536 5205cc51dca2451f8a3579a3f4f782c3
+      Level 130x52 text:#FFFFFF@24B+o#3D5802
+    Deco 100x48 0aa7ba13792f4d6b9c5acc2caa9928e3
+    Panel 757x890 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#FCF9F2
+      Pattern 755x797 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#EDE8DB/60%
+      Bar 755x118 a971746cec0946748504f429a777c7c7 (Sliced) color:#E0CDAF
+      Line_Bottom 730x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E3D9C4
+    CloseBtn 60x84 a1d0c1b4e52b4436b5b42208f44a4422 color:#D63737
+      UISprite 28x28 0c33c943f60b4c269d9b0130484f006c
+    Contents 754x882
+      Line_Top 730x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#ECE1C8
+      Title 401x50 text:#FFFFFF@34B+o#604C36
+        HelpBtn 38x38 f59006224a184fdeb8f9ecb09ae3af7d color:#D7C6AC
+          UISprite 8x24 0423dcf92c594efc87944a00028c4ea2
+          Touch 100x100
+      GoalList 810x1000
+      LevelUpBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced)
+        UIText 256x98 text:#FFFFFF@32B+o#C15E14
+        Dim 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+      GoalEnd 730x790
+        InfoText 600x90 text:#80705E@26
+          Right 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#A99983
+          Left 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#A99983
+        NextGoal 570x260 d6d1c1080cb742529c3e209d1b937e90 color:#F0E9D8 text:#817566@28B
+          1 18x18 4920e8b7ee7643468a5807753bef00d3 color:#D5C8AD
+          2 18x18 4920e8b7ee7643468a5807753bef00d3 color:#D5C8AD
+          3 18x18 4920e8b7ee7643468a5807753bef00d3 color:#D5C8AD
+          4 18x18 4920e8b7ee7643468a5807753bef00d3 color:#D5C8AD
+        NextGoalTitle 500x60 text:#FFFFFF@30B+o#7B613D
+        MoveToRankingBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+        MoveToStageSelectBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Dim 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+        Line_Middle 730x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#ECE1C8
+  ManagementLevelUpReward 2520x1680
+    BG_Left 1200x682 cfc38067d82a4eb0ae888003c5c8edaf (Sliced)
+    BG_Right 1200x682 cfc38067d82a4eb0ae888003c5c8edaf (Sliced)
+    Title 900x100 text:#FFFFFF@36B+o#2C1C0A+s#2C1C0A
+    Dot_Right 80x8 ce4aa97d6a684462b72b89ae2088b64c
+    Dot_Left 80x8 ce4aa97d6a684462b72b89ae2088b64c
+    GradeUpBG 180x180 fa19563ce5124b739178b24481dfb927 color:#FFFFFF/35%
+    GradeIcon 80x80 84b41a0868734c5989d48f7463bbb553
+    Deco_Left 28x44 38d222d1fccd4483afcb6adda6e809a5
+    Deco_Right 28x44 38d222d1fccd4483afcb6adda6e809a5
+    GradeText 240x52 b0d2c5e57b884320bf63862159c67888 (Sliced) text:#FFFFFF@26B+o#4C2F61
+    GradeUpLogList 1100x510
+    Gradiant 1100x80 715ba2f9541b424586c970bb547e9036 (Sliced) color:#2C1B06/90%
+    ClickToCloseText 1800x100 text:#CECECE@24
+    WinEffect 661x861
+      UISprite_1 224x224 a02ec87fc0d140bfa635a6d6f2fb8af7
+      UISprite_1_1 139x141 a429094ad85e44909ca6618e1ceebe56
+      UISprite_1_1_1 139x141 a429094ad85e44909ca6618e1ceebe56
+      UISprite_1_1_1_1 231x467 fa32937c7ba74204a601bd911e358703
+      UISprite_1_1_1_1_1 50x50 b349d21551fd4aa3912268438626119f
+      UISprite_1_1_1_1_1_1 231x467 45cdfc6f9d7f45e79088f493dc9d6d91
+      Particle_S_01 93x94 ffeb39c983fd4ef1bf59212edcc6cb56
+      Particle_S_02 93x94 ffeb39c983fd4ef1bf59212edcc6cb56
+    GradeUpLogOrigin 1020x84
+      LogText 1020x84 c7a12955394a4dce93887073f294c287 (Sliced) text:#FFF5CD@24

@@ -1,0 +1,5 @@
+UIFilledProgressBar3 116x116 [UIFilledProgressBar] f0b32ff6cc064854835fc983acf906a9
+  Img_BackValue 96x96 5a7ca912a2ce4eb9a26ebe86560f6cc5 (Filled)
+  Img_Value 96x96 5a7ca912a2ce4eb9a26ebe86560f6cc5 (Filled)
+  Img_Effect 100x100 00066ea098584de6a7f51bcee23fc7f4
+  Text 120x40 text:#E9FDFF@26

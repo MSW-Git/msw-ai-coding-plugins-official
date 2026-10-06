@@ -1,0 +1,94 @@
+# UIGMAchievementTool — 91 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGMAchievementTool 2520x1680
+  Panel 1800x960 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+      Text_TimeOffset 143x55 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@30
+        Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+          Panel_TooTip 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+            tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+            Text_Desc 352x60 text:#362517@24
+    TabButtons 315x308
+      Btn_View 280x135 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Btn_Edit 280x135 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@36
+    TargetUser 315x308 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Label_UserID 170x70 text:#653122@24
+      Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+        Panel_TooTip 315x80 b5f829660fbc4a58aaac8b8f4e22775f
+          tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+          Text_Desc 287x60 text:#362517@24
+      UIText_UserID 279x160 text:#653122@20
+    Pages 1400x743
+      Page_View 1400x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1360x90
+          Label_ID 160x70 text:#653122@24
+          Label_State 120x70 text:#653122@24
+          Label_Step 120x70 text:#653122@24
+          Label_Value 240x70 text:#653122@24
+          Label_BeginTime 260x70 text:#653122@24
+          Label_CompleteTime 260x70 text:#653122@24
+          Label_Modify 180x70 text:#653122@24
+        deco_line 1400x2
+        GridView 1400x500
+        Item 1360x100
+          Label_Id 160x100 text:#653122@24
+          Label_State 120x100 text:#653122@24
+          Label_Step 120x100 text:#653122@24
+          Label_Value 240x100 text:#653122@24
+          Label_BeginTime 260x100 text:#653122@24
+          Label_CompleteTime 260x100 text:#653122@24
+        deco_line_1 1400x2
+        Btn_Refresh 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Page_Edit 1400x743 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1360x90
+          Label_ID 160x70 text:#653122@24
+          Label_State 120x70 text:#653122@24
+          Label_Step 120x70 text:#653122@24
+          Label_Value 240x70 text:#653122@24
+          Label_BeginTime 260x70 text:#653122@24
+          Label_CompleteTime 260x70 text:#653122@24
+          Label_Edit 160x70 text:#653122@24
+        deco_line 1400x2
+        GridView 1400x500
+        Item 1360x100
+          Label_ID 160x100 text:#653122@24
+          Label_State 120x100 text:#653122@24
+          Label_Step 120x100 text:#653122@24
+          Label_Value 240x100 text:#653122@24
+          Label_BeginTime 260x100 text:#653122@24
+          Label_CompleteTime 260x100 text:#653122@24
+          Btn_Reset 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2
+        deco_line_1 1400x2
+        Btn_Undo 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Save 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditItem 2400x1560
+      Panel 1292x698 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1242x81
+          Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+          Btn_Exit 80x80 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1212x520 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1172x90
+          Label_ID 160x70 text:#653122@24
+          Label_State 120x70 text:#653122@24
+          Label_Step 120x70 text:#653122@24
+          Label_Value 240x70 text:#653122@24
+          Label_BeginTime 260x70 text:#653122@24
+          Label_CompleteTime 260x70 text:#653122@24
+        deco_line 1172x2
+        Item 1174x100
+          Text_ID 160x100 text:#653122@24
+          Text_State 120x100 text:#653122@24
+          Text_Step 120x100 text:#653122@24
+          Text_Value 240x100 text:#653122@24
+          Text_BeginTime 260x100 text:#653122@24
+          Text_CompleteTime 260x100 text:#653122@24
+        deco_line_1_1 1292x2
+        Scroll_Action 1172x100
+          Btn_RevertEdits 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+          Btn_ResetToOriginal 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+          Btn_ResetAll 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+        Btn_OK 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36

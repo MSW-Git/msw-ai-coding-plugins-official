@@ -1,0 +1,32 @@
+# RankEvent_Rank — 30 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_RankEvent_Rank 2520x1680
+  Panel 1181x998 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Title 937x80 text:#FFFFFF@28B
+    Btn_Close 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced)
+    Desc 670x60 text:#F3855A@24B
+    Recent_Text 395x59 text:#BBAE96@22B
+    Rank_List 1139x635 68221c9a70128be45b3e1d383c6fc6d4 color:#F0F4D2
+      List_Item 1136x156
+        Rank 100x100
+          Rank_Img 56x72 7250562fb4e7402685c8a238e5ca9992
+          Rank_Text 100x100 text:#847252@65B
+        Name_Text 328x66 text:#847252@24B
+        Recommend 371x142
+          Bubble 272x124 e01ff4abe78546ff807e0031f4165df4
+            Recommend_Title 96x35 text:#847252@26B
+            Recommend_Text 102x35 text:#6DBB28@28B
+          Img 153x126 48023fba77884222a1451908cc719a3b
+        Play_Button 257x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@26B
+        Line 1572x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+    My_Item 1136x156
+      Rank 100x100
+        Rank_Img 56x72 7250562fb4e7402685c8a238e5ca9992
+        Rank_Text 100x100 text:#847252@65B
+        Icon 42x42 1db43baf7086484a9a7baa126ad7da76 color:#F4926C
+      Name_Text 563x66 text:#847252@24B
+      Recommend 371x142
+        Bubble 272x124 e01ff4abe78546ff807e0031f4165df4
+          Recommend_Title 96x35 text:#847252@26B
+          Recommend_Text 102x35 text:#6DBB28@28B
+        Img 153x126 48023fba77884222a1451908cc719a3b

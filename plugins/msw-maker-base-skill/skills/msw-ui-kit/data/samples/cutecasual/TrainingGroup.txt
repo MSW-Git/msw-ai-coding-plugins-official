@@ -1,0 +1,188 @@
+# TrainingGroup — 186 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: DimBg, Background, Map, MapButton, Title, HintPopup
+UIR_CuteCasual_Sample_TrainingGroup 1920x1080
+  DimBg 2520x1680
+  Background 2020x1180
+    BG 2420x1580 d9a02a58cc57425598b46d7184bafdfe originRUID:0a8b71555e7a4f1a8f08a2abdc7320dc
+    Truck 530x315 be58f2dea7294a67bf2cefe162b4bd92
+      Char001 200x200 95a5b50402244877bea1e4a6e7ba0911 (Sliced) ChatBalloonRUID:7b6bd117bd0446a5bacec8ea6831c997
+        EmotionBalloon 109x100 f5fd2504b7ff4ddb86125d8a3c07dd7b
+          BackLight 120x120 3728bd1eb1e340ac9d18153cb004cf0e color:#F0F9C4
+          Item 60x60 141533afd41040c990f00e211283ead4
+        Shadow_1 100x10 cd0560c4fc7f3b14994b90a502f00a21
+      Char002 200x200 7018f2dc0d6b42ea9c1a727a84a0ba12 (Sliced)
+        EmotionBalloon 109x100 f5fd2504b7ff4ddb86125d8a3c07dd7b
+          BackLight 120x120 3728bd1eb1e340ac9d18153cb004cf0e color:#F0F9C4
+          Item 60x60 141533afd41040c990f00e211283ead4
+        Shadow_1 100x10 cd0560c4fc7f3b14994b90a502f00a21
+      Char003 200x200 20c067944bb74af8923b9a6db09e06d2 (Sliced)
+        EmotionBalloon 109x100 f5fd2504b7ff4ddb86125d8a3c07dd7b
+          BackLight 120x120 3728bd1eb1e340ac9d18153cb004cf0e color:#F0F9C4
+          Item 60x60 141533afd41040c990f00e211283ead4
+        Shadow 100x10 cd0560c4fc7f3b14994b90a502f00a21
+      Avatar 417x567
+        Player 129x206
+      Npc 177x193 c9aa52260f4149f681a37a5de5f814e1
+        UISprite 72x72 2462557e27e94f188bf3a57d2c1bad2d
+        UIText 200x60 text:#FFFFFF@36B+o#056896
+      ChuchuChat 659x136 ca46be6f880af964fb616b85a46b30a6 color:#FFFEF3 text:#FFFFFF@36B+o#856B4B
+        Icon 90x90 935a1971ec2c4cc6a05e73faa9323901
+        Msg 600x80 text:#FFFFFF@32B+o#856B4B
+    Token 295x257
+      TokenScroll 405x288
+        TokenIcon1 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon2 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon3 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon4 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon5 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon6 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon7 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon8 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon9 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon10 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+      TokenNumBalloon 104x108 ecd48cb0475c4dd698cca2d77d113ae1
+        TokenNum 90x60 text:#72634B@32B+o#FFFFFF
+        TokenText 160x68 text:#72634B@24B+o#FFFFFF
+    ExitButton 180x180 ade090b3643b4110b470c4483ad2c863
+      UISprite 84x96 69c91d7bbde5406d8ef4199fb2cf558a
+      UIText 155x95 text:#FFFFFF@30B+o#36240B+s#36240B
+  Map 2008x1080 b2efe9b7579bd494baecc7a2ef3c16e3 color:#FFFFFF/0%
+    BG 2808x1880
+      Island 1840x796 e276b26b96bc4646b78fc8162627f095 originRUID:e276b26b96bc4646b78fc8162627f095
+    Spot09 250x250 e887fda0ff7347a099b959d6eca72004
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot07 250x250 96e4a57f2d694e95816d663f3663246d
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot08 250x250 75703affe33745a481f4e0ad4b4b359b
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot06 250x250 6a41e1be667b40efa94ac81d37367d57
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot05 250x250 53d877ba4e43454ab794d7497f582d47
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot03 250x250 5df1142dcee4449389ae2071899b4a61
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot02 250x250 6d86637f45984ee8a066228bc91dccff
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    Spot01 250x250 58ed89eb2c2c45969b84e09fc233d14c
+      HintScroll 230x95 99548f8df04d4997b364ab5b0894765d
+        HintIcon1 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon2 50x50 0c15d0f0a89b4267a8c01ffae924d858
+        HintIcon3 50x50 0c15d0f0a89b4267a8c01ffae924d858
+      NameTag 250x65 dc650016bb3a4efebfbdb68512d9e2a3 color:#444444/0% text:#72634B@28B+o#FFFFFF
+      ItemNameBalloon 220x90 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    NowTChar 200x200 95a5b50402244877bea1e4a6e7ba0911 (Sliced)
+      equip 200x200
+      Chatballoon 230x240 277783e1ece94a31935d0d92b0f88768
+        UIText 195x170 text:#72634B@26B
+    HintScrollBg 330x112 1fd6d18b9fc14fd7bc079316f8f2297e color:#FFFFFF/60%
+      Title 300x50 3ab38ca64ce64cf59aa66c8850969c9a color:#FFFFFF/0% text:#72634B@28B+o#FFFFFF
+      HintScroll 330x112 39f876f4e75e4aec9fc9c92c9127173a color:#CED497/0%
+        HintButton 64x64 935a1971ec2c4cc6a05e73faa9323901
+    StartButton 178x140 d34a928a0df54d42aa0d2d9af835dbb4 text:#FFFFFF@34B+o#0B719B
+      Panel 300x700 1e891c8c318a43eeb9f239a3688a0069
+      Btn 178x140 d34a928a0df54d42aa0d2d9af835dbb4 text:#FFFFFF@34B+o#0B719B
+      UISprite 128x128 0d32289149c744c0b09c875fa9afa07f
+      UIText 270x105 277783e1ece94a31935d0d92b0f88768 text:#72634B@25B
+    HintSkipButton 240x100 34b472eea94e4369ba9dd9a04e56557b text:#FFFFFF@32B+o#B95B0C
+    Token_Map 295x257
+      TokenScroll 405x288
+        TokenIcon1 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon2 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon3 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon4 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon5 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon6 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon7 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon8 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon9 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+        TokenIcon10 130x130 bd7ed10738124fe592de0e62400bd26d (Sliced)
+      TokenNumBalloon 104x108 ecd48cb0475c4dd698cca2d77d113ae1
+        TokenNum 90x60 text:#72634B@32B+o#FFFFFF
+        TokenText 170x50 text:#72634B@24B+o#FFFFFF
+    Tut_Token 374x250
+    Tut_HintBox 342x142
+    Icon 65x65 7a0b2d0e8d864b3ea5a22280966acbe8 color:#FFFFFF/50%
+      UISprite_5_1 574x78 bd5bbcf0d95df0349a703e7865be2696 text:#FFFFFF@26+o#72634B
+      Bulb 65x65 2462557e27e94f188bf3a57d2c1bad2d
+  MapButton 180x180 ade090b3643b4110b470c4483ad2c863
+    UISprite 116x88 e141cc965f524a0494cbc2c906f8f7ff
+    Text 155x90 3ab38ca64ce64cf59aa66c8850969c9a text:#FFFFFF@32B+o#36240B+s#36240B
+  Title 750x107
+    TitleText 710x94 bd6e33a62bfe470991563da1b6d085e2 text:#72634B@28B+o#FFFFFF
+      Deco_Left 18x60 eb663d4896aa4c2dabbe0c7cc6f53884
+      Deco_Right 18x60 eb663d4896aa4c2dabbe0c7cc6f53884
+      Btn_Guide 50x50 07be8d61ffc841ccbeb24f3ef950a801
+        UISprite 100x100
+    ProcessScroll 710x85
+      ProgressFrame 640x30 b6e794fffba841d3ae6f4f00104c1a6b
+        ProgressBar 640x30 6b152491e74146b88965e0139ba828ae (Sliced) FillRectImageRUID:6b152491e74146b88965e0139ba828ae
+        TouchBlock 705x100
+      ProcessUnit_1 80x80 cceb56f1c3504723b1fd3f3c940eb667
+        Icon 50x50 ea57e713f3834bc7a976f94e5d30ee4b
+        Start 92x40 ce5117aafbf24992876180ae7c5bbd2b text:#FFFFFF@B+o#4A6D13
+        TurnName 130x50 text:#36240B@22B+o#FFFFFF
+      ProcessUnit_2 80x80 1ef407785ea346798669c5f5b3ab18d7
+        Icon 50x50 b4a158a862064047a6315b341f9aa2f7
+        TurnName 130x50 text:#36240B@22B+o#FFFFFF
+      ProcessUnit_3 80x80 1ef407785ea346798669c5f5b3ab18d7
+        Icon 50x50 8f25ec106e19464d914118fca7252650
+        TurnName 130x50 text:#36240B@22B+o#FFFFFF
+      ProcessUnit_4 80x80 1ef407785ea346798669c5f5b3ab18d7
+        Icon 50x50 ea57e713f3834bc7a976f94e5d30ee4b
+        TurnName 130x50 text:#36240B@22B+o#FFFFFF
+      ProcessUnit_5 80x80 1ef407785ea346798669c5f5b3ab18d7
+        Icon 50x50 b4a158a862064047a6315b341f9aa2f7
+        Finish 92x40 05f9c64754fa4a1b901dd9774109bcdb text:#FFFFFF@B+o#911D1D
+        TurnName 130x50 text:#36240B@22B+o#FFFFFF
+    TodoList 710x90
+      List1 356x84 bf60500a5e61411cbfa7aea1405ec98d text:#7D6C57@24
+        Icon 40x32 70447d05144e480ebb503d8bbbc84fa9
+          Done 40x32 84e2190c1cb546738f9778fc87e570f3
+      List2 356x84 bf60500a5e61411cbfa7aea1405ec98d text:#7D6C57@24
+        Icon 40x32 70447d05144e480ebb503d8bbbc84fa9
+          Done 40x32 84e2190c1cb546738f9778fc87e570f3
+  HintPopup 2520x1680
+    HintPanel 550x550 6a6e329dc1b74c8ab5a44a8745e43371
+      HintIcon 128x128 ed55419e82694cd99cc04444b40a0758
+      HintTitle 360x80 ca46be6f880af964fb616b85a46b30a6 color:#FFFFFF/0%
+        Text 360x80 text:#72634B@30B
+      HintText 440x243
+        Text 440x243 text:#72634B@24
+      CloseButton 88x88 9cf419b7ea33487ea792374e99855e66
+        UISprite 140x140
+      CloseText 160x38 text:#FFFFFF@26B

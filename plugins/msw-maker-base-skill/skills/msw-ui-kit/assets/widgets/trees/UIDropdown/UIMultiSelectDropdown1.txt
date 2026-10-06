@@ -1,0 +1,8 @@
+UIMultiSelectDropdown1 300x60 [UIMultiSelectDropdown]
+  Img_Outline 306x235 c58c6f4200d4b7341ba11994d157ce12
+  Btn 300x60 c58c6f4200d4b7341ba11994d157ce12 BTN text:#FFFFFF
+    Img_Icon 24x24 1ba83a88c1e05e34c8cf2397b4430125
+  Img_Dim 5000x3000 BTN
+  GridView 300x166 [GridViewComponent] c58c6f4200d4b7341ba11994d157ce12
+  Item 274x60 [UIMultiSelectDropdownItem] c58c6f4200d4b7341ba11994d157ce12 BTN text:#FFFFFF
+    Img_Check 40x40 c9942c3eba92f8b4a9d925a4594df149

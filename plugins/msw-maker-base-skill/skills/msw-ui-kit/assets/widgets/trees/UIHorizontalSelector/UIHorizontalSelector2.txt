@@ -1,0 +1,8 @@
+UIHorizontalSelector2 400x100 [UIHorizontalSelector]
+  Text 240x80 text:#653122@28
+  ScrollLayout 240x40
+  Item 14x14 b467d65ecabb1ae4d9770f6a7a629231
+  Btn_Prev 80x80 e22dca176e7c48b39d5b40554b546e22 BTN
+    Img_Icon 24x18 57ba0c6231f043d44b93d8db732dbd34
+  Btn_Next 80x80 e22dca176e7c48b39d5b40554b546e22 BTN
+    Img_Icon 24x18 57ba0c6231f043d44b93d8db732dbd34

@@ -1,0 +1,166 @@
+# CashShop — 164 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Popup
+UIR_CasualRPG_Sample_CashShop 1920x1080
+  Background 7920x7080
+  Popup 1706x874 f47ee45115114234bd8a140b5d02729c
+    TopPanel 1666x84 a921b49abb4c4808a9749bdfa1bd049d (Sliced) text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      PercentageButton 210x46 954b13c30e4c48f3bf0227f0d2034f2a text:#FFFFFF@24
+    GatchaLayout_Main 1350x738
+      Background 1352x740 70dd3e0213b84053951d69022dbb0413
+        UIText_Note 1292x203 text:#FFF110@24+o#000000/70%+s#000000/72%
+        DecorationViewButton 212x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) text:#FFFFFF@24B+o#376CC4
+      ProductLayout 1350x493 f765a3f83a534b4ea4f7b309bb35103b (Sliced) color:#A8766B/89%
+        CashProductSlot_Common 258x456 6e058e4a3fec401ba2c6619f35c38fee (Sliced)
+          ProductNameText 258x62 text:#605049@24
+          Slot_Bg 148x148 eb122a1efc00481c86efe2696d20771a color:#7B6049/30%
+          ProductSprite 148x148 77ac57dc9e0a48f1854b86466314e5d6
+          ProductCautionText 258x60 text:#605049@20
+          ProductLimitText 258x60 text:#BC8245@20
+          Icon_Info_Yellow 34x31 01a50e24d1f74b609bb9a9c6697b09d8
+          ProductPriceText 214x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+            Icon_World_Coin 34x34 7c2da7edef9c421792b42328aa349d0e
+            Icon_World_Dia 34x33 55cf3dd8c012429fb092b38af6ec0ede
+          ProductInfoButton 258x356 text:#FFFFFF@32B
+        CashProductSlot_Main 258x456 32db959f9c474e5096e4826241e987bf (Sliced)
+          ProductNameText 258x65 text:#FFFFFF@24
+          Slot_Bg 148x148 eb122a1efc00481c86efe2696d20771a color:#000000/30%
+          ProductSprite 148x148 6b0bde4e33c1466db0593d32d0a9b6be
+          ProductCautionText 258x60 text:#899BBF@20
+          ProductLimitText 258x60 text:#FFF600@20
+          Icon_Info_Yellow 34x31 01a50e24d1f74b609bb9a9c6697b09d8
+          ProductPriceText 214x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+            Icon_World_Coin 34x34 7c2da7edef9c421792b42328aa349d0e
+            Icon_World_Dia 34x33 55cf3dd8c012429fb092b38af6ec0ede
+          ProductInfoButton 258x356 4ca7eb499f3b414c80546531833f693a color:#FFFFFF/0% text:#FFFFFF@32B
+    GatchaLayout_Soul 1350x738
+      Background 1352x740 d2c1ace2ac0448789c69d609ef40e697
+        Img_Dark 1352x508 8ae2ca74dc934fc7a5c8b35eff7f7005 color:#000000
+        UIText_Note 1292x501 text:#FFF110@24+o#000000/70%+s#000000/72%
+      GatchaButtonLayout 1350x193 f765a3f83a534b4ea4f7b309bb35103b (Sliced) color:#000000/20%
+        Gatcha_Once 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 214x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+          NameText 222x50 text:#FFFFFF@24B+o#589334
+        Gatcha_Many 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 214x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+          NameText 222x50 text:#FFFFFF@24B+o#589334
+        Padding 50x163
+        Gatcha_Once_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 214x50 text:#FFFFFF@24B+o#3286CB/90%
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+          NameText 222x50 text:#FFFFFF@24B+o#3286CB/90%
+        Gatcha_Many_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 214x50 text:#FFFFFF@24B+o#3286CB
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+          NameText 222x50 text:#FFFFFF@24B+o#3286CB
+    GatchaLayout_Armor 1350x738
+      Background 1352x740 41adf4e3ce8a42e19c8c7fa1dda76cad
+        Img_Dark 1352x508 8ae2ca74dc934fc7a5c8b35eff7f7005 color:#000000
+        UIText_Note 1292x501 text:#FFF110@24+o#000000/70%+s#000000/72%
+      GatchaButtonLayout 1350x193 f765a3f83a534b4ea4f7b309bb35103b (Sliced) color:#000000/20%
+        Gatcha_Once 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 210x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+        Gatcha_Many 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 210x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Padding 50x163
+        Gatcha_Once_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 210x50 text:#FFFFFF@24B+o#3286CB/90%
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+        Gatcha_Many_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 210x50 text:#FFFFFF@24B+o#3286CB
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+    GatchaLayout_Pet 1350x738
+      Background 1352x740 2dab7b62ebc449b3b3d3ddc830aa3fc0
+        Img_Dark 1352x508 8ae2ca74dc934fc7a5c8b35eff7f7005 color:#000000
+        UIText_Note 1292x500 text:#FFF110@24+o#000000/70%+s#000000/72%
+      GatchaButtonLayout 1350x193 f765a3f83a534b4ea4f7b309bb35103b (Sliced) color:#000000/20%
+        Gatcha_Once 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 210x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+        Gatcha_Many 250x115 0f202b91f37e435bbc7af61b349bdb58 text:#FFFFFF@24B+o#589334
+          PriceText 210x50 text:#FFFFFF@24B+o#589334
+            Icon 38x35 55cf3dd8c012429fb092b38af6ec0ede
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+        Padding 50x163
+        Gatcha_Once_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 210x50 text:#FFFFFF@24B+o#3286CB/90%
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+        Gatcha_Many_WorldCoin 250x115 12acdaaecb0f4d4c87427858d6894b30 text:#FFFFFF@24B+o#3784C4
+          PriceText 210x50 text:#FFFFFF@24B+o#3286CB
+            Icon 35x35 7c2da7edef9c421792b42328aa349d0e
+          Effect 20x20 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_1 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_2 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_3 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_4 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+            Effect_5 15x15 16d0706860f54caeb03180f8ecf6170c color:#FFFFFF/82%
+    GatchaLayout_Product 1350x738
+      Background 1352x740 492a1f354818435180af83f52253959c
+        UIText_Note 1292x222 text:#FFF110@24+o#000000/70%+s#000000/72%
+      ProductLayout 1350x493
+        CashProductSlot 258x456 32db959f9c474e5096e4826241e987bf (Sliced)
+          ProductNameText 258x65 text:#FFFFFF@24
+          UISprite 148x148 eb122a1efc00481c86efe2696d20771a color:#000000/30%
+          ProductSprite 148x148 180d6f73855644edb97ca5e134ac4203
+          ProductCautionText 258x60 text:#899BBF@20
+          ProductLimitText 258x60 text:#FFF600@20
+          Icon_Info_Yellow 34x31 01a50e24d1f74b609bb9a9c6697b09d8
+          ProductPriceText 214x64 680e8f1997ed470a8f599c1f671a36a8 text:#FFFFFF@24B+o#589334
+            Icon_World_Coin 34x34 7c2da7edef9c421792b42328aa349d0e
+            Icon_World_Dia 34x33 55cf3dd8c012429fb092b38af6ec0ede
+          ProductInfoButton 258x356 text:#FFFFFF@32B
+    ProductLayout 1221x774
+      CashProductSlot 350x360 9fc787336d8e462885d2a44157e971af (Sliced)
+        ProductNameText 350x62 text:#FFFFFF@B
+        ProductSprite 320x151 ad9c258baa534442b94576d616ead6e5
+        ProductCautionText 350x75 text:#FFDB42@20+o#000000
+        ProductLimitText 350x60 text:#FFDB42@20+o#000000
+        ProductPriceText 350x55 text:#FFFFFF@20B+o#000000
+          Icon 100x100 a8f3146382c07494d8dbce9b93c1a5c3
+        ProductInfoButton 40x40 53636f549707cc04dbfb048c4a2dfdc3 color:#847777 text:#FFFFFF@32B
+    CategoryLayout 305x624
+      CategoryButton 305x108 a98b037c6b0f45288ce63cb8414b83b5 (Sliced) text:#FFFFFF@26+o#000000/20%
+        ContentLock 30x30 c48b5e7f851542859780d038530112b7
+      CategoryButton_1 305x108 75ff2132ace346358699f21009389b99 (Sliced) text:#FFFFFF@26+o#000000/20%
+        ContentLock 30x30 c48b5e7f851542859780d038530112b7
+      CategoryButton_2 305x108 75ff2132ace346358699f21009389b99 (Sliced) text:#FFFFFF@26+o#000000/20%
+        ContentLock 30x30 c48b5e7f851542859780d038530112b7
+      CategoryButton_3 305x108 75ff2132ace346358699f21009389b99 (Sliced) text:#FFFFFF@26+o#000000/20%
+        ContentLock 30x30 c48b5e7f851542859780d038530112b7
+      CategoryButton_4 305x108 75ff2132ace346358699f21009389b99 (Sliced) text:#FFFFFF@26+o#000000/20%
+        ContentLock 30x30 c48b5e7f851542859780d038530112b7
+    Deco_Dark 305x15 74a568e1e0ac4e4ca6602c164974cf05 color:#FFFFFF/60%
+      Deco_Line 305x2

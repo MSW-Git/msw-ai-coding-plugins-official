@@ -1,0 +1,1 @@
+UILoadingSprite2 300x200 10d1858a6cb14e2384ed05c31e3eb316

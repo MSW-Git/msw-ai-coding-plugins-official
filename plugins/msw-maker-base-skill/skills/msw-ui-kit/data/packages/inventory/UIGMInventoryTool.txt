@@ -1,0 +1,55 @@
+# UIGMInventoryTool — 52 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGMInventoryTool 1920x1080
+  Panel 1800x1000 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Label_Title 800x100 text:#FFE398@50
+      Button_Exit 100x100 298eb9b732264ea89c34001857d841a5
+      Input_OffsetTime 120x70 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@25
+        Button_Description 60x60 67e476a57b0f48e4814509ab90a067b7
+        Description 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+          Icon_DescriptionTail 30x30 13fd509eaa134f4497ac63012b81d4bf
+          Icon_Description 380x80
+    Body 1720x810
+      Toggle_LookAndAddView 150x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Toggle_LoadAndEditView 150x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      LookAndAddView 1570x810 c24adedc9faa457daf4e4aae7cd663bb
+        ContainerItemInfoTitle 1680x80
+          Label_ItemId 120x80 text:#653122@24
+          Label_ItemName 250x80 text:#653122@24
+          Label_Count 100x80 text:#653122@24
+          Label_CreatedDate 280x80 text:#653122@24
+          Label_ExpireDate 280x80 text:#653122@24
+          Label_GUID 500x80 text:#653122@24
+        Deco_Line 1570x2
+        ItemInfoGridView 1562x600
+        ItemInfoGridViewItem 1680x80
+          Label_ItemId 120x80 text:#653122@24
+          Label_ItemName 250x80 text:#653122@24
+          Label_Count 100x80 text:#653122@24
+          Label_CreatedDate 280x80 text:#653122@24
+          Label_ExpireDate 280x80 text:#653122@24
+          Label_GUID 500x80 text:#653122@24
+        Deco_Line 1570x2
+        Bottom 1570x100
+          ContainerQuery 560x100
+            Label_ProfileCode 150x60 text:#653122@22
+            Input_ProfileCode 200x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+            Button_Query 150x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+          ContainerAdd 1310x100
+            Label_ItemId 100x60 text:#653122@26
+            Input_ItemId 150x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+            Label_Count 100x60 text:#653122@26
+            Input_Count 150x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+            Label_ExpireDate 150x60 text:#653122@26
+            Input_ExpireDate 200x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+            Button_Add 150x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+      LoadAndEditView 1570x810 c24adedc9faa457daf4e4aae7cd663bb
+        Input_UserData 1550x690
+        ContainerQuery 560x100
+          Label_ProfileCode 150x60 text:#653122@22
+          Input_ProfileCode 200x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Button_Query 150x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+        ContainerSubmit 150x100
+          Button_Submit 150x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30

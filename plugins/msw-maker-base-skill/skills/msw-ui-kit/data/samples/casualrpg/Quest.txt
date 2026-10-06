@@ -1,0 +1,38 @@
+# Quest — 36 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Popup
+UIR_CasualRPG_Sample_Quest 1920x1080
+  Background 7920x7080
+  Popup 1706x874 f47ee45115114234bd8a140b5d02729c
+    Title 1666x84 text:#7DB3FC@28
+      CloseButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      Panel_Help 66x66 ef08cfd3bd334736877b4dfc3a982b48
+    ContentPanel 1666x744
+      QuestListPanel 600x632 62b3030e5a8c43b680165c0c7fa89aab color:#222630/80%
+        QuestSlot 570x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+          QuestTitle 570x50 text:#FFFFFF@28
+          QuestInfo 570x50 text:#899BBF@24
+      QuestContentPanel_Empty 1021x704 788439cb3ad94c41b0ade30f989a3b2d
+        UIText 1000x200 text:#899BBF@24
+      QuestContentPanel 1021x704 788439cb3ad94c41b0ade30f989a3b2d
+        QuestTitlePanel 1021x88 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630
+          QuestTitle 1020x88 text:#FFFFFF@28
+          QuestInfo 1020x66 text:#899BBF@28
+        QuestObjectivePanel 981x181 788439cb3ad94c41b0ade30f989a3b2d
+          ObjectiveSlot 960x50
+            ObjectiveIcon 44x30 46c34255c019473482b09e491cf1ec73
+            ObjectiveText 887x64 text:#FFFFFF@28
+        QuestDescriptionPanelBack 981x181 52849ae90e6e4aa392d5cf856f5e359c
+        QuestDescriptionPanel 981x181 9fc787336d8e462885d2a44157e971af (Sliced) color:#FFFFFF/0%
+          QuestDescriptionText 960x216 text:#899BBF@28
+        QuestBottomPanel 981x129 788439cb3ad94c41b0ade30f989a3b2d
+          QuestRewardPanel 624x129
+            QuestRewardSlot 110x110 e631ce0541de3ac44a936b608c9c44f2 color:#17181B
+              Icon 80x80 c0a5ee2465734773bbab5a2a86e42b1f text:#FFFFFF@24B+o#000000
+          QuestButtonPanel 357x128
+            UISprite 128x357 9ff12837c41a4eff9c5331412caa3a57
+            CheckMark 48x33 46c34255c019473482b09e491cf1ec73
+            QuestCompleteButton 307x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#53596B/50%
+    TopPanel 600x110 a921b49abb4c4808a9749bdfa1bd049d (Sliced)
+      QuestCategory 600x110
+        ProgressCategoryButton 300x109 994e2ad676fe4b4c9782186b06f02a4a (Sliced) text:#FFFFFF@28
+        CompleteCategoryButton 300x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) text:#FFFFFF@28

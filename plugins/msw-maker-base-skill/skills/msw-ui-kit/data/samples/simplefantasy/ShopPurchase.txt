@@ -1,0 +1,39 @@
+# ShopPurchase — 37 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Block, Panel
+UIR_SimpleFantasy_Sample_ShopPurchase 1920x1080
+  Img_Block 1920x1080
+  Panel 787x723 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 500x40 text:#FFFFFF@25B
+    Btn_Close 50x50 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+    Scroll_Tag 200x45
+    Layout_ItemInfo 765x624
+      Layout_ItemIcon 136x136
+      Text_Name 575x30 text:#757474@26B
+      Text_LimitCount 500x30 text:#679C38@22
+      Text_LeftTime 113x33 text:#FA7753@22B
+      Img_Line 750x3
+      Img_Line_1 750x3
+      Scroll_ItemDesc 750x160
+        Text_ItemDesc 171x51 text:#999688@22B
+      Layout_BuyInfo 750x200
+        Label_Count 83x38 text:#757474@26B
+          Deco_Star 17x17 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+        Layout_Count_Slider 560x77
+          Btn_Minus 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:highlighted=null,pressed=b6dc5346bcf044a99ba00a502e3c3f31,disabled=null text:#FFFFFF@40B
+            Img_Dim 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) color:#000000/45%
+          Btn_Plus 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@30B
+            Img_Dim 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) color:#000000/45%
+          BG_Count 275x40 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#E5E2D4
+          Text_Count 250x30 text:#757474@26B
+          Btn_Max 150x54 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF@22B
+            Img_Dim 150x54 a284a5997dd24bf3927f8b71887c322f (Sliced) color:#000000/45%
+        Label_Price 96x38 text:#757474@26B
+          Deco_Star 17x17 36338acb0cfe498cac27bf667fc29979 color:#BCB8A8
+        Img_BG_Price 574x45 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#E5E2D4
+        Layout_Price 574x100
+          Img_Res 38x38 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+          Text_OriginPrice 174x40 text:#757474@20B
+            Img_SaledLine 184x3 e4ce1ef6edfa4a838d483d13c8e1ff4e color:#9EBA3B
+            Tag_Sale 125x36 47433e1d1edb4dd1814cd5459043f346 text:#FFFFFF@20B+o#607611
+          Text_Price 227x48 text:#757474@26B
+    Btn_Equip 240x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=43e062b84ca44d539a3b9663ba6cc1df text:#FFFFFF@26B

@@ -1,0 +1,13 @@
+# UICommonPopup — 10 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UICommonPopup 1920x1080
+  Dim 3020x1680
+  Panel 787x512 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Title 56x45 text:#FFFFFF@30+o#B2B2B2
+    Description 684x293 text:#6E6E6E@25+o#B2B2B2
+    TwoBtnGroup 716x88
+      CancelBtn 250x88 50426b5b1ee44bc5a1c10355b0e9ad03 (Sliced) text:#FFFFFF@25+o#B2B2B2
+      OKBtn 250x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25+o#B2B2B2
+    OneBtnGroup 716x88
+      ConfirmBtn 250x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25+o#B2B2B2

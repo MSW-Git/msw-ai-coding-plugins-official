@@ -1,0 +1,68 @@
+# LinkSkill — 66 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout_Skill, Layout_Char
+UIR_SimpleFantasy_Sample_LinkSkill 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Layout_Skill 1000x920 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#1F2734/70%
+    Img_Link 36x36 e614216b606f428dba21a96b4664456b color:#D7D7D7
+      Text_LinkTitle 890x41 text:#EEEDE8@28B
+    Scroll 1000x825
+    Item 990x172 35e2ce6ee9de4a44a3448a43f8c06248 (Sliced)
+      Text_Name 79x42 text:#FFFFFF@28
+      Level 70x30 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#3D4963 text:#B1B1B1@24
+        Text_Level 52x36 text:#EEEDE8@24B
+      Text_Desc 830x64 text:#CDC9C9@22
+      Img_New 100x48 5e94ec20ee214fa08d9c9a1b70330a14
+      Img_Icon_BG 96x96 8621f2a537b745c29cf520fd35e8a0e2 color:#232F44/80%
+        Img_Icon 65x65 9874c42632784544aa448f02591abbff
+      Img_Disable 990x172 35e2ce6ee9de4a44a3448a43f8c06248 (Sliced) color:#000000/50%
+      Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        Text_Condition 127x36 text:#EF7C59@24B
+    Img_Effect 28x28 5fc9e15f755642319b57a4be0f731651
+      Text_LinkEffect 890x33 text:#EF7C59@22B
+  Layout_Char 830x920 b4c09361575647cb83560c9d1ad1fb7d
+    Deco 600x500
+      Img_DecoL 276x496 096c80ec4adf4f90b7ad05b3ee929bfe color:#A9947B/20%
+      Img_DecoR 276x496 096c80ec4adf4f90b7ad05b3ee929bfe color:#A9947B/20%
+      Img_DecoLight 1200x330 ed6a217833b0416eade8705f2ea00cd9 color:#A9947B/15%
+      LinkEff 351x168 e48a2f9ed67d471e8f4d492710cccb4a color:#FFE2CA/34%
+        LinkEff_1 168x168 1e080d3728144ee98551763fe95380dd color:#FFFFFF/70%
+        LinkEff_2 199x199 1e080d3728144ee98551763fe95380dd color:#FFFFFF/55%
+        LinkEff_3 174x174 0b085ef916f242b49e8fb69d0c38002c
+        LinkEff_4 199x199 1e080d3728144ee98551763fe95380dd
+        LinkEff_5 159x172 e0d8a43debb642e4aec703feb37344a4 color:#FFFFFF/40%
+      Img_DecoLink 24x64 6ea432f90df042129c99123177b02d10 color:#B19F89
+    Scroll_JobAndLevel 795x40
+      Text_CharLevel 83x33 text:#817B7A@22B
+      Text_JobName 111x33 text:#44C2C4@22B
+    Avatar_Char 228x186
+    Text_CharName 167x44 text:#A9947B@30B
+      Img_DecoR 280x20 ee6474d16fe64c5190ad8191d7dae934 (Sliced) color:#A9947B
+      Img_DecoL 280x20 56009a4babfb46a9aa9c0e085a6ca6b8 (Sliced) color:#A9947B
+    Layout_Skill 96x96 8621f2a537b745c29cf520fd35e8a0e2 color:#9D8A74
+      Img_Icon 65x65 9874c42632784544aa448f02591abbff
+      Text_Icon 149x38 text:#A59A8E@26B
+    Scroll_SkillDesc 830x380
+      Item 807x120
+        Img_Select 807x122 f36540ed0bbf4da6acad69e2319a5c2f color:#E9E1C0/70%
+        Layout_Condition 104x34
+          Text_Condition 209x34 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#ADA091/20% text:#E0886C@20
+          Img_Lock 28x28 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        Text_Desc 684x90 text:#B4B0A7@22
+        Img_Level 70x30 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#BBA78F
+          Text_Level 52x36 text:#A58E74@24B
+      Item 807x120
+        Img_Select 807x122 f36540ed0bbf4da6acad69e2319a5c2f color:#E9E1C0/70%
+        Layout_Condition 103x33
+          Text_Condition 209x34 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#ADA091/20% text:#E0886C@20
+          Img_Lock 28x28 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        Text_Desc 684x90 text:#AA8E6D@22
+        Img_Level 70x30 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#BBA78F
+          Text_Level 52x36 text:#EEEDE8@24B
+      Item 807x120
+        Img_Select 807x122 f36540ed0bbf4da6acad69e2319a5c2f color:#E9E1C0/70%
+        Layout_Condition 104x34
+          Text_Condition 209x34 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#ADA091/20% text:#E0886C@20
+          Img_Lock 28x28 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        Text_Desc 684x90 text:#B4B0A7@22
+        Img_Level 70x30 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#BBA78F
+          Text_Level 52x36 text:#E69A81@24B

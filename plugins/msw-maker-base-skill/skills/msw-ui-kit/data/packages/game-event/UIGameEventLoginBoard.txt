@@ -1,0 +1,24 @@
+# UIGameEventLoginBoard — 21 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGameEventLoginBoard 2520x1680
+  Panel 780x1050 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 730x110
+      Text_Title 400x100 text:#FFE398@44
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    BG 660x820 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+      Img 600x600
+        1 200x200 3bb380e948ff4537b96002d4af393e98
+        2 200x200 3bb380e948ff4537b96002d4af393e98
+        3 200x200 3bb380e948ff4537b96002d4af393e98
+        4 200x200 3bb380e948ff4537b96002d4af393e98
+        5 200x200 3bb380e948ff4537b96002d4af393e98
+        6 200x200 3bb380e948ff4537b96002d4af393e98
+        7 200x200 3bb380e948ff4537b96002d4af393e98
+        8 200x200 3bb380e948ff4537b96002d4af393e98
+        9 200x200 3bb380e948ff4537b96002d4af393e98
+      deco_line 620x2
+      Text_LoginCount 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@26
+      Label_LoginCount 300x60 text:#653122@24
+      Text_RemainAttempts 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@26
+      Label_RemainAttempts 300x60 text:#653122@24

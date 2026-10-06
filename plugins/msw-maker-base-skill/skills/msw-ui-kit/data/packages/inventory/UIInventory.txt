@@ -1,0 +1,96 @@
+# UIInventory — 93 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel, EquipPopup, UsePopup
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIInventory 1920x1080
+  Panel 1550x881 24fd83e2b4324378b706c245093f2d4a (Sliced)
+    Title 1550x100 text:#FFFFFF@36+o#2A93AE
+    ButtonClose 86x86 f3f01d21d6234e41bc6cf8495d28ce7f
+    EquipPanel 732x719
+      PlayerInfo 530x719
+        PlayerBG 420x472 8a07e5eb41b74bc9825054e9f308b7f3
+        UIAvatarEntity 480x480
+        NameBackground 500x70 8361ce21b66a51a4a8ab1dfccba66614 color:#EDEDED
+          Name 390x50 text:#636363@28+o#797876
+          LevelBackground 112x104 02c060f966f84cef962fc7252c2bce06
+            Level 100x55 text:#FFFFFF@34+o#A2742C
+      EquipInfoGrid 200x719
+        MainWeapon 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 3ceaa3af732e4956b623b5f470f628c5
+        SubWeapon 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 3ceaa3af732e4956b623b5f470f628c5
+        Coat 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 b41b2a76b9cf4074baa4c727ca5e1ac9
+        Pants 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 2ceb2ac2b3c64ab4b459241ccb468d3d
+        Shoulder 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 d56c963d3f964e5fa71753c0976795d2
+        Cap 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 42e5e834544e4b05b11160213f712635
+        Shoes 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 f0c990b0fd7649cc937d608a74d0a322
+        Glove 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 1c9eba05b6c142e789f5a197c472c066
+        Cape 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 1d74d38d49ac41c5a14009e6f6414772
+        EyeAcc 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 ccb67addbf654a8f8eb2ee79226fe710
+        Face 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 9ff00165e3e44d9296b0de5e860cfa6c
+        FaceAcc 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 0d9f55ab18c04e418faba12771bb9c49
+        Ear 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 c4760132e8684aa8b85bc24928fad4f0
+        EarAcc 90x90 004e5fc9c660a1342a055ae7157e5aeb color:#F1F1F1
+          Icon 70x70 19409cb86e9a4c709db38ca6c286e9c0
+    InventoryPanel 781x719
+      TabHolder 781x100
+        All 100x100 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Background 100x100 76359b32034643c6b5da0717f9c380bb
+            Icon 40x40 c9a065e195784b9dacc41465a8192df2 color:#47D674
+            UIText 80x32 text:#8F8F8F@20
+        Weapon 100x100 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Background 100x100 76359b32034643c6b5da0717f9c380bb
+            Icon 40x40 3ceaa3af732e4956b623b5f470f628c5 color:#47D674
+            UIText 80x32 text:#8F8F8F@20
+        Armor 100x100 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Background 100x100 76359b32034643c6b5da0717f9c380bb
+            Icon 40x40 b41b2a76b9cf4074baa4c727ca5e1ac9 color:#47D674
+            UIText 80x32 text:#8F8F8F@20
+        Acc 100x100 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Background 100x100 76359b32034643c6b5da0717f9c380bb
+            Icon 40x40 19409cb86e9a4c709db38ca6c286e9c0 color:#47D674
+            UIText 80x32 text:#8F8F8F@20
+        Etc 100x100 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Background 100x100 76359b32034643c6b5da0717f9c380bb
+            Icon 30x30 e6ab9f49a8b4a164b824a510f63fde1d color:#47D674
+            UIText 80x32 text:#8F8F8F@20
+      Grid 761x521 68221c9a70128be45b3e1d383c6fc6d4 color:#F1F1F1
+      Capacity 300x70 8361ce21b66a51a4a8ab1dfccba66614 color:#F1F1F1
+        Icon 55x49 9fdecd72fae64caebeade325efc678a1
+        Text 170x53 text:#636363@32+o#797876
+      ButtonSort 340x88 dec9e874622a4b269fab6552a126e0c9
+        Text 171x57 text:#8F8F8F@25
+        IconBackground 104x104 87091fbe60c54ecab1fa9c862f09684f
+          Icon 40x40 e0153c2b1ac5418381dc35f95653e3d4
+  EquipPopup 1920x1080
+    Panel 850x540 24fd83e2b4324378b706c245093f2d4a (Sliced)
+      Title 850x100 text:#FFFFFF@36+o#2A93AE
+      ItemDecoration 200x200 21691103c9b6f174d8f0a84a5904153f
+      Message 780x100 text:#636363@32
+      ButtonDelete 100x104 c6d376a4daba46cea8f03166f8637f91 (Sliced)
+        UISprite 50x50 1250db83763d8af4ca2432d65e7744bf
+      ButtonCancel 300x104 c6d376a4daba46cea8f03166f8637f91 (Sliced) text:#FFFFFF@32+o#C27F28
+      ButtonConfirm 300x104 0a0194a2dc554eaabe47240600e2b109 (Sliced) text:#FFFFFF@32+o#3ABA64
+      ButtonLock 100x104 53636f549707cc04dbfb048c4a2dfdc3 (Sliced)
+        UISprite 50x50 1c473d3feca847bab119b4c64a22c364
+        TextLock 60x30
+  UsePopup 1920x1080
+    Panel 850x540 24fd83e2b4324378b706c245093f2d4a (Sliced)
+      Title 850x100 text:#FFFFFF@36+o#2A93AE
+      ItemDecoration 200x200 21691103c9b6f174d8f0a84a5904153f
+      Message 780x100 text:#636363@32
+      ExpireDate 330x50 text:#636363@32
+      ButtonDelete 100x104 c6d376a4daba46cea8f03166f8637f91 (Sliced)
+        UISprite 50x50 1250db83763d8af4ca2432d65e7744bf
+      ButtonCancel 300x104 c6d376a4daba46cea8f03166f8637f91 (Sliced) text:#FFFFFF@32+o#C27F28
+      ButtonConfirm 300x104 0a0194a2dc554eaabe47240600e2b109 (Sliced) text:#FFFFFF@32+o#3ABA64

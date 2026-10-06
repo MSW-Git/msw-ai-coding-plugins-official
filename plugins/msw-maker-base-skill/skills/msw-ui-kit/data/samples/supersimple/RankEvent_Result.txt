@@ -1,0 +1,25 @@
+# RankEvent_Result — 23 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UISprite_back, UISprite_top, DecoImages, Panel
+UIR_SuperSimple_Sample_RankEvent_Result 2520x1680
+  UISprite_back 2520x1680
+  UISprite_top 2520x483 8c9f4def2c6e4368b50d3546207273a9
+  DecoImages 2520x1668
+    UISprite_Deco_01 246x300 e0fa44845a614f96b64b1313c9d0a125 color:#F5F19A
+    UISprite_Deco_02 172x172 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_03 343x418 e0fa44845a614f96b64b1313c9d0a125 color:#F5F19A
+    UISprite_Deco_04 172x172 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_05 303x370 e0fa44845a614f96b64b1313c9d0a125 color:#E5D75C
+    UISprite_Deco_06 349x349 5217a9f151dd4da4a6d126467a6477df color:#F5F19A
+    UISprite_Deco_07 292x292 5217a9f151dd4da4a6d126467a6477df color:#E5D75C
+  Panel 1920x1080
+    Title_Imgtext 584x149 423524a812d442588233571578d8cd98
+    Title_Text 439x70 bbff40bff00c43bb99eee92899dd0df5 color:#EEEA89 text:#847252@32B
+    CloseButton 257x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6
+      UIText 217x52 text:#FFFFFF@28B
+    Rank_List 1920x773
+      List_Item 880x128 1770565d64de4bd49c5584ea8e465a75
+        Name_Text 316x36 text:#B9A075@24B
+          ProfileCodeBG 120x36 8e33ebcb96034af893995195af9c7e53 color:#E6EBB9
+            UIText 100x36 text:#B9A075@20B
+        Play_Button 238x72 762648601a704516a395792e0e46d74c (Sliced) color:#12C4B6 text:#FFFFFF@30B
+        MapNameText 643x49 text:#847252@28B

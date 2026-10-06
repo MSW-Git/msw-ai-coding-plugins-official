@@ -1,0 +1,58 @@
+# Ranking — 56 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+UIR_SuperSimple_Sample_Ranking 2520x1680
+  Panel 1017x861 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Title 748x60 text:#FFFFFF@34B
+    Cancelbutton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced) color:#005079
+    BG 928x712
+    Scroll 928x712
+      Slot_1 920x130
+        NickName 212x44 text:#847252@30B
+        Rank_Img 56x72 7250562fb4e7402685c8a238e5ca9992
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 246x59 text:#847252@30B
+      Slot_2 920x130
+        NickName 163x44 text:#847252@30B
+        Rank_Img 56x72 0037515e9ca4436285cf6fe962cb7cf1
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 246x59 text:#847252@30B
+      Slot_3 920x130
+        NickName 163x44 text:#847252@30B
+        Rank_Img 56x72 cc7cc5ee553f4cf6a3954f91491c3e7e
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 246x59 text:#847252@30B
+      Slot_4 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 278x59 text:#847252@30B
+      Slot_5 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 278x59 text:#847252@30B
+      Slot_6 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 278x59 text:#847252@30B
+      Slot_7 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 278x59 text:#847252@30B
+      Slot_8 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 278x59 text:#847252@30B
+      Slot_9 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 246x59 text:#847252@30B
+      Slot_10 920x130
+        NickName 163x44 text:#847252@30B
+        Rank 180x130 text:#847252@70B
+        Line 920x4 6bd1f8ad60a44bcca3e177a04970c304 (Tiled) color:#EEC3A1
+        Time 246x59 text:#847252@30B

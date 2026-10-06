@@ -1,0 +1,76 @@
+# MsgBox — 74 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UIItemConfirmPopup, UIMsgConfirmPopup, UIMsgQueryPopup, UIShopConfirmPopup, UIDestroyConstructionConfirmPopup
+UIR_CasualSurvival_Sample_MsgBox 1920x1080
+  UIItemConfirmPopup 1920x1080
+    Bg 3920x3080
+    UIPopup 604x418
+      BottomBG 604x418 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG_1_1_1 604x60
+        Title 512x49 text:#FFFFFF@26+o#000000
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UIMsgText 540x64 text:#FFFFFF@26+o#000000
+      UIIconPanel 98x98 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+        UIItemIcon 72x72 930b06e12a454e85aee2b0a10538a396
+        UIItemCount 99x36 text:#FFFFFF@20+o#000000
+      UIItemName 604x32 text:#FFFFFF@22+o#000000/50%
+      BGBottom_1_1_1 604x100 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UIConfirmButton 344x77 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UIConfirmText 296x77 text:#FFFFFF@28+o#000000
+  UIMsgConfirmPopup 1920x1080
+    Bg 3920x3080
+    UIPopup 800x200
+      BottomBG 800x200 5edf5f9bc1d8416e884af5debd87e058 (Sliced)
+      UIMsgText 744x80 text:#FFFFFF@26+o#000000
+      UIConfirmButton 772x77 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UIConfirmText 724x77 text:#FFFFFF@28+o#000000
+  UIMsgQueryPopup 1920x1080
+    Bg 3920x3080
+    UIQueryPopup 604x260
+      BottomBG 604x260 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG 604x60
+        Title 512x49 text:#FFFFFF@26+o#000000
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UIMsgLabel 540x64 text:#FFFFFF@26+o#000000
+      BGBottom 604x100 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UIOkButton 284x77 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UIOkText 70x42 text:#FFFFFF@28+o#000000
+      UICancelButton 284x77 b4de5421f5934acabff04eb43bd0e417 (Sliced) states:highlighted=739a2754a11a4a9c929dbbb9e72e134d,pressed=3e8dfadf703e4a558942a279c50904f6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UICancelText 90x42 text:#FFFFFF@28+o#000000
+  UIShopConfirmPopup 1920x1080
+    Bg 3920x3080
+    UIPlainConfirmPopup 604x418
+      BottomBG 604x418 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG 604x60
+        Title 512x49 7d4d940d20984f50844c50df86ed3776 (Sliced) text:#FFFFFF@26+o#000000
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      Title 540x64 7d4d940d20984f50844c50df86ed3776 (Sliced) text:#FFFFFF@26+o#000000
+      UIIconScroll 490x98
+        UIIconPanelProto 98x98 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          UIItemIcon 72x72 930b06e12a454e85aee2b0a10538a396
+          UIItemCount 99x36 text:#FFFFFF@20+o#000000
+      UIItemName 604x32 text:#FFFFFF@22+o#000000/50%
+      BGBottom 604x100 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UIConfirmButton 344x77 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UIConfirmButtonText 296x77 text:#FFFFFF@28+o#000000
+  UIDestroyConstructionConfirmPopup 1920x1080
+    Bg 3920x3080
+    UIDestroyConstructionConfirmPopup 604x368
+      BottomBG 604x368 273f6001729e484ebf46d4d3d0ab6893 (Sliced)
+      TopBG 604x60
+        Title 512x49 text:#FFFFFF@26+o#000000
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      Description 540x200 text:#FFFFFF@26+o#000000
+      UIIconScroll 490x98
+        UIIconPanelProto 98x98 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          UIItemIcon 72x72 930b06e12a454e85aee2b0a10538a396
+          UIItemCount 99x36 text:#FFFFFF@20+o#000000
+      UIItemName 604x32 text:#FFFFFF@22+o#000000/50%
+      BGBottom 604x100 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 598x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      UICancelButton 284x77 b4de5421f5934acabff04eb43bd0e417 (Sliced) states:highlighted=739a2754a11a4a9c929dbbb9e72e134d,pressed=3e8dfadf703e4a558942a279c50904f6,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        Text 38x42 text:#FFFFFF@28+o#000000
+      UIConfirmButton 284x77 9b0bbc1ec3054d4d93fab15bcec78d0c (Sliced) states:highlighted=71359f14f6e84a9b81fe70eeb38f75bf,pressed=05eafc1e8cce4fb498e7aacde04c3cd1,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        UIConfirmButtonText 236x77 text:#FFFFFF@28+o#000000

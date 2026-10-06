@@ -1,0 +1,50 @@
+# Minimap — 48 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: UIBlack, UIMinimap
+UIR_CasualSurvival_Sample_Minimap 1920x1080
+  UIBlack 3920x3080
+  UIMinimap 800x800
+    UIMinimapPanel 800x830
+      UISprite 858x914
+      UIMinimapPic 800x830 db90c55a36b0492881f0e1ffd142bdb7
+      UIMinimapCanvas 800x830
+      UIPOIPanel 800x830
+        UIPOIObjProto 30x30
+          UIIcon 30x30 712d48fcd3f14ef9a0cd0117e097102f (Sliced)
+      UIPlayerPos 40x40 05cbf0365b3e42d3a2f936f79d9c6344
+        UIPosText 100x20 text:#FFFFFF@14+o#000000
+      ScreenEffect 870x904
+        Acc2 40x40 42fab0b1f55043f8a75d2a210314fdfe (Sliced)
+        acc3 71x40 42fab0b1f55043f8a75d2a210314fdfe (Sliced)
+      Frame 920x970 7b844ebd8f5949d09be0e86dc0438150 (Sliced)
+        Top 270x68 f3c10fd910b14f9ca9fbc0c641ec3838
+        bottom 270x68 f3c10fd910b14f9ca9fbc0c641ec3838
+      UIPOIFocus 80x80
+        UIPOIFocusFlicker 100x100
+          UIBubbleFocusTo 199x40 2d92cfd8efd44d33b3b987c7c8b56574 (Sliced) text:#FFFFFF@20+o#000000
+            UITail 16x16 77b3782f9e0548a58a38f0e91f02069b
+          UIBubbleFocusBototm 103x34 482daea14a374cbab2e6fc70c3d8e964 (Sliced) text:#FFFFFF@16+o#000000
+            UITail 13x13 b8009bb3f04745ffa056171018b0f881
+            UIFlag 20x20 fed50a7a07f6424ba06cc5978422591b
+      UIPOIHover 80x80
+        UIBubbleHoverTo 199x40 2d92cfd8efd44d33b3b987c7c8b56574 (Sliced) text:#FFFFFF@20+o#000000
+          UITail 16x16 77b3782f9e0548a58a38f0e91f02069b
+          UIHoverGuide 126x40 text:#FFFFFF@20+o#000000
+            UIGuideIcon 30x30 4a3752f23faa40e29c6262dcd953d938
+        UIBubbleHoverBottom 136x34 482daea14a374cbab2e6fc70c3d8e964 (Sliced) text:#FFFFFF@16+o#000000
+          UITail 13x13 b8009bb3f04745ffa056171018b0f881
+        UIBubbleHoverDetail 240x120 2d92cfd8efd44d33b3b987c7c8b56574 (Sliced)
+          UIContents 240x50
+            Content 71x27 text:#FFFFFF@18+o#000000
+              UISprite 30x30 757abece87784f0ca74dd5b8a29db50e
+          UITopTitle 240x48
+            UITitleName 240x30 7d4d940d20984f50844c50df86ed3776 (Sliced) text:#FFFFFF@20+o#000000
+            DotLine 220x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000/50%
+            UITextDescBig 133x24 text:#FFFFFF@16+o#000000
+          UITail 16x16 77b3782f9e0548a58a38f0e91f02069b
+      TipText 800x40 text:#FFFFFF@20+o#000000
+      TipIconBox 700x32
+        Icon1 150x27 text:#FFFFFF@18+o#000000
+          Image 28x28 084389f030df4e40a5c912923375787c (Sliced)
+        Icon2 150x27 text:#FFFFFF@18+o#000000
+          Image 30x30 712d48fcd3f14ef9a0cd0117e097102f (Sliced)
+    CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e

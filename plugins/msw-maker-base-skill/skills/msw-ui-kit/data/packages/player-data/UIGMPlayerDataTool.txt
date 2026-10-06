@@ -1,0 +1,69 @@
+# UIGMPlayerDataTool — 66 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGMPlayerDataTool 2520x1680
+  Panel 1800x1050 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5
+      Text_TimeOffset 143x55 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@30
+        Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+          Panel_TooTip 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+            tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+            Text_Desc 352x60 text:#362517@24
+    TabButtons 240x368
+      Btn_View 200x160 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@32
+      Btn_Edit 200x160 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@32
+    Pages 1491x879
+      Page_View 1491x879 c24adedc9faa457daf4e4aae7cd663bb
+        Text_Name 1356x50 text:#653122@30
+        deco_line 1491x2
+        Scroll 1451x659
+          Panel 1400x678
+            Label 200x678
+              Label_Level 180x80 text:#653122@24
+              Label_Dia 180x80 text:#653122@24
+              Label_Meso 180x80 text:#653122@24
+              Label_FirstLoginTime 180x80 text:#653122@24
+              Label_LastUpdateTime 180x80 text:#653122@24
+              Label_Extra 180x200 text:#653122@24
+            deco_line 2x678
+            Item 1180x678
+              Text_Level 1150x80 text:#653122@24
+              Text_Dia 1150x80 text:#653122@24
+              Text_Meso 1150x80 text:#653122@24
+              Text_FirstLoginTime 1150x80 text:#653122@24
+              Text_LastUpdateTime 1150x80 text:#653122@24
+              Text_Extra 1150x200 text:#653122@24
+        deco_line 1491x2
+        Scroll_Bottom 1124x120
+          Label_ProfileCode 200x100 text:#653122@26
+          Text_ProfileCode 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Btn_Query 200x80 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+      Page_Edit 1491x879 c24adedc9faa457daf4e4aae7cd663bb
+        Text_Name 1356x50 text:#653122@30
+        deco_line 1491x2
+        Scroll 1451x659
+          Panel 1400x680
+            Label 200x680
+              Label_Level 180x80 text:#653122@24
+              Label_Dia 180x80 text:#653122@24
+              Label_Meso 180x80 text:#653122@24
+              Label_FirstLoginTime 180x80 text:#653122@24
+              Label_LastUpdateTime 180x80 text:#653122@24
+              Label_Extra 180x200 text:#653122@24
+            deco_line 2x680
+            Item 1180x680
+              Text_Level 1150x80 text:#653122@24
+              Text_Dia 1150x80 text:#653122@24
+              Text_Meso 1150x80 text:#653122@24
+              Text_FirstLoginTime 1150x80 text:#653122@24
+              Text_LastUpdateTime 1150x80 text:#653122@24
+              Text_Extra 1150x200 text:#653122@24
+        deco_line 1491x2
+        Scroll_Bottom 633x120
+          Label_ProfileCode 200x100 text:#653122@26
+          Text_ProfileCode 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Btn_Query 200x80 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+        Btn_Revert 240x100 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Save 240x100 e22dca176e7c48b39d5b40554b546e22 (Sliced) states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36

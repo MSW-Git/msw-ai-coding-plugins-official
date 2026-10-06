@@ -1,0 +1,11 @@
+# UIItemSlot — 8 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Grade, IconItem, IconTime, IconLock, Dim, RedDot, Count
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIItemSlot 115x115 9a43d767d2e8495396eae6fcded4b19d color:#D4D4D4
+  Grade 105x105
+  IconItem 80x80 14d135968aa141e8ab5086a2b2a56819
+  IconTime 25x25 346507a345766aa46b93b774c487312a color:#FF0000
+  IconLock 25x25 1c473d3feca847bab119b4c64a22c364
+  Dim 100x100
+  RedDot 20x20 f7ebaa33f3f71eb428de9c2075d44c73 color:#FF0000
+  Count 40x15 text:#FFFFFF@19+o#000000

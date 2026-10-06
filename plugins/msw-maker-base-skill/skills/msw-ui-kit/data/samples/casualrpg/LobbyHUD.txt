@@ -1,0 +1,145 @@
+# LobbyHUD — 143 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: ButtonExpandMenu, InfoButtons, EventButtons, QuestHUD, PlayerAccountPanel, HUD_Bottom, PanelExpandMenu
+UIR_CasualRPG_Sample_LobbyHUD 1920x1080
+  ButtonExpandMenu 98x98 6e4ce9a60f3c4f949ceb073cab3e61f5
+    Icon_Menu 40x41 033fda676a434a11be518dfa45e2d3e2
+  InfoButtons 140x710
+    Button_OpenCharacterStatus 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      UISprite 103x102 228bcec686fe44b4b2c7193eb1b6b0cb
+      UIText 120x54 text:#FFFFFF@24B+o#000000+s#000000
+    Button_GoStorage 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      Icon_Weapon 128x128 d3820b8a4b054234a70b0afbab15b6db
+        ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+      Text_Weapon 120x54 text:#FFFFFF@24B+o#000000+s#000000
+    Button_CashShop 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      Icon_CashShop 128x128 9423a5b194cd41bcb9f2ef8b802929d5
+        ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+      Text_CashShop 120x38 text:#FFFFFF@24B+o#000000+s#000000
+    Button_DailyMission 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      UISprite 89x97 6ed2ac5197a7447abdb14cc645590e9c
+      UIText 120x54 text:#FFFFFF@24B+o#000000+s#000000
+  EventButtons 140x572
+    Button_NewYear 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      UISprite 91x95 4365086454a34750b5585f987ab300ad
+      UIText 120x54 text:#FFFFFF@24B+o#000000+s#000000
+    Button_NewbieMission 98x120 a921b49abb4c4808a9749bdfa1bd049d (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+      UISprite 128x128 999582d2244f46b5aaa1761df6c9805a
+      UIText 120x54 text:#FFFFFF@24B+o#000000+s#000000
+  QuestHUD 470x89
+    Background 470x89 eb122a1efc00481c86efe2696d20771a color:#1D1D1D/85%
+    Title 407x36 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFF600@24+s#000000/50%
+    Summary 442x47 text:#FFFFFF@20+s#000000/50%
+    Icon_Quest 31x31 8cbf1555026540569c7bc81e97e97074
+    Badge_Clear 42x45 e9dbec048cf5422883590e230934c2ee
+  PlayerAccountPanel 392x85 44ef24699638413a968ad42bf5dd313c
+    AccountIcon 80x80 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+      Mask_Avatar 79x79
+        Avatar 110x110
+      Icon_Image 79x79
+      Img_Cover 80x80 9e0c07f0d2054653b451553b4a378a3e
+    NickNamePanel 288x40
+      Nickname_Text 288x40 text:#1D1D1D@24+s#FFFFFF/69%
+    LevelPanel 261x15
+      GaugeBox 261x15 2f3fbbff6da540e0a4ffe8d0bb581117 color:#FFFFFF/50%
+        Gauge_Filled 261x15 5b2473218a764ddabff45129041cff47 (Filled) text:#FFFFFF@16+o#000000/70%
+        AccountLevelInformationButton 50x50 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+          UISprite 20x20 ddb97d3e2544ae948b5b24752a0c750b
+    IconLevel 34x39 bd635de8c00d456681f696ebe4ec81fd
+      IconLevel_Text 60x50 text:#1D1D1D@18B+o#FFE749/48%
+    Effect_Desc 329x336 b075056fab1c49948afc2844b365ee1a color:#1D1D1D/90%
+      UIText 299x49 text:#FFFFFF@20
+      UISprite 267x221
+      ExitButton 70x52 3fa84442296e4a59bcc5ed6e7ba632f6 (Sliced)
+        Icon 30x30 c6ac7299e3174a9e9e1fff0de8adfdec (Sliced)
+    Icon_Info 22x22 052e86fae1b14ed88e70599c739a9224
+    Help 392x85
+    BuffLayout 391x85
+      BuffSlot 85x85 066dd174c9b6470ca1f7d974333f8495 text:#FFFFFF@B+o#000000
+  HUD_Bottom 674x222
+    Panel_Weapon 650x107 14d21a0f23984de1b6de183a0c97e530
+      WeaponLayout 578x100 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+        WeaponSlot_1 100x100 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+          State_Locked 85x85 0bd38e9d9fe74d45b45e8dfce64db4c6
+            Icon_Lock 20x28 66d1a107ce9b490bb4e57770d69756a1 color:#1D1D1F/40%
+          State_Empty 83x83 72f5ac747d3a4195af3bfd232a9ac331
+            Icon_Plus 22x24 1484d66284a84fd28c176ae520903c9b
+          State_Equip 100x100
+            Bg_Grade 83x83 87f20108334748dc94da9983a1e7e96c
+            Icon_Outglow 85x85
+            Icon_Weapon 65x65
+          WeaponCategory 34x34 267e7186eac54d24a83968c66febc10c text:#6B6E7A@18+s#FFFFFF/40%
+            Icon_Weapon_Category 34x34 ec110598c48a460e8e7afedeae261794
+      EquipCharacterInfoPanel 112x114
+        LevelPanel 112x114 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+          Img_Bg 96x96 e631ce0541de3ac44a936b608c9c44f2 color:#303139
+          Illust 96x96 21ca450731964278aba8fda51761cddb
+          Deco_Cover 112x114 35d38ca9d5404a4cb4e9e0b34d618dc5
+          Level 29x36 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) text:#FFFFFF@24B+o#000000+s#000000
+            UIText 40x40 text:#FFFFFF@18B+o#000000+s#000000
+          OpenCharacterInfoBtn 112x114
+          Panel_Weapon 32x32 1928dd523bf14ab4bcc275e4f71607da
+            Icon_Weapon 40x40 0cdc95ad140c43488ab6ec6e53ad7704 color:#1D1D1D
+    BattleStatusPanel 136x42 954b13c30e4c48f3bf0227f0d2034f2a
+      Value 100x40 text:#FFFFFF@24B+o#000000
+      Btn_Info 136x42
+        Icon_Info 22x22 052e86fae1b14ed88e70599c739a9224
+      Icon 37x37 0e11e2bd6343446089773690f50e98f1
+    SoulEggPanel 136x42 954b13c30e4c48f3bf0227f0d2034f2a
+      Value 100x40 text:#FFFFFF@24B+o#000000
+      Icon 45x50 5da6290efb324112a1e9df61b5aac471
+      Btn_Info 136x42
+        Icon_Info 22x22 052e86fae1b14ed88e70599c739a9224
+    Button_Battle 380x113 9d76e8f269f3437ab99cd72b5e76814a text:#FFFFFF@32B+o#362B71
+      Icon_Gate 159x135 47624d33114e48b4a34b835490e8e2ff
+  PanelExpandMenu 590x450 9fc787336d8e462885d2a44157e971af (Sliced)
+    Layout 590x450
+      Button_CharacterGroup 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        Icon_Character 73x88 e68223a4393d411486e01b7e8a3da26b
+        Text_Character 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_LandOfLimit 98x130
+        Icon_LandOfLimit 84x65 06d7527e9c594a1faf8232e3596fdbf7
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        Text_LandOfLimit 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_RandomBoss 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        Icon_RandomBoss 90x75 9cf6e0b003604edbaab8def55596eb2b
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        Text_RandomBoss 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_Explore 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0%
+        Icon_Explore 94x104 07601850fd4b41b1975446d7ed33138b
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        Text_Explore 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_Ranking 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_Ranking 128x128 c156e7400a064d6ab9bb9eaea29561e4
+        Text_Ranking 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_Option 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_Option 70x76 1d8347eb386d400c8ed20c86fcd13f1b
+        Text_Option 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_EquipCollection 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_EquipCollection 85x84 087dc2174c8c4e3884e232f72db707fc
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        Text_EquipCollection 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_OpenCharacteristic 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_OpenCharacteristic 81x85 006fef164b24486fb14cb4e0d9936698
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        Text_OpenCharacteristic 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_DailyReward 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_DailyReward 78x79 c3c8e41b557142b9a60bcecec9c0f947
+        Text_DailyReward 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_Quest 98x130 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced) color:#FFFFFF/0% text:#FFFFFF@28B+o#2E62B6
+        Icon_Quest 88x87 5c1b7afbdab74cd6b2552eef5f601516
+        Text_Quest 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+      Button_Crafting 98x130 text:#FFFFFF@28B+o#2E62B6
+        Icon_Crafting 81x88 eae769d4347244f7ae705feaf2907c05
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        UIText 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+        CurrentAbilityPoiint 34x38 f86ad41cc6f04118a9bcbe1ed92fb82b text:#FFFFFF@18B+s#000000/20%
+      Button_Baggage 98x130 text:#FFFFFF@28B+o#2E62B6
+        Icon_Baggage 100x100 ceae3d16e44c4451ad2f00f892660854
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        UIText 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+        CurrentAbilityPoiint 34x38 f86ad41cc6f04118a9bcbe1ed92fb82b text:#FFFFFF@18B+s#000000/20%
+      Button_FieldLevel 98x130 text:#FFFFFF@28B+o#2E62B6
+        Icon_FieldLevel 100x100 696e733ea814437aabf5787d87a05f31
+          ContentLock 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+        UIText 98x50 text:#FFFFFF@24B+o#000000/50%+s#000000
+        CurrentAbilityPoiint 34x39 f86ad41cc6f04118a9bcbe1ed92fb82b text:#FFFFFF@18B+s#000000/20%

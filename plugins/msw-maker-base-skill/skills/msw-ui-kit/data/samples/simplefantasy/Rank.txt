@@ -1,0 +1,36 @@
+# Rank — 34 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Dim, Layout
+UIR_SimpleFantasy_Sample_Rank 1920x1080
+  Img_Dim 2520x1680
+  Layout 1120x880 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Layout_Top 1080x74
+      Text_Title 950x74 text:#FFFFFF@26B
+      Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+    Layout_Scroll 1069x764
+      GridView 1069x563 d712e76fb66e38140adf81cba8b0068c (Sliced) color:#375279/40%
+      Item 1051x200
+        Img_BG 1051x194 c26a3cc43a2347979a54ad4d35292271 (Sliced)
+        Text_Rank 153x132 text:#6C7995@36B
+        Btn_Thumbnail 140x140 1e5e576fa39554b4a9d4b356354219c6 (Sliced) color:#CED2D6/0%
+          Img_BG 160x160 676ac9ceb90e4f19aa47490747a34d2e (Sliced)
+          Img_Thumbnail 123x123 d712e76fb66e38140adf81cba8b0068c (Sliced)
+          Img_Deco 146x146 30dbddd9ee1a4058a35a5b9926cc1234 (Sliced)
+        Text_Nick 390x74 text:#8C99B4@30B
+        Img_Score_BG 420x50 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#E0EBF5
+          Label_Score 200x50 text:#8C99B4@24B
+        Text_Score 200x50 text:#6C7995@24B
+        Btn_Detail 220x81 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+      Line 1269x106 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#DBDBDB
+      Item_MyRank 1051x200
+        Text_Rank 152x59 text:#757474@36B
+        Btn_Thumbnail 140x140 1e5e576fa39554b4a9d4b356354219c6 (Sliced) color:#1B223D
+          Slot_Portrait_Normal 160x160 676ac9ceb90e4f19aa47490747a34d2e (Sliced)
+          Img_Thumbnail 124x124 d712e76fb66e38140adf81cba8b0068c (Sliced)
+          Boss_Portrait_Line 146x146 30dbddd9ee1a4058a35a5b9926cc1234 (Sliced)
+          Empty 100x100 b441627f58b9435ba2771b8f30ddf0e7 color:#000000/20%
+        Text_Nick 390x74 text:#757474@30B
+        Img_Score_BG 421x50 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#E5E2D4
+          Label_Score 200x50 text:#A39F8A@24B
+        Text_Score 220x50 text:#757474@24B
+        Btn_Detail 220x81 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+    Text_Empty 1069x561 text:#ACACAC@26B

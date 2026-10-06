@@ -1,0 +1,233 @@
+# UIGMGameEventTool — 230 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGMGameEventTool 2520x1680
+  Panel 1800x1050 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+      Text_TimeOffset 143x55 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@30
+        Btn_Tooltip 68x68 67e476a57b0f48e4814509ab90a067b7
+          Panel_TooTip 380x80 b5f829660fbc4a58aaac8b8f4e22775f
+            tail 28x32 13fd509eaa134f4497ac63012b81d4bf
+            Text_Desc 352x60 text:#362517@24
+    TabButtons 240x683
+      Btn_Schedule 200x160 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@32
+      Btn_EditSchedule 200x160 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@32
+      Btn_User 200x160 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@32
+      Btn_EditUser 200x160 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@32
+    Pages 1491x879
+      Page_Schedule 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1451x80
+          Label_Id 120x60 text:#653122@24
+          Label_DefId 120x60 text:#653122@24
+          Label_PreviewDate 200x60 text:#653122@24
+          Label_StartDate 200x60 text:#653122@24
+          Label_EndDate 200x60 text:#653122@24
+          Label_CloseDate 200x60 text:#653122@24
+          Label_Disable 120x60 text:#653122@24
+        deco_line 1491x2
+        GridView 1483x603
+        Item 1450x80
+          Text_Id 120x80 text:#653122@24
+          Text_DefId 120x80 text:#653122@24
+          Text_PreviewDate 200x80 text:#653122@24
+          Text_StartDate 200x80 text:#653122@24
+          Text_EndDate 200x80 text:#653122@24
+          Text_CloseDate 200x80 text:#653122@24
+          Text_Disable 120x80 text:#653122@24
+        deco_line 1491x2
+        Btn_Query 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Page_EditSchedule 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1451x80
+          Label_Id 120x60 text:#653122@24
+          Label_DefId 120x60 text:#653122@24
+          Label_PreviewDate 180x60 text:#653122@24
+          Label_StartDate 180x60 text:#653122@24
+          Label_EndDate 180x60 text:#653122@24
+          Label_CloseDate 180x60 text:#653122@24
+          Label_Disable 120x60 text:#653122@24
+          Label_Action 275x60 text:#653122@24
+        deco_line 1491x2
+        GridView 1483x603
+        Item 1450x80
+          Text_Id 120x80 text:#653122@24
+          Text_DefId 120x80 text:#653122@24
+          Text_PreviewDate 180x80 text:#653122@24
+          Text_StartDate 180x80 text:#653122@24
+          Text_EndDate 180x80 text:#653122@24
+          Text_CloseDate 180x80 text:#653122@24
+          Text_Disable 120x80 text:#653122@24
+          Btn_Edit 120x70 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@26
+          Btn_Delete 120x70 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@26
+        deco_line 1491x2
+        Btn_Add 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Query 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Page_User 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text_Name 1000x70 text:#653122@30
+        deco_line 1491x2
+        Scroll_Label 1451x80
+          Label_Id 140x60 text:#653122@24
+          Label_DefId 140x60 text:#653122@24
+          Label_Value 850x60 text:#653122@24
+          Label_UpdateDate 160x60 text:#653122@24
+          Label_Detail 92x60 text:#653122@24
+        deco_line 1491x2
+        GridView 1483x579
+        Item 1450x110
+          Text_Id 140x100 text:#653122@24
+          Text_DefId 140x100 text:#653122@24
+          Text_Value 850x100 text:#653122@24
+          Text_UpdateDate 160x100 text:#653122@24
+          Btn_Detail 80x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2
+        deco_line 1491x2
+        Scroll_Bottom 659x120
+          Label_ProfileCode 200x100 text:#653122@26
+          Text_ProfileCode 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Btn_Query 200x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+      Page_EditUser 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text_Name 1000x70 text:#653122@30
+        deco_line 1491x2
+        Scroll_Label 1451x80
+          Label_Id 140x60 text:#653122@24
+          Label_DefId 140x60 text:#653122@24
+          Label_Value 700x60 text:#653122@24
+          Label_UpdateDate 160x60 text:#653122@24
+          Label_Action 208x60 text:#653122@24
+        deco_line 1491x2
+        GridView 1483x579
+        Item 1450x110
+          Text_Id 140x100 text:#653122@24
+          Text_DefId 140x100 text:#653122@24
+          Text_Value 700x100 text:#653122@24
+          Text_UpdateDate 160x100 text:#653122@24
+          Btn_Edit 120x70 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2
+          Btn_Delete 120x70 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2
+        deco_line 1491x2
+        Scroll_Bottom 659x120
+          Label_ProfileCode 200x100 text:#653122@26
+          Text_ProfileCode 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Btn_Query 200x80 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+        Btn_Add 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Revert 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Save 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditSchedule_Add 2400x1650
+      Panel 1438x700 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1388x81
+          Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+          Btn_Exit 80x80 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1358x522 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1318x90
+          Label_Id 120x70 text:#653122@24
+          Label_DefId 120x70 text:#653122@24
+          Label_PreviewDate 200x70 text:#653122@24
+          Label_StartDate 200x70 text:#653122@24
+          Label_EndDate 200x70 text:#653122@24
+          Label_CloseDate 200x70 text:#653122@24
+          Label_Disable 200x70 text:#653122@24
+        deco_line 1318x2
+        Item 1318x140
+          Text_Id 120x130 text:#653122@24
+          Text_DefId 120x130 text:#653122@24
+          Text_PreviewDate 200x130 text:#653122@24
+          Text_StartDate 200x130 text:#653122@24
+          Text_EndDate 200x130 text:#653122@24
+          Text_CloseDate 200x130 text:#653122@24
+          Text_Disable 200x130 text:#653122@24
+        deco_line 1318x2
+        Scroll_Action 1318x100
+          Btn_RevertEdits 200x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+        Btn_Apply 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditSchedule_Edit 2400x1650
+      Panel 1438x700 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1388x81
+          Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+          Btn_Exit 80x80 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1358x522 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 1318x90
+          Label_Id 120x70 text:#653122@24
+          Label_DefId 120x70 text:#653122@24
+          Label_PreviewDate 200x70 text:#653122@24
+          Label_StartDate 200x70 text:#653122@24
+          Label_EndDate 200x70 text:#653122@24
+          Label_CloseDate 200x70 text:#653122@24
+          Label_Disable 200x70 text:#653122@24
+        deco_line 1318x2
+        Item 1318x140
+          Text_Id 120x130 text:#653122@24
+          Text_DefId 120x130 text:#653122@24
+          Text_PreviewDate 200x130 text:#653122@24
+          Text_StartDate 200x130 text:#653122@24
+          Text_EndDate 200x130 text:#653122@24
+          Text_CloseDate 200x130 text:#653122@24
+          Text_Disable 200x130 text:#653122@24
+        deco_line 1318x2
+        Scroll_Action 1318x100
+          Btn_RevertEdits 200x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+        Btn_Apply 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditSchedule_Delete 2400x1650
+      Panel 1186x536 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1136x81
+          Text_Title 800x80 text:#FFE398@40+o#B2B2B2
+        BG 1106x358 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text 908x166 text:#653122@30
+        deco_line 1066x2
+        Btn_Apply 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_User_Detail 2400x1650
+      Panel 1600x900 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1550x81
+          Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+          Btn_Exit 80x80 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1520x692 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 200x560
+          Label_Id 180x60 text:#653122@30
+          Label_DefId 180x60 text:#653122@30
+          Label_UpdateDate 180x60 text:#653122@30
+          Label_Value 180x330 text:#653122@30
+        deco_line 2x660
+        Item 1292x560
+          Text_Id 1290x60 text:#653122@30
+          Text_DefId 1290x60 text:#653122@30
+          Text_UpdateDate 1290x60 text:#653122@30
+          Text_Value 1290x330 text:#653122@30
+        deco_line 1480x2
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditUser_Add 2400x1650
+      Panel 1186x536 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1136x81
+          Text_Title 800x80 text:#FFE398@40+o#B2B2B2
+        BG 1106x358 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Item 740x100
+          Label_Id 100x100 text:#653122@30
+          Text_Id 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@26
+          Label_DefId 200x100 text:#653122@30
+          Text_DefId 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@26
+        deco_line 1066x2
+        Btn_OK 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditUser_Edit 2400x1650
+      Panel 1600x900 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1550x81
+          Text_Title 800x100 text:#FFE398@50+o#B2B2B2
+          Btn_Exit 80x80 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1520x692 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Scroll_Label 200x560
+          Label_Id 180x60 text:#653122@30
+          Label_DefId 180x60 text:#653122@30
+          Label_UpdateDate 180x60 text:#653122@30
+          Label_Value 180x330 text:#653122@30
+        deco_line 2x660
+        Item 1292x560
+          Text_Id 325x60 text:#653122@30
+          Text_DefId 397x60 text:#653122@30
+          Text_UpdateDate 640x60 text:#653122@30
+          Text_Value 1292x330 text:#653122@30
+        deco_line 1480x2
+        Scroll_Action 633x94
+          Btn_RevertEdits 200x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+          Btn_ResetToOriginal 260x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+        Btn_OK 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+        Btn_Cancel 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36

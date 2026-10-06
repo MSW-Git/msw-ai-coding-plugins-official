@@ -1,0 +1,15 @@
+UIFixedPagination4 428x80 [UIFixedPagination] 86cb0ffa0826868499ac5518f20d930c
+  First 80x80 86cb0ffa0826868499ac5518f20d930c BTN
+    Img_Icon 80x80 57ba0c6231f043d44b93d8db732dbd34
+    Img_Icon_1 80x80 57ba0c6231f043d44b93d8db732dbd34
+  Prev 80x80 86cb0ffa0826868499ac5518f20d930c BTN
+    Img_Icon 80x80 57ba0c6231f043d44b93d8db732dbd34
+  ScrollLayout 84x80
+  Item 80x80 [UIPaginationItem]
+    Default 64x64 86cb0ffa0826868499ac5518f20d930c BTN text:#FFFFFF@20
+    Selected 64x64 86cb0ffa0826868499ac5518f20d930c BTN text:#FFFFFF@20
+  Next 80x80 86cb0ffa0826868499ac5518f20d930c BTN
+    Img_Icon 80x80 57ba0c6231f043d44b93d8db732dbd34
+  Last 80x80 86cb0ffa0826868499ac5518f20d930c BTN
+    Img_Icon 80x80 57ba0c6231f043d44b93d8db732dbd34
+    Img_Icon_1 80x80 57ba0c6231f043d44b93d8db732dbd34

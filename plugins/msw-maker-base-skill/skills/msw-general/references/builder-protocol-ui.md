@@ -52,12 +52,13 @@ b.write("ui/PopupGroup.ui", { lint_verbose: true });            // verbose warni
 b.write("ui/_scratch.ui", { lint: false });                     // skip lint
 ```
 
-Applied rule IDs (`L001`–`L017`, `L023`–`L031`) are implemented as `ruleLNNN` functions in `msw-ui-system/scripts/ui_lint.cjs`. Hierarchy-focused guards:
+Applied rule IDs (`L001`–`L017`, `L023`–`L032`) are implemented as `ruleLNNN` functions in `msw-ui-system/scripts/ui_lint.cjs`. Hierarchy-focused guards:
 
 - **`L025` (ERROR)** — an entity path implies an intermediate parent that does not exist in the file.
 - **`L029` (ERROR)** — `UIGroupComponent` exists below the root group.
 - **`L030` (WARN)** — a root-level text entity overlaps a sibling sprite/button box instead of being nested under it or merged onto it.
 - **`L031` (WARN)** — `ScrollLayoutGroupComponent` layout / scrollbar direction enum values are outside their valid ranges.
+- **`L032` (WARN)** — a sprite carries a custom `image_ruid` but was left at the default skin gray, which tints the art into a dark ghost (see §3.5).
 
 ### §3.4 pos / anchor Rules — Builder Auto-Pivot
 
@@ -160,6 +161,8 @@ if (btn?.Enable) { /* use */ }
 
 #### Entity Creation (upsert — components replaced, existing root metadata preserved)
 
+> **Sibling order IS render order — a new entity appends last and covers earlier siblings** (a late opaque `sprite("Parent/Bg", ...)` hides existing content; `ui_lint` cannot flag it). To draw beneath: (a) patch `display_order` (= sibling index, lower = beneath) on **every** sibling under that parent — creators auto-number 0, 1, …, so setting only the new entity duplicates a value and duplicates don't guarantee order; (b) paint the parent's own renderer (`color` / `image_ruid` / `alpha` — parents draw below children; works for `mask` too); (c) create back-to-front; (d) runtime `_UILogic:SetSiblingIndex` — Screen-mode UI only (silent no-op in World mode; there use `OverrideSorting` + `SortingLayer` / `OrderInLayer`), details in [runtime-patterns.md §7](../../msw-ui-system/references/runtime-patterns.md#7-runtime-z-order-sibling-reorder).
+
 > When the same path already exists, the creator preserves the existing root metadata (`name`, `nameEditable`, `visible`, `localize`, `revision`, `origin`) and re-applies only what the caller passed. `@components` is replaced with the new value. For `UITransformComponent`, a re-call with no transform option (`anchor`, `pos`, `rect_size`, `pivot`) preserves the existing transform, and a re-call with partial transform options merges omitted transform fields from the existing transform. Example: `sprite("Bg", { rect_size: [1200, 900] })` keeps the existing anchor / position / pivot and changes only the size. For stretch anchors, omitted stretch-axis offsets are preserved instead of being collapsed to the new `pos`. To change `name` / `enable` / `visible`, call `patch()` rather than re-invoking the creator, or pass the field explicitly in the creator options.
 
 
@@ -168,6 +171,8 @@ Tuple-shaped options (`pos`, `rect_size`, `cell_size`, `padding`, `spacing`, `so
 Do not use Unicode emoji as icons inside text-shaped options (`text`, `placeholder`, button labels, panel/sprite embedded `text`) on `TextGUIRendererComponent` — glyph availability depends on the active UI font/fallback setup and can render as missing/broken glyphs. For an inline icon, use a configured `TextSpriteSet` rich-text sprite; for a standalone icon, use `SpriteGUIRendererComponent`/image assets.
 
 > **Default sprite skin (applies to every SpriteGUIRendererComponent the builder mints).** `panel` / `sprite` / `button` / `slider` / `textInput` / `joystick` all default their background sprite to `image_ruid = "2860136c06ab075439721c027de365af"` (`DEFAULT_SPRITE_RUID`), `sprite_type = 1` (Sliced 9-slice), and `color = RGBA(26, 26, 26, 60)` (dark translucent).
+>
+> **`color` and `image_ruid` are independent — the default tint hits your own art too.** Omitting `color` does not mean "no tint": the skin color multiplies whatever sprite is set, so a part passed only `image_ruid` renders as a dark translucent ghost of the art, which the layout preview cannot show. Always pass a color alongside `image_ruid` (`bg_color` on `button` / `slider` / `textInput`); `"#FFFFFF"` renders the art exactly as authored. Same for a runtime `ImageRUID` swap — set `Color` with it. `ui_lint` `L032` warns when a custom `image_ruid` is left at the default gray.
 >
 > **This dark gray is only a DEFAULT, never a constraint.** It fills in what the caller leaves unspecified — it does **not** mean every panel must be gray. Give any individual element its own color whenever the design calls for it: pass `color` (for `panel`/`sprite`) or `bg_color` (for `button`/`slider`/`textInput`) as a hex string (`"#cc3344"`) or `{ r, g, b, a }`, and adjust `alpha` / `sprite_type` / `image_ruid` the same way. `color` for `button`/`slider`/`textInput` is the **text** color (defaulting to `#FFFFFF` so labels stay readable on the dark fill). Transparent helpers (`text` / `mask` / `softMask` / `chat`) keep their own invisible sprite (`alpha = 0`) and are unaffected.
 >
@@ -181,32 +186,33 @@ Do not use Unicode emoji as icons inside text-shaped options (`text`, `placehold
 ```javascript
 b.panel(name, { anchor: "middle-center", pos: [0, 0], rect_size: [1920, 1080], color: null, alpha: null, sprite_type: 1, fill_method: 0, raycast: false, image_ruid: null, enable: true, pivot: null });
 b.empty(name, { anchor: "middle-center", pos: [0, 0], rect_size: [100, 100], enable: true, pivot: null });
+// Font size on text() is `size`; every other method spells it `font_size` / `text_size`.
+// text() accepts all three spellings, and warns on any option key it does not read.
 b.text(name, text, {
   size: 24, color: null, bold: false,
   alignment: 4,      // 0=UpperLeft .. 4=MiddleCenter(default) .. 8=LowerRight
   overflow: 0,       // 0=Overflow, 1=Truncate, 2=Ellipsis
   bestfit: false, min_size: 10, max_size: null,
-  outline: false, outline_color: null, outline_width: null,
+  outline: false, outline_color: null, outline_width: null, face_dilate: null,
   anchor: "middle-center", pos: [0, 0], rect_size: null,
   enable: true, pivot: null,
 });
 b.sprite(name, { anchor, pos, rect_size, color, alpha: null, fill_method: 0, sprite_type: 1, raycast: false, enable: true, image_ruid: null, pivot: null });
 b.button(name, text, { rect_size: null, pos, anchor, font_size: 24, color: "#FFFFFF", bg_color: null, sprite_type: 1, enable: true, image_ruid: null, pivot: null });
 b.slider(name, { min_val: 0, max_val: 1, value: 0, direction: 0, use_handle: true, use_integer: false, bg_color: null, sprite_type: 1, anchor, pos, rect_size: [200, 30], enable: true, image_ruid: null, pivot: null });
-b.scrollLayout(name, { layout_type: 1, spacing: 0, cell_size: [100, 100], use_scroll: true, padding: [0, 0, 0, 0], v_scroll_dir: 2, h_scroll_dir: 0, anchor, pos, rect_size: [400, 600], enable: true, pivot: null });
+// Grid (layout_type:2) only: cell_size / constraint / constraint_count / grid_spacing / grid_child_alignment / start_axis / start_corner.
+// Horizontal+Vertical (layout_type:0|1) only: spacing / child_alignment / reverse_arrangement. Keys from the wrong group are ignored without an error.
+b.scrollLayout(name, { layout_type: 1, spacing: 0, padding: [0, 0, 0, 0], child_alignment: 0, reverse_arrangement: false, use_scroll: true, v_scroll_dir: 2, h_scroll_dir: 0, scroll_bar_visible: 0, scroll_bar_thickness: 20.0, scroll_bar_bg_color: null, scroll_bar_bg_ruid: "", scroll_bar_handle_color: null, scroll_bar_handle_ruid: "", cell_size: [100, 100], constraint: 0, constraint_count: 1, grid_spacing: [0, 0], grid_child_alignment: 0, start_axis: 0, start_corner: 0, anchor, pos, rect_size: [400, 600], enable: true, pivot: null });
 b.textInput(name, { placeholder: "", char_limit: 0, content_type: 0, line_type: 0, font_size: 24, color: "#FFFFFF", bg_color: null, sprite_type: 1, anchor, pos, rect_size: [300, 50], enable: true, image_ruid: null, pivot: null });
 b.script(name, scriptName, { anchor: "stretch", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
 
 // Root UIGroup only; nested group() throws. Use empty()/panel() for inner containers.
 b.group(name, { default_show: true, group_order: 0, group_type: 1, blocks_raycasts: true, group_alpha: 1.0, interactable: true, anchor: "stretch", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
 
-// Clipping mask
 b.mask(name, { shape: 0, padding: [0, 0, 0, 0], softness: [0, 0], anchor: "middle-center", pos: [0, 0], rect_size: [200, 200], color: null, alpha: 0.0, image_ruid: null, enable: true, pivot: null });
 
-// Virtualized grid
 b.gridView(name, { total_count: 0, cell_size: [100, 100], fixed_count: 1, fixed_type: 0, spacing: [0, 0], padding: [0, 0, 0, 0], use_scroll: true, scroll_bar_visible: 1, scroll_bar_thickness: 10.0, anchor, pos, rect_size: [400, 600], enable: true, pivot: null });
 
-// Avatar / Touch / Skeleton / Particle
 b.avatar(name, { color: null, flip_x: false, flip_y: false, play_rate: 1.0, preserve_avatar: 0, raycast: true, material_id: "", anchor, pos, rect_size: [200, 300], enable: true, pivot: null });
 b.touchReceive(name, { anchor: "stretch", pos: [0, 0], rect_size: [1920, 1080], enable: true, pivot: null });
 b.skeleton(name, { skeleton_ruid: "", animations: null, skins: null, color: null, flip_x: false, flip_y: false, loop: true, play_rate: 1.0, preserve_mode: 0, raycast: true, anchor, pos, rect_size: [200, 200], enable: true, pivot: null });
@@ -214,13 +220,10 @@ b.areaParticle(name, { particle_type: 0, area_size: [100, 100], area_offset: [0,
 b.basicParticle(name, { particle_type: 0, color: null, local_scale: [1, 1], play_speed: 1.0, particle_size: 1.0, particle_speed: 1.0, particle_count: 1.0, particle_lifetime: 1.0, loop: true, play_on_enable: true, prewarm: false, auto_random_seed: true, random_seed: 0, anchor, pos, rect_size: [100, 100], enable: true, pivot: null });
 b.spriteParticle(name, { particle_type: 0, sprite_ruid: "", apply_sprite_color: false, color: null, local_scale: [1, 1], play_speed: 1.0, particle_size: 1.0, particle_speed: 1.0, particle_count: 1.0, particle_lifetime: 1.0, loop: true, play_on_enable: true, prewarm: false, auto_random_seed: true, random_seed: 0, anchor, pos, rect_size: [100, 100], enable: true, pivot: null });
 
-// Virtual joystick (mobile controls)
 b.joystick(name, { dynamic_stick: true, axis: 1, up_arrow: 273, down_arrow: 274, left_arrow: 276, right_arrow: 275, anchor: "bottom-left", pos: [200, 200], rect_size: [300, 300], image_ruid: null, color: null, alpha: null, sprite_type: 1, enable: true, pivot: null });
 
-// Soft mask (UGUI SoftMask style)
 b.softMask(name, { invert_mask: false, invert_outsides: false, anchor: "middle-center", pos: [0, 0], rect_size: [200, 200], color: null, alpha: 0.0, image_ruid: null, enable: true, pivot: null });
 
-// Chat UI
 b.chat(name, { use_chat_balloon: false, expand: true, use_chat_emotion: true, chat_emotion_duration: 5.0, enable_voice_chat: true, hide_world_chat_button: false, message_align_bottom: false, anchor: "bottom-left", pos: [200, 200], rect_size: [400, 300], image_ruid: null, color: null, alpha: 0.0, enable: true, pivot: null });
 
 // Line / Polygon renderer (HUD lines, guidelines, speech-bubble tails, custom shapes)
@@ -436,6 +439,8 @@ Keep the last path segment in camelCase + role suffix (`Btn` / `Text` / `Panel`)
 
 Component fields not covered by the signature parameters of `text()` / `sprite()` / `button()` (e.g. `Font`, `FontStyle`, `Underlay`, `Padding`, `FillAmount`, `FillOrigin`, `OrderInLayer`) must be set explicitly via `patchComponent(path, comp_type, updates)`. `text()` / `button()` emit `TextGUIRendererComponent`, whose `Font` is a **string** (`"Default"` / `"Maple"` / `"Bazzi"` / `"Football"`) and whose drop shadow is the `Underlay` family — patch those, not the legacy `TextComponent` field names.
 
+**Existing files may hold a different generation.** In a `.ui` loaded via `load()`, a text entity can still carry the legacy `MOD.Core.TextComponent` (a distinct type — entities in the same file can carry different generations). `patchComponent(path, "MOD.Core.TextGUIRendererComponent", …)` **throws** on such an entity (it fails before writing, so the file is not corrupted). Before patching text in a loaded file, call `getComponent(path, "MOD.Core.TextComponent")` to detect the type; if present, patch the legacy field names instead — `FontColor` / `FontSize` / `Bold` (not `FontStyle`) / `DropShadow` (not `Underlay`). Full correspondence: [`ui-system/references/component-api.md`](../../msw-ui-system/references/component-api.md) §TextComponent (Legacy).
+
 When patching `TextGUIRendererComponent` alignment fields directly, use the component enums, not the `text(..., { alignment })` 0-8 helper index: `HorizontalAlignment` uses `Left=1 / Center=2 / Right=4 / Justified=8`, and `VerticalAlignment` uses `Top=256 / Middle=512 / Bottom=1024`.
 
 ```javascript
@@ -453,7 +458,7 @@ b.patchComponent("Cooldown/Fill", "MOD.Core.SpriteGUIRendererComponent",
 
 Per-entity forced values (intentional design separation):
 
-- `button()` → `RaycastTarget` is always `True` (button = click area).
+- `button()` → `RaycastTarget` is always `True` (button = click area), and `UITouchReceiveComponent` is always attached so hover events (`UITouchEnterEvent`) work without extra wiring.
 - `sprite(raycast=False)` is the default (sprite = decoration). Explicitly set `raycast=True` for modal dimmers and drag areas.
 - `text()`'s background sprite is fixed as a transparent sprite with `alpha=0`.
 

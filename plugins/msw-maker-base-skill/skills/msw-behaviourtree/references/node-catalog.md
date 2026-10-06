@@ -82,7 +82,7 @@ If a name isn't confirmed by either source, ask the user instead of guessing.
 
 Each entry in `nodeProperties` must correspond to a property name listed for that node in `bt-spec.md` and declared in the node's `.mlua`. The `propertyType.type` and `propertyValue` shape MUST match the declared type — use the type map in `bt-spec.md` §4.
 
-`{V}` is the engine version stamped into the file (e.g. `26.7.0.0`). Match the project's existing files.
+`{V}` is the engine version stamped into the file. Match the project's existing files.
 
 **Primitives (System.*)**
 

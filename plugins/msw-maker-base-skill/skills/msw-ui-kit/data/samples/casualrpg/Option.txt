@@ -1,0 +1,46 @@
+# Option — 44 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg_Dark, OptionUI
+UIR_CasualRPG_Sample_Option 1920x1080
+  Bg_Dark 7920x7080
+  OptionUI 1306x874 f47ee45115114234bd8a140b5d02729c
+    Title 1266x84 text:#7DB3FC@32
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@48B
+    Scroll_Layout_Contents 1258x740
+      MyEffectTransparency 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        EffectTransparencyText 1018x60 text:#FFFFFF@24
+      ExpGemTransparency 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        EffectTransparencyText 1018x60 text:#FFFFFF@24
+      EnemyEffectTransparency 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        EffectTransparencyText 1018x60 text:#FFFFFF@24
+      EnemyTransparency 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        TransparencyText 1018x60 text:#FFFFFF@24
+      ShowDamageSkin 1198x100 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        UIText 1018x60 text:#FFFFFF@24
+        UIButton 70x70 6e191185c11f4b629837a49158255852 text:#FFFFFF@32B
+      AnimationQaulity 1198x100 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        UIText 475x80 text:#FFFFFF@24
+        ToggleGroup 751x90
+          ButtonHigh 150x64 c7b38a460c434e0aa6901e187062ff10 (Sliced)
+            UIText 150x64 text:#FFFFFF@24B+o#53596B/50%
+          ButtonMiddle 150x64 1b817e998fc340709279e8d9b92b4b8e (Sliced)
+            UIText 150x64 text:#FFFFFF@24B+o#53596B/50%
+          ButtonLow 150x64 1b817e998fc340709279e8d9b92b4b8e (Sliced)
+            UIText 150x64 text:#FFFFFF@24B+o#53596B/50%
+          ButtonVeryLow 150x64 1b817e998fc340709279e8d9b92b4b8e (Sliced)
+            UIText 150x64 text:#FFFFFF@24B+o#53596B/50%
+      PotionAutoUseEnable 1198x100 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        UIText 1018x60 text:#FFFFFF@24
+        UIButton 70x70 6e191185c11f4b629837a49158255852 text:#FFFFFF@32B
+      PotionAutoUseAdjust 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        TransparencyText 1018x60 text:#FFFFFF@24
+      MPPotionAutoUseEnable 1198x100 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        UIText 1018x60 text:#FFFFFF@24
+        UIButton 70x70 6e191185c11f4b629837a49158255852 text:#FFFFFF@32B
+      MPPotionAutoUseAdjust 1198x120 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/30%
+        Gauge 1118x26 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#838383 FillRectImageRUID:68221c9a70128be45b3e1d383c6fc6d4 HandleImageRUID:9ba353148f904fa186663dcc09b68744
+        TransparencyText 1018x60 text:#FFFFFF@24

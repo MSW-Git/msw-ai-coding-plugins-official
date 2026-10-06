@@ -1,0 +1,21 @@
+# ItemInfo — 19 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Bg, Panel
+UIR_SimpleFantasy_Sample_ItemInfo 1920x1080
+  Img_Bg 1980x1140
+  Panel 780x570 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 242x40 text:#FFFFFF@27B
+    Btn_Close 52x50 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+    Layout_ItemInfo 760x166
+      Slot 135x135 aa931a755e5949699233b817029a3e36 (Sliced)
+        Img_Icon 80x80 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+        Text_Count 104x36 text:#FFFFFF@24B+o#4D4D4D
+      Text_Name 576x38 text:#757474@26B
+      Text_Type 161x33 text:#8D8C8C@22B
+      Text_Duration 380x33 text:#FA7753@22B
+    Img_Line 750x3
+    Scroll_ItemDesc 730x65
+      Text_ItemDesc 137x33 text:#747474@22B
+    Scroll_RewardItem 730x108
+    Btn_Discard 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+      Img_Discard 100x100 9f207027c5954e8f91a8bc14824455fe (Sliced)
+    Btn_Use 192x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@25B

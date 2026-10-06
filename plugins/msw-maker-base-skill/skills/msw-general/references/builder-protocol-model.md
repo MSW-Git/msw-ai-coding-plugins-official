@@ -359,7 +359,7 @@ b.write(filepath, { ensure_sprite_ruid: true });
 
 `SpriteRUID` is a plain string. Do not wrap it in `dataRef()`.
 
-The default generated MOD.Core assembly version is `26.7.0.0`. If a different project CoreVersion requires a different version for newly generated value type blocks, set `MSW_MODEL_BUILDER_MOD_CORE_VERSION` before running Node.
+Generated value type blocks carry the workspace's `CoreVersion` (`Environment/config`). `MSW_MODEL_BUILDER_MOD_CORE_VERSION` overrides it.
 
 ### §2.4 Component Combinations
 

@@ -1,0 +1,16 @@
+# BMPopupGroup — 14 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: PopupPanel
+UIR_CuteCasual_Sample_BMPopupGroup 2520x1680
+  PopupPanel 910x654 cb1f9312d3814526be50b6381c574bba (Sliced)
+    Bottom 910x148 2d98b52b4b244a87993786bee5eab48f (Sliced) color:#CDCAE9
+    BottomLine 909x20
+    Title 750x80 text:#FFFFFF@38B+o#5C409E
+    PopupMessage 800x300 text:#3E3668@28B
+    PopupBtnOK 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+    PopupBtnCancel 256x86 1496dcb920b1445bbb06b64b3dc7e16f (Sliced) text:#FFFFFF@32B+o#9F1F15
+    PopupBtnOK 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+    PopupMessage3 700x150 text:#3E3668@28B
+    PopupMessage2 700x70 text:#3E3668@28B
+    PriceBg 365x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#BBB9E0
+      PriceText 262x50 text:#FFFFFF@30B+o#5C568F
+        CurrencyImage 50x50 c81394a61a9c40e29841d7169aa5d465 (Sliced)

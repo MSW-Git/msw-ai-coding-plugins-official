@@ -1,0 +1,71 @@
+# UIGMRankingTool — 68 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIGMRankingTool 2520x1680
+  Panel 1800x1050 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5 (Sliced)
+    TabButtons 240x530
+      Btn_View 200x160 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@32
+      Btn_EditView 200x160 9bb8e4d004fb46bb9c1b528b3c1ebf9f states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#FFE398@32
+    Pages 1491x879
+      Page_View 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text_Name 1356x50 text:#653122@30
+        deco_line 1491x2
+        Scroll_Label 1451x80
+          Label_ID 120x60 text:#653122@24
+          Label_State 170x60 text:#653122@24
+          Label_Values 280x60 text:#653122@24
+          Label_CompleteCount 850x60 text:#653122@24
+        deco_line 1491x2
+        GridView 1483x599
+        Item 1450x80
+          Text_Rank 120x80 text:#653122@24
+          Text_ProfileCode 170x80 text:#653122@24
+          Text_Score 280x80 text:#653122@24
+          Text_Tag 850x80 text:#653122@24
+        deco_line 1491x2
+        Scroll_Bottom 1124x120
+          Label_CycleIndex 170x100 text:#653122@26
+          Text_CycleIndex 200x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Label_ViewCount 170x100 text:#653122@26
+          Text_ViewCount 120x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+        Btn_Query 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+      Page_EditView 1491x879 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text_Name 1356x50 text:#653122@30
+        Scroll_Label 1451x80
+          Label_Score 280x60 text:#653122@24
+          Label_Tag 900x60 text:#653122@24
+          Label_Action 240x60 text:#653122@24
+        deco_line 1491x2
+        Item 1450x100
+          Text_Score 280x100 text:#653122@24
+          Text_Tag 900x100 text:#653122@24
+          Btn_Edit 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2
+        deco_line 1491x2
+        Scroll_Bottom 1124x120
+          Label_CycleIndex 170x100 text:#653122@26
+          Text_CycleIndex 200x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+          Label_ProfileCode 180x100 text:#653122@26
+          Text_ProfileCode 160x60 5a990aca536417e40bb5e01452fe374e color:#A9705F/50% text:#FFFFFF@24
+        Btn_Query 240x100 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@36
+    Popup_EditView 2400x1650
+      Panel 1180x612 25e9e89579644202805f535d038a9edb (Sliced)
+        Title 1130x81
+          Text_Title 800x70 text:#FFE398@40+o#B2B2B2
+          Btn_Exit 64x64 298eb9b732264ea89c34001857d841a5 (Sliced)
+        BG 1100x445 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+        Text_Name 1000x50 text:#653122@30
+        deco_line 1060x2
+        Scroll_Label 1060x90
+          Label_Score 280x70 text:#653122@24
+          Label_Tag 760x70 text:#653122@24
+        deco_line 1060x2
+        Item 1060x120
+          Text_Score 280x100 text:#653122@24
+          Text_Tag 760x100 text:#653122@24
+        deco_line 1060x2
+        Scroll_Action 1060x100
+          Btn_Revert 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2
+          Btn_Save 140x80 e22dca176e7c48b39d5b40554b546e22 text:#653122@26+o#B2B2B2

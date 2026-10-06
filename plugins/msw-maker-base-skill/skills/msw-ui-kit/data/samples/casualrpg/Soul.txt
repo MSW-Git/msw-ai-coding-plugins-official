@@ -1,0 +1,438 @@
+# Soul — 436 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: SoulList, SoulInformation, SoulLink
+UIR_CasualRPG_Sample_Soul 3650x2053
+  SoulList 1920x1080
+    Bg 7920x7080
+      Content 1706x874 f47ee45115114234bd8a140b5d02729c
+        Title 1666x84 text:#7DB3FC@28
+          Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40
+        Panel_List 1347x740 62b3030e5a8c43b680165c0c7fa89aab color:#131824/80%
+          Deco_Line 2x740
+          Panel_Tab 305x608
+            Button_CharList 305x108 a98b037c6b0f45288ce63cb8414b83b5 (Sliced)
+              Text 165x80 text:#FFFFFF@28+o#000000/20%
+              Icon 52x62 5b473b73c1374e6ead911e6e55c4348a
+            Button_CharRelation 305x108 75ff2132ace346358699f21009389b99 (Sliced)
+              Text 165x80 text:#FFFFFF@28+o#000000/20%
+              Icon 73x67 346ea737939f4b65aa297e5622017349
+          Panel_CharacterList 1347x740
+            CharSlot 240x320 eaf3d88b50a743bba2e36c9697025b8b color:#FFFFFF/50%
+              Square 250x390 45e9323867014623af61dbbe53971ed0
+              Level 44x71 text:#FFFFFF@24B+o#000000+s#000000/72%
+                Textlevel 45x40 text:#FFFFFF@18B+o#000000
+              Name 190x50 text:#FFFFFF@24+s#000000/72%
+              ExWeaponIcon 60x60 c09fa65be7a04114805e791d443b0b7f color:#788FC0
+              State 200x50 text:#FFFFFF@24B+o#000000
+              Stars 112x30
+                Star_5 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_4 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              PieceGauge 202x30
+                Bar 202x30 f7964d3e9b344d5daa7d663a10557837 (Sliced) FillRectImageRUID:7ed0e6e6e26c44e792c0e405ca96a980
+                PieceCount 180x40 text:#FFFFFF@24B+o#000000+s#000000/72%
+                Outline 227x46 02ba8404a6f547b4a233ac4e08eb7666
+                  Arrow 41x50 e8d77a2ca5184a19a69725a14d765781
+                PieceIcon 50x50 a7b1394580314ee394db4698f8a7295a
+                Lock 34x43 b754262471af48769ea7fd3e1cd2a76a
+              MaxTier 237x47 text:#788FC0@24+s#000000/40%
+              Equipped 256x394 27efe7a96fa646e6ae2fa9dfcb2aadb1 text:#70FF00@32B+o#000000+s#000000
+                UIText 41x68 cc0c65e2c16d4713bc975207ebb2c2a7 text:#4D7732@20B+s#CEF143
+              Button 240x370
+          Deco_Scroll_Dark 1347x44 bdfa2e8232bf4f6b9306ad7d8bedab0a
+          RerollTestButton 102x104 7d403f50d0d142319e5a98909343e982 text:#FFFFFF@24B+o#3784C4
+            Icon_Reroll 64x61 947120f8e0fd43e0b6c1e5af79d54705
+      Bg_GetChar 7920x7080
+        Popup 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+          Title 774x84 text:#7DB3FC@28
+          Button_Exit 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+          Button_Get 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+          Deco_Bg 752x560
+            Effect_Light 440x603 88bb1ab76d524d388e43c5febdf6ee05 color:#67B2FF
+            Bg 240x320 52849ae90e6e4aa392d5cf856f5e359c
+            Character 240x320 358e355e9933465da0a00874c09c8637
+              Deco_Slot 250x390 45e9323867014623af61dbbe53971ed0
+                Effect 556x556 7b990261ad53482faf340e6e29ad29e0
+              Equipped 247x300 d091cf28ab72bcc499a0506ad7bacf98 color:#FFFFFF/50% text:#70FF00@32B+o#000000+s#000000
+              Level 29x36 text:#FFFFFF@24B+o#000000+s#000000/72%
+                Textlevel_1 50x40 text:#FFFFFF@18B+o#000000
+              Name 190x52 text:#FFFFFF@24+s#000000/72%
+              ExWeaponIcon 60x60 c09fa65be7a04114805e791d443b0b7f color:#788FC0
+              Stars 112x30
+                Star_5 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_4 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              PieceGauge 202x30
+                Bar 202x30 f7964d3e9b344d5daa7d663a10557837 (Sliced) FillRectImageRUID:7ed0e6e6e26c44e792c0e405ca96a980
+                PieceCount 180x40 text:#FFFFFF@24B+o#000000+s#000000/72%
+                Outline 227x46 02ba8404a6f547b4a233ac4e08eb7666
+                  ARROW 41x50 e8d77a2ca5184a19a69725a14d765781
+                PieceIcon 50x50 a7b1394580314ee394db4698f8a7295a
+                Lock 34x43 fac471fa6056439ea98345c998465384
+              State 200x50 text:#FFFFFF@24B+o#000000
+              MaxTier 237x47 text:#788FC0@24+s#000000/40%
+            Desc 700x95 text:#FFFFFF@24
+          Deco_2_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+          Deco_1_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Bg_SoulPieceReroll 7920x7080
+        Popup 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+          Title 774x84 text:#7DB3FC@28
+            Button_RerollClose 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+        ScrollGroup 730x352 52849ae90e6e4aa392d5cf856f5e359c
+          Slot 700x100 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+            Sprite 70x72 04fbf96cc136489d88933efd9bf96eb0
+            HaveCount 133x64 text:#FFFFFF@28
+            Count 150x60 b4dd050e16504159a521c0e6e769bcb6 text:#FFFFFF@28
+              CountDown 70x70 c0c177f1ff344930a9a6ca5ff011bb5b color:#FFFFFF/80% text:#FFFFFF
+                UISprite 32x8 ea1605bebcd7441fae0b05e824d8726e color:#FFFFFF/90%
+              CountUp 70x70 c0c177f1ff344930a9a6ca5ff011bb5b color:#FFFFFF/80% text:#FFFFFF
+                UISprite 32x34 60630efead6f4327adec33f9fb006b29 color:#FFFFFF/90%
+        ResultIcon 149x161 d53743969d364b98925d31bbca0cb9f8
+        Title_1 700x60 text:#899BBF@24
+        UISprite 755x109
+          RegistCount 219x60 b4dd050e16504159a521c0e6e769bcb6 text:#FFFFFF@28
+            Icon_SoulPiece 40x42 deae97c0b1434e27b2820799b3d3463e
+          Icon_Arrow 58x32 c81824b8090e4472ba218bad12f207d3
+          Img_Effect 137x137 88bb1ab76d524d388e43c5febdf6ee05 color:#78A8FF
+            Icon_SoulPiece 63x67 deae97c0b1434e27b2820799b3d3463e
+          RerollButton 320x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced)
+            Title 320x90 text:#FFFFFF@24B+o#589334
+  SoulInformation 1920x1080
+    Bg 7920x7080
+      Content 1706x874 f47ee45115114234bd8a140b5d02729c
+        Title 1666x84 text:#7DB3FC@28
+          Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40
+        Panel_CharacterInformation 1655x740
+          Button_Back 80x80 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+          Panel_StatName 800x259 60447bb7562d471ea29963eed6a0454c (Sliced)
+            Hp 798x40 text:#899BBF@24
+              Stat_1 170x40 text:#FFFFFF@24
+            Attack 798x40 text:#899BBF@24
+              Stat_2 170x40 text:#FFFFFF@24
+            AttackSpeed 798x40 text:#899BBF@24
+              Stat_3 170x40 text:#FFFFFF@24
+            MoveSpeed 798x40 text:#899BBF@24
+              Stat_4 170x40 text:#FFFFFF@24
+            CriticalProbability 798x40 text:#899BBF@24
+              Stat_5 170x40 text:#FFFFFF@24
+            CriticalRate 798x40 text:#899BBF@24
+              Stat_6 170x40 text:#FFFFFF@24
+            TypeDamageRate 798x40 text:#899BBF@24
+              Stat_7 170x40 text:#FFFFFF@24
+            BossDamageRate 798x40 text:#899BBF@24
+              Stat_8 170x40 text:#FFFFFF@24
+          Button_LevelUp 264x90 a96386f9ef2148f48aef7b33234fe032
+            LevelUpButtonText 200x100 text:#FFFFFF@24B+o#3784C4
+            UpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          Button_Equip 264x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced)
+            EquipText 200x100 text:#FFFFFF@24B+o#589334
+          Button_Equipping 264x85 e223c35a7e4947cfbd0b8dc2ed9951a3
+            EquipText 200x100 text:#FFFFFF@24B+o#5D5D5D
+          Button_BreakLimit 264x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced)
+            BreakLimitButtonText 200x100 text:#FFFFFF@24B+o#5C49B3
+            UpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          Panel_PieceGauge 283x52 5a990aca536417e40bb5e01452fe374e color:#222630/50%
+            Bg 231x30 f7964d3e9b344d5daa7d663a10557837 (Sliced)
+            Bar 232x30 f7964d3e9b344d5daa7d663a10557837 (Sliced) FillRectImageRUID:7ed0e6e6e26c44e792c0e405ca96a980
+            PieceCount 259x52 text:#FFFFFF@24B+o#000000/50%+s#000000/50%
+            Outline 250x46 02ba8404a6f547b4a233ac4e08eb7666
+              UpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+            PieceIcon 60x60 a7b1394580314ee394db4698f8a7295a
+            Lock 33x40 fac471fa6056439ea98345c998465384
+          Panel_Left 780x740
+            Deco 780x209 62b3030e5a8c43b680165c0c7fa89aab color:#000000/20%
+              Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+              Deco_1 780x438 2c55b3fef5b1442181513320fb314d3a color:#000000/20%
+            IllustImage 900x900 677f633c66ab4d9db97ccea1b5a8d1bc
+            Img_Deco_Dark 718x616 8ae2ca74dc934fc7a5c8b35eff7f7005 color:#000000
+            Panel_Name 700x172 21691103c9b6f174d8f0a84a5904153f color:#000000/0%
+              Name 700x64 text:#FFFFFF@40B+o#000000+s#000000
+              Panel_Stars 289x76
+                Star_1 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_2 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_3 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                Star_4 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                Star_5 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+              Modifier 700x45 text:#D9D6D6@24+o#000000+s#000000
+            Panel_ExWeaponList 462x100
+              Block_5 80x80 87f20108334748dc94da9983a1e7e96c
+                Weapon_5 75x75 a3e3ddbf04264027beebea8054841ceb
+              Block_4 80x80 401b646213b241c59f4ebc3712e7aad6
+                Weapon_4 75x75 8112f2b06f8c4ab5acced156ad9c6c04
+              Block_3 80x80 8cd3e973b6f04b67a5d425eaed80e916
+                Weapon_3 75x75 be4b4258f2fc4e86a953a73092225649
+              Block_2 80x80 ee76a77c3f60420786df557ca6cb29ba
+                Weapon_2 75x75 72b3d748a26040e4a670da2d7efb4987
+              Block_1 80x80 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+                Weapon_1 75x75 c539bc3d534149359ebea706c7a1eaf6
+              Title 463x109
+                Title 361x48 text:#7DB3FC@24+o#000000
+                ExWeaponName 355x52 text:#FFFFFF@24B+o#000000+s#000000
+                Slot 60x60 53636f549707cc04dbfb048c4a2dfdc3 color:#000000/50%
+                  ExWeaponIcon 60x60 a2567dfe4406429daf05e30bc26166ee
+            Equipping 159x52 37c62657aa9a45be86333ca2cf91398f text:#4D7732@24+s#CCF815/40%
+          Panel_StarEffectDesc 800x245 60447bb7562d471ea29963eed6a0454c (Sliced)
+            Desc_Star_0 800x40
+              Bg_1 796x40 6a769454862a41c6bfd47aaada576b43 color:#2F3543/50%
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_4 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_3 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_2 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_1 23x24 cdb4f75585614caa9647d7eb04545dfe
+            Desc_Star_1 800x40
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_4 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_3 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_2 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Desc_Star_2 800x40
+              Bg 796x40
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_4 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_3 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Desc_Star_3 800x40
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_4 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Desc_Star_4 800x40
+              Bg 796x40
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 cdb4f75585614caa9647d7eb04545dfe
+                Star_4 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Desc_Star_5 800x40
+              Desc 680x50 text:#FFFFFF@24
+              Stars 113x40
+                Star_5 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_4 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Panel_Level 159x48 d685ceb1beb9492ea5dd6ec905a1fbce color:#2C3448
+            Title 214x63 text:#FFFFFF@24
+            CurrentLevel 159x48 text:#FFFFFF@28
+            Info 159x48
+              Icon_Info 22x22 052e86fae1b14ed88e70599c739a9224
+          Bg_Popup_BreakLimit 2655x1740
+            Popup 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+              Panel_Top 774x84 4d156f1ac7e34018801a8d72ff44a599 color:#FFFFFF/0%
+                UIText 745x100 text:#7DB3FC@28
+                Button_Exit 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+              Deco_Line 745x2 1b67ac2143a3444f89aabc5913018a42
+              Panel_CanUpgrade 764x564
+                Panel_LevelBox 611x197
+                  Panel_CurrentLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                    CurrentMaxLevel 104x50 text:#FFFFFF@40B+o#000000+s#000000
+                    Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@20B+o#000000+s#000000
+                  Panel_NextLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                    NextLevel 104x50 text:#B5FA4D@40B+o#000000+s#000000
+                    Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#B5FA4D@20B+o#000000+s#000000
+                  Iconl_Arrow 58x32 c81824b8090e4472ba218bad12f207d3 color:#B5FA4D
+                Panel_Piece 283x52 5a990aca536417e40bb5e01452fe374e color:#222630/50%
+                  Bar 232x30 f7964d3e9b344d5daa7d663a10557837 (Sliced) FillRectImageRUID:7ed0e6e6e26c44e792c0e405ca96a980
+                  PieceCount 259x52 text:#FFFFFF@20B+o#000000/50%+s#000000/50%
+                  Outline 250x46 02ba8404a6f547b4a233ac4e08eb7666
+                    UpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+                  PieceIcon 60x60 a7b1394580314ee394db4698f8a7295a
+                  Lock 33x40 fac471fa6056439ea98345c998465384
+                Message 700x86 text:#899BBF@24
+                CantMessage 700x69 text:#FF6868@20
+              Panel_Stars 389x100
+                Star_1 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                  Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_2 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                  Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_3 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                  Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_4 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                  Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+                Star_5 40x42 39e0123e4b18480d9fda2505d4074ef1 (Sliced)
+                  Star_On 40x42 3843e4fe4bb94566aca74d99df0f1a67
+              Panel_CantUpgrade 764x564
+                Message 700x271 text:#899BBF@24
+                Panel_LevelBox 239x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                  CurrentMaxLevel 200x50 text:#B5FA4D@40B+o#000000+s#000000
+                  Title 239x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#B5FA4D@20B+o#000000+s#000000
+              Button_BreakLimit 348x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced)
+                LevelUpButtonText 300x100 text:#FFFFFF@24B+o#5C49B3
+              Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+              Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+              UpEffect 100x100 e319e60154ad42ecb72d33d734e3220c
+          Bg_Popup_Levelup 2655x1740
+            Popup 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+              Panel_Top 774x84 4d156f1ac7e34018801a8d72ff44a599 color:#FFFFFF/0%
+                UIText 774x84 text:#7DB3FC@28
+                Button_Exit 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+              Deco_Line 745x2 1b67ac2143a3444f89aabc5913018a42
+              Panel_CanUpgrade 764x564
+                Panel_Meso 206x44 0cdb1b67ec4a4998beedf9f9f7e08463
+                  Icon 32x32 bdac712ae9564f6c88e1bb2c7387d61a
+                  NeedGold 150x40 text:#FFFFFF@22
+                Panel_Essence 206x44 0cdb1b67ec4a4998beedf9f9f7e08463
+                  Icon 35x32 f70af980ea3c40a986f7615d53501b5e
+                  NeedEssence 150x40 text:#FFFFFF@22
+                Panel_GuideText 700x86
+                  GuideText 700x86 text:#899BBF@24
+                Panel_LevelBox 611x197
+                  Panel_CurrentLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                    CurrentLevel 104x50 text:#FFFFFF@40B+o#000000+s#000000
+                    Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@20B+o#000000+s#000000
+                    UpEffect 100x100 e319e60154ad42ecb72d33d734e3220c
+                  Panel_NextLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                    NextLevel 104x50 text:#B5FA4D@40B+o#000000+s#000000
+                    Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#B5FA4D@20B+o#000000+s#000000
+                  Panel_Arrow 112x34
+                    Arrow_1 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+                    Arrow_2 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+                    Arrow_3 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+                Message 700x69 text:#FF6868@20
+              Panel_CantUpgrade 764x564
+                Message 700x300 text:#899BBF@24
+                Panel_LevelBox 239x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+                  MaxLevel 200x50 text:#FFFFFF@40B+o#000000+s#000000
+                  Title 239x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@20B+o#000000+s#000000
+              Button_LevelUp 348x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+              Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+              Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+  SoulLink 1920x1080
+    Bg 7920x7080
+      Content 1706x874 f47ee45115114234bd8a140b5d02729c
+        Title 1666x84 text:#7DB3FC@28
+          Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40
+        Panel_List 1347x740 62b3030e5a8c43b680165c0c7fa89aab color:#131824/80%
+          Deco_Line 2x740
+          Panel_Tab 305x608
+            Button_CharList 305x108 75ff2132ace346358699f21009389b99 (Sliced)
+              Text 165x80 text:#FFFFFF@28+o#000000/20%
+              Icon 52x62 5b473b73c1374e6ead911e6e55c4348a
+            Button_CharRelation 305x108 a98b037c6b0f45288ce63cb8414b83b5 (Sliced)
+              Text 165x80 text:#FFFFFF@28+o#000000/20%
+              Icon 73x67 346ea737939f4b65aa297e5622017349
+          Panel_RelationList 1347x740
+            Bg_Top 1338x125
+              Information 976x78 e034808b70694cbfb3133983deaf5782
+                Text 788x80 text:#ABBDE3@24
+                Icon 9x31 fb5701b77a83410082c676133263dde3 color:#899BBF
+                Button_Status 417x90 53535e31b205418aaa2410b4f671fc30
+                  Text 270x80 text:#FFFFFF@24B+o#3784C4
+                  Icon 33x37 fa4e4d4f6fd243018dd48d5c68575c11
+            Scroll 1347x610
+              Slot_Relation 1307x340 f332166db0a54783b22ef81d7ca49718
+                Deco 497x222 3ad57350cca54985ad7eb05d55767ec5
+                Panel_RelationEffect 740x205 60447bb7562d471ea29963eed6a0454c (Sliced)
+                  Lv_1 736x40
+                    Status_Value 621x50 text:#FFFFFF@24
+                    Stars 113x40
+                      Star_5 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_4 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_3 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_2 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                  Lv_2 736x40
+                    Bg 736x40
+                    Status_Value 621x50 text:#FFFFFF@24
+                    Stars 113x40
+                      Star_5 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_4 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_3 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                  Lv_3 736x40
+                    Status_Value 621x50 text:#FFFFFF@24
+                    Stars 113x40
+                      Star_5 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_4 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                  Lv_4 736x40
+                    Bg_1 736x40
+                    Status_Value 621x50 text:#FFFFFF@24
+                    Stars 113x40
+                      Star_5 25x26 cdb4f75585614caa9647d7eb04545dfe
+                      Star_4 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                  Lv_5 736x40
+                    Status_Value 621x50 text:#FFFFFF@24
+                    Stars 113x40
+                      Star_5 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_4 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                      Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                CharSlot_1 140x140 28187bf06216417b81aa98a48dc43b76
+                  Outline 152x154 3587d0735e8a444d9aaccf2d6857ff77
+                  Panel_Weapon 32x32 1928dd523bf14ab4bcc275e4f71607da
+                    Icon_Weapon 40x40 0cdc95ad140c43488ab6ec6e53ad7704 color:#1D1D1D
+                  Stars 112x30
+                    Star_5 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_4 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                CharSlot_2 140x140 28187bf06216417b81aa98a48dc43b76
+                  Outline 152x154 3587d0735e8a444d9aaccf2d6857ff77
+                  Panel_Weapon 32x32 1928dd523bf14ab4bcc275e4f71607da
+                    Icon_Weapon 40x40 0cdc95ad140c43488ab6ec6e53ad7704 color:#1D1D1D
+                  Stars 112x30
+                    Star_5 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_4 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                CharSlot_3 140x140 28187bf06216417b81aa98a48dc43b76
+                  Outline 152x154 3587d0735e8a444d9aaccf2d6857ff77
+                  Panel_Weapon 32x32 1928dd523bf14ab4bcc275e4f71607da
+                    Icon_Weapon 40x40 0cdc95ad140c43488ab6ec6e53ad7704 color:#1D1D1D
+                  Stars 112x30
+                    Star_5 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_4 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_3 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_2 25x26 52f7bc6b8fb044eda7b876604730124d
+                    Star_1 25x26 52f7bc6b8fb044eda7b876604730124d
+                Bg_Top 1303x71
+                  Deco_Soul_Link 291x69 1813364577034854920054c6f8afad78
+                  RelationName 1124x70 text:#FFFFFF@27
+                  RelationMainStars 180x70
+                    Star_5 30x32 6d92d9b508454f8f8aa1b57cb37299b0
+                    Star_4 30x32 6d92d9b508454f8f8aa1b57cb37299b0
+                    Star_3 30x32 6d92d9b508454f8f8aa1b57cb37299b0
+                    Star_2 30x32 6d92d9b508454f8f8aa1b57cb37299b0
+                    Star_1 30x32 6d92d9b508454f8f8aa1b57cb37299b0
+            Btn_ShowLinkStatus 417x90 53535e31b205418aaa2410b4f671fc30
+              UISprite 33x37 fa4e4d4f6fd243018dd48d5c68575c11
+              UIText 270x80 text:#FFFFFF@24B+o#3784C4
+            Bg_ShowLinkStatus 3014x1577
+              Popup 814x824 f47ee45115114234bd8a140b5d02729c
+                Title 774x84 text:#7DB3FC@28
+                Button_Exit 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+                Deco_Bg 744x666 60447bb7562d471ea29963eed6a0454c (Sliced)
+                  Link_Slot 680x40
+                    Desc 648x40 text:#FFFFFF@24
+                    UISprite_1 6x6 ef10e046811ace04db1ab45ae6077d4e (Sliced) color:#899BBF
+                Empty 680x500 text:#899BBF/70%@24
+                Deco 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+                Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+          Deco_Scroll_Dark 1347x44 bdfa2e8232bf4f6b9306ad7d8bedab0a
+          RerollTestButton 102x104 7d403f50d0d142319e5a98909343e982 text:#FFFFFF@24B+o#3784C4
+            Icon_Reroll 64x61 947120f8e0fd43e0b6c1e5af79d54705

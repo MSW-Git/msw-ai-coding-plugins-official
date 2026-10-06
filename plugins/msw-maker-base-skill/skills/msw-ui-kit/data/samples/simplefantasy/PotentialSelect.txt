@@ -1,0 +1,69 @@
+# PotentialSelect — 67 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout
+UIR_SimpleFantasy_Sample_PotentialSelect 1920x1080
+  Layout 1300x873 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Img_Arrow 34x36 92fcce8206a2423bb6eae5944c33c5a6 (Sliced) color:#BBA58A
+    Btn_Info 200x60 a284a5997dd24bf3927f8b71887c322f (Sliced) states:pressed=b6dc5346bcf044a99ba00a502e3c3f31 text:#FFFFFF
+    Text_Title 63x38 text:#FFFFFF@26B
+    Layout_Before 580x360 552a11490267476daec41dac4e8fd920 (Sliced)
+      Deco_Panel_DiaPattern 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Deco_Panel_DiaPattern_1 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Star_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Layout_Top 120x50
+        Text 91x38 text:#AB977E@26B
+          Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#AB977E
+          Star_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#AB977E
+      Img_Grade 540x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#83C2EE
+        Text_Grade 82x38 text:#FFFFFF@26B
+      Scroll_Stat 560x127
+      Item 535x35
+        Img_Dot 16x16 8c70e1b4b0a24a128f30b790115cb13c
+        Text_StatTitle 372x33 text:#757474@22
+        Text_StatValue 27x33 text:#757474@22B
+      Layout_Score 500x41 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#BBBBBB/30%
+        Text_Score 48x38 text:#8AAC01@26B
+          Icon_Sword 20x32 3119d2807ea7466e8e9056d0590a35cc color:#AAA8A0
+          Arrow 24x20 10981d693e294a5392d7eb1ccbe41181 color:#8AAC01
+      Btn_Select 215x85 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B
+    Layout_After 580x360 552a11490267476daec41dac4e8fd920 (Sliced)
+      Layout_Top 120x50
+        Text 68x38 text:#AB977E@26B
+          Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#AB977E
+          Star_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#AB977E
+      Deco_Panel_DiaPattern 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Deco_Panel_DiaPattern_1 164x248 ad7196dd0e944e3b9c414f2e2951fdaf
+      Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Star_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#B3BDC3
+      Img_Grade 540x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#83C2EE
+        Text_Grade 82x38 text:#FFFFFF@26B
+      Scroll_Stat 560x127
+      Item 535x35
+        Img_Dot 16x16 8c70e1b4b0a24a128f30b790115cb13c
+        Text_StatTitle 372x33 text:#757474@22
+        Text_StatValue 41x33 text:#757474@22B
+      Layout_Score 500x41 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#BBBBBB/30%
+        Text_Score 65x38 text:#8AAC01@26B
+          Icon_Sword 20x32 3119d2807ea7466e8e9056d0590a35cc color:#AAA8A0
+          Arrow 24x20 10981d693e294a5392d7eb1ccbe41181 color:#8AAC01
+      Btn_Select 215x85 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B
+    Layout_TryCount 521x30
+      Img_SliderBack 521x30 144b1561436c4a199c24c0fc193212c7
+      Img_Slider 512x24 0b43bd87fe2345ac854fec4c92e417b7 (Filled)
+      Img_SliderBlock 490x30 FillRectImageRUID:3b67edc286a64f5e88a2a4615be2ec75
+      Img_GradeCur 35x35
+        Img 33x33
+        Text 15x34 text:#FFFFFF@23B
+      Img_GradeNext 35x35
+        Img 33x33
+        Text 14x34 text:#FFFFFF@23B
+      Text_Desc 165x33 text:#757474@22B
+      Text_Count 65x33 text:#4F679C@22B
+    Deco_Line 1200x4
+    Layout_Cost 647x66
+      Img_BG 590x51 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#E5E2D4
+        Img_Dia 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+      Text_Dia 235x40 text:#858585@27B
+      Label_Cost 59x37 text:#8F8F8F@25B
+        Deco 18x18 36338acb0cfe498cac27bf667fc29979 color:#BEBAAA
+    Btn_Cancel 315x96 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@25B

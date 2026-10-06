@@ -1,0 +1,147 @@
+# SpecialPass — 145 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Scroll_Tab, Layout
+UIR_SimpleFantasy_Sample_SpecialPass 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Scroll_Tab 279x956
+    Btn_Tab 272x120 ec83f469ce1440208cd5dd49cb5ddb0f (Sliced) color:#FCFCFC states:highlighted=ec83f469ce1440208cd5dd49cb5ddb0f,pressed=1983ab40892144f490764b16a454c032,selected=ec83f469ce1440208cd5dd49cb5ddb0f,disabled=ec83f469ce1440208cd5dd49cb5ddb0f
+      Img_SelectTab 272x120 1983ab40892144f490764b16a454c032 (Sliced)
+      Text_PassTabName 230x60 text:#B3D4EC@30
+      Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+  Layout 1640x956
+    Img_BG 1640x956
+    PassPanel 950x956
+      BG 950x956
+        BG_LeftTop 475x91 318185d2ad2d451b997215c82b618455 color:#4E5C7A/50%
+          Text_Title 475x91 text:#FFFFFF@28B
+        BG_LeftCenter 475x810
+        BG_RightTop 475x91 7f867c5525ad4830889d445835d9b5b4 color:#4E4175/50%
+          Text_Title 475x91 text:#C68AFF@28B
+        BG_RightCenter 475x810
+      GridView_Reward 950x706
+      Item_1 943x120
+        DecoLine 943x1
+        Layout_Condition 20x120
+          Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#192031
+            Text 146x40 text:#FFFFFF@22B
+            Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+            Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Disable 943x120 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#111722/80%
+          Img_BG 20x120
+            Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1D263E
+              Text 146x40 text:#99EBFF@22B
+              Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+              Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Reward 943x120
+          Layout_Free 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+          Layout_Paid 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        DecoLine 943x1 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#263844/70%
+      Item_2 943x120
+        DecoLine 943x1
+        Layout_Condition 20x120
+          Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#192031
+            Text 146x40 text:#FFFFFF@22B
+            Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+            Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Disable 943x120 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#111722/80%
+          Img_BG 20x120
+            Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1D263E
+              Text 146x40 text:#99EBFF@22B
+              Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+              Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Reward 943x120
+          Layout_Free 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+          Layout_Paid 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        DecoLine 943x1 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#263844/70%
+      Item_3 943x120
+        DecoLine 943x1
+        Layout_Condition 20x120
+          Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#192031
+            Text 146x40 text:#FFFFFF@22B
+            Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+            Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Disable 943x120 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#111722/80%
+          Img_BG 20x120
+            Img_BG 250x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1D263E
+              Text 146x40 text:#99EBFF@22B
+              Deco_L 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+              Deco_R 52x36 4cb807acd9ea4ba9b7821cc5830eba9a
+        Layout_Reward 943x120
+          Layout_Free 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+          Layout_Paid 468x120
+            Slot_Reward 120x120 aa931a755e5949699233b817029a3e36 (Sliced)
+              Img_Icon 60x60 d6ad676a0b7045e0a994285b3c092218 (Sliced)
+              Text_Name 101x30 text:#343434
+              Text_Count 87x30 text:#FFFFFF@B+o#5B5B5B
+              Img_Select01 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Icon 60x48 2e36df32385a4026a963af9e552b06df
+              Img_Select02 150x150 c59afc900ba04483a9b64fb391c5c627
+                Img_RedDot 30x30 2860136c06ab075439721c027de365af color:#E4573B
+              Img_LockBG 120x120 aa931a755e5949699233b817029a3e36 (Sliced) color:#000000/70%
+                Img_Lock 32x32 092a1d9b68524f83ba3a3e8e0c0f482b (Sliced)
+        DecoLine 943x1 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#263844/70%
+      Line_Bottom 950x100 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#131A27/70%
+      Line_Top 950x100 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#131A27/70%
+      Btn_Group 950x146
+        Btn_Acquire 428x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=c2660e96661c4a6e8dc8eaa17eb0655c,pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=c2660e96661c4a6e8dc8eaa17eb0655c,disabled=c2660e96661c4a6e8dc8eaa17eb0655c
+          Text_Acquire 428x88 text:#FFFFFF@26B
+        Btn_BuyPass 428x88 3a72c0cef5c94f7b9b6491a997f12fb9 (Sliced) states:highlighted=3a72c0cef5c94f7b9b6491a997f12fb9,pressed=97697b7587564251ab837713b0e5c0a6,selected=3a72c0cef5c94f7b9b6491a997f12fb9,disabled=3a72c0cef5c94f7b9b6491a997f12fb9
+          BG_Cost 165x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/30%
+            Text_Cost 75x25 text:#FFFFFF@27B
+            Img_Icon 40x40 a8f3146382c07494d8dbce9b93c1a5c3 color:#FFFFFF/78%
+          Text_Purchase 208x50 text:#FFFFFF@26B
+    SpecialPassImg 800x956
+      Img_BG 800x956
+      Layout_Info 700x250 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#233A4A/80%
+        Text_Title 650x61 text:#A0E9EA@37B
+          Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/50%
+        Text_Description 650x164 text:#FFFFFF@24

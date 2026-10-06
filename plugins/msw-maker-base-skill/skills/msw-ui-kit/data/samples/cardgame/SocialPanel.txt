@@ -1,0 +1,20 @@
+# SocialPanel — 18 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, MyRank, MyNicknameText, MyProfileCodeText, FriendButton, FriendSlot, LeftArrowButton, RightArrowButton, PageNumberText
+UIR_CardGame_Sample_SocialPanel 1920x1080
+  Background 439x946 f63a4c0b9eae411297e0bd9e86859cbc (Sliced)
+  MyRank 90x73 f6e4e4be89e745619129d3a3548f5db8
+  MyNicknameText 299x27 text:#FACA33@24B+o#000000/50%
+  MyProfileCodeText 299x27 text:#FFFFFF@19B
+  FriendButton 182x52 41be38775d084c1588494ea41e926df8
+    Text 167x35 text:#EEC78F@20B+o#000000/50%
+  FriendSlot 414x96
+    Line 414x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+    UserRank 92x75 dd5373d9a9cf4af3927fba505eb1bb5c
+    UserNicknameText 200x31 text:#FACA33@24B+o#000000/50%
+    UserProfileCodeText 114x31 text:#FFFFFF@18B+o#000000/50%
+    UserLocationText 66x31 text:#FFFFFF@18B+o#000000/50%
+    DeleteButton 29x29 e03a94f6bf3540699ab0e5e45da5488b states:highlighted=0c6e0d2fe1ad4e2d8288d089441bcf34,pressed=aff32f08503a4aafbabc8bbda15e1359
+    FollowButton 70x76 51d67273c14b40f380e22daf817b1202 states:highlighted=b3eb96205785418287a0e57d6ef0bba3,pressed=1c49012b7ae14188902d26f3d6682b24
+  LeftArrowButton 56x65 de8f55e3fcc24ac3ba93ce63387385a1 states:highlighted=b445f3ccba0f46f59b5b4fed0413d0e3,pressed=bf0d9f60123447739c50d436c47cc2b4,disabled=5f2bef0422664642895c5d9072af0d10
+  RightArrowButton 56x65 990efe92562b49389e27194d4cdb2817 states:highlighted=b52ca557f9ca4a2b942cbd3015b3188e,pressed=304b6fc851e6461ebd56d0e7d43e7df7,disabled=e38decc6595a46c5a6418670b99c8a84
+  PageNumberText 76x36 text:#FFFFFF@23B+o#000000/50%

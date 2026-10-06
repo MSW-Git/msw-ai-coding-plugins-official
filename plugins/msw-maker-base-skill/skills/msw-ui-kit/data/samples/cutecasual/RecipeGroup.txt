@@ -1,0 +1,736 @@
+# RecipeGroup — 734 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: UIRecipeBook, UIReceipeComboInfoDim, UIIngreCardSetting, UIBunListDim, UIIngreGachaDim, UIRecipeMaking
+UIR_CuteCasual_Sample_RecipeGroup 1920x1080
+  UIRecipeBook 1920x1080
+    BG 3720x2880
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    Title 357x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+      HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        Icon 110x110
+    CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+      Icon 130x130
+    RecipeSetArea 2520x700
+      Deco_Right 472x84 678d182a1d1a457baff384521b56ccd1
+      Deco_Left 688x112 d688cecd5a574d3f923081c6fe8d9544
+      BG 3200x680 89862c14198546048a28854f6f81967f
+      BG_Pattern 3200x644 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/80%
+      Deco_Top 132x160 747fb3fa1cd44a8fb51494e6931daf9b
+      Deco_Bottom 168x200 9e440fcd57574d6c8981c6ad48942ae6
+      RecipeList 1680x475
+      Model_RecipeCountBar 300x56 402ec63f19da49e39d43375d21f2702b (Sliced) color:#EEBB5D/90%
+        CountIcon 42x42 5c6a284c715e454686aca1f927c98f3b
+        CountText 180x50 text:#FFFFFF@30B+o#AF7E28
+        UpgradeBtn 48x48 3a2919d0447841c78817566e3f4110be
+          Plus 24x24 c6e810fc41704ad2b744b63c2f22c45a color:#8C5B15
+          Icon 50x70
+        RedDot 24x24 3af9b8375087419fb1b509de5060f6cf
+      Replace1 235x60 03bd033900c2489fbe22c7a41fe22a11 (Sliced) text:#FFFFFF@28B+o#9F6615
+      Delete1 64x64 5aa4a7529dd74d10a9f7971a872b498b
+      Replace2 235x60 03bd033900c2489fbe22c7a41fe22a11 (Sliced) text:#FFFFFF@28B+o#9F6615
+      Delete2 64x64 5aa4a7529dd74d10a9f7971a872b498b
+      Replace3 235x60 03bd033900c2489fbe22c7a41fe22a11 (Sliced) text:#FFFFFF@28B+o#9F6615
+      Delete3 64x64 5aa4a7529dd74d10a9f7971a872b498b
+      Replace4 235x60 03bd033900c2489fbe22c7a41fe22a11 (Sliced) text:#FFFFFF@28B+o#9F6615
+      Delete4 64x64 5aa4a7529dd74d10a9f7971a872b498b
+      Replace5 235x60 03bd033900c2489fbe22c7a41fe22a11 (Sliced) text:#FFFFFF@28B+o#9F6615
+      Delete5 64x64 5aa4a7529dd74d10a9f7971a872b498b
+      RecipeComboInfo 980x150 0d3fb1e62acf437180257ba39a2a9c12
+        NotOpened 880x100 text:#887052@28B+s#FFFCEE
+        LockedIcon 36x50 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Opened 980x150
+          Title 950x56 9c41fefc633e4969b86fdf36ddc4790a (Sliced) color:#DBC093 text:#FFFFFF@30B+o#AA8B5D
+          InfoText 900x60 text:#887052@28B+s#FFFCEE
+            ComboIcon 40x40 0ce583f95dce4185822a45dda5be4575
+        InfoBtn 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#BFA073
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FEF1D4
+          Touch 110x110
+        OpenConditionTooltip 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#BFA073
+          InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FEF1D4
+          Touch 110x110
+          Tooltip 234x121 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+    TrendInfoBar 920x80
+      PositiveTrendInfo 420x55 402ec63f19da49e39d43375d21f2702b (Sliced) color:#EEBB5D/90%
+        Text 170x56 text:#FFFFFF@28B+o#AF7E28
+        Icon 50x48 33f4a4d126d64ae1ba05a77b4d714a1e (Sliced)
+        NoTrendText 420x55 text:#FFFFFF@28B+o#AF7E28
+        ValidTrend 420x55
+          RecipeTag 144x44 fcc3dfb6b07f4159a11e3a145062d27c (Sliced)
+            TagIcon 32x32
+            TagText 124x45 text:#FFFFFF@26B+o#B2B2B2
+      NegativeTrendInfo 420x55 402ec63f19da49e39d43375d21f2702b (Sliced) color:#EEBB5D/90%
+        Icon 56x52 df1904cc7947484690e4a303a2faa803 (Sliced)
+        Text 170x56 text:#FFFFFF@28B+o#AF7E28
+        NoTrendText 420x55 text:#FFFFFF@28B+o#AF7E28
+        ValidTrend 420x55
+          RecipeTag 144x44 fcc3dfb6b07f4159a11e3a145062d27c (Sliced)
+            TagIcon 32x32
+            TagText 124x45 text:#FFFFFF@24B+o#B2B2B2
+    PositiveTrendText 230x50 text:#93640A@24B
+    NegativeTrendInfo 230x50 text:#93640A@24B
+    ClearBtn 84x84 80c84ee4b8544f61a663238f2fdc27a7
+      Icon 48x40 4234d59ffb744f0394cf5a6694198be7 color:#8C5B15
+    AutoSetBtn 116x116 d0656357750947f68d914321b4994261 text:#8B693E@30B
+    ResetBtn 116x116 d0656357750947f68d914321b4994261 text:#7A5219@30B
+      Return 52x48 f5964c1bfc3f41c3b3f60e6a21f4eac7 color:#8B693E
+      Icon 100x100
+    MoveToIngreCardSettingBtn 164x124 4214714d3bca4cdfb28c3724a8906926 text:#FFFFFF@28B+o#A15205
+      Dim 164x124 4214714d3bca4cdfb28c3724a8906926 color:#000000/50%
+      Icon 124x116 f06f6aa6824a4a54bd7539ed95fb7608
+        IconDim 124x116 f06f6aa6824a4a54bd7539ed95fb7608 color:#000000/50%
+      Text 165x91 text:#FFFFFF@28B+o#A15205
+    RecipeSettingBtn 164x124 8fdc7881f16b4783ba11803bc14b80dd
+      Dim 164x124 8fdc7881f16b4783ba11803bc14b80dd color:#000000/50%
+      Icon 128x128 5c6a284c715e454686aca1f927c98f3b
+        IconDim 128x128 5c6a284c715e454686aca1f927c98f3b color:#000000/50%
+      Text 165x91 text:#FFFFFF@28B+o#BA6909
+    UISprite 1920x1080 03d29191a3154b238de605c88f237913 color:#FFFFFF/35%
+  UIReceipeComboInfoDim 2520x1680
+    Dim 2520x1680
+    UIRecipeComboInfo 850x913 b72a08f5f8204035b120d26f40321e57
+      Title 412x56 text:#FFFFFF@38B+o#64492E
+        HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#89633A
+          Info 10x26 0423dcf92c594efc87944a00028c4ea2 color:#F0C992
+          Icon 100x100
+      CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+        Icon 130x130
+      RecipeComboList 780x760 f76bc8d505034f5294829b711dc04411 color:#EBE4D6
+      Model_RecipeComboInfoSlot 740x222 12c68dd021444b619b9fbb28e9ae1cbe
+        TopBar 712x95
+          BG 712x95 a971746cec0946748504f429a777c7c7 (Sliced) color:#D6C3AB
+          NameText 562x46 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#FAC629 text:#FFFFFF@28B+o#806A5D
+          DescText 665x40 text:#977257@28B+o#F3EEE1
+          IsActive 136x52 defeaeea8aa24ba998257774ab5ddfae text:#FFFFFF@26B+o#D98A0E
+          Line 712x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#BFA78F
+        BottomBar 620x90
+          ComboTagList 620x90
+  UIIngreCardSetting 1920x1080
+    BG 2520x1680
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    Title 347x41 text:#FFFFFF@28B+o#6D4D14+s#6D4D14
+      HelpBtn 42x42 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+        Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+        Icon 100x100
+    LeftArea 584x858 b8bbae908b9c4b33b3398037953984bb (Sliced)
+      BG 538x802 95e67b52f7e146d2802c6845452791bc
+      Line_Top 524x6 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3BB9A
+      Deco_L 56x60 73934962a758487b8c6920425161ab60 color:#AD8862
+        Dot 28x28 fa5b1a18964e4ef9b1e74dbf12da50e7
+        Top 104x96 b0f68c599419482c8267fe83808e6205
+      Deco_R 56x60 73934962a758487b8c6920425161ab60 color:#AD8862
+        Dot 28x28 fa5b1a18964e4ef9b1e74dbf12da50e7
+        Bottom 88x100 5f6e43dac86a458abf042fc9e6c907f4
+      BalanceBar 256x32 10aca4ce8bd342ecba36ded9a24e79c6
+        BalanceRight 130x65 text:#FFFFFF@26B+o#D0791D+s#D0791D
+        Green 135x24 07ba54a39a4343a3a0667765c90f4113
+        Orange 135x24 71dedfc5d0084193b1e2c7cd214b9200
+        BalanceZone 90x24 cf68b5fe255b46cdbb8f2a775088bcf7
+        Pointer 32x40 3a178133919e4171a09ce815f6a58a6a
+        BalanceLeft 130x65 text:#FFFFFF@26B+o#45750E+s#45750E
+      IngreSlotList 524x599 86cb0ffa0826868499ac5518f20d930c color:#FFFFFF/0%
+        Model_IngreSetSlot 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_1 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_2 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_3 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_4 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_5 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_6 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_7 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_8 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_9 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_10 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_11 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_12 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_13 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_14 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_15 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_16 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_17 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_18 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+        Model_IngreSetSlot_19 116x116 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          IngreIcon 60x60 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          Empty 106x106 9a5acfee13f94cbf97aec99616bb607f color:#CCB89D
+          LockIcon 106x106 55351e0096c64011ad7b9bb6e0b94901 color:#AD926E
+            Icon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      Line_Bottom 524x6 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3BB9A
+      BunSetArea 524x98
+        BunNameText 220x90 text:#FFFFFF@28B+o#A08561
+        BunDish 116x116 767ba5f8bccd46799529577b12ab4d3b
+        BunIcon 64x64 bd88c52d0525445cb9cd03a3280a39f0
+        SelectBtn 132x84 bd225d3bdd464bb784aef1c823a41f0a
+          Text 110x65 c6e810fc41704ad2b744b63c2f22c45a text:#674125@28B+s#FFDFA1/60%
+          RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        LackNotify 159x77 277783e1ece94a31935d0d92b0f88768 text:#FF0000
+          RedDot 30x30 3af9b8375087419fb1b509de5060f6cf
+      BalanceArea_Tut 544x100
+    Line 600x6 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/60%
+      Right 28x32 e999df09c3474ab1a8269e3d6df7de61
+      Left 28x32 e999df09c3474ab1a8269e3d6df7de61
+    IngreCardScroll 1060x720
+      Model_IngreCard 250x360
+        BG 250x360 429ea5587d4046bfbfda7311954a743f (Sliced)
+          Selected 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          IngreIconHolder 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+            IngreIcon 74x74 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          NameText 230x72 text:#FFFFFF@26B+o#5F6F16
+          CountText 90x45 text:#72634B@28B+o#FFFFFF
+          Property 95x35 07d90a3597561504f90752a4137b57f2 (Sliced)
+            Text 32x41 text:#72634B@28B+o#FFFFFF
+              Icon 32x40 638317f08f0947db9f5350709a86aca7
+          SpicyInfo 80x84 399ae7c58fb94dd6b3ad78f7288f6305 (Sliced) text:#72634B@24B+o#FFFFFF
+            Icon 32x32 9a1150b1d4624e2dbff078cc02b54f10 (Sliced)
+          Rect 220x80
+            PriceText 170x38 text:#72634B@26B+o#FFFFFF
+            GoldIcon 34x34 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+            TasteScoreText 170x38 text:#72634B@26B+o#FFFFFF
+            TaseIcon 32x28 eb4d76afded8477cb5bf18c8749964a9 (Sliced)
+          VIPOrderIcon 60x60 6512629e3fbc41088846de3f41089cf7
+    ScrollGradiant 1052x120 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+    ClearBtn 116x116 d0656357750947f68d914321b4994261
+      Icon 52x48 f5964c1bfc3f41c3b3f60e6a21f4eac7 color:#8B693E
+    AutoSetBtn 116x116 d0656357750947f68d914321b4994261 text:#8B693E@30B
+      AutoSetSelectArea 200x353 03d991db79bf4348b001270d5d8b6b82
+        AutoSetList 200x400
+        Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+        Meat 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 40x40
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Chicken 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 40x40
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Seafood 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 40x40
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Veggie 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 40x40
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Spicy 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 40x40
+    FilterBtn 881x56 402ec63f19da49e39d43375d21f2702b (Sliced) color:#EEBB5D/90%
+      Text 333x41 text:#FFFFFF@28B+o#AF7E28
+        IngredientIcon 34x28 c0829ffb1bd940e6b589121e1897e06a
+      Icon 20x34 c550cadddaa0410ca2c86290e05bf95c color:#C18A2A
+      Icon_Filter 24x24 f3ccce2392be4824a66f9ba6884d3487 color:#C18A2A
+      FilterSelectArea 202x490 03d991db79bf4348b001270d5d8b6b82
+        FilterList 180x600
+        Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+        Etc 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x67 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Spicy 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x60
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+          Icon 41x41
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Veggie 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x60
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+          Icon 41x41
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Seafood 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x60
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+          Icon 41x41
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Chicken 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x60
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+          Icon 41x41
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Meat 130x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x60
+          Text 130x60 text:#72634B@24B+o#FFFFFF
+          Icon 41x41
+        Line 168x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        All 171x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          Icon 41x41
+          BG 192x64 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 170x60 text:#72634B@24B+o#FFFFFF
+    SortBtn 150x56 03bd033900c2489fbe22c7a41fe22a11 (Sliced)
+      Icon 35x35 c07af1d03a614dcab4e573cc8f7997bc color:#8C5B15
+      SortSelectArea 202x218 03d991db79bf4348b001270d5d8b6b82
+        Icon_Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+        Grade_1 176x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x64 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 175x60 text:#72634B@24B+o#FFFFFF
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        TasteScore_1 176x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x59
+          Text 175x60 text:#72634B@24B+o#FFFFFF
+        Line 160x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#AAAAAA
+        Cost_1 176x60 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0% text:#72634B@24B
+          BG 192x70 a971746cec0946748504f429a777c7c7 (Sliced) color:#F9DA7F
+          Text 175x60 text:#72634B@24B+o#FFFFFF
+    MoveToRecipeMakingBtn 164x124 4214714d3bca4cdfb28c3724a8906926 text:#FFFFFF@28B+o#A15205
+      Icon 84x92 453c6b0499474d4791afc380f76532d8
+      Text 165x91 text:#FFFFFF@28B+o#A15205
+    Tut_StartRecipeMakingBtn 187x168
+    OpenIngreGachaBtn 164x124 8fdc7881f16b4783ba11803bc14b80dd text:#FFFFFF@26B+o#BA6909
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      Icon 120x120 50ef6e329c054d578a89dfd2e9fb8633
+      Text 165x91 text:#FFFFFF@26B+o#BA6909
+    CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    Model_VIPOrderPreview 572x124
+      Requirements 572x124 08f65bc4385e4727bc59e3a480e0f90c
+        Deco 68x60 f34e5a0bea7a46d39712a2a011fb8ab5
+        Line 80x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#CAB7A1
+        RequirementsList 400x100
+        NoPinnedOrderText 370x90 text:#A58F72@28B
+      OpenOrderListBtn 80x80 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+        Icon 80x80 6512629e3fbc41088846de3f41089cf7
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        Text 80x50 text:#FFFFFF@28B+o#000000
+      Orders 475x575 71096806821f43eaa19161b441d5b427
+        Tip 36x28 94b893ca52244cdca159f2afd390c81c
+        Bar 457x74 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#DDD4C6
+        Title 330x60 36d863dabfeb4e70aee0af058b01ea3e (Sliced) color:#000000/0% text:#FFFFFF@30B+o#978976
+        OrderList 460x395
+          VIPOrderPreviewSlot1 460x122
+            Chek 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+          VIPOrderPreviewSlot2 460x122
+            Chek 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+          VIPOrderPreviewSlot3 460x122
+            Chek 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+        MoveToVIPOrderBtn 460x85
+          Icon 50x50 6512629e3fbc41088846de3f41089cf7
+          Text 370x75 text:#9C8D7C@26B
+          MoveIcon 20x30 c550cadddaa0410ca2c86290e05bf95c color:#C1B2A7
+        ResetBtn 46x46 4eeb98e3c474433caa095add5bf686d1 color:#B2A38F
+          Icon 38x38 f5964c1bfc3f41c3b3f60e6a21f4eac7
+    SideMenuInfo 203x166
+      Dish 203x65 ea276181aaf44204933446fc132b0578
+        Icon 120x120 be5ea06989b546918237cc6fd82bdbe0
+      Text 203x60 text:#FFFFFF@24B+o#4B2D13
+      InfoIcon 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#C8AB73
+        Icon 6x22 0423dcf92c594efc87944a00028c4ea2
+      Tooltip 300x193 277783e1ece94a31935d0d92b0f88768 color:#FFFFFF/80% text:#635743@24B+o#FFFFFF
+  UIBunListDim 2520x1680
+    Dim 2520x1680
+    Bg 1190x790 b72a08f5f8204035b120d26f40321e57
+      Line_Top 1190x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E7DDC5
+      Line_Bottom 1190x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E7DDC5
+      BG_1 1190x350
+      BG_2 1190x326
+      CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+        UISprite 110x110
+      Title 900x80 text:#FFFFFF@38B+o#64492E
+      BunList 610x320
+      BunDetail 480x548 originRUID:055d84cc7adc40fd91d4e7ceab72e93e
+        Deco_Bun 164x164 6097af76c194472189fab6fef52f7810
+        BunIconHolder 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+          BunIcon 64x64 bd88c52d0525445cb9cd03a3280a39f0
+        SetBunBtn 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Dim 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/50%
+        Name 370x70 text:#685942@32B+o#FFFFFF
+        Name_Line 370x8 8ad519aa7eb545f6a2603094a78e8064 (Sliced) color:#D1C1A0
+        InfoBar 415x200
+          BG 415x200 4794714a5c1c4e20a7963d86ecaf915e (Sliced) color:#FFFFFF/0%
+            TasteBG 390x54 402ec63f19da49e39d43375d21f2702b (Sliced) color:#E8DABD/90%
+            TasteScoreText 104x41 text:#FFFFFF@28B+o#987F5F
+            TasteIcon 32x28 eb4d76afded8477cb5bf18c8749964a9 (Sliced)
+            TasteText 180x55 text:#736752@28B
+            PriceBG 390x54 402ec63f19da49e39d43375d21f2702b (Sliced) color:#E8DABD/90%
+            PriceText 104x41 text:#FFFFFF@28B+o#987F5F
+            PriceDescText 180x55 text:#736752@28B
+            GoldIcon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+            TypeBG 390x54 402ec63f19da49e39d43375d21f2702b (Sliced) color:#E8DABD/90%
+            TypeText 66x36 text:#FFFFFF@24B+o#987F5F
+              TypeIcon 28x28 c0829ffb1bd940e6b589121e1897e06a
+            TypeDescText 170x50 text:#736752@26B
+            TypeIcon 30x26 7ecb5769578f4b05808afaad17ee83ac
+            Tut_BunTagBonus 406x70
+  UIIngreGachaDim 2520x1680
+    Dim 2520x1680
+    BG 1530x750 b72a08f5f8204035b120d26f40321e57
+      Title 450x56 text:#FFFFFF@38B+o#64492E
+        HelpBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#89633A
+          Info 10x26 0423dcf92c594efc87944a00028c4ea2 color:#F0C992
+          UISprite 120x120
+      Info 264x41 text:#8D7865@28
+        Balloon 36x32 3ec049c173514dcea835c256f93198e1 color:#9F8975
+          Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FAF6EF
+      CloseBtn 40x40 0c33c943f60b4c269d9b0130484f006c
+        Touch 130x130
+      Model_UIIngreGachaItemRenderer 348x496 12c68dd021444b619b9fbb28e9ae1cbe
+        BG 319x208 a971746cec0946748504f429a777c7c7 (Sliced) color:#D6C3AB
+        IconImage 132x132 fa19563ce5124b739178b24481dfb927
+          Icon 96x96 abdfd1d4ded5461da97a2edbf44ce321
+          Stars 100x30
+        NameText 270x60 549322a9d4d745d5be33922d81d9310c color:#FFFFFF/0% text:#72634B@30B+o#FFFFFF
+        CountText 220x42 4596bf7ad73c4627a43bd9aff5c95bdf (Sliced) color:#EBE1D8 text:#897466@28B+o#FFFEFC
+        TryOnceBtn 224x80 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Disable 224x80 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/45%
+        TryMultiBtn 224x80 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+          Disable 224x80 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/45%
+        UISprite 100x100
+      GachaSlots 1500x540
+    IngreBunCollectionBtn 110x110 8b87c4131d82406ebee244021c1a915f
+      UIText 150x80 text:#FFFFFF@28B+o#6D4D14
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+  UIRecipeMaking 1920x1080
+    BG 2320x1480
+      Wall_L 80x1480 bc5cbd2d2c67408fa334826dfc77d2ad
+      Wall_R 80x1480 bc5cbd2d2c67408fa334826dfc77d2ad
+      Top 2320x600 d74927134e03487b95739cdeb167f034 (Tiled)
+      Bottom 2320x300 685704cf05f04f56a242970cb3022847 (Tiled)
+    Burger 400x570
+      Tray 330x30 47df0ce0fdbe45bfa954c0083915bd64
+      BurgerParent 400x320
+    ChoiceEntities 1920x1080
+      TasteScoreBar 132x160 e72c5064f1994e2a9bf60af73f424d7c
+        Title 50x160 text:#000000@30
+        TasteScoreText 80x50 text:#FFFFFF@24B+o#6B4110
+        TasteScoreGrade 68x40 5c80da1cda4f462fa9fbfde66e334f88
+      Oven 924x372 originRUID:734aa673a2644fc4a405553e66baecf6
+        BalanceBar 400x32 10aca4ce8bd342ecba36ded9a24e79c6
+          BalanceRight 154x47 daf3b314d4936ca409a812e7d2f99fd1 color:#FFFFFF/0%
+            Icon 32x40 8e942676a64d421e8eebfa01023be8e8
+            Text 155x60 text:#FFFFFF@24B+o#A17407+s#A17407
+          BalanceLeft 154x47 daf3b314d4936ca409a812e7d2f99fd1 color:#FFFFFF/0%
+            Icon 32x40 638317f08f0947db9f5350709a86aca7
+            Text 155x47 text:#FFFFFF@24B+o#5F6F16+s#5F6F16
+          Green 196x24 07ba54a39a4343a3a0667765c90f4113
+          Orange 196x24 71dedfc5d0084193b1e2c7cd214b9200
+          BalanceZone 150x24 cf68b5fe255b46cdbb8f2a775088bcf7
+          Left 8x32 039717b072c94e589a09fcd50be818aa
+          Right 8x32 039717b072c94e589a09fcd50be818aa
+          Pointer 32x40 3a178133919e4171a09ce815f6a58a6a
+        SpicinessBar 64x84 2c7839a7f84b4e4585824292a9ca2131 FillRectImageRUID:0e2c2afff7744bae8da1fb6a4ba8ce35
+          SpicyIcon 112x36 4e85a17697c04edbb60ee6727081547e text:#FFFFFF@24B+o#8C0101
+          FillImage 64x84 0e2c2afff7744bae8da1fb6a4ba8ce35 (Filled)
+        BalanceArea_Tut 760x65
+      Params 1920x1080
+      RerollBtn 296x132 34b472eea94e4369ba9dd9a04e56557b
+        Icon 52x52 c1cc0a7cac26444d8f5c7f07105f18ba
+        LeftCountText 200x68 9aa5035c925a4d6f863eda8f59e58d56
+          Text 54x38 text:#72634B@26B+o#FFFFFF+s#72634B
+            Icon 30x30 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+        Dim 296x132 34b472eea94e4369ba9dd9a04e56557b color:#000000/45%
+          LockIcon 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+      ChoiceButtons 1920x1080
+        L 276x400 429ea5587d4046bfbfda7311954a743f (Sliced)
+          IngreIconHolder 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+            IngreIcon 78x78 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          NameText 220x80 text:#FFFFFF@26B+o#5F6F16
+          TasteScoreText 98x40 text:#72634B@26B+o#FFFFFF
+          PriceText 98x40 text:#72634B@26B+o#FFFFFF
+          Pin 36x40 d9636c1bc954454b81476beb3b44577a (Sliced)
+          TasteIcon 32x28 eb4d76afded8477cb5bf18c8749964a9 (Sliced)
+          GoldIcon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          SpicyInfo 80x84 399ae7c58fb94dd6b3ad78f7288f6305 (Sliced) text:#72634B@24B+o#FFFFFF
+            Icon 32x32 9a1150b1d4624e2dbff078cc02b54f10 (Sliced)
+          Property 95x35 07d90a3597561504f90752a4137b57f2 (Sliced)
+            Text 32x46 text:#72634B@28B+o#FFFFFF
+              Icon 40x40 b711deb3996b4fe0b31a21ed0faa6dc3 (Sliced)
+          VIPOrderIcon 48x48 7270a3d553144c288a0984109cb6a242
+          Model_ClickHereEntity 100x100
+            Arrow 56x76 0774e019f3eb40179f8250e77a56ae92
+            Text 100x50 text:#5A5A5A@28B+o#FFFFFF
+        R 276x400 429ea5587d4046bfbfda7311954a743f (Sliced)
+          IngreIconHolder 144x144 53de4f9f6e424163b211a32c0ebbcf93 (Sliced)
+            IngreIcon 78x78 519588f2ed904ae5a4dadcc6ee398ff9 (Sliced)
+          NameText 220x80 text:#FFFFFF@26B+o#5F6F16
+          Property 95x35 07d90a3597561504f90752a4137b57f2 (Sliced)
+            Text 32x46 text:#72634B@28B+o#FFFFFF
+              Icon 40x40 b711deb3996b4fe0b31a21ed0faa6dc3 (Sliced)
+          TasteScoreText 98x40 text:#72634B@26B+o#FFFFFF
+          PriceText 98x40 text:#72634B@26B+o#FFFFFF
+          Pin 36x40 d9636c1bc954454b81476beb3b44577a (Sliced)
+          TasteIcon 32x28 eb4d76afded8477cb5bf18c8749964a9 (Sliced)
+          GoldIcon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          SpicyInfo 80x84 399ae7c58fb94dd6b3ad78f7288f6305 (Sliced) text:#72634B@24B+o#FFFFFF
+            Icon 32x32 9a1150b1d4624e2dbff078cc02b54f10 (Sliced)
+          VIPOrderIcon 48x48 7270a3d553144c288a0984109cb6a242
+          Model_ClickHereEntity 100x100
+            Arrow 56x76 0774e019f3eb40179f8250e77a56ae92
+            Text 100x50 text:#5A5A5A@28B+o#FFFFFF
+      CountBar 424x124 7808c6ef222441a1bca619c701242a90 text:#72634B@26B+o#FFFFFF
+        Count 80x60 text:#72634B@26B+o#FFFFFF
+      HelpText 671x88 text:#000000@32
+      IngreList 1820x100
+      ComboText_IMG 144x44 f776b453abf648889326598650d0ff31
+        1 44x56 f9afbe8328e6491683b2f102f754a456
+        10 44x56 f9afbe8328e6491683b2f102f754a456
+      ComboArea_Tut 281x100
+      EndRecipeMakingBtn 116x96 8ee33c781701403280b186f86f4a365c states:highlighted=d8304091ad5945b395d0d53482aa796f,pressed=d8304091ad5945b395d0d53482aa796f,selected=d8304091ad5945b395d0d53482aa796f
+        Text 150x80 text:#FFFFFF@28B+o#453A2F
+      SideMenuInfo 203x166
+        Dish 203x65 ea276181aaf44204933446fc132b0578
+          Icon 120x120 be5ea06989b546918237cc6fd82bdbe0
+        Text 190x65 text:#FFFFFF@24B+o#4B2D13
+        InfoIcon 34x34 f59006224a184fdeb8f9ecb09ae3af7d color:#C8AB73
+          Icon 6x22 0423dcf92c594efc87944a00028c4ea2
+        Tooltip 300x135 277783e1ece94a31935d0d92b0f88768 color:#FFFFFF/80% text:#635743@24B+o#FFFFFF
+    ResultEntities 1920x1080
+      Oven 924x372 originRUID:734aa673a2644fc4a405553e66baecf6
+        BurgerNameInput 480x52 7887564c0397435cb72359209ce36b16 (Sliced) text:#72634B@30B+o#FFFFFF
+          UISprite 48x48 7cd516e382ec43d683ef54bb18342f0a
+        SelectedEmployee 137x172 7cc485b82d7b4e559b728d59f05f6027
+          CommentText 176x78 7118dda5ec1f4b778d976ee225a8c6d2 text:#6C3E07@26
+            Tip 30x30 4f1c24cd50fa4c8098b44bfb911a6130
+          ChatBalloon 100x100 30e011e4e8ee4bf19e7b358940aff079
+            Icon 50x50 d4890aea997b4525975008eeb2b87dde
+      EndText 304x76 d84edb857a8d41f993b89f5fb46daf06 text:#000000@70B
+      DoNameText 800x60 text:#5D3A09@32B+o#FFFFFF+s#3D2B12/40%
+      BurgerStats 580x480 5e020a5d06094ca49c74b40928ba441f
+        Pin 36x40 d9636c1bc954454b81476beb3b44577a (Sliced)
+        Title 500x70 text:#72634B@34B
+        TasteScoreBar 132x160 e72c5064f1994e2a9bf60af73f424d7c
+          Title 90x33 text:#000000@30
+            StarIcon 35x35 65943402c82146e6ae6f283abd3d34e9
+          TasteScoreText 90x50 text:#FFFFFF@24B+o#6B4110
+          TasteScoreGrade 68x40 5c80da1cda4f462fa9fbfde66e334f88
+            Effect 180x180 394e815a070d4072b84ada96a5598d2a
+        BalanceScoreBar 375x55
+          BalanceTitle 165x45 daf3b314d4936ca409a812e7d2f99fd1 color:#FFFFFF/0%
+            Icon1 36x32 d605370fde654fc8be7985196048c709
+            Icon2 35x35 68650db1a57643a081a0ae254cd2d269
+            Text 110x60 text:#8B7B63@26B
+          BalanceBar 196x32 10aca4ce8bd342ecba36ded9a24e79c6
+            Green 95x24 07ba54a39a4343a3a0667765c90f4113
+            Orange 95x24 71dedfc5d0084193b1e2c7cd214b9200
+            BalanceZone 60x24 cf68b5fe255b46cdbb8f2a775088bcf7
+            Left 8x32 039717b072c94e589a09fcd50be818aa
+            Right 8x32 039717b072c94e589a09fcd50be818aa
+            Pointer 32x40 3a178133919e4171a09ce815f6a58a6a
+          BalanceText 88x32 bf011bbd29a84432aaf1fe34fbf4cf61
+        Line 360x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#C4C4C4
+        SpicinessScoreBar 375x55
+          SpicinessTitle 165x45 daf3b314d4936ca409a812e7d2f99fd1 color:#FFFFFF/0%
+            Icon 36x32 21c115ac97b043ab9804932b1d6709d3
+            Text 110x60 text:#8B7B63@26B
+          SpicinessBar 196x32 10aca4ce8bd342ecba36ded9a24e79c6 FillRectImageRUID:9bf8c8d7e0cf48b8b9a6fe95daf7f263
+            SliderValue 196x32 9bf8c8d7e0cf48b8b9a6fe95daf7f263 (Filled)
+            SpicyIcon 88x32 08fc8ec3a6a045f2b12d25afd5e185ce
+        Line 360x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#C4C4C4
+        PriceBar 400x60 cd3d902c6e454ca5a0c00126476d1d9f color:#FFFFFF/0%
+          Title 100x100 text:#000000@24
+          PriceText 182x51 text:#72634B@32B+o#FFFFFF
+            GoldIcon 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+        TagBar 375x55
+          TagTitle 165x45
+            Icon 36x32 b2b08c88b3ac4518a00bf518d47c7f0f
+            Text 110x60 text:#8B7B63@26B
+          RecipeTag 144x44 5b6e6fc855bd47faad5f75c589147bf9
+            TagIcon 34x34 c628d59781bd427dab88529f50a9522e
+            TagText 125x50 text:#FFFFFF@24B+o#1E406B
+      InfoText 500x86 e713d6840a264d45b41afa3f44160e05 text:#72634B@28B+o#FFFFFF
+        Icon 80x68 fe50a69061af452c8ba794664a8b0ca5
+        SideMenuIcon 80x68 be5ea06989b546918237cc6fd82bdbe0
+        BunSkinIcon 80x68 e6d93de8652549c68927a0f5d370f1e5
+      RecipeEmployeeList 685x920
+        Panel 667x920 adf744ac762a4056852a7b32de816342 (Sliced)
+          Pattern 600x300 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F4EEDE
+          Bottom 600x105 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#E4D9BD
+        SelectInfoText 470x70 text:#7B684F@26B
+        WithEmployee 685x920
+          Color 598x424
+          EmployeeScroll 540x428
+            Model_EmployeeListSlot_Recipe 170x170 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+              Slot 155x155 a4efcb3e9d2e47a3ac47fda81c167aa2
+              Select 167x167 ffc51ec23a5c4677b3df8440428f2b25
+              SkillIcon 40x40 2ec7cd3dedc545a6b35b1050d164ed57
+              Mask 130x130
+                Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+          EmployeeList 540x428
+          Gradiant 598x100 715ba2f9541b424586c970bb547e9036 (Sliced) color:#F7F3E7
+          EmployeeDetail 580x230
+            EmployeeName 260x55 text:#FFFFFF@28B+o#8C7352
+            SkillText 260x55 text:#FFFFFF@28B+o#8C7352
+            Line 205x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#D1C6A6
+            Slot 170x170 a4efcb3e9d2e47a3ac47fda81c167aa2
+            Blur 135x135 61aa92b6616d498bbd95b4a2fcb3437f
+            Mask 140x140
+              EmployeeImage 80x80
+            EmployeeSkills 225x156
+              Model_EmployeeSkillSlot_Small1 164x164 379f5b1015774a1e839333e170b8d230
+                TypeIcon 100x100 2ec7cd3dedc545a6b35b1050d164ed57
+                Name 150x65 text:#FFFFFF@26B+o#857665
+                Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#CFC5BA/65%
+                  UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                  ConditionText 4x164 text:#FA5246@22B+o#FFFFFF
+                UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+                  InfoIcon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+                  ToolTip 248x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+              Model_EmployeeSkillSlot_Small2 300x70 379f5b1015774a1e839333e170b8d230
+                TypeIcon 40x40 2ec7cd3dedc545a6b35b1050d164ed57
+                Name 170x58 text:#FFFFFF@26B+o#857665
+                Disable 300x70 5905497a9fa043ce8f16a64e1229ec6c color:#CFC5BA/65%
+                  UISprite 32x44 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+                  ConditionText 200x70 text:#FA5246@22B+o#FFFFFF
+                UIButton 40x40 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+                  InfoIcon 20x20 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+                  ToolTip 248x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+                  UISprite 70x70
+            ChuChuLevel 90x40 text:#6B6150@26B+o#FFFFFF
+          UseSkillBtn 250x84 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@28B+o#AF7016
+            Dim 250x84 8094f81aa0c2463195e20da6fa046d8f (Sliced) color:#000000/50%
+          SkipBtn 250x84 856e5ee90b0141b8b089a0d4bca5ce48 (Sliced) text:#FFFFFF@28B+o#C54557
+        WithoutEmployee 685x920
+          SkipBtn 250x84 856e5ee90b0141b8b089a0d4bca5ce48 (Sliced) text:#FFFFFF@28B+o#C54557
+          NoEmployeeText 500x100 text:#7B684F@28B
+          HowToText 500x100 text:#7B684F@24
+      BunSkinList 685x920
+        Panel 667x920 adf744ac762a4056852a7b32de816342 (Sliced)
+          Pattern 600x300 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F4EEDE
+          Bottom 600x105 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#E4D9BD
+        SelectInfoText 472x70 text:#7B684F@26B
+        Color 598x422
+        List 600x410
+        BunSkinSlot 160x160
+          Deco 164x164 6097af76c194472189fab6fef52f7810
+          BG 144x144 97947391d0ed45f5973bc057130277e8
+          Icon 72x72
+          Selected 164x164 7af0edfdf6054795a6d7e9ba5ecbaf26
+          Locked 30x42 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+          Icon_None 40x40 0c33c943f60b4c269d9b0130484f006c
+        Gradiant 598x100 715ba2f9541b424586c970bb547e9036 (Sliced) color:#F7F3E7
+        Detail 600x355
+          Name 190x75 text:#685942@26B+o#FFFFFF
+          BunSkinSlot 144x144 97947391d0ed45f5973bc057130277e8
+            Icon 80x80
+          EffectTitle 345x62 text:#736752@26B
+          EffectText 353x71 cd3d902c6e454ca5a0c00126476d1d9f color:#FFFFFF/0% text:#FFFFFF@25B+o#987F5F
+          CollectEffectTitle 345x62 text:#736752@26B
+          CollectEffectText 353x71 text:#FFFFFF@25B+o#987F5F
+          SkipButton 250x84 856e5ee90b0141b8b089a0d4bca5ce48 (Sliced) text:#FFFFFF@28B+o#C54557
+          UseButton 250x84 8094f81aa0c2463195e20da6fa046d8f (Sliced)
+            UseText 250x84 text:#FFFFFF@28B+o#AF7016
+            Dim 250x84 8094f81aa0c2463195e20da6fa046d8f (Sliced) color:#000000/50%
+            BuyInfo 250x84
+              CostIcon 32x32
+              CostText 70x45 text:#FFFFFF@26B+o#AF7016
+              BuyText 100x55 text:#FFFFFF@26B+o#AF7016
+            UnlockInfo 394x118 b92bff63d0f04060bb856109849dec9f text:#635743@26B+o#FFFFFF
+          Line 200x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D1C6A6/70%
+          Text_None 500x120 text:#685942@28B+o#FFFFFF
+      SkillInfoArea 1920x200
+        Blur 561x150 1017b56203214f24b30ed211cb20a0b8 color:#FFFE53/30%
+        SkillName 425x54 text:#FFEC6F@36B+o#5D3A09+s#5D3A09/90%
+          Deco_L 52x56 82f3d709f6674fed873eeac684c3605a
+          Deco_R 52x56 82f3d709f6674fed873eeac684c3605a
+        SkillDesc 1200x65 text:#FAF2DA@30B+o#5D3A09+s#5D3A09/90%
+      EndRecipeResultBtn 116x96 8ee33c781701403280b186f86f4a365c states:highlighted=d8304091ad5945b395d0d53482aa796f,pressed=d8304091ad5945b395d0d53482aa796f,selected=d8304091ad5945b395d0d53482aa796f,disabled=null
+        Text 180x90 text:#FFFFFF@28B+o#453A2F
+      SkipButton 1920x1080
+    Burger_Render 400x570
+    Effect_Fail 200x200 2da83fd3537c48e9a541035928e115e7 color:#D94E4E/70%
+    Effect_Success 300x300 a7beeedf5d364c0ca34d74879a26e8bf
+    Burger_Effect_Complete 781x666 originRUID:87c7259db24d4e22974822e9d0279bdb
+    HelpBtn 50x50 07be8d61ffc841ccbeb24f3ef950a801
+      UISprite 120x120
+    Model_VIPOrderPreview 572x124
+      Requirements 572x124 08f65bc4385e4727bc59e3a480e0f90c
+        Deco 68x60 f34e5a0bea7a46d39712a2a011fb8ab5
+        Line 80x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#CAB7A1
+        RequirementsList 400x100
+        NoPinnedOrderText 360x90 text:#A58F72@28B
+      OpenOrderListBtn 80x80 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+        Icon 80x80 6512629e3fbc41088846de3f41089cf7
+        Text 80x50 text:#FFFFFF@28B+o#000000
+      Orders 475x575 71096806821f43eaa19161b441d5b427
+        Tip 36x28 94b893ca52244cdca159f2afd390c81c
+        Bar 457x74 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#DDD4C6
+        Title 330x70 text:#FFFFFF@30B+o#978976
+        OrderList 460x395
+          VIPOrderPreviewSlot1 460x122
+            Check 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+          VIPOrderPreviewSlot2 460x122
+            Check 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+          VIPOrderPreviewSlot3 460x122
+            Check 28x28 be8782fbef4e4db1ae3f9c6d3590eb02 color:#CDC2B1
+            RequirementsList 380x110
+            Pin 36x36 d9636c1bc954454b81476beb3b44577a (Sliced)
+        MoveToVIPOrderBtn 460x85
+          Icon 50x50 6512629e3fbc41088846de3f41089cf7
+          Text 350x75 text:#9C8D7C@26B
+          MoveIcon 20x30 c550cadddaa0410ca2c86290e05bf95c color:#C1B2A7
+        ResetBtn 46x46 4eeb98e3c474433caa095add5bf686d1 color:#B2A38F
+          Icon 38x38 f5964c1bfc3f41c3b3f60e6a21f4eac7

@@ -1,0 +1,34 @@
+# BakeSelect — 32 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Layout
+UIR_SimpleFantasy_Sample_BakeSelect 1920x1080
+  Img_BG 1920x1080 766893751a134664ba8849f38311021a
+  Layout 1850x920
+    Layout_CharFilter 1850x95 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#17243D/80%
+      Btn_Sort 190x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=null,pressed=3f1488d7416a4d62b3c4a6dc4042ad22
+        Text_Sort 117x50 text:#FFFFFF@26B
+        Img_Arrow 24x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced)
+      Btn_SortType 270x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=null,pressed=3f1488d7416a4d62b3c4a6dc4042ad22
+        Text_SortType 270x75 text:#FFFFFF@26B
+      Btn_Filter 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+        Img_Filter 36x40 fafc87dfc7354354b8b2d63ae75fd4f6
+      Text_Capacity 127x44 text:#FFFFFF@30B
+        Img_Capacity 72x72 d914664c1e0c40568cca756db84d8fca
+      Img_Line 5x50
+      Btn_MultiSelect 65x65 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#15233C
+        Img_Check 36x28 5da3f043b3bc4c179d2d1b67b2fb0ccf
+        Text_MultiSelect 131x38 text:#FFFFFF@26B
+    Layout_CharList 1850x820 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#17243D/50%
+      Img_BG 1850x820 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#17243D/50%
+      GridView 1830x698 ScrollBarHandleImageRUID:218c172093d23494d94608c94cafc934
+      Layout_Bottom 1850x110 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#1A2947
+        Text_SelectInfo 749x81 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/20% text:#DEDEDE@28
+          Text_SelectCount 18x47 text:#FFFFFF@32B
+          Btn_Return 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+            Img_Return 36x36 4948bd19e6cd459da09b7e06796b8b35
+        Btn_Lock 270x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22
+          Text_Lock 176x38 text:#FFFFFF@26B
+            Img_Lock 40x40 c506125bbc8b4de693fb15de56eb559f
+          Text_UnLock 176x38 text:#FFFFFF@26B
+            Img_UnLock 40x40 037ed07f8512493e95c958c9904fa07d
+        Btn_Delete 270x88 501210f182594602b16e083351ea3ab3 (Sliced) states:pressed=00afa05edae044839424ba9e78053f67 text:#FFFFFF@26B
+      Text_Empty 210x40 text:#FFFFFF@27B

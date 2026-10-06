@@ -1,0 +1,7 @@
+UIStyleCheckBox3 300x80 [UIStyleCheckBox] BTN
+  Img_Outline 294x74 86cb0ffa0826868499ac5518f20d930c
+    Img_Frame 286x66 86cb0ffa0826868499ac5518f20d930c
+  Img_MarkOutline 44x44 9482b46cd6017824ba0b86e53acb1d18
+    Img_BG 38x38 9482b46cd6017824ba0b86e53acb1d18
+    Img_Mark 56x56 2e91332a8bef68b4b9d2f75690f8e359
+  Text 220x80 text:#000000@20

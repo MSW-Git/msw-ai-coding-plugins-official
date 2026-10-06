@@ -1,0 +1,91 @@
+# ExchangeSettingGroup — 89 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Pattern, LeftBG, Muto, ExchangeSetting, Title, CloseBtn, SubTitle, ShowResult, StartBtn
+UIR_CuteCasual_Sample_ExchangeSettingGroup 1920x1080
+  Dim 2520x1680
+  Pattern 4000x4000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  LeftBG 830x835
+    Ground 166x200 88faf9069aa34d0c8ff8a6bccc5a994d
+    Ground2 295x144 88faf9069aa34d0c8ff8a6bccc5a994d
+    Ground3 295x144 88faf9069aa34d0c8ff8a6bccc5a994d
+    Ground4 295x144 88faf9069aa34d0c8ff8a6bccc5a994d
+    Ground5 295x144 88faf9069aa34d0c8ff8a6bccc5a994d
+    Ground6 165x200 88faf9069aa34d0c8ff8a6bccc5a994d
+    Mountain 160x242 bf5747c538234b5a8fb8b48522dbc32f
+    Ground7 144x144 88faf9069aa34d0c8ff8a6bccc5a994d
+    Cloud1 260x116 0ff27cc240c5406dbc13aed7117c381f
+    Cloud2 184x92 c7712406e8db479bb3a56703a69cc394
+    Table_M 320x363 002dac227df94da194c64d6338367af3 (Sliced)
+    Table_L 204x363 ca7ea11045294343a6eaca5c8cb90fdf (Sliced)
+    Table_R 204x363 0651d5cb414b449f9752d3f20c28d520 (Sliced)
+    Rock 232x164 d96c9465a9d34b2f8c536179ffe5e587
+    Logo 248x88 5458e244fdd04d43af646fa0b932e432 color:#908478
+  Muto 450x375 9772c701cd2e4d3b8a3c4b75a72a5883 originRUID:9772c701cd2e4d3b8a3c4b75a72a5883
+    Chatballoon 320x236 ac20d1bb0a86422eb90aec92d0c80611 text:#675031@24
+  ExchangeSetting 830x835
+    SelectRewardBox 505x245
+    SelectReward 505x245
+      CloverBtn 204x176 103903e433314bbd82adc5922c3b95d5
+        Clover 70x70 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+        Selected 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+        NotSelected 204x176 103903e433314bbd82adc5922c3b95d5 color:#000000/45%
+        Button 168x56 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced) text:#FFFFFF@24B+o#704A1E
+      HeartBtn 204x176 6f81b1fdb47642f0ad184e74cabe2b01
+        Heart 70x70 b517bb433bd5453e8778a0a22b5734b6 (Sliced)
+        Selected 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+        NotSelected 204x176 6f81b1fdb47642f0ad184e74cabe2b01 color:#000000/45%
+        Button 168x56 32bcc3c8b8e74580a8c7dd3a3eafc255 (Sliced) text:#FFFFFF@24B+o#704A1E
+  Title 359x53 7794b2d35bcc41d495c29deb4738e5fb color:#FFFFFF/0% text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+    Btn_Guide 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+      Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+      UISprite 100x100
+  CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    UISprite 130x130
+  SubTitle 710x45 text:#836545@20B
+  ShowResult 830x700 ddbc3c386a574ea799fe4eb1117dcea2
+    Grid 815x680 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#FBEDD1/70%
+    Line1 816x31
+    Line2 810x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#E1CFA5
+    Line3 810x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D4BC8D
+    Title 700x70 text:#FFFFFF@34B+o#644117+s#644117
+    IngredientsCost 718x54 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EFE0BD
+      Cost 134x38 text:#FFFFFF@26B+o#4E4029
+        Gold 42x42 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      IngredientsCost 250x54 text:#FFFFFF@26B+o#726550
+    DefaultReward 718x54 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EFE0BD
+      Cost 144x38 text:#FFFFFF@26B+o#4E4029
+        RewardImg 42x42
+      DefaultReward 250x54 text:#FFFFFF@26B+o#726550
+      DefaultText 300x50 text:#FFFFFF@26B+o#726550
+    BucketPanel 800x310
+      Dish 800x310
+        1 130x130 f273000d7e694af496e3f024860aa940
+        2 130x130 f273000d7e694af496e3f024860aa940
+        3 130x130 f273000d7e694af496e3f024860aa940
+        4 130x130 f273000d7e694af496e3f024860aa940
+        5 130x130 f273000d7e694af496e3f024860aa940
+        6 130x130 f273000d7e694af496e3f024860aa940
+        7 130x130 f273000d7e694af496e3f024860aa940
+        8 130x130 f273000d7e694af496e3f024860aa940
+        9 130x130 f273000d7e694af496e3f024860aa940
+        10 130x130 f273000d7e694af496e3f024860aa940
+      Ingredients1 64x64 a3e409703aac4184827c9cbfca0e4537
+      Ingredients2 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients3 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients4 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients5 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients6 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients7 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients8 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients9 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Ingredients10 64x64 a3e409703aac4184827c9cbfca0e4537 color:#FFFFFF/0%
+      Bucket 500x250 bfe6d7a7d2c0435abe969740d08e4d2b
+    ExchangeButton 740x100
+      ResetBtn 156x84 452032ad70d74e008b600ae9038b5802 text:#8A652D@30B
+      Bar 396x84 d48c2bc7370d43158e62ccef8a2a0fb6 (Sliced)
+      MinusBtn 90x86 text:#FFFFFF@28B+o#E66868
+      AddBtn 90x86 text:#FFFFFF@28B+o#9F6615
+      MaxBtn 156x84 452032ad70d74e008b600ae9038b5802 text:#8A652D@30B
+      IngredientCount 220x60 text:#8A652D@30B
+    ShoppingBox 800x310
+  StartBtn 164x124 4214714d3bca4cdfb28c3724a8906926 text:#FFFFFF@28B+o#A15205
+    Icon 100x100 83bdb483cf7247c9a41d666d951b58f4

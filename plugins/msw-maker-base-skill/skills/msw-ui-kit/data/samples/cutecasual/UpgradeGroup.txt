@@ -1,0 +1,106 @@
+# UpgradeGroup — 104 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BG, Pattern, Title, Line, CloseBtn, UpgradeTitle, UpgradeTabBar, NoList, UpgradeList, Gradiant, UpgradeDetail
+UIR_CuteCasual_Sample_UpgradeGroup 1920x1080
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  Title 301x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+  Line 710x6
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+  CloseBtn 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    UISprite 110x110
+  UpgradeTitle 843x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A text:#FFFFFF@28B+o#AF7E28
+    GuideBtn 38x38 f59006224a184fdeb8f9ecb09ae3af7d color:#CC9847
+      Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FDDD86
+  UpgradeTabBar 295x710 ScrollBarBgImageRUID:null
+    0 264x104 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+      UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        Icon 90x90 af2986d1a1664a4b935addc65915c135
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITextDesc 145x90 text:#FFFFFF@30B+o#985F05
+      Line 160x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+    1 264x104 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+      UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        Icon 90x90 af2986d1a1664a4b935addc65915c135
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITextDesc 145x90 text:#FFFFFF@30B+o#985F05
+      Line 160x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+    2 264x104 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+      UISpriteSelect 264x104 6cc87742434e42e3b3a988e83142db83
+        Icon 90x90 af2986d1a1664a4b935addc65915c135
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITextDesc 145x90 text:#BB9A59@30B
+      Line 160x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+    3 264x104 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+      UISpriteSelect 264x104 6cc87742434e42e3b3a988e83142db83
+        Icon 90x90 af2986d1a1664a4b935addc65915c135
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITextDesc 145x90 text:#BB9A59@30B
+      Line 160x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+    4 264x104 8b45c2cbcd9648e584e40c9df142f491 color:#FFFFFF/0%
+      UISpriteSelect 264x104 6cc87742434e42e3b3a988e83142db83
+        Icon 90x90 af2986d1a1664a4b935addc65915c135
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+      UITextDesc 145x90 text:#BB9A59@30B
+      Line 160x8 b0eb101ad37c4de8bfd8ac8ca8ac0bb1 color:#FFFFFF/50%
+  NoList 890x780
+    UIText 700x200 text:#935E0A@24B
+    UISprite 127x77 111e555e9bc0494b8dfdae4ec0258ce6
+  UpgradeList 890x780
+    Model_UpgradeListSlot 270x352
+      Selected 306x382 2fdd34b278594597a5c628264a6749f8
+      Slot 270x352 74aca352367d45bb8ad00d223977c296 (Sliced)
+        Gray 248x66 ef9ce4170ca3405eac7cae81e7688d21 (Sliced) color:#E1D9D1
+      NameText 240x85 text:#72634B@28B
+      IconHolder 110x110 05da28c5137443319d8aea527b749480 color:#FFFFFF/0%
+        Icon 128x128 a7440dac81cc44d6aed3086f1975f2f0
+      CostText 63x45 text:#7C6747@30B
+        CostIcon 38x38 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+      Complete 190x63 7b8234f35a7d4a42aa1b6d3653439af9 text:#7C6747@30B
+      RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+  Gradiant 885x95 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+  UpgradeDetail 711x838
+    BG 711x838 517f55caf96c456b9b66d03c8ac14565
+      Deco_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Deco_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Color 697x640
+    NameText 620x65 text:#FFFFFF@32B+o#785A3A
+    EffectText 500x50 text:#B07A53@30B
+    NoTitle 300x60 01047ce8ee7a49c79c57363189eecb30
+    Line 625x3 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#E2C58E
+    Desc 632x265 42f368c0bc0a43e9bcef6debef0314fb (Sliced) color:#F0E1BE
+      ImageOnly 480x296 70e39ebdfa944266911da9a7ba02c4af
+      TextOnly 632x265 text:#856C4C@28B
+    Condition 630x58 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E1CEA4
+      TitleText 110x58 text:#735B44@30B
+      ConditionText 470x58 text:#FFFFFF@30B+o#8C7352
+    Cost 630x58 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E1CEA4
+      TitleText 119x45 text:#735B44@30B
+        InfoBtn 36x36 f59006224a184fdeb8f9ecb09ae3af7d color:#A69060
+          Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#F4E7C8
+          Tooltip 600x173 03d991db79bf4348b001270d5d8b6b82 color:#FFFFFF/90%
+            Tip 48x24 e797792d2c534d0b81e046a2e71c250b
+            InfoList 580x155
+              Origin 580x70
+                Title 320x60 text:#635743@24B+o#FFFFFF
+                Value 151x39 text:#635743@26B+o#FFFFFF
+                  Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+                Dot 12x12 4920e8b7ee7643468a5807753bef00d3 color:#97886E
+                Line 550x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3CBC0
+              St_ReduceUpgradeCost 580x70
+                Title 320x60 text:#635743@24B+o#FFFFFF
+                Value 98x39 text:#635743@26B+o#FFFFFF
+                  Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+                Dot 12x12 4920e8b7ee7643468a5807753bef00d3 color:#97886E
+                Line 500x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D3CBC0
+      CostText 223x45 text:#FFFFFF@30B+o#8C7352
+        Icon 40x40 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+    Gray 393x60
+    UpgradeButton 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) text:#FFFFFF@32B+o#C15E14
+      Dim 256x86 7c014c28f4284370b09fb493f8194202 (Sliced) color:#000000/45%
+    EndUpgradeImg 172x176 873307a4ebcd49a7a505287247b6d92d
+      UIText 120x52 text:#567709@24B+o#FFFFFF
+      Dot_L 126x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#EFD9B1
+      Dot_R 126x16 439fbfec537147da9feb2be29d5d4abe (Tiled) color:#EFD9B1
+    Pin 36x40 d9636c1bc954454b81476beb3b44577a (Sliced)
+    Effect_LV_Up 240x240 58a7d48901d64cc8a4a5d7c2a6c1174c

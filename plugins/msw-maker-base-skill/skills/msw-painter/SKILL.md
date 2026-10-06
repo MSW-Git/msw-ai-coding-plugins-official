@@ -121,6 +121,19 @@ The default is **128×128**. For style-specific working-grid tables (chunky uses
 
 ---
 
+## 3.5 Multi-sprite sets — derive every variant from one seed
+
+When one request needs several related sprites — frame-like sequences (walk 1/2/3, attack poses), icon families, or state variants of one character — never draw each sprite from scratch. Independently drawn sprites drift in size, palette, and baseline even when the prompt repeats the same description.
+
+1. Draw ONE seed sprite first, render it, and verify it (Read the PNG) before touching the rest of the set.
+2. Derive every other sprite by **editing a copy of the seed's code** — keep the logical grid, palette constants, outline treatment, silhouette/proportions, and anchor identical; change only the pose/content. Characters anchor bottom-center so feet stay on the same baseline across the set.
+3. Render all PNGs and Read them side by side **before uploading any of them**. If one variant drifted (size/palette/baseline), re-derive it from the seed code — do not patch the drifted output.
+4. Upload each PNG as its own sprite (§5) with a shared name prefix (`Slime_Walk_01`, `Slime_Walk_02`, …) and report all RUIDs together (§6).
+
+For frame sequences, tell the user the boundary up front: the upload tool cannot create an `animationclip`, so the frames land as N independent sprite RUIDs and playback means a script swapping `SpriteRendererComponent.SpriteRUID` on a timer. A native clip (played without any script) requires the user to import the frames through Maker themselves.
+
+---
+
 ## 4. PNG render — `render.cjs`
 
 ### One-time dependency install
@@ -264,6 +277,8 @@ Style: <chunky | maple>
 <1–2 sentence description: what you drew, at what size, and what sprite it was registered as>
 ```
 
+For a §3.5 set, replace the `RUID:` line with one `<sprite name>: <RUID>` line per sprite in set order; `Style` and the description stay single, covering the whole set.
+
 Entity creation/movement/spawn, script authoring, and UI editing are outside the painter's scope. Handle those in another skill or a follow-up step.
 
 ---
@@ -279,5 +294,6 @@ Entity creation/movement/spawn, script authoring, and UI editing are outside the
 - **Maple sprite looks like chunky with extra colors** → You probably forgot the **selout** (1-pixel darker-color outline around each surface) and/or the selective AA at silhouette edges. Re-check `style-maple-cartoon.md` Selout and Selective AA sections.
 - **Chunky sprite looks mushy / blurry** → You added intermediate-color pixels on edges. Chunky forbids ALL anti-aliasing — remove transition pixels and keep edges sharp. If a softer look is desired, switch to `maple` instead.
 - **Maple sprite at small size (32×32 output) looks bad** → Maple style needs ≥ 64×64 output to fit selout + AA + features. Either increase size or switch to `chunky`.
+- **Sprites in a set drift (size / palette / baseline shifts between variants)** → They were drawn independently. Re-derive each variant from the approved seed code with shared grid/palette/anchor constants (§3.5) and re-verify the whole set side by side before upload.
 - **PUT step fails with 401/403** → The presigned URL expired or is wrong. Restart from step 1.
 - **Changing other arguments in the completion call** → Pass exactly the same arguments as in step 1. Only add `fileUrl`.

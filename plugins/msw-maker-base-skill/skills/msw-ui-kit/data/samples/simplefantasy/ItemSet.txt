@@ -1,0 +1,39 @@
+# ItemSet — 37 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Text_SetName, Btn_Close, Layout_SetEquip, Img_Line, Layout_SetStat
+UIR_SimpleFantasy_Sample_ItemSet 430x460 2860136c06ab075439721c027de365af color:#171F2D/90%
+  Text_SetName 212x33 text:#EEEDE8@22B
+  Btn_Close 50x50 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+  Layout_SetEquip 430x156
+    Item_SetEquip 420x35
+      Img_SetEquipBG 30x30
+        Img_SetEquipIcon 30x30 cc3e39ff09844be6884440bffad2a481 (Sliced) color:#FFFFFF/50%
+      Text_SetEquip 110x30 text:#8D8C8C@20B
+    Item_SetEquip_1 420x35
+      Img_SetEquipBG 30x30
+        Img_SetEquipIcon 30x30 cc3e39ff09844be6884440bffad2a481 (Sliced) color:#FFFFFF/50%
+      Text_SetEquip 110x30 text:#8D8C8C@20B
+    Item_SetEquip_2 420x35
+      Img_SetEquipBG 30x30
+        Img_SetEquipIcon 30x30 cc3e39ff09844be6884440bffad2a481 (Sliced) color:#FFFFFF/50%
+      Text_SetEquip 110x30 text:#8D8C8C@20B
+    Item_SetEquip_3 420x35
+      Img_SetEquipBG 30x30
+        Img_SetEquipIcon 30x30 cc3e39ff09844be6884440bffad2a481 (Sliced) color:#FFFFFF/50%
+      Text_SetEquip 110x30 text:#8D8C8C@20B
+  Img_Line 410x3
+  Layout_SetStat 430x228
+    Item_SetStat 430x75
+      Text_SetStatTitle 125x30 text:#CCCAC2@20B
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+      Text_SetStat 211x30 text:#757474@20B
+    Item_SetStat_1 430x75
+      Text_SetStatTitle 125x30 text:#CCCAC2@20B
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+      Text_SetStat 211x30 text:#757474@20B
+    Item_SetStat_2 430x75
+      Text_SetStatTitle 125x30 text:#CCCAC2@20B
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+        Img_Dot 30x30 8c70e1b4b0a24a128f30b790115cb13c
+      Text_SetStat 211x30 text:#757474@20B

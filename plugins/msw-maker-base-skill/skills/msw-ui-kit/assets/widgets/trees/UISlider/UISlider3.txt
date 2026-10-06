@@ -1,0 +1,3 @@
+UISlider3 500x100 [UISlider]
+  Slider 250x16 03f6d71230384c808632bdb6dab56096 (Sliced) SLD
+  Text 150x76 f49afca2aeb7c5447b357cb3dee98553 (Sliced) text:#847252@30

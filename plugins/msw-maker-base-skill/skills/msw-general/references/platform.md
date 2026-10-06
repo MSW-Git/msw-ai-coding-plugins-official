@@ -20,7 +20,7 @@ Core rules that apply **across all map types** in the MSW engine. Without these,
 5. Coordinates use **world units** (1 unit = 100 px). Pixel values are off by 100× (§5).
 6. Maker only scans `RootDesk/`. User files placed in `Global/` are not recognized (§2).
 7. **Do not modify** `.d.mlua` / `.codeblock`.
-8. CoreVersion is `26.7.0.0`. Do not proceed if mismatched (§16).
+8. Hand-authored entry files take their `CoreVersion` from `Environment/config`; builder output needs no version handling (§16).
 
 ---
 
@@ -448,7 +448,7 @@ Example: bdadf19a-cc27-4a45-99c6-7a439c858a1b
 
 ```json
 {
-  "CoreVersion": "26.7.0.0"
+  "CoreVersion": "<Maker version>"
 }
 ```
 
@@ -456,7 +456,7 @@ Example: bdadf19a-cc27-4a45-99c6-7a439c858a1b
 
 ```json
 {
-  "CoreVersion": "26.7.0.0",
+  "CoreVersion": "<Maker version>",
   "LegacyAnimationSupport": false,
   "PlayerEntityAuthorityCheck": false,
   "ServiceAuthorityCheck": false,
@@ -495,8 +495,7 @@ Collision group matrix. Defines which groups collide with which. Edit the existi
 
 ---
 
-## 16. CoreVersion Compatibility
+## 16. CoreVersion
 
-- Currently supported version: **`26.7.0.0`**
-- Location: `Environment/config` → `CoreVersion`
-- **Do not proceed if CoreVersion mismatches** (Global Rule).
+- `Environment/config` → `CoreVersion` is the version of the Maker that last opened the workspace. Maker writes it.
+- A hand-authored entry file (`.material`, `.userdataset`, …) takes its `CoreVersion` from that value. Builder output needs no version handling.

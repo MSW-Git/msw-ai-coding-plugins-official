@@ -1,0 +1,76 @@
+# Inventory — 74 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel, Hover
+UIR_SuperSimple_Sample_Inventory 2807x1880
+  Panel 1781x922 d666dc7e4fc84bffa95dede21cc316e6 (Sliced)
+    Title 1566x83 text:#FFFFFF@36B
+    CloseButton 50x50 d9ccefd2469048ebbfbf4a07f5a5b583 (Sliced)
+    EquipPanel 826x761
+      PlayerInfo 530x761
+        PlayerBG 664x312 927115c8a0124bf1a75ee655ca28bd35
+        UIAvatarEntity_Mask 611x600
+          UIAvatarEntity 275x248
+        UIPotEntity 192x192 4d416fb653194c0886c10ab5514847b6
+        UISpikeEntity 61x317 4c054f181e984fd98594dc89c0fd94e5
+      EquipInfo 206x761
+        EquipCostume_1 206x305 762648601a704516a395792e0e46d74c (Sliced) color:#EAEEC8
+          TextEquipCostume 197x83 text:#847252@28B
+          Item 160x160 293164fc7a7845ed8041be934fb4a693
+            Img 80x80
+          NameText 166x68 text:#BBAE96@20B
+        EquipCostume_2 206x305 762648601a704516a395792e0e46d74c (Sliced) color:#EAEEC8
+          TextEquipCostume 197x83 text:#847252@28B
+          Item 160x160 293164fc7a7845ed8041be934fb4a693
+            Img 80x80
+          NameText 166x68 text:#BBAE96@20B
+    InventoryPanel 908x764
+      Filter 908x72
+        All 227x72
+          Default 227x70
+            UIText 197x32 text:#847252@28B
+          Select 227x70 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+            UIText 197x32 text:#FFFFFF@28B
+        Consume 227x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Default 227x70
+            UIText 197x32 text:#847252@28B
+          Select 227x70 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+            UIText 197x32 text:#FFFFFF@28B
+        Pot 227x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Default 227x70
+            UIText 207x32 text:#847252@28B
+          Select 227x70 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+            UIText 197x32 text:#FFFFFF@28B
+        Stick 227x72 cc3457b8e97b3e14f9d5c39ccdd640bf color:#FFFFFF/0%
+          Default 227x70
+            UIText 207x32 text:#847252@28B
+          Select 227x70 bbff40bff00c43bb99eee92899dd0df5 color:#F3B55A
+            UIText 207x32 text:#FFFFFF@28B
+      Inventory_GridView 908x607 68221c9a70128be45b3e1d383c6fc6d4 color:#F0F4D2
+      Slot_Item_Sample 160x160
+        Bg 160x160 293164fc7a7845ed8041be934fb4a693
+        Icon 80x80 14d135968aa141e8ab5086a2b2a56819
+        Count 82x36 6b27cbb384744cfa9b5e3546b8ed72f2 (Sliced) text:#847252@22B
+          IconMore 24x24 1db43baf7086484a9a7baa126ad7da76 color:#F3B55A
+        Equip 160x160 53570cfe2f684ee6a993ac544233a7c2
+        Service 103x34 text:#9F9786@20B
+      BtnCapacity 251x60 694f1c3b44b846fa9ceb55718a6492ba (Sliced) color:#E6EBBB
+        Icon 50x50 af4ed64ca7e74f07af6586b85b79c048 color:#52A4CF
+          Icon 35x35 1cee502208874eca8b38f720631f7b84
+        Text 177x53 text:#847252@28B
+      SortBG 300x288
+        Sort1 300x88 b71b01d30a3d457aa177b51531baa2e1 (Sliced) color:#FFFFFF/0% text:#8F8F8F@30B
+          Default 300x90 8afbab5399a74b37b27880383341a7ce text:#847252@30B
+          Selected 308x88 39a6b61013bc44afa0bd0b1e9d34fdbb text:#847252@30B
+        Sort2 300x88 dec9e874622a4b269fab6552a126e0c9 (Sliced) color:#FFFFFF/0% text:#8F8F8F@30B
+          Default 300x90 8afbab5399a74b37b27880383341a7ce text:#847252@30B
+          Selected 308x88 39a6b61013bc44afa0bd0b1e9d34fdbb text:#847252@30B
+        Sort3 300x88 dec9e874622a4b269fab6552a126e0c9 (Sliced) color:#FFFFFF/0% text:#8F8F8F@30B
+          Default 308x88 dec9e874622a4b269fab6552a126e0c9 (Sliced) text:#847252@30B
+          Selected 308x90 39a6b61013bc44afa0bd0b1e9d34fdbb text:#847252@30B
+      SortBtn 72x72 af4ed64ca7e74f07af6586b85b79c048 color:#12C4B6
+        Icon 40x40 e0153c2b1ac5418381dc35f95653e3d4
+  Hover 325x393
+    BG 323x196
+      Arrow 40x40 3c12779ab98d40a5958072c981916e26
+      DetailButton 300x90 8afbab5399a74b37b27880383341a7ce text:#847252@28B
+      ActionButton 300x90 8afbab5399a74b37b27880383341a7ce text:#847252@28B
+      ArrowDown 40x40 3c12779ab98d40a5958072c981916e26

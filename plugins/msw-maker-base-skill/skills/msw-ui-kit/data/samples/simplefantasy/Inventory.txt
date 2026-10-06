@@ -1,0 +1,113 @@
+# Inventory — 111 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout_PlayerInfo, Layout_Item
+UIR_SimpleFantasy_Sample_Inventory 1920x1080 766893751a134664ba8849f38311021a
+  Layout_PlayerInfo 900x749
+    Text_JobName 111x33 text:#91EEF4@22B
+    Text_CharLevel 98x44 text:#FFFFFF@30B
+    Btn_CharName 380x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#17243D/50%
+      Text_CharName 323x41 text:#FFFFFF@26B
+      CharNameEdit 36x36 475469dc7a674a3a948176ac48f1fe50
+        Img_CharNameEdit 20x20 1b112b9386d24ceda43f77994deb50ee
+    Exp_Bar_Bg 495x6
+      Exp_Bar 495x6
+    Exp_Text 123x30 text:#91D975@20B
+    Btn_Card1 204x268 51b2b1bf61934e1a8e2df141d2b3aee3
+      Img_Plus 100x100 89e38576c1ca4ac68bdfb702aa9d8216
+      Deco 80x272 c474590fb19c427f9bcc136980161b43
+      Text_CardSlot 113x35 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1F2B47 text:#FFACAC/50%@20B
+      CardSlotParent 204x268 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+      TouchBlock 204x268 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+    Btn_Card2 204x268 51b2b1bf61934e1a8e2df141d2b3aee3
+      Img_Plus 100x100 89e38576c1ca4ac68bdfb702aa9d8216
+      Deco 80x272 c474590fb19c427f9bcc136980161b43
+      Text_CardSlot 113x35 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#1F2B47 text:#ACFFDD/50%@20B
+      CardSlotParent 204x268 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+      TouchBlock 204x268 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+    Avatar_Char 275x320
+    CharPower 600x50 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#273244/50%
+      Deco_Line1 632x24 74098e289d6643ae8fc13779028e8d39 color:#8CC2FF
+      Deco_Line1_1 620x4 fa0726261212442da1569a29ad032520 color:#8CC2FF
+      Btn_CharPower 120x42 a284a5997dd24bf3927f8b71887c322f (Sliced)
+        Img_Power 37x37 754890ba284e441ea0bba9b02de160f9 (Sliced)
+      Text_Power 75x36 text:#D3CCCC@24B
+        Img_Icon 20x32 3119d2807ea7466e8e9056d0590a35cc
+    Scroll_EquipSlot 540x220
+      Cap 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_EquipIcon 72x72 cc3e39ff09844be6884440bffad2a481 (Sliced) color:#FFFFFF/30%
+      LongCoat 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_LongCoat 60x60 4dcf6a3ae60745e8919d19eb947e2cee (Sliced) color:#FFFFFF/30%
+      Glove 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Glove 60x60 a9f0c56879dd4fc7afd0a8fa4c7eb94f (Sliced) color:#FFFFFF/30%
+      Shoes 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Shoes 60x60 7c9e49db961241ed9e07b10186d401ea (Sliced) color:#FFFFFF/30%
+      Cape 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Cape 60x60 b9727d71f412438bac9906ee33c6f94d (Sliced) color:#FFFFFF/30%
+      Shoulder 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Shoulder 60x60 c9124ecda2dc42788e87e9c81cf2423f (Sliced) color:#FFFFFF/30%
+      EarAcc 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_EarAcc 60x60 514ec3f1bd1648d4bdb094924f7f2438 (Sliced) color:#FFFFFF/30%
+      Necklace 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Necklace 60x60 f32d6dcdcdd44a98b579d06f8e3e99e9 (Sliced) color:#FFFFFF/30%
+      Weapon 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Weapon 60x60 b3db6c16a7094d8ba404ebbc165cc4c4 (Sliced) color:#FFFFFF/30%
+      Mustache 98x98 cea88f94d3dd499dad1d8664cbcef81f (Sliced) color:#1F2734/30%
+        Img_Mustache 60x60 27197eca67764ea9bda1196b403abbfe (Sliced) color:#FFFFFF/30%
+    Img_VoicePreset_BG 90x248 2f6b4fc7c1524ed191f7552a4cd4ace5 (Sliced) color:#253250/30%
+      Btn_VoicePreset 250x90
+        Preset1 88x88 text:#C3BFC3@36B
+          Selected 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) text:#FFFFFF@36B
+        Preset2 88x88 text:#C3BFC3@36B
+          Selected 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) text:#FFFFFF@36B
+    Img_Voice 37x42 f3465a570f8073841bee825effd76b3b color:#EEEDE8
+  Layout_Item 1000x749
+    Scroll_ItemTypeTab 1000x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#3B4864/50%
+      Btn_EquipTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0%
+        Img_TabIcon 60x60 1fb08f89a470402bad82e82323082d5f color:#293652
+        Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_CardTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8
+        Img_TabIcon 60x60 d4a616725f8b4b23a9f75a68f0c342f9 color:#475674
+        Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_ConsumeTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0% states:pressed=36ad9f62ab654c6ca946ca654f232c24,selected=36ad9f62ab654c6ca946ca654f232c24
+        Img_TabIcon 60x60 1d302b29bdce4e0ebf1ec903e363550c color:#293652
+        Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_EtcTab 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0%
+        Img_TabIcon 60x60 3b84dff4692a45b9b02ca964dc140867 color:#293652
+        Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+      Btn_Cash 200x80 36ad9f62ab654c6ca946ca654f232c24 (Sliced) color:#EEEDE8/0%
+        Img_TabIcon 83x83 5f8c0b0183924ce9bdf49eb24c19d410 color:#293652
+        Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+    Layout 1000x569
+      Layout_Gear 1000x569
+        Scroll_GearSubTab 1000x75
+          CommonTab 167x76
+            Btn_Disable 60x60 34781b95771d41f7a5568b88d5659a56 (Sliced) color:#546179
+            Btn_Enable 92x92 638950a2ffe74f88a0feca0530476e20 (Sliced)
+            Img_RedDot 18x18 2860136c06ab075439721c027de365af color:#E4573B
+          WarriorTab 167x76
+            Btn_Disable 60x60 d64d0971fc774627a2240ff7067931d0 (Sliced) color:#546179
+            Btn_Enable 92x92 703fd5ca4e4e4c348e3353cbbabec5bb (Sliced)
+            Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+          WizardTab 167x76
+            Btn_Disable 60x60 db8bdc14dd454b39ad259e82276bc7dd (Sliced) color:#546179
+            Btn_Enable 92x92 27e54730fb5e445f99d28a4597fce238 (Sliced)
+            Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+          Archer 167x76
+            Btn_Disable 60x60 9554c441583b40d6896116ea3d607f40 (Sliced) color:#546179
+            Btn_Enable 92x92 bd3165a7d9e246eb86d226111714f32e (Sliced)
+            Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+          Assassin 167x76
+            Btn_Disable 60x60 06ac9b8fa75042f0b82a278bfca66d3b (Sliced) color:#546179
+            Btn_Enable 92x92 793cf4e2fb2142e7b9d4be1d4700300d (Sliced)
+            Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+          Pirate 167x76
+            Btn_Disable 60x60 7975eff948d44351b5f08d692a98872a (Sliced) color:#546179
+            Btn_Enable 92x92 6ab1ca10e362416cbde68e981ed41906 (Sliced)
+            Img_RedDot 44x44 2860136c06ab075439721c027de365af color:#E4573B
+        GridView_Gear 1000x493 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+      Layout_Card 1000x569
+        GridView_Card 1000x569 ScrollBarHandleImageRUID:a6364f48e71c4f70ac8b9ec7d685b015
+    Etc 1000x95 84e53d9ca4ca4b84b1189d8e7a860dbc (Sliced) color:#2C3D59
+      Text_BagInfo 88x44 text:#DEDEDE@30B
+        Img_Bag 44x48 341c9cc01dc74de1aa0dcfef788fca38
+      Btn_Sort 88x88 60b3dacf1291422a91897d49422ae16f (Sliced) states:pressed=62106a4f0e434060a4d92a7afe3596b0
+        Img_Sort 100x100 fafc87dfc7354354b8b2d63ae75fd4f6

@@ -1,0 +1,1229 @@
+# Inventory — 1227 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: InventoryPanel, ArmorInformationPopup, Bg_PetInformation, Bg_PetLevelUp, ArmorResetPopup, Bg_GradeUpPopup, Bg_ArmorSellPopUp, Bg_DetailStatusPopup, ItemInformationPopup, Bg_ArmorBatchLevelUp, AccessoryInformationPopUp, AccessoryReinforcePopUp, EnchantPopUp, TransplantPopUp (+1)
+UIR_CasualRPG_Sample_Inventory 1920x1080
+  InventoryPanel 1920x1080
+    Popup 1706x874 f47ee45115114234bd8a140b5d02729c
+      Panel_CharacterInfo 602x739
+        PetSlot_3 100x100
+          Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+          Locked 100x100 c0c177f1ff344930a9a6ca5ff011bb5b
+            Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            PetSprite 90x90 0460288ca21e42398850a0b55938e522 (Sliced)
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 4092ae39304445099af844898ad8c5b1
+        PetSlot_2 100x100
+          Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+          Locked 100x100 c0c177f1ff344930a9a6ca5ff011bb5b
+            Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            PetSprite 90x90 0460288ca21e42398850a0b55938e522 (Sliced)
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 07b9812308cc4ab3bc4fb3cc37ee4a9c
+        PetSlot_1 100x100
+          Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+          Locked 100x100 c0c177f1ff344930a9a6ca5ff011bb5b
+            Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            PetSprite 90x90 0460288ca21e42398850a0b55938e522 (Sliced)
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+        Panel_Character 250x390 60447bb7562d471ea29963eed6a0454c (Sliced) color:#FFFFFF/0%
+          Character_Information 240x320 eaf3d88b50a743bba2e36c9697025b8b
+            Deco_Slot 250x390 45e9323867014623af61dbbe53971ed0
+              Effect 556x556 7b990261ad53482faf340e6e29ad29e0
+            Level 29x36 text:#FFFFFF@24B+o#000000+s#000000/72%
+              Text_Level 50x40 text:#FFFFFF@18B+o#000000
+            Name 190x44 text:#FFFFFF@24+s#000000/72%
+            ExWeaponIcon 60x60 c09fa65be7a04114805e791d443b0b7f color:#788FC0
+            State 200x50 text:#FFFFFF@24B+o#000000
+            Stars 112x30
+              Star_5 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_4 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_1 25x26 877d010d8bfe46bc881f26f1c7adc3ba
+            PieceGauge 202x30
+              Bar 202x30 f7964d3e9b344d5daa7d663a10557837 (Sliced) FillRectImageRUID:7ed0e6e6e26c44e792c0e405ca96a980
+              PieceCount 180x40 text:#FFFFFF@24B+o#000000+s#000000/72%
+              Outline 227x46 02ba8404a6f547b4a233ac4e08eb7666
+                Arrow 41x50 e8d77a2ca5184a19a69725a14d765781
+              PieceIcon 50x50 a7b1394580314ee394db4698f8a7295a
+              Lock 34x43 fac471fa6056439ea98345c998465384
+            MaxTier 237x47 text:#788FC0@24+s#000000/40%
+            Exchange 262x398
+        ArmorSlot_Shoes 90x90 364eebe94eaa4a5c984f7039a7165ae3
+          Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Empty 64x64 0a659c8e91944c598b5008e0e3d2aff9 color:#38425C
+          ShoesSlot 100x100 8cd3e973b6f04b67a5d425eaed80e916
+            Icon 75x75 be4b4258f2fc4e86a953a73092225649
+            Category 42x42 6dcc398f8a4742cbbcef50c1beea4ecb
+              CategoryIcon 32x32 0a659c8e91944c598b5008e0e3d2aff9
+            ArmorOptions 100x100
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 86x86
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 86x86
+              Armor_Level 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 86x86 text:#FFFFFF@18B+o#000000/50%
+        ArmorSlot_Glove 90x90 364eebe94eaa4a5c984f7039a7165ae3
+          Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Empty 64x64 3d24b6f557b5459195e6ad21f92ec7f5 color:#38425C
+          GloveSlot 100x100 8cd3e973b6f04b67a5d425eaed80e916
+            Icon 75x75 be4b4258f2fc4e86a953a73092225649
+            Category 42x42 6dcc398f8a4742cbbcef50c1beea4ecb
+              CategoryIcon 32x32 3d24b6f557b5459195e6ad21f92ec7f5
+            ArmorOptions 100x100
+              Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 86x86
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 86x86
+              Armor_Level 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 86x86 text:#FFFFFF@18B+o#000000/50%
+        ArmorSlot_Suit 90x90 364eebe94eaa4a5c984f7039a7165ae3
+          Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Empty 64x64 9e43df083ac14fdf9927c04fe947ad71 color:#38425C
+          SuitSlot 100x100 8cd3e973b6f04b67a5d425eaed80e916
+            Icon 75x75 be4b4258f2fc4e86a953a73092225649
+            Category 42x42 6dcc398f8a4742cbbcef50c1beea4ecb
+              CategoryIcon 32x32 9e43df083ac14fdf9927c04fe947ad71
+            ArmorOptions 100x100
+              Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 86x86
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 86x86
+              Armor_Level 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 86x86 text:#FFFFFF@18B+o#000000/50%
+        ArmorSlot_Helmet 90x90 364eebe94eaa4a5c984f7039a7165ae3
+          Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3 text:#C3C3C3@24+s#000000/72%
+            Icon_Empty 64x64 01b29b2ec80b4b6b9836805b1dd3b628 color:#38425C
+          HelmetSlot 100x100 8cd3e973b6f04b67a5d425eaed80e916
+            Icon 75x75 be4b4258f2fc4e86a953a73092225649
+            Category 42x42 6dcc398f8a4742cbbcef50c1beea4ecb
+              CategoryIcon 32x32 01b29b2ec80b4b6b9836805b1dd3b628
+            ArmorOptions 100x100
+              Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 86x86
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 86x86
+              Armor_Level 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 86x86 text:#FFFFFF@18B+o#000000/50%
+        PetSlot_1 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot_1_N 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 90x90
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 90x90
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 90x90 text:#FFFFFF@18B+o#000000/50%
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+        PetSlot_2 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot_2_N 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 90x90
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 90x90
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 90x90 text:#FFFFFF@18B+o#000000/50%
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+        PetSlot_3 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          Icon_Lock 25x32 c48b5e7f851542859780d038530112b7 color:#323949
+          PetSlot_3_N 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 90x90
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 90x90
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 90x90 text:#FFFFFF@18B+o#000000/50%
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Pet 64x64 87cf429145814827a1b159aac55234b3 color:#38425C
+            UIText_Pet_Number 40x40 text:#323949@18
+        DecoSlot_NameTag 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          DecoSlot_NameTag 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 70x70 0e56bf8b18eb48cd845af69b4d0637db
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 bd2317f490ae46d2ade4fda1e0e2e889
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Ring 64x64 bd2317f490ae46d2ade4fda1e0e2e889 color:#38425C
+            Icon_Deco_Light 14x18 413ae081598b4662965a865633b6a63f color:#38425C
+        DecoSlot_ChatBalloon 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          DecoSlot_ChatBalloon 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 70x70 0e56bf8b18eb48cd845af69b4d0637db
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 30f4265a088846bfb9faefdcd6381748
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_Ring 64x64 30f4265a088846bfb9faefdcd6381748 color:#38425C
+            Icon_Deco_Light 14x18 413ae081598b4662965a865633b6a63f color:#38425C
+        DecoSlot_DamageSkin 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+          DecoSlot_DamageSkin 90x90 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 70x70 4b9602cd3bc9403bbe57ef18dce67aa5
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 77f57b2a6a9e4db7a86da5a327d1e677
+          Empty 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Icon_DamageFont 77x77 77f57b2a6a9e4db7a86da5a327d1e677 color:#38425C
+            Icon_Deco_Light 14x18 413ae081598b4662965a865633b6a63f color:#38425C
+        StatusValuePanel 602x210
+          StatusInformationButton 105x170 7fac58a22128418aa7c9f843facfd4ce
+            Icon 33x37 fa4e4d4f6fd243018dd48d5c68575c11
+          MaxHp_Panel 380x44 1e5e576fa39554b4a9d4b356354219c6 color:#222630
+            Text 149x60 text:#FFFFFF@24
+            Title 175x60 text:#899BBF@24
+            Icon 48x48 691fb3a497044f349554b85c2c4b1159
+          AttackValue_Panel 380x44 1e5e576fa39554b4a9d4b356354219c6 color:#222630
+            Text 131x60 text:#FFFFFF@24
+            Title 175x60 text:#899BBF@24
+            Icon 48x48 d5c304dfa5024c1686a06b670d7bcb03
+          CombatPower_Panel 380x44 1e5e576fa39554b4a9d4b356354219c6 color:#222630
+            Text 153x60 text:#FFFFFF@24
+            Title 175x60 text:#899BBF@24
+            Icon 48x48 ab626599cd7b417b92aeb7ad8c87ed35
+          Deco_Line 602x3
+        AccPanel 108x313
+          AccSlot_Ring 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Empty 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 color:#38425C
+            SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Effect 100x100 2b39726476c64204a4d7a91dc0566182 color:#FFFFFF/40%
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 0c7ad746be6d4b468b9ce61f44dfc5c4
+              Grade_Alphabet 46x24 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+              LevelPanel 86x86
+                LevelText 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          AccSlot_Earring 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Empty 64x64 a1ba298b9759433c9d6ef856fe7932a0 color:#38425C
+            SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Effect 100x100 2b39726476c64204a4d7a91dc0566182 color:#FFFFFF/40%
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 a1ba298b9759433c9d6ef856fe7932a0
+              Grade_Alphabet 46x24 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+              LevelPanel 86x86
+                LevelText 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          AccSlot_Necklace 90x90 364eebe94eaa4a5c984f7039a7165ae3
+            Empty 86x86 364eebe94eaa4a5c984f7039a7165ae3
+              Icon_Empty 64x64 3ee30c8fa960482e81f448a5f0585f22 color:#38425C
+            SlotEntity 86x86 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Effect 100x100 2b39726476c64204a4d7a91dc0566182 color:#FFFFFF/40%
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 3ee30c8fa960482e81f448a5f0585f22
+              Grade_Alphabet 46x24 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+              LevelPanel 86x86
+                LevelText 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+      Inventory 1050x632 62b3030e5a8c43b680165c0c7fa89aab color:#222630/80%
+        Armor_Scroll_Layout 1050x632
+          Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 9e43df083ac14fdf9927c04fe947ad71
+            PetContentPanel 100x100
+              Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 100x100
+              Armor_Level 34x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+        Pet_Scroll_Layout 1050x632
+          Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 100x100
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+        Inventory_Scroll_Layout 1050x632
+          Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Effect 120x120 2b39726476c64204a4d7a91dc0566182 color:#FFFFFF/40%
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 100x100
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+        Inventory_Decorate_Layout 1050x632
+          Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 bd2317f490ae46d2ade4fda1e0e2e889
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 100x100
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+        Storage_Max 134x44 9f591a9cdc3149859c8c91c3fdea6f80 text:#899BBF/80%@20
+      Title 1666x84 text:#7DB3FC@28
+        Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40+s#000000/72%
+      TabPanel 1050x110
+        ArmorTab 152x109 994e2ad676fe4b4c9782186b06f02a4a (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UISprite 64x64 01b29b2ec80b4b6b9836805b1dd3b628
+        AccessoryTab 152x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UISprite 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 text:#FFFFFF@24
+        PetTab 152x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UISprite 64x64 87cf429145814827a1b159aac55234b3
+        DecorateTab 152x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UISprite 64x64 629e86bc9590476fb2fd629a97b06676
+        UsableTab 152x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UISprite 64x64 7c4e6cfd278b4b77be07a5791d6c3915
+        EtcTab 152x109 6cb1470eea884424886399b0fc9f3c95 (Sliced) states:highlighted=994e2ad676fe4b4c9782186b06f02a4a,pressed=994e2ad676fe4b4c9782186b06f02a4a,selected=994e2ad676fe4b4c9782186b06f02a4a,disabled=994e2ad676fe4b4c9782186b06f02a4a
+          UIText_1 180x100 text:#FFFFFF@24
+      ButtonSorting 87x84 eb122a1efc00481c86efe2696d20771a color:#222C41 text:#FFFFFF@32B+o#416CB9
+        Icon 41x43 8c9c146c0638435e84c3d6ec9eb8e4db
+        ContextMenuSort 555x346 9fc787336d8e462885d2a44157e971af (Sliced)
+          Btn_Sort_Level_Ascend 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+          Btn_Sort_Grade_Ascend 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+          Btn_Sort_Category 490x90 97489de646b843b5afe0fd30677988de text:#FFFFFF@24B+o#5575B5
+  ArmorInformationPopup 1920x1080 98f27273363b4f089b980d1538e6b432 (Sliced) color:#000000/50%
+    Panel 814x824 f47ee45115114234bd8a140b5d02729c
+      Title 774x84 text:#7DB3FC@28
+        ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40+s#000000/72%
+      Information 718x667
+        Item_Info 718x452 788439cb3ad94c41b0ade30f989a3b2d
+          TextItemName 718x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#FFFFFF@24
+            Icon_Category 34x34 9e43df083ac14fdf9927c04fe947ad71
+          Item_Slot 120x120 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Icon 75x75 58e04ea2c1474aab9d95dbe8f13fbc20
+            Equipped 120x120 text:#B3E825@24B+o#000000/50%
+            Category 37x37 2860136c06ab075439721c027de365af
+              CategoryIcon 30x30 a6e8d19573884943add32f2a4f308d01 color:#000000
+            ArmorOptions 120x120
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Status_Panel 551x50
+            Icon 37x37 0e11e2bd6343446089773690f50e98f1
+            Name 263x36 text:#8495B8@24
+              Value 269x40 text:#FFFFFF@24
+          Level_Title 160x71 text:#FFFFFF@24
+            Text_Level 127x48 d685ceb1beb9492ea5dd6ec905a1fbce color:#282F40 text:#FFFFFF@24
+              LevelUpEffect 283x283 e319e60154ad42ecb72d33d734e3220c
+          ArmorResetButton 205x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) text:#FFFFFF@24B+o#53596B/50%
+            Icon 28x24 92394a8a87d047bba1f4d48141274309
+          Scroll_Layout_ArmorEffect 668x208 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            TextSpec_Normal 630x71 text:#6F6F6F@24
+              Lock 15x19 c48b5e7f851542859780d038530112b7
+            TextSpec_Rare 630x71 text:#6F6F6F@24
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#9BD522
+            TextSpec_Epic 630x71 text:#6F6F6F@24
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#36BAFF
+            TextSpec_Unique 630x71 text:#6F6F6F@24
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#E362FF
+            TextSpec_Legendary 630x71 text:#6F6F6F@24
+              Lock 15x19 c48b5e7f851542859780d038530112b7 color:#FF524E
+        HighlightedSlot_UpgradePanel 552x78 788439cb3ad94c41b0ade30f989a3b2d
+          NeedScroll 201x44 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x30 8e7f0863fb5a4a758f4dd9a2351777c9
+            Value 155x44 text:#FFFFFF@24
+          Button_LevelUp 234x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+            LevelUpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          NeedGold 201x44 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x30 bdac712ae9564f6c88e1bb2c7387d61a
+            Value 155x30 text:#FFFFFF@24
+          Button_BatchLevelUp 234x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+            BatchLevelUpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          Button_GradeUp 234x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+            GradeUpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+        Button_Equip 234x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        Button_UnEquip 234x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        ArmorSellButton 147x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) text:#FFFFFF@24B+o#53596B/50%
+  Bg_PetInformation 1920x1080
+    Panel_Pet 814x824 f47ee45115114234bd8a140b5d02729c
+      Title 774x84 text:#7DB3FC@28
+        ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@32
+      Information 718x667 788439cb3ad94c41b0ade30f989a3b2d color:#0080FF/0%
+        Bg 718x540 788439cb3ad94c41b0ade30f989a3b2d
+          TextPetName 718x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#FFFFFF@24
+            Icon_Category 34x34 87cf429145814827a1b159aac55234b3
+            Grade 75x50 84447f698ccc4b1aa8bacd96e1608223 color:#000000/50% text:#FFFFFF@24
+            GradeText 50x50 text:#FFFFFF@24
+            PetTitleText 581x46 text:#CDEB30@24B
+          PetLevelText 268x40 text:#FFFFFF@24
+          LevelText 100x50 text:#FFFFFF@24
+          Top_Panel 748x63 3e9d52ed52d64794bbd6f72bab8ee3d9 (Sliced)
+          UISprite 43x43 5b473b73c1374e6ead911e6e55c4348a
+          DescriptionText 668x294 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) text:#DFE6F6@24
+        PetSlot_Info 120x120
+          Background 120x120 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 90x90 0460288ca21e42398850a0b55938e522 (Sliced)
+          Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+          EquippedText 120x120 text:#B3E825@24B+o#000000/50%
+          LevelText 30x30 f728347f95829ec42afef94a3728ea74 color:#000000 text:#FFFFFF@25+o#000000
+          Category 44x44 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 30x30 5b473b73c1374e6ead911e6e55c4348a
+        ExpBarGauge 522x14 562fe78dc6dc4afc8991f0ecbe866e08 color:#222630 FillRectImageRUID:9dafff5f492842e2b278517c688a32df
+          ExpBar 522x14 9dafff5f492842e2b278517c688a32df (Filled) text:#FFFFFF@15+o#000000
+        EquipPetButton 300x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        PetLevelUpButton 300x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+          UpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+        PetSlot_Info 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          PetContentPanel 100x100
+            Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+              Pet_Level 120x50 text:#FFFFFF@18B
+            Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+          ArmorOptions 100x100
+            Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+  Bg_PetLevelUp 1920x1080
+    PetLevelUpUI 1706x874 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      TopPanel 1666x84 text:#7DB3FC@28
+        ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@32
+      ContentPanel 1655x603
+        PetSlot_1 658x262 788439cb3ad94c41b0ade30f989a3b2d
+          Desc_TopPanel 658x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630
+            PetTitle 658x53 text:#FFFFFF@24
+            Icon_Category 34x34 87cf429145814827a1b159aac55234b3
+          DescriptionText_1 470x120 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) text:#DFE6F6@24
+          ExpBarBackground 470x26 1446566804184028be39ece12d91b1e0 (Sliced)
+            ExpBar 470x26 fe9106c99f2d417f87b32880d6b8925a (Filled) text:#FFFFFF@24B+o#000000/70%
+            Level 133x41 text:#FFFFFF@24
+          DisplaySlot_1_N 120x120 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 80x80 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 122x122 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 120x120
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 120x120
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 120x120 text:#FFFFFF@20B+o#000000/50%
+        PredictSlot 658x125 788439cb3ad94c41b0ade30f989a3b2d
+          Title 658x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#899BBF@24
+          PredictExpBarBackground 470x26 1446566804184028be39ece12d91b1e0 (Sliced)
+            PredictExpBar 470x26 fe9106c99f2d417f87b32880d6b8925a (Filled) text:#FFFFFF@24B+o#000000/70%
+            Level 133x41 text:#FFFFFF@24
+        PetLevelUpList 926x549
+          ContentPanel 926x549 52849ae90e6e4aa392d5cf856f5e359c
+            PetSlot_N 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+              PetContentPanel 100x100
+                Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                  Pet_Level 120x50 text:#FFFFFF@18B
+                Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+              ArmorOptions 100x100
+                Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+                GradeStar 60x30
+                  Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+              CheckImage 120x120 57000fc656f44073b78d334461defd4f color:#000000/50%
+                Check_Icon 48x33 46c34255c019473482b09e491cf1ec73
+          DescriptionPanel 926x150 9ff12837c41a4eff9c5331412caa3a57
+            PetGradePanel 736x50
+              PetTitleText 736x50 text:#FFFFFF@24
+              Grade 75x50 84447f698ccc4b1aa8bacd96e1608223 text:#FFFFFF
+              GradeText 50x50 text:#FFFFFF
+              Level 75x50 84447f698ccc4b1aa8bacd96e1608223 text:#FFFFFF
+              LevelText 70x50 text:#FFFFFF
+            DescriptionText_2 736x67 text:#899BBF@24
+            DisplaySlot_2_N 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+              PetContentPanel 100x100
+                Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                  Pet_Level 120x50 text:#FFFFFF@18B
+                Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+              ArmorOptions 100x100
+                Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+                GradeStar 60x30
+                  Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+      LevelUpButton 384x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Avatar 199x224 28d233733e5f41259d8a3fec5286c802
+        UISprite 476x152 8f35027df24c4376b2776202d5f5304f
+          UIText 440x110 text:#293040@24
+  ArmorResetPopup 1920x1080
+    MainPanel 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Title 774x84 text:#7DB3FC@28
+        Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Panel_Top 718x272 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) color:#FFFFFF/50%
+        BeforeArmorSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Selected 150x150 text:#000000
+          Icon 75x75 58e04ea2c1474aab9d95dbe8f13fbc20
+          Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+        LightningEffect 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+          AfterArmorSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Selected 150x150 text:#000000
+            Icon 75x75 58e04ea2c1474aab9d95dbe8f13fbc20
+            Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          AfterArmorSlot_N 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            ArmorOptions 100x100
+              Armor_Level 22x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+        GoldPanel 206x44 788439cb3ad94c41b0ade30f989a3b2d
+          GoldValue 150x40 text:#FFFFFF@24
+          Icon 30x30 bdac712ae9564f6c88e1bb2c7387d61a
+        ScrollPanel 206x44 788439cb3ad94c41b0ade30f989a3b2d
+          ScrollValue 150x40 text:#FFFFFF@24
+          Icon 30x30 065d2794b61842539640a7d71992809d
+        Icon_Arrow 58x32 c81824b8090e4472ba218bad12f207d3
+        BeforeArmorSlot_N 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          PetContentPanel 100x100
+            Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+              Pet_Level 120x50 text:#FFFFFF@18B
+            Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+          ArmorOptions 100x100
+            Armor_Level 45x27 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+      PopupMessage 715x200 text:#899BBF@24
+      PopupBtnOK 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+  Bg_GradeUpPopup 1920x1080
+    GradeUpPopUp 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Title 774x84 text:#7DB3FC@28
+      MaterialList 722x332 52849ae90e6e4aa392d5cf856f5e359c
+        Slot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+          ArmorOptions 100x100
+            Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          PetContentPanel 100x100
+            Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+              Pet_Level 120x50 text:#FFFFFF@18B
+            Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+          Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          CheckImage 120x120 57000fc656f44073b78d334461defd4f color:#000000/50%
+            Check_Icon 48x33 46c34255c019473482b09e491cf1ec73
+      SlotPanel 718x170 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) color:#FFFFFF/50%
+        Icon_Result 80x46 a0175616badf4993b0facfb5dbea0ed1
+        Icon_Plus 47x47 713a318768154a1cab09636a45f3a6da
+        Bg_ResultSlot 135x135
+          LightiningEffect 308x308 d892e62ca8cd4400ad8dc5b6bb74547d
+            ResultSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+              ArmorOptions 100x100
+                Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+                GradeStar 60x30
+                  Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                  Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              PetContentPanel 100x100
+                Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                  Pet_Level 120x50 text:#FFFFFF@18B
+                Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+              Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+              Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+                CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+        Bg_MaterialSlot 135x135
+          NeedMaterialSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Selected 150x150 text:#000000
+            Icon 64x64 9e43df083ac14fdf9927c04fe947ad71 color:#FFFFFF/70%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            Shadow 145x145
+          MaterialSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+            ArmorOptions 100x100
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+        Bg_TargetSlot 100x100
+          TargetSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+            ArmorOptions 100x100
+              Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          GradeUpEffect 380x380 59022fb08d8b465a9e1b44ddbb5c78de
+      Button_GradeUp 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+  Bg_ArmorSellPopUp 1920x1080
+    Sell_Panel 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Title 774x84 text:#7DB3FC@28
+        PopupBtnCancel 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      WarningPanel 981x290 98f27273363b4f089b980d1538e6b432 (Sliced)
+        PopupMessage 715x201 text:#FF0000@45
+      SellPanel 718x272 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) color:#FFFFFF/50%
+        ArmorPanel 718x272
+          Icon_Arrow 58x32 c81824b8090e4472ba218bad12f207d3
+          Model_ArmorSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Icon 90x90 58e04ea2c1474aab9d95dbe8f13fbc20
+            Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000+s#000000
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            GradeStar 60x30
+              Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+              Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          GoldPanel 206x44 788439cb3ad94c41b0ade30f989a3b2d
+            GoldValue 130x40 text:#FFFFFF@24
+            Icon 30x30 bdac712ae9564f6c88e1bb2c7387d61a
+          ScrollPanel 206x44 788439cb3ad94c41b0ade30f989a3b2d
+            ScrollValue 130x40 text:#FFFFFF@24
+            Icon 30x30 065d2794b61842539640a7d71992809d
+          SellTargetSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Usable_Count 100x100 text:#FFFFFF@18B+o#000000/50%
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            ArmorOptions 100x100
+              Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+              GradeStar 60x30
+                Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+                Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            PetContentPanel 100x100
+              Panel_Level 30x22 4ec480eced2b46d2832287d622cf77f2
+                Pet_Level 120x50 text:#FFFFFF@18B
+              Grade 32x32 7a78a348c0e5489aabab7c6ecb8a79ff
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            Equipped 106x106 49cdc13b44ee4b6db236ff7dc8e9efc5 color:#B3E825 text:#B3E825@18B+o#000000/50%
+      PopupMessage 715x200 text:#899BBF@24
+      PopupBtnOK 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+  Bg_DetailStatusPopup 1920x1080
+    Popup 814x824 ab27654d538b46d6916da1d95049a975
+      Title 774x84 text:#7DB3FC@28
+        Button_CloseStatusPopup 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      Panel_Stat 744x666 60447bb7562d471ea29963eed6a0454c (Sliced)
+        Deco_1_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+        Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+        StatLayout 744x650
+          StatText_1 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_2 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_3 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_4 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_5 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_6 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_7 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_8 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_9 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_10 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_11 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_12 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_13 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_14 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_15 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_16 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_17 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_18 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_19 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+          StatText_20 680x40 text:#FFFFFF@26
+            Value 200x50 text:#CDEB30@26
+        ButtonLayout 744x70
+          Page_Navigation 185x64
+            Circle_1 24x24 ef10e046811ace04db1ab45ae6077d4e (Sliced) color:#5F6973
+            Circle_2 24x24 ef10e046811ace04db1ab45ae6077d4e (Sliced) color:#1D1F21
+            Circle_3 24x24 ef10e046811ace04db1ab45ae6077d4e (Sliced) color:#1D1F21
+            Circle_4 24x24 ef10e046811ace04db1ab45ae6077d4e (Sliced) color:#1D1F21
+          PreviousButton 98x98 a921b49abb4c4808a9749bdfa1bd049d (Sliced)
+            UISprite_1 26x44 ffff078314ab4de8b2f3e60085c6edaf
+          NextButton 98x98 a921b49abb4c4808a9749bdfa1bd049d (Sliced)
+            UISprite 26x44 ffff078314ab4de8b2f3e60085c6edaf
+  ItemInformationPopup 1920x1080 98f27273363b4f089b980d1538e6b432 (Sliced) color:#000000/50%
+    Panel 814x824 f47ee45115114234bd8a140b5d02729c
+      Title 774x84 text:#7DB3FC@28
+        ItemInformationExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40+s#000000/72%
+      Information 718x667
+        Item_Info 718x452 788439cb3ad94c41b0ade30f989a3b2d
+          TextItemCategoryName 718x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#FFFFFF@24
+            Icon_Category 34x34 bd2317f490ae46d2ade4fda1e0e2e889
+          Item_Slot 120x120 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Icon 80x80 58e04ea2c1474aab9d95dbe8f13fbc20
+            Equipped 120x120 text:#B3E825@24B+o#000000/50%
+          ItemDescription 668x208 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced) text:#FFFFFF@24
+            DescriptionText 668x300 text:#FFFFFF@24
+          UIText 300x40 text:#FFFFFF@24
+        PricePanel 718x78 788439cb3ad94c41b0ade30f989a3b2d
+          MesoTitle 397x78 text:#899BBF@24
+          MesoPrice 206x44 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x30 bdac712ae9564f6c88e1bb2c7387d61a
+            MesoText 160x50 text:#FFFFFF@24
+        Button_Equip 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        Button_UnEquip 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        ItemUseButton 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        ItemSellButton 202x90 ab05ba935aeb49448a9dda69998e20fa text:#FFFFFF@24B+o#53596B/50%
+  Bg_ArmorBatchLevelUp 1920x1080
+    BatchLevelUpPanel 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Title 774x84 text:#7DB3FC@28
+        PopupBtnCancel 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      Panel_CanUpgrade 764x564
+        Panel_Meso 206x44 0cdb1b67ec4a4998beedf9f9f7e08463
+          Icon 32x32 bdac712ae9564f6c88e1bb2c7387d61a
+          NeedGold 150x40 text:#FFFFFF@22
+        Panel_Scroll 206x44 0cdb1b67ec4a4998beedf9f9f7e08463
+          Icon 30x30 8e7f0863fb5a4a758f4dd9a2351777c9
+          NeedScroll 150x40 text:#FFFFFF@22
+        Panel_GuideText 700x86
+          GuideText 700x86 text:#899BBF@24
+        Panel_LevelBox 611x197
+          Panel_CurrentLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+            CurrentLevel 104x50 text:#FFFFFF@40B+o#000000+s#000000
+            Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@20B+o#000000+s#000000
+            UpEffect 100x100 e319e60154ad42ecb72d33d734e3220c
+          Panel_NextLevel 159x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+            NextLevel 104x50 text:#B5FA4D@40B+o#000000+s#000000
+            Title 159x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#B5FA4D@20B+o#000000+s#000000
+          Panel_Arrow 112x34
+            Arrow_1 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+            Arrow_2 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+            Arrow_3 24x34 ffff078314ab4de8b2f3e60085c6edaf color:#27292A
+        Message 700x69 text:#FF6868@20
+      Panel_CantUpgrade 764x564
+        Message 700x300 text:#899BBF@24
+        Panel_LevelBox 239x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          MaxLevel 200x50 text:#FFFFFF@40B+o#000000+s#000000
+          Title 239x42 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@20B+o#000000+s#000000
+      PopupBtnOK 348x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Deco_Line 745x2 1b67ac2143a3444f89aabc5913018a42
+      Deco_2_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Deco_1_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      LevelUpEffect 100x100 715a1685f7544e4e840c2e37f1cdeaa5
+  AccessoryInformationPopUp 1920x1080 98f27273363b4f089b980d1538e6b432 (Sliced) color:#000000/50%
+    Panel 814x824 f47ee45115114234bd8a140b5d02729c
+      Title 774x84 text:#7DB3FC@28
+        ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40+s#000000/72%
+      Information 718x667
+        ItemInfo 718x452 788439cb3ad94c41b0ade30f989a3b2d
+          TextItemName 718x53 2eafd799f3ff4b478fd2ed5019699e0d (Sliced) color:#222630 text:#FFFFFF@24
+            Icon_Category 34x34 9e43df083ac14fdf9927c04fe947ad71
+          Item_Slot 120x120 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Effect 120x120 2b39726476c64204a4d7a91dc0566182 color:#FFFFFF/40%
+            Icon 75x75 58e04ea2c1474aab9d95dbe8f13fbc20
+            Equipped 120x120 text:#B3E825@24B+o#000000/50%
+            Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Status_Panel 551x50
+            Icon 37x37 0e11e2bd6343446089773690f50e98f1
+            Name 361x33 text:#8495B8@22
+              Value 269x40 text:#FFFFFF@22
+          Reinforce_Title 268x33 text:#FFFFFF@22
+            Text_Reinforce 127x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#282F40 text:#FFFFFF@24
+              Effect 283x283 e319e60154ad42ecb72d33d734e3220c
+          Remain_Title 292x33 text:#FFFFFF@22
+            Text_Remain 127x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#282F40 text:#FFFFFF@24
+              Effect 283x283 e319e60154ad42ecb72d33d734e3220c
+          OptionLayout 668x208 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Option_1 630x65 text:#6F6F6F@22
+              Lock 32x32 d67d703a107f4c57aa943be72bd646c5
+            Option_2 108x33 text:#6F6F6F@22
+              Lock 32x32 d67d703a107f4c57aa943be72bd646c5
+            Option_3 630x65 text:#6F6F6F@22
+              Lock 32x32 d67d703a107f4c57aa943be72bd646c5
+            Option_4 630x65 text:#6F6F6F@22
+              Lock 32x32 d67d703a107f4c57aa943be72bd646c5
+            Option_5 630x65 text:#6F6F6F@22
+              Lock 32x32 d67d703a107f4c57aa943be72bd646c5
+        BottomPanel 308x78 788439cb3ad94c41b0ade30f989a3b2d
+          NeedHammer 201x48 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x29 4d30fa0d97494d2887ef100e305c7247
+            Value 155x44 text:#FFFFFF@24
+          TooltipButton 34x31 01a50e24d1f74b609bb9a9c6697b09d8
+          NeedReinforceStone 201x44 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x30 5eb88c5c48ad4b4e92ad6eed9683b2ca
+            Value 155x44 text:#FFFFFF@24
+          NeedMeso 201x44 9c5a2a603bb24744b4b0d150ea6a1e2a (Sliced)
+            Icon 30x30 bdac712ae9564f6c88e1bb2c7387d61a
+            Value 155x30 text:#FFFFFF@24
+        UseHammerButton 234x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+          Icon 28x24 4d30fa0d97494d2887ef100e305c7247
+        Button_Reinforcement 234x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+          ReinforcementArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          FailPercentText 195x110 8f35027df24c4376b2776202d5f5304f text:#FDF002@24B+o#000000+s#000000
+        Button_Enchant 234x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+          GradeUpArrow 41x50 e8d77a2ca5184a19a69725a14d765781
+          Icon_Enchant 38x38 3c65c0153b04477ca9984f4df5f360e3
+        Button_Transplant 234x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+          Icon_Transplant 45x42 d55a50d1eca8432c9e0708965f509211
+        Button_Equip 234x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        Button_UnEquip 234x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+        SellButton 147x64 c7b38a460c434e0aa6901e187062ff10 (Sliced) text:#FFFFFF@24B+o#53596B/50%
+        HammerTooltip 600x245 text:#FFFFFF@18
+      Panel_Guide_Hammer 516x824 72da16ab71a74cf392404b91a4916940
+        ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@40+s#000000/72%
+        Panel_Slot 100x100 b075056fab1c49948afc2844b365ee1a color:#434649/80%
+          Icon_Hammer 60x58 4d30fa0d97494d2887ef100e305c7247
+          Text_Hammer_Name 400x50 text:#FFFFFF@28
+        Scroll_Text 440x523
+          Text_Guide_Hammer 304x36 text:#B1BFDF@24
+  AccessoryReinforcePopUp 1920x1080
+    Popup 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      Panel_Top 774x84
+        UIText 774x84 text:#7DB3FC@28
+        Button_Exit 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      Panel_CanUpgrade 764x564
+        Panel_LevelBox 678x126
+          Panel_CurrentLevel 270x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+            Value 190x50 text:#FFFFFF@24B+o#000000+s#000000
+            Title 270x62 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@24B+o#000000+s#000000
+              Deco 248x23 526749cf8fb748f9914e1d31a6e5cdad color:#212B41
+            ResultEffect 100x100 e319e60154ad42ecb72d33d734e3220c
+            Icon 43x42 b51e392d219441139df0c67768eaa5b7
+          Panel_NextLevel 270x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+            Value 190x50 text:#B5FA4D@24B+o#000000+s#000000
+            Title 270x62 af113675713a400fb4929d1824669974 color:#2F3950 text:#B5FA4D@24B+o#000000+s#000000
+              Deco 248x23 526749cf8fb748f9914e1d31a6e5cdad color:#212B41
+            Icon 43x42 b51e392d219441139df0c67768eaa5b7
+          Panel_Arrow 64x36 a0175616badf4993b0facfb5dbea0ed1
+        Panel_Success_Percent 690x141 5c8c164dc0fb48409dd9029b1e1af062 (Sliced)
+          Deco_Light 589x124 d07bcb8d41fc406f9018ee166649cc0d color:#5FFF00/30%
+          SuccessPercentText 690x80 text:#FDF002@24+o#000000+s#000000
+          RemainCountText 690x50 text:#FFFFFF@24+o#000000+s#000000
+          Deco_Line 745x2 1b67ac2143a3444f89aabc5913018a42 color:#000000/50%
+        Bottom_Layout_1 764x228
+          Panel_Meso 500x44 0cdb1b67ec4a4998beedf9f9f7e08463
+            Icon 32x32 bdac712ae9564f6c88e1bb2c7387d61a
+            Value 420x40 text:#FFFFFF@24
+          Panel_Material 500x44 0cdb1b67ec4a4998beedf9f9f7e08463
+            Icon 35x32 f70af980ea3c40a986f7615d53501b5e
+            Value 420x40 text:#FFFFFF@24
+          Panel_Guide 700x57
+            GuideText 700x57 text:#899BBF@24
+          Message 700x60 text:#7DE9FC@22
+        Bottom_Layout_2 764x228
+          Message_Use_Hammer 764x228 text:#FF6868@24
+      Panel_CantUpgrade 764x564
+        Message 700x344 text:#899BBF@24
+        Panel_LevelBox 270x126 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          Value 190x50 text:#FFFFFF@24B+o#000000+s#000000
+          Title 270x62 af113675713a400fb4929d1824669974 color:#2F3950 text:#FFFFFF@24B+o#000000+s#000000
+            Deco 248x23 526749cf8fb748f9914e1d31a6e5cdad color:#212B41
+          Icon 43x42 b51e392d219441139df0c67768eaa5b7
+        Deco_Line 745x2 1b67ac2143a3444f89aabc5913018a42
+      Button_Reinforce 348x90 a96386f9ef2148f48aef7b33234fe032 text:#FFFFFF@24B+o#3784C4
+      Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+  EnchantPopUp 1920x1080
+    PopupPanel 1306x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      PopupMessage 1282x97 text:#7DB3FC@28
+      PopupBtnCancel 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      PopupBtnOK 360x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+        Icon_Enchant 38x38 3c65c0153b04477ca9984f4df5f360e3
+      TopPanel 1206x150
+        AccSlot_Empty 102x102 364eebe94eaa4a5c984f7039a7165ae3
+          Icon_Empty 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 color:#38425C
+          Txt_Material_Name 400x50 text:#FFFFFF@24
+        AccSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+        ArrowSprite 80x46 a0175616badf4993b0facfb5dbea0ed1
+        MagicStoneSlot_Empty 102x102 364eebe94eaa4a5c984f7039a7165ae3
+          Icon_Empty 64x64 0ed03b578a4148c6876ae0158158ea3d color:#38425C
+          Effect_Click 200x200 f69d72ad29dc43c7b648b7f743642e03
+          Txt_Material_Name 400x50 text:#FFFFFF@24
+        MagicStoneSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          CountText 100x100 text:#FFFFFF@24B+o#000000/50%
+      ContentPanel 1206x356
+        OptionPanel 556x356 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          TitleText 556x54 af113675713a400fb4929d1824669974 color:#2F3950 text:#899BBF@24
+          OptionPanel 556x304
+            OptionSlot_1 540x56
+              Icon_Slot_Bg 40x40 d67d703a107f4c57aa943be72bd646c5
+              Selected 23x23 d35834c37d78474c8740379600d41cbc
+              Desc 470x56 text:#FFFFFF@24
+              Bg 540x56
+            OptionSlot_2 540x56
+              Icon_Slot_Bg 40x40 d67d703a107f4c57aa943be72bd646c5
+              Selected 23x23 d35834c37d78474c8740379600d41cbc
+              Desc 470x56 text:#FFFFFF@24
+              Bg 540x56 d67d703a107f4c57aa943be72bd646c5 color:#FFFFFF/0%
+            OptionSlot_3 540x56
+              Icon_Slot_Bg 40x40 d67d703a107f4c57aa943be72bd646c5
+              Selected 23x23 d35834c37d78474c8740379600d41cbc
+              Desc 470x56 text:#FFFFFF@24
+              Bg 540x56 d67d703a107f4c57aa943be72bd646c5 color:#FFFFFF/0%
+            OptionSlot_4 540x56
+              Icon_Slot_Bg 40x40 d67d703a107f4c57aa943be72bd646c5
+              Selected 23x23 d35834c37d78474c8740379600d41cbc
+              Desc 470x56 text:#FFFFFF@24
+              Bg 540x56 d67d703a107f4c57aa943be72bd646c5 color:#FFFFFF/0%
+            OptionSlot_5 540x56
+              Icon_Slot_Bg 40x40 d67d703a107f4c57aa943be72bd646c5
+              Selected 23x23 d35834c37d78474c8740379600d41cbc
+              Desc 470x56 text:#FFFFFF@24
+              Bg 540x56 d67d703a107f4c57aa943be72bd646c5 color:#FFFFFF/0%
+        PossibleOptionPanel 556x356 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          TitleText 556x54 af113675713a400fb4929d1824669974 color:#2F3950 text:#899BBF@24
+          PossibleOptionPanel 556x304
+            Desc 93x36 text:#FFFFFF@24
+      BottomPanel 822x111
+        MaterialText 370x46 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+          IconMaterial 60x60 25cd5dd3ba5b491da908ff6be0a3bcb6
+        MesoText 370x46 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+          IconMeso 60x60 bdac712ae9564f6c88e1bb2c7387d61a
+      Txt_Guide 816x60 text:#FF6868@24
+  TransplantPopUp 1920x1080
+    PopupPanel 1706x874 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      TooltipButton 66x66 ef08cfd3bd334736877b4dfc3a982b48
+      PopupMessage 1682x97 text:#7DB3FC@28
+      PopupBtnCancel 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      PopupBtnOK 360x90 b15902057a8e4a8dbd8cc94486b1fe6f (Sliced) text:#FFFFFF@24B+o#5C49B3
+        Icon_Transplant 45x42 d55a50d1eca8432c9e0708965f509211
+      TopPanel 1606x150
+        AccSlot_Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+          Icon_Empty 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 color:#38425C
+          Guide_1 400x50 text:#FFFFFF@24
+        AccSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+        PlusSprite 80x46 a0175616badf4993b0facfb5dbea0ed1
+        MaterialAccSlot_Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+          Icon_Empty 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 color:#38425C
+          Effect_Click 200x200 f69d72ad29dc43c7b648b7f743642e03
+          Guide_2 400x50 text:#FFFFFF@24
+        MaterialAccSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+        ArrowSprite 47x35 fc5b9fccddd34f899d3f807c1f476c70
+        ResultSlot_Empty 100x100 364eebe94eaa4a5c984f7039a7165ae3
+          Icon_Empty 64x64 0c7ad746be6d4b468b9ce61f44dfc5c4 color:#38425C
+          Guide_3 400x50 text:#FFFFFF@24
+        ResultSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+          Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+          Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+            CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+          ReinforceText 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B+o#000000/50%
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+      ContentPanel 1606x348
+        OptionPanel 450x348 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          List 450x293
+            OptionSlot_1 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_2 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_3 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_4 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_5 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+          TitleText 450x54 af113675713a400fb4929d1824669974 color:#2F3950 text:#899BBF@24
+        OptionPanel_Material 450x348 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          List 450x293
+            OptionSlot_1 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_2 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_3 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_4 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_5 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+          TitleText 450x54 af113675713a400fb4929d1824669974 color:#2F3950 text:#899BBF@24
+          Text_Empty 450x293 text:#FFFFFF@24
+        OptionPanel_Predict 450x348 d685ceb1beb9492ea5dd6ec905a1fbce color:#222630
+          List 450x293
+            OptionSlot_1 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_2 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_3 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_4 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+            OptionSlot_5 440x56
+              Icon_Grade 32x32 d67d703a107f4c57aa943be72bd646c5
+              Desc 385x56 text:#FFFFFF@24
+          TitleText 450x54 af113675713a400fb4929d1824669974 color:#2F3950 text:#899BBF@24
+      BottomPanel 1223x109
+        MaterialText 370x50 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+          IconMaterial 60x60 bdac712ae9564f6c88e1bb2c7387d61a
+        MesoText 370x50 5040ac401bb1412ba2ea6093ccab2b5a text:#FFFFFF@24
+          IconMeso 60x60 bdac712ae9564f6c88e1bb2c7387d61a
+      Txt_Guide 744x60 text:#FF6868@24
+      DetailGuide 1056x624 72da16ab71a74cf392404b91a4916940 text:#FFFFFF@24
+        Text_Title 956x100 text:#899BBF@28B
+        CloseButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+  MaterialListPopup 1920x1080
+    PopupPanel 814x824 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      PopupMessage 790x97 text:#7DB3FC@28
+      PopupBtnCancel 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      PopupBtnOK 360x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Panel_List 734x454 52849ae90e6e4aa392d5cf856f5e359c
+        InventoryMaterial 734x454
+          MaterialOriginSlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            CountText 100x100 text:#FFFFFF@24B+o#000000/50%
+            Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+            Text_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            CheckImage 120x120 57000fc656f44073b78d334461defd4f color:#000000/50%
+              Check_Icon 48x33 46c34255c019473482b09e491cf1ec73
+        DescriptionPanel 734x150 9ff12837c41a4eff9c5331412caa3a57
+          Text_Item_Name 570x50 text:#899BBF@24
+          Text_Description 570x70 text:#FFFFFF@24
+          DisplaySlot 100x100 2502dac4d15a46f4ab26445abd1cc7f9 (Sliced)
+            Sprite 75x75 0460288ca21e42398850a0b55938e522 (Sliced)
+            Category 42x42 f8410525a90f4e2e8be0ae22623944f3
+              CategoryIcon 32x32 87cf429145814827a1b159aac55234b3
+            Armor_Level 30x22 4ec480eced2b46d2832287d622cf77f2 text:#FFFFFF@18B
+            GradeAlphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+      Txt_Material_Name 582x62 text:#899BBF@24
+      Txt_Guide 714x70 text:#FF6868@24

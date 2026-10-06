@@ -1,0 +1,19 @@
+# UIShop — 16 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+Model_UIShop 2520x1680
+  Panel 1800x960 25e9e89579644202805f535d038a9edb (Sliced)
+    Title 1750x110
+      Text_Title 800x100 text:#FFE398@50
+      Btn_Exit 100x100 298eb9b732264ea89c34001857d841a5
+      UISprite_Meso 384x100 9fd67813972dc5642b6563c6903583c8 color:#FFFFFF/43%
+        UISprite_Icon 70x70 fd255d50cb5177545a0e71c4a84363c7
+        UIText_Meso 271x100 text:#FFFFFF@30
+    Main 1708x743
+      GridView 1400x750 c24adedc9faa457daf4e4aae7cd663bb
+      UIShopItem 300x350 250ad9f22ed55ce44bdaa1d206563fc7
+        Text_Name 300x68 text:#653122@24
+        Sprite_Icon 141x141 6cd3d3db879042a8a934782350355666 (Sliced)
+        Text_Desc 300x70 text:#653122@24
+        Text_Price 146x51 9fd67813972dc5642b6563c6903583c8 text:#FFFFFF@25
+        Btn_Purchase 300x69 e22dca176e7c48b39d5b40554b546e22 text:#653122@24+o#B2B2B2

@@ -55,7 +55,7 @@ function recipeMenu(groupName) {
   return b;
 }
 
-function recipeInventory(groupName) {
+function inventoryShell(groupName) {
   const b = new UIBuilder(groupName, 7, false);
   b.sprite("Dimmer", { anchor: "stretch", color: "#000000", alpha: 0.7 });
   b.patchComponent("Dimmer", "MOD.Core.SpriteGUIRendererComponent", { RaycastTarget: true });
@@ -63,11 +63,32 @@ function recipeInventory(groupName) {
   b.sprite("Window/Bg", { anchor: "stretch", color: "#2C2C2C" });
   b.text("Window/Title", "Inventory", { size: 36, color: "#FFFFFF", bold: true, anchor: "top-center", pos: [0, -40], rect_size: [800, 50] }); // centered by default
   b.button("Window/BtnClose", "X", { rect_size: [100, 100], pos: [-70, -70], anchor: "top-right", font_size: 24 });
+  return b;
+}
+
+function slotTemplate(b, parentPath, size) {
+  b.sprite(`${parentPath}/Frame`, { anchor: "stretch", color: "#FFFFFF", alpha: 0.2 });
+  b.sprite(`${parentPath}/Icon`, { anchor: "middle-center", rect_size: [size, size] });
+  b.text(`${parentPath}/Count`, "", { size: 20, color: "#FFFFFF", anchor: "bottom-right", pos: [-28, 20], rect_size: [40, 24] });
+  b.patchComponent(`${parentPath}/Count`, "MOD.Core.TextGUIRendererComponent", { HorizontalAlignment: 4, VerticalAlignment: 512 });
+}
+
+// Default inventory: ScrollLayoutGroup in Grid mode, slots cloned from a disabled template.
+// GridView is the escalation (see recipeInventoryLarge), not the starting point.
+function recipeInventory(groupName) {
+  const b = inventoryShell(groupName);
+  b.panel("Window/Slots", { anchor: "stretch" });
+  b.patchComponent("Window/Slots", "MOD.Core.UITransformComponent", { OffsetMin: { x: 50, y: 50 }, OffsetMax: { x: -50, y: -100 } });
+  b.addComponent("Window/Slots", "MOD.Core.ScrollLayoutGroupComponent", { Type: 2, CellSize: { x: 90, y: 90 }, Constraint: 1, ConstraintCount: 8, GridSpacing: { x: 6, y: 6 }, GridChildAlignment: 0, Padding: { left: 8, right: 8, top: 8, bottom: 8 }, ScrollBarVisible: 1, UseScroll: true });
+  b.panel("Window/Slots/SlotTemplate", { rect_size: [90, 90], enable: false });
+  slotTemplate(b, "Window/Slots/SlotTemplate", 64);
+  return b;
+}
+
+function recipeInventoryLarge(groupName) {
+  const b = inventoryShell(groupName);
   b.panel("Window/ItemTemplate", { anchor: "top-left", pos: [50, -50], rect_size: [80, 80], enable: false });
-  b.sprite("Window/ItemTemplate/Frame", { anchor: "stretch", color: "#FFFFFF", alpha: 0.2 });
-  b.sprite("Window/ItemTemplate/Icon", { anchor: "middle-center", rect_size: [64, 64] });
-  b.text("Window/ItemTemplate/Count", "", { size: 20, color: "#FFFFFF", anchor: "bottom-right", pos: [-28, 20], rect_size: [40, 24] });
-  b.patchComponent("Window/ItemTemplate/Count", "MOD.Core.TextGUIRendererComponent", { HorizontalAlignment: 4, VerticalAlignment: 512 });
+  slotTemplate(b, "Window/ItemTemplate", 64);
   b.panel("Window/Grid", { anchor: "stretch" });
   b.patchComponent("Window/Grid", "MOD.Core.UITransformComponent", { OffsetMin: { x: 50, y: 50 }, OffsetMax: { x: -50, y: -100 } });
   b.addComponent("Window/Grid", "MOD.Core.GridViewComponent", { CellSize: { x: 90, y: 90 }, FixedCount: 8, FixedType: 0, Spacing: { x: 6, y: 6 }, UseScroll: true, TotalCount: 0 });
@@ -115,6 +136,7 @@ const RECIPES = {
   toast: recipeToast,
   menu: recipeMenu,
   inventory: recipeInventory,
+  "inventory-large": recipeInventoryLarge,
   chat: recipeChat,
   settings: recipeSettings,
 };
@@ -124,7 +146,8 @@ const RECIPE_DESCRIPTIONS = {
   popup: "Modal dialog: Title + Message + OK/Cancel (dimmed background)",
   toast: "Bottom auto-hide notification bar",
   menu: "Top-tab menu with 3 tabs (dimmed background)",
-  inventory: "Grid-virtualized item window with close button",
+  inventory: "Item window with a ScrollLayoutGroup slot grid + disabled slot template (default, up to a few hundred slots)",
+  "inventory-large": "Item window with GridView virtualization — only for thousands of slots or an unbounded count",
   chat: "Bottom-left scroll log + text input (ScrollLayoutGroup)",
   settings: "3-slider settings window (BGM / SFX / UI Scale)",
 };
@@ -151,7 +174,8 @@ function suggestProperties(recipe) {
     ],
     toast: [["toastGroup", "/ui/{GROUP}/Toast", "Entity"], ["message", "/ui/{GROUP}/Toast/Message", "TextGUIRendererComponent"]],
     hud: [["scoreValue", "/ui/{GROUP}/ScoreBox/Value", "TextGUIRendererComponent"], ["hpFillTransform", "/ui/{GROUP}/HPBar/Fill", "UITransformComponent"], ["hpFill", "/ui/{GROUP}/HPBar/Fill", "SpriteGUIRendererComponent"]],
-    inventory: [["invGroup", "/ui/{GROUP}/Window", "Entity"], ["grid", "/ui/{GROUP}/Window/Grid", "GridViewComponent"], ["itemTemplate", "/ui/{GROUP}/Window/ItemTemplate", "Entity"], ["btnClose", "/ui/{GROUP}/Window/BtnClose", "ButtonComponent"]],
+    inventory: [["invGroup", "/ui/{GROUP}/Window", "Entity"], ["slots", "/ui/{GROUP}/Window/Slots", "ScrollLayoutGroupComponent"], ["slotTemplate", "/ui/{GROUP}/Window/Slots/SlotTemplate", "Entity"], ["btnClose", "/ui/{GROUP}/Window/BtnClose", "ButtonComponent"]],
+    "inventory-large": [["invGroup", "/ui/{GROUP}/Window", "Entity"], ["grid", "/ui/{GROUP}/Window/Grid", "GridViewComponent"], ["itemTemplate", "/ui/{GROUP}/Window/ItemTemplate", "Entity"], ["btnClose", "/ui/{GROUP}/Window/BtnClose", "ButtonComponent"]],
     menu: [["menuRoot", "/ui/{GROUP}", "Entity"], ["tab0", "/ui/{GROUP}/TopTabs/Tab0", "ButtonComponent"], ["tab1", "/ui/{GROUP}/TopTabs/Tab1", "ButtonComponent"], ["tab2", "/ui/{GROUP}/TopTabs/Tab2", "ButtonComponent"], ["content0", "/ui/{GROUP}/Content0", "Entity"], ["content1", "/ui/{GROUP}/Content1", "Entity"], ["content2", "/ui/{GROUP}/Content2", "Entity"]],
     chat: [["chatBox", "/ui/{GROUP}/ChatBox", "Entity"], ["list", "/ui/{GROUP}/ChatBox/List", "ScrollLayoutGroupComponent"], ["inputText", "/ui/{GROUP}/ChatBox/InputArea/Text", "TextGUIRendererInputComponent"]],
     settings: [["settingsGroup", "/ui/{GROUP}/Window", "Entity"], ["bgmSlider", "/ui/{GROUP}/Window/Row0/Slider", "SliderComponent"], ["sfxSlider", "/ui/{GROUP}/Window/Row1/Slider", "SliderComponent"], ["uiScaleSlider", "/ui/{GROUP}/Window/Row2/Slider", "SliderComponent"], ["btnClose", "/ui/{GROUP}/Window/BtnClose", "ButtonComponent"]],

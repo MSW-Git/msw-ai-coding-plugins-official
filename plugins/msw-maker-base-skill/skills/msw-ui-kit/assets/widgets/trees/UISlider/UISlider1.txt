@@ -1,0 +1,2 @@
+UISlider1 300x100 [UISlider]
+  Slider 260x16 86cb0ffa0826868499ac5518f20d930c (Sliced) SLD

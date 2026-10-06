@@ -1,0 +1,17 @@
+# LobbyModule — 15 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Menu
+UIR_CardGame_Sample_LobbyModule 1920x1080
+  Menu 224x376
+    CardButton 224x94 9505617fb63c447c8ff9c15c18d88064 states:highlighted=398dfdb46d534ea2a2373e4f5d29ae2a,pressed=1016088c7aca43c78cdd06c01645ab1b,disabled=1016088c7aca43c78cdd06c01645ab1b
+      Icon 64x56 83e06d1d107347569bf9f0d57e50d92c
+      Text 118x43 text:#FFFFFF@25B+o#000000/70%
+    ShopButton 224x94 9505617fb63c447c8ff9c15c18d88064 states:highlighted=398dfdb46d534ea2a2373e4f5d29ae2a,pressed=1016088c7aca43c78cdd06c01645ab1b,disabled=1016088c7aca43c78cdd06c01645ab1b
+      Icon 64x56 775a2c04197b4e84bfa93b28dbdd094b
+      Text 118x43 text:#FFFFFF@25B+o#000000/70%
+      Event 104x65 568f005df8024647a1920ead2a97740e
+    RoomChannelButton 224x94 9505617fb63c447c8ff9c15c18d88064 states:highlighted=398dfdb46d534ea2a2373e4f5d29ae2a,pressed=1016088c7aca43c78cdd06c01645ab1b,disabled=1016088c7aca43c78cdd06c01645ab1b
+      Icon 64x56 d21260e4d9c849e7b56e86d78d093ff2
+      Text 118x43 text:#FFFFFF@25B+o#000000/70%
+    PracticeButton 224x94 9505617fb63c447c8ff9c15c18d88064 states:highlighted=398dfdb46d534ea2a2373e4f5d29ae2a,pressed=1016088c7aca43c78cdd06c01645ab1b,disabled=1016088c7aca43c78cdd06c01645ab1b
+      Icon 64x56 9b20f4fc05254fe7a211598d3923bf10
+      Text 118x43 text:#FFFFFF@25B+o#000000/70%

@@ -41,12 +41,12 @@ Credit accumulates and is consumed **per FunctionGroup**, summed across **all in
 | FunctionGroup | Granted/min | Max accumulation | Cost per request |
 |---|---|---|---|
 | **Set** / **Get** | `100 + (concurrent_users × 10)` | grant × 2 | **1 per 4,000 bytes** |
-| **Delete** | `50 + (concurrent_users × 2)` | grant × 2 | **1 per 4,000 bytes** |
+| **Delete** | `50 + (concurrent_users × 2)` | grant × 2 | 1 |
 | **List** / **List DataStorage** / **Delete DataStorage** | `10 + (concurrent_users × 2)` | grant × 2 | 1 |
 | **List Sorted** | `50 + (concurrent_users × 2)` | grant × 2 | 1 |
 | **None** (local handles such as `GetGlobalDataStorage`) | — | — | 0 |
 
-### Credit by byte size (Set/Get/Delete)
+### Credit by byte size (Set/Get only)
 
 ```
 0 ~ 4,000 bytes   → 1 credit

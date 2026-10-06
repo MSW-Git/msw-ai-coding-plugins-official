@@ -1,0 +1,113 @@
+UIEntityToggleGroup2 802x205 [UICompoundButtonGroup]
+  All 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 c9a065e195784b9dacc41465a8192df2
+      UIText 80x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 c9a065e195784b9dacc41465a8192df2
+      UIText 80x32 text:#FFFFFF@20
+  Weapon 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 3ceaa3af732e4956b623b5f470f628c5
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 3ceaa3af732e4956b623b5f470f628c5
+      UIText 72x32 text:#FFFFFF@20
+  Skin 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 d2ec0cf2d65144688729a905e6b2e2f4
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 d2ec0cf2d65144688729a905e6b2e2f4
+      UIText 72x32 text:#FFFFFF@20
+  Hair 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 d56c963d3f964e5fa71753c0976795d2
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 d56c963d3f964e5fa71753c0976795d2
+      UIText 72x32 text:#FFFFFF@20
+  Cap 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 42e5e834544e4b05b11160213f712635
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 42e5e834544e4b05b11160213f712635
+      UIText 72x32 text:#FFFFFF@20
+  OnePiece 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 2eae82f0c21c43088ae83c7bdc72abaf
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 2eae82f0c21c43088ae83c7bdc72abaf
+      UIText 72x32 text:#FFFFFF@20
+  Coat 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 b41b2a76b9cf4074baa4c727ca5e1ac9
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 b41b2a76b9cf4074baa4c727ca5e1ac9
+      UIText 72x32 text:#FFFFFF@20
+  Pants 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 2ceb2ac2b3c64ab4b459241ccb468d3d
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 2ceb2ac2b3c64ab4b459241ccb468d3d
+      UIText 72x32 text:#FFFFFF@20
+  Glove 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 1c9eba05b6c142e789f5a197c472c066
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 1c9eba05b6c142e789f5a197c472c066
+      UIText 72x32 text:#FFFFFF@20
+  Shoes 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 f0c990b0fd7649cc937d608a74d0a322
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 f0c990b0fd7649cc937d608a74d0a322
+      UIText 72x32 text:#FFFFFF@20
+  Cape 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 1d74d38d49ac41c5a14009e6f6414772
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 1d74d38d49ac41c5a14009e6f6414772
+      UIText 72x32 text:#FFFFFF@20
+  EyeAcc 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 ccb67addbf654a8f8eb2ee79226fe710
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 ccb67addbf654a8f8eb2ee79226fe710
+      UIText 72x32 text:#FFFFFF@20
+  Face 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 9ff00165e3e44d9296b0de5e860cfa6c
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 9ff00165e3e44d9296b0de5e860cfa6c
+      UIText 72x32 text:#FFFFFF@20
+  FaceAcc 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 0d9f55ab18c04e418faba12771bb9c49
+      UIText 72x32 text:#8F8F8F@19
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 0d9f55ab18c04e418faba12771bb9c49
+      UIText 72x32 text:#FFFFFF@19
+  Ear 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 c4760132e8684aa8b85bc24928fad4f0
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 c4760132e8684aa8b85bc24928fad4f0
+      UIText 72x32 text:#FFFFFF@20
+  EarAcc 100x100 [UIEntityToggle] cc3457b8e97b3e14f9d5c39ccdd640bf
+    Default 100x100 76359b32034643c6b5da0717f9c380bb BTN
+      Icon 40x40 19409cb86e9a4c709db38ca6c286e9c0
+      UIText 72x32 text:#8F8F8F@20
+    Select 100x100 a0ea29a36ce140049bcc088d25469dc5 BTN
+      Icon 40x40 19409cb86e9a4c709db38ca6c286e9c0
+      UIText 72x32 text:#FFFFFF@20

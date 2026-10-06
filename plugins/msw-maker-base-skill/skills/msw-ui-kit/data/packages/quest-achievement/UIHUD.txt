@@ -1,0 +1,16 @@
+# UIHUD — 13 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Meso, Stamina, Panel
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIHUD 1920x1080
+  Meso 250x64 613fc7e204c548c189eb9fac2107ab1b
+    Img_Icon 65x62 b52e57c7de6948e89ba291abb678aca6
+    Text_Num 190x60 text:#FFFFFF@27+o#301302
+  Stamina 250x64 613fc7e204c548c189eb9fac2107ab1b
+    Img_Icon 68x71 7db6b7634de74461b923a5a21ced7687
+    Text_Num 190x60 text:#FFFFFF@27+o#301302
+  Panel 344x370 c24adedc9faa457daf4e4aae7cd663bb (Sliced)
+    Btn_Attend 150x110 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+    Text_Meso 150x80 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Btn_Meso 150x110 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30
+    Text_Stamina 150x80 fb270c91dd5ece34ab03cbb662d9bab3 color:#E4C08C text:#653122@27
+    Btn_Stamina 150x110 e22dca176e7c48b39d5b40554b546e22 states:highlighted=9bb8e4d004fb46bb9c1b528b3c1ebf9f,pressed=9bb8e4d004fb46bb9c1b528b3c1ebf9f,selected=e22dca176e7c48b39d5b40554b546e22,disabled=e22dca176e7c48b39d5b40554b546e22 text:#653122@30

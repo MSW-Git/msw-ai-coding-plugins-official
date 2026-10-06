@@ -1,0 +1,14 @@
+UIToggleGroup4 600x78 [UICompoundButtonGroup]
+  Img_BG 600x78 d9d1070e225f46e9b445ada1bffc49ce
+    Toggle1 200x80 [UIToggle] d9d1070e225f46e9b445ada1bffc49ce (Sliced) BTN
+      Img_BG 200x80 497f780086744a43b217af42b790b8f7 (Sliced)
+      Text 173x76 text:#FFFFFF@24
+      Img_Selected 233x114 8cacae54ab5f4e2d81770f3e984c13cc (Sliced)
+    Toggle2 200x80 [UIToggle] d9d1070e225f46e9b445ada1bffc49ce (Sliced) BTN
+      Img_BG 200x80 497f780086744a43b217af42b790b8f7 (Sliced)
+      Text 173x76 text:#FFFFFF@24
+      Img_Selected 233x114 8cacae54ab5f4e2d81770f3e984c13cc (Sliced)
+    Toggle3 200x80 [UIToggle] d9d1070e225f46e9b445ada1bffc49ce (Sliced) BTN
+      Img_BG 200x80 497f780086744a43b217af42b790b8f7 (Sliced)
+      Text 173x76 text:#FFFFFF@24
+      Img_Selected 233x114 8cacae54ab5f4e2d81770f3e984c13cc (Sliced)

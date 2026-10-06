@@ -1,0 +1,190 @@
+# StageMap — 188 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Background, Panel_StageMove
+UIR_CasualRPG_Sample_StageMap 1920x1080
+  Background 7920x7080
+  Panel_StageMove 1306x874 ab27654d538b46d6916da1d95049a975
+    TopPanel 1266x84 text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+      BackButton 80x80 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+      Btn_Mode_Normal 165x64 2adacd69ad85477ea61bb31d49b0bcf6 text:#FFFFFF@24B+o#3784C4
+      Btn_Mode_Field 165x64 8b409ad1b4024963b5854cfab6452762 text:#FFFFFF@24B+o#5746AE
+        Icon_Locked 26x33 6e3365e0fb9b4f2f98ef4cee430f4981
+    ChapterMoveUI 1266x739
+      Img_Map 1229x699 fe2907f4ad614f3eb28ace458be59fb2
+      ContentPanel 1205x700
+        Img_Map 2048x690 ab3486e5aecd43f8bbb8d84a32c4a531
+          ChapterSlot_1 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 148x148 e4494cf101ff449eb79bb2708c675c68
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246 states:disabled=null
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+                UISprite_1_Open 80x80 7a09c81fa4534f898a41595750d7411d
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_2 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 164x128 dd16d3cd33db4258af193ae14cb2b249
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_3 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 160x148 b138138789594753be33f452ce93f4da
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_4 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 160x168 54eeae9a9a4c4f028881e004e1e35ca7
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_5 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 136x144 784d50898a80415eaee7fb05b9c25fc0
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_6 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 168x108 3f580e4b60fa4900bdac35d2bb5c1aea
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_7 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 160x168 24d968153ac34251b322261c1e627319
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+          ChapterSlot_8 220x205
+            Bg 195x58 03dbc334bf484146b05201cdd12c647c
+            ChapterSprite 152x144 57ae60b615684f83af9f71619914d9b8
+            ChapterTitle 195x58 6b99a36e97c94303a2d7dd75c3453096 text:#FFFFFF@24B+o#27284E/80%
+            Icon_Locked 35x43 fac471fa6056439ea98345c998465384
+            Icon_Clear 42x45 e9dbec048cf5422883590e230934c2ee text:#000000@20
+              ChapterClearRewardButton 82x93 cbb5e2b94afe4fa8aedd706fba5cb246
+                UISprite 80x80 9cff692190eb472fba4f6d0e68f213a7
+            Cover 150x150 03dbc334bf484146b05201cdd12c647c color:#1D1D1D
+            Panel_Price 186x40 129f02486c2baef49a41b31ce16171f6 (Sliced) color:#000000/80%
+              Price 131x40 text:#FFFFFF@24B+o#000000
+              Icon_Price 28x28 bdac712ae9564f6c88e1bb2c7387d61a
+              Text_Free 166x40 text:#B5FA4D@24B+o#000000
+            PlayerAvatar 100x100
+            Icon_Pin 76x87 cf19d7b9b18c40e08f2f3c21a8543566
+      Text_Mode 866x50 9a50c1ca754f41ecb326256631542bf4 color:#000000 text:#FFFFFF@24B+o#000000
+    StageMoveUI 1266x739
+      MyBattlePowerPanel 316x54 f7e99a93b2a045a8a3a946a34dbc91c1 (Sliced) text:#92A9DD@24
+        MyBattlePowerText 146x54 text:#FFFFFF@24
+        MyBattlePowerIcon 37x37 0e11e2bd6343446089773690f50e98f1
+      ContentPanel 1266x666
+        StageSlot 388x636 fe2907f4ad614f3eb28ace458be59fb2
+          StageTitleText 380x65 999459adec384ee6a64dafdef48e2cc1 text:#605049@28+s#FFFFFF/20%
+          Bg 342x178
+            StageSprite 338x174 d3002a47e4114c43a552c478a8e413d8
+              ClearSprite 51x51 5fd8c742b433426190b07737f8d115d7
+          RewardPanel 346x170
+            Text_Reward 346x49 26865e0786784ac7b73238b3860b90a2 text:#605049@24+s#FFFFFF/20%
+            StageClearRewardButton 350x119 8b8b29976a784279885f1bc595146f3b color:#FFE633 text:#FFFFFF@32B+o#58A74C
+            RewardPanel_2 350x124
+              Reward_1 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#916844/20%
+                RewardIcon 60x60 fd255d50cb5177545a0e71c4a84363c7
+                RewardCount 90x90 text:#FFFFFF@24B+o#000000/80%+s#000000
+                Cover 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#8C867D/80%
+                  Stamp 30x20 fb7283daaedf4d3c9467d488c1e155b4
+              Reward_2 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#916844/20%
+                RewardIcon 60x60 fd255d50cb5177545a0e71c4a84363c7
+                RewardCount 90x90 text:#FFFFFF@24B+o#000000/80%+s#000000
+                Cover 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#8C867D/80%
+                  Stamp 30x20 fb7283daaedf4d3c9467d488c1e155b4
+            RewardPanel_3orMore 350x128
+              Reward_1 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#916844/20%
+                RewardIcon 60x60 fd255d50cb5177545a0e71c4a84363c7
+                RewardCount 80x36 text:#FFFFFF@20B+o#000000/80%+s#000000
+                Cover 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#8C867D/80%
+                  Stamp 30x20 fb7283daaedf4d3c9467d488c1e155b4
+              Reward_2 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#916844/20%
+                RewardIcon 60x60 fd255d50cb5177545a0e71c4a84363c7
+                RewardCount 80x36 text:#FFFFFF@20B+o#000000/80%+s#000000
+                Cover 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#8C867D/80%
+                  Stamp 30x20 fb7283daaedf4d3c9467d488c1e155b4
+              Reward_3 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#916844/20%
+                RewardIcon 60x60 fd255d50cb5177545a0e71c4a84363c7
+                RewardCount 80x36 text:#FFFFFF@20B+o#000000/80%+s#000000
+                Cover 90x90 7e4578d6b7b949709e75f1f55ea81abf color:#8C867D/80%
+                  Stamp 30x20 fb7283daaedf4d3c9467d488c1e155b4
+          RecommendedBattlePower 346x94
+            TitleText 346x49 26865e0786784ac7b73238b3860b90a2 text:#605049@24+s#FFFFFF/20%
+            RecommendedBattlePowerText 176x36 text:#605049@24
+              IconBattelPower 34x34 0e11e2bd6343446089773690f50e98f1
+          StageMoveButton 348x90
+            Normal 348x90 ab05ba935aeb49448a9dda69998e20fa text:#FFFFFF@24B+o#000000/40%
+            Recommend 348x90 f18c71f5f4944a17ab3ad127e09b5529 text:#FFFFFF@24B+o#000000/40%
+            Disable 348x84 461d1807f3eb4d3fab14876818fadf6d text:#ADA299@24
+          Cover 390x639 fe2907f4ad614f3eb28ace458be59fb2 color:#1D1D1D/80%
+            Cover_Image 338x174
+              Icon_Locked 41x51 fac471fa6056439ea98345c998465384
+          QuestStage 112x39 b075056fab1c49948afc2844b365ee1a color:#1D1D1D/80% text:#FFF401@20
+            Icon_Locked 31x31 8cbf1555026540569c7bc81e97e97074

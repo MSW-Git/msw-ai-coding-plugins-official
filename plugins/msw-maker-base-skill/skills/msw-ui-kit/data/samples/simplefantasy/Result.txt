@@ -1,0 +1,38 @@
+# Result — 36 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Dim, Img_BG, Layout_Result, Scroll, Btn_Close
+UIR_SimpleFantasy_Sample_Result 2520x720
+  Img_Dim 3520x1720
+  Img_BG 3520x720 2ea3f873108a4538849929efeb21df38
+  Layout_Result 177x116
+    Img_Bg 1500x138 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#000000/30%
+    Deco_R 320x172 6fba7374c7d24e78ada23107943d5f6f
+    Deco_L 320x172 6fba7374c7d24e78ada23107943d5f6f
+    Text_Result 177x116 text:#E36F41@78B
+  Scroll 2520x366
+    ClearTime 800x120
+      Text_ClearTime_Title 255x33 text:#FFFFFF@22B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979
+      Text_ClearTime 271x36 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/50% text:#DEDFDF@24B
+      Img_NewRecord 100x57 5e94ec20ee214fa08d9c9a1b70330a14
+    ClearPhase 800x120
+      Text_Phase_Title 205x33 text:#FFFFFF@22B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979
+      Text_Phase 271x36 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/50% text:#DEDFDF@24B
+    ClearScore 800x120
+      Text_Score_Title 201x33 text:#FFFFFF@22B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979
+      Text_Score 271x36 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/50% text:#DEDFDF@24B
+      Img_NewRecord 100x57 5e94ec20ee214fa08d9c9a1b70330a14
+    RewardInfo 1400x243
+      Text_RewardTitle 210x33 text:#FFFFFF@22B
+        Img_DotL 16x16 36338acb0cfe498cac27bf667fc29979
+        Img_DotR 16x16 36338acb0cfe498cac27bf667fc29979
+      Meso 271x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#0C0D1B/50%
+        Img_Meso 60x60 9b8936f08455493ab28cf7333b33fcbc (Sliced)
+        Text_Meso 230x40 text:#DEDFDF@24B
+      Scroll_RewardSlot 1148x120 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#070A14/50%
+      Text_NoReward 184x36 text:#737373@24
+  Btn_Close 250x88 50426b5b1ee44bc5a1c10355b0e9ad03 (Sliced) states:pressed=b5ce0faaa7ed411db61c022e60feadaa text:#FFFFFF@26B

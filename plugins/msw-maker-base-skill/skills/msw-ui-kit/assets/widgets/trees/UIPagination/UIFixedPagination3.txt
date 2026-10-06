@@ -1,0 +1,7 @@
+UIFixedPagination3 464x80 [UIFixedPagination]
+  Prev 120x80 e22dca176e7c48b39d5b40554b546e22 BTN text:#653122@24
+  ScrollLayout 84x80
+  Item 100x80 [UIPaginationItem]
+    Default 96x76 9bb8e4d004fb46bb9c1b528b3c1ebf9f BTN text:#FFE398@20
+    Selected 100x80 e22dca176e7c48b39d5b40554b546e22 BTN text:#653122@20
+  Next 120x80 e22dca176e7c48b39d5b40554b546e22 BTN text:#653122@24

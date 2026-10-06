@@ -1,0 +1,20 @@
+# Dialog — 18 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: ImageContainer, Background, DialogueBoxes
+UIR_CasualSurvival_Sample_Dialog 1920x1080
+  ImageContainer 1920x1080
+  Background 3920x3080
+  DialogueBoxes 1920x1080
+    DialogueUI 908x312
+      Effect 756x240
+      Frame 1000x331 c598b04d858142aaa6974cef796c12fa
+      TextDialog 437x104 text:#33FF80@22
+      ButtonNext 22x22 9a2e112bc6824fedb85290b18b625e62
+        SKIP 450x30 text:#33FF80@19
+    DialogueBubbleUI 1044x304 c13dccf2bde74869848941d31c1890a9 color:#F7F1E2
+      NameTagSpeaker 208x68 145b45a4704149049cf074f0a8fbe519 color:#3CB1BC
+        UIText 200x68 text:#FFFFFF@30
+      NameTagPlayer 208x68 145b45a4704149049cf074f0a8fbe519 color:#4C342F
+        UIText 200x68 text:#FFFFFF@30
+      Dialogue 850x120 text:#4C342F@26
+      NextBtn 75x30 8d01dd6eb94741c8b7c360843166064a (Sliced)
+        SKIP 700x40 text:#84716D@22

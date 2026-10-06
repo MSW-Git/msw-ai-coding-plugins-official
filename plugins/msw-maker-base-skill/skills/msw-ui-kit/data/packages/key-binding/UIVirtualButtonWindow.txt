@@ -1,0 +1,41 @@
+# UIVirtualButtonWindow — 38 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Jump, DefaultActive, Active1, Active2, Active3
+# RUIDs below are this package's own art — reuse the STRUCTURE, swap every RUID for your chosen theme's part.
+UIVirtualButtonWindow 600x500
+  Jump 150x150
+    Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    Icon 96x82 251f9677601344598f0c777c96716741
+    KeyBG 70x40
+      Name 84x36 7fb7e33dd3a64870a6aba7fc41828d42 color:#000000/40% text:#FFFFFF@19
+  DefaultActive 220x220
+    Btn 220x220 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+    Icon 60x60 a19629eacf934ccbb47ca33d4fd1db77 (Sliced)
+    CooldownGauge 150x150 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+    CooldownText 100x100 text:#FFFFFF@20
+    KeyBG 15x40
+      Name 40x36 7fb7e33dd3a64870a6aba7fc41828d42 color:#000000/40% text:#FFFFFF@19
+  Active1 150x150
+    Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+    Icon 60x60
+    CooldownGauge 158x158 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+    CooldownText 100x100 text:#FFFFFF@20
+    KeyBG 15x40
+      Name 40x36 7fb7e33dd3a64870a6aba7fc41828d42 color:#000000/40% text:#FFFFFF@19
+  Active2 150x150
+    Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    PlusImage 92x92 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+    Icon 60x60
+    CooldownGauge 158x158 f4b6c1c64f67428091fafb2591aaed18 (Filled) color:#000000/50%
+    CooldownText 100x100 text:#FFFFFF@20
+    KeyBG 15x40
+      Name 40x36 7fb7e33dd3a64870a6aba7fc41828d42 color:#000000/40% text:#FFFFFF@19
+  Active3 150x150
+    Btn 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+    PlusImage 70x70 32c4b68d1c304500bbfabb74e5034b4c color:#000000/50%
+    Icon 45x45
+    CooldownGauge 104x104 9d0fcc9395f94d5aa12f219106e95f31 (Filled) color:#000000/50%
+    CooldownText 100x100 text:#FFFFFF@20
+    KeyBG 82x36
+      Name 95x36 a2366d534ad0428882308c1404ef9e57 color:#000000/40% text:#FFFFFF@19

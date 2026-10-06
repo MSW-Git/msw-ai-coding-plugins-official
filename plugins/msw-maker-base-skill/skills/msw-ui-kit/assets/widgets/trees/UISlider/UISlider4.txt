@@ -1,0 +1,4 @@
+UISlider4 500x100 [UISlider]
+  BG_Img 250x34 f8c075c3f94a478087b53e0b33f6a3c2
+  Slider 250x30 SLD
+  Text 150x76 text:#EF8A59@22

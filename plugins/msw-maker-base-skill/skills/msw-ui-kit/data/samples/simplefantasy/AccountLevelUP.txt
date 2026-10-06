@@ -1,0 +1,41 @@
+# AccountLevelUP — 39 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Layout
+UIR_SimpleFantasy_Sample_AccountLevelUP 1920x1080 ed10d856cfcb48288bf9a444a5873100 (Sliced) color:#000000/85%
+  Layout 2320x665 4fea64a3307cda641809ad8be0d4890b (Sliced) color:#1A130E/80%
+    Deco_DiaPattern 660x665 c82192b1a89049b2a50c83592d84b448 color:#FFFFFF/26%
+    Deco_DiaPattern_1 660x665 c82192b1a89049b2a50c83592d84b448 color:#FFFFFF/26%
+    RoundLight_R 2134x1223 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFF24D/20%
+    RoundLight_L 2134x1223 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFF24D/20%
+    Img_Deco 145x145
+      Deco_LinkBg 276x330 096c80ec4adf4f90b7ad05b3ee929bfe color:#FFFFFF/45%
+      Deco_LinkBg_1 276x330 096c80ec4adf4f90b7ad05b3ee929bfe color:#FFFFFF/45%
+      RoundLight 2320x1174 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFD54D/50%
+      Eff_Light 216x220 ff9822b6e6d940a8be092e42a71d2812
+    Deco_Success 100x100
+      Deco_BigWing 212x196 62306e39e48f4842b96d494cca1960ce color:#FFD067
+      Deco_BigWing_1 212x196 62306e39e48f4842b96d494cca1960ce color:#FFD067
+      Eff_Star 120x120 0c20fbf0be8a4da1b950bfa87c0d5c00
+      Eff_Star_1 80x80 0c20fbf0be8a4da1b950bfa87c0d5c00 color:#FFFFFF/63%
+      Eff_Star_2 100x100 0c20fbf0be8a4da1b950bfa87c0d5c00 color:#FFFFFF/25%
+      Eff_Stars 394x278 184060bdf2af4cd2b357d9ccd5ba9e79 (Sliced) color:#FFFFFF/42%
+      Eff_Stars_1 394x278 184060bdf2af4cd2b357d9ccd5ba9e79 (Sliced) color:#FFFFFF/48%
+      Eff_Boom 497x472 58a7d48901d64cc8a4a5d7c2a6c1174c color:#FFFFFF/52%
+    Text_Title 549x73 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#ECBE2B/36% text:#FFFFFF@36B
+      Icon_Dot 24x24 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/30%
+      Icon_Dot_1 24x24 36338acb0cfe498cac27bf667fc29979 color:#FFFFFF/30%
+    Text_Level 51x133 text:#FFFFFF@90B+o#98691C/90%
+    Scroll_Text 1000x270 9ca6545756a645dbaaf7da3a796546ef (Sliced) color:#282014/60%
+      Text_1 55x36 text:#BEDF6E@24B
+        Icon_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+        Icon_Dot_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+      Text_2 55x36 text:#BEDF6E@24B
+        Icon_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+        Icon_Dot_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+      Text_MaxStaminaIncrease 306x38 text:#C5C4BE@26B
+        Icon_Dot 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+        Icon_Dot_1 16x16 36338acb0cfe498cac27bf667fc29979 color:#737272
+        Layout_Num 550x52
+          Text_StaminaBefore 59x47 text:#C5C4BE@32B
+          UISprite 20x16 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#737272
+          Text_StaminaAfter 59x47 text:#FBF59A@32B
+    Btn_Ok 2320x200 text:#FFFFFF/60%@26B

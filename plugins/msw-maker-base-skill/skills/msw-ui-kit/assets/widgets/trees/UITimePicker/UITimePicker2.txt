@@ -1,0 +1,23 @@
+UITimePicker2 520x120 [UITimePicker] 86cb0ffa0826868499ac5518f20d930c
+  HourPicker 120x120 [UITouchReceiveComponent,UIScrollRangeNumberPicker] 86cb0ffa0826868499ac5518f20d930c
+    Viewport 112x112
+    Item 120x110 [UIScrollPickerItem]
+      Text 120x110 text:#F9F9F9@60
+  MinutePicker 120x120 [UITouchReceiveComponent,UIScrollRangeNumberPicker] 86cb0ffa0826868499ac5518f20d930c
+    Viewport 112x112
+    Item 120x110 [UIScrollPickerItem]
+      Text 120x110 text:#F9F9F9@60
+  SecondPicker 120x120 [UITouchReceiveComponent,UIScrollRangeNumberPicker] 86cb0ffa0826868499ac5518f20d930c
+    Viewport 112x112
+    Item 120x110 [UIScrollPickerItem]
+      Text 120x110 text:#F9F9F9@60
+  MeridiemButtonGroup 100x120 [UICompoundButtonGroup]
+    Img_BG 100x120
+      Toggle_Am 100x60 [UIToggle] 86cb0ffa0826868499ac5518f20d930c BTN
+        Img_Frame 94x54 86cb0ffa0826868499ac5518f20d930c
+        Text 100x60 text:#F9F9F9
+      Toggle_Pm 100x60 [UIToggle] 86cb0ffa0826868499ac5518f20d930c BTN
+        Img_Frame 94x54 86cb0ffa0826868499ac5518f20d930c
+        Text 100x60 text:#F9F9F9
+  Label_Line1 20x100 text:#F9F9F9@60
+  Label_Line2 20x100 text:#F9F9F9@60

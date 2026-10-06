@@ -1,0 +1,8 @@
+UIStyleToggleGroup1 624x84 [UICompoundButtonGroup] e631ce0541de3ac44a936b608c9c44f2
+  Img_BG 620x80 e631ce0541de3ac44a936b608c9c44f2
+    UIStyleToggle1 200x70 [UIStyleToggle] e631ce0541de3ac44a936b608c9c44f2 BTN
+      Text 200x70 text:#45463B
+    UIStyleToggle2 200x70 [UIStyleToggle] e631ce0541de3ac44a936b608c9c44f2 BTN
+      Text 200x70 text:#45463B
+    UIStyleToggle3 200x70 [UIStyleToggle] e631ce0541de3ac44a936b608c9c44f2 BTN
+      Text 200x70 text:#F1C20A

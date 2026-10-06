@@ -1,0 +1,3 @@
+UIStyleRadioButton1 60x60 [UIStyleRadioButton] BTN
+  Img_Frame 56x56 5413ab8864b870941878f2c46b61b7ba
+    Img_Dot 16x16 0ea6543c431b35d479aacf745a513ebb

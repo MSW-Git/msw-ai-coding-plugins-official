@@ -84,7 +84,7 @@ end
 ## Gotchas
 
 - **ClientOnly script context** — UI itself is client-only, so sound-calling scripts should use `@ExecSpace("ClientOnly")`. `PlaySound` is `ExecSpace("Client")` but there is no reason to trigger UI SFX directly from the server.
-- **Missing hover events** — When building a button via the `.ui` builder, `UITouchReceiveComponent` is not always added automatically. Add it explicitly with `b.addComponent(identifier, "MOD.Core.UITouchReceiveComponent")`.
+- **Missing hover events** — `button()` attaches `UITouchReceiveComponent` for you. Anything else that should react to hover (a `sprite()` tile, a `panel()` row) does not: add it with `b.addComponent(identifier, "MOD.Core.UITouchReceiveComponent")`, and remember the entity also needs a raycast-enabled renderer — both `sprite()` and `panel()` default to `raycast: false`, so pass `raycast: true`.
 - **Overlapping SFX on rapid input** — `PlaySound` spawns a new instance on every call. Short SFX is fine; guard long sounds with a cooldown variable.
 
 ## Reference

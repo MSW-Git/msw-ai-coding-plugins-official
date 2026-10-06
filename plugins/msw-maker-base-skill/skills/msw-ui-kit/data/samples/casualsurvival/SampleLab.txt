@@ -1,0 +1,684 @@
+# SampleLab — 682 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: Background, SampleLab, EquipPetPopup, LevelUpPopup, NewSamplePopup
+UIR_CasualSurvival_Sample_SampleLab 1920x1080
+  Background 3920x3080
+  SampleLab 1920x1080
+    ScreenCommon 1920x1080
+      Background 1920x1080
+        BG_MainColor 1560x800
+        BG_DecoColor_1 1478x1320 cd3141acf98948efb6042121e64eb797 color:#FFFFFF/21%
+        BG_DecoColor_2 495x441 8266e81ad1ab4327bbc1bc02239e200f color:#FFFFFF/4%
+        UV1 1482x772 e5cc8c877be44d36917677862085f196 (Tiled) color:#FFFFFF/10%
+        UV2 1482x770 b91636d5bfb040899ad97891f5359707 (Tiled) color:#FFFFFF/10%
+        BG_Texture 1700x980 6430b7bbf7524b4f962956b7d3bdb424
+    ScreenMain 1920x1080
+      TitleText 1100x100 text:#FFFFFF@38+o#000000/95%
+      SampleLabInfo 378x18
+        Frame 378x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+        Bar 378x15 e44efc371d8f49559197215706b9c74e (Sliced)
+        Text 235x50 text:#FFFFFF@18+o#000000/95%
+        StarFrame 30x30 d3aa190ce80b4ea4b8abc0270e06f5e9
+          StarIcon 20x20 1ba3a9e10f1849f4820d8d289e1394fe
+      TabCategory 181x457
+        TabAll 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+          Text 138x78 text:#FFFFFF@23+o#000000
+        TabGrass 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+          Text 138x78 text:#FFFFFF@23+o#000000
+        TabTropic 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+          Text 138x78 text:#FFFFFF@23+o#000000
+          IconLock 50x50 14ddedccafb247a5825135a3476da1a8
+        TabDesert 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+          Text 138x78 text:#FFFFFF@23+o#000000
+          IconLock 50x50 14ddedccafb247a5825135a3476da1a8
+        TabTundra 138x78 9cb41ecdcc804e30962830b40348b22f (Sliced)
+          Text 138x78 text:#FFFFFF@23+o#000000
+          IconLock 50x50 14ddedccafb247a5825135a3476da1a8
+      SampleList 729x550
+        Contents 1096x550 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+          UISampleSlot_Before_1 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_1 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_2 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_3 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_4 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_Next_1 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_Before_2 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_5 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_6 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_7 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_8 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_Next_2 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_Before_3 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_9 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_10 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_11 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_12 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+          UISampleSlot_Next_3 170x170 23c5c8f8c11a45bdb900cb628ab602bc (Sliced)
+            ImgLevel 44x25 61c118fd38714469aad2b603104b5ba7
+            ImgSample 64x64 02d340dea0654900a2924bfdd41bee69
+            TextName 150x26 text:#FFFFFF@17+o#000000
+            Progress 124x30 7bb46726c1f745119d73e8bd0a8bd3c1 (Sliced)
+              Bar 104x17 44ac287a1fa3423eaafa54abd008f3c8
+              UpgradeIcon 30x30 207b3273ff9245529dd1f66ef5b46011
+              Text 110x30 text:#FFFFFF@13+o#000000/90%
+            DNACount 80x30 5e1a9c11e42e45bcb9885a707e9d94fb (Sliced) text:#FFFFFF@13+o#000000/60%
+            PetMark 38x38 cbfd758787954300935a4cad3a7bc86c (Sliced)
+      PageButtons 600x50
+        Number_1 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_2 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_3 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_4 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_5 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_6 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_7 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_8 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_9 20x20 62b6d76f2fe845899079f615be4a05c2
+        Number_10 20x20 62b6d76f2fe845899079f615be4a05c2
+      PrevPage 58x58 874cb61a0dcb40b9be7e7527a0a6a966 states:highlighted=90aba7d0e486442eb59ddfa3489fb49e,pressed=2909acf1f37448f8adc7cac7b15785ad,disabled=e8edcc429e9e470db92d22f84694d4d4
+      NextPage 58x58 874cb61a0dcb40b9be7e7527a0a6a966 states:highlighted=90aba7d0e486442eb59ddfa3489fb49e,pressed=2909acf1f37448f8adc7cac7b15785ad,disabled=e8edcc429e9e470db92d22f84694d4d4
+      TodayDNA 359x100
+        InfoIcon 20x20 58bba42f9eed48179d087dff89117989
+        InfoText 300x40 text:#FFFFFF@16+o#000000/50%
+        ImgBackground 236x64 0e39169e723045858dd7e1caf8cdb548 (Sliced)
+        TodayDNATouchEvent 153x44 0e39169e723045858dd7e1caf8cdb548 (Sliced) color:#FFFFFF/0%
+        DNAFrame 42x42 09ed4db51f0740fa911734e50309ebd5
+        DNAIcon 32x32 3abaa04bdea54655918fe46bc79471b0
+        TodayCount 69x50 text:#FFFFFF@20+o#000000
+        TodayMaxCount 88x50 text:#FFFFFF@14+o#000000
+      SampleDetail 550x605
+        GradeFrame 140x60 467344045d23433597175bf6293e40b8 (Sliced)
+          Text 100x100 text:#FFFFFF@14+o#000000
+        SampleProfile 90x90
+          SampleCrown 40x40 175f9dbc336f43829769667e562a0e3a
+          SampleFrame 90x90 83c038181f444a9d89796d12646a55e6 (Sliced)
+          SampleImage 79x79 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+          SampleStarIcon 38x17 6f64d011c3cc4ab49fdad778d7740d8d
+          SampleName 286x35 text:#FFFFFF@24+o#000000
+          SamplePetMark 30x30 cbfd758787954300935a4cad3a7bc86c (Sliced)
+        EnvironmentInfo_1 90x60
+          Frame 140x60 22e48e79bc1a44aca30f1a031d5120bb (Sliced)
+          Text 60x50 text:#FFFFFF@14+o#000000
+        EnvironmentInfo_2 100x60
+          Frame 140x60 22e48e79bc1a44aca30f1a031d5120bb (Sliced)
+          Text 60x50 text:#FFFFFF@14+o#000000
+        MonsterStats 520x136
+          DNABar 124x22
+            Frame 109x22 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+            Bar 103x16 2e9b3b25709444cd85cf4b625bcededd (Sliced)
+            Text 235x50 text:#FFFFFF@13+o#000000
+            Icon 30x30 3abaa04bdea54655918fe46bc79471b0
+            UpgradeIcon 30x31 207b3273ff9245529dd1f66ef5b46011
+          DNACount 100x43
+            Icon 30x28 52056c911de14969ba208ba9339cde16
+            Text 112x30 text:#FFFFFF@16+o#000000
+          DinoInfo 350x30 text:#FFFFFF@20+o#000000/50%
+          StatFrame_HealthPoint 90x30 8ab6bc4be60b4ce59ac65bdc4f958bea (Sliced) color:#000000/15%
+            Icon 22x22 877df58d19a940f1812d7ebd9a25a9cc
+            HealthPointValue 76x30 text:#FBC134@20+o#000000/50%
+          StatFrame_AttackPoint 90x30 8ab6bc4be60b4ce59ac65bdc4f958bea (Sliced) color:#000000/15%
+            Icon 22x22 63c2ba4b29474e2389a2f36161f36a8e
+            AttackPointValue 76x30 text:#FBC134@20+o#000000/50%
+          StatFrame_DefensePoint 90x30 8ab6bc4be60b4ce59ac65bdc4f958bea (Sliced) color:#000000/15%
+            Icon 22x22 307433d326904aae8dc911f9e4b2442d
+            DefensePointValue 76x30 text:#FBC134@20+o#000000/50%
+          Seperator 520x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/25%
+          WeaknessWeapon 350x30 text:#FFFFFF@20+o#000000/50%
+          WeaknessValue 300x30 text:#FBC134@20+o#000000/50%
+          Seperator 520x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/25%
+          DropItem 350x46 text:#FFFFFF@20+o#000000/50%
+          DropItems 375x48
+            DropItem_1 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+            DropItem_2 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+            DropItem_3 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+            DropItem_4 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+            DropItem_5 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+            DropItem_6 48x48 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+              ItemIcon 35x35 thumbnail://83aef47bbe174907ab63d83f0d523240 (Sliced)
+        EquipInfoFrame 520x72 48d27f277e29426485cc28710e96110b (Sliced)
+          TextTitle 500x30 text:#FFFFFF@17+o#000000/50%
+          Seperator 520x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000/25%
+          Icon 40x40 74acd628efc74e529df114ab780f9d6b
+          EquipEffect 300x30
+            Text 111x30 text:#FFFFFF@20+o#000000/50%
+          EquipEffectValue 100x30 text:#FFFFFF@16+o#000000/50%
+        UpgradeInfoFrame 520x140 48d27f277e29426485cc28710e96110b (Sliced)
+          TextTitle 500x30 text:#FFFFFF@17+o#000000/50%
+          Seperator 520x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000/25%
+          UpgradeStats 500x110
+            Upgrade1 500x34
+              Icon 40x40 74acd628efc74e529df114ab780f9d6b
+              Name 300x30
+                Text 111x30 text:#FFFFFF@20+o#000000/50%
+              Value 110x30 text:#FFFFFF@16+o#000000/50%
+            Upgrade2 500x34
+              Icon 40x40 f5807d7f130d41bcaa93a69708f43a5d
+              Name 300x30
+                Text 111x30 text:#FFFFFF@20+o#000000/50%
+              Value 110x30 text:#FFFFFF@16+o#000000/50%
+            Upgrade3 500x34
+              Icon 40x40 6f64d011c3cc4ab49fdad778d7740d8d
+              Name 300x30
+                Text 111x30 text:#FFFFFF@20+o#000000/50%
+              Value 110x30 text:#FFFFFF@16+o#000000/50%
+        ButtonGroup 482x90
+          ButtonUpgrade 130x60 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 130x60 text:#FFFFFF@20+o#000000
+          ButtonReroll 130x60 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 130x60 text:#FFFFFF@20+o#000000
+          ButtonEquip 240x60 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 240x60 text:#FFFFFF@20+o#000000
+        ButtonGroupHide 482x90
+          ButtonUpgradeForHide 300x60 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 239x60 text:#FFFFFF@20+o#000000
+            Icon 32x32 3abaa04bdea54655918fe46bc79471b0
+            Cost 79x60 text:#FFFFFF@20+o#000000
+      TodayDNAPopup 435x435
+        BG 360x260 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+        Top 300x64 933155dff36a441f8560aed7f4e0fba6 (Sliced) color:#FBC134
+          DnaIconLeft 34x34 3abaa04bdea54655918fe46bc79471b0
+          TextInfo 300x57 text:#FFFFFF@24+o#000000
+          DnaIconRIght 34x34 3abaa04bdea54655918fe46bc79471b0
+        GradeList 337x125
+          Common 325x30
+            TextName 200x100 text:#FFFFFF@16+o#000000
+            Gauge 270x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+              Bar 270x15 2a4c8afd7e484e2fb17083694af7f86a (Sliced)
+              Text 235x50 text:#FFFFFF@14+o#000000
+            DNAIcon 22x22 3abaa04bdea54655918fe46bc79471b0
+          Uncommon 325x30
+            TextName 200x100 text:#FFFFFF@16+o#000000
+            Gauge 270x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+              Bar 270x15 f149e78449d54828a9e0e08acf613cde (Sliced)
+              Text 235x50 text:#FFFFFF@14+o#000000
+            DNAIcon 22x22 52056c911de14969ba208ba9339cde16
+          Rare 325x30
+            TextName 200x100 text:#FFFFFF@16+o#000000
+            Gauge 270x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+              Bar 270x15 0106233cdc33426bb6420fcd4847264d (Sliced)
+              Text 235x50 text:#FFFFFF@14+o#000000
+            DNAIcon 22x22 a39363b3a63a4b3891974274c981cf89
+          Legend 325x30
+            TextName 200x100 text:#FFFFFF@16+o#000000
+            Gauge 270x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+              Bar 270x15 03580f9cd28645fea59e25c47db96d81 (Sliced)
+              Text 235x50 text:#FFFFFF@14+o#000000
+            DNAIcon 22x22 8a887b2760374d83954e88143fc43e1c
+        Line 320x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/25%
+        TextTimeInfo 300x30 text:#FFFFFF@15
+        RemainTime 320x18 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+          Bar 320x15 03580f9cd28645fea59e25c47db96d81 (Sliced)
+          Text 235x50 text:#FFFFFF@14+o#000000
+      ButtonSort 58x52 07de07ee03784481b35c74581f0458e0 states:highlighted=07de07ee03784481b35c74581f0458e0,pressed=6bf6fb071494477c8ec9571dbba3427b,selected=07de07ee03784481b35c74581f0458e0,disabled=07de07ee03784481b35c74581f0458e0
+      SortPopup 226x240 5edf5f9bc1d8416e884af5debd87e058 (Sliced)
+        ButtonSort_Grade 200x45 62be58f580f94ac1a70facf6d2782150 states:highlighted=752bf00bb1cc49b69db2768310046bea,pressed=d0e04b890266457dbd152dafb26ed02b,selected=62be58f580f94ac1a70facf6d2782150,disabled=62be58f580f94ac1a70facf6d2782150
+          TextSort 139x40 text:#FFFFFF@20+o#000000
+          IconUp 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced)
+          IconDown 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced) color:#FFFFFF/35%
+        ButtonSort_Discovered 200x45 62be58f580f94ac1a70facf6d2782150 states:highlighted=752bf00bb1cc49b69db2768310046bea,pressed=d0e04b890266457dbd152dafb26ed02b,selected=62be58f580f94ac1a70facf6d2782150,disabled=62be58f580f94ac1a70facf6d2782150
+          TextSort 139x40 text:#FFFFFF@20+o#000000
+          IconUp 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced)
+          IconDown 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced) color:#FFFFFF/35%
+        ButtonSort_Star 200x50 62be58f580f94ac1a70facf6d2782150 states:highlighted=752bf00bb1cc49b69db2768310046bea,pressed=d0e04b890266457dbd152dafb26ed02b,selected=62be58f580f94ac1a70facf6d2782150,disabled=62be58f580f94ac1a70facf6d2782150
+          TextSort 139x40 text:#FFFFFF@20+o#000000
+          IconUp 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced)
+          IconDown 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced) color:#FFFFFF/35%
+        ButtonSort_DNA 200x50 62be58f580f94ac1a70facf6d2782150 states:highlighted=752bf00bb1cc49b69db2768310046bea,pressed=d0e04b890266457dbd152dafb26ed02b,selected=62be58f580f94ac1a70facf6d2782150,disabled=62be58f580f94ac1a70facf6d2782150
+          TextSort 139x40 text:#FFFFFF@20+o#000000
+          IconUp 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced)
+          IconDown 16x16 73ff8ae1c3904a6f878e8768ff50d6b9 (Sliced) color:#FFFFFF/35%
+      LevelTooltip 400x107 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+        Title 120x30 text:#FFFFFF@20+o#000000/30%
+        Info 108x27 text:#FFFFFF@18+o#000000/30%
+      UISampleSlotSelected 100x100
+        Frame 170x170 fea952d33b74460f80802f665adeee27 (Sliced)
+        LArrow 34x34 f3819561963b490b92e0067b491b5aef (Sliced) color:#FBC134
+        RArrow 34x34 f3819561963b490b92e0067b491b5aef (Sliced) color:#FBC134
+    ScreenUpgrade 1920x1080
+      TextName 500x100 text:#FFFFFF@40+o#000000
+      TweenEffect 1480x780
+        WhiteOut 1500x790
+        CircleEffect 256x256 377a00b9124a4633a3cc164990e3409a (Sliced) color:#FFFFFF/25%
+        RotateEffect 2000x2000 3992f68489c44bedac12bfe0c78064d8 color:#B7FFF0/50%
+      ImgDino 300x300 b4d9358305c44cfd838d7b39145fe0e2
+      EquipEffect 450x125
+        TextTitle 450x50 text:#FFFFFF@24+o#000000/30%
+        EquipEffectFrame 450x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+          TextName 139x36 text:#FFFFFF@24+o#000000/30%
+          TextValue 52x33 text:#FFFFFF@22+o#000000
+      UpgradeEffect 450x125
+        TextTitle 450x50 text:#FFFFFF@24+o#000000/30%
+        UpgradeEffectFrame 450x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+          TextName 139x36 text:#FFFFFF@24+o#000000/30%
+          TextValue 52x33 text:#FFFFFF@22+o#000000
+      UpgradeBefore 1920x1080
+        IconsBeforeUpgrade 150x64
+          PrevStar 71x51
+            Star_1 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+            Star_2 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+          Star 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+          + 500x100 text:#FFFFFF@40+o#000000
+        ButtonUpgrade 380x80 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,disabled=ded8d2bac7b64ceaaa05f821103641aa
+          TextInfo 300x80 text:#FFFFFF@32+o#000000
+          IconDNA 40x40 3abaa04bdea54655918fe46bc79471b0
+          TextCost 80x40 text:#FFFFFF@32+o#000000
+      UpgradeAfter 1920x1080
+        IconsAfterUpgrade 80x51
+          Star 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+          Star_1 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+          Star_2 40x40 1ba3a9e10f1849f4820d8d289e1394fe
+        ButtonConfirm 380x80 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+          Text 380x80 text:#FFFFFF@32+o#000000
+    ScreenReroll 1920x1080
+      Title 613x172
+        TextTitle 500x100 text:#FFFFFF@40+o#000000
+        Information 600x50
+          TextInfo_2 438x30 text:#FFFFFF@20+o#000000/50%
+          IconTicket 30x30 757abece87784f0ca74dd5b8a29db50e
+          TextInfo_3 622x56 text:#FFFFFF@20+o#000000/50%
+      DinoSprite 240x240 ceda3258c2b1452dbefb95346cab9089
+      Ready 1920x1080
+        StatOptionList 1100x353
+          Header 716x50
+            IconLockerWithTooltip 44x44 14ddedccafb247a5825135a3476da1a8
+            TextEffectList 300x50 text:#FFFFFF@24+o#000000/70%
+          Lv1 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            Normal 610x65
+              TextStatName 161x30 text:#FFFFFF@5+o#000000/50%
+              TextBeforeValue 140x50 text:#EC91FF@24+o#000000
+              IconArrow 30x30 6abaabc4439a45bda5f0b1bc46955d69
+              TextAfterValue 191x50 text:#FFFFFF@24+o#000000
+            Locked 610x65
+              TextStatName 262x50 text:#FFFFFF/60%@24
+              TextStatValue 257x50 text:#EC91FF/50%@24+o#000000/50%
+              IconLockerWithTooltip_1 44x44 14ddedccafb247a5825135a3476da1a8
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              Icon 80x80 74acd628efc74e529df114ab780f9d6b
+            CheckBox 28x28 4c35e020b9484b51bf4c7f019dc10667 (Sliced)
+              IconCheck 44x44 5a4d88eb567e4a2a8152f3d7038a60ad
+            TextStatus 300x50 text:#FFFFFF@24+o#000000/50%
+          Lv2 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            Normal 610x65
+              TextStatName 161x30 text:#FFFFFF@5+o#000000/50%
+              TextBeforeValue 140x50 text:#EC91FF@24+o#000000
+              IconArrow 30x30 6abaabc4439a45bda5f0b1bc46955d69
+              TextAfterValue 191x50 text:#FFFFFF@24+o#000000
+            Locked 610x65
+              TextStatName 262x50 text:#FFFFFF/60%@24
+              TextStatValue 257x50 text:#EC91FF/50%@24+o#000000/50%
+              IconLockerWithTooltip_1_1 44x44 14ddedccafb247a5825135a3476da1a8
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              Icon 60x60 f5807d7f130d41bcaa93a69708f43a5d
+            CheckBox 28x28 4c35e020b9484b51bf4c7f019dc10667 (Sliced)
+              IconCheck 44x44 5a4d88eb567e4a2a8152f3d7038a60ad
+            TextStatus 300x50 text:#FFFFFF@24+o#000000/50%
+          Lv3 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            Normal 610x65
+              TextStatName 161x30 text:#FFFFFF@5+o#000000/50%
+              TextBeforeValue 140x50 text:#EC91FF@24+o#000000
+              IconArrow 30x30 6abaabc4439a45bda5f0b1bc46955d69
+              TextAfterValue 191x50 text:#FFFFFF@24+o#000000
+            Locked 610x65
+              TextStatName 262x50 text:#FFFFFF/60%@24
+              TextStatValue 257x50 text:#EC91FF/50%@24+o#000000/50%
+              IconLockerWithTooltip_1_1_1 44x44 14ddedccafb247a5825135a3476da1a8
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              Icon 50x50 6f64d011c3cc4ab49fdad778d7740d8d
+            CheckBox 28x28 4c35e020b9484b51bf4c7f019dc10667 (Sliced)
+              IconCheck 44x44 5a4d88eb567e4a2a8152f3d7038a60ad
+            TextStatus 300x50 text:#FFFFFF@24+o#000000/50%
+        ButtonReroll 580x80 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,disabled=ded8d2bac7b64ceaaa05f821103641aa
+          Text 214x47 text:#FFFFFF@32+o#000000
+          IconDNA 40x40 8a887b2760374d83954e88143fc43e1c
+          TextDNACount 65x47 text:#FFFFFF@32+o#000000
+          IconTStone 40x40 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          TextTStoneCount 52x47 text:#FFFFFF@32+o#000000
+          IconTicket 40x40 757abece87784f0ca74dd5b8a29db50e
+          TextTicketCount 60x47 text:#FFFFFF@32+o#000000
+        LockTooltip 378x122 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+          Title 120x30 text:#FFFFFF@20+o#000000/30%
+          Info 108x27 text:#FFFFFF@18+o#000000/30%
+      Result 1480x780
+        TweenEffect 2000x2000 3992f68489c44bedac12bfe0c78064d8 color:#B7FFF0
+        StatResultList 704x330
+          Lv1 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            EdgeFrame 634x76 03ef5bea4ef441aa97d8d5488f2b013e (Sliced)
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              IconStar 80x80 74acd628efc74e529df114ab780f9d6b
+            StatName 317x50 text:#FFFFFF@24
+            StatAnimation 244x38 text:#FFFFFF@26+o#000000
+            IconLocker 32x32 14ddedccafb247a5825135a3476da1a8
+            StatResult 382x50
+              TextPrev 76x38 text:#FFFFFF@26+o#000000
+              IconArrow 36x36 6abaabc4439a45bda5f0b1bc46955d69
+              TextCurrent 76x38 text:#FFFFFF@26+o#000000
+              IconUpDown 20x20 7a60f0005bc4479ca4458653d5a50b02
+            UpgradeEffect 630x70 d9a51e0f9a82450db2b1941484e46ff0 (Sliced)
+          Lv2 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            EdgeFrame 634x76 03ef5bea4ef441aa97d8d5488f2b013e (Sliced)
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              IconStar 60x60 f5807d7f130d41bcaa93a69708f43a5d
+            StatName 317x50 text:#FFFFFF@24
+            StatAnimation 116x38 text:#FFFFFF@26+o#000000
+            IconLocker 32x32 14ddedccafb247a5825135a3476da1a8
+            StatResult 382x50
+              TextPrev 76x38 text:#FFFFFF@26+o#000000
+              IconArrow 36x36 6abaabc4439a45bda5f0b1bc46955d69
+              TextCurrent 76x38 text:#FFFFFF@26+o#000000
+              IconUpDown 20x20 7a60f0005bc4479ca4458653d5a50b02
+            UpgradeEffect 630x70 d9a51e0f9a82450db2b1941484e46ff0 (Sliced)
+          Lv3 630x70 fec5acb3815e4c508b2be25c451de8c9 (Sliced)
+            EdgeFrame 634x76 d0d9219018c04dfba9f238a1e069564e (Sliced)
+            IconFrame 80x80 d3aa190ce80b4ea4b8abc0270e06f5e9
+              IconStar 50x50 6f64d011c3cc4ab49fdad778d7740d8d
+            StatName 317x50 text:#FFFFFF@24
+            StatAnimation 116x38 text:#FFFFFF@26+o#000000
+            IconLocker 32x32 14ddedccafb247a5825135a3476da1a8
+            StatResult 382x50
+              TextPrev 76x38 text:#FFFFFF@26+o#000000
+              IconArrow 36x36 6abaabc4439a45bda5f0b1bc46955d69
+              TextCurrent 76x38 text:#FFFFFF@26+o#000000
+              IconUpDown 20x20 7a60f0005bc4479ca4458653d5a50b02
+            UpgradeEffect 630x70 d9a51e0f9a82450db2b1941484e46ff0 (Sliced)
+        ButtonConfirm 300x80 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+          Text 300x80 text:#FFFFFF@32+o#000000
+    ScreenCommonFront 1920x1080
+      ButtonOnExchangeDNA 145x60 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6
+        Text 145x60 text:#FFFFFF@20+o#000000
+      ButtonOffExnchangeDNA 65x60 9277470c3b624a36a47e861fe7c3b13d (Sliced) states:highlighted=5459082a670f40069cf86d269a5e5528,pressed=1b2ff17225324f34a34a38d1d71cece6
+        Close 26x26 72d7110c07fc473e9206e5e81ac18087 (Sliced)
+      PopupExchangeDNA 360x412 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced) color:#2B2D39/70%
+        ExchangePanel_1 335x120 f03ec9a0d990419c8c6fe29c4612c92e
+          FramePortrait 90x90 83c038181f444a9d89796d12646a55e6 (Sliced)
+            ImgPortrait 79x79 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+            IconDNA 24x24 52056c911de14969ba208ba9339cde16
+            TextCount 50x20 text:#FFFFFF@16+o#000000
+          UISprite 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconSourceDNA 24x24 3abaa04bdea54655918fe46bc79471b0
+          TextSourceCount 60x30 text:#FF0000@18+o#000000
+          IconArrow 20x20 6abaabc4439a45bda5f0b1bc46955d69
+          UISprite 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconTargetDNA 24x24 52056c911de14969ba208ba9339cde16
+          TextTargetCount 60x30 text:#FFFFFF@18+o#000000
+          ButtonExchange 210x46 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 210x46 text:#FFFFFF@20+o#000000
+        ExchangePanel_2 335x120 f03ec9a0d990419c8c6fe29c4612c92e
+          FramePortrait 90x90 83c038181f444a9d89796d12646a55e6 (Sliced)
+            ImgPortrait 79x79 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+            IconDNA 24x24 52056c911de14969ba208ba9339cde16
+            TextCount 50x20 text:#FFFFFF@16+o#000000
+          Source 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconSourceDNA 24x24 3abaa04bdea54655918fe46bc79471b0
+          TextSourceCount 60x30 text:#FF0000@18+o#000000
+          IconArrow 20x20 6abaabc4439a45bda5f0b1bc46955d69
+          Target 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconTargetDNA 24x24 52056c911de14969ba208ba9339cde16
+          TextTargetCount 60x30 text:#FFFFFF@18+o#000000
+          ButtonExchange 210x46 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 210x46 text:#FFFFFF@20+o#000000
+        ExchangePanel_3 335x120 f03ec9a0d990419c8c6fe29c4612c92e
+          FramePortrait 90x90 83c038181f444a9d89796d12646a55e6 (Sliced)
+            ImgPortrait 79x79 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+            IconDNA 24x24 52056c911de14969ba208ba9339cde16
+            TextCount 50x20 text:#FFFFFF@16+o#000000
+          Source 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconSourceDNA 24x24 3abaa04bdea54655918fe46bc79471b0
+          TextSourceCount 60x30 text:#FF0000@18+o#000000
+          IconArrow 20x20 6abaabc4439a45bda5f0b1bc46955d69
+          Target 88x30 3503305049f94e47ac5f906db72ff2bb (Sliced) color:#000000/30%
+          IconTargetDNA 24x24 52056c911de14969ba208ba9339cde16
+          TextTargetCount 60x30 text:#FFFFFF@18+o#000000
+          IconTargetDNA 24x24 52056c911de14969ba208ba9339cde16
+          TextTargetCount 60x30 text:#FFFFFF@18+o#000000
+          ButtonExchange 210x46 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,disabled=ded8d2bac7b64ceaaa05f821103641aa
+            Text 210x46 text:#FFFFFF@20+o#000000
+      DNAExcahgneTooltip 270x107 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+        Title 120x30 text:#FFFFFF@20+o#000000/30%
+        Info 108x27 text:#FFFFFF@18+o#000000/30%
+      ButtonBack 50x50 e994def0ee48459ba5c1da32556378cd (Sliced)
+      DNAWallet 780x76
+        TextTStone 150x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconTStone 30x30 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+        TextRerollTicket 120x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconRerollTicket 30x30 757abece87784f0ca74dd5b8a29db50e
+        TextDNACommon 120x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconDNACommon 30x30 3abaa04bdea54655918fe46bc79471b0
+        TextDNAUncommon 120x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconDNAUncommon 30x30 52056c911de14969ba208ba9339cde16
+        TextDNARare 120x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconDNARare 30x30 a39363b3a63a4b3891974274c981cf89
+        TextDNALegend 120x40 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30% text:#FFFFFF@18+o#000000/80%
+          IconDNALegend 30x30 8a887b2760374d83954e88143fc43e1c
+      BG_Edge 1700x980 8d2af7f03078489a998d26a8612de060
+      ButtonClose 70x70 187b4187e0a7487795617a410d95bb91 (Sliced)
+     SampleLabUILocaleDataSet 1000x100 text:#FFFFFF@20
+  EquipPetPopup 1920x1080
+    Background 3920x3080
+    TopBG 680x60 9a1c631a270e4fb9ad25bedbbab15095 (Sliced)
+      DotPatterLeft 118x40 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      DotPatterRight 117x38 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      Title 588x49 text:#FFFFFF@28+o#000000
+      DotLine 680x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+    BGMiddle 680x660 5bf3708196264a08ae53b28dc77c8626 (Sliced)
+    TextInfo 500x30 text:#FFFFFF@20+o#000000
+    BGBottom 680x102 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+    ButtonClose 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e
+    DinoSelected 100x100
+      ImgFrame 84x84 83c038181f444a9d89796d12646a55e6 (Sliced)
+      ImgPortrait 74x74 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+      TextName 500x30 text:#FFFFFF@18+o#000000
+      TextEffect 500x30 text:#E6B848@22+o#000000
+    DotLine 660x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/20%
+    TextInformation 500x30 text:#E6B848@24+o#000000
+    DinoSlots 643x275
+      DinoSlot_1 196x256 44e9ef4e3e2b45dda47800231632f3ef (Sliced)
+        IconEquip 36x36 cbfd758787954300935a4cad3a7bc86c (Sliced)
+        ImgFrame 84x84 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+        ImgPortrait 74x74 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+        TextName 166x30 text:#FFFFFF@20+o#000000/50%
+        TextEffect 176x65 text:#E6B848@19+o#000000
+        FramePrice 150x39 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+          IconMoney 33x33 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          TextAmount 75x32 text:#FFFFFF@22+o#000000/50%
+          UIEmpty_1 -1x-1
+      DinoSlot_2 196x256 44e9ef4e3e2b45dda47800231632f3ef (Sliced)
+        IconEquip 36x36 cbfd758787954300935a4cad3a7bc86c (Sliced)
+        ImgFrame 84x84 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+        ImgPortrait 74x74 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+        TextName 166x30 text:#FFFFFF@20+o#000000/50%
+        TextEffect 176x65 text:#E6B848@19+o#000000
+        FramePrice 150x39 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+          IconMoney 33x33 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          TextAmount 75x32 text:#FFFFFF@22+o#000000/50%
+      DinoSlot_3 196x256 44e9ef4e3e2b45dda47800231632f3ef (Sliced)
+        IconEquip 36x36 cbfd758787954300935a4cad3a7bc86c (Sliced)
+        ImgFrame 84x84 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+        ImgPortrait 74x74 460d88f8e85143fca3d4bf9366595f8f (Sliced)
+        TextName 166x30 text:#FFFFFF@20+o#000000/50%
+        TextEffect 176x65 text:#E6B848@19+o#000000
+        FramePrice 150x39 d827e598380844d8b96838368bd4284f (Sliced) color:#000000/30%
+          IconMoney 33x33 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          TextAmount 57x33 text:#FFFFFF@22+o#000000/50%
+    ButtonCancel 325x82 b4de5421f5934acabff04eb43bd0e417 (Sliced) states:highlighted=739a2754a11a4a9c929dbbb9e72e134d,pressed=3e8dfadf703e4a558942a279c50904f6,disabled=ded8d2bac7b64ceaaa05f821103641aa
+      Text 325x82 text:#FFFFFF@28+o#000000
+    ButtonEquip 325x82 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=c0a19dc8015045dbaf32ac8ed0a80c71,disabled=ded8d2bac7b64ceaaa05f821103641aa
+      Text 325x82 text:#FFFFFF@28+o#000000
+  LevelUpPopup 1920x1080
+    Background 3920x3080
+    BG 2720x280
+      UV1 2720x280 d7ba2ce6194c4a4498fc27869217c9de (Tiled) color:#FFFFFF/20%
+      UV2 2720x280 1423a055113a48e19c6c3f296b358037 (Tiled) color:#FFFFFF/20%
+      BG_1 2720x280 0be15578711849569b1696c505989c1d (Tiled) color:#FFFFFF/5%
+    Contents 1920x280
+      Title 1920x80 text:#FFFFFF@64+o#000000
+      Frame 520x40 37837f2a5f7a4dc1b179a00edce36eed color:#000000
+        Text 500x30 text:#FFFFFF@24
+      ButtonConfirm 300x64 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=c0a19dc8015045dbaf32ac8ed0a80c71,disabled=ded8d2bac7b64ceaaa05f821103641aa
+        Text 300x80 text:#FFFFFF@28+o#000000
+  NewSamplePopup 1920x1080
+    Background 3920x3080
+    BG 2720x188
+      UV1 2720x188 e5cc8c877be44d36917677862085f196 (Tiled) color:#FFFFFF/20%
+      UV2 2720x188 b91636d5bfb040899ad97891f5359707 (Tiled) color:#FFFFFF/20%
+      BG 2720x188 0be15578711849569b1696c505989c1d (Tiled) color:#FFFFFF/5%
+    Contents 1920x188
+      FrameTag 250x70 e5223dffdcdc4b338edc0f734ff27e09 (Sliced)
+        TextTag 200x80 text:#FFFFFF@24+o#000000
+      TextTtitle 1920x80 text:#FFFFFF@52+o#000000
+      TextInfo 1200x30 text:#FFFFFF@30+o#245B4F

@@ -20,6 +20,13 @@ const { UIBuilder } = require("./scripts/msw_ui_builder.cjs");
 
 ## Recipe 1 — Basic HUD (Top-Left Score, Top-Right Minimap, Bottom-Left HP)
 
+**HUD density budget** — a HUD must protect the playfield, not compete with it:
+
+- Persistent HUD covers at most ~25% of the screen; keep the center and lower-center clear during normal play.
+- Small corner-anchored status elements (this recipe's score/minimap/HP) don't count against the budget; panel-sized clusters are capped at one primary + at most one small secondary. Everything else (quest detail, long control lists, settings, lore) lives behind popups/toggles, collapsed by default.
+- Prefer transient toasts and contextual prompts over permanent boxed panels.
+- Sanity check: a play-mode screenshot should still read as a game scene. If it reads as an admin dashboard — equal-weight panels on every edge, everything expanded on first load — cut or collapse.
+
 ```javascript
 const b = new UIBuilder("DefaultGroup", 1, true);
 
@@ -211,6 +218,8 @@ See [`runtime-patterns.md`](runtime-patterns.md) §5 GridView Large List. Proper
 ---
 
 ## Recipe 6 — Scroll Chat/Log (ScrollLayoutGroup, Small Scale)
+
+Assumes a **capped backlog** — the caller trims to the last N lines, so the child count stays bounded. A log that keeps every line instead is an unbounded list and belongs on Recipe 5, since ScrollLayoutGroup renders every child it holds.
 
 ```javascript
 const b = new UIBuilder("ChatGroup", 4, true);
@@ -406,6 +415,87 @@ Pass criteria: no `L025` orphan parent, no `L029` nested UIGroup, no `L030` root
 
 ---
 
+## Recipe 10 — Ranking / Enumerated List (ScrollLayoutGroup + Row Template)
+
+The default shape for a list whose rows are built from server data and whose length stays modest — rankings, quest lists, friend lists, mailboxes. Author one disabled row template with its nested children, then clone it per record at runtime. Lists that are unbounded, or bounded but large enough that rendering every row costs too much (a several-thousand-slot inventory), go to Recipe 5 instead; see [`component-api.md`](component-api.md) §"ScrollLayoutGroupComponent vs GridViewComponent".
+
+```javascript
+const b = new UIBuilder("RankingGroup", 7, false);
+
+b.sprite("Dimmer", { anchor: "stretch", color: "#000000", alpha: 0.6, raycast: true });
+b.panel("Window", { anchor: "middle-center", rect_size: [700, 760] });
+b.sprite("Window/Bg", { anchor: "stretch", color: "#2C2C3A" });
+b.text("Window/Title", "RANKING", { size: 34, bold: true, anchor: "top-center", pos: [0, -36], rect_size: [400, 52] });
+b.button("Window/BtnClose", "X", { anchor: "top-right", pos: [-24, -24], rect_size: [88, 88], font_size: 24 });
+
+// Scroll viewport. ScrollLayoutGroup clips to its own rect — no separate Mask.
+b.panel("Window/List", { anchor: "stretch" });
+b.patchComponent("Window/List", "MOD.Core.UITransformComponent", {
+  OffsetMin: { x: 24, y: 24 },
+  OffsetMax: { x: -24, y: -100 },
+});
+b.addComponent("Window/List", "MOD.Core.ScrollLayoutGroupComponent", {
+  Type: 1,
+  Spacing: 8,
+  ChildAlignment: 1,
+  Padding: { left: 8, right: 8, top: 8, bottom: 8 },
+  ScrollBarVisible: 1,
+  VerticalScrollBarDirection: 2,
+});
+
+// Row template — nested children, disabled so it never renders as a real row.
+b.panel("Window/List/RowTemplate", { rect_size: [604, 64] });
+b.sprite("Window/List/RowTemplate/Bg", { anchor: "stretch", color: "#3A3A4E" });
+b.text("Window/List/RowTemplate/Rank", "1", { size: 24, bold: true, anchor: "middle-left", pos: [16, 0], rect_size: [64, 44], alignment: 4 });
+b.text("Window/List/RowTemplate/Name", "-", { size: 22, anchor: "middle-left", pos: [92, 0], rect_size: [300, 44], alignment: 3 });
+b.text("Window/List/RowTemplate/Score", "0", { size: 22, anchor: "middle-right", pos: [-16, 0], rect_size: [160, 44], alignment: 5 });
+b.patch("Window/List/RowTemplate", { enable: false });
+
+b.write("ui/RankingGroup.ui", {
+  bind: { mlua: "RootDesk/MyDesk/RankingList.mlua", props: { rowTemplate: "Window/List/RowTemplate" } },
+});
+```
+
+Populate at runtime. The row root here is a panel, not a text node, so every field is reached through `GetChildByName` — `clone.TextGUIRendererComponent` is nil on this template and indexing it throws:
+
+```lua
+property Entity rowTemplate = "uuid-rowtemplate"
+property table rows = {}
+
+@ExecSpace("ClientOnly")
+method void AddRow(integer rank, string name, integer score)
+    local clone = self.rowTemplate:Clone("Row_" .. tostring(rank))
+    clone:GetChildByName("Rank").TextGUIRendererComponent.Text = tostring(rank)
+    clone:GetChildByName("Name").TextGUIRendererComponent.Text = name
+    clone:GetChildByName("Score").TextGUIRendererComponent.Text = tostring(score)
+    clone:SetEnable(true)
+    table.insert(self.rows, clone)
+end
+```
+
+The `"uuid-rowtemplate"` placeholder is what the `bind` above overwrites — without that injection `self.rowTemplate` is not an entity and `Clone()` fails. `Clone` keeps the template's parent, so rows land under `Window/List` and `ScrollLayoutGroup` positions them — never set `anchoredPosition` on a row yourself, and note `table.insert` only records the clone, it does not place it. The single-text form of this loop, plus the teardown half (`Destroy` on clear, `OnEndPlay`), is [`runtime-patterns.md`](runtime-patterns.md) §4.
+
+Row height may vary per row on `Type=Vertical`/`Horizontal` — set the clone's `UITransformComponent.RectSize` right after `Clone()` when rows differ.
+
+**Slot grid variant** — an ordinary inventory or slot grid up to a few hundred cells is this same recipe with the list component swapped to Grid and the row template rebuilt as one slot (icon + count). Everything else — window, template cloning, `AddRow`, binding — is unchanged:
+
+```javascript
+b.addComponent("Window/List", "MOD.Core.ScrollLayoutGroupComponent", {
+  Type: 2,
+  CellSize: { x: 90, y: 90 },
+  Constraint: 1,
+  ConstraintCount: 6,
+  GridSpacing: { x: 6, y: 6 },
+  GridChildAlignment: 0,
+  Padding: { left: 8, right: 8, top: 8, bottom: 8 },
+  ScrollBarVisible: 1,
+});
+```
+
+`Constraint: 1` is FixedColumnCount, so `ConstraintCount` is the column count. `CellSize` fixes every cell's size, which is why the per-row `RectSize` tweak above does not apply here. Grid reads `GridSpacing` / `GridChildAlignment` and ignores `Spacing` / `ChildAlignment` without an error. Larger or unbounded still goes to Recipe 5.
+
+---
+
 ## Recipe Selection Guide
 
 | Request Keyword | Recipe |
@@ -414,11 +504,12 @@ Pass criteria: no `L025` orphan parent, no `L029` nested UIGroup, no `L030` root
 | Confirm / Yes/No / Warning | Recipe 2 (Modal Popup) |
 | Acquisition / Notification / Result | Recipe 3 (Toast) |
 | Tab menu / Top navigation | Recipe 4 (Tabbed Menu) |
-| Inventory / Shop / Equipment window / Many slots | Recipe 5 (GridView) |
-| Chat / Log / Small list | Recipe 6 (ScrollLayoutGroup) |
+| Large inventory (thousands of slots, or fewer but render-cost-bound) / unbounded list / infinite chat log / full-history log viewer | Recipe 5 (GridView) |
+| Chat / log with a capped backlog (last N lines) | Recipe 6 (ScrollLayoutGroup) |
 | Settings / Volume / Scale | Recipe 7 (Slider List) |
 | Card / tile / slot / repeated clickable cell | Recipe 8 (Card-Like Clickable Tile) |
 | Stat sheet / info panel / labeled rows / status window | Recipe 9 (Stat / Info Panel) |
+| Ranking / leaderboard / quest list / friend list / mailbox / ordinary inventory or slot grid up to a few hundred cells / enumerated rows of modest length | Recipe 10 (ScrollLayoutGroup + Row Template) |
 
 ---
 

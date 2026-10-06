@@ -30,9 +30,9 @@ What do you want the user to interact with?
 └── Progress bar (display only)                       → Linear HP/MP: SpriteGUIRenderer(Sliced + width resize); radial: SpriteGUIRenderer(Filled)
 
 Do you need to display a list?
-├── 10 or fewer items, simple           → Manual placement + reuse empty Panels
-├── Tens to hundreds, structured        → ScrollLayoutGroupComponent
-└── Thousands, performance-critical     → GridViewComponent (virtualized)
+├── Fixed handful, never scrolls        → Manual placement + reuse empty Panels
+├── Anything enumerated, up to hundreds → ScrollLayoutGroupComponent  ← default
+└── Unbounded or thousands              → GridViewComponent (virtualized)
 
 Clipping or shape masking?
 └── MaskComponent (e.g., circular avatar frame)
@@ -70,11 +70,22 @@ Entity selection priority:
 |------|-------------------|----------|
 | Item count | Up to hundreds | **Unlimited** (virtualized) |
 | Render cost | Renders all items | Only renders visible items |
-| Item composition | Place children directly in `.ui` | Clones a single `ItemEntity` template |
-| Fixed size required | Only for Grid type | **Always** |
-| Implementation difficulty | Easy | Requires `OnRefresh` callback |
+| Item composition | Place children directly in `.ui`, or spawn them as children at runtime | Clones a single `ItemEntity` template |
+| Fixed size required | Only for Grid type | **Always** (`CellSize`) |
+| Runtime wiring | None — children auto-arrange | `ItemEntity` + `TotalCount` + `OnRefresh` callback + `Refresh()` |
+| PC mouse wheel | Unreliable — see below | Generally works — still verify in Play |
 
-**Decision criteria**: If the item count exceeds 100 or may grow dynamically, **always use GridView**. Inventory, chat logs, and rankings should default to GridView. Use ScrollLayoutGroup only for static lists of 10 or fewer items, such as settings page tabs.
+**Decision criteria**: `ScrollLayoutGroup` is the default for **any enumerated list** — rankings/leaderboards, quest lists, friend lists, shop categories, achievements, mailboxes, settings rows. Children auto-arrange with no callback wiring, and Vertical/Horizontal types do not require a fixed child size, so rows may differ in height.
+
+Escalate to `GridView` only when one of these holds:
+- The item count is **unbounded** (infinite chat log, full item encyclopedia).
+- The count is bounded but large and rendering cost matters (a several-thousand-slot inventory).
+
+`ScrollLayoutGroup` has no virtualization, so its cost scales linearly with child count while `GridView`'s stays flat. "A few hundred" is the working boundary between the two, but it is a rule of thumb rather than a measured limit — profile on the target device when a list sits near it.
+
+"The list grows at runtime" is **not** by itself a reason to use `GridView` — a list that grows but stays bounded (a top-100 ranking) belongs on `ScrollLayoutGroup`.
+
+**Mouse wheel is the one input caveat.** A `ScrollLayoutGroup`'s own viewport does not accept pointer hits, so the wheel only registers when the cursor is over a child that is itself a raycast target; over padding, spacing, or any area with no hit surface under the cursor it does nothing. Measurements on PC have found wheel scrolling non-functional on `ScrollLayoutGroup` lists that a `GridView` scrolled in the same frame. Drag scrolling and the scrollbar are unaffected. So: if the list is PC-facing and the wheel is part of how users expect to move through it, prefer `GridView`, whose viewport does take pointer hits — but confirm either choice in Play, since the wheel depends on what the cursor actually lands on. `UseScroll=true` does not change this — it only enables the scroll behaviour, it does not make the viewport hittable.
 
 #### SliderComponent vs SpriteGUIRendererComponent(Filled)
 
@@ -138,8 +149,8 @@ Summary of component combinations to attach per entity. For builder call code an
 | **HP/MP bar** | Background Sprite + child Fill (`middle-left` anchor, pivot `(0, 0.5)`, `SpriteGUIRenderer Type=Sliced`) | [`layout-recipes.md`](layout-recipes.md) Recipe 1 | [`runtime-patterns.md`](runtime-patterns.md) §3 (`fillTransform.RectSize = Vector2(fullWidth*ratio, h)` — resize width, not FillAmount) |
 | **Avatar profile (circular)** | `Sprite(circular border) + Mask(Shape=Circle)` + child `AvatarGUIRenderer` | — | — |
 | **Modal popup** | Root: `UITransform(stretch) + UIGroup(GroupType=2, Order=10) + CanvasGroup(BlocksRaycasts=true)`. Children: semi-transparent Dimmer (`raycast=true`, blocks input to HUD behind) + Panel(middle-center) | [`layout-recipes.md`](layout-recipes.md) Recipe 2 | [`runtime-patterns.md`](runtime-patterns.md) §1 |
-| **Scroll list (~50 items)** | `ScrollLayoutGroup(Type=Vertical/Horizontal/Grid) + Mask(Shape=Rect)`. Children are auto-arranged | [`layout-recipes.md`](layout-recipes.md) Recipe 6 | [`runtime-patterns.md`](runtime-patterns.md) §4, §8 |
-| **Large list (virtualized)** | `GridView` + `ItemEntity = reference to child template entity` + `OnRefresh = fn(index, entity)`. Template entity has `enable=False`. | [`layout-recipes.md`](layout-recipes.md) Recipe 5 | [`runtime-patterns.md`](runtime-patterns.md) §5 |
+| **Enumerated list (bounded, up to hundreds)** | `ScrollLayoutGroup(Type=Vertical/Horizontal/Grid)`. Children are auto-arranged and clipped to the component's own rect — a separate `Mask` is not needed for that (existing recipes carry one harmlessly) | [`layout-recipes.md`](layout-recipes.md) Recipe 6 (chat/log), Recipe 10 (ranking rows) | [`runtime-patterns.md`](runtime-patterns.md) §4, §8 |
+| **Very large or unbounded list (virtualized)** | `GridView` + `ItemEntity = reference to child template entity` + `OnRefresh = fn(index, entity)`. Template entity has `enable=False`. Use when the count is unbounded, or bounded but large enough that rendering every child costs too much. | [`layout-recipes.md`](layout-recipes.md) Recipe 5 | [`runtime-patterns.md`](runtime-patterns.md) §5 |
 
 > **GridView caution** — `OnRefresh` is called frequently during scrolling. Do not call DataStorage; read only from cached tables.
 
@@ -160,7 +171,7 @@ When creating a new entity:
 - [ ] If it's the `.ui` root, add `UIGroupComponent + CanvasGroupComponent`; never add `UIGroupComponent` to inner containers
 - [ ] If it's an image, add `SpriteGUIRendererComponent` and set `ImageRUID` (invisible if left empty)
 - [ ] If it's a button, add `ButtonComponent` + background Sprite on the same entity; Label as a child
-- [ ] If it's a list, decide the scroll type first (hundreds or more → GridView)
+- [ ] If it's a list, decide the scroll type first (default ScrollLayoutGroup; unbounded or large-and-cost-bound → GridView)
 - [ ] To block input, use `CanvasGroup.Interactable` or `BlocksRaycasts`
 - [ ] If it's text, use `TextGUIRendererComponent`; default alignment is already Center+Middle
 
@@ -309,7 +320,7 @@ Alignment defaults to `Center + Middle` — no explicit alignment setup needed f
 | `UnderlaySoftness` | float | 0 | Shadow blur softness |
 | `OutlineColor` | Color | black | Outline color |
 | `OutlineWidth` | float | 0 | Outline thickness (0 = no outline) |
-| `FaceDilate` | float | 0 | Text face thickness (positive = thicker) |
+| `FaceDilate` | float | 0 | Text face thickness; set equal to `OutlineWidth` whenever an outline is on |
 | `FaceSoftness` | float | 0 | Text face corner softness |
 | `ColorGradient` | boolean | false | Enable color gradient |
 | `GradientMode` | GradientModes | Single(0) | Single(0), Horizontal(1), Vertical(2), FourCorners(3) |
@@ -335,7 +346,7 @@ Alignment defaults to `Center + Middle` — no explicit alignment setup needed f
 
 ## TextComponent (Legacy)
 
-> ⚠️ **Legacy — do not use for new UI text; use `TextGUIRendererComponent` above.** `TextComponent` only persists in older `.ui` files. Its key difference is a single 9-cell `Alignment` field (`TextAlignmentType`, default `UpperLeft(0)` — *not* centered), instead of the separate `HorizontalAlignment` / `VerticalAlignment` axes. If you must edit legacy text, set `Alignment` explicitly and read the remaining field names directly from the existing `.ui`.
+> ⚠️ **Legacy — do not use for new UI text; use `TextGUIRendererComponent` above.** `TextComponent` only persists in older `.ui` files, and entities in the same file can carry different generations. `patchComponent(path, "MOD.Core.TextGUIRendererComponent", …)` **throws** on a legacy entity, so detect the actual type with `getComponent(path, "MOD.Core.TextComponent")` first, then patch its own field names. Its key difference is a single 9-cell `Alignment` field (`TextAlignmentType`, default `MiddleCenter(4)`), instead of the separate `HorizontalAlignment` / `VerticalAlignment` axes. Field correspondence to the new component: `Bold` (boolean) ↔ `FontStyle`; `DropShadow` / `DropShadowColor` ↔ `Underlay` / `UnderlayColor`; `Font` is `FontType` enum ↔ new `Font` string; `FontSize` is `int32` ↔ new `float`. `FontColor` (Color) is shared.
 
 ---
 

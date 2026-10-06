@@ -1,0 +1,247 @@
+# Default — 245 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: ProfileCode, ButtonOutMenu, ClockLayout, MyStatusLayout, BagLayout, GameChat, QuestBubble, QuestElement, InteractionButton, DashButton, SubActionButton, MainActionButton, MainActionButtonBackground, DashButton (+3)
+UIR_CasualSurvival_Sample_Default 1920x1080
+  ProfileCode 300x20 text:#FFFFFF/30%@10
+  ButtonOutMenu 1713x100
+    UINoticeButtonPanel 90x100
+      UINoticeButton 80x83 e363fe71863482e40954b62b58bf4ac8 (Sliced)
+        UIIcon 50x50 4033dc5fb53c4fd2ad420c72d9535800 (Sliced)
+    UIPauseButtonPanel 90x100
+      UIPauseButton 80x83 e363fe71863482e40954b62b58bf4ac8 (Sliced)
+        UIIcon 50x50 d79ded044f9042b8b100b0fd19749d2d (Sliced)
+    UIMailButtonPanel 90x100
+      UIMailButton 80x83 e363fe71863482e40954b62b58bf4ac8 (Sliced)
+        UIIcon 50x50 cb5c3d602d5d4e22b6f8261c0c67ba56 (Sliced)
+      UINewMail 60x60 4cdccfa17d0442e7b37927b14e26c61d
+  ClockLayout 1920x1080
+    Clock 150x151
+      Background 160x160 8a4e023c863c4acb9502feccdefb502c (Filled)
+      NightTime 160x160 59d8b841e38f46e9a1abbacb7986f479 (Filled)
+      DayTime 160x160 594d560827b1411a9aa3e7b530c6cac9 (Filled)
+      ThreatFrame 190x190 ba5b4229e48941d5a322f65bb61190c5
+      HourHand 200x200 967d54ad13324836bfd8952299888645 (Sliced) color:#FFB33C
+      Sun 80x80 927dd3ba709c449dbb654782c3c639bb
+      ClockTooltipSlot 140x140
+    Temperature 100x26
+      Gauge 132x36 3ea0d50621c74672a3179504ce76f0b6
+      Arrow 10x80
+        Icon 20x30 85b87984450e48c58ff7ff4b64db561f
+          Direction 80x80 47a46ea9e909428189361c78a3033b48 (Sliced)
+      TemperatureTooltipSlot 100x26
+    ClockTooltip 416x173 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+      UIClockTitle 118x42
+        UIIcon 30x30 6a33f2f10a824241a58d45eedbd5d3c0
+        UITitle 200x42 text:#FFFFFF@21+o#000000
+      UIInfo 400x148 text:#FFFFFF@20+o#000000/30%
+    TemperatureTooltip 500x235 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+      UITemperatureTitle 460x42
+        UIIcon 20x30 85b87984450e48c58ff7ff4b64db561f
+        UITitle 400x42 text:#FFFFFF@21+o#000000
+      UIInfo 460x266 text:#FFFFFF@20+o#000000/30%
+  MyStatusLayout 870x195
+    TextGameTime 259x42 text:#FFFFFF@30+o#000000
+    StatusBar 848x50
+      HealthPoint 422x22
+        Frame 422x22 3e2ef721fe404ca9b1d56d5d188d1ca9 (Sliced)
+        Bar 422x22 91cb9cf5a0214125b9ee1a6bf6b166ae (Sliced)
+          ArrowDown 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#2D0303/30%
+        Text 235x50 text:#FFFFFF@20+o#000000
+      HungerPoint 422x22
+        BarFrame 422x22 bca04efe1eb3478aa6ec4eabc5d9f568 (Sliced)
+        BarUnder20 422x22 51d308b6399a4cda84f879e78d1e0edb (Sliced)
+          ArrowUP 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#503507/30%
+          ArrowDown 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#503507/30%
+        BarUnder50 422x22 67f93af6d80d4ee19962c5cff35e876c (Sliced)
+          ArrowUP 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#7D510A/30%
+          ArrowDown 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#7D510A/30%
+        BarOver50 422x22 764e10fda1bf4bb581303b6d85ce43a0 (Sliced)
+          ArrowUP 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#7D510A/30%
+          ArrowDown 418x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#7D510A/30%
+        Icons 422x22
+          IconZero 34x34 84e9831bf017442b993d25fdf29b8f7a (Sliced)
+          IconUnder30 34x34 6b0c0827353949708cb95356490e6d68 (Sliced)
+          IconUnder50 34x34 7cf4febc52724fbcb417eae39c85ccc3 (Sliced)
+          IconUnder100 34x34 2e17097edf3541aabac7ba622303d00b (Sliced)
+          IconFull 34x34 3e513f6c1bf04f83911f942049511910 (Sliced)
+    BuffIcons 1000x40
+    UnstablePoint 150x22
+      GaugeBG 130x22 b450b69227f64edc91dff48b2bfe1b6e
+      Gauge 130x22 7f3c2c1c5f2044d4bc14e55323ab2ff3 (Sliced)
+        ArrowUP 126x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#000000/15%
+        ArrowDown 126x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#000000/15%
+      Icon 40x40 cb826138c8344269bba66f86f3cff267
+      TextPercent 235x50 text:#FFFFFF@20+o#000000
+    UnstableDetail 458x249 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+      FrameTitle 294x48 cf89ee4326ca4e4e9a025290ba8b69cc
+        TextTitle 230x48 text:#FFFFFF@20+o#000000
+      ThreatContainer 430x102
+        ThreatElement_Unknown 439x100
+          Icon 70x70 f7a8ccc51af94f52a8e37099f82d6467
+          TitleText 349x30 text:#A978C6@24+o#000000/80%
+          DescText 349x59 text:#FFFFFF@20+o#000000/30%
+        ThreatElement_Elite 439x100
+          Icon 70x70 08b6e547aa1f46d19f23c09d8362cd4c
+          TitleText 349x30 text:#A978C6@24+o#000000/80%
+          DescText 349x40 text:#FFFFFF@20+o#000000/30%
+        ThreatElement 439x100
+          Icon 70x70 f7a8ccc51af94f52a8e37099f82d6467
+          TitleText 349x30 text:#A978C6@24+o#000000/80%
+          DescText 349x30 text:#FFFFFF@20+o#000000/30%
+      GaugeInfoBox 430x80
+        Seperator 430x2 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/20%
+        GuideText 194x40 text:#FFFFFF@20+o#000000
+        TimeText 196x40 text:#A978C6@20+o#000000
+        GaugeBG 400x20 b450b69227f64edc91dff48b2bfe1b6e
+          Gauge 400x20 7f3c2c1c5f2044d4bc14e55323ab2ff3 (Sliced)
+            ArrowUP 400x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#000000/15%
+            ArrowDown 400x20 1cc8bfe395244e1e8782d0618759dad2 (Tiled) color:#000000/15%
+    HealthPointTooltip 272x170 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+      Title 154x30 text:#FF0000@20+o#000000
+      Info 240x118 text:#FFFFFF@20+o#000000/30%
+    HungerPointTooltip 300x188 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+      Title 154x30 text:#FF0000@20+o#000000
+      HungerPointAmount 200x42 text:#FFFFFF@21+o#000000
+      Info 260x118 text:#FFFFFF@20+o#000000/30%
+    TStone 140x42
+      TStoneIcon 30x30 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+      TStoneAmount 108x42 text:#FFFFFF@21+o#000000
+      TStoneTooltip 300x215 5d33a7fba9f74e4f8f031ba93a4edfa1 (Sliced)
+        UITitle 154x30 text:#E6B848@20+o#000000
+        UITStonePanel 260x42
+          TStoneIcon 30x30 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          UITStoneAmount 220x42 text:#FFFFFF@21+o#000000
+        UIInfo 240x118 text:#FFFFFF@20+o#000000/30%
+  BagLayout 1920x1080
+    Guide 1920x1080
+      Use 38x38 4502d8223aed4f9ab467192d4d392d5e (Sliced)
+        TextInfo 333x44 text:#FFFFFF@22+o#000000/80%
+      Select 38x38 4a3752f23faa40e29c6262dcd953d938
+        TextInfo 420x44 text:#FFFFFF@22+o#000000/80%
+    Bag 1920x1080
+      PortableSlots 1100x100
+        ItemSlot1 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot2 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot3 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot4 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot5 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot6 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot7 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot8 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot9 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+        ItemSlot0 92x92 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 64x64 930b06e12a454e85aee2b0a10538a396
+          ItemCount 99x36 text:#FFFFFF@20+o#000000
+          SlotKey 28x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+            UIText 100x100 text:#FFFFFF@20+o#000000
+  GameChat 700x360
+    Input 680x56 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#000000/50% text:#FFFFFF@22+o#000000/80%
+    InputKeyCaption 172x57 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#000000/30% text:#FFFFFF/50%@22+o#000000/80%
+    ChatList 680x290
+      ChatScroll 680x290 6e8f27c4d1c844e290a85ab8ce3726d3 (Sliced) color:#000000/50%
+        ChatItems 680x200
+          Texts 680x200
+          ChatTextMenu 200x50
+            MenuBg 200x50 62be58f580f94ac1a70facf6d2782150 states:highlighted=752bf00bb1cc49b69db2768310046bea,pressed=d0e04b890266457dbd152dafb26ed02b,selected=null
+            Report 194x50 text:#FFFFFF@26+o#000000
+      ChatItem 680x163 text:#FFFFFF@22+o#000000/80%
+        InvisibleNameText 82x32 text:#000000/0%@22
+  QuestBubble 319x162 db05d7d582f948498323edfebe3f3bb6 (Sliced)
+    Title 277x35 text:#FBC134@24+o#000000
+    Count 277x32 text:#FBC134@22+o#000000
+    Description 277x63 text:#FFFFFF@20
+  QuestElement 324x56 fbe7da596a864eac9c56012ca8e1abcc states:highlighted=0893b111359544cf83f6345f25c4aa9b,pressed=0893b111359544cf83f6345f25c4aa9b
+    Outline 324x56 b5374f84eb0f499b890c90f44ce0ad40
+    Count 70x46 text:#FBC134@22+o#000000
+    Title 219x57 text:#FFFFFF@22+o#000000
+    ScrollingText 219x56
+      Text 216x33 text:#FFFFFF@22+o#000000
+    Highlight 324x56 c32a470cc035452aa0da19975a5b1564 (Sliced) color:#FFFFFF/50%
+    Check 50x50 5a4d88eb567e4a2a8152f3d7038a60ad
+  InteractionButton 120x120 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 80x80 7a565128b96245cbb7a02d113bbd175a (Sliced)
+  DashButton 120x120 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 84x84 7030de9f1db846889295948da9ad997f (Sliced)
+    CooldownBar 110x110 8d87171a1e1f4e0d8640e4fec69eed2c (Filled) color:#561D1D/80%
+    CooldownText 60x28 text:#FFFFFF@24+o#000000
+  SubActionButton 120x120 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 84x84 12ae67571ec24e1481bbe80314abe88c (Sliced)
+    CooldownBar 110x110 8d87171a1e1f4e0d8640e4fec69eed2c (Filled) color:#561D1D/80%
+    CooldownText 60x28 text:#FFFFFF@24+o#000000
+  MainActionButton 188x188 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 108x108 65fc5b0f37d44f7a9859eed71ad01037 (Sliced)
+    CooldownBar 188x188 8d87171a1e1f4e0d8640e4fec69eed2c (Filled) color:#561D1D/80%
+    CooldownText 75x35 text:#FFFFFF@24B+o#000000
+  MainActionButtonBackground 175x175 53636f549707cc04dbfb048c4a2dfdc3 (Sliced) color:#000000/50%
+  DashButton 84x84 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 84x84 7030de9f1db846889295948da9ad997f (Sliced)
+    CooldownBar 76x76 8d87171a1e1f4e0d8640e4fec69eed2c (Filled) color:#561D1D/80%
+    CooldownText 60x28 text:#FFFFFF@24+o#000000
+    Key 70x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+      KeyText 60x28 text:#FFFFFF@16+o#000000
+  SubActionButton 84x84 1b6664c1d65c42ed887e9414f7e6fd44 (Sliced) states:highlighted=e04ebb360ab04cd5a4cc2df9897a0aba,pressed=749ccd5b4566410396f9cd871010bc7c,disabled=87dbae6b1a5048ec9570037f46be051b
+    Icon 84x84 12ae67571ec24e1481bbe80314abe88c (Sliced)
+    CooldownBar 76x76 8d87171a1e1f4e0d8640e4fec69eed2c (Filled) color:#561D1D/80%
+    CooldownText 60x28 text:#FFFFFF@24+o#000000
+    Mouse 40x40 4502d8223aed4f9ab467192d4d392d5e (Sliced)
+  ButtonGroup 1920x1080
+    CraftingButton 84x84 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 84x84 7cca67e9a1fd4fb9ac894b6c62324602
+      KeyFrame 60x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+    StatusButton 84x84 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 84x84 84695edbfd724588842d3732e6300e8d
+      KeyFrame 30x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+    EmojiButton 84x84 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 84x84 7ab11f4014334b47b6fa670eade14b62
+      KeyFrame 30x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+    WorldMapButton 76x76 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 76x76 cd8c1cc0a1104c739efc9737ec7883db
+      KeyFrame 30x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+    GameShopButton 76x76 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 76x76 8343788b34894f1d84f67a92f7d60f3a
+      KeyFrame 30x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+    SampleLabButton 76x76 c41869d5111742d2945a84c64afd1b01 (Sliced)
+      Icon 80x80 7113b50517a644fcbdeea35a6d04064f
+      KeyFrame 30x28 891d94b646224e1bb8acd0e4cf4110be (Sliced)
+        KeyText 60x28 text:#FFFFFF@18+o#000000
+  UIJoystick 200x200

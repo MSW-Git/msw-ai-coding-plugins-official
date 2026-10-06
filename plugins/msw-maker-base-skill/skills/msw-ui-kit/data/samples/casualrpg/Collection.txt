@@ -1,0 +1,300 @@
+# Collection — 298 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg, EquipCollection, CategoryPanel, CollectionPanel, AbilityPanel, PagePanel, FilterPanel, ProcessPanel
+UIR_CasualRPG_Sample_Collection 1920x1080
+  Bg 7920x7080
+  EquipCollection 1706x874 f47ee45115114234bd8a140b5d02729c
+    Panel_Title 1666x84 text:#7DB3FC@28
+      Panel_Help 66x66 ef08cfd3bd334736877b4dfc3a982b48
+    Button_Close 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced)
+    Scroll_Bg 1140x597 62b3030e5a8c43b680165c0c7fa89aab color:#222630/80%
+  CategoryPanel 1153x175
+    Button_Normal 230x110 994e2ad676fe4b4c9782186b06f02a4a (Sliced) text:#FFFFFF@28
+      Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+    Button_Rare 230x110 6cb1470eea884424886399b0fc9f3c95 (Sliced) text:#FFFFFF@28
+      Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+    Button_Epic 230x110 6cb1470eea884424886399b0fc9f3c95 (Sliced) text:#FFFFFF@28
+      Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+    Button_Unique 230x110 6cb1470eea884424886399b0fc9f3c95 (Sliced) text:#FFFFFF@28
+      Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+    Button_Legendary 230x110 6cb1470eea884424886399b0fc9f3c95 (Sliced) text:#FFFFFF@28
+      Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+  CollectionPanel 1130x538 52849ae90e6e4aa392d5cf856f5e359c color:#FFFFFF/0%
+    PanelSlot_1 1100x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+      TitlePanel 540x120
+        Title 540x63 text:#FFFFFF@28
+        Ability 540x70 text:#B3E825@24
+        Count 140x62 text:#FFFFFF@24
+      MaterialPanelSlot 551x120
+        MaterialSlot_1 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_2 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_3 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_4 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_5 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+      CompleteEffect 187x140 df8379ac2f9d41c28ffef124a70b502f
+      CompletePanel 1100x120 eb122a1efc00481c86efe2696d20771a color:#1D1D1D/60%
+    PanelSlot_2 1100x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+      TitlePanel 540x120
+        Title 540x63 text:#FFFFFF@28
+        Ability 540x70 text:#B3E825@24
+        Count 140x62 text:#FFFFFF@24
+      MaterialPanelSlot 551x120
+        MaterialSlot_1 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_2 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_3 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_4 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_5 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+      CompleteEffect 187x140 df8379ac2f9d41c28ffef124a70b502f
+      CompletePanel 1100x120 eb122a1efc00481c86efe2696d20771a color:#1D1D1D/60%
+    PanelSlot_3 1100x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+      TitlePanel 540x120
+        Title 540x63 text:#FFFFFF@28
+        Ability 540x70 text:#B3E825@24
+        Count 140x62 text:#FFFFFF@24
+      MaterialPanelSlot 551x120
+        MaterialSlot_1 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_2 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_3 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_4 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_5 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+      CompleteEffect 187x140 df8379ac2f9d41c28ffef124a70b502f
+      CompletePanel 1100x120 eb122a1efc00481c86efe2696d20771a color:#1D1D1D/60%
+    PanelSlot_4 1100x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+      TitlePanel 540x120
+        Title 540x63 text:#FFFFFF@28
+        Ability 540x70 text:#B3E825@24
+        Count 140x62 text:#FFFFFF@24
+      MaterialPanelSlot 551x120
+        MaterialSlot_1 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_2 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_3 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_4 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+        MaterialSlot_5 100x100 affef48538564b6f9c55695a6096a0dd
+          Icon 70x70 d53743969d364b98925d31bbca0cb9f8
+          Dot 25x28 e1005c6204da49428aab3cca2cb982ee
+          GradeStar 60x30
+            Star_1 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_2 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+            Star_3 23x24 877d010d8bfe46bc881f26f1c7adc3ba
+          Grade_Alphabet 60x32 182e895cb2b144d1bb5247469220e5c8 (Sliced)
+          Registered 100x100 68221c9a70128be45b3e1d383c6fc6d4 (Sliced) color:#000000/50%
+            Check 48x33 46c34255c019473482b09e491cf1ec73
+          Count 90x29 text:#FFFFFF@24B+o#000000/70%
+      CompleteEffect 187x140 df8379ac2f9d41c28ffef124a70b502f
+      CompletePanel 1100x120 eb122a1efc00481c86efe2696d20771a color:#1D1D1D/60%
+  AbilityPanel 484x700 d685ceb1beb9492ea5dd6ec905a1fbce color:#232C40/50%
+    TopPanel 484x60 af113675713a400fb4929d1824669974 color:#000000/30%
+      Title 414x66 text:#899BBF@28
+    AbilityList 484x640
+      Ability_Hp 480x40 text:#FFFFFF@28
+      Ability_MoveSpeed 480x40 text:#FFFFFF@28
+      Ability_AttackSpeed 480x40 text:#FFFFFF@28
+      Ability_Range 480x40 text:#FFFFFF@28
+      Ability_Evade 480x40 text:#FFFFFF@28
+      Ability_Damage 480x40 text:#FFFFFF@28
+      Ability_PhysicalDamage 480x40 text:#FFFFFF@28
+      Ability_MagicalDamage 480x40 text:#FFFFFF@28
+      Ability_CriticalPercent 480x40 text:#FFFFFF@28
+      Ability_CriticalDamage 480x40 text:#FFFFFF@28
+      Ability_BossDamage 480x40 text:#FFFFFF@28
+  PagePanel 1141x91 9ff12837c41a4eff9c5331412caa3a57
+    Page 100x100 text:#899BBF@28
+    PrevButton 50x50 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+    NextButton 50x50 3c97d9d55e814174ad04a38ebe3e9127 (Sliced)
+  FilterPanel 378x87
+    CheckBox 57x57 825da1c6c2b7456dae71d2bf3e99cf5f
+      Arrow 57x57 6e191185c11f4b629837a49158255852
+    Text 272x80 text:#FFFFFF@20
+  ProcessPanel 484x113 af113675713a400fb4929d1824669974 color:#000000/30%
+    GaugeBox 450x23 1446566804184028be39ece12d91b1e0 (Sliced) FillRectImageRUID:fe9106c99f2d417f87b32880d6b8925a
+    Counting 209x44 text:#FFFFFF@24B+o#000000/70%
+    Text 484x50 text:#FFF110@28

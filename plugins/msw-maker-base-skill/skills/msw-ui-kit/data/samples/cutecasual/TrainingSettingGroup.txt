@@ -1,0 +1,142 @@
+# TrainingSettingGroup — 140 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Dim, Panel, UpgradePanel
+UIR_CuteCasual_Sample_TrainingSettingGroup 1920x1080
+  Dim 2520x1680
+  Panel 1920x1080
+    BG 2520x1680
+    Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+    Cloud_1 184x92 c7712406e8db479bb3a56703a69cc394
+    Cloud_2 240x96 0ff27cc240c5406dbc13aed7117c381f
+    TitleBg 357x54
+      TxtTitle 373x42 text:#FFFFFF@28B+o#6D4D14+s#6D4D14
+        Btn_Guide 40x40 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+          Info 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921
+          UISprite 100x100
+    CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+      UISprite 120x120
+    SubTitle 650x45 c93ae566ef4a4349adf31073df1c8c4b
+      UIText 650x45 text:#836545@20B
+    Truck 708x832 5dad976e57254c0c9718fac7d5dec5e2 originRUID:5dad976e57254c0c9718fac7d5dec5e2
+    Gradiant 710x144 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+    SelectedEmployeeScroll 520x215
+      EmployeeListSlot_IconVer1 160x160 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+        Portrait 90x90 108fa24d68b9440ebe22eea38134739d
+        SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        Disable 160x160 a5b12188ef36466c90ce247212266c5b color:#000000/45% text:#FFFFFF@30B
+          Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          Text 130x40 text:#A5DC3C@22B+o#253908
+        Outline 175x175 ffc51ec23a5c4677b3df8440428f2b25
+        Btn_UnEquiped 156x48 5e0e97c792ce43fab0684bf5887ce360 text:#FFFFFF@24B+o#9F1F15
+      EmployeeListSlot_IconVer2 160x160 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+        Portrait 90x90 108fa24d68b9440ebe22eea38134739d
+        SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        Disable 160x160 a5b12188ef36466c90ce247212266c5b color:#000000/45% text:#FFFFFF@30B
+          Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          Text 130x40 text:#A5DC3C@22B+o#253908
+        Outline 175x175 ffc51ec23a5c4677b3df8440428f2b25
+        Btn_UnEquiped 156x48 5e0e97c792ce43fab0684bf5887ce360 text:#FFFFFF@24B+o#9F1F15
+      EmployeeListSlot_IconVer3 160x160 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+        Portrait 90x90 108fa24d68b9440ebe22eea38134739d
+        SkillIcon 40x40 54117f06afd24b8e95dce3aa17fe2e11
+        Disable 160x160 a5b12188ef36466c90ce247212266c5b color:#000000/45% text:#FFFFFF@30B
+          Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          Text 130x40 text:#A5DC3C@22B+o#253908
+        Outline 175x175 ffc51ec23a5c4677b3df8440428f2b25
+        Btn_UnEquiped 156x48 5e0e97c792ce43fab0684bf5887ce360 text:#FFFFFF@24B+o#9F1F15
+    TrainingGauge 260x102
+      GaugeBg 200x36 bad929e2e53e44b88e741e92723590b8 (Sliced)
+        Gauge 200x36 FillRectImageRUID:0078192ecde6496ea86f6980f69961a3
+        GaugeText 200x50 text:#FFFFFF@26B+o#577B02
+        ShopButton 250x59 3e9d52ed52d64794bbd6f72bab8ee3d9 color:#FFFFFF/0%
+      Icon 62x62 bd7ed10738124fe592de0e62400bd26d (Sliced)
+      Title 260x52 text:#FFFFFF@26B+o#415E92
+    EnterCount 260x102
+      TextBg 244x48 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#6293CB
+        NameText 154x50 text:#FFFFFF@26B+o#254476
+        CountText 86x40 text:#FFFFFF@26B+o#254476
+      Icon 40x40 0d4f96987bb34461a18ad55f8834cba8
+      Title 260x52 text:#FFFFFF@26B+o#415E92
+    SubTitle_3 802x135 c93ae566ef4a4349adf31073df1c8c4b
+      UIText 752x135 text:#957958@26B
+      Tip_1 34x30 3ec049c173514dcea835c256f93198e1 color:#957958
+        Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFE8B6
+      Tip_2 34x30 3ec049c173514dcea835c256f93198e1 color:#957958
+        Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFE8B6
+      Tip_3 34x30 3ec049c173514dcea835c256f93198e1 color:#957958
+        Icon 6x20 0423dcf92c594efc87944a00028c4ea2 color:#FFE8B6
+    OkButton 164x124 9bdfdf20e5c548f9a1f9b51acd51ff41
+      Dim 164x124 9bdfdf20e5c548f9a1f9b51acd51ff41 color:#000000/50%
+      Icon 114x114 0d32289149c744c0b09c875fa9afa07f
+        IconDim 114x114 0d32289149c744c0b09c875fa9afa07f color:#000000/50%
+      Text 180x70 text:#8C8C8C@30B+o#06252D
+    ShopButton 110x110
+      Icon 110x110 ed136e5692364d31b2af2c65c2d941cf
+      Text 160x80 text:#FFFFFF@28B+o#6D4D14
+    EmployeeScroll 1000x425
+      Model_EmployeeListSlot_IconVer 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+        Mask 128x128
+          Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+        SkillIcon 45x45 54117f06afd24b8e95dce3aa17fe2e11
+        Disable 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#FFFFFF@30B
+          Icon 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+          Text 120x50 text:#A5DC3C@26B+o#253908
+        Select 175x175 ffc51ec23a5c4677b3df8440428f2b25
+      Content 1000x425
+    Gradiant 1010x95 715ba2f9541b424586c970bb547e9036 (Sliced) color:#FFE0A3
+    SubTitle_Right 955x50 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F1C26A
+      UIText 955x50 text:#FFFFFF@26B+o#AF7E28
+      Deco_L 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FCE4A8
+      Deco_R 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FCE4A8
+    EmployeeDetail 969x280 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+      Pattern_L 213x249 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/40%
+      Blur 160x160 61aa92b6616d498bbd95b4a2fcb3437f
+      Color 719x249
+      Pattern_R 719x249 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+      Bg_Title 210x64 82694ea66c2749199275198a0db977bc (Tiled) color:#E1C48E
+        Color 210x53
+      EmployeeName 190x65 text:#FFFFFF@28B+o#927338
+      EmployeeImage 80x80 108fa24d68b9440ebe22eea38134739d
+      Line 245x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#F8DEAB
+      Line_2 245x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#F8DEAB
+      Bar 14x248
+      SkillTitle 300x55 text:#736752@28B
+      EmployeeSkills 180x180
+        Model_EmployeeSkillSlot_Small1 164x164 5905497a9fa043ce8f16a64e1229ec6c
+          TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+          Name 150x60 text:#FFFFFF@26B+o#857665
+          Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+            UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+            Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+            ToolTip 220x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+        Model_EmployeeSkillSlot_Small2 164x164 5905497a9fa043ce8f16a64e1229ec6c
+          TypeIcon 100x100 54f62bf596d6421db4a217af094875e8
+          Name 150x60 text:#FFFFFF@26B+o#857665
+          Disable 164x164 5905497a9fa043ce8f16a64e1229ec6c color:#655C53/74%
+            UISprite 28x40 6ed3f4ee6b3e4078be7c7cd1d9e68b5c
+            ConditionText 190x55 text:#FA5246@22B+o#FFFFFF
+          UIButton 32x32 f59006224a184fdeb8f9ecb09ae3af7d color:#FDF3D9
+            Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#C2AF8A
+            ToolTip 204x96 5000213d7ed4477a9a768736ff0781dd text:#635743@24B+o#FFFFFF
+      ChuChuLevel 92x50 text:#FFFFFF@28B+o#7A5D1F
+      UIText 100x50 text:#FFFFFF@28B+o#594315
+    GrowthButton 128x128 d0656357750947f68d914321b4994261 text:#8B693E@30B
+      Dim 128x128 748215f83dd8433593cd68ce0a642fb1 color:#000000/50%
+    SelectButton 128x128 d0656357750947f68d914321b4994261 text:#8B693E@30B
+    EmployeeScroll_Recycle 1000x425
+  UpgradePanel 680x120 0bc068b33d154593ba1618259530bfd0 (Sliced)
+    UpgradeBtn1 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 f95609244e9c44b2be304cfd0a0b81c3
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x60 text:#7E5738@24
+    Line_Left 95x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EEDAB4
+    UpgradeBtn2 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 14979ef258cd425a99a1cadc4fe0619e
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x60 text:#7E5738@24
+    Line_Right 95x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EEDAB4
+    UpgradeBtn3 188x120 cc3457b8e97b3e14f9d5c39ccdd640bf
+      Icon 74x74 f3f81e4eee4a431daa65881419b3d92b
+      Level 125x50 text:#FFFFFF@26B+o#49351B+s#49351B
+      Name 188x60 text:#7E5738@24

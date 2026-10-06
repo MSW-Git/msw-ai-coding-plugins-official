@@ -1,0 +1,305 @@
+# SkillSelect — 303 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: Img_Block, Text_Title, Layout_Reroll, Layout_SkillInfo, Layout_SkillCardItems, Layout_ArousalCard
+UIR_SimpleFantasy_Sample_SkillSelect 1920x1080
+  Img_Block 2920x2080
+  Text_Title 168x42 text:#FFFFFF/80%@28B
+  Layout_Reroll 135x54
+    Img_BG 135x54 bc1d674f8f0748d3a2ebec68b1561784 (Sliced) color:#0C0D1B/50%
+    Text_RerollCount 103x52 text:#CACACA@26B
+    Img_Reroll 26x26 4948bd19e6cd459da09b7e06796b8b35
+  Layout_SkillInfo 1920x220 ab58be1f40d845c8ab987c0bb915927a color:#000000/45%
+    Scroll_Info 1920x220
+      CharInfo 356x200
+        Layout_CharBG 120x120
+        Text_CharName 144x38 text:#FFFFFF@26B
+        DecoLine 20x188 80fd823f9f504c4b8778c403168298aa (Sliced) color:#FFFFFF/40%
+        Layout_Detail 244x50 7f867c5525ad4830889d445835d9b5b4 color:#0C0D1B
+          Btn_Detail 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced)
+            Img_Detail 52x52 754890ba284e441ea0bba9b02de160f9 (Sliced)
+          Text_Detail 120x36 text:#FFFFFF@24B
+      PathInfo_1 360x251 2d5da24718f7405e967ab46cae718001 (Sliced)
+        Text_AddLevel 50x50 text:#FFFFFF@25+o#EF8A59
+        Text_Path 320x32 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#EC7D5B/70% text:#FFFFFF@22B+o#000000/20%
+        List_AbilityLevel 360x113
+          AbilityLevel_1 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_1 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_2 18x18 98594c096bef473fb75d9111a326ecbd
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_2 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_1 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_2 18x18 98594c096bef473fb75d9111a326ecbd
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_3 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_1 18x18 98594c096bef473fb75d9111a326ecbd
+              Level_2 18x18 98594c096bef473fb75d9111a326ecbd
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+        Fusion 270x40 129f02486c2baef49a41b31ce16171f6 color:#000000/50%
+          Img_Fusion 28x28 fecb46e81f464daa9ae394d98772b9f7
+          FusionList 215x45
+            Icon_Fusion 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_1 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_2 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_3 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_4 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+        DecoLine 3x130 b0faab8f23db44bf9c706f0de6d6be10 (Sliced) color:#FFFFFF/80%
+      Path_2 360x251 2d5da24718f7405e967ab46cae718001 (Sliced)
+        Text_AddLevel 50x50 text:#FFFFFF@25+o#595FEF
+        Text_Path 320x32 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#5C78ED/70% text:#FFFFFF@22B+o#000000/20%
+        List_AbilityLevel 360x113
+          AbilityLevel 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_1 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_2 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_1 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_1 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_2 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_2 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_1 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+              Level_2 18x18 bbac9f77fec1490fbf4b79ab2bb22122
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+        Fusion 270x40 129f02486c2baef49a41b31ce16171f6 color:#000000/50%
+          Img_Fusion 28x28 fecb46e81f464daa9ae394d98772b9f7
+          FusionList 215x45
+            Icon_Fusion 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_1 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_2 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_3 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_4 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+        DecoLine 3x130 b0faab8f23db44bf9c706f0de6d6be10 (Sliced) color:#FFFFFF/80%
+      Path_3 360x251 2d5da24718f7405e967ab46cae718001 (Sliced)
+        Text_AddLevel 50x50 text:#FFFFFF@25+o#59CCEF
+        Text_Path 320x32 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#5CC5ED/70% text:#FFFFFF@22B+o#000000/20%
+        List_AbilityLevel 360x113
+          AbilityLevel 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_1 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_2 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_1 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_1 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_2 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+          AbilityLevel_2 78x92 e631ce0541de3ac44a936b608c9c44f2 (Sliced) color:#000000/50%
+            Fx 96x96 4117391dd4f9457c9867d550b9606e42
+            Level 78x20
+              Level 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_1 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+              Level_2 18x18 ffda778447f14eb5ad7f15ae9d58bb08
+            Arousal 45x45
+              Icon_Arousal 45x45 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Disable 45x45 1a935157958843328b5848ee4b27a0fe (Sliced) color:#040404/50%
+                Img_Arousal 40x36 ed135611d83f429ca51dd6741b3632c6
+              Fx_Skill 174x233 05c131e8a6e44bd1b7a7bd1473944520 (Sliced)
+        Fusion 270x40 129f02486c2baef49a41b31ce16171f6 color:#000000/50%
+          Img_Fusion 28x28 fecb46e81f464daa9ae394d98772b9f7
+          FusionList 215x45
+            Icon_Fusion 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_1 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_2 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_3 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+            Icon_Fusion_4 32x32 1a935157958843328b5848ee4b27a0fe (Sliced)
+        DecoLine 3x130 b0faab8f23db44bf9c706f0de6d6be10 (Sliced) color:#FFFFFF/80%
+  Layout_SkillCardItems 1920x653
+    SkillCardItem_1 520x640
+      SkillCardInfo 500x616 1f0a4a52e38a4b2a972a28b943ef2849
+        Text_Grade 76x36 text:#486192@24B
+          Img_Deco 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#486192
+        SkillIcon 170x170 bf662cb7b268437cb9630c9b87c21965 color:#66727F/25%
+          Img_Light_1 240x240 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#CFD2D2
+          Img_Light 190x190 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#B3AA5D/80%
+          Effect_SKillIcon 148x148 00066ea098584de6a7f51bcee23fc7f4 (Sliced) color:#FFFFFF/60%
+          Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+          Text_SkillLevel 43x33 text:#FFFFFF@22B+o#202020
+        Text_Name 400x45 text:#757474@26B
+        Type_Bg 95x42 e9c072d5b163496488d6e45fac6b8a1a color:#979BA6
+          Text_Type 95x47 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#EC7D5B text:#FFFFFF@22B+o#000000/20%
+        Scroll_Desc 425x150
+          Text_Desc 132x36 text:#757474@24
+        AbilityLevel 500x37
+          UISprite_1 32x32 98594c096bef473fb75d9111a326ecbd
+          UISprite_1_1 32x32 98594c096bef473fb75d9111a326ecbd
+      SkillFrame 560x675 5832328c8b874906ad80ac408bc7ca90
+      Btn_Reroll 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) states:pressed=ae87047170e84b84b44a04af194ccfca
+        Icon 36x36 4948bd19e6cd459da09b7e06796b8b35
+        Disabled 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) color:#000000/50%
+        KeyInfo 100x32 7c859b179fac45268c96267bce9ead1a color:#FFFFFF/85%
+          Text 91x30 text:#FFFFFF@20B
+        CanSelect 100x100 3400889e6fd64b189e54c134041f6a2f
+      Btn_Select 235x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=c2660e96661c4a6e8dc8eaa17eb0655c,pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=c2660e96661c4a6e8dc8eaa17eb0655c,disabled=c2660e96661c4a6e8dc8eaa17eb0655c
+        UISprite 44x44 ce1a23270d7b4f72bec868350b63a6b4
+          Text_KeyIcon 15x44 0cedbf7ed89245b1ac8a4c4d7ad62f9e (Sliced) text:#3D4A66@26
+        Text 120x38 text:#FFFFFF@26B
+    SkillCardItem_2 520x640
+      SkillCardInfo 500x616 1f0a4a52e38a4b2a972a28b943ef2849
+        Text_Grade 76x36 text:#486192@24B
+          Img_Deco 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#486192
+        SkillIcon 170x170 bf662cb7b268437cb9630c9b87c21965 color:#66727F/25%
+          Img_Light_1_1 240x240 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#CFD2D2
+          Img_Light 190x190 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFFFFF/80%
+          Effect_SKillIcon_1 148x148 00066ea098584de6a7f51bcee23fc7f4 (Sliced) color:#FFFFFF/60%
+          Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+          Text_SkillLevel 43x33 text:#FFFFFF@22B+o#202020
+        Text_Name 400x45 text:#757474@26B
+        Type_Bg 95x42 e9c072d5b163496488d6e45fac6b8a1a color:#979BA6
+          Text_Type 95x45 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#EC7D5B text:#FFFFFF@22B+o#000000/20%
+        Scroll_Desc 425x150
+          Text_Desc 132x36 text:#757474@24
+        AbilityLevel 500x37
+          UISprite_1 32x32 98594c096bef473fb75d9111a326ecbd
+          UISprite_1_1 32x32 98594c096bef473fb75d9111a326ecbd
+      SkillFrame 560x675 5832328c8b874906ad80ac408bc7ca90
+      Btn_Reroll 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) states:pressed=ae87047170e84b84b44a04af194ccfca
+        Icon 36x36 4948bd19e6cd459da09b7e06796b8b35
+        Disabled 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) color:#000000/50%
+        CanSelect 100x100 3400889e6fd64b189e54c134041f6a2f
+        KeyInfo 100x32 7c859b179fac45268c96267bce9ead1a color:#FFFFFF/85%
+          Text 91x30 text:#FFFFFF@20B
+      Btn_Select 235x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=c2660e96661c4a6e8dc8eaa17eb0655c,pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=c2660e96661c4a6e8dc8eaa17eb0655c,disabled=c2660e96661c4a6e8dc8eaa17eb0655c
+        UISprite 44x44 ce1a23270d7b4f72bec868350b63a6b4
+          Text_KeyIcon 15x44 0cedbf7ed89245b1ac8a4c4d7ad62f9e (Sliced) text:#3D4A66@26
+        Text 120x38 text:#FFFFFF@26B
+    SkillCardItem_3 520x640
+      SkillCardInfo 500x616 1f0a4a52e38a4b2a972a28b943ef2849
+        Text_Grade 76x36 text:#486192@24B
+          Img_Deco 28x28 63398b3a23e84daab2db3d580f6ffe17 color:#486192
+        SkillIcon 170x170 bf662cb7b268437cb9630c9b87c21965 color:#66727F/25%
+          Img_Light_1_1_1 240x240 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#CFD2D2
+          Img_Light 190x190 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFFFFF/80%
+          Effect_SKillIcon_1 148x148 00066ea098584de6a7f51bcee23fc7f4 (Sliced) color:#FFFFFF/60%
+          Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+          Text_SkillLevel 43x33 text:#FFFFFF@22B+o#202020
+        Text_Name 400x45 text:#757474@26B
+        Scroll_Desc 425x150
+          Text_Desc 132x36 text:#757474@24
+        Type_Bg 95x42 e9c072d5b163496488d6e45fac6b8a1a color:#979BA6
+          Text_Type 95x47 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#EC7D5B text:#FFFFFF@22B+o#000000/20%
+        AbilityLevel 500x37
+          UISprite_1 32x32 98594c096bef473fb75d9111a326ecbd
+          UISprite_1_1 32x32 98594c096bef473fb75d9111a326ecbd
+      SkillFrame 560x675 5832328c8b874906ad80ac408bc7ca90
+      Btn_Reroll 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) states:pressed=ae87047170e84b84b44a04af194ccfca
+        Icon 36x36 4948bd19e6cd459da09b7e06796b8b35
+        Disabled 88x88 a7bc30a4e30d43abb4a52fe70537992c (Sliced) color:#000000/50%
+        CanSelect 100x100 3400889e6fd64b189e54c134041f6a2f
+        KeyInfo 100x32 7c859b179fac45268c96267bce9ead1a color:#FFFFFF/85%
+          Text 91x30 text:#FFFFFF@20B
+      Btn_Select 235x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:highlighted=c2660e96661c4a6e8dc8eaa17eb0655c,pressed=3f1488d7416a4d62b3c4a6dc4042ad22,selected=c2660e96661c4a6e8dc8eaa17eb0655c,disabled=c2660e96661c4a6e8dc8eaa17eb0655c
+        UISprite 44x44 ce1a23270d7b4f72bec868350b63a6b4
+          Text_KeyIcon 15x44 0cedbf7ed89245b1ac8a4c4d7ad62f9e (Sliced) text:#3D4A66@26
+        Text 120x38 text:#FFFFFF@26B
+  Layout_ArousalCard 1916x840
+    Text_Desc 479x44 text:#FFFFFF@30B
+    Layout_TopRight 732x32 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#8C8C8C/70%
+      Text_Ttile 732x72 text:#FFFFFF@24B+o#656565
+    Layout_CardInfo 1025x580
+      Layout_Info1 790x286
+        Info 575x274 d858c4b704ff4386bd4eb2ef9de32819
+          Btn_CardSkill 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+            Img_Icon 65x65 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Text_Level 62x36 text:#FFFFFF@24B+o#232323
+            KeyBG 70x40
+              Text_Name 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+          Scroll_Detail 575x87
+            Detail_1 467x33
+              Text_Desc 137x32 text:#FFFFFF@22B
+                Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+            Detail_2 467x33
+              Text_Desc 137x32 text:#FFFFFF@22B
+                Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+      Layout_Info2 790x286
+        Info 575x274 d858c4b704ff4386bd4eb2ef9de32819
+          Btn_CardSkill 150x150 463955b1860342a2a53380dd0a5e6265 (Sliced)
+            Img_Icon 65x65 1a935157958843328b5848ee4b27a0fe (Sliced)
+              Text_Level 62x36 text:#FFFFFF@24B+o#232323
+            KeyBG 70x40
+              Text_Name 88x36 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#000000/40% text:#FFFFFF@19B+o#2D2D2D
+          Scroll_Detail 575x87
+            Detail_1 467x33
+              Text_Desc 137x32 text:#FFFFFF@22B
+                Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+            Detail_2 467x33
+              Text_Desc 137x32 text:#FFFFFF@22B
+                Img_Triangle 20x20 5ec39b7aca674908bbdb4a7ef3e68340 (Sliced) color:#48BD48
+    Img_Deco 20x528 e2fc175d16ed4bd8aeb2af4ae15fc658
+    Layout_TopLeft 480x32 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#8C8C8C/70%
+      Text_Ttile 480x72 text:#FFFFFF@24B+o#656565
+    SkillCardItem 520x663
+      Aurora 100x100
+        Aurora1 609x872 69f476cb719642f0ab23334ce91f9edb color:#FFFFFF/42%
+        Aurora2 1249x536 91a0bb3ae5894d15aac6cc9233b2064b
+        Aurora1_1 463x640 69f476cb719642f0ab23334ce91f9edb
+        Aurora2_1 932x676 91a0bb3ae5894d15aac6cc9233b2064b
+      SkillCardInfo 475x585 1f0a4a52e38a4b2a972a28b943ef2849
+        Text_Grade 76x36 text:#486192@24B
+          Img_Deco 28x28 fecb46e81f464daa9ae394d98772b9f7 color:#486192
+        SkillIcon 170x170 bf662cb7b268437cb9630c9b87c21965 color:#66727F/25%
+          Eff 209x191 f3333cc9ae2743e9a72b112dd58e5201 (Sliced)
+          Eff2 114x104 c8497fc0470448b7be15ec4f02f87710 (Sliced)
+          Img_Light 200x200 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#FFFFFF/80%
+          Effect_SKillIcon_1 148x148 00066ea098584de6a7f51bcee23fc7f4 (Sliced) color:#FFFFFF/70%
+          Img_SkillIcon 64x64 1a935157958843328b5848ee4b27a0fe (Sliced)
+          Text_SkillLevel 48x33 text:#FFFFFF@22B+o#202020
+        Text_Name 400x45 text:#757474@26B
+        Type_Bg 95x42 e9c072d5b163496488d6e45fac6b8a1a color:#979BA6
+          Text_Type 95x45 0e0ff85e34d545a4b5032336eacddff1 (Sliced) color:#EC7D5B text:#FFFFFF@22B+o#000000/20%
+        Scroll_Desc 425x210
+          Text_Desc 132x36 text:#757474@24
+      SkillFrame 620x730 5b98a7b7193b4647b7a37e4d0e95cccb
+    Btn_Close 1916x840 d712e76fb66e38140adf81cba8b0068c (Sliced)
+      Text_Close 207x37 text:#B9B9B9@25B

@@ -1,0 +1,8 @@
+# ScreenEffect — 6 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: BiomeOverlay, DangerEffect, FrozenEffect, FireScreenEffectLeft, FireScreenEffectRight
+UIR_CasualSurvival_Sample_ScreenEffect 1920x1080
+  BiomeOverlay 3920x1100 d30aded2250c45259799a45cc6a796e1
+  DangerEffect 3920x3080 bc9ed157d4b24191827419146f328e69 color:#551414/70%
+  FrozenEffect 3920x3080 0566130f170b4c4eb3f500882edc8986
+  FireScreenEffectLeft 100x100
+  FireScreenEffectRight 100x100

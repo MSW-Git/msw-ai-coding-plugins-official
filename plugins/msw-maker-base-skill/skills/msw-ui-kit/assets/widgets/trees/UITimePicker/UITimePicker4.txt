@@ -1,0 +1,16 @@
+UITimePicker4 320x300 [UITimePicker] 86cb0ffa0826868499ac5518f20d930c
+  Img_BG 300x60 86cb0ffa0826868499ac5518f20d930c
+  HourPicker 90x300 [UITouchReceiveComponent,UIScrollRangeNumberPicker]
+    Viewport 82x292
+    Item 90x60 [UIScrollPickerItem]
+      Text 90x60 text:#F9F9F9@34
+  MinutePicker 90x300 [UITouchReceiveComponent,UIScrollRangeNumberPicker] acb5eb4ec0934c74787db180aa971c05
+    Viewport 82x292
+    Item 90x60 [UIScrollPickerItem]
+      Text 90x60 text:#F9F9F9@34
+  SecondPicker 100x300 [UITouchReceiveComponent,UIScrollRangeNumberPicker] acb5eb4ec0934c74787db180aa971c05
+    Viewport 92x292
+    Item 90x60 [UIScrollPickerItem]
+      Text 90x60 text:#F9F9F9@34
+  Label_Line1 20x100 text:#F9F9F9@40
+  Label_Line2 20x100 text:#F9F9F9@40

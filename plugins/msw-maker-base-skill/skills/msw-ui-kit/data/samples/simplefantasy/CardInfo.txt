@@ -1,0 +1,138 @@
+# CardInfo — 136 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_Dim, Panel, Layout_SelectSlot, Layout_Upgrade
+UIR_SimpleFantasy_Sample_CardInfo 1920x1080
+  Img_Dim 2920x2080
+  Panel 1393x955 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+    Text_Title 793x67 text:#FFFFFF@26B
+    Layout_Card 564x775 2d5da24718f7405e967ab46cae718001 (Sliced)
+      Img_BG 544x556 7de538928bbf45738d050d7d6e5d9b75
+      Mask 245x330
+        Img_Card 260x350 621c99626e21417286482bbff7060274
+      Img_Edge 260x350 505e73171fa64a50943f4477999fcb3a (Sliced)
+      Img_Tier 90x90 2058341fc4ef4e2cad0a3c6fc02ef330
+      Text_Desc1 96x38 text:#8897B9@26B
+      Text_Desc2 124x50 text:#486192@34B
+      Img_Deco 520x96 85073fd6e29d4235bd54676c54b75082 color:#B3CDDD
+    Img_Tab_BG 704x100 8b01a37df2a24dbb9e752276d62c9fe2 (Sliced) color:#E7E5DB/15%
+    Layout_Tab 718x83
+      Btn_Tab1 357x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) text:#FFFFFF@32B
+      Btn_Tab2 357x83 51a162cf670544aa87ccb1ec9cb9e3f8 (Sliced) text:#FFFFFF@32B
+    Layout_Info1 718x700
+      Scroll_Stat 716x166
+        Item_Stat_1 618x48 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E7E5DC
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+          Text_Name 350x48 text:#8897B9@28B
+          Text_Value 150x48 text:#757474@28B
+        Item_Stat_2 618x48 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E7E5DC
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+          Text_Name 350x48 text:#8897B9@28B
+          Text_Value 150x48 text:#757474@28B
+        Item_Stat_3 618x48 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#E7E5DC
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+          Text_Name 350x48 text:#8897B9@28B
+          Text_Value 150x48 text:#757474@28B
+      Layout_Detail 718x385
+        Deco_Line 718x4
+        Text_Title 575x50 text:#757474@28B
+          Deco_Star 16x16 36338acb0cfe498cac27bf667fc29979 color:#C6B7A5
+        Btn_Info 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) text:#FFFFFF@24B
+        Img_Icon_BG 84x84 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#D4D1C6
+          Img_Icon 70x70 9c2574304bd24acf9aa2b35a5161442c
+        Text_Type 84x32 7fb7e33dd3a64870a6aba7fc41828d42 (Sliced) color:#EC7D5B text:#FFFFFF@22B
+        Text_Name 500x35 text:#6C7995@30B
+        Text_Desc 663x176 text:#989898@26B
+      Btn_Equip 273x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) states:pressed=3f1488d7416a4d62b3c4a6dc4042ad22 text:#FFFFFF@26B
+    Layout_Info2 718x700
+      Scroll_Info 679x464
+        Item_Info_1 680x86 ab58be1f40d845c8ab987c0bb915927a color:#E5E2D4/0%
+          Text 615x86 text:#A9A8A5@26B
+        Item_Info_2 680x86 ab58be1f40d845c8ab987c0bb915927a color:#E5E2D4
+          Text 615x86 text:#A9A8A5@26B
+        Item_Info_3 680x86 ab58be1f40d845c8ab987c0bb915927a color:#E5E2D4/0%
+          Text 615x86 text:#A9A8A5@26B
+        Item_Info_4 680x86 ab58be1f40d845c8ab987c0bb915927a color:#E5E2D4
+          Text 615x86 text:#A9A8A5@26B
+      Deco_Line_L 600x20 ee6474d16fe64c5190ad8191d7dae934 (Sliced) color:#E0DFD8
+        Deco_Line_R 600x20 56009a4babfb46a9aa9c0e085a6ca6b8 (Sliced) color:#E0DFD8
+      Layout_Upgrade 718x224
+        Layout_Progress 476x81
+          Levels_Before 175x90
+          Levels_After 175x90
+          Deco_Arrow 26x28 92fcce8206a2423bb6eae5944c33c5a6 (Sliced)
+        Img_Bar_BG 528x28 144b1561436c4a199c24c0fc193212c7
+          Img_Bar 528x28 8defedf8352946208545f880a29db4c5 (Filled)
+          Img_Piece 120x120 99c1d1edcf2f410f80f6b548a00e7c87
+            Img_Icon 120x120 0373fb714ccb4c10a767f2126626865a
+          Text_Count 200x25 text:#4F679C@26B
+        Btn_Upgrade 273x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+        Btn_Info 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced) text:#FFFFFF@24B
+          Panel_Tooltip 450x170 6e8e561a4582462eaad762cb11d1f835 (Sliced) color:#171F2D/90%
+            Text_Title 61x37 text:#FFFFFF@25B
+            Text_Desc 403x60 text:#8D8C8C@22B
+            Btn_Close 64x64 07096261a9944312b01dee501fed7599 (Sliced)
+  Layout_SelectSlot 1920x1080
+    Layout_Panel 780x535 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+      Text_Title 600x75 text:#FFFFFF@26B
+      Text_Desc 57x34 text:#757474@23B
+      Btn_Exit 72x72 07096261a9944312b01dee501fed7599 (Sliced)
+      Slot_Card1 204x268 a3608009c2294206a8cdbc9773ca8282 (Sliced)
+        Deco 80x272 c474590fb19c427f9bcc136980161b43 color:#000000/20%
+        Text_CardSlot 113x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#B6AC9A text:#FFACAC@20B+o#A09889
+        CardPos 100x100
+        Img_CannotEquip 204x268 51b2b1bf61934e1a8e2df141d2b3aee3 color:#C90B0B/65%
+          Text 152x31 text:#FFFFFF@21B
+        Img_Unable 191x259 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#000000/50%
+          Text 100x40 text:#FF7049@25+o#303030
+      Slot_Card2 204x268 a3608009c2294206a8cdbc9773ca8282 (Sliced)
+        Deco 80x272 c474590fb19c427f9bcc136980161b43 color:#000000/20%
+        Text_CardSlot 113x40 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#B6AC9A text:#ACFFDD@20B+o#A09889
+        CardPos 100x100
+        Img_CannotEquip 204x268 51b2b1bf61934e1a8e2df141d2b3aee3 color:#C90B0B/65%
+          Text 152x31 text:#FFFFFF@21B
+        Img_Unable 191x259 a2366d534ad0428882308c1404ef9e57 (Sliced) color:#000000/50%
+          Text 100x40 text:#FF7049@25+o#303030
+  Layout_Upgrade 1920x1080
+    Img_BackLight 2320x1080
+      RoundLight_R 2134x1223 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#4D99FF/20%
+      RoundLight_L 2134x1223 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#4D99FF/20%
+      RoundLight 3000x1600 e1d1f19d82344f629c47f3b3c081b212 (Sliced) color:#4D99FF/65%
+    Mask 1000x300
+      Img_Bg 1000x300 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#0E121A/50%
+      Deco_Line 15x396 e2fc175d16ed4bd8aeb2af4ae15fc658
+      Text_Title 118x73 60f96e584a3b4b79a8863f863306a23d (Sliced) color:#4D99FF/50% text:#FFFFFF@36B
+      Layout_AddInfo 680x172
+        Text_ToolTip 615x172 text:#A9A8A5@26B
+          UICardStar 60x66 ce3304b16b51400ba63fe6ac6d149eff
+            Fx 180x180 64be6bf7c8c24b6b9411100e3ca84244
+      Deco_DiaPattern 300x300 c82192b1a89049b2a50c83592d84b448 color:#FFFFFF/26%
+    Slot_Card 416x560 65a384b45d154481a7daf6297bebf170 color:#FFFFFF/0%
+      Mask 403x547
+        Img_CardJobillustBack 419x563 65a384b45d154481a7daf6297bebf170
+        Img_CardJobillust 419x563
+      Img_CardFrame 416x560 505e73171fa64a50943f4477999fcb3a (Sliced)
+      Scroll_Star 212x67
+        1 60x66 51949933181f486bbf96309205f41b70
+          Fx 60x66 64be6bf7c8c24b6b9411100e3ca84244
+        2 60x66 51949933181f486bbf96309205f41b70
+          Fx 60x66 64be6bf7c8c24b6b9411100e3ca84244
+        3 60x66 51949933181f486bbf96309205f41b70
+          Fx 60x66 64be6bf7c8c24b6b9411100e3ca84244
+        4 60x66 51949933181f486bbf96309205f41b70
+          Fx 60x66 64be6bf7c8c24b6b9411100e3ca84244
+      Layout_CardName 398x100 a1e671ef281642b6bb0d15754f0137a1 (Sliced) color:#000000/50%
+        Text_CardName 388x96 text:#FFFFFF@36B+o#3A3A3A
+      Img_CardGrade 152x152 2058341fc4ef4e2cad0a3c6fc02ef330
+        Eff_light 77x77 3fa7574e95df430295d99d40b9272766
+        Eff_light_1 40x40 3fa7574e95df430295d99d40b9272766
+      Img_CardLight 416x560 b811e7e7f33b4261b87f14f4a792f0fe
+      Tag_New 100x48 5e94ec20ee214fa08d9c9a1b70330a14
+      Tag_Upgrade 133x48 d49670fd942b4f61b64d2ae54f4d98f9
+      Card_Back 208x280 c535f1d3b0de40359215657db6a4c75b
+      R_Particle 10x10 SpriteRUID:0c20fbf0be8a4da1b950bfa87c0d5c00
+      SR_Particle 10x10 SpriteRUID:0c20fbf0be8a4da1b950bfa87c0d5c00
+      SR_Burst 10x10
+      SSR_Particle 10x10 SpriteRUID:0c20fbf0be8a4da1b950bfa87c0d5c00
+      SSR_Burst 10x10
+    Btn_Exit 1920x1080
+      ExitText 1000x70 text:#CCCCCC@30

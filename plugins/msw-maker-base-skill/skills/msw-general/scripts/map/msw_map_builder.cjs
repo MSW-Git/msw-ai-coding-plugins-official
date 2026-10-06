@@ -115,9 +115,40 @@ function color(value, alpha = 1) {
 }
 
 // >>> BEGIN AUTO-GENERATED: native component catalog + resolver — do not hand-edit; run tools/gen-native-components.cjs
-// Native MSW component class names (CoreVersion 26.7.0.0). A bare name in this
-// set is auto-qualified to "MOD.Core.<name>"; any other bare name is treated as a
-// "script.<name>" custom component, with a one-time advisory on stderr.
+// Workspace root: the nearest directory holding Environment/config, searched upward
+// from startDir (the file being written), then the working directory, then this script.
+function workspaceRoot(startDir) {
+  for (const start of [startDir, process.cwd(), __dirname]) {
+    if (!start) continue;
+    let dir = path.resolve(start);
+    for (;;) {
+      if (fs.existsSync(path.join(dir, "Environment", "config"))) return dir;
+      const parent = path.dirname(dir);
+      if (parent === dir) break;
+      dir = parent;
+    }
+  }
+  return null;
+}
+// CoreVersion stamped into newly created content: the workspace's own value, or
+// 26.7.0.0 outside a workspace.
+function resolveCoreVersion(startDir) {
+  const root = workspaceRoot(startDir);
+  if (root) {
+    try {
+      const text = fs.readFileSync(path.join(root, "Environment", "config"), "utf8");
+      const version = JSON.parse(text.replace(/^\uFEFF/, "")).CoreVersion;
+      if (typeof version === "string" && /^\d+(\.\d+){1,3}$/.test(version.trim())) return version.trim();
+    } catch (_) {
+      // unreadable config: use the fallback
+    }
+  }
+  return "26.7.0.0";
+}
+// Native MSW component class names. A bare name in this set, or one declared under
+// the workspace's Environment/NativeScripts/Component, is auto-qualified to
+// "MOD.Core.<name>"; any other bare name is treated as a "script.<name>" custom
+// component, with a one-time advisory on stderr.
 const NATIVE_COMPONENTS = new Set([
   "AIChaseComponent", "AIComponent", "AIWanderComponent", "AnimationSequenceControllerComponent",
   "AreaParticleComponent", "AttackComponent", "AvatarBodyActionSelectorComponent", "AvatarFaceActionSelectorComponent",
@@ -146,6 +177,21 @@ const NATIVE_COMPONENTS = new Set([
   "WebSpriteComponent", "WebViewComponent", "WeldJointComponent", "WheelJointComponent",
   "WorldComponent", "YoutubePlayerCommonComponent", "YoutubePlayerGUIComponent", "YoutubePlayerWorldComponent"
 ]);
+let _workspaceNativesLoaded = false;
+function nativeComponents() {
+  if (_workspaceNativesLoaded) return NATIVE_COMPONENTS;
+  _workspaceNativesLoaded = true;
+  const root = workspaceRoot();
+  if (!root) return NATIVE_COMPONENTS;
+  try {
+    for (const file of fs.readdirSync(path.join(root, "Environment", "NativeScripts", "Component"))) {
+      if (file.endsWith(".d.mlua")) NATIVE_COMPONENTS.add(file.slice(0, -".d.mlua".length));
+    }
+  } catch (_) {
+    // no NativeScripts folder: the bundled catalog stands alone
+  }
+  return NATIVE_COMPONENTS;
+}
 const _resolveWarned = new Set();
 function _editDistance(a, b) {
   const m = a.length, n = b.length;
@@ -170,7 +216,7 @@ function _editDistance(a, b) {
 function _nearestNative(name) {
   const limit = name.length <= 6 ? 1 : 2;
   let best = null, bestD = limit + 1;
-  for (const n of NATIVE_COMPONENTS) {
+  for (const n of nativeComponents()) {
     const d = _editDistance(name, n);
     if (d < bestD) { bestD = d; best = n; }
   }
@@ -180,7 +226,7 @@ function normalizeComponentName(name) {
   if (name == null) throw new TypeError("Component name must not be null");
   const value = String(name);
   if (value.startsWith("MOD.") || value.startsWith("script.")) return value;
-  if (NATIVE_COMPONENTS.has(value)) {
+  if (nativeComponents().has(value)) {
     const out = "MOD.Core." + value;
     if (!_resolveWarned.has(value)) {
       _resolveWarned.add(value);
@@ -308,7 +354,7 @@ class MapBuilder {
       Usage: 0,
       UsePublish: 1,
       UseService: 0,
-      CoreVersion: "26.7.0.0",
+      CoreVersion: resolveCoreVersion(),
       StudioVersion: "0.1.0.0",
       DynamicLoading: 0,
       ContentProto: { Use: "Binary", Entities: [] },
@@ -316,6 +362,7 @@ class MapBuilder {
     this.entities = this.data.ContentProto.Entities;
     this.displayCounter = this._nextDisplayOrder();
     this._lastId = null;
+    this._stampCoreVersion = !data;
   }
 
   static read(filepath) {
@@ -357,6 +404,7 @@ class MapBuilder {
     data.Content = "";
     data.Id = "";
     data.GameId = "";
+    data.CoreVersion = resolveCoreVersion();
 
     for (const entity of data.ContentProto.Entities) {
       if (!entity.id) throw new Error(`Template map entity is missing id: ${entity.path || "<unknown>"}`);
@@ -375,6 +423,7 @@ class MapBuilder {
     for (const entity of builder.entities) builder._syncComponentNames(entity);
     builder.displayCounter = builder._nextDisplayOrder();
     builder._lastId = null;
+    builder._stampCoreVersion = true;
     return builder;
   }
 
@@ -392,6 +441,7 @@ class MapBuilder {
   }
 
   write(filepath) {
+    if (this._stampCoreVersion) this.data.CoreVersion = resolveCoreVersion(path.dirname(filepath));
     fs.writeFileSync(filepath, `${JSON.stringify(this.build(), null, 2)}\n`, "utf8");
     return this;
   }

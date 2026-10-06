@@ -1,0 +1,34 @@
+# CardExchange — 32 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Img_BG, Btn_Close, Panel
+UIR_SimpleFantasy_Sample_CardExchange 1920x1080
+  Img_BG 2920x2080
+  Btn_Close 1920x1080 states:pressed=283fd3419a8349e683df222362652e1d
+  Panel 1042x955 0f4b90db8a87477e9c7a962b045f90eb (Sliced)
+    Text_Title 642x64 text:#FFFFFF@26B
+    Btn_Close 72x72 07096261a9944312b01dee501fed7599 (Sliced) states:pressed=283fd3419a8349e683df222362652e1d
+    Img_Piece_BG 454x52 b84c111b20d6446488c7cc75bd87c2b7 (Sliced) color:#DFDED7
+      Text_PieceName 200x50 text:#789098@26B
+    Icon_Piece 80x80 1d0f91a3d7e94b3b9f3047fc227aa12c
+    Text_Piece 133x36 text:#4E5C7A@28B
+    Deco_Line 970x3
+    Scroll_Card 1000x622
+      Item 984x247 54a83e91d2c34a7bb54fe7d86f8b96bd
+        Text_Name 534x50 text:#6C7995@30B
+        Img_Job_BG 130x34 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#7688AE
+          Text_Job 111x33 text:#FFFFFF@22B
+        Img_Tier_BG 120x120 6791a49d630642ffbeb232d3ac758aad (Sliced)
+          Img_Tier 76x76 2058341fc4ef4e2cad0a3c6fc02ef330
+        Btn_CardInfo 60x60 a284a5997dd24bf3927f8b71887c322f (Sliced)
+          Img_Icon 50x50 754890ba284e441ea0bba9b02de160f9 (Sliced)
+        Img_ReqText 250x50 text:#8C99B4@24B
+        Bg_Cost 160x34 eaae9d8c500b45c6aea3ed502a020dd2 (Sliced) color:#BFC7CE
+          Text_Cost 120x34 text:#4E5C7A@24B
+        Icon_Cost 48x48 1d0f91a3d7e94b3b9f3047fc227aa12c
+        Btn_Exchange 278x88 c2660e96661c4a6e8dc8eaa17eb0655c (Sliced) text:#FFFFFF@26B
+        Bg_CardBack 208x280 c535f1d3b0de40359215657db6a4c75b color:#919191
+        Bg_Card 155x209
+          Mask 145x199
+            Img_CardBack 156x210 621c99626e21417286482bbff7060274
+            Img_Card 156x210 621c99626e21417286482bbff7060274
+          Img_Edge 155x209 505e73171fa64a50943f4477999fcb3a (Sliced)
+    Text_ExchangeInfo 900x100 text:#EF8A59@22

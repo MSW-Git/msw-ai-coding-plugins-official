@@ -3,13 +3,15 @@
 Perform this checklist after modifying or creating `.mlua` files, **immediately before** reporting "done" to the user.
 Provides the **final PASS/FAIL criteria** to be used alongside the playtest/debug workflow in Section 17.
 
+Run it **once per turn, covering every change made this turn in one runtime cycle** — never one play cycle per todo or per file. Plant all `[VRF]` markers while implementing, then collect evidence for all of them in a single play session. Only a FAIL verdict restarts the cycle.
+
 ---
 
 ## Core Principle
 
 > **"No errors ≠ Pass."**
 > Even if the log shows no errors, it is a FAIL if there is no **positive evidence (positive log evidence)** that the intended logic actually executed.
-> That is why you plant `log()` calls during implementation at `OnBeginPlay` entry, branch results, key variable values, and event order.
+> That is why you plant `log()` calls during implementation — prefixed **`[VRF]`**, e.g. `log("[VRF] wave spawned n=3")` — at `OnBeginPlay` entry, branch results, key variable values, and event order. One shared prefix lets a single scoped log read collect every piece of evidence.
 
 ---
 
@@ -17,20 +19,27 @@ Provides the **final PASS/FAIL criteria** to be used alongside the playtest/debu
 
 Call in order:
 
+0. **First cycle of a session only**: `maker_get_current_map` — require `status` `ok`, and the returned `name`/`id` to equal a `map/<name>.map` file and its root entity id (`ContentProto.Entities[0].id`). Anything else → stop and ask the user to open this world in Maker: a Maker holding another world answers every tool `ok` with clean logs (false PASS). A **copied** workspace passes this check with the same ids — if fresh `[VRF]` logs then never appear in Step 3, ask the user which world Maker has open instead of looping refresh. Re-check only after a Maker restart or a suspected world switch.
 1. `stop` — reset state
 2. `clear_logs` — remove previous output (isolate current output)
 3. `refresh` — sync file changes to the runtime
 4. `logs(kind="build")` — check build log; if errors exist, fix and restart from step 1
 5. `play` — enter play mode
-6. Wait a few seconds, then `logs(kind="normal")` — collect runtime output
+6. Wait a few seconds, then `logs(kind="normal")` — collect runtime output. Scope the read as narrowly as the tool schema allows (severity / filters); the `[VRF]` lines plus any errors are all Step 3 needs. The `OnBeginPlay` `[VRF]` marker doubles as the boot signal — if it has not appeared yet, you read too early: read again instead of concluding failure.
 
 Retain the raw logs for Step 3.
+
+**Reproduce scenarios with the fewest tool calls** — every call is a full model round-trip and its output stays in context for the rest of the session:
+
+- When the scenario can be driven programmatically, prefer **one `maker_execute_script` probe** that drives the scenario and emits the `[VRF]` evidence over a chain of `keyboard_input` / `mouse_input` calls. Simulate real input only when the input path itself is what you are verifying.
+- Do not re-collect logs you already have; keep every `logs` read scoped (see step 6).
+- `screenshot` is never routine verification — log evidence decides PASS/FAIL (screenshot only for coordinate targeting or on explicit user request).
 
 ---
 
 ## Step 2 — Code Review Checklist
 
-**Re-read** all modified/created files and confirm **every item** below is OK.
+Check every modified/created file against **every item** below. A file you wrote or already read in full this session is in context — do **not** re-read it. Re-`Read` only files that are not fully in context (never loaded, or lost to compaction).
 
 ### General
 - [ ] **Logic correctness** — Does it match what the user requested?
@@ -70,9 +79,10 @@ Retain the raw logs for Step 3.
 
 `keyboard_input → screenshot` runs 1–4 s end-to-end; any element with lifetime ≤ 2 s (damage popups, toasts, hit flashes, brief particles) often expires before capture. An empty screenshot looks identical to a real bug.
 
-- [ ] `log()` at create AND destroy sites — paired logs prove it ran even when the screenshot misses it.
+- [ ] `[VRF]` `log()` at create AND destroy sites — paired logs prove it ran even when the screenshot misses it.
 - [ ] Temporarily extend lifetime to ≥ 5 s for the verify round only, then revert before reporting PASS.
 - [ ] Verify on the production show/hide path — don't swap to `Enable` / `Visible` toggles to "make capture easier".
+- [ ] When a screenshot IS available (user-requested), judge it for playfield readability too — does new UI/VFX obscure the play area or overlap other HUD elements? — not just for the element's presence.
 
 ---
 
@@ -81,10 +91,10 @@ Retain the raw logs for Step 3.
 For the logs collected in Step 1:
 
 - [ ] **Zero build errors** (`logs(kind="build")`) — re-confirm after play
-- [ ] Is there a **`log()` output showing the intended branch executed**? (entry log, value log, event order)
+- [ ] Is there a **`[VRF]` line for every checkpoint planted this turn** (entry, branch results, values, event order) — across **all** of the turn's changes, not just the last one?
 - [ ] Are values the **expected values**, not nil/0/empty string?
 - [ ] Were logs printed on the **correct side** (Server/Client)?
-- [ ] If a `log()` at a critical checkpoint is **missing** — return to the Implement step, add it, then re-run from Step 1. Cannot PASS without log evidence.
+- [ ] If a `[VRF]` log at a critical checkpoint is **missing** — return to the Implement step, add it, then re-run from Step 1. Cannot PASS without log evidence.
 
 ---
 

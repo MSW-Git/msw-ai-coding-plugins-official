@@ -1,0 +1,6 @@
+UIResizableProgressBar2 400x49 [UIResizableProgressBar] dee8cd0715454ec08c3ed1793e75bb7a
+  Img_BackValue 294x51 f4cfd61e10b24cfea5ffe08aa063a23a (Sliced)
+  Img_Value 294x51 f4cfd61e10b24cfea5ffe08aa063a23a (Sliced)
+  Text 287x28 text:#FFFFFF@26
+  Label 113x51 5d241898526c4415a055b977e3c77fa2 text:#442F1E@27
+  Img_Outline 394x45 88b7d219d0e148cbb1ef879a631f4146

@@ -1,0 +1,79 @@
+# Research — 77 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Research
+UIR_CasualSurvival_Sample_Research 1920x1080
+  Research 479x662 62135fba0e98086459fb2a1c6737addf (Sliced) color:#FFFFFF/0%
+    TopBG 470x60 9a1c631a270e4fb9ad25bedbbab15095 (Sliced)
+      DotPatterLeft 118x40 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      DotPatterRight 117x38 6896823f231347589b533c1a736961cd (Sliced) color:#000000/30%
+      Title 378x49 text:#FFFFFF@26+o#000000
+      DotLine 460x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+    BottomBG 470x603 5bf3708196264a08ae53b28dc77c8626 (Sliced)
+    TabCategory 181x595
+      TabHeavyTech_Lv3 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabHeavyTech_Lv2 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabHeavyTech_Lv1 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabLightTech_Lv1 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabLightTech_Lv2 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabLightTech_Lv3 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabProduction_Lv1 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabProduction_Lv2 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabProduction_Lv3 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabGardening_Lv1 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabGardening_Lv2 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+      TabGardening_Lv3 138x84 9cb41ecdcc804e30962830b40348b22f (Sliced)
+        Text 138x84 text:#FFFFFF@22+o#000000
+    Studies 460x596 60b77dd045714d06b6140e93e3e95c77 (Sliced) color:#FFFFFF/0% ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+    ResearchInfo 470x662
+      BGTop 470x560 aba92c2b59ef4f23928a339f2e5bbced (Sliced)
+      BGBottom 470x102 e53a8ce555d540a187a590a0961b6d6b (Sliced)
+        DotLine 460x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#000000
+      TextName 456x64 text:#E6B848@28+o#000000
+      TextTime 334x40 text:#FFFFFF@22
+      OutputList 400x167
+        OutputSlot_1 100x100 57cb623ae1b946b6856a2a4bfff30313 (Sliced)
+          ContentIcon 64x64 thumbnail://a9a6d596a3d44ad7b5e76895c9e5eac7 (Sliced)
+          ContentCount 99x36 text:#FFFFFF@20
+        OutputSlot_2 100x100 57cb623ae1b946b6856a2a4bfff30313 (Sliced)
+          ContentIcon 64x64 thumbnail://a9a6d596a3d44ad7b5e76895c9e5eac7 (Sliced)
+          ContentCount 99x36 text:#FFFFFF@20
+        OutputSlot_3 100x100 57cb623ae1b946b6856a2a4bfff30313 (Sliced)
+          ContentIcon 64x64 thumbnail://a9a6d596a3d44ad7b5e76895c9e5eac7 (Sliced)
+          ContentCount 99x36 text:#FFFFFF@20
+      InputInfos 440x383 ScrollBarBgImageRUID:6f772076d638e4649a12a036f4056da6 ScrollBarHandleImageRUID:6f772076d638e4649a12a036f4056da6
+        UIInputItemSlot 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 259x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIInputItemSlot_1 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 259x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIInputItemSlot_2 70x70
+          IconFrame 62x62 3121b1b6c4a847158e21398d6f74dd1c (Sliced)
+          ItemIcon 40x40 thumbnail://13fc193bbbb3449786b1fbfc175b2b3e
+          ItemName 259x37 text:#FFFFFF@25
+          ItemCount 287x30 text:#FFFFFF@20B+o#000000
+        UIDotLine 410x10
+          Line 410x3 cb5c4482a3824726896732f2be6f829c (Tiled) color:#FFFFFF/10%
+        UIDescription 17x40 text:#FFFFFF/80%@20
+      ButtonResearch 446x82 c1130bd229574329a869078077c39720 (Sliced) states:highlighted=b99f697a1cb747089c25403c42164b92,pressed=1889cc00f71147a8919a31404ad7fc5e,selected=null,disabled=a2fbd78d13db483a9e16de6aa608293b
+        AnimatedSprite 446x82 5dbe3283713e41a4998c649a20f13129 (Tiled) color:#D88100/25%
+        Texts 446x82
+          EIcon 40x40 058737be043b47dda2631557fa0332f4 (Sliced)
+          Text 166x42 text:#FFFFFF@28+o#000000
+          Icon 40x40 42b6b4fbe1a64b01987f7360853d5fa1 (Sliced)
+          Amount 88x42 text:#FFFFFF@28+o#000000
+    CloseButton 70x70 187b4187e0a7487795617a410d95bb91 (Sliced) states:highlighted=d585c886426c4313bb7f36cdd3c001a4,pressed=2b8c3c0107a6437fa5e01538a09c655e

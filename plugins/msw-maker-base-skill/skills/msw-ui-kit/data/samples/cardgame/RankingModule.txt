@@ -1,0 +1,29 @@
+# RankingModule — 27 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Block, Panel
+UIR_CardGame_Sample_RankingModule 1920x1080
+  Block 2520x1680
+  Panel 1060x840
+    Background 979x713 79ed3b4fd4844887a294acb791b2e89f (Tiled)
+    Background_1 1004x792 d9b68fae16404c5c81228b6c45cf40a5 (Sliced)
+    Background_2 346x53 55fc3c207dc24c3481f8dc2dac76e804
+    Background_3 972x696 4e2c18c56e79488589c4de82cf766610 (Sliced)
+    Title 976x49 text:#FFFFFF@27B+o#000000/50%
+    XButton 56x61 e01ef74a1ecf444bbb013c4313a8d0a9 states:highlighted=f24a6333e4df404795e922ec2966e997,pressed=5952570d481245a9a4fbe562f3c030c5
+    LeftArrowButton 0x0
+      Button 56x65 af055ed16a39470fae34ec6e0a6f4c94 states:highlighted=4359bb66c7ee4a16a8a900a01b3daccd,pressed=4f90b0d2ef824aba84b2892ebdf6f9ef,disabled=3c3af30db09c48ca90ef74e5df332b22
+    RightArrowButton 0x0
+      Button 56x65 9424ae88567049fe8f99ca4f77deb2a2 states:highlighted=f5a5463d30f048749591d6a1f19835a8,pressed=29ec9ba586ba451aae51ba5c55b2775d,disabled=bc8258bc89e54bf2ad51a40b0600afde
+    RankingSlot_1 0x0
+      Line 762x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+      Ranking 65x49 text:#29160E@24
+      Nickname 368x49 text:#29160E@24
+      Rank 121x49 text:#29160E@24
+      RankPoint 98x49 text:#29160E@24
+      RankImage 83x67 dd5373d9a9cf4af3927fba505eb1bb5c
+    RankingSlot_2 0x0
+      Line 762x6 bceb18f57ff3453aafdc5bc3487d4e8a color:#AC8244
+      Ranking 65x49 text:#29160E@24
+      Nickname 368x49 text:#29160E@24
+      Rank 121x49 text:#29160E@24
+      RankPoint 98x49 text:#29160E@24
+      RankImage 83x67 dd5373d9a9cf4af3927fba505eb1bb5c

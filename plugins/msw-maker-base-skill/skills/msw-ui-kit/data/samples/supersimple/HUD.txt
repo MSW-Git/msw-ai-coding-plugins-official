@@ -1,0 +1,58 @@
+# HUD — 56 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Btn_Event_Mission, Button_Event, Button_GMTool, Button_Interaction, Button_Storage, Button_Shop, Button_MyInventory, Button_MyMapInventory, Button_Objective, Button_PlayerHistory, Button_Play
+UIR_SuperSimple_Sample_HUD 1920x1080
+  Btn_Event_Mission 713x94 91fdb9a4ba4748038bd246114b79d626 color:#FFFFFF/90%
+    Img_Anim 244x244 6ad4c3fe4590485a9860caaa9d3378f2
+    Title_Text 236x34 text:#847252@22B
+    Text 160x34 8e33ebcb96034af893995195af9c7e53 color:#F3B55A text:#FFFFFF@20B
+  Button_Event 130x120
+    Bg 80x80 e2c7e53d4def4108ba8da6ff5b8c3912
+      Icon 56x56 0fd0ee91762549dfa3263fa7aefb081d
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_GMTool 130x110
+    Bg 75x75 e2c7e53d4def4108ba8da6ff5b8c3912
+      Icon 30x30 9d0d70fcd1f74ec0a8e654e30cc67895
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_Interaction 150x150 40616ad64b7f4d37951edbca1658edce
+    Icon 70x70 9df74121d0dd472b89b8efa7120594e4
+    UISprite 38x38 9df74121d0dd472b89b8efa7120594e4 text:#636363@30B+o#E7E7E7
+  Button_Storage 130x110
+    Bg 75x75 844cfce409344d839bb5d9a4088761ff
+      Icon 50x50 0fd0ee91762549dfa3263fa7aefb081d
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_Shop 130x110
+    Bg 75x75 844cfce409344d839bb5d9a4088761ff
+      Icon 50x50 f9e3861365f048bda2b41afb15fa8af0
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_MyInventory 130x110
+    Bg 75x75 844cfce409344d839bb5d9a4088761ff
+      Icon 50x50 1cee502208874eca8b38f720631f7b84
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_MyMapInventory 130x110
+    Bg 75x75 e2c7e53d4def4108ba8da6ff5b8c3912
+      Icon 50x50 db59eedb467a41699b23c87ae0ac6570
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 155x100 text:#FFFFFF@20B+o#26231E
+    ReleaseWaitNotice 350x52
+      Bg 350x52 73e30cdad5da4060b6756ef5c301d0e0 (Sliced)
+      UIText 281x52 text:#FFFFFF@15B+o#95342F
+  Button_Objective 130x110
+    Bg 75x75 06a927e839d347b7ab9a92cc9f8e4109 (Sliced)
+      Icon 51x51 9b4f04da4685483d8c1b62c6fbf7955f
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_PlayerHistory 130x110
+    Bg 75x75 06a927e839d347b7ab9a92cc9f8e4109 (Sliced)
+      Icon 45x45 def4295c7827480190f7e5bdb01f5c10
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E
+  Button_Play 130x110
+    Bg 75x75 7cd390bc21f64dad9c74745e75ca2192
+      Icon 50x50 654f8b920bb24d109d34066f8f54daf9
+    Textbox 116x36 8e33ebcb96034af893995195af9c7e53 color:#000000/60%
+      UIText 100x100 text:#FFFFFF@20B+o#26231E

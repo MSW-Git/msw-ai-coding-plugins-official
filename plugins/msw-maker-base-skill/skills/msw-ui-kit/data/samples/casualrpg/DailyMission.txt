@@ -1,0 +1,58 @@
+# DailyMission — 56 entities. Structural reference — rebuild with UIBuilder, do not copy verbatim.
+# top-level: Bg_Dark, MissionBackground, MonsterInfoPopUp
+UIR_CasualRPG_Sample_DailyMission 1920x1080
+  Bg_Dark 7920x7080
+  MissionBackground 1706x874 f47ee45115114234bd8a140b5d02729c
+    Line 117x744 49385274eabe48c49fc357c99547d7e0
+    TopPanel 1666x84 text:#7DB3FC@28
+      ExitButton 80x80 a1a9b34404134537a718f38cdf9d9a02 (Sliced) text:#FFFFFF@56B+o#000000
+      Panel_Help 66x66 ef08cfd3bd334736877b4dfc3a982b48
+    MissionContentPanel 1666x744
+      Panel_Scroll 962x740 62b3030e5a8c43b680165c0c7fa89aab color:#131824/80%
+        MissionPanel 962x740 52849ae90e6e4aa392d5cf856f5e359c color:#FFFFFF/0%
+          MissionScrollLayout 962x690
+            MissionSlot_Original 930x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced)
+              MissionPanel 714x104
+                MissionObjective 714x60 text:#FFFFFF@24
+                Progress_Bg 674x30
+                Progress 674x30 text:#FFFFFF@24+o#000000/80%
+              MissionRewardPanel 193x100
+                MissionRewardButton 90x90 c58c6f4200d4b7341ba11994d157ce12 color:#23252D
+                  ClearRewardEffect 92x92 8b8b29976a784279885f1bc595146f3b color:#FFE633
+                  RewardSprite 70x70 cba4f8c4a4104443862d7db244848cf4
+                  RewardNum 90x90 text:#FFFFFF@22B+o#000000
+                  Cover 90x90 c58c6f4200d4b7341ba11994d157ce12 color:#23252D/60%
+                    Icon_Check_1 48x33 46c34255c019473482b09e491cf1ec73
+                RerollButtonPanel 90x90
+                  RerollButtonIcon 90x90 c0c177f1ff344930a9a6ca5ff011bb5b
+                    UISprite 47x45 fa84845ce37841129187340e92667b2b
+              SlotCover 930x120 f2d0c8898b634b028c791f573d7f4a68 (Sliced) color:#000000/50%
+              Icon_Info 34x31 01a50e24d1f74b609bb9a9c6697b09d8
+          LeftTImeText 962x64 b4dea391be234bc5a9d3537af0232b3a text:#899BBF@24
+      AllClearReward 354x700 788439cb3ad94c41b0ade30f989a3b2d color:#FFFFFF/0%
+        AllClearRewardDescriptionText 394x77 9a50c1ca754f41ecb326256631542bf4 color:#000000/30% text:#FFFFFF@24
+        MissionProgressPanel 354x650
+          MissionProgressBarPanel 320x50
+            ProgressBarbg 320x30
+            ProgressBar 320x30
+            ReceiveButton 330x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#659F3D
+            MissionProgressText 320x50 text:#FFFFFF@24B+o#000000/80%
+          MissionRewradPanel 200x200
+            Img_Light 420x420 d892e62ca8cd4400ad8dc5b6bb74547d
+            MissionRewradButton 150x150 affef48538564b6f9c55695a6096a0dd
+              ClearRewardEffect 380x380 010e7f7270c2408790b64fe7daebad49
+              RewradIcon 120x120 53f5a00f8a08457999760f8e4674d560
+              RewardCover 150x150 f2d0c8898b634b028c791f573d7f4a68 (Sliced) color:#000000/30%
+                Icon_Check 78x54 46c34255c019473482b09e491cf1ec73
+    CategoryLayout 305x624
+      DailyMissionButton 305x108 a98b037c6b0f45288ce63cb8414b83b5 (Sliced) text:#FFFFFF@26+o#000000/20%
+      WeeklyMissionButton 305x108 75ff2132ace346358699f21009389b99 (Sliced) text:#FFFFFF@26+o#000000/20%
+  MonsterInfoPopUp 7920x7080
+    PopupPanel 1056x624 c5df9f2ce82141d999f6c8a17fd78268 (Sliced)
+      TitleText 976x80 text:#7DB3FC@28
+      MonsterTitle 920x70 text:#FFFFFF@36
+      Thumbnail 120x120
+      GuideText 920x100 text:#FFFFFF@24
+      PopupBtnOK 400x90 fc7aab99a8e549e58d891d50f594ecd6 (Sliced) text:#FFFFFF@24B+o#589334
+      Deco_1 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%
+      Deco_2 206x283 1e669d81c33042b6b1e38a51c7285357 color:#8CB2FF/5%

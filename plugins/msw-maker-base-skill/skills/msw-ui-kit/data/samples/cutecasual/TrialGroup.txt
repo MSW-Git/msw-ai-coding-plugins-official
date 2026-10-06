@@ -1,0 +1,396 @@
+# TrialGroup — 394 entities. LARGE: read the top-level sections you need, not the whole file.
+# top-level: BG, Pattern, UITrialSelect, TrialSetEmployee, TrialRewardPopupDim, Frame
+UIR_CuteCasual_Sample_TrialGroup 1920x1080
+  BG 2520x1680
+  Pattern 5000x5000 b1c6fe5820f243299aac9b8f2df7a2bf (Tiled) color:#FFDC96
+  UITrialSelect 1920x1080
+    CloseButton 100x80 8cb32e13e64d434fa1605ffdd0261a72
+    TopMenu 301x54
+      TitleBar 231x54 text:#FFFFFF@36B+o#6D4D14+s#6D4D14
+        GuideBtn 44x44 4eeb98e3c474433caa095add5bf686d1 color:#F3C76B
+          UIText 8x28 d84ba7398e154992b2e3395cc38a4b01 color:#C48921 text:#FFFFFF@40
+          UISprite 100x100
+      SubTitle 710x45 text:#836545@20B
+    Line 710x6
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+      Dot 16x16 4daf2a53501040aa89a8d11ed8388a80 color:#F3C76B
+    Title 1450x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#F0BF64 text:#FFFFFF@32B+o#AF7E28
+      Left 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FFF3D6
+      Right 16x16 4920e8b7ee7643468a5807753bef00d3 color:#FFF3D6
+    MenuBar 273x710
+      UITab1 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        UISpriteIcon 90x90 c2148eb14f844cae83c6d772ea5abe57
+        UITextDesc 150x90 text:#FFFFFF@30B+o#985F05
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+        Recommended 100x39 text:#000000@20
+      UITab2 264x104 states:highlighted=null,pressed=null,selected=null,disabled=null
+        UISpriteSelect 264x104 c126e98243bf4c7cbfa7bcbb278b0f60
+        UISpriteIcon 90x90 ddae94adb23f4c269fe3e11054c93495
+        UITextDesc 150x90 text:#BB9A59@30B
+        RedDot 28x28 3af9b8375087419fb1b509de5060f6cf
+    TrialList 1500x715
+      Model_TrialSelectSlot_1 454x675 96b51c94307a4e2890f47d17a462152d
+        Contents 454x675 96b51c94307a4e2890f47d17a462152d
+          TrialImage 404x212 16a01821185c49ed8e4cf9e6b7e2c869
+          Recommended 128x68 6532ebc20a2b44c89210ead4ab7e0a84
+            UIText 110x55 text:#FFFFFF@26B+o#A7330B
+          RewardBtn 64x64 110d33c68cb3443e971899c5913dc93f
+            Icon 40x36 ef9e0f470b0d40329af0582451f01915
+          TrialName 300x75 text:#FFFFFF@32B+o#644C2F
+          TrialProgress 368x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E9D29A
+            Grade 170x52 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+            Difficulty 167x45
+          TrialCost 368x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E9D29A
+            BG 200x50 e5bdbbd4b79f4ce7956f57e12080581e (Sliced)
+            Title 160x50 text:#755836@28B
+            CostText 104x41 text:#FFFFFF@28B+o#75542C
+              Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          SelectBtn 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@32B+o#AF7016
+            Dim 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) color:#000000/50%
+          CompleteMark 192x88 2434a8446ccb44a28216617db917076b
+            UIText 300x70 text:#C3A878@32B
+          Line 370x4
+      Model_TrialSelectSlot_2 454x675 96b51c94307a4e2890f47d17a462152d
+        Contents 454x675 96b51c94307a4e2890f47d17a462152d
+          TrialImage 404x212 16a01821185c49ed8e4cf9e6b7e2c869
+          Recommended 128x68 6532ebc20a2b44c89210ead4ab7e0a84
+            UIText 110x55 text:#FFFFFF@26B+o#A7330B
+          RewardBtn 64x64 110d33c68cb3443e971899c5913dc93f
+            Icon 40x36 ef9e0f470b0d40329af0582451f01915
+          TrialName 300x75 text:#FFFFFF@32B+o#644C2F
+          TrialProgress 368x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E9D29A
+            Grade 170x52 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+            Difficulty 167x45
+          TrialCost 368x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E9D29A
+            BG 200x50 e5bdbbd4b79f4ce7956f57e12080581e (Sliced)
+            Title 160x50 text:#755836@28B
+            CostText 104x41 text:#FFFFFF@28B+o#75542C
+              Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          SelectBtn 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@32B+o#AF7016
+            Dim 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) color:#000000/50%
+          CompleteMark 192x88 2434a8446ccb44a28216617db917076b
+            UIText 300x70 text:#C3A878@32B
+          Line 370x4
+      Model_TrialSelectSlot_3 454x675 96b51c94307a4e2890f47d17a462152d
+        Contents 454x675 96b51c94307a4e2890f47d17a462152d
+          TrialImage 404x212 16a01821185c49ed8e4cf9e6b7e2c869
+          Recommended 128x68 6532ebc20a2b44c89210ead4ab7e0a84
+            UIText 110x55 text:#FFFFFF@26B+o#A7330B
+          RewardBtn 64x64 110d33c68cb3443e971899c5913dc93f
+            Icon 40x36 ef9e0f470b0d40329af0582451f01915
+          TrialName 300x75 text:#FFFFFF@32B+o#644C2F
+          TrialProgress 368x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E9D29A
+            Grade 170x52 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+            Difficulty 167x45
+          TrialCost 368x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#E9D29A
+            BG 200x50 e5bdbbd4b79f4ce7956f57e12080581e (Sliced)
+            Title 160x50 text:#755836@28B
+            CostText 104x41 text:#FFFFFF@28B+o#75542C
+              Icon 36x36 6d7ee60988104cf08f9dca77947dac61 (Sliced)
+          SelectBtn 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) text:#FFFFFF@32B+o#AF7016
+            Dim 250x88 8094f81aa0c2463195e20da6fa046d8f (Sliced) color:#000000/50%
+          CompleteMark 192x88 2434a8446ccb44a28216617db917076b
+            UIText 300x70 text:#C3A878@32B
+          Line 370x4
+  TrialSetEmployee 1920x1080 e818a726aafc4c36968053261d9da3d1 (Sliced) color:#FFFFFF/0%
+    Dim 2520x1680
+    BG 1230x920 517f55caf96c456b9b66d03c8ac14565
+      TopMenu 1230x86
+        TitleBar 750x60 text:#FFFFFF@36B+o#9C7B48
+        CloseButton 34x34 0c33c943f60b4c269d9b0130484f006c
+      Deco_L 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Deco_R 80x48 fd8abba6e4e242dda8ee6a523cb74518
+      Color 1216x503
+        Pattern 1216x503 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+      Line 984x3 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#DACBA9
+      NoEmployeeText 860x300 text:#987F5F@30B
+      ListInfo 920x45 text:#957958@26B
+        Balloon 36x32 3ec049c173514dcea835c256f93198e1 color:#9F8975
+          Icon 8x24 0423dcf92c594efc87944a00028c4ea2 color:#FAF6EF
+      EmployeeScroll 1040x360
+        Model_EmployeeListSlot 150x150 a5b12188ef36466c90ce247212266c5b color:#FFFFFF/0%
+          Select 176x176 ffc51ec23a5c4677b3df8440428f2b25
+          Slot 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2
+          Mask 126x126
+            Portrait 80x80 108fa24d68b9440ebe22eea38134739d
+          TypeIcon 40x40 1e41533d59f54cd8901e0bd31bb26961
+          Disable 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#A5DC3C@26B+o#253908
+            Check 56x40 40cf31c68b9c41c381d86f17e4eaa31d
+            UISprite 36x36 c9b09ef2db2c45a5b0e8c4f8b1827079
+            Text 85x40 text:#6B6150@22B+o#FFFFFF
+          Ban 148x148 a4efcb3e9d2e47a3ac47fda81c167aa2 color:#000000/45% text:#FA5246@24B+o#2C0000
+            UISprite 52x52 f876b201888e40dc8ce5a833a524290f
+      Gradiant 1040x50 715ba2f9541b424586c970bb547e9036 (Sliced) color:#F9EFD7
+      TopBar 1010x64
+        TrialName 300x60 text:#FFFFFF@26B+o#7A664D
+          TrialDescBtn 40x40 07be8d61ffc841ccbeb24f3ef950a801
+            UISprite 80x80
+            TrialDescText 365x110 277783e1ece94a31935d0d92b0f88768 text:#635743@24B+o#FFFFFF
+          TrialIconHolder 62x62 eb17e4fba2844c71b467cb84b465d5d7
+            Icon 62x62 28da28fb1cb745ee8b4976be73de0f68
+          Difficulty 88x45
+        Recommended 300x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#ECD3A7
+          Title 175x50 text:#7A664D@26B
+          ValueText 125x50 text:#FFFFFF@28B+o#7A664D
+          ValueImg 50x40 fe1777ca147b49358e82f465da1f2734
+        TrialProgress 300x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#ECD3A7
+          Grade 170x50 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+          Difficulty 118x40
+      Detail 969x280
+        BG 969x280 fbf4da2cad8e46599e95186e8ca82b54 (Sliced)
+          Pattern_L 213x249 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/40%
+          Color_R 719x249
+          Pattern_R 719x249 88ae10c713384298ab8c0f23d52f149e (Tiled) color:#F3E0B7/25%
+          Bar 14x248
+        Blur 160x160 61aa92b6616d498bbd95b4a2fcb3437f
+        Bg_Title 210x95 82694ea66c2749199275198a0db977bc (Tiled) color:#E1C48E
+          Color 210x81
+        Line 248x4 45a2477048f747c3a3bab71b7984f43d (Tiled) color:#F8DEAB
+        Portrait 80x80
+          UISpriteCardBg 80x80 7e69a6541fbb4cd9ad2fe9306ffef865
+          Name 190x55 eb4c1db0cddb41f5b032a8b5b54c9b24 (Sliced) color:#3CACCC text:#FFFFFF@28B+o#927338
+        LvText 96x50 text:#FFFFFF@28B+o#7A5D1F
+        LvTitle 58x50 text:#FFFFFF@28B+o#594315
+        TypeIcon 44x44 1e41533d59f54cd8901e0bd31bb26961
+        TypeName 106x50 text:#FFFFFF@26B+o#7A5D1F
+        Tag1 56x40 2297ba892dbf4bd09a93d54d045a9066
+          Icon 26x26 1e41533d59f54cd8901e0bd31bb26961
+        Tag2 56x40 2297ba892dbf4bd09a93d54d045a9066
+          Icon 26x26 1e41533d59f54cd8901e0bd31bb26961
+        ResultGuess 370x240
+          Title 320x55 text:#FFFFFF@28B+o#7A664D
+          ResultImg 48x48 ed2a90c3349a49bb9f83ad13d902175d
+          ResultText 280x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#EEDAB6
+        SelectButton 128x128 d0656357750947f68d914321b4994261 text:#8B693E@30B
+          Dim 128x128 d0656357750947f68d914321b4994261 color:#000000/50%
+        GrowthButton 128x128 d0656357750947f68d914321b4994261 text:#8B693E@30B
+        Line 235x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#EFD198
+  TrialRewardPopupDim 2520x1680
+    Dim 2520x1680 cc3457b8e97b3e14f9d5c39ccdd640bf color:#000000/85%
+    BG 590x630 b72a08f5f8204035b120d26f40321e57
+      TitleSub 450x80 text:#644C2F@28B
+      Title 450x80 text:#FFFFFF@38B+o#64492E
+      TrialProgress 368x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#E6D8B6
+        Grade 170x52 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+        Difficulty 167x45
+      RewardPanel 560x310 cd3d902c6e454ca5a0c00126476d1d9f color:#FFFFFF/0%
+        Title 420x70 text:#FFFFFF@28B+o#816449
+        Left 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#D1B077
+        Right 28x44 38d222d1fccd4483afcb6adda6e809a5 color:#D1B077
+        Line 500x4 c8fc5e8349e44f8ca5da447f902d14b0 (Tiled) color:#D7CEB9
+        GoodsBar 500x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#DDCDA7
+          Icon 38x38 1023fe6739ad4f4f9c985a0d6b98c2df (Sliced)
+          Value 260x50 text:#FFFFFF@30B+o#8C7352
+        RewardList 1000x296
+      CloseBtn 34x34 0c33c943f60b4c269d9b0130484f006c
+        UISprite 120x120
+  Frame 1920x1080
+    BG 1920x1080
+      Commentator 180x30 6814c2ab6fdb4451b794abd1b90374c8
+      BG 2320x1480 originRUID:ba61e6b505b440ad8c57d7d13a2ed542
+        L 700x1480
+          1 32x1500 6be780f46bad488cb527ed18bfbe1433
+          2 20x1500 14f168a0b2774a57b4440b5cf6d37766
+          3 564x364 2c88683060c149d1ae04bcbb5dbf2874
+        R 700x1480
+          1 32x1500 6be780f46bad488cb527ed18bfbe1433
+          2 20x1500 14f168a0b2774a57b4440b5cf6d37766
+          3 564x364 2c88683060c149d1ae04bcbb5dbf2874
+      BGFloor 1920x96 2ca4a069da76484d8c3afe0b24fe16a0 (Tiled) color:#FFFFFF/0%
+        FootHold 2320x323 b6df12241e7341099dc7639c056dfbab (Tiled)
+        BGPlatform_3 572x96 ee9e4dfaa1414d2f85609f634599729b
+          Slot 572x984
+            BurgerParent 240x731
+            Worktable 312x132 d4f69d46c2a84d19ae5e605f06b105ea
+            Tray 296x28 47df0ce0fdbe45bfa954c0083915bd64
+            BoxStackArea 189x150
+            Box 200x140 3dfe9321a4a149209702731e81df626d
+              Slider 160x30
+            VoteBoard 166x300 27e1ce89a4d845f689b4b942ddc30f93
+              VoteArea 117x156
+            LogArea 100x30
+            Firework 572x731
+              1 171x171 a02ec87fc0d140bfa635a6d6f2fb8af7
+              2 214x214 cef96be54a0b49168602d2ea59effeef
+              3 300x300 ac896faa9c35448fa9cfd345749b7318
+            Nametag 248x87
+              StoreName 248x37 text:#FFFFFF@28B+o#442E14
+              TargetName 208x32 text:#FFFFFF@24B+o#442E14
+              OnlyStoreName 248x87 text:#FFFFFF@28B+o#442E14
+            Char 300x300 39eb070067be4f75b80470f524399ac7
+            Avatar 233x246
+            Scoreboard 265x178 fbf0b3d01d9c46419f21ca7855d99635
+              RankText 225x50 text:#FFFFFF@42B+o#253F15
+              ScoreText 225x45 text:#D7D7D7@30B+o#253F15
+              DecoStar01 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/80%
+              DecoStar02 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/70%
+              ImgStampWin 157x143 cf9ef5da49ad42c1b36a278c041180c1
+                EffShine01 40x40 e25e3ee2cadc4a90a51a137e829d34a8
+                EffShine03 30x30 378d6dfc83a94b9585d2c7b41a656459
+                EffShine02 40x40 5bf1ad6990264e08b6b74e4ee3c8f415
+                EffShine04 30x31 76af593423704563adf50f0aa9711500
+            Notify 460x60 text:#FFF7B5@34B+o#653302
+            CustomerParent 572x100
+        BGPlatform_1 572x96 ee9e4dfaa1414d2f85609f634599729b
+          Slot 572x984
+            BurgerParent 240x731
+            Worktable 312x132 d4f69d46c2a84d19ae5e605f06b105ea
+            Tray 296x28 47df0ce0fdbe45bfa954c0083915bd64
+            BoxStackArea 189x150
+            Box 200x140 3dfe9321a4a149209702731e81df626d
+              Slider 160x30
+            VoteBoard 166x300 27e1ce89a4d845f689b4b942ddc30f93
+              VoteArea 117x156
+            LogArea 100x30
+            Firework 572x731
+              1 171x171 a02ec87fc0d140bfa635a6d6f2fb8af7
+              2 214x214 cef96be54a0b49168602d2ea59effeef
+              3 300x300 ac896faa9c35448fa9cfd345749b7318
+            Nametag 248x87
+              StoreName 248x37 text:#FFFFFF@28B+o#442E14
+              TargetName 208x32 text:#FFFFFF@24B+o#442E14
+              OnlyStoreName 248x87 text:#FFFFFF@28B+o#442E14
+            Char 300x300 39eb070067be4f75b80470f524399ac7
+            Avatar 233x246
+            Scoreboard 265x178 fbf0b3d01d9c46419f21ca7855d99635
+              RankText 225x50 text:#FFFFFF@42B+o#253F15
+              ScoreText 225x45 text:#D7D7D7@30B+o#253F15
+              DecoStar01 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/80%
+              DecoStar02 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/70%
+              ImgStampWin 157x143 cf9ef5da49ad42c1b36a278c041180c1
+                EffShine01 40x40 e25e3ee2cadc4a90a51a137e829d34a8
+                EffShine03 30x30 378d6dfc83a94b9585d2c7b41a656459
+                EffShine02 40x40 5bf1ad6990264e08b6b74e4ee3c8f415
+                EffShine04 30x31 76af593423704563adf50f0aa9711500
+            Notify 460x60 text:#FFF7B5@34B+o#653302
+            CustomerParent 572x100
+        BGPlatform_2 572x96 ee9e4dfaa1414d2f85609f634599729b
+          Slot 572x984
+            BurgerParent 240x731
+            Worktable 312x132 d4f69d46c2a84d19ae5e605f06b105ea
+            Tray 296x28 47df0ce0fdbe45bfa954c0083915bd64
+            BoxStackArea 189x150
+            Box 200x140 3dfe9321a4a149209702731e81df626d
+              Slider 160x30
+            VoteBoard 166x300 27e1ce89a4d845f689b4b942ddc30f93
+              VoteArea 117x156
+            LogArea 100x30
+            Firework 572x731
+              1 171x171 a02ec87fc0d140bfa635a6d6f2fb8af7
+              2 214x214 cef96be54a0b49168602d2ea59effeef
+              3 300x300 ac896faa9c35448fa9cfd345749b7318
+            Nametag 248x87
+              StoreName 248x37 text:#FFFFFF@28B+o#442E14
+              TargetName 208x32 text:#FFFFFF@24B+o#442E14
+              OnlyStoreName 248x87 text:#FFFFFF@28B+o#442E14
+            Char 300x300 39eb070067be4f75b80470f524399ac7
+            Avatar 233x246
+            Scoreboard 265x178 fbf0b3d01d9c46419f21ca7855d99635
+              RankText 225x50 text:#FFFFFF@42B+o#253F15
+              ScoreText 225x45 text:#D7D7D7@30B+o#253F15
+              DecoStar01 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/80%
+              DecoStar02 21x21 4920e8b7ee7643468a5807753bef00d3 color:#253F15/70%
+              ImgStampWin 157x143 cf9ef5da49ad42c1b36a278c041180c1
+                EffShine01 40x40 e25e3ee2cadc4a90a51a137e829d34a8
+                EffShine03 30x30 378d6dfc83a94b9585d2c7b41a656459
+                EffShine02 40x40 5bf1ad6990264e08b6b74e4ee3c8f415
+                EffShine04 30x31 76af593423704563adf50f0aa9711500
+            Notify 460x60 text:#FFF7B5@34B+o#653302
+            CustomerParent 572x100
+        Customers 1500x80 59de98b38b054dd4a9a0ffe596031a78
+          2 500x80
+          1 500x80
+          3 500x80
+    ScreenUI 1920x1080
+      TrialNameTag 1000x125 5bcf0456849d4fa09cb49b36ba383dd3 (Sliced)
+        ImgDeco01 9x24 a00404c642004034bfea3ec6f5f260de
+        ImgDeco02 9x24 a00404c642004034bfea3ec6f5f260de
+        TrialProgress 280x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#D5CBBD
+          Grade 170x50 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+          Difficulty 118x40
+        Title 500x45 text:#72634B@28B
+        Desc 626x40 text:#8B7B63@26B
+      Gauge 585x52 f8165562674440a185714fe990dd72b8
+        TimeSlider 480x26 774cec812e5c482ba2d44354dbe5037b FillRectImageRUID:b41d201db5e24b18bbdc87e45f074d9f
+          TimeSliderValue 474x20 b41d201db5e24b18bbdc87e45f074d9f (Filled)
+        Title 65x40 text:#72634B@22B
+      CommentNotice 823x105 600274eba9464c5c9936a5c6ac2eaf3b (Sliced) text:#6F5B42@28B+o#FFFFFF
+        NPCMask 71x97
+          NpcImage 71x97 a403c38f6eae4b21a69735af7897605c
+      SkipButton 248x103 87a1aa647f904d089390534698c75d40 text:#FFFFFF@30B+o#B95B0C
+      ImgReady 1144x452 originRUID:cc7c004fe08f487fbe53f542932ea54e
+      ImgStart 1144x452 originRUID:946d6bf93b09446d99e4de1681ec02f3
+    ResultUI 1920x1080
+      Dim_Result 2620x1780
+      BGLine 2520x600 106edc14aef74b7e8caae53ab5d961f5 color:#FFFFFF/30%
+      CharInfo 297x705
+        PlaceHolder 297x705
+        TargetImage 297x705
+          ImgDeco 315x267 3df8b6dcb27447f199d48bbefaf24e42 color:#4F4122
+          Employee 297x651
+            Employee 297x651 d9bb41cd72c94e18834105a4a8749987
+          Recipe 0x651
+            ImgTrayDish 296x28 47df0ce0fdbe45bfa954c0083915bd64
+            RecipeRect 240x626
+        Effect 500x500 01891ebdfaa14647bc3e6e0982ea9bd2
+        Effect_Fail 400x400 2da83fd3537c48e9a541035928e115e7 color:#D94E4E/70%
+        Effect_Success 500x500 a7beeedf5d364c0ca34d74879a26e8bf
+      RewardInfo 2520x230
+        RewardList 2460x150
+        RewardTitle 2520x50 text:#FFF9E8@28B
+      NameInfo 900x110
+        TrialProgress 290x56 05c5cfd5966d41789e5b1ad47b493739 (Sliced) color:#30230B
+          Grade 170x50 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+          Difficulty 100x50
+        TrialTitle 600x45 text:#FFFFFF@30B
+      TrialInfo 600x490
+        ResultText 535x160
+          Deco 188x100 8e009493804344e89ce44bf6a5c6db78
+          Deco2 84x96 13bbb6955c66464e86d77661206ba7b2
+          ResultText_Win 130x85 text:#FFDE43@56B
+          ResultText_Lose 150x83 text:#D2D2D2@56B
+          Anim_Fail 535x160
+            1 20x56 537099065d1b43d19aaeac9992680df1
+            3 20x56 537099065d1b43d19aaeac9992680df1
+            2 20x56 537099065d1b43d19aaeac9992680df1
+          Right 80x8 98dc75a7f1cb442ca41b36ab5601cc43
+          Left 80x8 98dc75a7f1cb442ca41b36ab5601cc43
+        FeedbackText 600x100 text:#FFF1C2@24
+        RankInfo 600x175
+          RankList 600x176
+            UITrialRankSlot1 600x54
+              RankIndex 80x38 d7970b8538e0429184a7d035fb3e3326 color:#F9C645 text:#6B4219@26B
+              StoreName 495x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#F9C645 text:#6B4219@26B
+              TargetName 210x50 text:#B07D13@22B
+            UITrialRankSlot2 600x54
+              RankIndex 80x38 d7970b8538e0429184a7d035fb3e3326 color:#593A03 text:#B07D13@24B
+              StoreName 495x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#593A03 text:#B07D13@24B
+              TargetName 260x54 text:#B07D13@22B
+            UITrialRankSlot3 600x54
+              RankIndex 80x38 d7970b8538e0429184a7d035fb3e3326 color:#593A03 text:#B07D13@24B
+              StoreName 495x50 ad39949a12de4a8584ed8e6eb4cbbe42 (Sliced) color:#593A03 text:#B07D13@24B
+              TargetName 260x54 text:#B07D13@22B
+      GradeUp 1000x604
+        Congrats 512x59 text:#FFEC4E@40B+o#2D1F0C
+          Right 80x8 ce4aa97d6a684462b72b89ae2088b64c
+          Left 80x8 ce4aa97d6a684462b72b89ae2088b64c
+        InfoText 730x65 text:#FFF1C2@24
+        GradeArea 425x70
+          Grade 170x50 10dafcf41c3c48a69a45c670c0601a9d (Sliced) text:#FFFFFF@26B+o#2B5980
+          Deco1 18x18 4920e8b7ee7643468a5807753bef00d3 color:#9EC943
+          Deco2 18x18 4920e8b7ee7643468a5807753bef00d3 color:#9EC943
+        TrialTitle 350x80 text:#FFFFFF@34B
+        Complete 200x200 873307a4ebcd49a7a505287247b6d92d
+        WinEffect 661x861
+          UISprite_1 224x224 a02ec87fc0d140bfa635a6d6f2fb8af7
+          UISprite_1_1 139x141 a429094ad85e44909ca6618e1ceebe56
+          UISprite_1_1_1 139x141 a429094ad85e44909ca6618e1ceebe56
+          UISprite_1_1_1_1 231x467 fa32937c7ba74204a601bd911e358703
+          UISprite_1_1_1_1_1 50x50 b349d21551fd4aa3912268438626119f
+          UISprite_1_1_1_1_1_1 231x467 45cdfc6f9d7f45e79088f493dc9d6d91
+          Particle_S_01 93x94 ffeb39c983fd4ef1bf59212edcc6cb56
+          Particle_S_02 93x94 ffeb39c983fd4ef1bf59212edcc6cb56
+        Deco 188x80 5d61bbc6eed34035b6a2aacd79a49c94
+      EndTrialButton 1320x1680 text:#FFFFFF@26B+o#982207
+        InfoText 1320x80 text:#A0A0A0@26B
