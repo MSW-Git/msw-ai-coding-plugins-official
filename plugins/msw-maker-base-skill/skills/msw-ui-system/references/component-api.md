@@ -195,6 +195,8 @@ Manages position, size, anchors, rotation, and scale. Required on every UI entit
 | `Pivot` | Vector2 | (0.5, 0.5) | Reference for rotation / scale |
 | `UIScale` | Vector3 | (1, 1, 1) | Scale |
 | `UIRotation` | Vector3 | (0, 0, 0) | Euler-angle rotation |
+| `Rotation` | Vector3 | (0, 0, 0) | Euler-angle rotation; in 2D rotate on Z (saved to `.ui` from CoreVersion 26.7) |
+| `ZRotation` | float | 0 | Z-axis component of `Rotation` (saved to `.ui` from CoreVersion 26.7) |
 | `UIMode` | UIModeType | None(0) | Screen(1) or World(2) |
 | `Position` | Vector3 | (0, 0, 0) | Coordinates relative to parent (do not set directly in UI) |
 | `WorldPosition` | Vector3 | -- | World coordinates (read-only) |

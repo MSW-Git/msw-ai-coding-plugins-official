@@ -21,7 +21,7 @@ When a user asks the AI to "place tiles" / "fill tiles" / "draw the floor" / "bu
 2. **Identify the map's `TileMapMode`** with `MapBuilder.read(...).getTileMapMode()`.
 3. **Pick the matching official doc** from the table above and either link it directly or summarize the painter steps relevant to the user's goal (selecting tileset, choosing brush, paint / erase / fill, save).
 4. **Offer pre-painting setup the AI CAN do** — choose / create the tileset (via the dedicated tileset skill if available), set `TileMapMode`, set `TileSetRUID`, prepare the `RectTileMap` / `TileMap` entity skeleton, configure player Body to match the mode.
-5. **After the user reports they finished painting in Maker** → call MCP **`refresh`** so on-disk changes propagate, then verify by reading the tile arrays back (no edit) to confirm dimensions and `tileIndex` validity.
+5. **After the user reports they finished painting in Maker** → call MCP **`maker_refresh_workspace`** so on-disk changes propagate, then verify by reading the tile arrays back (no edit) to confirm dimensions and `tileIndex` validity.
 
 **Exception** — direct `.map` tile-array edits are permitted **only** when:
 - Removing all tiles (`tileIndex: -1`) for a clean reset, **or**
@@ -38,14 +38,14 @@ In every other case, route to the Maker UI.
 | Get tile map mode | `MapBuilder.read(...).getTileMapMode()` |
 | List/get/create tile data sets | `.tileset` files (browse the workspace via MCP or open directly) |
 | Change tile placement | **User paints in the Maker tile editor UI** (see Policy section above and the official docs). AI does not edit the `Tiles` / `tileMap` arrays directly. |
-| Apply changes | After the user finishes painting, run MCP **`refresh`** to apply on-disk changes to the editor |
+| Apply changes | After the user finishes painting, run MCP **`maker_refresh_workspace`** to apply on-disk changes to the editor |
 
 **Summary**
 
 1. **Change `TileMapMode`** → user performs Maker Hierarchy right-click Switch; AI verifies with `MapBuilder.read(...).getTileMapMode()` afterward.
 2. **Tile placement** → guide the user to the Maker tile painter UI using the official docs above. Do **not** write `Tiles` / `tileMap` from the AI.
 3. **Runtime tile manipulation from scripts** → use the engine API (see runtime docs and `msw-search` for prerequisites such as map/entity load).
-4. **After Maker edits** → run MCP **`refresh`** to update the workspace/scene.
+4. **After Maker edits** → run MCP **`maker_refresh_workspace`** to update the workspace/scene.
 
 ---
 
@@ -241,4 +241,4 @@ A map may contain **multiple `RectTileMap`** entities (for layer separation), ea
 - [ ] When calling **runtime `SetTile` / `BoxFill` with the `int32` overload**, is the `tileIndex` **1-based** (or are you using the `string tileName` overload to avoid the shift)?
 - [ ] Are tile-grid coordinates and **world-unit coordinates** kept distinct?
 - [ ] **Was the tile painting handed off to the user (Maker UI + official docs)** instead of being written directly by the AI?
-- [ ] After Maker edits, was **`refresh`** run?
+- [ ] After Maker edits, was **`maker_refresh_workspace`** run?

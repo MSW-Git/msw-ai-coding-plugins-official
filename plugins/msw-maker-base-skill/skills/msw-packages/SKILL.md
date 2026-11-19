@@ -1,6 +1,6 @@
 ---
 name: msw-packages
-description: "MSWPackages catalog — official 1st-party prebuilt packages for common MSW features. Use this skill BEFORE writing a feature from scratch when the user asks for any standard game system (toast/notification, ranking/leaderboard, inventory/equipment, shop/store, world shop, mail, quest/achievement, dialog/NPC conversation, key binding, game event broadcast, player data/save, collection/dex, slash command, scrollview/virtualized list, drop table, global config, GM message, resource/currency, UI components). Always check the catalog first; if a package matches the requested feature, fetch its README and propose integrating instead of building from zero. Keywords: MSWPackages, package, prebuilt, integration."
+description: "MSWPackages catalog — official 1st-party prebuilt packages for common MSW features. Use this skill BEFORE writing a feature from scratch when the user asks for any standard game system (toast/notification, ranking/leaderboard, inventory/equipment, shop/store, world shop, mail, quest/achievement, dialog/NPC conversation, key binding, game event broadcast, player data/save, collection/dex, slash command, scrollview/virtualized list, drop table, global config, GM message, resource/currency, UI components, object pool/entity reuse, custom behaviour tree composite nodes (shuffle/weighted random/switch)). Always check the catalog first; if a package matches the requested feature, fetch its README and propose integrating instead of building from zero. Keywords: MSWPackages, package, prebuilt, integration."
 ---
 
 # MSW Packages — Official Prebuilt Catalog
@@ -76,6 +76,8 @@ When a user request mentions one of these features (Korean or English), look up 
 | GM / system announcement | `gm-message-package` | [link](https://github.com/MSW-Git/MSWPackages/tree/main/gm-message-package) |
 | Game resource (currency, energy, refillable) | `resource-package` | [link](https://github.com/MSW-Git/MSWPackages/tree/main/resource-package) |
 | UI components and prefab models | `ui-component-package` | [link](https://github.com/MSW-Git/MSWPackages/tree/main/ui-component-package) |
+| Object pool / entity reuse (pre-created, spawn/release) | `objectpool-manager-package` | [link](https://github.com/MSW-Git/MSWPackages/tree/main/objectpool-manager-package) |
+| Behaviour tree composite nodes (shuffle, weighted random, switch, success threshold) | `custom-composite-node-package` | [link](https://github.com/MSW-Git/MSWPackages/tree/main/custom-composite-node-package) |
 
 If multiple packages plausibly match (e.g. "ranking" → basic vs advanced), fetch both READMEs and let the user choose based on the comparison.
 
@@ -169,6 +171,7 @@ After the user confirms integration:
 
 1. **Map files into project layout**:
    - `MyDesk/<PackageName>/Core/*.mlua` → `RootDesk/MyDesk/<PackageName>/`
+   - `MyDesk/Core/*.mlua` (no `<PackageName>` folder) → `RootDesk/MyDesk/<README title>/`
    - `MyDesk/<PackageName>/Core/*.ui` → `ui/`
    - `MyDesk/<PackageName>/Core/*.model` → `RootDesk/MyDesk/Models/<Category>/`
    - `MyDesk/Util/*` → `RootDesk/MyDesk/Util/` (reuse if already present)
@@ -179,7 +182,7 @@ After the user confirms integration:
 
 4. **Resolve cross-package dependencies**: some packages depend on others (e.g. ranking may build on player-data). Read the package's README and source headers — install transitive packages first, then this one.
 
-5. **Apply** with the standard MSW workflow: `stop` → `refresh_workspace` → `play`. Verify in build logs and runtime logs.
+5. **Apply** with the standard MSW workflow: `stop` → `maker_refresh_workspace` → `play`. Verify in build logs and runtime logs.
 
 6. **Wire into user's code**: most packages expose a `_<PackageName>` Logic singleton. Call its API from the user's existing scripts (e.g. `_MaplestoryToast:Show(...)`).
 
@@ -215,3 +218,4 @@ Skip integration entirely. Proceed with normal MSW authoring (`msw-scripting`, `
 - `msw-general` — workspace, file paths, MCP tools, coordinate systems.
 - `msw-scripting` — `.mlua` syntax for hooking package APIs into game logic.
 - `msw-search` — sprite/animation/sound RUID lookup when substituting package-bundled resources.
+- `msw-behaviourtree` — `bt-spec.md` rebuild and `.behaviourtree` placement after copying `custom-composite-node-package`.

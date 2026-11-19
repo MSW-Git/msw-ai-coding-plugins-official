@@ -141,7 +141,7 @@ Invariants:
 
 - `EntryKey` is `"material://" + <uuid>` and the `<uuid>` **must match** `ContentProto.Json.id`. If they drift, scripts that lookup by `EntryKey` will silently miss.
 - `ContentType` is always `"x-mod/material"`. `CoreVersion` is the value in `Environment/config`.
-- `Id` / `GameId` / `Content` are populated by Maker; leave them empty on hand-authored files and let `refresh` finalize.
+- `Id` / `GameId` / `Content` are populated by Maker; leave them empty on hand-authored files and let `maker_refresh_workspace` finalize.
 - `ContentProto.Json.shadertype` is the **shader name** (e.g. `"Hologram"`, `"InnerOutline"`, `"Rainbow"`, `"Pixel"`, `"Vignette"`) — **not** the category name.
 - `IsUIMaterial` / `RequiresUIStencilStateChange` are always present; set `IsUIMaterial=true` only if the material is being applied to UI renderer components (`RawImageGUIRendererComponent`, `PolygonGUIRendererComponent`, …).
 
@@ -168,15 +168,15 @@ A different shader has a completely different property set. **Never guess these.
 1. Call `mlua_Document_Retriever` with: `"Designing Materials Shader Type <Category> <ShaderName> properties"`. **Often returns only the category-level shader list, not per-property names.** Confirmed exposed: `Hologram` (Blend / ChangeAmount / HologramColor / LitMode / MaxAlpha / MinAlpha / Rotate / TimeOffset / TimeScale / UnchangeAmount), `Rainbow` (Blend / Rotate / Spread / TimeOffset / TimeScale), `Pixel` (PixelateSize). For other shaders the property list is generally **not** retrievable.
 2. If MCP doesn't give the property names, use the **recommended authoring path** below — let Maker create a sample `.material` with that shader once, then read its file.
 
-> 🔴 **Critical:** writing only `shadertype` plus the §3.1 skeleton is **not enough for a visible effect**. Maker's `refresh` does NOT inject shader-specific property defaults into hand-authored files. With property values missing/zero, most shaders render as Default (or with a 0-strength effect, which looks unchanged). You must either (a) fill in the property values yourself from confirmed lists, or (b) author the material in Maker first and copy its filled defaults into the canonical file.
+> 🔴 **Critical:** writing only `shadertype` plus the §3.1 skeleton is **not enough for a visible effect**. Maker's `maker_refresh_workspace` does NOT inject shader-specific property defaults into hand-authored files. With property values missing/zero, most shaders render as Default (or with a 0-strength effect, which looks unchanged). You must either (a) fill in the property values yourself from confirmed lists, or (b) author the material in Maker first and copy its filled defaults into the canonical file.
 
 ### 3.3 Recommended authoring path
 
 **This is the default path for any shader whose property names are not in the confirmed list in §3.2.** Hand-authoring skeleton-only files for unfamiliar shaders silently fails (no visible effect).
 
 1. Ask the user (or decide via MCP) which **shader category + shader name** matches the goal.
-2. **First-time use of that shader:** ask the user to create one throwaway `.material` with that shader in Maker (Workspace `[+]` → Material → set Shader in Property Editor), then `refresh`. Read the generated file — its property defaults are the source of truth and the only reliable way to get the full property name set.
-3. Save the canonical version under `RootDesk/MyDesk/Materials/<Name>.material` (copy the Maker-generated property block verbatim), tweak property values as needed (still as a plain JSON edit), then `refresh`.
+2. **First-time use of that shader:** ask the user to create one throwaway `.material` with that shader in Maker (Workspace `[+]` → Material → set Shader in Property Editor), then `maker_refresh_workspace`. Read the generated file — its property defaults are the source of truth and the only reliable way to get the full property name set.
+3. Save the canonical version under `RootDesk/MyDesk/Materials/<Name>.material` (copy the Maker-generated property block verbatim), tweak property values as needed (still as a plain JSON edit), then `maker_refresh_workspace`.
 4. **For repeated use of the same shader**, keep a reference template in the project so future AI sessions can copy from a known-good file.
 
 > Folder rule: materials live under `RootDesk/MyDesk/Materials/` (create the folder if missing). Never place them directly under `MyDesk/`, under `Global/`, or alongside `.model` / `.map` files.
@@ -330,7 +330,7 @@ Goal: monster flashes a red outline when hit.
    end, 0.15)
    ```
 
-7. **Verify in play mode** and check `logs` for `LEA-` errors.
+7. **Verify in play mode** and check `maker_console_logs` for `LEA-` errors.
 
 ---
 
@@ -341,12 +341,12 @@ Goal: monster flashes a red outline when hit.
 | Material assigned but no visible effect | Wrong renderer for that shader category (e.g. `Screen` shader on a `SpriteRendererComponent`, or `PolygonSprite` on a sprite) | Re-check the component restriction in §5; re-query `mlua_API_Retriever` for the component to confirm what it supports. |
 | Effect works in editor but disappears at runtime | `_MaterialService:ChangeMaterialProperty` was called from a **server** script | Move the call to a `[client only]` method or RPC the event to clients. |
 | All instances of the monster suddenly change at once | `ChangeMaterialProperty` mutates the **asset**, not the instance | Author separate `.material` files per intended live-value group. |
-| `EntryKey` lookup misses ("material not found") | `EntryKey`'s UUID and `ContentProto.Json.id` are out of sync, or the file was not `refresh`-ed | Make the two UUIDs match; `refresh` Maker. |
+| `EntryKey` lookup misses ("material not found") | `EntryKey`'s UUID and `ContentProto.Json.id` are out of sync, or the file was not `maker_refresh_workspace`-ed | Make the two UUIDs match; `maker_refresh_workspace` Maker. |
 | Polygon/Line shader shows broken seams | Sprite resource lab mode is not `Repeat` | Re-import the sprite with `Repeat` lab mode. |
 | Camera Screen shader does nothing | Material assigned to non-active camera, or to a sprite renderer | Assign to the active `CameraComponent`'s material slot. |
 | Want to switch *effect* not value, but `ChangeMaterialProperty` doesn't help | Shader type is fixed per material | Use `ChangeMaterial(materialId)` to swap the whole material. |
 | `ChangeMaterial(...)` silently does nothing / "material not found" at runtime | Passed `"material://" .. entryId` instead of the bare UUID | Pass the **bare `<EntryId>` UUID** directly — `_EntryService:GetMaterialIdByName(name)` already returns it in that form. The `material://` URL form is only used in static asset fields (the `.material` file's own `EntryKey`, and the `MaterialId` field in `.model` / `.map` JSON), never in `ChangeMaterial` / `ChangeMaterialProperty`. |
-| Material is applied (no error) but renders identically to Default | Hand-authored skeleton has `shadertype` set but the shader-specific properties are missing/zero; `refresh` does not fill them in | Create the same-shader material once in Maker so it generates the full property set, then copy that property block into the canonical `.material` file. |
+| Material is applied (no error) but renders identically to Default | Hand-authored skeleton has `shadertype` set but the shader-specific properties are missing/zero; `maker_refresh_workspace` does not fill them in | Create the same-shader material once in Maker so it generates the full property set, then copy that property block into the canonical `.material` file. |
 
 ---
 
@@ -361,7 +361,7 @@ Goal: monster flashes a red outline when hit.
 - [ ] Runtime swaps go through `renderer:ChangeMaterial(entryId)` where `entryId = _EntryService:GetMaterialIdByName(name)` (bare UUID — **never** wrap it as `"material://" .. entryId`).
 - [ ] Property tweens go through `_MaterialService:ChangeMaterialProperty(entryId, {...})` from `[client only]` code, using the same bare UUID.
 - [ ] Per-instance unique live values? → multiple materials, not one shared.
-- [ ] Called Maker `refresh` after authoring the file and after any model/map mutation.
+- [ ] Called Maker `maker_refresh_workspace` after authoring the file and after any model/map mutation.
 
 ---
 

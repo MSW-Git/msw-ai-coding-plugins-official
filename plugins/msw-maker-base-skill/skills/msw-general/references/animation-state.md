@@ -330,7 +330,7 @@ If a clip looks stuck, log `CurrentStateName` per frame from a server script —
 ### Pre-flight checklist
 
 - [ ] Custom StateType scripts include **both** `@State` and `extends StateType`
-- [ ] After `refresh`, a `.codeblock` with the same name exists next to the custom StateType `.mlua` — if missing, the annotation or `extends` is missing
+- [ ] After `maker_refresh_workspace`, a `.codeblock` with the same name exists next to the custom StateType `.mlua` — if missing, the annotation or `extends` is missing
 - [ ] All state names are **UPPERCASE** at the StateComponent layer (`"ATTACK"` ✓, `"attack"` ✗)
 - [ ] Before calling `ChangeState`, `AddState` was called with that name in `OnBeginPlay` (or registered by a companion component per §1.2)
 - [ ] FSM operation methods use `@ExecSpace("ServerOnly")` for monster/NPC, **`[client only]` for player avatar** (§4 point 5) — never both sides

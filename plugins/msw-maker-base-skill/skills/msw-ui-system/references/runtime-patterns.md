@@ -77,7 +77,7 @@ script UIToast extends Logic
     property Entity toastGroup = "uuid-group"
     property number duration = 2
     property number fadeDuration = 0.3
-    property any timerId = nil
+    property any fadeTween = nil
 
     @ExecSpace("ClientOnly")
     method void OnBeginPlay()
@@ -86,43 +86,29 @@ script UIToast extends Logic
 
     @ExecSpace("ClientOnly")
     method void ShowMessage(string msg)
+        if self.fadeTween ~= nil then self.fadeTween:Stop() end
+
         self.message.Text = msg
         self.toastGroup.Enable = true
 
         local canvasGroup = self.toastGroup.CanvasGroupComponent
         canvasGroup.GroupAlpha = 1
 
-        if self.timerId then
-            _TimerService:ClearTimer(self.timerId)
-        end
-
-        local time = 0
-        local preTime = _UtilLogic.ElapsedSeconds
-
-        self.timerId = _TimerService:SetTimerRepeat(function()
-            local delta = _UtilLogic.ElapsedSeconds - preTime
-            time = time + delta
-            preTime = _UtilLogic.ElapsedSeconds
-
-            if time >= self.duration + self.fadeDuration then
-                canvasGroup.GroupAlpha = 0
-                self.toastGroup.Enable = false
-                _TimerService:ClearTimer(self.timerId)
-                self.timerId = nil
-            elseif time >= self.duration then
-                canvasGroup.GroupAlpha = 1 - (time - self.duration) / self.fadeDuration
-            end
-        end, 1/60)
+        self.fadeTween = _TweenLogic:MakeTween(1, 0, self.fadeDuration, EaseType.QuadEaseIn,
+            function(a) canvasGroup.GroupAlpha = a end)
+        self.fadeTween.Delay = self.duration
+        self.fadeTween:SetOnEndCallback(function() self.toastGroup.Enable = false end)
+        self.fadeTween:Play()
     end
 
     @ExecSpace("ClientOnly")
     method void OnEndPlay()
-        if self.timerId then
-            _TimerService:ClearTimer(self.timerId)
-        end
+        if self.fadeTween ~= nil then self.fadeTween:Stop() end
     end
 end
 ```
+
+`Delay` holds the toast at full opacity before the fade runs, so the hold and the fade are one tween. Re-showing while a toast is still on screen must `Stop()` the old tween first — see [`ui-motion.md`](ui-motion.md) §3.
 
 ---
 
@@ -580,5 +566,5 @@ Hard rules that show up as "UI doesn't respond" or "Server can't see UI". Memori
 
 ### Animation timing
 
-11. **Use a 1/60 repeating timer** for per-frame UI animation (`_TimerService:SetTimerRepeat(fn, 1/60)`). MSW doesn't expose a global UI Update hook.
+11. **Animate with `_TweenLogic`, not a hand-rolled loop** — see [`ui-motion.md`](ui-motion.md) for the API, easing, which properties are safe on UI, and mandatory Tweener cleanup. Fall back to a 1/60 repeating timer (`_TimerService:SetTimerRepeat(fn, 1/60)`) only for motion no tween expresses — continuous physics-like updates, or per-frame reads of external state. MSW doesn't expose a global UI Update hook.
 12. **Measure delta with `_UtilLogic.ElapsedSeconds`** — diff between frames, never assume the timer interval is exact.

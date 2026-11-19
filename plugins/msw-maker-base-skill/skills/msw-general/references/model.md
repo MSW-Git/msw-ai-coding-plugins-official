@@ -163,9 +163,9 @@ Custom `script.XXX` components in `.model` depend on the script type already bei
 Required order:
 
 1. Write the script `.mlua`.
-2. Maker `refresh`.
+2. Maker `maker_refresh_workspace`.
 3. Build or patch the `.model` through `ModelBuilder`.
-4. Maker `refresh` again.
+4. Maker `maker_refresh_workspace` again.
 
 If this order is inconvenient, keep the `.model` native-only and attach the script at spawn time with `entity:AddComponent("ScriptName")`.
 
@@ -178,7 +178,7 @@ If this order is inconvenient, keep the `.model` native-only and attach the scri
 - [ ] Picked the Body component matching `TileMapMode`.
 - [ ] Set a real `SpriteRUID` when using `SpriteRendererComponent`.
 - [ ] Used explicit `typeKey` for new or changed values.
-- [ ] Called Maker `refresh` after write.
+- [ ] Called Maker `maker_refresh_workspace` after write.
 - [ ] Checked logs after refresh/play.
 
 ## 8. Related Docs
@@ -186,7 +186,7 @@ If this order is inconvenient, keep the `.model` native-only and attach the scri
 | Doc | Purpose |
 |---|---|
 | [builder-protocol-model.md §2](builder-protocol-model.md) | **`.model` call protocol — ModelBuilder API, chaining rules, `typeKey`, Child Entity, Event Link, validation** (with the [builder-protocol.md](builder-protocol.md) core — both in context whenever a turn touches `.model`) |
-| [builder-protocol.md §4](builder-protocol.md) | `.model` → `.map` cross-flow (`ModelBuilder.write` → `MapBuilder.placeModel` → `refresh`) |
+| [builder-protocol.md §4](builder-protocol.md) | `.model` → `.map` cross-flow (`ModelBuilder.write` → `MapBuilder.placeModel` → `maker_refresh_workspace`) |
 | [`entity.md`](entity.md) | Placing the authored model in a map, spawn, runtime verification domain |
 | [`monster.md`](monster.md) | Monster-specific canonical defaults and pitfalls |
 | [platform.md](platform.md) (core) | File location rules, folder metadata, TileMapMode ↔ Body, ID generation |

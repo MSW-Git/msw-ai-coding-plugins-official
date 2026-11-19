@@ -9,7 +9,7 @@
 
 MSW supports **both paradigms natively**. Use BT for multi-layer decision making and reusable action modules.
 
-> **Code-based BT vs data-based BT — pick one per `AIComponent`.** This reference covers the **code-based** path: `@BTNode` mlua scripts assembled at runtime via `AIComponent:CreateNode` / `SetRootNode`. The data-based path is a separate `.behaviourtree` JSON file edited in the Maker editor with `definitionId` wiring — that pipeline has its own authoring rules and lives in the **`msw-behaviourtree`** sibling skill. The two pipelines do **not** mix on the same `AIComponent`; if a project already has `.behaviourtree` assets, use `msw-behaviourtree` instead of this reference.
+> **Author new trees as `.behaviourtree` files — one path per `AIComponent`.** The data-based path (a `.behaviourtree` file with `definitionId` wiring, assigned through `AIComponent.BehaviourTreeId`) is the default and lives in the **`msw-behaviourtree`** sibling skill; its node scripts are `@BTNode` + `extends ActionNode` / `DecoratorNode` / `CompositeNode`. The **code-based** path in this reference — runtime assembly via `CreateNode` / `CreateLeafNode` / `SetRootNode`, `AttachChild*` / `DetachChild*`, the native composite constructors, `RandomSelectorNode`, and constructor calls on `@BTNode` script types — is **deprecated**: use it only to maintain a tree that is already assembled in script. The two paths do **not** mix on the same `AIComponent`.
 >
 > The mix ban is enforced at runtime: calling `SetRootNode` on an `AIComponent` that has a `BehaviourTreeEntry` assigned **discards the entry tree and its Blackboard** — `BlackBoard` reads `nil` afterward and `*Key` node properties no longer resolve. If the tree relies on the editor Blackboard, never swap its root from script.
 
@@ -19,10 +19,12 @@ MSW supports **both paradigms natively**. Use BT for multi-layer decision making
 
 ```
 @Component AIComponent
-  property boolean IsLegacy = false                 -- fixed false (legacy deprecated)
+  property boolean IsLegacy = false                 -- write false in the model (unset runs legacy mode)
   property boolean LogEnabled = false               -- BT execution log in Maker mode
   property UpdateAuthorityType UpdateAuthority = UpdateAuthorityType.Server
+  property string BehaviourTreeId                   -- Id of the `.behaviourtree` entry this component runs (`behaviourtree://<uuid>`); authored in the model, read-only from script
 
+  -- deprecated (code-based path)
   method BTNode CreateLeafNode(string nodeName, func(float) -> BehaviourTreeStatus onBehave)
   method BTNode CreateNode(string nodeType, string nodeName = nil, func(float) -> BehaviourTreeStatus = nil)
   method void   SetRootNode(BTNode node)
@@ -38,7 +40,7 @@ MSW supports **both paradigms natively**. Use BT for multi-layer decision making
 
 ---
 
-## 2. Composite Nodes (4 native + custom)
+## 2. Composite Nodes
 
 | Node | Child flow | Termination |
 |------|-----------|-------------|
@@ -47,7 +49,9 @@ MSW supports **both paradigms natively**. Use BT for multi-layer decision making
 | `RandomSelectorNode(name)` | **Picks one child by weighted probability** and runs it | Returns the chosen child's result as-is. While Running, sticks to the same child |
 | `ParallelNode(name)` | All children run in parallel | Success when all succeed; Failure if any fails |
 
-### Common methods (all Composites, 1-indexed)
+A `.behaviourtree` offers `SequenceNode` / `SelectorNode` / `ParallelNode` plus custom composites; a weighted random pick there is a custom composite.
+
+### Common methods (all Composites, 1-indexed) — deprecated
 
 ```
 method void    AttachChild(BTNode node)
@@ -58,7 +62,7 @@ method void    DetachChildAt(int32 index)
 
 > ⚠ **Attach/Detach work only on composites created from script** (`CreateNode` or a native composite constructor). Calling them on a composite loaded from a `.behaviourtree` (assigned via `AIComponent.BehaviourTreeId`) logs an InvalidOperation error and does nothing.
 
-### Extra methods on `RandomSelectorNode`
+### Extra methods on `RandomSelectorNode` — deprecated
 
 ```
 method void    AttachChild(BTNode node, number probability)        -- 0~1
@@ -67,7 +71,7 @@ method boolean SetChildNodeProbability(BTNode node, number probability)
 
 ### Custom Composite — `@BTNode ... extends CompositeNode`
 
-When the four native child-flow policies don't fit (round-robin, priority re-scan, weighted retry, ...), extend `CompositeNode` instead of `BTNode` and drive the children yourself from `OnBehave`:
+When the native child-flow policies don't fit (round-robin, priority re-scan, weighted retry, ...), extend `CompositeNode` instead of `BTNode` and drive the children yourself from `OnBehave`:
 
 - `ChildCount` (read-only) — number of attached children
 - `ChildBehave(index, delta)` — runs child `index` (**1-based**) and returns its `BehaviourTreeStatus`; out-of-range index returns `Failure`
@@ -88,7 +92,7 @@ script RoundRobin extends CompositeNode
 end
 ```
 
-Create it with the same call as Action nodes — `AIComponent:CreateNode("RoundRobin", "cycle")` (the engine picks the node category from the `extends` base) — then wire children with `AttachChild` as usual.
+In a `.behaviourtree` it is a `btNodeType: 1` node whose children come from `childNodes`. In a code-built tree, create it with the same call as Action nodes — `AIComponent:CreateNode("RoundRobin", "cycle")` (the engine picks the node category from the `extends` base) — then wire children with `AttachChild`.
 
 ---
 
@@ -96,7 +100,7 @@ Create it with the same call as Action nodes — `AIComponent:CreateNode("RoundR
 
 > **The source annotation and the Maker UI menu name differ.** The only annotation written in the mlua source is `@BTNode`. Confusing it with the "Create BTNodeType" menu name in the Maker UI and writing `@BTNodeType` **passes the build (info-level) but does not generate the `.codeblock`** → `CreateNode("ActionWait", ...)` returns `nil` → `[LEA-2007] AttemptToIndex`.
 >
-> **`extends BTNode` is required.** Inheritance is what activates the `Behave`/`ParentAI`/`Name` members.
+> **The `extends` base selects the path.** A node referenced from a `.behaviourtree` extends `ActionNode` (leaf), `DecoratorNode`, or `CompositeNode`; a node used only by a code-built tree extends `BTNode`. A `.behaviourtree` referencing an `extends BTNode` script fails to load as a whole (`[LEA-3015] CannotLoad`). Inheritance is what activates the `Behave`/`ParentAI`/`Name` members.
 
 ### Lifecycle
 
@@ -105,7 +109,7 @@ Create it with the same call as Action nodes — `AIComponent:CreateNode("RoundR
 | `OnInit()` | Right before `OnBehave()`. **Not called if the previous frame returned Running** (state-preserving semantics) |
 | `OnBehave(number delta)` | Every frame the node executes. Must return a `BehaviourTreeStatus` |
 
-### Two ways to create
+### Two ways to create (code-based path)
 
 **(a) `CreateNode` — based on a `@BTNode` script (reusable)**
 
@@ -159,9 +163,9 @@ end)
 
 ---
 
-## 4. Decorator Node — custom (not native)
+## 4. Decorator Node
 
-Conditional child execution, result inversion, repetition, etc. Standard pattern:
+Conditional child execution, result inversion, repetition, etc. In a `.behaviourtree`, the script extends `DecoratorNode` and runs its wrapped child with `self:ChildBehave(delta)`. Code-built pattern:
 
 ```lua
 @BTNode
@@ -180,7 +184,7 @@ end
 
 ---
 
-## 5. Memory (Blackboard) — custom (not native)
+## 5. Memory — code-built trees
 
 A shared state channel between Action Nodes. **`BTNode.ParentAI`** references the AIComponent that owns this tree → the access path to memory.
 
@@ -216,7 +220,7 @@ end
 
 ---
 
-## 6. Tree assembly — standard pattern
+## 6. Tree assembly — code-based pattern (deprecated)
 
 ```lua
 @ExecSpace("ServerOnly")
@@ -261,7 +265,7 @@ Each frame traverses from the root left→right, top→bottom. Children that ret
 
 ## 8. Native BT components — `AIChaseComponent` / `AIWanderComponent`
 
-Usable immediately without writing your own BT. Both have `CreateLeafNode`/`CreateNode`/`SetRootNode` → **native chase/wander can be mixed with custom BT nodes**.
+Usable immediately without writing your own BT.
 
 | Component | Behavior | Extra API |
 |-----------|----------|-----------|
@@ -298,8 +302,9 @@ In `HandleHitEvent`, call `AddThreat(event.AttackerEntity, event.TotalDamage)` �
 
 ## 10. Checklist
 
-- [ ] **Custom Action/Decorator scripts have both `@BTNode` and `extends BTNode`; custom Composites use `@BTNode` + `extends CompositeNode`** (`@BTNodeType` builds but does not generate the `.codeblock`)
-- [ ] After `refresh`, a `.codeblock` with the same name exists next to the custom BTNode `.mlua` — if missing, the annotation or extends is missing
+- [ ] New trees are `.behaviourtree` files (`msw-behaviourtree` skill); the `CreateNode` items below apply to existing code-built trees
+- [ ] **Custom node scripts carry `@BTNode`; `.behaviourtree` nodes extend `ActionNode` / `DecoratorNode` / `CompositeNode`, code-built Action/Decorator nodes extend `BTNode`** (`@BTNodeType` builds but does not generate the `.codeblock`)
+- [ ] After `maker_refresh_workspace`, a `.codeblock` with the same name exists next to the custom BTNode `.mlua` — if missing, the annotation or extends is missing
 - [ ] If `CreateNode("XXX", ...)` returns `nil`, `[LEA-2007] AttemptToIndex` follows → check annotation and extends
 - [ ] `AIComponent.IsLegacy = false` (legacy deprecated)
 - [ ] Keep `UpdateAuthority = Server` (same space as a custom chase script)

@@ -44,7 +44,7 @@
 - A dynamic entity missing a Body entirely
 - The map's `TileMapMode` was changed but existing models/entities weren't updated to match
 
-**Fix**: Add/swap the correct Body from the table above in the `.model` or the entity's `@components` → `refresh`. **Do not work around this by removing `MovementComponent`** — collision/events will all break.
+**Fix**: Add/swap the correct Body from the table above in the `.model` or the entity's `@components` → `maker_refresh_workspace`. **Do not work around this by removing `MovementComponent`** — collision/events will all break.
 
 **Prevention**: Always read `MapComponent.TileMapMode` as a number at the start of work, and verify that every dynamic entity's Body matches ([`platform.md` §4 Check protocol](platform.md)).
 
@@ -78,7 +78,7 @@
 | Should be on top but rendered behind | SortingLayer / OrderInLayer / Z priority not set | Check the 3-level priority in [`platform.md` §6](platform.md) |
 | All existing models break after mode switch | Body and event handlers not updated after TileMapMode change | [`platform.md` §4 Cautions When Switching Map Type](platform.md) |
 | New folder not recognized in Maker | Folder meta Refresh not run | Run Maker Refresh. If no Refresh tool is available, just leave the folder ([`platform.md` §2](platform.md)) |
-| `script ... extends ...` not registered | `.codeblock` not created | Run `refresh` ([`platform.md` §3](platform.md)) |
+| `script ... extends ...` not registered | `.codeblock` not created | Run `maker_refresh_workspace` ([`platform.md` §3](platform.md)) |
 
 ---
 

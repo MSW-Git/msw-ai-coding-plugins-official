@@ -9,7 +9,7 @@ Authoring guide for **.map / .model / .ui / .dataset** files and tile map assets
 > - `.ui` anchor / pivot coordinate errors, missing RUID, parent-child `path` mismatch
 > - Dataset row / column schema violations
 >
-> Use the dedicated builder or skill for each file type before editing. **The call protocol for `.map` / `.model` / `.ui` is one entry point — [`builder-protocol.md`](builder-protocol.md) (core) plus the per-builder files ([`builder-protocol-map.md`](builder-protocol-map.md) / [`builder-protocol-model.md`](builder-protocol-model.md) / [`builder-protocol-ui.md`](builder-protocol-ui.md)). The core + the matching per-builder file must be in context before any mutation (read only if missing).** `.model` files are builder-only. `.map` files are builder-first: see builder-protocol-map.md §1 (read alongside [`entity.md`](entity.md) for domain context) and use the builder for covered operations; direct `.map` JSON edits are reserved for the explicit coverage gaps in §1.6 and must be minimal scope plus verified by `refresh` / logs.
+> Use the dedicated builder or skill for each file type before editing. **The call protocol for `.map` / `.model` / `.ui` is one entry point — [`builder-protocol.md`](builder-protocol.md) (core) plus the per-builder files ([`builder-protocol-map.md`](builder-protocol-map.md) / [`builder-protocol-model.md`](builder-protocol-model.md) / [`builder-protocol-ui.md`](builder-protocol-ui.md)). The core + the matching per-builder file must be in context before any mutation (read only if missing).** `.model` files are builder-only. `.map` files are builder-first: see builder-protocol-map.md §1 (read alongside [`entity.md`](entity.md) for domain context) and use the builder for covered operations; direct `.map` JSON edits are reserved for the explicit coverage gaps in §1.6 and must be minimal scope plus verified by `maker_refresh_workspace` / logs.
 >
 > **Entity reference binding (Entity/EntityRef property) is injected by the AI as a UUID string directly** — do not ask the user to drag in the Maker editor. Detail: `msw-scripting §7 Entity/Component reference properties`.
 
@@ -45,9 +45,9 @@ Authoring guide for **.map / .model / .ui / .dataset** files and tile map assets
 
 1. **Prefer the dedicated skill or builder** — `.model` uses `ModelBuilder`; `.map` uses `MapBuilder`; `.ui` uses `msw-ui-system`; other files use their relevant reference/tooling.
 2. **Inject entity references as UUID strings directly** — do not ask the user to drag in Maker.
-3. **MCP `refresh` after every file change** (if in play mode, `stop` first).
+3. **MCP `maker_refresh_workspace` after every file change** (if in play mode, `stop` first).
 4. **Never modify `Environment/*.d.mlua`** — API definitions are read-only.
-5. **Never create or modify `.codeblock` by hand** — Maker `refresh` generates it from `.mlua`.
+5. **Never create or modify `.codeblock` by hand** — Maker `maker_refresh_workspace` generates it from `.mlua`.
 6. **Structured files prefer builders** — `.model` / `.ui` are builder-only. `.map` uses `MapBuilder` first; direct JSON edits are allowed only for unsupported gaps, with minimal scope and verification.
 7. **Do not touch `Global/common.gamelogic` and the `common` entity** — these are special engine-managed entries. Do not edit the file's JSON directly, and do not attach components to the `common` entity (including via Maker `AddComponent` or runtime `AddComponent`). For global logic, **author a regular Logic script under `RootDesk/MyDesk/`** and wire up an entry point.
 
@@ -83,7 +83,7 @@ Authoring guide for **.map / .model / .ui / .dataset** files and tile map assets
 
 ### Validation Loop
 
-- **`refresh` → `logs`** → if needed, **`play` → `logs` → `stop`**.
+- **`maker_refresh_workspace` → `maker_build_logs`** → if needed, **`play` → `maker_console_logs` → `stop`**.
 - If a step fails, **stop later steps** — fix the cause and retry.
 
 ---

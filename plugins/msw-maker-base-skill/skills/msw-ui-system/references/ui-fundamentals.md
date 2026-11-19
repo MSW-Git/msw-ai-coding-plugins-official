@@ -199,7 +199,7 @@ If you move the Panel, the child Button moves with it. For child placement, just
 
 The builder handles this mapping automatically. Only refer to this when manually editing JSON.
 
-> ⚠️ **`AlignmentOption` overrides `AnchorsMin/Max` on load.** When a UI entity is deserialized, the engine recomputes `AnchorsMin/Max` from `AlignmentOption` (by design — `AlignmentOption` is the source of truth). Writing `AnchorsMin/Max` in `.ui` JSON or via patches without a matching `AlignmentOption` is silently undone on the next load / `refresh`. Symptom: anchors revert to the preset that matches the current `AlignmentOption`. Fix: change `AlignmentOption` to the preset whose anchors you want, or set the anchors at runtime *after* `OnBeginPlay` (note: runtime anchor writes are also overwritten the next time the entity is reloaded).
+> ⚠️ **`AlignmentOption` overrides `AnchorsMin/Max` on load.** When a UI entity is deserialized, the engine recomputes `AnchorsMin/Max` from `AlignmentOption` (by design — `AlignmentOption` is the source of truth). Writing `AnchorsMin/Max` in `.ui` JSON or via patches without a matching `AlignmentOption` is silently undone on the next load / `maker_refresh_workspace`. Symptom: anchors revert to the preset that matches the current `AlignmentOption`. Fix: change `AlignmentOption` to the preset whose anchors you want, or set the anchors at runtime *after* `OnBeginPlay` (note: runtime anchor writes are also overwritten the next time the entity is reloaded).
 
 ---
 

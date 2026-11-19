@@ -107,7 +107,7 @@ World (top)
 
 ## refresh Call Rule
 
-After completing any operation that **changes the workspace** — creating, modifying, or deleting a file — **always call the MCP `refresh` tool**. This rule applies universally.
+After completing any operation that **changes the workspace** — creating, modifying, or deleting a file — **always call the MCP `maker_refresh_workspace` tool**. This rule applies universally.
 
 ---
 
@@ -122,7 +122,7 @@ If a step in a multi-step operation fails, **do not proceed to later steps.** Fi
 ### Refresh workspace after editing
 ```
 1. Create / modify a file (e.g., .mlua, .model)
-2. Call MCP refresh
+2. Call `maker_refresh_workspace`
 3. Verify the change
 ```
 

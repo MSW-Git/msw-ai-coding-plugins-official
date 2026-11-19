@@ -1,6 +1,6 @@
 ---
 name: msw-ui-system
-description: "MSW `.ui` single entry point — design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list/ranking/leaderboard/quest list/friend list/mailbox), full API tables for ButtonComponent/TextGUIRendererComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/TextOverflowMode/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI-client-only caveats (nil on server, no RPC), `.ui`↔`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (empty/panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch, auto-inject .mlua UUID bindings after write."
+description: "MSW `.ui` single entry point — design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list/ranking/leaderboard/quest list/friend list/mailbox), full API tables for ButtonComponent/TextGUIRendererComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/TextOverflowMode/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI tween animation (easing, enter/exit, press feedback, pulse), UI-client-only caveats (nil on server, no RPC), `.ui`↔`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (empty/panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch."
 ---
 
 # msw-ui-system
@@ -34,6 +34,7 @@ Branch to sub-references based on request keywords.
 | Runtime mlua patterns (popup open/close, toast fade, HP bar, GridView, drag, tab, cooldown), Runtime UI Caveats (client-only, server-side nil, etc.) | [`references/runtime-patterns.md`](references/runtime-patterns.md) |
 | **`.ui` builder invocation methods** (UIBuilder API, anchor presets, write auto-lint, component add/patch/remove) | [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 UIBuilder (unified entry point — load with the [`builder-protocol.md`](../msw-general/references/builder-protocol.md) core; `.map` MapBuilder / `.model` ModelBuilder live in sibling per-builder files) |
 | "sound", "sfx", "click sound", "hover sound", "button audio", "PlaySound" | [`references/ui-sound.md`](references/ui-sound.md) |
+| "animation", "tween", "easing", "popup enter/exit", "slide in", "fade in", "button press feedback", "pulse", "juice", "make it feel better" | [`references/ui-motion.md`](references/ui-motion.md) |
 
 ---
 
@@ -57,8 +58,8 @@ Branch to sub-references based on request keywords.
 ### NEVER
 1. **Do not directly edit `.ui` JSON** — `.ui` creation/modification **must** go through `scripts/msw_ui_builder.cjs`. Manual editing breaks UUID·ValueType·`@components` consistency and causes silent drops.
 2. **Read existing `.ui` files through the builder too** — Query via `UIBuilder.read(filepath)` / `.find()` / `.listEntities()`. Do not directly grep/parse raw JSON.
-   - `.ui` direct `Read` and shell commands such as `cat` / `type` / `Get-Content` / `rg` / `grep` / `sed` / `awk` / `cp` / `mv` are blocked by the registered guard. Use `UIBuilder.read/load/snapshot` for reads and `b.write()` for writes. Deleting an entire `.ui` file has no builder API — delete it with `node -e "require('fs').unlinkSync('ui/<File>.ui')"` then `refresh` (shell `rm`/`cat` are guard-blocked; a `node -e` builder call is not).
-3. Set `Position` directly — Use only `anchoredPosition` (Position is engine-managed)
+   - `.ui` direct `Read` and shell commands such as `cat` / `type` / `Get-Content` / `rg` / `grep` / `sed` / `awk` / `cp` / `mv` are blocked by the registered guard. Use `UIBuilder.read/load/snapshot` for reads and `b.write()` for writes. Deleting an entire `.ui` file has no builder API — delete it with `node -e "require('fs').unlinkSync('ui/<File>.ui')"` then `maker_refresh_workspace` (shell `rm`/`cat` are guard-blocked; a `node -e` builder call is not).
+3. Set `Position` directly — Use only `anchoredPosition` (Position is engine-managed). This includes the tween helpers that write `Position` for you: `_TweenLogic:MoveTo` / `MoveOffset` / `RotateAroundOffset` are world-entity APIs ([`references/ui-motion.md`](references/ui-motion.md) §2)
 4. Express size via OffsetMin/Max on fixed anchors (AnchorsMin == AnchorsMax) while also using `anchoredPosition` — Do not mix the two modes
 5. Builder creates new UUIDs but `.mlua` property defaults are not updated — Binding breaks
 
@@ -84,6 +85,7 @@ Branch to sub-references based on request keywords.
 - [`references/layout-recipes.md`](references/layout-recipes.md) — Layout template collection
 - [`references/runtime-patterns.md`](references/runtime-patterns.md) — `.mlua` runtime patterns (popup/toast/HP/grid/drag…) + Runtime UI Caveats
 - [`references/ui-sound.md`](references/ui-sound.md) — UI sound integration (`_SoundService:PlaySound`, click/hover hook, default UI SFX RUIDs)
+- [`references/ui-motion.md`](references/ui-motion.md) — `_TweenLogic` tween API, EaseType selection, which properties are safe to animate on UI, Tweener cleanup, popup enter/exit + press feedback + pulse recipes
 - [`../msw-general/references/builder-protocol-ui.md`](../msw-general/references/builder-protocol-ui.md) §3 — **`.ui` CJS builder call protocol (unified entry point — load with the [`builder-protocol.md`](../msw-general/references/builder-protocol.md) core)** — `.map` MapBuilder / `.model` ModelBuilder live in sibling per-builder files. panel / text / sprite / button / slider / scroll / script / group / mask / grid / avatar / touchReceive / skeleton / areaParticle / basicParticle, component CRUD, anchor presets, write auto-lint, and `.mlua` property UUID auto-binding all live in §3 + §3.6.
 - [`references/templates/templates.md`](references/templates/templates.md) — Pre-built style bundle index (`style-N-*` `.ui`, [`ruid-map.md`](references/templates/style-1-black/ruid-map.md), `Popupbutton.mlua`)
 

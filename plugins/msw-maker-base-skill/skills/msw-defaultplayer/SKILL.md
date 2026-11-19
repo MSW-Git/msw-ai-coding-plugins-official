@@ -326,7 +326,7 @@ b.component("script.MyCustomComponent")
   .write("./Global/DefaultPlayer.model");
 ```
 
-> Custom scripts (.mlua) must be created under `./RootDesk/MyDesk/`. Write the script first, Maker `refresh`, then add `"script.<ScriptName>"` with the builder.
+> Custom scripts (.mlua) must be created under `./RootDesk/MyDesk/`. Write the script first, Maker `maker_refresh_workspace`, then add `"script.<ScriptName>"` with the builder.
 
 **Adding a non-inherited native component**:
 ```javascript

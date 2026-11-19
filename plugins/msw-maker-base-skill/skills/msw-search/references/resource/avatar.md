@@ -172,7 +172,7 @@ const item = await getResource("ITEM_RUID");
 ### Costume item search → application
 1. `searchAvatarItems("...", { topK: N, categoryFilter: [slot] })` → obtain RUID
 2. Use the slot mapping table in the `msw-avatar` skill to assign the RUID to the correct `Custom*Equip` property
-3. Edit `./Global/DefaultPlayer.model` or the relevant `.map` file → `refresh`
+3. Edit `./Global/DefaultPlayer.model` or the relevant `.map` file → `maker_refresh_workspace`
 
 ### Inspecting avatar item details
 1. `searchAvatarItems("...")` → search for a costume item and get its RUID

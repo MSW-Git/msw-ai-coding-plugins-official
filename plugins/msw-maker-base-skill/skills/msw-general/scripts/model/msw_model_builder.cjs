@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const makerJson = require("../lib/maker_json.cjs");
 
 const MSCORLIB = "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
 const MOD_CORE_VERSION = process.env.MSW_MODEL_BUILDER_MOD_CORE_VERSION || resolveCoreVersion();
@@ -158,6 +159,16 @@ function modelIdFromName(name) {
     .trim()
     .replace(/[^0-9A-Za-z_]/g, "")
     .toLowerCase();
+}
+
+// A `Values[]` entry's number is typed by its sibling `ValueType.type`.
+function valueNumberKind(key, owner) {
+  if (key !== "Value" || !owner.ValueType || typeof owner.ValueType.type !== "string") return undefined;
+  const clrType = owner.ValueType.type;
+  if (/^System\.Single\b/.test(clrType)) return "float";
+  if (/^System\.Double\b/.test(clrType)) return "double";
+  if (/^System\.(?:U?Int(?:16|32|64)|S?Byte)\b/.test(clrType)) return "int";
+  return undefined;
 }
 
 function readJsonFile(filepath, label) {
@@ -942,7 +953,8 @@ class ModelBuilder {
       restampModCoreVersion(data.ContentProto.Json, targetVersion, MOD_CORE_VERSION);
     }
     fs.mkdirSync(path.dirname(filepath), { recursive: true });
-    fs.writeFileSync(filepath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+    const classify = makerJson.classifier(workspaceRoot(path.dirname(filepath)), valueNumberKind);
+    fs.writeFileSync(filepath, makerJson.stringify(data, classify), "utf8");
     console.log(`Written model '${this.name}' (${this.components.length} components, ${this.values.length} values, ${this.children.length} children) to ${filepath}`);
     console.log(`  Model ID: ${this.model_id} (use this in SpawnByModelId)`);
     return this;

@@ -34,8 +34,8 @@ map.component("Monster01", "MOD.Core.TransformComponent");
 1. GET     MapBuilder.read("./map/{map}.map")
 2. EDIT    builder API only (placeModel / sprite / patch / patchComponent / ...)
 3. SET     map.write("./map/{map}.map")
-4. SYNC    Maker MCP `refresh`
-5. (opt.)  `play` → verify via `logs`
+4. SYNC    Maker MCP `maker_refresh_workspace`
+5. (opt.)  `play` → verify via `maker_console_logs`
 ```
 
 `.map` `Entities` arrays are very large. Direct raw JSON editing is reserved for the §1.6 coverage gaps and must stay minimal — everyday work goes through the builder snapshot/patch API.
@@ -157,11 +157,11 @@ Guide the user to switch the mode in Maker:
 1. Open the Maker editor's **Hierarchy** window.
 2. **Right-click the target map entity**.
 3. From the context menu, choose the matching **"Switch ..."** option (Switch TileMap / RectTileMap / SideViewRectTileMap).
-4. After the user reports the switch is complete, call MCP **`refresh`**, then re-read `getTileMapMode()` to verify and re-check every dynamic entity's Body component against the new mode.
+4. After the user reports the switch is complete, call MCP **`maker_refresh_workspace`**, then re-read `getTileMapMode()` to verify and re-check every dynamic entity's Body component against the new mode.
 
 ### §1.6 Coverage gaps (operations the builder intentionally does not cover)
 
-Use Maker UI first, or carefully scoped direct `.map` edits, when a task requires one of these — in either case, verify with `refresh` + logs.
+Use Maker UI first, or carefully scoped direct `.map` edits, when a task requires one of these — in either case, verify with `maker_refresh_workspace` + logs.
 
 - New map creation from an arbitrary blank schema
 - `TileMapMode` switching
@@ -184,8 +184,8 @@ This applies whether the entity was placed via `modelId` or as inline `@componen
 
 Symptoms when the rule is ignored:
 
-- A `Position` written into `.map` JSON reverts to `(0, 0, z)` after Maker `refresh`.
-- Runtime `TransformComponent.Position = ...` writes have no observable effect; `logs` shows `[LWA-3047] UnableToChange`.
+- A `Position` written into `.map` JSON reverts to `(0, 0, z)` after Maker `maker_refresh_workspace`.
+- Runtime `TransformComponent.Position = ...` writes have no observable effect; `maker_console_logs` shows `[LWA-3047] UnableToChange`.
 - Adding a custom child entity to the tile-map entity works, but the child's effective world position is still measured relative to the locked parent at `(0, 0)`.
 
 Decoration / spawn anchor / overlay entities that need to be elsewhere should live as **siblings under the map root, not as children of the tile-map entity**.
@@ -211,5 +211,5 @@ Adding a new map to the world may require appending `map://{mapId}` to `entries`
 | Delete entity | `MapBuilder.remove()` |
 | Change property | `MapBuilder.patchComponent()` for map instances; `ModelBuilder` Values for templates |
 | Add/remove component | `MapBuilder.upsertComponent()` / `removeComponent()` for one-off map-local changes |
-| Register / edit / delete model | CRUD `.model` files under `RootDesk/MyDesk/` (`refresh`) |
+| Register / edit / delete model | CRUD `.model` files under `RootDesk/MyDesk/` (`maker_refresh_workspace`) |
 | List entities | `MapBuilder.snapshot()` / `listEntities()` |

@@ -5,7 +5,7 @@ description: "Authors MSW `.behaviourtree` files end-to-end and maintains the pr
 
 # MSW BehaviourTree
 
-End-to-end authoring skill for MSW `.behaviourtree` files. Owns **both** the project-specific authoring spec (`<ProjectRoot>/.behaviourDocs/bt-spec.md`) and the tree generation itself. Fixed graph rules and skeletons live in this skill's `references/`; the per-project spec is (re)built by this skill's local `scripts/build-spec.cjs`.
+End-to-end authoring skill for MSW `.behaviourtree` files — the default way to give an `AIComponent` a behaviour tree. Owns **both** the project-specific authoring spec (`<ProjectRoot>/.behaviourDocs/bt-spec.md`) and the tree generation itself. Fixed graph rules and skeletons live in this skill's `references/`; the per-project spec is (re)built by this skill's local `scripts/build-spec.cjs`.
 
 ---
 
@@ -76,13 +76,13 @@ Confirm via context, or ask via AskUserQuestion if anything is ambiguous:
 | Blackboard variables | Variable name + type + initial value | `TargetEntity: Entity`, `MoveSpeed: number = 10.0` |
 | Node properties | For each custom node, which property maps to which Blackboard variable | `Chase.TargetEntityKey = "TargetEntity"` |
 
-**Custom-node existence check (mandatory):** every custom action/decorator/composite name the user mentions must appear in `bt-spec.md` §1 / §2 / §3. If a referenced node is not in the spec, **stop** and ask the user — do not invent a UUID, do not assume a node exists by name, and do not skip rerunning Step 0.
+**Custom-node existence check (mandatory):** every custom action/decorator/composite name the user mentions must appear in `bt-spec.md` §1 / §2 / §3. If a referenced node is not in the spec, **stop** and ask the user — do not invent a UUID, do not assume a node exists by name, and do not skip rerunning Step 0. A new node is a `@BTNode script <Name> extends ActionNode` / `DecoratorNode` / `CompositeNode` `.mlua` (lifecycle → [`../msw-combat-system/references/ai-bt.md`](../msw-combat-system/references/ai-bt.md) §3); once a Maker refresh has generated its `.codeblock`, re-run Step 0.
 
 ### 2. Mint UUIDs
 
 You need:
 
-- One UUID for the file → goes into `EntryKey` and `ContentProto.Json.id` (both identical, both prefixed `behaviourtree://`).
+- One UUID for the file → goes into `EntryKey` and `ContentProto.Json.id` (both identical, both prefixed `behaviourtree://`, lowercase as `randomUUID()` returns it). The same string is the `AIComponent.BehaviourTreeId` value that binds an entity to this tree. Write `AIComponent.IsLegacy = false` in that model — unset, the tree runs in legacy mode and composites restart from the first child every tick.
 - One UUID for **each** node in `Nodes` (`nodeId`).
 
 ```bash
@@ -104,7 +104,7 @@ Custom-node UUIDs come from `bt-spec.md` (which read them from real `.codeblock`
 
 ### 4. Build the Blackboard
 
-For each variable, copy the `Type.type` string and `ObjectValue` shape verbatim from `bt-spec.md` §4. The version-tagged substring (`Version=<CoreVersion>`) must match exactly — a typo silently breaks deserialization.
+For each variable, copy the `Type.type` string and `ObjectValue` shape verbatim from `bt-spec.md` §4. The type name and assembly name must be exact — a variable whose type does not resolve is dropped.
 
 `Variables` is an ordered array; each entry: `{ Name, Type: { "$type": "MODNativeType", type: "<from spec>" }, ObjectValue: <from spec> }`. The `ObjectValue` does **not** include a `$type` discriminator (unlike `Value` in `.model` files).
 
@@ -155,6 +155,7 @@ Node-write invariants:
 - If a node's parent is a Composite, that Composite must include the node id in `childNodes`.
 - If a node's parent is a Decorator, that Decorator's `decoChildNodes` must equal that node's `nodeId`. This is valid even when both parent and child are Decorators.
 - Composite `childNodes` ↔ child `nodeParentId` is **bidirectionally consistent**.
+- Composite `childNodes` order follows its children's ascending `nodePosition.x`. Runtime runs children in `childNodes` order; the editor re-sorts the array by x when a node is attached or moved. A Decorator child sorts by the x of the Action or Composite its chain ends at.
 - Action nodes omit `childNodes`. Decorator nodes omit `childNodes` and use exactly one `decoChildNodes` (single string `nodeId`) instead.
 - **Never write `probability`.** The editor strips this field on round-trip, and the supported composites (`SequenceNode`, `SelectorNode`, `ParallelNode`) do not consume per-child weights. Older generated trees in the project may still carry `"probability": 1.0` on every node; treat that as legacy on read but do not write it on new nodes.
 - **Decorator nodes (`btNodeType: 2`) omit `nodePosition`.** The editor positions a Decorator automatically relative to the child it wraps, and writes no `nodePosition` field for it on save. Only Composites and Actions carry `nodePosition`. The `RootNode` block also carries its own `nodePosition` (separate from the start node).
@@ -210,7 +211,6 @@ Write the JSON file, then run this checklist. In particular:
 - [ ] Every `nodeProperties[].propertyKey` matches a property in `bt-spec.md` for that node.
 - [ ] Every `*Key` property's `propertyValue` matches a `Blackboard.Variables[].Name` of the right type.
 - [ ] Every type string is copied verbatim from `bt-spec.md` §4 — version-tagged, typo-fragile.
-- [ ] **Version cross-check:** every `MOD.Core.*` type string's `Version=X.Y.Z.Z` substring (in `Blackboard.Variables[].Type.type` and `Nodes[].nodeProperties[].propertyType.type`) equals the file's top-level `CoreVersion`. Mismatch silently breaks deserialization — common when `bt-spec.md` is stale relative to the project's current `CoreVersion`. If they differ, **re-run Step 0** before writing. (`System.*` types use the immutable `Version=4.0.0.0` and are exempt.)
 - [ ] JSON parses:
   ```bash
   node -e "JSON.parse(require('node:fs').readFileSync(process.argv[1],'utf8'))" "<path>"

@@ -200,8 +200,8 @@ console.log(`Non-BT codeblocks: ${nonBtCount}, parse failures: ${failCount}`);
 if (actions.length === 0 && decorators.length === 0 && composites.length === 0) {
     console.warn('');
     console.warn('WARNING: zero Action, zero Decorator, and zero custom Composite nodes discovered.');
-    console.warn('  - If the project genuinely has no BT codeblocks yet, create them in the Maker BehaviourTree editor first, then re-run this script.');
-    console.warn('  - If you expected nodes here, the mlua-lsp environment may be rejecting `script <Name> extends ActionNode`/`extends DecoratorNode`/`extends CompositeNode` declarations. In that case, the .codeblock + .mlua pairs must be created through the Maker BT editor GUI (the agent cannot author them directly). Falling back to a code-driven AI pattern (@BTNode extends BTNode + AIComponent:CreateNode) is an alternative.');
+    console.warn('  - A custom node is a `@BTNode script <Name> extends ActionNode` / `extends DecoratorNode` / `extends CompositeNode` .mlua whose sibling .codeblock exists (Maker refresh generates it). Author the node scripts, refresh, then re-run this script.');
+    console.warn('  - If such .mlua files exist, check that each has a same-named .codeblock next to it and that the `extends` base is one of the three above (`extends BTNode` nodes are not usable from a .behaviourtree).');
     console.warn('');
 }
 
@@ -243,7 +243,7 @@ if (composites.length > 0) {
     push('| Name | definitionId | btNodeType | Properties |');
     push('|---|---|---|---|');
     for (const n of composites) {
-        push(`| \`${n.Name}\` | \`codeblock://${n.Id}\` | ${n.BtNodeType} | ${formatPropertyList(n)} |`);
+        push(`| \`${n.Name}\` | \`codeblock://${String(n.Id).toLowerCase()}\` | ${n.BtNodeType} | ${formatPropertyList(n)} |`);
     }
     push();
 }
@@ -261,7 +261,7 @@ function emitNodeSection(title, list) {
     push('| Name | definitionId | btNodeType | Properties |');
     push('|---|---|---|---|');
     for (const n of list) {
-        push(`| \`${n.Name}\` | \`codeblock://${n.Id}\` | ${n.BtNodeType} | ${formatPropertyList(n)} |`);
+        push(`| \`${n.Name}\` | \`codeblock://${String(n.Id).toLowerCase()}\` | ${n.BtNodeType} | ${formatPropertyList(n)} |`);
     }
     push();
 }

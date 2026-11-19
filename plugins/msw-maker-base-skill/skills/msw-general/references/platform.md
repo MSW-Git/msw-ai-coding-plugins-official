@@ -107,7 +107,7 @@ When an entity has logic requiring a Body (`MovementComponent`, `PlayerControlle
 
 **Meaning**:
 - Almost always a model that doesn't match the map's `TileMapMode` was placed, or a dynamic entity is missing a Body entirely.
-- **Fix**: Add/swap the Body from the table above in the `.model` or the map entity's `@components` → `refresh`. **Do not work around this by removing `MovementComponent`** — collision/events will break.
+- **Fix**: Add/swap the Body from the table above in the `.model` or the map entity's `@components` → `maker_refresh_workspace`. **Do not work around this by removing `MovementComponent`** — collision/events will break.
 - **Prevention**: Following the Check protocol above prevents this error entirely. This is a silent-failure zone that syntax/API validation cannot catch, so if `LEA-3004` appears, re-verify the Body ↔ TileMapMode mapping before anything else.
 
 ### TileMapMode Switching Is Performed by the User in Maker
@@ -119,7 +119,7 @@ When an entity has logic requiring a Body (`MovementComponent`, `PlayerControlle
 1. Open the **Hierarchy** panel in the Maker editor.
 2. **Right-click the target map entity**.
 3. Select the **"Switch ..." option** from the context menu (Switch TileMap (MapleTile) / Switch RectTileMap (RectTile) / Switch SideViewRectTileMap (SideViewRectTile)). Maker performs conversion, tile component swap, and terrain reset.
-4. User saves → AI runs MCP **`refresh`** → re-read `MapComponent.TileMapMode` to confirm the new value.
+4. User saves → AI runs MCP **`maker_refresh_workspace`** → re-read `MapComponent.TileMapMode` to confirm the new value.
 
 > What AI cannot do: Change `TileMapMode` value by directly editing `.map` JSON
 > User action required: **Maker Hierarchy panel → right-click target map entity → select "Switch ..." menu**

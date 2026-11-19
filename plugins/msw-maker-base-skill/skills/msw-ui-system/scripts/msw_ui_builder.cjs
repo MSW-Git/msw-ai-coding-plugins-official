@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const makerJson = require("./maker_json.cjs");
 
 // SpriteGUIRendererComponent defaults applied to EVERY UI entity the builder
 // mints with a sprite renderer (panel / sprite / button / slider / textInput /
@@ -346,6 +347,53 @@ const COMPONENT_FIELD_TYPE_OVERRIDES = new Map([
   ["MOD.Core.TextGUIRendererComponent.MaxSize", "Single"],
 ]);
 
+// Float fields the Maker serializes that no native property declaration covers.
+const UNDECLARED_FLOAT_FIELDS = new Set([
+  "MOD.Core.ScrollLayoutGroupComponent.ScrollBarThickness",
+  "MOD.Core.GridViewComponent.ScrollBarThickness",
+]);
+
+// Integer vector fields; without the workspace's declarations their sub-keys read as float vector keys.
+const INT_VECTOR_FIELDS = new Set([
+  "MOD.Core.MaskComponent.Softness",
+]);
+
+function undeclaredNumberKind(key, owner, ctx) {
+  if (ctx.chain.length === 0 && UNDECLARED_FLOAT_FIELDS.has(`${ctx.componentType}.${key}`)) return "float";
+  if (ctx.chain.length === 1 && INT_VECTOR_FIELDS.has(`${ctx.componentType}.${ctx.chain[0]}`)) return "int";
+  return undefined;
+}
+
+const TRANSFORM_ROTATION_VERSION = "26.7.0.0";
+
+function versionAtLeast(version, minimum) {
+  const parse = (text) => String(text ?? "").trim().split(".").map(Number);
+  const a = parse(version);
+  const b = parse(minimum);
+  if (!a.length || a.some((n) => !Number.isInteger(n))) return false;
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    const diff = (a[i] ?? 0) - (b[i] ?? 0);
+    if (diff !== 0) return diff > 0;
+  }
+  return true;
+}
+
+// Maker key order: `Rotation` directly precedes `Position`, `ZRotation` directly precedes `Enable`.
+function withTransformRotation(transform) {
+  const rotation = transform.Rotation ?? { x: 0.0, y: 0.0, z: 0.0 };
+  const zRotation = transform.ZRotation ?? 0.0;
+  const ordered = {};
+  for (const [key, value] of Object.entries(transform)) {
+    if (key === "Rotation" || key === "ZRotation") continue;
+    if (key === "Position") ordered.Rotation = rotation;
+    if (key === "Enable") ordered.ZRotation = zRotation;
+    ordered[key] = value;
+  }
+  if (!("Rotation" in ordered)) ordered.Rotation = rotation;
+  if (!("ZRotation" in ordered)) ordered.ZRotation = zRotation;
+  return ordered;
+}
+
 function isFiniteNumber(v) {
   return typeof v === "number" && Number.isFinite(v);
 }
@@ -511,13 +559,17 @@ class UIBuilder {
     this._data = null;
     this._display_counters = {};
     this._lastId = null;
+    this._hints = null;
+    this._builtTransforms = new WeakSet();
+    this._patchedTransforms = new WeakSet();
     this._createRoot(int32Field(displayOrder, "displayOrder"), defaultShow);
   }
 
   static load(filepath) {
     let data;
+    let hints;
     try {
-      data = JSON.parse(fs.readFileSync(filepath, "utf8"));
+      ({ value: data, hints } = makerJson.parse(fs.readFileSync(filepath, "utf8")));
     } catch (err) {
       if (err && err.code === "ENOENT") throw new Error(`UI file not found: ${filepath}`);
       throw new Error(`Invalid JSON in UI file ${filepath}: ${err.message}`);
@@ -536,6 +588,7 @@ class UIBuilder {
     instance.root_path = rootJs.path || instance.root_path;
     instance.entities = entities;
     instance._data = data;
+    instance._hints = hints;
     instance._display_counters = {};
     for (const entity of entities) {
       const js = entity.jsonString;
@@ -686,7 +739,7 @@ class UIBuilder {
       ominX = px - pvx * sx; omaxX = px + (1.0 - pvx) * sx;
       ominY = py - pvy * sy; omaxY = py + (1.0 - pvy) * sy;
     }
-    return {
+    const transform = {
       "@type": "MOD.Core.UITransformComponent",
       ActivePlatform: 255,
       AlignmentOption: preset.alignment,
@@ -706,6 +759,8 @@ class UIBuilder {
       Scale: { x: 1.0, y: 1.0, z: 1.0 },
       Enable: true,
     };
+    this._builtTransforms.add(transform);
+    return transform;
   }
 
   _anchorNameFromTransform(transform) {
@@ -752,6 +807,8 @@ class UIBuilder {
         }
       }
     }
+    if (existingTransform.Rotation != null) rebuilt.Rotation = clone(existingTransform.Rotation);
+    if (existingTransform.ZRotation != null) rebuilt.ZRotation = Number(existingTransform.ZRotation);
     return rebuilt;
   }
 
@@ -1429,6 +1486,7 @@ class UIBuilder {
       const rebuilt = this._mergeUiTransform(transform, options);
       Object.keys(transform).forEach((key) => delete transform[key]);
       Object.assign(transform, rebuilt);
+      this._builtTransforms.add(transform);
     }
     if (options.enable != null) js.enable = Boolean(options.enable);
     if (options.visible != null) js.visible = Boolean(options.visible);
@@ -1514,6 +1572,7 @@ class UIBuilder {
     const component = this._findComponent(entity, compType);
     if (component == null) throw new Error(`UI entity ${identifier} has no ${compType}`);
     Object.assign(component, updates);
+    if (component["@type"] === "MOD.Core.UITransformComponent") this._syncPatchedTransform(component, updates);
     console.log(`  Patched component ${compType} on ${this._entityJson(entity).name}`);
     return this;
   }
@@ -1580,9 +1639,8 @@ class UIBuilder {
     let rectSize = options.rect_size;
     if (rectSize == null) rectSize = [Math.max(String(text).length * size, 400), size + 16];
     const sort = _resolveSortOptions(options);
-    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextGUIRendererComponent", "UITextGUIRenderer", "uitextguirenderer", [
+    return this._add(name, "MOD.Core.UITransformComponent,MOD.Core.TextGUIRendererComponent,MOD.Core.SpriteGUIRendererComponent", "UITextGUIRenderer", "uitextguirenderer", [
       this._uiTransform(options.anchor || "middle-center", tuple(options.pos, [0, 0]), rectSize, options.pivot ?? null),
-      this._spriteRenderer(null, 0.0, false, 0, 0, "", sort),
       this._textGuiRenderer(text, size, options.color ?? null, options.bold ?? false, options.alignment ?? 4, {
         overflow: options.overflow ?? 0,
         bestfit: options.bestfit ?? false,
@@ -1598,6 +1656,7 @@ class UIBuilder {
         constraint_y: options.constraint_y ?? 100.0,
         ...sort,
       }),
+      this._spriteRenderer(null, 0.0, false, 0, 0, "", sort),
     ], options.enable ?? true, !hasExplicitTransformOptions(options), options);
   }
 
@@ -1924,8 +1983,11 @@ class UIBuilder {
 
     const data = this.build();
     if (!this._data) data.CoreVersion = resolveCoreVersion(path.dirname(filepath));
+    this._resolveTransformGeometry();
+    this._applyTransformSchema(data.CoreVersion);
+    const classify = makerJson.classifier(workspaceRoot(path.dirname(filepath)), undeclaredNumberKind);
     fs.mkdirSync(path.dirname(filepath), { recursive: true });
-    fs.writeFileSync(filepath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+    fs.writeFileSync(filepath, makerJson.stringify(data, classify, this._hints), "utf8");
     console.log(`Written ${this.entities.length} entities to ${filepath}`);
 
     if (lint) {
@@ -1937,6 +1999,79 @@ class UIBuilder {
       console.log(`  Bound ${Object.keys(bindPlan.resolved).length} property/properties in ${bindPlan.mluaPath}`);
     }
     return this;
+  }
+
+  // The engine places a stretched axis from anchoredPosition and sizes it from the offsets,
+  // so offsets patched on their own must carry the matching anchoredPosition.
+  _syncPatchedTransform(transform, updates) {
+    const geometryKeys = ["OffsetMin", "OffsetMax", "anchoredPosition", "RectSize", "AnchorsMin", "AnchorsMax", "Pivot"];
+    if (!geometryKeys.some((key) => updates[key] != null)) return;
+    if ((updates.OffsetMin != null || updates.OffsetMax != null) && updates.anchoredPosition == null) {
+      for (const axis of ["x", "y"]) {
+        if (transform.AnchorsMin[axis] === transform.AnchorsMax[axis]) continue;
+        const pivot = transform.Pivot[axis];
+        transform.anchoredPosition[axis] = transform.OffsetMin[axis] * (1 - pivot) + transform.OffsetMax[axis] * pivot;
+      }
+    }
+    this._patchedTransforms.add(transform);
+  }
+
+  // Writes the derived RectSize (stretched axes) and Position that Maker stores for the
+  // transforms this builder created or patched. A layout group positions its own children.
+  _resolveTransformGeometry() {
+    const CANVAS = { size: [1920, 1080], pivot: [0.5, 0.5] };
+    const LAYOUT_PARENTS = ["MOD.Core.ScrollLayoutGroupComponent", "MOD.Core.GridViewComponent"];
+    const nodes = new Map();
+    for (const entity of this.entities) {
+      const js = this._entityJson(entity);
+      const components = js["@components"] || [];
+      const transform = components.find((component) => component["@type"] === "MOD.Core.UITransformComponent");
+      if (!transform || typeof js.path !== "string") continue;
+      nodes.set(js.path, { transform, layout: components.some((component) => LAYOUT_PARENTS.includes(component["@type"])) });
+    }
+    const resolved = new Map();
+    const boxOf = (entityPath) => {
+      const node = nodes.get(entityPath);
+      if (!node) return CANVAS;
+      if (resolved.has(entityPath)) return resolved.get(entityPath);
+      const parent = boxOf(entityPath.slice(0, entityPath.lastIndexOf("/")));
+      const { transform } = node;
+      const size = ["x", "y"].map((axis, i) => {
+        const span = transform.AnchorsMax[axis] - transform.AnchorsMin[axis];
+        return span !== 0 ? parent.size[i] * span + (transform.OffsetMax[axis] - transform.OffsetMin[axis]) : transform.RectSize[axis];
+      });
+      const box = { size, pivot: [transform.Pivot.x, transform.Pivot.y] };
+      resolved.set(entityPath, box);
+      return box;
+    };
+    for (const [entityPath, node] of nodes) {
+      const { transform } = node;
+      if (!this._builtTransforms.has(transform) && !this._patchedTransforms.has(transform)) continue;
+      const parentPath = entityPath.slice(0, entityPath.lastIndexOf("/"));
+      if (nodes.get(parentPath)?.layout) continue;
+      const parent = boxOf(parentPath);
+      const box = boxOf(entityPath);
+      ["x", "y"].forEach((axis, i) => {
+        const span = transform.AnchorsMax[axis] - transform.AnchorsMin[axis];
+        if (span !== 0) transform.RectSize[axis] = box.size[i];
+        transform.Position[axis] = (transform.AnchorsMin[axis] + span * transform.Pivot[axis] - parent.pivot[i]) * parent.size[i] + transform.anchoredPosition[axis];
+      });
+    }
+  }
+
+  // Transforms this builder created follow the target CoreVersion; transforms loaded from
+  // a file keep the field set they were saved with.
+  _applyTransformSchema(coreVersion) {
+    if (!versionAtLeast(coreVersion, TRANSFORM_ROTATION_VERSION)) return;
+    for (const entity of this.entities) {
+      const components = this._entityJson(entity)["@components"] || [];
+      components.forEach((component, index) => {
+        if (component["@type"] !== "MOD.Core.UITransformComponent" || !this._builtTransforms.has(component)) return;
+        const ordered = withTransformRotation(component);
+        this._builtTransforms.add(ordered);
+        components[index] = ordered;
+      });
+    }
   }
 
   static _normalizeBindArg(bind) {

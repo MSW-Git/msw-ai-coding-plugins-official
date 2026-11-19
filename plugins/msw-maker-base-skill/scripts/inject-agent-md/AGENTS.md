@@ -24,7 +24,7 @@ Before analyzing, planning, searching, or editing, all of the Foundation context
 | Reference | Why it is required in context |
 |---|---|
 | `msw-general/references/platform.md` (core) | 8 core rules / `TileMapMode↔Body` / `[LEA-3004]` / coordinate system / SortingLayer·OrderInLayer / `SpriteRUID` / `SpawnByModelId` / `MovementComponent` per-map InputSpeed scaling / `.directory` / `.config` / CoreVersion. Every other reference assumes you have Read this. |
-| `msw-general/references/workspace.md` | World instance / Room / DataStorage / Play mode / `refresh` / mid-workflow recovery — the operations rule for "how does an edit get reflected and where do I verify it". |
+| `msw-general/references/workspace.md` | World instance / Room / DataStorage / Play mode / `maker_refresh_workspace` / mid-workflow recovery — the operations rule for "how does an edit get reflected and where do I verify it". |
 | `msw-general/references/entity.md` | Entity Work Preflight (Absolute Principle #0). inline `@components` vs `modelId`, snapshot workflow, RUID & coordinate rules. |
 | `msw-general/references/authoring.md` | Shared schema-consistency and hand-edit hazards across `.mlua` / `.model` / `.map` / `.ui` / `.userdataset` / `.config`. |
 
@@ -39,7 +39,7 @@ Generic knowledge of "top-down RPG" / "side-scrolling platformer" / "Entity-Comp
 | `TileMapMode` ↔ Body (`Rigidbody`/`Kinematicbody`/`Sideviewbody`) | Wrong pairing → no error, doesn't move (or `[LEA-3004]`) |
 | Coordinates are world units (1 unit = 100 px) | Raw pixel values → off by 100× |
 | `SpriteRUID = ""` | Invisible on screen with no error |
-| `.mlua` + `.codeblock` pair + Maker `refresh` | `.mlua` alone won't register |
+| `.mlua` + `.codeblock` pair + Maker `maker_refresh_workspace` | `.mlua` alone won't register |
 | Maker registers **new** file entries only from `RootDesk/` | A new file created in `Global/` won't appear. Existing `Global/*.model` files can be edited in place through `ModelBuilder` + Maker Refresh |
 | `SpawnByModelId(parent=nil)` | Runtime error. Use `self.Entity.CurrentMap` |
 | `_LocalizationService` is ClientOnly | Returns nil if called on the server |
@@ -56,7 +56,7 @@ If any answer below cannot be cited from MSW reference text actually loaded **in
 4. Where do `.mlua` / `.model` / `.map` / `.ui` live, and what pairing is required? → `platform.md` §2 / §3
 5. What if `SpriteRUID` is empty, and how do you find the real RUID? → `platform.md` §7 + `msw-search`
 6. What do you pass as `parent` in `SpawnByModelId(... , parent)`? → `platform.md` §8
-7. Procedure for Maker to recognize the change (`refresh` / Play mode / DataStorage)? Where to recover from a broken mid-workflow? → `workspace.md`
+7. Procedure for Maker to recognize the change (`maker_refresh_workspace` / Play mode / DataStorage)? Where to recover from a broken mid-workflow? → `workspace.md`
 
 #### Hard rules for loading skills/references
 
@@ -80,15 +80,15 @@ When a sub-trigger fires, the listed `references/*.md` is **required** in additi
 | draw a sprite directly / pixel art / custom sprite / make an icon / image generation / maple-style character | Hand-draw and upload a sprite RUID — **only after `msw-search` finds no suitable resource** | `Skill: msw-painter` | Canvas & size rules → `references/size-guide.md`  •  chunky pixel style → `references/style-chunky-pixel.md`  •  maple cartoon style → `references/style-maple-cartoon.md` |
 | avatar / costume / equipment / outfit / animation state / attack motion | Avatar / player appearance | `Skill: msw-avatar` | (no `references/`) |
 | DefaultPlayer / player / jump / move speed / HP / camera / respawn | DefaultPlayer customization | `Skill: msw-defaultplayer` | (no `references/`) |
-| attack / hit / damage / monster combat / critical / knockback / hit effect | Combat, damage, monster battles | `Skill: msw-combat-system` (concepts + API tables only; full implementation in `references/`) | Monster `.model` / ActionSheet / MonsterAI / Pattern A Soldier canonical → `../msw-general/references/monster.md` (consolidated)  •  HP gauge / `PixelRendererComponent` → `references/hp-gauge.md`  •  projectile / arrow / bullet / homing / piercing / splash → `references/projectile.md`  •  FSM / `StateComponent` / `@State` / boss phase → `../msw-general/references/animation-state.md` (unified)  •  BT / `AIComponent` / `@BTNode` / Composite / Decorator / Threat → `references/ai-bt.md` |
-| `.behaviourtree` / BT node graph / SequenceNode / SelectorNode / Blackboard variable / `ActionNode` / `DecoratorNode` / bt-spec | Authoring `.behaviourtree` files + the per-project BT node spec (`.behaviourDocs/bt-spec.md`) | `Skill: msw-behaviourtree` | Node catalog → `references/node-catalog.md`  •  tree skeletons → `references/skeleton-minimal.json` / `references/skeleton-full.json` |
+| attack / hit / damage / monster combat / critical / knockback / hit effect | Combat, damage, monster battles | `Skill: msw-combat-system` (concepts + API tables only; full implementation in `references/`) | Monster `.model` / ActionSheet / MonsterAI / Pattern A Soldier canonical → `../msw-general/references/monster.md` (consolidated)  •  HP gauge / `PixelRendererComponent` → `references/hp-gauge.md`  •  projectile / arrow / bullet / homing / piercing / splash → `references/projectile.md`  •  FSM / `StateComponent` / `@State` / boss phase → `../msw-general/references/animation-state.md` (unified)  •  BT node scripts / `@BTNode` lifecycle / Threat / existing code-built BT (`CreateNode` / `SetRootNode`) → `references/ai-bt.md` |
+| behaviour tree / monster or boss BT AI / `AIComponent` tree / `.behaviourtree` / BT node graph / SequenceNode / SelectorNode / Blackboard variable / `ActionNode` / `DecoratorNode` / `CompositeNode` / bt-spec | Authoring `.behaviourtree` files + the per-project BT node spec (`.behaviourDocs/bt-spec.md`) | `Skill: msw-behaviourtree` | Node catalog → `references/node-catalog.md`  •  tree skeletons → `references/skeleton-minimal.json` / `references/skeleton-full.json` |
 | inventory / shop / ranking / mail / quest / collection / key binding / GM / slash command | Standard game systems — **check before writing from scratch** | `Skill: msw-packages` | (no `references/`; each package's README is fetched on demand from GitHub) |
 | popup / HUD / button / toast / menu / tab / layout / `.ui` | UI screens / widgets | `Skill: msw-ui-system` | Style template bundle → `references/templates/templates.md` + chosen `references/templates/style-N-*/{ruid-map.md, structure.md, Popupbutton.mlua}`  •  Component API / enum tables → `references/component-api.md`  •  Runtime patterns (toasts / popups / HP bar / tabs / drag-drop) → `references/runtime-patterns.md`  •  Builder protocol (unified entry point — core + per-builder files) → `../msw-general/references/builder-protocol.md` + `../msw-general/references/builder-protocol-ui.md` §3 |
 | entity placement / `.map` / spawn / `SpawnByModelId` / coordinate / transform | Entity placement, `.map` editing | `Skill: msw-general` | Entity Work Preflight + `.map` builder / entity placement / component patching → `references/entity.md` |
 | `.model` / template / EntryKey / Properties / Values / model catalog | `.model` authoring | `Skill: msw-general` | `.model` authoring / `Values` serialization → `references/model.md`  •  JSON schema details → `references/model/model-schema.md`  •  monster `.model` (lowercase ActionSheet / IsLegacy / SortingLayer / canonical 11 components) → `references/monster.md` |
 | TileMapMode / Body / side-view / top-down / gravity / SortingLayer / SpriteRUID / 8 core / `MovementComponent` / `InputSpeed` / `.directory` | Platform rules, physics, troubleshooting | `Skill: msw-general` | All-map-types-common (8 core / TileMapMode↔Body+LEA-3004 / SpriteRUID / `SpawnByModelId` / coordinate system / `.config`·CoreVersion) → `references/platform.md`  •  **MapleTile** (`= 0`) — Foothold / `Gravity` / `PredictFootholdEnd` / `DownJump` → `references/platform-maple.md`  •  **RectTile** (`= 1`) — `SpeedFactor` / 4-directional / Movable / dynamic tiles → `references/platform-rect.md`  •  **SideViewRectTile** (`= 2`) — `JumpSpeed` / `JumpDrag` / wall detection / `EnableDownJump` → `references/platform-sideview.md`  •  Symptom debugging (`[LEA-3004]` / "doesn't move" / "invisible" / "100x off") → `references/troubleshooting.md`  •  tile painting / `RectTileMap` / `FootholdComponent` → `references/tile.md` |
 | DataSet / userdataset / `.csv` / localize / i18n / LocaleDataSet / `_LocalizationService` | Datasets / i18n | `Skill: msw-general` | UserDataSet / LocaleDataSet runtime / ClientOnly rule → `references/dataset.md` |
-| MCP tool calls / `refresh` / `play` / `stop` / `logs` / `screenshot` / Room / DataStorage location | MCP tools, workspace flow | `Skill: msw-general` | Workspace / Room / DataStorage / Play mode / recovery → `references/workspace.md`  •  Shared authoring → `references/authoring.md`  •  MCP setup issues → share this link with the user: https://maplestoryworlds-creators.nexon.com/ko/docs?postId=1368 |
+| MCP tool calls / `maker_refresh_workspace` / `maker_run_command` (`play` / `stop` / `screenshot`) / `maker_console_logs` / `maker_build_logs` / Room / DataStorage location | MCP tools, workspace flow | `Skill: msw-general` | Workspace / Room / DataStorage / Play mode / recovery → `references/workspace.md`  •  Shared authoring → `references/authoring.md`  •  MCP setup issues → share this link with the user: https://maplestoryworlds-creators.nexon.com/ko/docs?postId=1368 |
 
 **Routing notes:**
 
@@ -137,13 +137,13 @@ The `Bash` / shell tool is reserved for actual programs (`git`, `npm`, MCP, buil
 
 ⛔ **Never claim a runtime result without an actual MCP tool call.**
 
-- Saying "I clicked the button" without calling `mouse_input` is a hallucination.
-- Saying "it works" without calling `play` → `logs` is a hallucination.
-- Saying "no errors" without calling `logs(kind="build")` or `logs(kind="normal")` is a hallucination.
+- Saying "I clicked the button" without calling `maker_mouse_input` is a hallucination.
+- Saying "it works" without running `play` → `maker_console_logs` is a hallucination.
+- Saying "no errors" without calling `maker_build_logs` or `maker_console_logs` is a hallucination.
 
-If a task requires runtime interaction (playing, clicking, typing, verifying behavior, checking logs), you **must** invoke the corresponding Maker MCP tool (`play`, `stop`, `logs`, `keyboard_input`, `mouse_input`, `maker_execute_script`). Text alone cannot substitute for tool execution. Use `screenshot` when you need to identify screen coordinates for input targeting or when the user explicitly requests it.
+If a task requires runtime interaction (playing, clicking, typing, verifying behavior, checking logs), you **must** invoke the corresponding Maker MCP tool (`maker_run_command` for the `play` / `stop` console commands, `maker_console_logs`, `maker_build_logs`, `maker_keyboard_input`, `maker_mouse_input`, `maker_execute_script`). Text alone cannot substitute for tool execution. Use the `screenshot` console command when you need to identify screen coordinates for input targeting or when the user explicitly requests it.
 
-Produce that evidence with the **fewest calls**: prefer one `maker_execute_script` probe over a long `keyboard_input`/`mouse_input` chain when the input path itself is not under test, and keep `logs` reads scoped — every tool call is a full model round-trip whose output stays in context for the rest of the session.
+Produce that evidence with the **fewest calls**: prefer one `maker_execute_script` probe over a long `maker_keyboard_input`/`maker_mouse_input` chain when the input path itself is not under test, and keep log reads scoped (`search`) — every tool call is a full model round-trip whose output stays in context for the rest of the session.
 
 ## 0. Plan (MANDATORY)
 

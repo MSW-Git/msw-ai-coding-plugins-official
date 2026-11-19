@@ -1,0 +1,6 @@
+{
+  "name": "msw-decision-pane",
+  "version": "0.1.0",
+  "description": "Shows msw-planning's Docs/web/decision-data.json gate in a native Claude Code pane and sends the answer back as the sheet's own paste block.",
+  "types": "./types/index.d.ts"
+}

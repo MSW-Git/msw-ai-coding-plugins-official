@@ -2,7 +2,7 @@
 
 Read this **in full before writing `Docs/web/decision-data.json` or running the packer**. [`SKILL.md`](../SKILL.md) STEP 5 decides *whether* a gate gets a sheet; everything about *how* lives here.
 
-The sheet **briefs and collects** — it shows what each option actually builds and what it postpones. **The answer always happens in chat** (clicked, typed, or pasted). The flow must never block when a browser can't open.
+The sheet **briefs and collects** — it shows what each option actually builds and what it postpones. **The answer always arrives as a chat message** (clicked, typed or pasted from the browser sheet; sent by the native pane itself). The flow must never block when a browser can't open.
 
 ---
 
@@ -14,12 +14,15 @@ The sheet **briefs and collects** — it shows what each option actually builds 
 | The packer | [`assets/build-status-data.cjs`](../assets/build-status-data.cjs) | **Fixed asset — never edit** |
 | Deployed form | `<project>/Docs/web/DecisionSheet.html` | the packer (self-heals every run) |
 | Gate data | `<project>/Docs/web/decision-data.json` | **you**, per gate |
+| Native pane (Claude Code, while the `msw-decision-pane` mod is loaded) | beside the chat | the mod bundled in this skill's folder; reads the same `decision-data.json` (§2 ⓪) |
 
 **Hard rules**
 
 - **The form and the packer are fixed assets — never edit them.** They ship with the skill and are redeployed by the packer on every run, so a local change is overwritten anyway.
 - **`decision-data.json` is yours to write** — one fresh file per gate, plain JSON. The form **fetches and parses** it; it is never executed, so a file that was tampered with or built with a quoting mistake can only fail to parse. It is a **disposable presentation package**: regenerate it freely, but never hand-edit it after writing, and **never read it back as planning input**. Markdown (GDD · roadmap · phase docs) is the single source of truth; no planning decision or state is ever sourced from a web view.
-- All web artifacts live under `Docs/web/` — never the project root, never `RootDesk/`. **The packer creates that folder**, so on a first gate run it before writing the data file (§3); nothing else creates the directory for you.
+- All web artifacts live under `Docs/web/` — never the project root, never `RootDesk/`.
+  - **Browser sheet (① / ②):** the packer creates that folder, deploys the form into it and serves it, so on a first gate run the packer before writing the data file (§3).
+  - **Native pane (⓪):** there is no packer; writing the data file creates the folder.
 - `Docs/web/` is **generated output, not a plan document**. One packer run rebuilds everything in it, the names are fixed (nothing piles up across gates or sessions), so deleting the folder costs nothing.
 - Never mention the markdown docs inside web-view content.
 
@@ -27,11 +30,28 @@ The sheet **briefs and collects** — it shows what each option actually builds 
 
 ## 2. Opening the view
 
+### ⓪ Native pane — check this first
+
+**How to tell:** your system prompt carries a section that begins **`msw-decision-pane is active`**. That section exists only in a Claude Code session where the `msw-decision-pane` mod from this skill's folder is loaded (§1); without it (another agent, or a Claude Code session that has not loaded it), skip to the packer paths below (① / ②).
+
+When it is there, the pane replaces the packer, the browser **and the chat picker** for every gate:
+
+1. **Write `Docs/web/decision-data.json` (§3) and nothing else.** No packer run, no server, no browser. Your file write creates `Docs/web/` if it is missing.
+   ⚠️ **Every option of every question carries a `scene`**: **Read [`decision-scene-kit.md`](decision-scene-kit.md) in full** before writing the first gate of the session.
+2. **Read the `[msw-decision-pane]` note on that write's result.** It says the gate is up in the pane, lists what makes the data unanswerable (rewrite from scratch as §6 says; the pane re-reads the file by itself, no Refresh), says the pane waits for the person to open it (step 4), or says it could not be shown (step 5).
+3. **Don't ask the questions in chat.** No `AskUserQuestion`, no enumerated prose. The person compares *and* picks in the pane, which sends the whole gate back in one block (§5, third shape), write-in inputs included. §4's chat rules (same questions in chat, batches and seams, asking for late inputs) are for ① / ② only. End your turn with one short line, in the user's language, pointing them to the pane.
+4. **A pane that waits is still the pane.** When the note says the pane **waits undrawn**, do not fall back: end your turn with one short line asking the person to press the button named in the note (or type `/decision-sheet`). Never quote column counts to the person.
+5. **Fallback:** only when the note says the pane **could not be shown** and names no button to press (no surface that draws panes, as in a `-p` run), use ① or ② for that gate. The packer keeps the data file you already wrote, so run it with `--serve`, open the page, and ask in chat per §4.
+
+§5 (reading the answer, gate id first) and §7 (delete the file once the answer is reflected) apply unchanged; the pane closes itself when the file goes. The person can reopen it at any time with `/decision-sheet`.
+
+### Without the pane — the packer paths
+
 ⚠️ **Before running the packer, check your own tool list for a tool that opens a page INSIDE the app** — an in-app browser or preview pane (e.g. `preview_start`, a Browser pane; the tell is that it renders a page in a panel beside the chat instead of shelling out to the OS). Do this check **every time** and never assume you have none — silently taking the OS-browser path while a pane is available is a failure, not a safe default.
 
 ⚠️ **The page must be served over http, both ways.** The form reads its gate data with `fetch`, and browsers refuse that read for a page opened straight off the disk — a `file://` sheet shows "open this through the local server" and nothing else. So **always run the packer with `--serve`**; the only difference between ① and ② is where you open the printed address.
 
-### ① Pane available — preferred
+#### ① In-app browser pane available — preferred
 
 ```
 node "<skill base>/assets/build-status-data.cjs" "<project root>" --serve
@@ -43,7 +63,7 @@ Run it **in the background** (it stays running), then open the printed `http://1
 - Use the pane's **preview/open** entry point for the localhost URL — a plain "navigate" may be policy-blocked.
 - The server is throwaway: `Docs/web` only, bound to `127.0.0.1`, and it dies with the session.
 
-### ② No in-app pane — the OS browser
+#### ② No in-app pane — the OS browser
 
 Same command as ①, still with `--serve`. Then open **the printed `http://127.0.0.1:<port>/DecisionSheet.html`** — not the file on disk — in the OS default browser. **On Windows the command depends on the shell you are actually in:**
 
@@ -62,7 +82,7 @@ In PowerShell `start` is an alias for `Start-Process`, which reads the `""` as a
 
 ## 3. The gate data
 
-**Order matters on a first gate: run the packer BEFORE writing the data.** `Docs/web/` does not exist in a fresh project, and the packer is what creates it (§2). Run it, then write the file into the folder it made, then open the printed address — the sheet shows its empty state for the moment in between and picks the gate up on its own within seconds.
+**Order matters on a first gate under ① / ②: run the packer BEFORE writing the data.** `Docs/web/` does not exist in a fresh project, and the packer is what creates it (§2). Run it, then write the file into the folder it made, then open the printed address — the sheet shows its empty state for the moment in between and picks the gate up on its own within seconds.
 
 Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment and no trailing commas. This is a complete valid file; copy it and replace the values:
 
@@ -86,8 +106,12 @@ Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment 
           "id": "A",
           "label": "전투 → 보상 → 성장",
           "tagline": "물량 처치감 우선",
-          "visual": "topdown",
           "emoji": "⚔️",
+          "scene": { "bg": "meadow", "items": [
+            { "part": "hero", "x": 6, "y": 12 },
+            { "part": "slime", "x": 18, "y": 17, "count": 3, "dx": 6 },
+            { "part": "coin", "x": 20, "y": 8, "count": 3, "dx": 6 }
+          ] },
           "summary": [
             "몬스터 웨이브",
             "자동 공격 1종"
@@ -101,8 +125,13 @@ Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment 
           "id": "B",
           "label": "탐험 → 수집 → 강화",
           "tagline": "느긋한 진행",
-          "visual": "topdown",
           "emoji": "🧭",
+          "scene": { "bg": "meadow", "items": [
+            { "part": "hero", "x": 4, "y": 12 },
+            { "part": "tree", "x": 15, "y": 12 },
+            { "part": "gem", "x": 26, "y": 9, "count": 2, "dx": 7 },
+            { "part": "flag", "x": 33, "y": 15 }
+          ] },
           "summary": [
             "넓은 맵",
             "수집물"
@@ -144,7 +173,7 @@ Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment 
 | `title` | string | yes | The gate's headline. |
 | `context` | string | recommended | **2–4 short lines separated by `\n`**, one idea per line (what is already fixed / why these candidates / why it must be decided now). It renders as-is, so never one long run-on paragraph. |
 | `generatedAt` | string | optional | Shown in the footer. |
-| `allowNote` | boolean | optional (default `true`) | Adds the gate-wide "extra notes" box. |
+| `allowNote` | boolean | optional (default `true`) | Adds the gate-wide "extra notes" box. The native pane (§2 ⓪) shows it only when the gate declares no `inputs`, because write-ins already take free text, and it offers no per-question notes. |
 | `questions[]` | array | **yes** | One entry per question. A gate that declares none is refused (§6). |
 | `questions[].id` | string | yes | Short, unique in the gate (`"Q1"`). Appears in the paste so an answer maps to a question even if the wording repeats. |
 | `questions[].question` | string | yes | The question itself. |
@@ -154,8 +183,9 @@ Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment 
 | `options[].id` | string | **yes** | Unique within the question. `"__delegate"` and `"__custom"` are reserved by the form. |
 | `options[].label` | string | yes | The card's title. |
 | `options[].tagline` | string | optional | One short line under the title. |
-| `options[].visual` | enum | optional | `topdown` · `sideview` · `maple` · `boardui` · `systems` — a small schematic in the card's visual box. `none` = no visual box at all (any `emoji` is then ignored). |
-| `options[].emoji` | string | optional | The card's visual when no schematic fits: drawn large in the visual box **when `visual` is unset or unrecognized**. There is no slot beside the id badge. |
+| `options[].visual` | enum | optional | Browser sheet (① / ②): `topdown` · `sideview` · `maple` · `boardui` · `systems` — a small schematic in the card's visual box. `none` = no visual box at all (any `emoji` is then ignored). **Only when it tells the options apart** — see *One picture, one difference* below. The pane draws `scene` instead. |
+| `options[].scene` | object | **required under ⓪** — every option | A picture composed for **this** card from the pane's kit: a backdrop plus parts, shapes and emoji stickers ([`decision-scene-kit.md`](decision-scene-kit.md)). Drawn by the native pane (§2 ⓪), which refuses a gate where any option lacks one. The browser sheet ignores it, so keep an `emoji` beside it. |
+| `options[].emoji` | string | optional | The browser sheet's visual when no schematic fits: drawn large in the visual box **when `visual` is unset or unrecognized**. There is no slot beside the id badge. Never a pane card's picture on its own. |
 | `options[].summary` | string[] | optional | "if you pick this, you build…" bullets. |
 | `options[].firstBuild` | string | optional | The first playable result of this choice. |
 | `options[].effort` | enum | optional | `low` · `medium` · `high`. |
@@ -163,10 +193,15 @@ Write `Docs/web/decision-data.json` — **plain JSON**, no `window.` assignment 
 | `options[].samples` | string | optional | Similar games. |
 | `inputs[].key` | string | yes | Machine key, unique in the gate; it appears in the paste. `"__note"` is reserved. |
 | `inputs[].label` | string | yes | Shown above the box. |
-| `inputs[].placeholder` | string | optional | |
+| `inputs[].placeholder` | string | optional | Keep it short, about 20 characters. In the pane two write-ins share a row, and a longer example is cut off. |
 | `inputs[].required` | boolean | optional | Blocks the whole-gate copy until filled. |
 | `inputs[].hint` | string | optional | Small text under the box. |
 | `inputs[].multiline` | boolean | optional | Starts the box three rows tall across the full width — set it whenever the field invites a list ("everything that comes to mind"). Every field grows as the user types either way. |
+
+**One picture, one difference.** A card's picture exists to show how *this* option differs from the others, so decide visuals per question, not per card.
+
+- **Pane (⓪):** every option gets its own `scene`, and the scenes show the difference. No card goes without one, and no two cards in a question share one.
+- **Browser sheet (① / ②):** if every option in a question would get the **same** schematic (a theme, tone, length or scope question asked after the map type is settled; every card would show the same top-down grid), set `visual` on **none** of them: give each option its own `emoji` that names what is different about it, or `"visual": "none"` on each when no emoji fits. Use schematics only where they differ between options, as when the question *is* the map type.
 
 **Single-line rule.** Ids and keys (`gateId`, `questions[].id`, `options[].id`, `inputs[].key`) must not contain line breaks — each anchors one line of every paste block, and the sheet **refuses the gate** otherwise (§6). Free text that shares those lines (`question`, `options[].label`, `inputs[].label`) has any line break **collapsed to a space** by the sheet, on screen and in the paste alike. Multi-line prose belongs in the `context` fields, which render as-is and never enter a paste block.
 
@@ -179,6 +214,8 @@ Options must cover the plausible answers. When a question secretly merges two in
 ---
 
 ## 4. The sheet and the chat must not drift
+
+**Under ⓪ (native pane) this section does not apply:** the pane takes the answer itself, so nothing is asked in chat (§2 ⓪ step 3). Everything below is for ① / ②.
 
 Run the packer, open the view (§2), **and ask the SAME questions in chat at the same moment.**
 
@@ -237,7 +274,7 @@ The form validates the gate **before drawing it** and refuses to be answered whe
 
 An **open** sheet arrives there on its own as well: after **three** unreadable reads in a row (about five seconds — a file being written recovers long before that) it takes the questions down and says the file cannot be read. It reports that from whatever it was showing, the empty state included, so a gate you wrote badly never sits behind a screen that says "nothing to choose". Rewrite the file correctly and the sheet picks it up by itself; if the gate is identical to the one it removed, the answers already given are still there.
 
-If the user reports that state, do **not** open the file and patch it — a data file is never hand-edited (§1). Correct the gate definition and **write `decision-data.json` again from scratch**, exactly as you did the first time, then ask the user to press **🔄 Refresh**. Don't work around it by asking in chat only: the same defect would reach the next gate.
+If the user reports that state, do **not** open the file and patch it — a data file is never hand-edited (§1). Correct the gate definition and **write `decision-data.json` again from scratch**, exactly as you did the first time, then ask the user to press **🔄 Refresh** (the native pane, §2 ⓪, re-reads the file by itself: nothing to press). Don't work around it by asking in chat only: the same defect would reach the next gate.
 
 ---
 

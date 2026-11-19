@@ -27,9 +27,9 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync, spawn } = require('child_process');
 
-const DEFAULT_NPX_SPEC = '@maplestoryworlds/mlua-lsp@1.1.4';
+const DEFAULT_NPX_SPEC = '@maplestoryworlds/mlua-lsp@1.1.5';
 const MLUA_LSP_PACKAGE_NAME = '@maplestoryworlds/mlua-lsp';
-const MLUA_LSP_VERSION = '1.1.4';
+const MLUA_LSP_VERSION = '1.1.5';
 
 function splitArgs(raw) {
   return String(raw || '').trim().split(/\s+/).filter(Boolean);
@@ -210,7 +210,7 @@ function quoteForCmd(arg) {
  * @returns {{
  *   cmd: string,            // Executable name or absolute path.
  *   baseArgs: string[],     // Base arguments prefixed before the subcommand
- *                           // (e.g. ['-y', '@maplestoryworlds/mlua-lsp@1.1.4']).
+ *                           // (e.g. ['-y', '@maplestoryworlds/mlua-lsp@1.1.5']).
  *   useShell: boolean,      // Whether cmd.exe must be used on Windows
  *                           // (true for .cmd/.bat targets or env-var overrides).
  *   source: 'env'|'workspace'|'vendored'|'path'|'npx'|'fallback',

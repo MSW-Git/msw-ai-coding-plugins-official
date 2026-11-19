@@ -19,7 +19,7 @@ The full MSW combat pipeline. Covers only items in the common 2D combat layer th
 | 4 | Game Feel | **All 6 native** (Hit Stop, Shake, Zoom, Flash, VFX, SFX) | — |
 | 5 | Combat State | `StateComponent` + `DeadEvent`/`ReviveEvent`, `PlayerComponent` HP/revive | MP/Stamina/Rage, aggro |
 | 6 | Event Bus | `HitEvent`/`AttackEvent`/`StateChangeEvent`/`PlayerActionEvent` + custom `@Event` | OnKill/OnBlocked |
-| 7 | AI | `StateComponent` (FSM) + `AIComponent` (BT, 4 native Composites + custom `extends CompositeNode`) + `AIChaseComponent`/`AIWanderComponent`, `_UserService.UserEntities` | Decorator/Memory(Blackboard), Threat Table |
+| 7 | AI | `StateComponent` (FSM) + `AIComponent` (BT, 3 native Composites + custom `extends ActionNode`/`DecoratorNode`/`CompositeNode`, editor Blackboard) + `AIChaseComponent`/`AIWanderComponent`, `_UserService.UserEntities` | Threat Table |
 | + | Damage Skin | 3 `DamageSkin*` components + `DamageSkinService` | — |
 | + | Hit Effect | `HitEffectSpawnerComponent` (auto) | — |
 | + | Avatar Motion | `AvatarStateAnimationComponent` (State→MapleAvatarBodyActionState) | — |
@@ -35,7 +35,7 @@ This SKILL.md covers only the **system flow and native API surface**. Actual mod
 | [`../msw-general/references/monster.md`](../msw-general/references/monster.md) | Monster `.model` component assembly + ActionSheet + AI choice + canonical Pattern A scripts (Soldier-style) + HP/Respawn + spawn + verification | When building a combat-capable monster |
 | [`references/hp-gauge.md`](references/hp-gauge.md) | Full implementation of an overhead HP bar based on `PixelRendererComponent` | When attaching an overhead HP bar |
 | [`references/projectile.md`](references/projectile.md) | Projectile (Body-less entity + `OnUpdate Translate`) + homing/pierce/splash variants | When building ranged attacks like arrows, bullets, magic bolts |
-| [`references/ai-bt.md`](references/ai-bt.md) | BehaviourTree — `AIComponent` + Composites (4 native + custom) + `@BTNode` + custom Decorator/Memory/Threat | When you need BT-based monster/boss AI and multi-layer decision making |
+| [`references/ai-bt.md`](references/ai-bt.md) | BehaviourTree — `AIComponent`, `@BTNode` node scripts (lifecycle, Running semantics), Threat table, deprecated code-based assembly | When you need BT-based monster/boss AI and multi-layer decision making. The tree itself is a `.behaviourtree` file → `msw-behaviourtree` skill |
 
 > Priority: **this SKILL.md (concepts + API tables) → the relevant references/* (full implementation)**.
 
@@ -376,6 +376,8 @@ Looping particles (`isLoop=true`) must be cleaned up via `RemoveParticle(serial)
 
 **Tracking the killer**: DeadEvent has no payload → cache `self.LastAttacker = event.AttackerEntity` in `HandleHitEvent` and use it in `HandleDeadEvent`.
 
+**Death presentation** is composed in `HandleDeadEvent`, not configured anywhere — the `die` clip is only the base layer. Stack from §4 in this order and let the clip length set the total budget: fire the burst at the corpse position (`_ParticleService:PlayBasicParticle`, or `_EffectService:PlayEffect` for a specific skill's imagery) → play the death SFX → `ShakeCamera` only for bosses, never per trash mob → fade the corpse by tweening `SpriteRendererComponent.Color` alpha to 0 across the clip's tail, then hide or despawn. Hit stop belongs to the killing blow, not to the death — apply it in the hit handler so it lands before the death animation starts.
+
 For player-specific death/revive, prefer §9-1 `PlayerComponent.Respawn/ProcessDead/ProcessRevive`.
 
 ---
@@ -406,7 +408,7 @@ For player-specific death/revive, prefer §9-1 `PlayerComponent.Respawn/ProcessD
 | Pattern | Fit | Reference |
 |---------|-----|-----------|
 | **FSM** (`StateComponent` + `@State`) | Simple enemies (3~5 states), player IDLE/HIT/DEAD, boss phases, animation sync (`AvatarStateAnimationComponent` auto mapping §10). Requires `StateComponent.IsLegacy=false` if you want `StateAnimationComponent` to auto-swap clips. | **[`../msw-general/references/animation-state.md`](../msw-general/references/animation-state.md)** (state-machine + animation pipeline unified) |
-| **BT** (`AIComponent` + Composites (4 native + custom) + `@BTNode`) | Patrol + chase + attack combos, varied boss patterns, Composite/Decorator reuse, probability-weighted actions. Requires `StateComponent.IsLegacy=false`. | **[`references/ai-bt.md`](references/ai-bt.md)** |
+| **BT** (`AIComponent` + `.behaviourtree` + `@BTNode` node scripts) | Patrol + chase + attack combos, varied boss patterns, Composite/Decorator reuse, probability-weighted actions. Requires `AIComponent.IsLegacy=false`. | Tree file → **[`../msw-behaviourtree/SKILL.md`](../msw-behaviourtree/SKILL.md)**; node scripts → **[`references/ai-bt.md`](references/ai-bt.md)** |
 | **Custom script with self-state** (`@Component` holding `CurrentAIState` plus direct `SpriteRUID` assignment — Soldier-style pattern) | Behaviors that don't fit `AIChase`/`AIWander` (roam ↔ stand ↔ say ↔ attack, range-gated attacks, talking idle). **No `AIChaseComponent`/`AIWanderComponent`, no `IsLegacy=false` needed** — the script bypasses the ActionSheet pipeline. Reserve `StateComponent` for `IDLE` ↔ `DEAD` only. | [`../msw-general/references/monster.md` §7 "Canonical Pattern A Scripts (Soldier)"](../msw-general/references/monster.md) |
 
 ### 7-1. FSM — `StateComponent` (summary)
@@ -419,11 +421,11 @@ For player-specific death/revive, prefer §9-1 `PlayerComponent.Respawn/ProcessD
 
 ### 7-2. BT — `AIComponent` (summary)
 
-`AIComponent` + `SequenceNode`/`SelectorNode`/`RandomSelectorNode`/`ParallelNode` + `@BTNode` Action Nodes + native `AIChaseComponent`/`AIWanderComponent`. **All 4 Composite types are native**, and a custom child-flow policy can be scripted via `@BTNode ... extends CompositeNode` (`ChildCount`/`ChildBehave`); Decorator/Memory(Blackboard)/Threat Table must be implemented by hand.
+`AIComponent` runs a `.behaviourtree` (`BehaviourTreeId`): native `SequenceNode`/`SelectorNode`/`ParallelNode` composites + `@BTNode` scripts extending `ActionNode`/`DecoratorNode`/`CompositeNode` (custom child-flow via `ChildCount`/`ChildBehave`) + the editor Blackboard; the Threat Table is implemented by hand. Assembling a tree in script (`CreateNode`/`SetRootNode`/`AttachChild`, native composite constructors, `RandomSelectorNode`) is deprecated — maintenance of existing code-built trees only.
 
 > ⚠ When using custom BT, remove `AIChaseComponent`/`AIWanderComponent` from the `.model`.
 
-**Full implementation → [`references/ai-bt.md`](references/ai-bt.md)**
+**Tree authoring → [`../msw-behaviourtree/SKILL.md`](../msw-behaviourtree/SKILL.md)** · **Node scripts, Running semantics, code-built trees → [`references/ai-bt.md`](references/ai-bt.md)**
 
 > Full monster entity composition → [`../msw-general/references/monster.md`](../msw-general/references/monster.md)
 >
@@ -707,7 +709,7 @@ Attach to the defender and a hit effect plays **automatically** on `HitEvent`. N
 
 ## 14. Custom implementation is required
 
-Buff/Debuff · BT Decorator/Memory(Blackboard) · Aggro/Threat Table · projectile pooling · pierce/max-hits · stagger-level system · resources (MP/Stamina/Rage) · combo/cancel windows · guard/parry · world→screen coordinate conversion · worldspace HP bar
+Buff/Debuff · Aggro/Threat Table · projectile pooling · pierce/max-hits · stagger-level system · resources (MP/Stamina/Rage) · combo/cancel windows · guard/parry · world→screen coordinate conversion · worldspace HP bar
 
 ---
 

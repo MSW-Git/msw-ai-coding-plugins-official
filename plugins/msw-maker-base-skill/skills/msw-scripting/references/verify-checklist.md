@@ -20,19 +20,19 @@ Run it **once per turn, covering every change made this turn in one runtime cycl
 Call in order:
 
 0. **First cycle of a session only**: `maker_get_current_map` — require `status` `ok`, and the returned `name`/`id` to equal a `map/<name>.map` file and its root entity id (`ContentProto.Entities[0].id`). Anything else → stop and ask the user to open this world in Maker: a Maker holding another world answers every tool `ok` with clean logs (false PASS). A **copied** workspace passes this check with the same ids — if fresh `[VRF]` logs then never appear in Step 3, ask the user which world Maker has open instead of looping refresh. Re-check only after a Maker restart or a suspected world switch.
-1. `stop` — reset state
-2. `clear_logs` — remove previous output (isolate current output)
-3. `refresh` — sync file changes to the runtime
-4. `logs(kind="build")` — check build log; if errors exist, fix and restart from step 1
-5. `play` — enter play mode
-6. Wait a few seconds, then `logs(kind="normal")` — collect runtime output. Scope the read as narrowly as the tool schema allows (severity / filters); the `[VRF]` lines plus any errors are all Step 3 needs. The `OnBeginPlay` `[VRF]` marker doubles as the boot signal — if it has not appeared yet, you read too early: read again instead of concluding failure.
+1. `maker_run_command("stop")` — reset state; `stderr` `Not playing game.` = already in edit mode, continue
+2. `maker_clear_logs` — remove previous output (isolate current output)
+3. `maker_refresh_workspace` — sync file changes to the runtime; `status` `unavailable` with `mode` `play` = the stop transition is still finishing, call it again
+4. `maker_build_logs` — check build log; if errors exist, fix and restart from step 1
+5. `maker_run_command("play")` — enter play mode
+6. Wait a few seconds, then `maker_console_logs` — collect runtime output. Scope the read as narrowly as the tool schema allows (`search` / `space`); the `[VRF]` lines plus any errors are all Step 3 needs. The `OnBeginPlay` `[VRF]` marker doubles as the boot signal — if it has not appeared yet, you read too early: read again instead of concluding failure.
 
 Retain the raw logs for Step 3.
 
 **Reproduce scenarios with the fewest tool calls** — every call is a full model round-trip and its output stays in context for the rest of the session:
 
-- When the scenario can be driven programmatically, prefer **one `maker_execute_script` probe** that drives the scenario and emits the `[VRF]` evidence over a chain of `keyboard_input` / `mouse_input` calls. Simulate real input only when the input path itself is what you are verifying.
-- Do not re-collect logs you already have; keep every `logs` read scoped (see step 6).
+- When the scenario can be driven programmatically, prefer **one `maker_execute_script` probe** that drives the scenario and emits the `[VRF]` evidence over a chain of `maker_keyboard_input` / `maker_mouse_input` calls. Simulate real input only when the input path itself is what you are verifying.
+- Do not re-collect logs you already have; keep every log read scoped (see step 6).
 - `screenshot` is never routine verification — log evidence decides PASS/FAIL (screenshot only for coordinate targeting or on explicit user request).
 
 ---
@@ -71,7 +71,7 @@ Check every modified/created file against **every item** below. A file you wrote
 
 ## Step 1b — Tool limitations to know during runtime checks
 
-- **`mouse_input` simulator does not fire `KeyDownEvent` for mouse buttons.** Only `ScreenTouchEvent` is emitted. PC right-click code paths bound to `KeyDownEvent` + `KeyboardKey.Mouse1` cannot be regression-tested through the simulator — verify those on a real PC build instead. Listening to both `ScreenTouchEvent` and `KeyDownEvent` simultaneously is the standard pattern: the simulator validates the `ScreenTouchEvent` path while the real PC covers the `KeyDownEvent` path; they do not double-fire.
+- **`maker_mouse_input` simulator does not fire `KeyDownEvent` for mouse buttons.** Only `ScreenTouchEvent` is emitted. PC right-click code paths bound to `KeyDownEvent` + `KeyboardKey.Mouse1` cannot be regression-tested through the simulator — verify those on a real PC build instead. Listening to both `ScreenTouchEvent` and `KeyDownEvent` simultaneously is the standard pattern: the simulator validates the `ScreenTouchEvent` path while the real PC covers the `KeyDownEvent` path; they do not double-fire.
 
 ---
 
@@ -90,7 +90,7 @@ Check every modified/created file against **every item** below. A file you wrote
 
 For the logs collected in Step 1:
 
-- [ ] **Zero build errors** (`logs(kind="build")`) — re-confirm after play
+- [ ] **Zero build errors** (`maker_build_logs`) — re-confirm after play
 - [ ] Is there a **`[VRF]` line for every checkpoint planted this turn** (entry, branch results, values, event order) — across **all** of the turn's changes, not just the last one?
 - [ ] Are values the **expected values**, not nil/0/empty string?
 - [ ] Were logs printed on the **correct side** (Server/Client)?

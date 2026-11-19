@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const makerJson = require("../lib/maker_json.cjs");
 
 const CONTENT_TYPE = "x-mod/collisiongroupset";
 const ENTRY_KEY = "collisiongroupset://unique";
@@ -404,7 +405,7 @@ class CollisionGroupSetBuilder {
     const errors = findings.filter((finding) => finding.severity === "error");
     if (errors.length) throw new Error(`CollisionGroupSet validation failed: ${errors.map(formatFinding).join("; ")}`);
     fs.mkdirSync(path.dirname(filepath), { recursive: true });
-    fs.writeFileSync(filepath, `${JSON.stringify(this.build(), null, 2)}\n`, "utf8");
+    fs.writeFileSync(filepath, makerJson.stringify(this.build()), "utf8");
     console.log(`Written collision group set (${this._groups().length} groups) to ${filepath}`);
     return this;
   }

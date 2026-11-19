@@ -101,7 +101,7 @@ This document carries the **why** behind those calls — Scope, RUID, the meanin
 
 Domain-side summary rules:
 
-- `.map` `Entities` arrays are very large. **Direct raw JSON editing is reserved for builder coverage-gap areas only** — minimal scope plus `refresh` + logs verification.
+- `.map` `Entities` arrays are very large. **Direct raw JSON editing is reserved for builder coverage-gap areas only** — minimal scope plus `maker_refresh_workspace` + logs verification.
 - Patch values through world-unit vectors (`pos: [x, y, z]`), color helpers, and component override objects. Do not hand-write raw component JSON except as a builder argument for a single-component payload.
 
 ---
@@ -145,7 +145,7 @@ Guide the user to switch the mode in the Maker editor as follows:
 1. Open the Maker editor's **Hierarchy** window.
 2. **Right-click the target map entity** in the Hierarchy.
 3. Choose the **"Switch ..." option that matches the target mode** (Switch TileMap / RectTileMap / SideViewRectTileMap) from the context menu.
-4. After the user reports the switch is complete, call MCP **`refresh`**, then re-read `MapComponent.TileMapMode` to confirm and re-check every dynamic entity's Body component against the new mode.
+4. After the user reports the switch is complete, call MCP **`maker_refresh_workspace`**, then re-read `MapComponent.TileMapMode` to confirm and re-check every dynamic entity's Body component against the new mode.
 
 > AI role on mode changes: **recommend mode → wait for the user to right-click-switch in the Maker Hierarchy → refresh → fix Body components / scripts that no longer match**. Do not flip `TileMapMode` from a file edit.
 
@@ -161,7 +161,7 @@ Guide the user to switch the mode in the Maker editor as follows:
    - `placeModel()` returns the builder; read the placed root UUID with `map.lastId()` before `write()` if a script binding needs it.
    - **`modelId` form (default — required for ≥2 instances)**: `placeModel()` mirrors model components and applies per-instance overrides.
    - **Inline form**: use `sprite()` / `empty()` only for truly one-off map-local entities.
-   - `refresh`.
+   - `maker_refresh_workspace`.
 
 ### `modelId` vs Inline — Decision Rule
 
@@ -205,14 +205,14 @@ Use `MapBuilder.placeModel()` — it creates the model-instance metadata, keeps 
 
 The map's tile-grid container — the entity carrying `TileMapComponent` (MapleTile) or `RectTileMapComponent` (RectTile / SideViewRectTile) — has its `TransformComponent` **locked by the tile-map component itself**. Writes to `TransformComponent.Position` / `EulerAngles` / `Scale` are **silently rejected** with a `LWA-3047 NativeIssue_UnableToChange` warning. The engine keeps this entity at a fixed origin (`(0, 0, z)`, or a half-cell offset for odd-grid RectTile maps) so that tile coordinates and world coordinates stay in a known relationship.
 
-**This applies regardless of whether the entity was placed with `modelId` or as an inline `@components` block** — the lock comes from the tile-map component, not from how the entity was authored. Moving the entity in `.map` JSON appears to take, but `refresh` reverts it to `(0, 0, z)`; runtime `Position = ...` writes produce no visible movement and log `[LWA-3047]`.
+**This applies regardless of whether the entity was placed with `modelId` or as an inline `@components` block** — the lock comes from the tile-map component, not from how the entity was authored. Moving the entity in `.map` JSON appears to take, but `maker_refresh_workspace` reverts it to `(0, 0, z)`; runtime `Position = ...` writes produce no visible movement and log `[LWA-3047]`.
 
 **Workaround**: do not try to move the tile-map entity. Anchor your game's coordinate system to the locked origin instead — keep gameplay anchors (grid origin, spawn points, path waypoints) in tile coordinates and convert via the tile-map component's helpers (e.g. `RectTileMapComponent:ToWorldPosition(cellPos)` — see [`platform-rect.md`](platform-rect.md) §3).
 
 Symptoms when the rule is ignored:
 
-- A `Position` written into `.map` JSON reverts to `(0, 0, z)` after Maker `refresh`.
-- Runtime `TransformComponent.Position = ...` writes have no observable effect; `logs` shows `[LWA-3047] UnableToChange`.
+- A `Position` written into `.map` JSON reverts to `(0, 0, z)` after Maker `maker_refresh_workspace`.
+- Runtime `TransformComponent.Position = ...` writes have no observable effect; `maker_console_logs` shows `[LWA-3047] UnableToChange`.
 - Adding a custom child entity to the tile-map entity works, but the child's effective world position is still measured relative to the locked parent at `(0, 0)`.
 
 This is **by design** — the tile-map entity is the canonical reference frame for tile↔world conversion. Decorations, spawn anchors, or overlays that need to be elsewhere should live as **siblings under the map root, not as children of the tile-map entity**.
@@ -253,19 +253,19 @@ This is **by design** — the tile-map entity is the canonical reference frame f
 | Delete entity | `MapBuilder.remove()` |
 | Change property | `MapBuilder.patchComponent()` for map instances or ModelBuilder values for templates |
 | Add/remove component | `MapBuilder.upsertComponent()` / `removeComponent()` for one-off map-local instance changes |
-| Register/edit/delete model | CRUD `.model` files under `RootDesk/MyDesk/` (`refresh`) |
+| Register/edit/delete model | CRUD `.model` files under `RootDesk/MyDesk/` (`maker_refresh_workspace`) |
 | List entities | `MapBuilder.snapshot()` / `listEntities()` |
 
 ---
 
 ## Runtime Verification
 
-For **runtime state** that's hard to know from files alone, use `logs` and `log()` in play mode.
+For **runtime state** that's hard to know from files alone, use `maker_console_logs` and `log()` in play mode.
 
 ### Flow
 
 1. Add `log()` in `.mlua` for the value to inspect
-2. `refresh` → `play` → collect via `logs`
+2. `maker_refresh_workspace` → `play` → collect via `maker_console_logs`
 3. `stop` → edit files → repeat
 
 ### When you don't know an API
@@ -281,10 +281,10 @@ After work, `**stop**` to return to edit mode.
 
 ### Files / Editor / MCP
 
-1. **Run `refresh` after file changes** (not allowed during play — `stop` first).
+1. **Run `maker_refresh_workspace` after file changes** (not allowed during play — `stop` first).
 2. **Use `MapBuilder` first for `.map` work** — direct raw JSON edits are only for explicitly unsupported gaps, and must be minimal plus verified.
 3. **Do not modify `Environment/*.d.mlua`** — API definitions are read-only.
-4. **Do not create or edit `.codeblock` manually** — Maker `refresh` generates it from `.mlua`.
+4. **Do not create or edit `.codeblock` manually** — Maker `maker_refresh_workspace` generates it from `.mlua`.
 5. **Take `screenshot` only when the user explicitly asks or when identifying coordinates for input simulation.**
 
 ### Physics / Movement / Map
@@ -320,7 +320,7 @@ After work, `**stop**` to return to edit mode.
 
 ### Verification Loop
 
-22. **`refresh` → `logs`** → **`play` → `logs` → `stop`**.
+22. **`maker_refresh_workspace` → `maker_build_logs`** → **`play` → `maker_console_logs` → `stop`**.
 23. On intermediate failure, **stop the following steps** — fix the cause and retry.
 
 ---
@@ -330,7 +330,7 @@ After work, `**stop**` to return to edit mode.
 | Doc | Purpose |
 |-------------|------|
 | [builder-protocol-map.md §1](builder-protocol-map.md) | **`.map` call protocol — MapBuilder API, snapshot workflow, coverage gaps, `false`-return handling** (with the [builder-protocol.md](builder-protocol.md) core — both in context whenever a turn touches `.map`) |
-| [builder-protocol.md §4](builder-protocol.md) | `.model` author → `.map` placement → `refresh` cross-flow |
+| [builder-protocol.md §4](builder-protocol.md) | `.model` author → `.map` placement → `maker_refresh_workspace` cross-flow |
 | [model.md](model.md) | `.model` template authoring domain (when / catalog / component combinations) |
 | [tile.md](tile.md) | Tile maps / tilesets |
 | [`msw-ui-system`](../../msw-ui-system/SKILL.md) | UI authoring |

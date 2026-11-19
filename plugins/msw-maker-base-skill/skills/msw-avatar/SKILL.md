@@ -10,7 +10,7 @@ An avatar is managed along two axes.
 - **Costume (appearance)**: `MOD.Core.CostumeManagerComponent` — which items are equipped (17 slots).
 - **Animation (motion)**: `AvatarStateAnimationComponent` + `AvatarRendererComponent` — which state clip is played (14 default states + custom actions).
 
-**Edit workspace files directly**, then call the **`refresh` tool of `msw-maker-mcp`** so the editor picks up the change.
+**Edit workspace files directly**, then call the **`maker_refresh_workspace` tool of `msw-maker-mcp`** so the editor picks up the change.
 
 This document covers costume (file-edit based) first, then animation (script based) at the end.
 
@@ -27,15 +27,15 @@ This document covers costume (file-edit based) first, then animation (script bas
 | **Entities placed in a map** (NPC, monster, etc.) | `./map/{mapName}.map` | The `CostumeManagerComponent` block inside that entity's `jsonString.@components` |
 | **Entities that reference a custom model only** | The corresponding `.model` (e.g. under `./RootDesk/MyDesk/`) | When the map has no inline component and the entity is bound only by `modelId`, edit the model side |
 
-**Read (equivalent to get)**: read the file above and inspect the `CostumeManagerComponent`-related fields / `Values` entries. If Maker MCP is connected, you can use `get_component` as a runtime/editor snapshot helper (see the `msw-maker-mcp` skill).
+**Read (equivalent to get)**: read the file above and inspect the `CostumeManagerComponent`-related fields / `Values` entries.
 
-**Apply (equivalent to set)**: write values into the file, then call **`refresh`**.
+**Apply (equivalent to set)**: write values into the file, then call **`maker_refresh_workspace`**.
 
 ---
 
-## Applying changes: MCP `refresh`
+## Applying changes: MCP `maker_refresh_workspace`
 
-After saving the file you **must** call the **`refresh`** tool of the `msw-maker-mcp` server to sync Maker and its visual state. (See the tool list in the `msw-maker-mcp` skill.)
+After saving the file you **must** call the **`maker_refresh_workspace`** tool of the `msw-maker-mcp` server to sync Maker and its visual state. (See the tool list in the `msw-general` skill.)
 
 ---
 
@@ -619,7 +619,7 @@ end
 |-------|---------|
 | **msw-defaultplayer** | Structure of `./Global/DefaultPlayer.model` / `Player.model` and `Values` rules |
 | **msw-search** | RUID lookup, [`references/resource/avatar.md`](../msw-search/references/resource/avatar.md) |
-| **msw-maker-mcp** | **`refresh`**, optionally `get_component` / `set_property` (when combined with runtime tweaks) |
+| **msw-general** | Maker MCP tools — **`maker_refresh_workspace`**, optionally `maker_execute_script` (when combined with runtime tweaks) |
 
 ---
 
@@ -632,7 +632,7 @@ end
 3. **Map entities** → `@components` of the target entity inside `./map/*.map`.
 4. Respect the **Longcoat / two-handed weapon / shield ↔ sub-weapon** exclusion rules.
 5. Decide whether to ignore the user's account default costume via **`UseCustomEquipOnly`**.
-6. After saving, call **`msw-maker-mcp` → `refresh`**.
+6. After saving, call **`msw-maker-mcp` → `maker_refresh_workspace`**.
 
 ### Animation
 

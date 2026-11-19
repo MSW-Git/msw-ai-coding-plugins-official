@@ -519,7 +519,7 @@ After running any recipe:
 
 1. **Binding Injection** — Auto-inject entity UUIDs into the corresponding `.mlua` property defaults via `b.write(filepath, { bind: { mlua, props } })` or `b.injectBindings(mlua_path, props)`. See [`../../msw-general/references/builder-protocol-ui.md`](../../msw-general/references/builder-protocol-ui.md) §3.6 Binding Injection for details.
 2. **Preview Check** — Visualize the layout with `scripts/preview_ui_layout.cjs`
-3. **Maker Refresh** — Reflect changes in the engine via MCP refresh
+3. **Maker Refresh** — Reflect changes in the engine via `maker_refresh_workspace`
 4. **Play Mode Verification** — Verify on actual resolution and mobile scale
 
 Snapshot:

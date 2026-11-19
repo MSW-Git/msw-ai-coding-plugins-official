@@ -40,7 +40,7 @@ const { ModelBuilder, vector2, collisionGroup, actionSheet } = require("./script
 | custom AI script (`script.SoldierAI`-style) | Pattern A only — owns its own state variable, sets `SpriteRUID` per state, drives `MovementComponent:MoveToDirection`, gates attack on range. Replaces AIChase/AIWander entirely. | ✅ | — |
 | `script.MonsterAttack` / `script.SoldierAttack` | `AttackComponent` subclass — `AttackFast(shape, nil, CollisionGroups.Player)` to deliver hits. MonsterAttack auto-timers `AttackFast` while alive; SoldierAttack exposes `DoAttack()` invoked by the AI script's `ATTACK` state. | ✅ (SoldierAttack: on-demand) | ✅ (MonsterAttack: timer) |
 
-`script.Monster` / `script.MonsterAttack` / `script.SoldierAI` / `script.SoldierAttack` must be registered first. Safe order: write `.mlua` → `refresh` (generates `.codeblock`) → only after `.codeblock` exists, include the script in the `.model` → `refresh`.
+`script.Monster` / `script.MonsterAttack` / `script.SoldierAI` / `script.SoldierAttack` must be registered first. Safe order: write `.mlua` → `maker_refresh_workspace` (generates `.codeblock`) → only after `.codeblock` exists, include the script in the `.model` → `maker_refresh_workspace`.
 
 > **Pattern A canonical layout** (verbatim from `Soldier.model`'s `Components` array, in order):
 > `TransformComponent`, `StateAnimationComponent`, `SpriteRendererComponent`, `RigidbodyComponent`, `MovementComponent`, `StateComponent`, `HitComponent`, `DamageSkinSpawnerComponent`, `script.Monster`, `script.SoldierAI`, `script.SoldierAttack`. No AI component. Eleven entries total.
@@ -151,7 +151,7 @@ All APIs used are documented in `.d.mlua` (`_ResourceService:LoadAnimationClipAn
 | Stay still and only attack | Remove both `AIChaseComponent` and `AIWanderComponent`; add a custom timer-driven AttackComponent |
 | Chase the attacker instead of nearest player | `AIChaseComponent` with `IsChaseNearPlayer = false`; call `SetTarget(attacker)` from a `HitEvent` handler (Pattern B) |
 | Multi-step behavior (patrol → alert → chase → cooldown, attack patterns, talking idle, range-gated attack) | **Custom AI script (Pattern A — Soldier).** Remove both AIChase/AIWander entirely (their built-in BT overwrites velocity every frame and stomps your script). Author a single `@Component script MyAI extends Component` with its own state variable, an `OnBeginPlay` that calls `self:EnterState("ROAM")`, an `EnterState(newState)` that sets the right `SpriteRUID` + duration + facing, and an `OnUpdate(delta)` that ticks state timers, finds the nearest player via `_UserService:GetUsersByMapComponent(map.MapComponent)`, and transitions on range. Death is driven by reading `self.Entity.Monster.IsDead` and playing one die clip once. |
-| Multi-step via engine BehaviorTree | Replace AI components with `AIComponent` and author a BehaviorTree from `BTNodeType` scripts. Drive `StateComponent` from nodes so animations still follow [`animation-state.md` §3](animation-state.md). Requires Pattern B setup (`IsLegacy=false`). |
+| Multi-step via engine BehaviorTree | Replace AI components with `AIComponent` and author a `.behaviourtree` (`msw-behaviourtree` skill) over `@BTNode` node scripts ([`ai-bt.md`](../../msw-combat-system/references/ai-bt.md)). Drive `StateComponent` from nodes so animations still follow [`animation-state.md` §3](animation-state.md). Requires Pattern B setup (`IsLegacy=false`). |
 
 Both AI components need correct Body + Movement + State setup. On MapleTile use `RigidbodyComponent`. AI auto-adds `StateComponent` if missing, but list it in the model anyway so load-time dependencies are stable.
 
@@ -167,7 +167,7 @@ property boolean IsLegacy = false          -- must be false
 
 method Entity GetCurrentTarget()           -- return the current chase target
 method void SetTarget(Entity targetEntity) -- set a fixed target (auto-disables IsChaseNearPlayer)
-method BTNode CreateLeafNode / CreateNode / SetRootNode  -- BT customization
+method BTNode CreateLeafNode / CreateNode / SetRootNode  -- deprecated
 ```
 
 Builder tuning:
@@ -189,12 +189,13 @@ property boolean IsLegacy = false          -- must be false
 property boolean LogEnabled = false
 property UpdateAuthorityType UpdateAuthority = UpdateAuthorityType.Server
 
+-- deprecated
 method BTNode CreateLeafNode(string nodeName, func<float> -> BehaviourTreeStatus)
 method BTNode CreateNode(string nodeType, string nodeName, func<float> -> BehaviourTreeStatus)
 method void SetRootNode(BTNode node)
 ```
 
-Just adding the component (without custom BT nodes) yields default wander behavior. For advanced patrol routes, build a BT directly via `SetRootNode`. For MapleTile patrol use `PredictFootholdEnd` to reverse at edges ([`platform-maple.md`](platform-maple.md) §5).
+Just adding the component (without custom BT nodes) yields default wander behavior. For advanced patrol routes, use the engine BehaviorTree row of the §5 table. For MapleTile patrol use `PredictFootholdEnd` to reverse at edges ([`platform-maple.md`](platform-maple.md) §5).
 
 ### 5c. Switching pattern (swap AI from script)
 
@@ -223,9 +224,9 @@ chase.DetectionRange = 8.0
 Procedure (Maker Inspector):
 1. Open the target `.model` in Maker and delete `AIChaseComponent` / `AIWanderComponent` from the Components panel.
 2. Explicitly re-set `RigidbodyComponent.WalkSpeed` to the desired value (e.g. `1.4`) — prevents the `0.5` residue from the AIComponent's force-overwrite.
-3. Save, then apply the change via MCP `refresh`.
+3. Save, then apply the change via MCP `maker_refresh_workspace`.
 
-If you want to keep only part of `AIChase`'s BT, you can leave the component but swap the BT root via `SetRootNode` to disable the default Stop/Chase behavior — but **removal is recommended**.
+If you want to keep only part of `AIChase`'s BT, you can leave the component but swap the BT root via the deprecated `SetRootNode` to disable the default Stop/Chase behavior — but **removal is recommended**.
 
 ### 5e. Driving the state machine yourself (no AI component)
 
@@ -673,14 +674,14 @@ Actual movement speed = `InputSpeed × WalkSpeed`. When `AIChaseComponent`/`AIWa
 
 After writing the model:
 
-1. Maker `refresh`.
+1. Maker `maker_refresh_workspace`.
 2. Place instances in `.map` via `modelId`; see [`entity.md`](entity.md).
 3. Do not partially override a system model through a map `modelId` instance. Bake monster defaults into a dedicated `.model`.
 4. For repeated monsters, all instances should share one model and only differ in transform/position.
 
 ## 12. Verification + checklist
 
-1. `refresh` → check build logs; `play` → check runtime logs.
+1. `maker_refresh_workspace` → check build logs; `play` → check runtime logs.
 2. Walk the **state cycle** (see [`animation-state.md` §8](animation-state.md) for the generic checklist): spawn → `IDLE`/`stand`; move → `MOVE`/`move`; hit → `HIT`/`hit` + damage skin → auto-return `IDLE` ~0.5s; HP=0 → `DEAD`/`die` + no further hits, respawn (if enabled).
 3. If animation looks stuck, log `CurrentStateName` per frame — distinguishes "state didn't change" from "ActionSheet key wrong".
 4. `stop` before further file changes.

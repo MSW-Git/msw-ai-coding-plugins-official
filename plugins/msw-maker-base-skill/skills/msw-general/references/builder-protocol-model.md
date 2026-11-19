@@ -27,7 +27,7 @@ Use:
 - `ModelBuilder.read(filepath)` / `ModelBuilder.snapshot(filepath)` to inspect existing models.
 - `ModelBuilder.fromTemplate(templatePath, name, { model_id })` to create from a shipped template.
 - `component()`, `value()`, `property()`, `child()`, `childFromTemplate()`, `childFromModel()`, `eventLink()`, `setBaseModelId()`, `renameModel()` to mutate.
-- `write(filepath)` to save, then Maker `refresh`.
+- `write(filepath)` to save, then Maker `maker_refresh_workspace`.
 
 The builder owns `EntryKey`, `ContentProto.Json.Id/Name`, value type descriptors, inspector-property links, child model shape, and event-link preservation.
 
@@ -381,9 +381,9 @@ Custom `script.XXX` components in a `.model` depend on the script type already b
 Required order:
 
 1. Write the script `.mlua`.
-2. Maker `refresh`.
+2. Maker `maker_refresh_workspace`.
 3. Build or patch the `.model` through `ModelBuilder`.
-4. Maker `refresh` again.
+4. Maker `maker_refresh_workspace` again.
 
 If this order is inconvenient, keep the `.model` native-only and attach the script at spawn time with `entity:AddComponent("ScriptName")`.
 
@@ -396,7 +396,7 @@ If this order is inconvenient, keep the `.model` native-only and attach the scri
 - [ ] Picked the Body component matching `TileMapMode`.
 - [ ] Set a real `SpriteRUID` when using `SpriteRendererComponent`.
 - [ ] Used explicit `typeKey` for new or changed values.
-- [ ] Called Maker `refresh` after write.
+- [ ] Called Maker `maker_refresh_workspace` after write.
 - [ ] Checked logs after refresh / play.
 
 ### §2.7 CollisionGroupSetBuilder — `Global/CollisionGroupSet.collisiongroupset`

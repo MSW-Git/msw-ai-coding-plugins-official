@@ -4,6 +4,7 @@
 const fs = require("fs");
 const crypto = require("crypto");
 const path = require("path");
+const makerJson = require("../lib/maker_json.cjs");
 
 const DEFAULT_SPRITE_RUID = "8ef238e0d0ca4bb783aca526cff35d11";
 const MAP_TEMPLATE_FILES = Object.freeze({
@@ -28,13 +29,26 @@ function hasExplicitPos(options = {}) {
   return options != null && options.pos != null;
 }
 
-function readJsonFile(filepath, label) {
+function readMakerFile(filepath, label) {
   try {
-    return JSON.parse(fs.readFileSync(filepath, "utf8"));
+    return makerJson.parse(fs.readFileSync(filepath, "utf8"));
   } catch (err) {
     if (err && err.code === "ENOENT") throw new Error(`${label} not found: ${filepath}`);
     throw new Error(`Invalid JSON in ${label} ${filepath}: ${err.message}`);
   }
+}
+
+function readJsonFile(filepath, label) {
+  return readMakerFile(filepath, label).value;
+}
+
+// Tile entries and foothold records are serialized outside any declared property type.
+const FOOTHOLD_FLOAT_FIELDS = new Set(["Length", "walk", "force", "drag"]);
+function mapNumberKind(key, owner, ctx) {
+  const head = ctx.chain[0];
+  if (head === "Tiles" || head === "tileMap") return "int";
+  if (head === "FootholdsByLayer" && FOOTHOLD_FLOAT_FIELDS.has(key)) return "float";
+  return undefined;
 }
 
 function normalizeMapName(mapName) {
@@ -363,6 +377,7 @@ class MapBuilder {
     this.displayCounter = this._nextDisplayOrder();
     this._lastId = null;
     this._stampCoreVersion = !data;
+    this._hints = null;
   }
 
   static read(filepath) {
@@ -370,7 +385,7 @@ class MapBuilder {
   }
 
   static load(filepath) {
-    const data = readJsonFile(filepath, "map");
+    const { value: data, hints } = readMakerFile(filepath, "map");
     if (data.ContentType !== "x-mod/map") throw new Error(`Not an x-mod/map file: ${filepath}`);
     if (!data.ContentProto || !Array.isArray(data.ContentProto.Entities)) {
       throw new Error(`Missing ContentProto.Entities in map file: ${filepath}`);
@@ -386,7 +401,9 @@ class MapBuilder {
     const mapName = rootPath && rootPath.startsWith("/maps/")
       ? rootPath.split("/")[2]
       : String(data.EntryKey || "map://map01").replace(/^map:\/\//, "");
-    return new MapBuilder(mapName, data);
+    const builder = new MapBuilder(mapName, data);
+    builder._hints = hints;
+    return builder;
   }
 
   static fromTemplate(templatePath, mapName) {
@@ -424,6 +441,7 @@ class MapBuilder {
     builder.displayCounter = builder._nextDisplayOrder();
     builder._lastId = null;
     builder._stampCoreVersion = true;
+    builder._hints = template._hints;
     return builder;
   }
 
@@ -442,7 +460,8 @@ class MapBuilder {
 
   write(filepath) {
     if (this._stampCoreVersion) this.data.CoreVersion = resolveCoreVersion(path.dirname(filepath));
-    fs.writeFileSync(filepath, `${JSON.stringify(this.build(), null, 2)}\n`, "utf8");
+    const classify = makerJson.classifier(workspaceRoot(path.dirname(filepath)), mapNumberKind);
+    fs.writeFileSync(filepath, makerJson.stringify(this.build(), classify, this._hints), "utf8");
     return this;
   }
 

@@ -36,7 +36,7 @@ Alpha-sorted **camelCase** method names. **camelCase is canonical** — if a nam
 
 `write(filepath)` overwrites the target `.ui` path. Do not delete and recreate `.ui` files — load (or construct) the intended state, then write once.
 
-**Deleting a whole file** (distinct from mutating it): no builder exposes a delete-file API, and the registered guard blocks shell `rm` / `del` / `Remove-Item` on `.ui` / `.model`. To intentionally remove a file, use a cross-platform node unlink — `node -e "require('fs').unlinkSync('ui/<File>.ui')"` (or the `.model` path) — then `refresh` and confirm it dropped from the Glob index. The guard permits this because it is a `node` call, not a shell content-tool, and it does not scan inside `node -e` code.
+**Deleting a whole file** (distinct from mutating it): no builder exposes a delete-file API, and the registered guard blocks shell `rm` / `del` / `Remove-Item` on `.ui` / `.model`. To intentionally remove a file, use a cross-platform node unlink — `node -e "require('fs').unlinkSync('ui/<File>.ui')"` (or the `.model` path) — then `maker_refresh_workspace` and confirm it dropped from the Glob index. The guard permits this because it is a `node` call, not a shell content-tool, and it does not scan inside `node -e` code.
 
 Flags:
 
